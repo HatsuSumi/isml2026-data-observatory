@@ -14,7 +14,7 @@
 - 📅 **赛程安排与进度追踪**
 
 ## 🌐 **在线访问**
-🔗 [ISML 2026 数据观测](https://hatsusumi.github.io/ISML-2026/)
+🔗 [ISML 2026 数据观测](https://hatsusumi.github.io/isml2026-data-observatory/)
 
 ---
 
@@ -55,4 +55,4 @@
 如果你喜欢这个项目，欢迎：
 - 🌟 **Star** 本项目
 - 🌐 **与更多人分享这个项目**
-- ☕ [**请作者喝杯咖啡**](https://hatsusumi.github.io/ISML-2026/pages/about/about.html?from=github)
+- ☕ [**请作者喝杯咖啡**](https://hatsusumi.github.io/isml2026-data-observatory/pages/about/about.html?from=github)
