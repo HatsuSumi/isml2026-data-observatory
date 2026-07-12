@@ -1,6 +1,6 @@
-import { CONFIG } from '/ISML-2024/js/common/config.js';
-import { SERIES_ALIASES } from '/ISML-2024/js/aliases/aliases.js';
-import { Router } from '/ISML-2024/js/common/router.js';
+import { CONFIG } from '/ISML-2026/js/common/config.js';
+import { SERIES_ALIASES } from '/ISML-2026/js/aliases/aliases.js';
+import { Router } from '/ISML-2026/js/common/router.js';
 
 function normalizeSeriesName(name) {
     for (const [originalName, aliases] of Object.entries(SERIES_ALIASES)) {

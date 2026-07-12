@@ -1,4 +1,4 @@
-import { CONFIG } from '/ISML-2024/js/common/config.js';
+import { CONFIG } from '/ISML-2026/js/common/config.js';
 
 class CharacterDetail {
     constructor() {
@@ -70,7 +70,7 @@ class CharacterDetail {
         backBtn.innerHTML = '<i class="fas fa-arrow-left"></i> 返回列表';
         backBtn.addEventListener('click', () => {
             sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
-            window.location.href = '/ISML-2024/pages/characters-data/characters-data.html';
+            window.location.href = '/ISML-2026/pages/characters-data/characters-data.html';
         });
         
         this.containers.info.insertBefore(backBtn, this.containers.info.firstChild);

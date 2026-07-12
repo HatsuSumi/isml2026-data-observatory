@@ -1,4 +1,4 @@
-import { SERIES_ALIASES } from '/ISML-2024/js/aliases/aliases.js';
+import { SERIES_ALIASES } from '/ISML-2026/js/aliases/aliases.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
     let currentPage = 1;

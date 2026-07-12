@@ -1,4 +1,4 @@
-import { SERIES_ALIASES } from '/ISML-2024/js/aliases/aliases.js';
+import { SERIES_ALIASES } from '/ISML-2026/js/aliases/aliases.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeTabs();
@@ -68,7 +68,7 @@ let characterData = null;
 async function loadCharacterData() {
     showLoading();
     try {
-        const response = await fetch("data/characters/stats/ISML2024-characters.json");
+        const response = await fetch("data/characters/stats/ISML2026-characters.json");
         const data = await response.json();
         
         // 过滤掉未晋级的角色

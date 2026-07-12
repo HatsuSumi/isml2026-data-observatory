@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 if (targetElement) {
                     e.preventDefault();
                     smoothScrollTo(targetElement.offsetTop - 80);
-                    history.pushState(null, '', `/ISML-2024/pages/events-data/events-data.html#${targetId}`);
+                    history.pushState(null, '', `/ISML-2026/pages/events-data/events-data.html#${targetId}`);
                     updateNavActiveState(targetId);
                 } else {
                     console.warn('未找到目标元素:', targetId);  

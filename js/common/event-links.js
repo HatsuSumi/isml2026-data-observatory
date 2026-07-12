@@ -1,4 +1,4 @@
-import { EVENT_LINKS } from '/ISML-2024/js/aliases/aliases.js';
+import { EVENT_LINKS } from '/ISML-2026/js/aliases/aliases.js';
 
 async function checkPageExists(url) {
     try {

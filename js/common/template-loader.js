@@ -1,4 +1,4 @@
-import { CONFIG } from '/ISML-2024/js/common/config.js';
+import { CONFIG } from '/ISML-2026/js/common/config.js';
 
 document.addEventListener('DOMContentLoaded', async function() {    
     async function processIncludes() {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         script.type = 'module';
 
         script.textContent = `
-        import { DanmakuGenerator } from '/ISML-2024/js/common/danmaku-generator.js';
+        import { DanmakuGenerator } from '/ISML-2026/js/common/danmaku-generator.js';
         
         const container = document.querySelector('.animation-container');
         if (container) {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     // 首页匹配
                     page === 'home' && (
                         currentPath === '/' || 
-                        currentPath === '/ISML-2024/' || 
+                        currentPath === '/ISML-2026/' || 
                         currentPath.includes('/index.html')
                     ),
                     

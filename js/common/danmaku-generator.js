@@ -1,5 +1,5 @@
-import { Danmaku, initDanmakuSettings } from '/ISML-2024/js/common/danmaku.js';
-import { CONFIG } from '/ISML-2024/js/common/config.js';
+import { Danmaku, initDanmakuSettings } from '/ISML-2026/js/common/danmaku.js';
+import { CONFIG } from '/ISML-2026/js/common/config.js';
 
 export class DanmakuGenerator {
     constructor(container, options = {}) {
@@ -216,7 +216,7 @@ export class DanmakuGenerator {
         if (!this.hasWelcomeSent && this.options.enabled) {
             const intervalInSeconds = this.options.interval / 1000;
             const welcomeMessage = {
-                text: `欢迎来到2024赛季国际最萌大会数据统计主页！之后每隔${intervalInSeconds}秒会随机发送一句动画金句，可以在右上角设置`,
+                text: `欢迎来到2026赛季国际最萌大会数据统计主页！之后每隔${intervalInSeconds}秒会随机发送一句动画金句，可以在右上角设置`,
                 type: "welcome"
             };
             

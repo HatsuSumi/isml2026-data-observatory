@@ -179,7 +179,7 @@ HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="https://hatsusumi.github.io/ISML-2024/">
+    <base href="https://hatsusumi.github.io/ISML-2026/">
     <link rel="stylesheet" href="css/visualization/visualization.css">
 </head>
 <body>

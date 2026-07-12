@@ -6,8 +6,8 @@ import {
     LAYOUT_CLASSES,
     SELECTORS,
     generateSelectors
-} from '/ISML-2024/js/common/config.js';
-import { SERIES_ALIASES } from '/ISML-2024/js/aliases/aliases.js';
+} from '/ISML-2026/js/common/config.js';
+import { SERIES_ALIASES } from '/ISML-2026/js/aliases/aliases.js';
 
 class CharacterManager {
     constructor() {
