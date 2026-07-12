@@ -235,7 +235,7 @@ HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="https://hatsusumi.github.io/ISML-2026/">
+    <base href="https://hatsusumi.github.io/isml2026-data-observatory/">
     <link rel="stylesheet" href="css/visualization/visualization.css">
 </head>
 <body>
