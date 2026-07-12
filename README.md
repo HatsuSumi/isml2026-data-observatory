@@ -47,6 +47,7 @@
 ## 🔗 **相关链接**
 - [哔哩哔哩主页](https://b23.tv/KBky1wX)
 - [ISML 官网](https://www.internationalsaimoe.com/)
+- [个人网站，作品集，遗书](https://hatsusumi.github.io/FinalTestamentProofILived/)
 
 ## 👤 **作者**
 **初雪戈墨**
