@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://hatsusumi.github.io/isml2026-data-observatory/">
+    <link rel="stylesheet" href="css/visualization/visualization.css">
+</head>
+<body>
+    <include src="templates/header.html"></include>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="button-container">
+                <a href="javascript:history.back()" class="home-btn">返回上一页</a>
+                <a href="#" class="table-btn">查看表格</a>
+                <div class="size-controls">
+                    <div class="slider-container">
+                        <label for="width-slider">宽度: <span id="width-value">1800</span>px</label>
+                        <input type="range" id="width-slider" min="100" max="2500" value="1800" step="100">
+                    </div>
+                    <div class="slider-container">
+                        <label for="height-slider">高度: <span id="height-value">2200</span>px</label>
+                        <input type="range" id="height-slider" min="100" max="5000" value="2200" step="100">
+                    </div>
+                    <button id="reset-size" class="reset-btn">重置大小</button>
+                </div>
+            </div>
+            <div class="content-scroll">
+                <div class="chart-wrapper">
+                    <div class="custom-legend">
+                        <div class="legend-item" data-series="advance">
+                            <span class="legend-color advance"></span>
+                            <span class="legend-text">晋级</span>
+                        </div>
+                        <div class="legend-item" data-series="eliminate">
+                            <span class="legend-color eliminate"></span>
+                            <span class="legend-text">未晋级</span>
+                        </div>
+                    </div>
+                    <div id="vote_chart" class="chart-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include src="templates/footer.html"></include>
+    <script type="module" src="js/common/template-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="js/visualization/visualization.js"></script>
+    <script type="module" src="js/common/event-links.js"></script>
+</body>
+</html>

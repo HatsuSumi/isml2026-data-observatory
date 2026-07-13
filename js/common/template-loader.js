@@ -1,4 +1,4 @@
-import { CONFIG } from '/ISML-2026/js/common/config.js';
+import { CONFIG } from './config.js';
 
 document.addEventListener('DOMContentLoaded', async function() {    
     async function processIncludes() {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         script.type = 'module';
 
         script.textContent = `
-        import { DanmakuGenerator } from '/ISML-2026/js/common/danmaku-generator.js';
+        import { DanmakuGenerator } from './danmaku-generator.js';
         
         const container = document.querySelector('.animation-container');
         if (container) {

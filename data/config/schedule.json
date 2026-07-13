@@ -32,11 +32,11 @@
                             "items": [
                                 {
                                     "text": "查看女子组结果",
-                                    "url": "pages/visualization/01-stellar-female-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=01-stellar-female-nomination"
                                 },
                                 {
                                     "text": "查看男子组结果",
-                                    "url": "pages/visualization/02-stellar-male-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=02-stellar-male-nomination"
                                 }
                             ]
                         }
@@ -71,11 +71,11 @@
                             "items": [
                                 {
                                     "text": "查看女子组结果",
-                                    "url": "pages/visualization/03-nova-winter-female-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination"
                                 },
                                 {
                                     "text": "查看男子组结果",
-                                    "url": "pages/visualization/04-nova-winter-male-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination"
                                 }
                             ]
                         }
@@ -110,11 +110,11 @@
                             "items": [
                                 {
                                     "text": "查看女子组结果",
-                                    "url": "pages/visualization/05-nova-spring-female-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination"
                                 },
                                 {
                                     "text": "查看男子组结果",
-                                    "url": "pages/visualization/06-nova-spring-male-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination"
                                 }
                             ]
                         }
@@ -149,11 +149,11 @@
                             "items": [
                                 {
                                     "text": "查看女子组结果",
-                                    "url": "pages/visualization/07-nova-summer-female-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=07-nova-summer-female-nomination"
                                 },
                                 {
                                     "text": "查看男子组结果",
-                                    "url": "pages/visualization/08-nova-summer-male-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=08-nova-summer-male-nomination"
                                 }
                             ]
                         }
@@ -188,11 +188,11 @@
                             "items": [
                                 {
                                     "text": "查看女子组结果",
-                                    "url": "pages/visualization/09-nova-autumn-female-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=09-nova-autumn-female-nomination"
                                 },
                                 {
                                     "text": "查看男子组结果",
-                                    "url": "pages/visualization/10-nova-autumn-male-nomination.html"
+                                    "url": "pages/visualization/visualization.html?id=10-nova-autumn-male-nomination"
                                 }
                             ]
                         }
