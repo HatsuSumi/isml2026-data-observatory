@@ -24,6 +24,124 @@
             </div>
         </template>
 
+        <template id="character-card-template">
+            <div class="character-card" draggable="false">
+                <input type="text" class="search-input">
+                <div class="search-results hidden"></div>
+                <button class="delete-btn" type="button" style="display: none;"><i class="fas fa-times"></i></button>
+            </div>
+        </template>
+
+        <template id="character-search-item-template">
+            <div class="search-item">
+                <img class="search-avatar" alt="">
+                <div class="search-info">
+                    <div class="name"></div>
+                    <div class="ip"></div>
+                    <div class="cv"></div>
+                </div>
+            </div>
+        </template>
+
+        <template id="empty-search-template">
+            <div class="search-item empty-search-message"></div>
+        </template>
+
+        <template id="character-result-container-template">
+            <div class="basic-info"></div>
+        </template>
+
+        <template id="comparison-difference-template">
+            <span class="comparison-difference"></span>
+        </template>
+
+        <template id="character-result-card-template">
+            <div class="char-info-card">
+                <button class="delete-btn" type="button" aria-label="删除角色" hidden><i class="fas fa-times"></i></button>
+                <img class="character-result-avatar" alt="">
+                <div class="info-content">
+                    <h3 class="character-name"></h3>
+                    <p class="character-ip"></p>
+                    <p class="character-cv"></p>
+                    <div class="vote-info">
+                        <span class="vote-label">票数：</span>
+                        <span class="auto-tag">自动晋级</span>
+                        <span class="vote-count"></span>
+                        <span class="vote-difference"></span>
+                    </div>
+                    <div class="vote-rate">
+                        <span class="rate-label">得票率：</span>
+                        <span class="rate-value"></span>
+                    </div>
+                    <div class="rank-info">
+                        <span class="rank-label">当前排名：</span>
+                        <span class="rank-value"></span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="character-select-card-template">
+            <div class="character-card-select">
+                <img class="character-avatar" alt="">
+                <div class="info">
+                    <div class="name"></div>
+                    <div class="ip"></div>
+                    <div class="cv"></div>
+                    <div class="auto-tag">自动晋级</div>
+                </div>
+                <div class="checkbox"></div>
+            </div>
+        </template>
+
+        <template id="empty-character-template">
+            <div class="empty-tip">
+                <i class="fas fa-search"></i>
+                <div class="empty-message"></div>
+            </div>
+        </template>
+
+        <template id="group-result-card-template">
+            <div class="group-card">
+                <div class="rank-number"></div>
+                <div class="group-total-votes">
+                    <div class="vote-label metric-label"></div>
+                    <div class="vote-count"></div>
+                    <div class="vote-rate"></div>
+                </div>
+                <div class="group-character-list"></div>
+                <div class="vote-diff">
+                    <div class="diff-label"></div>
+                    <div class="diff-value"></div>
+                    <div class="diff-rate"></div>
+                </div>
+            </div>
+        </template>
+
+        <template id="group-result-member-template">
+            <div class="character-card">
+                <img class="character-avatar" alt="">
+                <div class="character-info">
+                    <div class="character-name"></div>
+                    <div class="character-votes"></div>
+                </div>
+            </div>
+        </template>
+
+        <template id="group-member-template">
+            <div class="group-member">
+                <img class="character-avatar" alt="">
+            </div>
+        </template>
+
+        <template id="group-add-character-template">
+            <div class="add-character-btn" role="button" tabindex="0">+</div>
+        </template>
+
+        <template id="quick-select-option-template">
+            <div class="quick-select-option"></div>
+        </template>
+
         <div class="main-content">
             <div class="total-votes hidden">
                 <span class="total-votes-label">当前赛事总选票数：</span>

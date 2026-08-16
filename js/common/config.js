@@ -196,7 +196,20 @@ export const LAYOUT_CLASSES = {
     twoGroups: 'two-groups',
     groupBaseTotalTemplate: 'group-base-total-template',
     groupBaseAvgTemplate: 'group-base-avg-template',
-    groupAvgTemplate: 'group-avg-template'
+    groupAvgTemplate: 'group-avg-template',
+    characterCardTemplate: 'character-card-template',
+    searchItemTemplate: 'character-search-item-template',
+    emptySearchTemplate: 'empty-search-template',
+    characterResultCardTemplate: 'character-result-card-template',
+    characterResultContainerTemplate: 'character-result-container-template',
+    comparisonDifferenceTemplate: 'comparison-difference-template',
+    groupResultCardTemplate: 'group-result-card-template',
+    groupResultMemberTemplate: 'group-result-member-template',
+    groupMemberTemplate: 'group-member-template',
+    groupAddCharacterTemplate: 'group-add-character-template',
+    characterSelectCardTemplate: 'character-select-card-template',
+    emptyCharacterTemplate: 'empty-character-template',
+    quickSelectOptionTemplate: 'quick-select-option-template'
 };
 
 export const ANIMATION_CLASSES = {

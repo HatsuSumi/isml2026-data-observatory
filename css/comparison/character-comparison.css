@@ -1,4 +1,4 @@
-body {
+﻿body {
     background-color: #1a1a1a;
 }
 
@@ -1047,6 +1047,10 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1;  
+}
+
+.comparison-result .char-info-card .delete-btn[hidden] {
+    display: none;
 }
 
 .comparison-result .char-info-card:hover .delete-btn {

@@ -146,11 +146,7 @@ export class ComparisonActionsController {
 
     renderResult(renderedResult) {
         const resultContainer = document.getElementById(this.layoutClasses.comparisonResult);
-        if (renderedResult && typeof renderedResult.nodeType === 'number') {
-            resultContainer.replaceChildren(renderedResult);
-        } else {
-            resultContainer.innerHTML = renderedResult;
-        }
+        resultContainer.replaceChildren(renderedResult);
 
         resultContainer.querySelectorAll(this.selectors.charInfoCard).forEach(card => {
             card.classList.add(this.animationClasses.init);

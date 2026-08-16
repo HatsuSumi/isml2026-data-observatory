@@ -1,127 +1,236 @@
-import { CONFIG, LAYOUT_CLASSES, SELECTORS } from '../../../common/config.js';
+import { CONFIG, LAYOUT_CLASSES } from '../../../common/config.js';
 
-const value = (number, suffix = '') => `${number}${suffix}`;
+const templateElement = id => document.getElementById(id);
 
-const characterCard = (character, content, showDelete = true) => `
-    <div class="${LAYOUT_CLASSES.charInfoCard}">
-        ${showDelete ? `<button class="${LAYOUT_CLASSES.deleteBtn}" type="button"><i class="fas fa-times"></i></button>` : ''}
-        ${character.avatar ? `<img src="${character.avatar}" alt="${character.name}">` : ''}
-        <div class="${LAYOUT_CLASSES.infoContent}">
-            <h3>${character.name}</h3>
-            <p>IP：${character.ip}</p>
-            ${character.cv ? `<p>CV：${character.cv}</p>` : ''}
-            ${content}
-        </div>
-    </div>
-`;
+const cloneTemplate = id => {
+    const template = templateElement(id);
+    if (!template) {
+        throw new Error(`找不到角色对比模板: ${id}`);
+    }
+    return template.content.cloneNode(true).firstElementChild;
+};
 
-const voteDifference = comparison => {
+const setText = (element, text) => {
+    element.textContent = text ?? '';
+};
+
+const setVisible = (element, visible) => {
+    element.hidden = !visible;
+};
+
+const differenceClass = (diff, className) => {
+    if (diff === 0) {
+        return `${className} ${LAYOUT_CLASSES.tie}`;
+    }
+    return `${className} ${diff > 0 ? LAYOUT_CLASSES.leading : LAYOUT_CLASSES.behind}`;
+};
+
+const formatVoteDifference = comparison => {
     if (!comparison || comparison.voteDiff === null || comparison.voteDiff === undefined) {
-        return '';
+        return null;
     }
+
     if (comparison.voteDiff === 0) {
-        return `<span class="${LAYOUT_CLASSES.voteDifference} ${LAYOUT_CLASSES.tie}">平票</span>`;
+        return {
+            text: '平票',
+            className: `${LAYOUT_CLASSES.voteDifference} ${LAYOUT_CLASSES.tie}`
+        };
     }
-    const isLeading = comparison.voteDiff > 0;
-    return `<span class="${LAYOUT_CLASSES.voteDifference} ${differenceClass(comparison.voteDiff, LAYOUT_CLASSES.voteDifference)}">${isLeading ? '领先' : '落后'}${Math.abs(comparison.voteDiff)}票</span>`;
+
+    return {
+        text: `${comparison.voteDiff > 0 ? '领先' : '落后'}${Math.abs(comparison.voteDiff)}票`,
+        className: differenceClass(comparison.voteDiff, LAYOUT_CLASSES.voteDifference)
+    };
 };
 
-const voteContent = (character, comparison = null) => {
-    const isAuto = character.votes === '-';
-    return `
-        <div class="${LAYOUT_CLASSES.voteInfo}">
-            <span class="${LAYOUT_CLASSES.voteLabel}">票数：</span>
-            ${isAuto ? `<span class="${LAYOUT_CLASSES.autoTag}">自动晋级</span>` : `<span class="${LAYOUT_CLASSES.voteCount}">${value(character.votes, '票')}</span>${voteDifference(comparison)}`}
-        </div>
-    `;
-};
-
-const differenceClass = (diff, differenceClassName) => {
-    if (diff === 0) {
-        return `${differenceClassName} ${LAYOUT_CLASSES.tie}`;
-    }
-    return `${differenceClassName} ${diff > 0 ? LAYOUT_CLASSES.leading : LAYOUT_CLASSES.behind}`;
-};
-
-const comparisonText = (diff, positiveLabel, negativeLabel, equalLabel, suffix, differenceClassName) => {
+const formatComparisonText = (diff, positiveLabel, negativeLabel, equalLabel, suffix, className) => {
     if (diff === null || diff === undefined) {
-        return '';
+        return null;
     }
+
     if (diff === 0) {
-        return `<span class="${differenceClass(diff, differenceClassName)}">${equalLabel}</span>`;
+        return {
+            text: equalLabel,
+            className: differenceClass(diff, className)
+        };
     }
-    return `<span class="${differenceClass(diff, differenceClassName)}">${diff > 0 ? positiveLabel : negativeLabel}${Math.abs(diff)}${suffix}</span>`;
+
+    return {
+        text: `${diff > 0 ? positiveLabel : negativeLabel}${Math.abs(diff)}${suffix}`,
+        className: differenceClass(diff, className)
+    };
 };
 
-export class CharacterResultRenderer {
-    static generateAvgCompareHTML(characters, avgVotes, comparisons, totalVotes, allCharacters) {
-        const ranked = [...allCharacters]
-            .filter(character => character.votes !== '-')
-            .sort((a, b) => parseInt(b.votes) - parseInt(a.votes));
-        const ranks = new Map();
-        ranked.forEach((character, index) => {
-            const votes = parseInt(character.votes);
-            if (!ranks.has(votes)) ranks.set(votes, index + 1);
-        });
+const createBasicInfo = classNames => {
+    const container = cloneTemplate(LAYOUT_CLASSES.characterResultContainerTemplate);
+    container.className = `${LAYOUT_CLASSES.basicInfo} ${classNames}`.trim();
+    return container;
+};
 
-        return `<div class="${LAYOUT_CLASSES.basicInfo}">${characters.map((character, index) => {
-            const comparison = comparisons[index];
-            const rank = character.votes === '-' ? '-' : ranks.get(parseInt(character.votes));
-            const details = `${voteContent(character, comparison)}${character.votes !== '-' ? `
-                <div class="${LAYOUT_CLASSES.voteRate}">
-                    <span class="${LAYOUT_CLASSES.rateLabel}">得票率：</span>
-                    <span class="${LAYOUT_CLASSES.rateValue}">${comparison.voteRate}%</span>
-                </div>
-                <div class="${LAYOUT_CLASSES.rankInfo}">
-                    <span class="${LAYOUT_CLASSES.rankLabel}">当前排名：</span>
-                    <span class="${LAYOUT_CLASSES.rankValue}">${rank}</span>
-                </div>` : ''}`;
-            return characterCard(character, details, characters.length > CONFIG.comparison.minAvgCharacters);
-        }).join('')}</div>`;
+const createDifferenceElement = (difference) => {
+    if (!difference) {
+        return null;
     }
 
-    static generateOneToManyHTML(baseCharacter, compareCharacters, comparisons, totalVotes) {
-        const cards = [baseCharacter, ...compareCharacters];
-        const content = cards.map((character, index) => {
-            const comparison = index === 0 ? null : comparisons[index - 1];
-            const rate = character.votes === '-' ? null : ((parseInt(character.votes) / totalVotes) * 100).toFixed(1);
-            return characterCard(character, `${voteContent(character, comparison)}${rate === null ? '' : `
-                <div class="${LAYOUT_CLASSES.voteRate}"><span class="${LAYOUT_CLASSES.rateLabel}">得票率：</span><span class="${LAYOUT_CLASSES.rateValue}">${rate}%</span></div>
-                <div class="${LAYOUT_CLASSES.rankInfo}"><span class="${LAYOUT_CLASSES.rankLabel}">当前排名：</span><span class="${LAYOUT_CLASSES.rankValue}">${character.rank}</span></div>`}`);
-        }).join('');
-        const twoCharsClass = compareCharacters.length === CONFIG.comparison.twoCharactersCount ? LAYOUT_CLASSES.twoChars : '';
-        return `<div class="${LAYOUT_CLASSES.basicInfo} ${LAYOUT_CLASSES.oneToMany} ${twoCharsClass}">${content}</div>`;
+    const element = cloneTemplate(LAYOUT_CLASSES.comparisonDifferenceTemplate);
+    element.className = difference.className;
+    element.textContent = difference.text;
+    return element;
+};
+
+const populateCharacterCard = (card, character, comparison, {
+    showDelete,
+    rate,
+    rank,
+    rateDifference,
+    rankDifference
+} = {}) => {
+    const avatar = card.querySelector('.character-result-avatar');
+    const cv = card.querySelector('.character-cv');
+    const autoTag = card.querySelector(`.${LAYOUT_CLASSES.autoTag}`);
+    const voteCount = card.querySelector(`.${LAYOUT_CLASSES.voteCount}`);
+    const voteDifference = card.querySelector(`.${LAYOUT_CLASSES.voteDifference}`);
+    const voteRate = card.querySelector(`.${LAYOUT_CLASSES.voteRate}`);
+    const rateValue = card.querySelector(`.${LAYOUT_CLASSES.rateValue}`);
+    const rankInfo = card.querySelector(`.${LAYOUT_CLASSES.rankInfo}`);
+    const rankValue = card.querySelector(`.${LAYOUT_CLASSES.rankValue}`);
+    const deleteButton = card.querySelector(`.${LAYOUT_CLASSES.deleteBtn}`);
+
+    setVisible(deleteButton, showDelete);
+
+    setVisible(avatar, Boolean(character.avatar));
+    if (character.avatar) {
+        avatar.src = character.avatar;
+        avatar.alt = character.name;
     }
 
-    static generateOneToOneHTML(characters, hasMultipleNormal) {
-        return `<div class="${LAYOUT_CLASSES.basicInfo} ${LAYOUT_CLASSES.twoChars}">${characters.map(character => {
-            const comparison = hasMultipleNormal ? character : null;
-            const rateDifference = comparisonText(
-                comparison?.rateDiff,
+    setText(card.querySelector('.character-name'), character.name);
+    setText(card.querySelector('.character-ip'), `IP：${character.ip}`);
+    setVisible(cv, Boolean(character.cv));
+    if (character.cv) {
+        setText(cv, `CV：${character.cv}`);
+    }
+
+    const isAuto = character.votes === '-';
+    setVisible(autoTag, isAuto);
+    setVisible(voteCount, !isAuto);
+    setVisible(voteDifference, false);
+    if (!isAuto) {
+        setText(voteCount, `${character.votes}票`);
+        const difference = formatVoteDifference(comparison);
+        if (difference) {
+            setVisible(voteDifference, true);
+            voteDifference.className = difference.className;
+            setText(voteDifference, difference.text);
+        }
+    }
+
+    const hasRate = !isAuto && rate !== null && rate !== undefined;
+    setVisible(voteRate, hasRate);
+    if (hasRate) {
+        const rateText = `${rate}%`;
+        setText(rateValue, rateText);
+        if (rateDifference) {
+            rateValue.append(document.createTextNode('　'));
+            const difference = formatComparisonText(
+                rateDifference,
                 '高',
                 '低',
                 '相同',
                 '个百分点',
                 LAYOUT_CLASSES.rateDifference
             );
-            const rankDifference = comparisonText(
-                comparison?.rankDiff,
+            const element = createDifferenceElement(difference);
+            if (element) {
+                rateValue.append(element);
+            }
+        }
+    }
+
+    const hasRank = !isAuto && rank !== null && rank !== undefined;
+    setVisible(rankInfo, hasRank);
+    if (hasRank) {
+        setText(rankValue, String(rank));
+        if (rankDifference) {
+            rankValue.append(document.createTextNode('　'));
+            const difference = formatComparisonText(
+                rankDifference,
                 '领先',
                 '落后',
                 '排名相同',
                 '名',
                 LAYOUT_CLASSES.rankDifference
             );
-            const details = `${voteContent(character, comparison)}${character.votes === '-' ? '' : `
-                <div class="${LAYOUT_CLASSES.voteRate}">
-                    <span class="${LAYOUT_CLASSES.rateLabel}">得票率：</span>
-                    <span class="${LAYOUT_CLASSES.rateValue}">${character.voteRate}%${rateDifference ? `　${rateDifference}` : ''}</span>
-                </div>
-                <div class="${LAYOUT_CLASSES.rankInfo}">
-                    <span class="${LAYOUT_CLASSES.rankLabel}">当前排名：</span>
-                    <span class="${LAYOUT_CLASSES.rankValue}">${character.rank}${rankDifference ? `　${rankDifference}` : ''}</span>
-                </div>`}`;
-            return characterCard(character, details, false);
-        }).join('')}</div>`;
+            const element = createDifferenceElement(difference);
+            if (element) {
+                rankValue.append(element);
+            }
+        }
+    }
+
+    setVisible(deleteButton, showDelete);
+    return card;
+};
+
+const createCard = (character, comparison, options) => {
+    const card = cloneTemplate(LAYOUT_CLASSES.characterResultCardTemplate);
+    return populateCharacterCard(card, character, comparison, options);
+};
+
+export class CharacterResultRenderer {
+    static generateAvgCompareHTML(characters, avgVotes, comparisons, totalVotes, allCharacters) {
+        const ranked = [...allCharacters]
+            .filter(character => character.votes !== '-')
+            .sort((a, b) => parseInt(b.votes, 10) - parseInt(a.votes, 10));
+        const ranks = new Map();
+        ranked.forEach((character, index) => {
+            const votes = parseInt(character.votes, 10);
+            if (!ranks.has(votes)) ranks.set(votes, index + 1);
+        });
+
+        const container = createBasicInfo('');
+        characters.forEach((character, index) => {
+            const comparison = comparisons[index];
+            const rank = character.votes === '-' ? '-' : ranks.get(parseInt(character.votes, 10));
+            container.append(createCard(character, comparison, {
+                showDelete: characters.length > CONFIG.comparison.minAvgCharacters,
+                rate: comparison.voteRate,
+                rank
+            }));
+        });
+        return container;
+    }
+
+    static generateOneToManyHTML(baseCharacter, compareCharacters, comparisons, totalVotes) {
+        const cards = [baseCharacter, ...compareCharacters];
+        const container = createBasicInfo(`${LAYOUT_CLASSES.oneToMany} ${compareCharacters.length === CONFIG.comparison.twoCharactersCount ? LAYOUT_CLASSES.twoChars : ''}`);
+
+        cards.forEach((character, index) => {
+            const comparison = index === 0 ? null : comparisons[index - 1];
+            const rate = character.votes === '-' || totalVotes === 0
+                ? null
+                : (parseInt(character.votes, 10) / totalVotes * 100).toFixed(1);
+            container.append(createCard(character, comparison, {
+                showDelete: true,
+                rate,
+                rank: character.rank
+            }));
+        });
+        return container;
+    }
+
+    static generateOneToOneHTML(characters, hasMultipleNormal) {
+        const container = createBasicInfo(LAYOUT_CLASSES.twoChars);
+        characters.forEach(character => {
+            const comparison = hasMultipleNormal ? character : null;
+            container.append(createCard(character, comparison, {
+                showDelete: false,
+                rate: character.voteRate,
+                rank: character.rank,
+                rateDifference: comparison?.rateDiff,
+                rankDifference: comparison?.rankDiff
+            }));
+        });
+        return container;
     }
 }

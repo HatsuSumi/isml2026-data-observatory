@@ -21,55 +21,58 @@ export class CharacterSelectionController {
         this.messages = messages;
     }
 
+    cloneTemplate(templateId) {
+        const template = document.getElementById(templateId);
+        if (!template) throw new Error(`找不到角色选择模板: ${templateId}`);
+        return template.content.cloneNode(true).firstElementChild;
+    }
+
+    createCharacterCard(character, selected) {
+        const card = this.cloneTemplate(this.layoutClasses.characterSelectCardTemplate);
+        const avatar = card.querySelector(this.selectors.characterAvatar);
+        const autoTag = card.querySelector(`.${this.layoutClasses.autoTag}`);
+        avatar.hidden = !character.avatar;
+        if (character.avatar) {
+            avatar.src = character.avatar;
+            avatar.alt = character.name;
+        }
+        card.querySelector('.name').textContent = character.name;
+        card.querySelector('.ip').textContent = character.ip;
+        card.querySelector('.cv').textContent = character.cv || '暂无CV';
+        autoTag.hidden = character.votes !== '-';
+        card.querySelector(this.selectors.checkbox).classList.toggle(this.animationClasses.checked, selected);
+        return card;
+    }
+
+    renderCharacters(characterGrid, characters, selectedCharacters) {
+        if (characters.length === 0) {
+            const empty = this.cloneTemplate(this.layoutClasses.emptyCharacterTemplate);
+            empty.querySelector('.empty-message').textContent = '没有找到匹配的角色';
+            characterGrid.replaceChildren(empty);
+            requestAnimationFrame(() => characterGrid.querySelector(this.selectors.emptyTip)?.classList.add(this.animationClasses.show));
+            return;
+        }
+
+        const selected = characters.filter(char => this.isSelected(selectedCharacters, char));
+        const unselected = characters.filter(char => !this.isSelected(selectedCharacters, char));
+        const fragment = document.createDocumentFragment();
+        [...selected, ...unselected].forEach(character => {
+            fragment.append(this.createCharacterCard(character, this.isSelected(selectedCharacters, character)));
+        });
+        characterGrid.replaceChildren(fragment);
+    }
+
     initialize({ targetGroup, characterGrid, selectedCharacters }) {
         const renderCharacters = characters => {
             const availableCharacters = this.getAvailableCharacters(targetGroup, characters);
-
-            if (availableCharacters.length === 0) {
-                characterGrid.innerHTML = `
-                    <div class="empty-tip">
-                        <i class="fas fa-search"></i>
-                        <div>没有找到匹配的角色</div>
-                    </div>
-                `;
-                requestAnimationFrame(() => {
-                    characterGrid.querySelector(this.selectors.emptyTip)?.classList.add(this.animationClasses.show);
-                });
-                return;
-            }
-
-            const selectedChars = availableCharacters.filter(char => this.isSelected(selectedCharacters, char));
-            const unselectedChars = availableCharacters.filter(char => !this.isSelected(selectedCharacters, char));
-            const sortedCharacters = [...selectedChars, ...unselectedChars];
-
-            characterGrid.innerHTML = sortedCharacters.map(char => {
-                const isSelected = this.isSelected(selectedCharacters, char);
-
-                return `
-                    <div class="${this.layoutClasses.cardSelect}">
-                        ${char.avatar ? `<img src="${char.avatar}" alt="${char.name}">` : ''}
-                        <div class="info">
-                            <div class="name">${char.name}</div>
-                            <div class="ip">${char.ip}</div>
-                            <div class="cv">${char.cv || '暂无CV'}</div>
-                            ${char.votes === '-' ? `<div class="auto-tag">自动晋级</div>` : ''}
-                        </div>
-                        <div class="checkbox${isSelected ? ' checked' : ''}"></div>
-                    </div>
-                `;
-            }).join('');
+            this.renderCharacters(characterGrid, availableCharacters, selectedCharacters);
         };
 
-        const handleCardClick = e => {
-            const card = e.target.closest(this.selectors.cardSelect);
-            if (!card) {
-                return;
-            }
-
+        const handleCardClick = event => {
+            const card = event.target.closest(this.selectors.cardSelect);
+            if (!card) return;
             const char = this.findCharacterFromCard(card);
-            if (!char) {
-                return;
-            }
+            if (!char) return;
 
             if (this.isSelected(selectedCharacters, char)) {
                 selectedCharacters.delete(char);
@@ -79,97 +82,59 @@ export class CharacterSelectionController {
             }
 
             if (this.existsInOtherGroup(targetGroup, char)) {
-                this.alertBox.show(
-                    this.messages.characterExists.text,
-                    this.messages.characterExists.duration,
-                    this.messages.characterExists.type
-                );
+                this.alertBox.show(this.messages.characterExists.text, this.messages.characterExists.duration, this.messages.characterExists.type);
                 return;
             }
-
             selectedCharacters.add(char);
             card.querySelector(this.selectors.checkbox)?.classList.add(this.animationClasses.checked);
         };
 
         characterGrid.addEventListener('click', handleCardClick);
-
         return { renderCharacters };
     }
 
     getAvailableCharacters(targetGroup, characters) {
-        const allGroups = document.querySelectorAll(this.selectors.characterGroup);
         const existingCharacters = new Set();
-
-        allGroups.forEach(group => {
-            if (group === targetGroup) {
-                return;
-            }
-
+        document.querySelectorAll(this.selectors.characterGroup).forEach(group => {
+            if (group === targetGroup) return;
             group.querySelectorAll(this.selectors.groupMember).forEach(member => {
-                const name = member.querySelector(this.selectors.characterAvatar).alt;
-                const ip = member.querySelector(this.selectors.characterAvatar).title.split('@')[1];
-                existingCharacters.add(`${name}@${ip}`);
+                const avatar = member.querySelector(this.selectors.characterAvatar);
+                const ip = avatar.title.split('@')[1];
+                existingCharacters.add(`${avatar.alt}@${ip}`);
             });
         });
-
         return characters.filter(char => !existingCharacters.has(`${char.name}@${char.ip}`));
     }
 
     isSelected(selectedCharacters, char) {
-        return Array.from(selectedCharacters).some(selected => (
-            selected.name === char.name &&
-            selected.cv === char.cv &&
-            selected.ip === char.ip
-        ));
+        return Array.from(selectedCharacters).some(selected => selected.name === char.name && selected.cv === char.cv && selected.ip === char.ip);
     }
 
     findCharacterFromCard(card) {
-        return this.characterManager.characters.find(char => (
-            char.name === card.querySelector('.name')?.textContent &&
-            char.ip === card.querySelector('.ip')?.textContent &&
-            (char.cv || '暂无CV') === card.querySelector('.cv')?.textContent
-        ));
+        return this.characterManager.characters.find(char => char.name === card.querySelector('.name')?.textContent && char.ip === card.querySelector('.ip')?.textContent && (char.cv || '暂无CV') === card.querySelector('.cv')?.textContent);
     }
 
     existsInOtherGroup(targetGroup, char) {
-        const allGroups = document.querySelectorAll(this.selectors.characterGroup);
-        return Array.from(allGroups).some(group => {
-            if (group === targetGroup) {
-                return false;
-            }
-
-            const members = group.querySelectorAll(this.selectors.groupMember);
-            return Array.from(members).some(member => {
-                const name = member.querySelector(this.selectors.characterAvatar).alt;
-                const ip = member.querySelector(this.selectors.characterAvatar).title.split('@')[1];
-                return char.name === name && char.ip === ip;
+        return Array.from(document.querySelectorAll(this.selectors.characterGroup)).some(group => {
+            if (group === targetGroup) return false;
+            return Array.from(group.querySelectorAll(this.selectors.groupMember)).some(member => {
+                const avatar = member.querySelector(this.selectors.characterAvatar);
+                return char.name === avatar.alt && char.ip === avatar.title.split('@')[1];
             });
         });
     }
 
     removeCharacterFromGroup(targetGroup, char) {
         const member = targetGroup.querySelector(this.generateSelectors.groupMemberByChar(char))?.parentElement;
-        if (!member) {
-            return;
-        }
-
+        if (!member) return;
         this.characterManager.selectedCharacters.delete(member.id);
         member.remove();
-
-        if (targetGroup.querySelector(this.selectors.groupMember)) {
-            return;
-        }
+        if (targetGroup.querySelector(this.selectors.groupMember)) return;
 
         const groupCharacters = targetGroup.querySelector(this.selectors.groupCharacters);
-        const addBtn = groupCharacters.querySelector(this.selectors.addCharacterBtn);
-        if (addBtn) {
-            addBtn.remove();
-        }
-
+        groupCharacters.querySelector(this.selectors.addCharacterBtn)?.remove();
         const clickHandler = () => {
-            if (!groupCharacters.querySelector(this.selectors.groupMember)) {
-                this.showCharacterSelectModal(targetGroup);
-            }
+            if (!groupCharacters.querySelector(this.selectors.groupMember)) this.showCharacterSelectModal(targetGroup);
         };
         groupCharacters.addEventListener('click', clickHandler);
         this.clickHandlers.set(groupCharacters, clickHandler);

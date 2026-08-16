@@ -1,39 +1,72 @@
 import { CONFIG, LAYOUT_CLASSES, SELECTORS } from '../../../common/config.js';
 
-const validVotes = character => character.votes === '-' ? 0 : parseInt(character.votes);
+const cloneTemplate = id => {
+    const template = document.getElementById(id);
+    if (!template) {
+        throw new Error(`找不到分组对比模板: ${id}`);
+    }
+    return template.content.cloneNode(true).firstElementChild;
+};
 
-const renderCharacterList = (group, totalVotes) => group.map(character => `
-    <div class="${LAYOUT_CLASSES.card}">
-        ${character.avatar ? `<img src="${character.avatar}" alt="${character.name}" class="${LAYOUT_CLASSES.characterAvatar}">` : ''}
-        <div class="${LAYOUT_CLASSES.characterInfo}">
-            <div class="${LAYOUT_CLASSES.characterName}">${character.name}</div>
-            <div class="${LAYOUT_CLASSES.characterVotes}">${character.votes === '-' ? '自动晋级' : `${character.votes}票 (${((validVotes(character) / totalVotes) * 100).toFixed(1)}%)`}</div>
-        </div>
-    </div>
-`).join('');
+const validVotes = character => character.votes === '-' ? 0 : parseInt(character.votes, 10);
+
+const renderCharacterList = (container, group, totalVotes) => {
+    group.forEach(character => {
+        const member = cloneTemplate(LAYOUT_CLASSES.groupResultMemberTemplate);
+        const avatar = member.querySelector(`.${LAYOUT_CLASSES.characterAvatar}`);
+        const votes = member.querySelector(`.${LAYOUT_CLASSES.characterVotes}`);
+
+        avatar.hidden = !character.avatar;
+        if (character.avatar) {
+            avatar.src = character.avatar;
+            avatar.alt = character.name;
+        }
+
+        member.querySelector(`.${LAYOUT_CLASSES.characterName}`).textContent = character.name;
+        votes.textContent = character.votes === '-'
+            ? '自动晋级'
+            : `${character.votes}票 (${totalVotes === 0 ? '0.0' : (validVotes(character) / totalVotes * 100).toFixed(1)}%)`;
+        container.append(member);
+    });
+};
 
 const renderGroupCard = (group, index, comparison, totalVotes, summary) => {
+    const card = cloneTemplate(LAYOUT_CLASSES.groupResultCardTemplate);
     const metric = comparison.total ?? comparison.avg ?? 0;
-    const label = comparison.total !== undefined ? `组总票数：${metric}票` : `组平均票数：${Number(metric).toFixed(1)}票`;
+    const isTotal = comparison.total !== undefined;
     const diff = comparison.diff ?? comparison.baseDiff;
-    const diffClass = diff === 0 ? LAYOUT_CLASSES.tie : diff > 0 ? LAYOUT_CLASSES.leading : LAYOUT_CLASSES.behind;
-    const diffText = diff === null || diff === undefined ? '-' : `${diff > 0 ? '+' : ''}${Number(diff).toFixed(diff % 1 ? 1 : 0)}票`;
+    const diffClass = diff === 0
+        ? LAYOUT_CLASSES.tie
+        : diff > 0 ? LAYOUT_CLASSES.leading : LAYOUT_CLASSES.behind;
+    const diffText = diff === null || diff === undefined
+        ? '-'
+        : `${diff > 0 ? '+' : ''}${Number(diff).toFixed(diff % 1 ? 1 : 0)}票`;
 
-    return `
-        <div class="${LAYOUT_CLASSES.groupCard}">
-            <div class="${LAYOUT_CLASSES.rankNumber}">${summary ?? `第 ${comparison.rank ?? index + 1} 名`}</div>
-            <div class="${comparison.total !== undefined ? LAYOUT_CLASSES.groupTotalVotes : LAYOUT_CLASSES.groupAvgVotes}">
-                <div class="${LAYOUT_CLASSES.voteCount}">${label}</div>
-                <div class="${LAYOUT_CLASSES.voteRate}">${comparison.voteRate ?? 0}%</div>
-            </div>
-            <div class="${LAYOUT_CLASSES.groupCharacterList}">${renderCharacterList(group, totalVotes)}</div>
-            <div class="${LAYOUT_CLASSES.voteDiff}">
-                <div class="${LAYOUT_CLASSES.diffLabel} ${diffClass}">${index === 0 ? '基准组' : '与基准组差距'}</div>
-                <div class="${LAYOUT_CLASSES.diffValue} ${diffClass}">${index === 0 ? '-' : diffText}</div>
-                <div class="${LAYOUT_CLASSES.diffRate} ${diffClass}">${index === 0 ? '-' : `${comparison.rateDiff ?? 0}%`}</div>
-            </div>
-        </div>
-    `;
+    const metricContainer = card.querySelector(`.${LAYOUT_CLASSES.groupTotalVotes}`);
+    metricContainer.classList.toggle(LAYOUT_CLASSES.groupTotalVotes, isTotal);
+    metricContainer.classList.toggle(LAYOUT_CLASSES.groupAvgVotes, !isTotal);
+
+    card.querySelector(`.${LAYOUT_CLASSES.rankNumber}`).textContent =
+        summary ?? `第 ${comparison.rank ?? index + 1} 名`;
+    card.querySelector('.metric-label').textContent = isTotal ? '组总票数' : '组平均票数';
+    card.querySelector(`.${LAYOUT_CLASSES.voteCount}`).textContent = `${metric}${isTotal ? '票' : '票'}`;
+    card.querySelector(`.${LAYOUT_CLASSES.voteRate}`).textContent = `${comparison.voteRate ?? 0}%`;
+
+    renderCharacterList(
+        card.querySelector(`.${LAYOUT_CLASSES.groupCharacterList}`),
+        group,
+        totalVotes
+    );
+
+    const diffLabel = card.querySelector(`.${LAYOUT_CLASSES.diffLabel}`);
+    const diffValue = card.querySelector(`.${LAYOUT_CLASSES.diffValue}`);
+    const diffRate = card.querySelector(`.${LAYOUT_CLASSES.diffRate}`);
+    [diffLabel, diffValue, diffRate].forEach(element => element.classList.add(diffClass));
+    diffLabel.textContent = index === 0 ? '基准组' : '与基准组差距';
+    diffValue.textContent = index === 0 ? '-' : diffText;
+    diffRate.textContent = index === 0 ? '-' : `${comparison.rateDiff ?? 0}%`;
+
+    return card;
 };
 
 export class GroupResultRenderer {
@@ -44,15 +77,14 @@ export class GroupResultRenderer {
     }
 
     static createResult(templateId, groups, comparisons, totalVotes, labels = []) {
-        const template = document.getElementById(templateId);
-        if (!template) return document.createDocumentFragment();
-        const content = template.content.cloneNode(true);
+        const content = document.getElementById(templateId)?.content.cloneNode(true);
+        if (!content) return document.createDocumentFragment();
+
         const container = content.querySelector(SELECTORS.groupComparison);
         container.replaceChildren();
         this.setGroupLayout(container, groups);
         groups.forEach((group, index) => {
-            const card = renderGroupCard(group, index, comparisons[index], totalVotes, labels[index]);
-            container.insertAdjacentHTML('beforeend', card);
+            container.append(renderGroupCard(group, index, comparisons[index], totalVotes, labels[index]));
         });
         return content;
     }

@@ -1,8 +1,20 @@
 export class QuickSelectModalController {
-    constructor({ characterManager, selectors, animationClasses }) {
+    constructor({ characterManager, selectors, animationClasses, layoutClasses }) {
         this.characterManager = characterManager;
         this.selectors = selectors;
         this.animationClasses = animationClasses;
+        this.layoutClasses = layoutClasses;
+    }
+
+    createOption(optionText) {
+        const template = document.getElementById(this.layoutClasses.quickSelectOptionTemplate);
+        if (!template) {
+            throw new Error('找不到快速选择选项模板');
+        }
+        const option = template.content.cloneNode(true).firstElementChild;
+        option.dataset.value = optionText.split('（')[0];
+        option.textContent = optionText;
+        return option;
     }
 
     initialize({
@@ -36,9 +48,8 @@ export class QuickSelectModalController {
 
         closeQuickSelectBtn.addEventListener('click', resetQuickSelectModal);
         quickSelectCancelBtn.addEventListener('click', resetQuickSelectModal);
-
-        quickSelectModal.addEventListener('click', e => {
-            if (e.target === quickSelectModal) {
+        quickSelectModal.addEventListener('click', event => {
+            if (event.target === quickSelectModal) {
                 quickSelectModal.querySelectorAll(`${this.selectors.quickSelectDropdown}.${this.animationClasses.open}`).forEach(dropdown => {
                     dropdown.classList.remove(this.animationClasses.open);
                 });
@@ -54,18 +65,15 @@ export class QuickSelectModalController {
 
             this.characterManager.characters.forEach(char => {
                 const value = type === 'cv' ? char.cv : char.ip;
-                if (value) {
-                    optionsMap.set(value, (optionsMap.get(value) || 0) + 1);
-                }
+                if (value) optionsMap.set(value, (optionsMap.get(value) || 0) + 1);
             });
 
             const sortedOptions = Array.from(optionsMap.entries())
                 .sort((a, b) => b[1] - a[1])
                 .map(([value, count]) => `${value}（${count}位角色）`);
 
-            optionsContainer.innerHTML = sortedOptions.map(option => `
-                <div class="quick-select-option" data-value="${option.split('（')[0]}">${option}</div>
-            `).join('');
+            optionsContainer.replaceChildren();
+            sortedOptions.forEach(optionText => optionsContainer.append(this.createOption(optionText)));
 
             select.querySelector(this.selectors.quickSelectTrigger).addEventListener('click', () => {
                 select.classList.toggle(this.animationClasses.open);
@@ -76,26 +84,12 @@ export class QuickSelectModalController {
                     const value = option.dataset.value;
                     selectValue.textContent = option.textContent;
                     select.classList.remove(this.animationClasses.open);
-
                     const otherType = type === 'cv' ? 'ip' : 'cv';
                     const otherDropdown = quickSelectModal.querySelector(`${this.selectors.quickSelectDropdown}[data-type="${otherType}"]`);
-
-                    if (value && value !== '选择声优...' && value !== '选择IP...') {
-                        otherDropdown.classList.add(this.animationClasses.disabled);
-                    } else {
-                        otherDropdown.classList.remove(this.animationClasses.disabled);
-                    }
-
-                    currentFilteredChars = this.characterManager.characters.filter(char => {
-                        if (type === 'cv') {
-                            return char.cv && char.cv === value.trim();
-                        }
-                        if (type === 'ip') {
-                            return char.ip === value.trim();
-                        }
-                        return false;
-                    });
-
+                    otherDropdown.classList.toggle(this.animationClasses.disabled, Boolean(value));
+                    currentFilteredChars = this.characterManager.characters.filter(char => type === 'cv'
+                        ? char.cv === value.trim()
+                        : char.ip === value.trim());
                     quickSelectConfirmBtn.disabled = false;
                 });
             });
