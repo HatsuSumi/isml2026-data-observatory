@@ -52,17 +52,21 @@ export function calculateBase(characters, totalVotes) {
                     voteRate: null,
                     compareRate: null,
                     rateDiff: null,
+                    rankDiff: null,
                     isLeading: null,
                     isComparable: false
                 };
             }
 
             return {
-                voteDiff: baseVotes - compareVotes,
+                voteDiff: compareVotes - baseVotes,
                 voteRate: formatPercentage(percentage(baseVotes, totalVotes)),
                 compareRate: formatPercentage(percentage(compareVotes, totalVotes)),
-                rateDiff: formatPercentage(percentage(baseVotes - compareVotes, totalVotes)),
-                isLeading: baseVotes > compareVotes
+                rateDiff: formatPercentage(percentage(compareVotes - baseVotes, totalVotes)),
+                rankDiff: Number.isFinite(baseCharacter.rank) && Number.isFinite(character.rank)
+                    ? baseCharacter.rank - character.rank
+                    : null,
+                isLeading: compareVotes > baseVotes
             };
         })
     };

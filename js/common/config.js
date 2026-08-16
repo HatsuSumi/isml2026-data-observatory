@@ -203,6 +203,7 @@ export const LAYOUT_CLASSES = {
     characterResultCardTemplate: 'character-result-card-template',
     characterResultContainerTemplate: 'character-result-container-template',
     comparisonDifferenceTemplate: 'comparison-difference-template',
+    oneToManyResultTemplate: 'one-to-many-result-template',
     groupResultCardTemplate: 'group-result-card-template',
     groupResultMemberTemplate: 'group-result-member-template',
     groupMemberTemplate: 'group-member-template',

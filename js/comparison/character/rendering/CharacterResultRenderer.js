@@ -67,6 +67,12 @@ const createBasicInfo = classNames => {
     return container;
 };
 
+const createOneToManyLayout = classNames => {
+    const container = cloneTemplate(LAYOUT_CLASSES.oneToManyResultTemplate);
+    container.className = `${LAYOUT_CLASSES.basicInfo} ${LAYOUT_CLASSES.oneToMany} ${classNames}`.trim();
+    return container;
+};
+
 const createDifferenceElement = (difference) => {
     if (!difference) {
         return null;
@@ -126,8 +132,10 @@ const populateCharacterCard = (card, character, comparison, {
     }
 
     const hasRate = !isAuto && rate !== null && rate !== undefined;
-    setVisible(voteRate, hasRate);
-    if (hasRate) {
+    setVisible(voteRate, isAuto || hasRate);
+    if (isAuto) {
+        setText(rateValue, '不适用');
+    } else if (hasRate) {
         const rateText = `${rate}%`;
         setText(rateValue, rateText);
         if (rateDifference) {
@@ -148,8 +156,10 @@ const populateCharacterCard = (card, character, comparison, {
     }
 
     const hasRank = !isAuto && rank !== null && rank !== undefined;
-    setVisible(rankInfo, hasRank);
-    if (hasRank) {
+    setVisible(rankInfo, isAuto || hasRank);
+    if (isAuto) {
+        setText(rankValue, '不适用');
+    } else if (hasRank) {
         setText(rankValue, String(rank));
         if (rankDifference) {
             rankValue.append(document.createTextNode('　'));
@@ -202,20 +212,38 @@ export class CharacterResultRenderer {
     }
 
     static generateOneToManyHTML(baseCharacter, compareCharacters, comparisons, totalVotes) {
-        const cards = [baseCharacter, ...compareCharacters];
-        const container = createBasicInfo(`${LAYOUT_CLASSES.oneToMany} ${compareCharacters.length === CONFIG.comparison.twoCharactersCount ? LAYOUT_CLASSES.twoChars : ''}`);
+        const classNames = compareCharacters.length === CONFIG.comparison.twoCharactersCount
+            ? LAYOUT_CLASSES.twoChars
+            : '';
+        const container = createOneToManyLayout(classNames);
+        const baseWrapper = container.querySelector(`.${LAYOUT_CLASSES.baseCharacter}`);
+        const comparisonGrid = container.querySelector(`.${LAYOUT_CLASSES.charComparisonGrid}`);
 
-        cards.forEach((character, index) => {
-            const comparison = index === 0 ? null : comparisons[index - 1];
+        const baseRate = baseCharacter.votes === '-' || totalVotes === 0
+            ? null
+            : (parseInt(baseCharacter.votes, 10) / totalVotes * 100).toFixed(1);
+        const baseCard = createCard(baseCharacter, null, {
+            showDelete: true,
+            rate: baseRate,
+            rank: baseCharacter.rank
+        });
+        baseCard.classList.add(LAYOUT_CLASSES.main);
+        baseWrapper.append(baseCard);
+
+        compareCharacters.forEach((character, index) => {
+            const comparison = comparisons[index];
             const rate = character.votes === '-' || totalVotes === 0
                 ? null
                 : (parseInt(character.votes, 10) / totalVotes * 100).toFixed(1);
-            container.append(createCard(character, comparison, {
+            comparisonGrid.append(createCard(character, comparison, {
                 showDelete: true,
                 rate,
-                rank: character.rank
+                rank: character.rank,
+                rateDifference: comparison?.rateDiff,
+                rankDifference: comparison?.rankDiff
             }));
         });
+
         return container;
     }
 
