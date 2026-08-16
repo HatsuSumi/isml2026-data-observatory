@@ -19,6 +19,9 @@ export function calculateGroupTotal(groups, totalVotes) {
                 total: entry.value,
                 voteRate: formatPercentage(percentage(entry.value, allGroupsTotal)),
                 diff: nextTotal === undefined ? null : entry.value - nextTotal,
+                rateDiff: nextTotal === undefined
+                    ? null
+                    : formatPercentage(percentage(entry.value - nextTotal, allGroupsTotal)),
                 rank: index + 1
             };
         }),
@@ -42,6 +45,9 @@ export function calculateGroupAverage(groups, totalVotes) {
                 avg: Number(entry.value.toFixed(1)),
                 voteRate: formatPercentage(percentage(entry.value, allGroupsAverage)),
                 diff: nextAverage === undefined ? null : Number((entry.value - nextAverage).toFixed(1)),
+                rateDiff: nextAverage === undefined
+                    ? null
+                    : formatPercentage(percentage(entry.value - nextAverage, allGroupsAverage)),
                 rank: index + 1
             };
         }),

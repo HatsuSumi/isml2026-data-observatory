@@ -50,7 +50,8 @@ const renderGroupCard = (group, index, comparison, totalVotes, summary, isBaseCo
         summary ?? `第 ${comparison.rank ?? index + 1} 名`;
     card.querySelector('.metric-label').textContent = isTotal ? '组总票数' : '组平均票数';
     card.querySelector(`.${LAYOUT_CLASSES.voteCount}`).textContent = `${metric}票`;
-    card.querySelector(`.${LAYOUT_CLASSES.voteRate}`).textContent = `组内占比：${comparison.voteRate ?? 0}%`;
+    const rateLabel = isTotal ? '组内占比' : '相对平均值';
+    card.querySelector(`.${LAYOUT_CLASSES.voteRate}`).textContent = `${rateLabel}：${comparison.voteRate ?? 0}%`;
 
     renderCharacterList(
         card.querySelector(`.${LAYOUT_CLASSES.groupCharacterList}`),
@@ -75,16 +76,17 @@ const renderGroupCard = (group, index, comparison, totalVotes, summary, isBaseCo
         diffValue.hidden = true;
         diffRate.hidden = true;
     } else {
+        const hasNextComparison = comparison.diff !== null && comparison.diff !== undefined;
+        const currentDiffClass = hasNextComparison ? diffClass : LAYOUT_CLASSES.tie;
         [diffLabel, diffValue, diffRate].forEach(element => {
-            element.className = `${element.className} ${diffClass}`;
+            element.className = `${element.className} ${currentDiffClass}`;
         });
-        diffLabel.className = `${LAYOUT_CLASSES.diffLabel} ${diffClass}`;
+        diffLabel.className = `${LAYOUT_CLASSES.diffLabel} ${currentDiffClass}`;
         diffLabel.textContent = isBaseComparison ? '与基准组差距' : '领先下一组';
         diffValue.textContent = isBaseComparison && index === 0 ? '-' : diffText;
-        const rateDiff = comparison.rateDiff ?? 0;
-        diffRate.textContent = isBaseComparison && index === 0
+        diffRate.textContent = comparison.rateDiff === null || comparison.rateDiff === undefined
             ? '-'
-            : `${rateDiff > 0 ? '+' : ''}${rateDiff}%`;
+            : `${comparison.rateDiff > 0 ? '+' : ''}${comparison.rateDiff}%`;
     }
 
     return card;
