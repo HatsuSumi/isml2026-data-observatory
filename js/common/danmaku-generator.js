@@ -1,16 +1,16 @@
-import { Danmaku, initDanmakuSettings } from '/ISML-2026/js/common/danmaku.js';
-import { CONFIG } from '/ISML-2026/js/common/config.js';
+import { Danmaku, initDanmakuSettings } from './danmaku.js';
+import { CONFIG } from './config.js';
 
 export class DanmakuGenerator {
     constructor(container, options = {}) {
         this.container = container;
         const savedSettings = localStorage.getItem(CONFIG.danmaku.storageKey);
         const settings = savedSettings ? JSON.parse(savedSettings) : {};
-        
-        if (!settings.interval || settings.interval < 1000) {  
+
+        if (!settings.interval || settings.interval < 1000) {
             settings.interval = CONFIG.danmaku.defaultInterval;
         }
-        
+
         this.options = {
             interval: options.interval || CONFIG.danmaku.interval,
             speed: options.speed || CONFIG.danmaku.speed,
@@ -18,12 +18,11 @@ export class DanmakuGenerator {
             enabled: options.enabled !== undefined ? options.enabled : true,
             fontSize: options.fontSize || CONFIG.danmaku.fontSize,
             position: options.position || CONFIG.danmaku.position,
-            ...settings 
+            ...settings
         };
-        
-        // 同步到CONFIG
+
         CONFIG.features.danmakuEnabled = this.options.enabled;
-        
+
         this.tracks = new Array(this.options.trackCount).fill(null);
         this.danmakus = new Set();
         this.messages = [];
@@ -31,22 +30,17 @@ export class DanmakuGenerator {
         this.animationFrame = null;
         this.lastTime = performance.now();
         this.lastSendTime = 0;
-        
+
         this.setupZIndex();
         this.init();
-        
-        // 根据enabled状态决定是否启动动画
+
         if (this.options.enabled) {
             this.startAnimation();
         }
-        
-        // 保存引用以便访问
+
         container.danmakuGenerator = this;
         this.sendingInterval = null;
-        // 从localStorage读取欢迎弹幕状态
         this.hasWelcomeSent = localStorage.getItem('hasWelcomeSent') === 'true';
-        
-        // 初始化时更新UI
         this.updateSettingsUI();
     }
 
@@ -62,7 +56,7 @@ export class DanmakuGenerator {
         });
 
         const baseZIndex = maxZIndex + 100;
-        
+
         const style = document.createElement('style');
         style.textContent = `
             .animation-container { z-index: ${baseZIndex} !important; }
@@ -70,22 +64,21 @@ export class DanmakuGenerator {
             .copy-tip { z-index: ${baseZIndex + 2} !important; }
         `;
         document.head.appendChild(style);
-
     }
 
     async init() {
         try {
             await this.loadData();
-            
+
             if (this.options.enabled) {
                 if (this.sendingInterval) {
                     clearInterval(this.sendingInterval);
                 }
-                
+
                 this.sendWelcomeMessage();
                 this.startSending();
             }
-            
+
             initDanmakuSettings();
             this.initSettings();
         } catch (error) {
@@ -95,9 +88,7 @@ export class DanmakuGenerator {
 
     async loadData() {
         try {
-            const response = await fetch(
-                `/data/characters/${CONFIG.danmaku.dataUrl}`
-            );
+            const response = await fetch(CONFIG.danmaku.dataUrl);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -111,15 +102,11 @@ export class DanmakuGenerator {
     }
 
     startAnimation() {
-        // 如果已经有动画在运行，先取消它
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
         }
-        
-        // 重置时间
+
         this.lastTime = performance.now();
-        
-        // 启动新的动画
         this.animationFrame = requestAnimationFrame(this.animate);
     }
 
@@ -127,13 +114,13 @@ export class DanmakuGenerator {
         if (this.sendingInterval) {
             clearInterval(this.sendingInterval);
         }
-        
+
         this.sendingInterval = setInterval(() => {
             if (!CONFIG.features.danmakuEnabled) return;
-            
+
             const randomIndex = Math.floor(Math.random() * this.messages.length);
             const message = this.messages[randomIndex];
-            
+
             const availableTrack = this.findAvailableTrack();
             if (availableTrack !== -1) {
                 const danmaku = new Danmaku(message.text, message.type, availableTrack, this.container);
@@ -168,10 +155,10 @@ export class DanmakuGenerator {
         );
 
         this.registerCopyEvent(danmaku);
-        
+
         this.tracks[trackIndex] = danmaku;
         this.danmakus.add(danmaku);
-        
+
         this.container.appendChild(danmaku.element);
     }
 
@@ -179,7 +166,7 @@ export class DanmakuGenerator {
         const copyIcon = danmaku.element.querySelector('.copy-icon');
         if (!copyIcon) return;
 
-        copyIcon.addEventListener('click', (e) => {
+        copyIcon.addEventListener('click', e => {
             e.stopPropagation();
             navigator.clipboard.writeText(danmaku.text).then(() => {
                 const copyTip = document.querySelector('.copy-tip');
@@ -208,7 +195,7 @@ export class DanmakuGenerator {
         if (this.sendingInterval) {
             clearInterval(this.sendingInterval);
         }
-        
+
         this.startSending();
     }
 
@@ -217,9 +204,9 @@ export class DanmakuGenerator {
             const intervalInSeconds = this.options.interval / 1000;
             const welcomeMessage = {
                 text: `欢迎来到2026赛季国际最萌大会数据统计主页！之后每隔${intervalInSeconds}秒会随机发送一句动画金句，可以在右上角设置`,
-                type: "welcome"
+                type: 'welcome'
             };
-            
+
             const availableTrack = this.findAvailableTrack();
             if (availableTrack !== -1) {
                 const danmaku = new Danmaku(welcomeMessage.text, welcomeMessage.type, availableTrack, this.container);
@@ -228,20 +215,16 @@ export class DanmakuGenerator {
                 console.log(`生成欢迎弹幕: ${welcomeMessage.text}, 当前时间: ${new Date().toLocaleTimeString()}`);
             }
             this.hasWelcomeSent = true;
-            // 保存欢迎弹幕状态到localStorage
             localStorage.setItem('hasWelcomeSent', 'true');
         }
     }
 
     updateTracks() {
-        // 保存当前弹幕
         const activeDanmakus = Array.from(this.danmakus);
-        
-        // 清空轨道
+
         this.tracks = new Array(this.options.trackCount).fill(null);
         this.danmakus.clear();
-        
-        // 重新分配轨道
+
         activeDanmakus.forEach(danmaku => {
             const newTrack = this.findAvailableTrack();
             if (newTrack !== -1) {
@@ -259,11 +242,10 @@ export class DanmakuGenerator {
         const sizeInput = document.getElementById('danmakuSize');
         const sizeNumberInput = sizeInput?.parentElement.querySelector('.number-input');
         const positionSelect = document.getElementById('danmakuPosition');
-        
+
         if (sizeInput) {
-            sizeInput.addEventListener('input', (e) => {
+            sizeInput.addEventListener('input', e => {
                 this.options.fontSize = parseInt(e.target.value);
-                // 更新所有现有弹幕的字体大小
                 this.activeDanmaku.forEach(danmaku => {
                     if (danmaku.element) {
                         danmaku.element.style.fontSize = `${this.options.fontSize}px`;
@@ -274,9 +256,9 @@ export class DanmakuGenerator {
                 }
                 this.saveSettings();
             });
-            
+
             if (sizeNumberInput) {
-                sizeNumberInput.addEventListener('input', (e) => {
+                sizeNumberInput.addEventListener('input', e => {
                     let value = parseInt(e.target.value);
                     value = Math.max(
                         CONFIG.danmaku.minFontSize,
@@ -293,7 +275,7 @@ export class DanmakuGenerator {
                 });
             }
         }
-        
+
         if (positionSelect) {
             positionSelect.addEventListener('change', () => {
                 this.options.position = positionSelect.value;
@@ -303,7 +285,6 @@ export class DanmakuGenerator {
         }
     }
 
-    // 保存设置到localStorage
     saveSettings() {
         const settings = {
             interval: this.options.interval,
@@ -315,27 +296,26 @@ export class DanmakuGenerator {
         localStorage.setItem(CONFIG.danmaku.storageKey, JSON.stringify(settings));
     }
 
-    // 更新UI显示
     updateSettingsUI() {
         const enabledCheckbox = document.getElementById('danmakuEnabled');
         const intervalInput = document.getElementById('danmakuInterval');
         const speedInput = document.getElementById('danmakuSpeed');
         const sizeInput = document.getElementById('danmakuSize');
         const positionSelect = document.getElementById('danmakuPosition');
-        
+
         const intervalNumberInput = intervalInput?.parentElement.querySelector('.number-input');
         const speedNumberInput = speedInput?.parentElement.querySelector('.number-input');
         const sizeNumberInput = sizeInput?.parentElement.querySelector('.number-input');
-        
+
         if (enabledCheckbox) enabledCheckbox.checked = this.options.enabled;
-        
+
         if (intervalInput && intervalNumberInput) {
             const intervalValue = this.options.interval / 1000 / 60;
             intervalInput.value = intervalValue;
             intervalNumberInput.value = intervalValue;
             intervalInput.dispatchEvent(new Event('input'));
         }
-        
+
         if (speedInput && speedNumberInput) {
             speedInput.value = this.options.speed;
             speedNumberInput.value = this.options.speed;
@@ -346,13 +326,13 @@ export class DanmakuGenerator {
                 screenWidthSpan.textContent = `屏幕宽度：${window.innerWidth}px，${this.options.speed}秒滚动完，每秒${pixelsPerSecond}px`;
             }
         }
-        
+
         if (sizeInput && sizeNumberInput) {
             sizeInput.value = this.options.fontSize;
             sizeNumberInput.value = this.options.fontSize;
             sizeInput.dispatchEvent(new Event('input'));
         }
-        
+
         if (positionSelect) {
             positionSelect.value = this.options.position;
             this.updateDanmakuPosition();
@@ -364,8 +344,8 @@ export class DanmakuGenerator {
         container.style.top = '0';
         container.style.bottom = 'auto';
         container.style.transform = 'none';
-        
-        switch(this.options.position) {
+
+        switch (this.options.position) {
             case 'top':
                 container.style.top = '80px';
                 break;
@@ -380,11 +360,10 @@ export class DanmakuGenerator {
         }
     }
 
-    animate = (currentTime) => {
+    animate = currentTime => {
         const deltaTime = (currentTime - this.lastTime) / 1000;
         this.lastTime = currentTime;
-        
-        // 更新所有活动弹幕
+
         this.activeDanmaku = this.activeDanmaku.filter(danmaku => {
             const shouldRemove = danmaku.update(deltaTime);
             if (shouldRemove) {
@@ -392,7 +371,7 @@ export class DanmakuGenerator {
             }
             return !shouldRemove;
         });
-        
+
         this.animationFrame = requestAnimationFrame(this.animate);
     }
 }

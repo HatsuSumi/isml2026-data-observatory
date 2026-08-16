@@ -1,4 +1,4 @@
-import { SERIES_ALIASES } from '/ISML-2026/js/aliases/aliases.js';
+import { SERIES_ALIASES } from '../aliases/aliases.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeTabs();
@@ -374,7 +374,6 @@ function initializeSearch() {
         });
     });
     
-    const searchOptions = document.querySelectorAll('.search-options input');
     const groupOptions = document.querySelectorAll('.group-options input');
     
     // 添加组选项联动
@@ -489,15 +488,6 @@ function searchCharacters(keyword, searchConfig) {
 }
 
 // 标准化作品名称
-function normalizeSeriesName(name) {
-    for (const [originalName, aliases] of Object.entries(SERIES_ALIASES)) {
-        if (aliases.includes(name)) {
-            return originalName;
-        }
-    }
-    return name;
-}
-
 function matchesSearch(character, keyword, fields) {
     const keywords = keyword
         .split(/[,，\s]+/)
@@ -540,7 +530,7 @@ function showAllCharacters() {
 }
 
 function displaySearchResults(results) {
-    let container = document.querySelector('.search-results-container');
+    const container = document.querySelector('.search-results-container');
     const tournamentSection = document.querySelector('.tournament-section');
     
     // 计算总结果数
@@ -624,30 +614,14 @@ function displaySearchResults(results) {
             }
         });
         novaResults.innerHTML = novaContent;
-        
-        // 显示结果或无结果提示
-        if (totalResults > 0) {
-            container.style.display = 'block';
-            tournamentSection.style.display = 'none';
-            requestAnimationFrame(() => {
-                container.classList.add('visible');
-                adjustCardLayout();
-                observeImages();
-                animateCards();
-            });
-        } else {
-            container.style.minHeight = `${placeholderHeight}px`;
-            container.innerHTML = `
-                <div class="no-results">
-                    未找到匹配的角色
-                </div>
-            `;
-            container.style.display = 'block';
-            tournamentSection.style.display = 'none';
-            requestAnimationFrame(() => {
-                container.classList.add('visible');
-            });
-        }
+        container.style.display = 'block';
+        tournamentSection.style.display = 'none';
+        requestAnimationFrame(() => {
+            container.classList.add('visible');
+            adjustCardLayout();
+            observeImages();
+            animateCards();
+        });
     }
 }
 

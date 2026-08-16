@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="https://hatsusumi.github.io/isml2026-data-observatory/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
     <link rel="stylesheet" href="css/comparison/character-comparison.css">
 </head>
 <body>
@@ -80,7 +82,7 @@
             </div>
  
             <div class="compare-type-wrapper">
-                <select id="compareType">
+                <select id="compareType" class="compare-type-native">
                     <option value="oneToOne">一对一对比</option>
                     <option value="baseCompare">和基准角色对比（一对多）</option>
                     <option value="avgCompare">取平均值对比（一对多）</option>
@@ -90,7 +92,13 @@
                     <option value="groupAvgCompare">组平均值对比（多对多）</option>
                     <option value="about">❓ 不知道选哪种对比？</option>
                 </select>
-                <div class="compare-type-arrow"></div>
+                <div class="compare-type-custom" id="compareTypeCustom">
+                    <div class="select-trigger" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                        <div class="select-value">一对一对比</div>
+                        <div class="select-arrow"></div>
+                    </div>
+                    <div class="select-options" role="listbox"></div>
+                </div>
 
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { CONFIG } from '/ISML-2026/js/common/config.js';
+import { CONFIG } from './config.js';
 
 // 路由管理器
 class Router {

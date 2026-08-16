@@ -1,3 +1,6 @@
+﻿import { NOMINATION_TABLE_CONFIGS } from '../table/nomination-table-config.js';
+import { normalizeNominationVisualizationRows } from '../table/nomination-data.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     initVisualization().catch((error) => {
         console.error('可视化初始化失败:', error);
@@ -24,7 +27,7 @@ async function initVisualization() {
 
     updateTableLink(matchConfig);
     const rawData = await fetchJson(matchConfig.links.data);
-    const data = normalizeVisualizationData(rawData, mode);
+    const data = normalizeVisualizationData(rawData, mode, id);
 
     renderTitle(data, matchConfig, mode);
     updateLegendState(mode);
@@ -68,26 +71,45 @@ async function fetchJson(path) {
     return response.json();
 }
 
-function normalizeVisualizationData(rawData, mode) {
-    const rows = (Array.isArray(rawData.data) ? rawData.data : [])
-        .filter((item) => Number(item.votes) > 0)
-        .sort((a, b) => (a.rank !== b.rank ? a.rank - b.rank : b.votes - a.votes));
+function normalizeVisualizationData(rawData, mode, visualizationId) {
+    const nominationConfig = NOMINATION_TABLE_CONFIGS[visualizationId];
+    const sourceRows = nominationConfig
+        ? normalizeNominationVisualizationRows(nominationConfig, rawData)
+        : (Array.isArray(rawData.data) ? rawData.data : [])
+            .filter((item) => Number(item.votes) > 0)
+            .sort((a, b) => (a.rank !== b.rank ? a.rank - b.rank : b.votes - a.votes));
+    const rows = nominationConfig && mode !== 'main'
+        ? sourceRows.filter((item) => (mode === 'advance' ? item.isPromoted : !item.isPromoted))
+        : sourceRows;
 
     return {
         date: rawData.date || '',
         event: rawData.event || '',
         labels: rows.map((item) => `${item.name}（${item.ip}）`).reverse(),
         ranks: rows.map((item) => String(item.rank)).reverse(),
-        advanceData: rows.map((item) => (!item.is_advanced || mode === 'eliminate' ? null : item.votes)).reverse(),
-        eliminateData: rows.map((item) => (item.is_advanced || mode === 'advance' ? null : item.votes)).reverse()
+        advanceData: rows.map((item) => {
+            const isAdvanced = nominationConfig ? item.isPromoted : item.is_advanced;
+            return !isAdvanced || mode === 'eliminate' ? null : item.votes;
+        }).reverse(),
+        eliminateData: rows.map((item) => {
+            const isAdvanced = nominationConfig ? item.isPromoted : item.is_advanced;
+            return isAdvanced || mode === 'advance' ? null : item.votes;
+        }).reverse()
     };
+}
+
+function appendQueryParam(url, key, value) {
+    if (!value) return url;
+    const [base, hash = ''] = url.split('#');
+    const separator = base.includes('?') ? '&' : '?';
+    return `${base}${separator}${key}=${encodeURIComponent(value)}${hash ? `#${hash}` : ''}`;
 }
 
 function updateTableLink(matchConfig) {
     const tableButton = document.querySelector('.table-btn');
     if (!tableButton) return;
     const currentFrom = new URLSearchParams(window.location.search).get('from');
-    tableButton.href = `${matchConfig.links.table}${currentFrom ? `?from=${currentFrom}` : ''}`;
+    tableButton.href = appendQueryParam(matchConfig.links.table, 'from', currentFrom);
 }
 
 function renderTitle(data, matchConfig, mode) {

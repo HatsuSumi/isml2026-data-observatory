@@ -157,13 +157,20 @@ function smoothScrollTo(targetPosition) {
 }
 
 // 修改链接点击事件
+function withFromParam(url, from) {
+    if (!url) return '#';
+    const [base, hash = ''] = url.split('#');
+    const separator = base.includes('?') ? '&' : '?';
+    return `${base}${separator}from=${encodeURIComponent(from)}${hash ? `#${hash}` : ''}`;
+}
+
 function getEventLinks(match, status) {
     if (match.links && status === 'completed') {
         return `
-            <a href="${match.links.visualization}?from=events-data" 
+            <a href="${withFromParam(match.links.visualization, 'events-data')}" 
                class="event-link visualization-link"
                onclick="savePosition('visualization')">数据可视化</a>
-            <a href="${match.links.table}?from=events-data" 
+            <a href="${withFromParam(match.links.table, 'events-data')}" 
                class="event-link table-link"
                onclick="savePosition('table')">查看表格</a>
         `;
@@ -471,7 +478,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 if (targetElement) {
                     e.preventDefault();
                     smoothScrollTo(targetElement.offsetTop - 80);
-                    history.pushState(null, '', `/ISML-2026/pages/events-data/events-data.html#${targetId}`);
+            history.pushState(null, '', `./pages/events-data/events-data.html#${targetId}`);
                     updateNavActiveState(targetId);
                 } else {
                     console.warn('未找到目标元素:', targetId);  
