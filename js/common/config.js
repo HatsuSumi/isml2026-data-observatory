@@ -204,6 +204,7 @@ export const LAYOUT_CLASSES = {
     characterResultContainerTemplate: 'character-result-container-template',
     comparisonDifferenceTemplate: 'comparison-difference-template',
     oneToManyResultTemplate: 'one-to-many-result-template',
+    avgCompareSummaryTemplate: 'avg-compare-summary-template',
     groupResultCardTemplate: 'group-result-card-template',
     groupResultMemberTemplate: 'group-result-member-template',
     groupMemberTemplate: 'group-member-template',
@@ -347,4 +348,4 @@ export const MESSAGES = {
 export const generateSelectors = {
     groupMemberByChar: (char) => 
         `${SELECTORS.groupMember} img[alt="${char.name}"][title="${char.name}@${char.ip}"]`
-}; 
+};

@@ -73,7 +73,7 @@ const createOneToManyLayout = classNames => {
     return container;
 };
 
-const createDifferenceElement = (difference) => {
+const createDifferenceElement = difference => {
     if (!difference) {
         return null;
     }
@@ -82,6 +82,26 @@ const createDifferenceElement = (difference) => {
     element.className = difference.className;
     element.textContent = difference.text;
     return element;
+};
+
+const createAvgSummary = (characters, avgVotes) => {
+    const summary = cloneTemplate(LAYOUT_CLASSES.avgCompareSummaryTemplate);
+    const validVotes = characters
+        .map(character => character.votes)
+        .filter(votes => votes !== '-');
+    const avgValue = summary.querySelector('.avg-compare-value');
+    const formula = summary.querySelector('.avg-compare-formula');
+
+    setText(avgValue, `${avgVotes.toFixed(1)}票`);
+
+    if (validVotes.length === 0) {
+        setText(formula, '无可参与平均值计算的角色');
+        return summary;
+    }
+
+    const expression = validVotes.join('+');
+    setText(formula, `(${expression})/${validVotes.length}=${avgVotes.toFixed(1)}（自动晋级角色不参与计算）`);
+    return summary;
 };
 
 const populateCharacterCard = (card, character, comparison, {
@@ -199,13 +219,15 @@ export class CharacterResultRenderer {
         });
 
         const container = createBasicInfo('');
+        container.append(createAvgSummary(characters, avgVotes));
         characters.forEach((character, index) => {
             const comparison = comparisons[index];
             const rank = character.votes === '-' ? '-' : ranks.get(parseInt(character.votes, 10));
             container.append(createCard(character, comparison, {
                 showDelete: characters.length > CONFIG.comparison.minAvgCharacters,
                 rate: comparison.voteRate,
-                rank
+                rank,
+                rateDifference: comparison?.rateDiff
             }));
         });
         return container;

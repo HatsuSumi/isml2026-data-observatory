@@ -760,6 +760,37 @@
 }
 
 /* 一对多对比样式 */
+.avg-compare-summary {
+    grid-column: 1 / -1;
+    width: min(100%, 1110px);
+    margin: 0 auto 10px;
+    padding: 18px 20px;
+    background: linear-gradient(145deg, #1f1f1f, #252525);
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.avg-compare-title {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.avg-compare-value {
+    color: #1565c0;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.avg-compare-formula {
+    color: #ddd;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+/* 一对多对比样式 */
 .basic-info.one-to-many {
     display: block;
     max-width: 1200px;
@@ -2442,3 +2473,11 @@
     font-size: 12px;
     font-style: italic;
 }
+
+.avg-compare-summary {
+    width: 100%;
+    max-width: 1110px;
+    justify-self: center;
+    box-sizing: border-box;
+}
+
