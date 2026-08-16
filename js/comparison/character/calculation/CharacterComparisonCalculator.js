@@ -48,11 +48,12 @@ export function calculateBase(characters, totalVotes) {
             const compareVotes = parseVotes(character.votes);
             if (baseVotes === null || compareVotes === null) {
                 return {
-                    voteDiff: 0,
-                    voteRate: 0,
-                    compareRate: 0,
-                    rateDiff: 0,
-                    isLeading: false
+                    voteDiff: null,
+                    voteRate: null,
+                    compareRate: null,
+                    rateDiff: null,
+                    isLeading: null,
+                    isComparable: false
                 };
             }
 

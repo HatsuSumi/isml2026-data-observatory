@@ -457,10 +457,6 @@ export class CharacterPageController {
         });
     }
 
-    deleteCharacter(cardElement, isComparisonResult = false) {
-        this.characterCardController.deleteCharacter(cardElement, isComparisonResult);
-    }
-
     selectCharacter(cardId, character) {
         this.characterCardController.selectCharacter(cardId, character);
     }

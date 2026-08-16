@@ -12,9 +12,7 @@ export class ComparisonResultGenerator {
         const stage = eventId.split('/')[0];
 
         if (stage !== CONFIG.stages.nomination) {
-            return stage === CONFIG.stages.battle
-                ? this.generateBattleInfo(characters, totalVotes, compareType)
-                : this.generateFinalInfo(characters, totalVotes, compareType);
+            return this.generateStageInfo(characters, totalVotes, compareType, result);
         }
 
         if (compareType === COMPARISON_TYPES.baseCompare) {
@@ -89,10 +87,16 @@ export class ComparisonResultGenerator {
         return GroupResultRenderer.generateGroupAvgHTML(...args);
     }
 
-    static generateBattleInfo(characters, totalVotes, compareType) {
-    }
+    static generateStageInfo(characters, totalVotes, compareType, result) {
+        if (compareType !== COMPARISON_TYPES.oneToOne) {
+            console.error(`阶段赛事不支持比较模式: ${compareType}`);
+            return '';
+        }
 
-    static generateFinalInfo(characters, totalVotes, compareType) {
+        return this.generateOneToOneHTML(
+            result.characters ?? characters,
+            result.hasMultipleNormal ?? false
+        );
     }
 
 

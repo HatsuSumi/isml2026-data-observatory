@@ -63,6 +63,11 @@ export class ComparisonActionsController {
             this.showMessage(this.messages.minCharacters);
             return;
         }
+        if (compareType === this.comparisonTypes.oneToOne &&
+            characters.length !== this.config.comparison.initialCards) {
+            this.showMessage(this.messages.minOneToOneCharacters);
+            return;
+        }
         if (compareType !== this.comparisonTypes.oneToOne &&
             characters.length < this.config.comparison.minAvgCharacters) {
             this.showMessage(this.messages.minAvgCharacters);
