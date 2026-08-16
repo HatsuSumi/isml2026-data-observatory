@@ -30,7 +30,7 @@ const renderCharacterList = (container, group, totalVotes) => {
     });
 };
 
-const renderGroupCard = (group, index, comparison, totalVotes, summary) => {
+const renderGroupCard = (group, index, comparison, totalVotes, summary, isBaseComparison, baseRelation) => {
     const card = cloneTemplate(LAYOUT_CLASSES.groupResultCardTemplate);
     const metric = comparison.total ?? comparison.avg ?? 0;
     const isTotal = comparison.total !== undefined;
@@ -49,8 +49,8 @@ const renderGroupCard = (group, index, comparison, totalVotes, summary) => {
     card.querySelector(`.${LAYOUT_CLASSES.rankNumber}`).textContent =
         summary ?? `第 ${comparison.rank ?? index + 1} 名`;
     card.querySelector('.metric-label').textContent = isTotal ? '组总票数' : '组平均票数';
-    card.querySelector(`.${LAYOUT_CLASSES.voteCount}`).textContent = `${metric}${isTotal ? '票' : '票'}`;
-    card.querySelector(`.${LAYOUT_CLASSES.voteRate}`).textContent = `${comparison.voteRate ?? 0}%`;
+    card.querySelector(`.${LAYOUT_CLASSES.voteCount}`).textContent = `${metric}票`;
+    card.querySelector(`.${LAYOUT_CLASSES.voteRate}`).textContent = `组内占比：${comparison.voteRate ?? 0}%`;
 
     renderCharacterList(
         card.querySelector(`.${LAYOUT_CLASSES.groupCharacterList}`),
@@ -61,10 +61,31 @@ const renderGroupCard = (group, index, comparison, totalVotes, summary) => {
     const diffLabel = card.querySelector(`.${LAYOUT_CLASSES.diffLabel}`);
     const diffValue = card.querySelector(`.${LAYOUT_CLASSES.diffValue}`);
     const diffRate = card.querySelector(`.${LAYOUT_CLASSES.diffRate}`);
-    [diffLabel, diffValue, diffRate].forEach(element => element.classList.add(diffClass));
-    diffLabel.textContent = index === 0 ? '基准组' : '与基准组差距';
-    diffValue.textContent = index === 0 ? '-' : diffText;
-    diffRate.textContent = index === 0 ? '-' : `${comparison.rateDiff ?? 0}%`;
+    if (isBaseComparison && index === 0) {
+        const { groupsLeading, groupsBehind } = baseRelation;
+        diffLabel.className = LAYOUT_CLASSES.diffLabel;
+        diffLabel.replaceChildren();
+        const leading = cloneTemplate(LAYOUT_CLASSES.comparisonDifferenceTemplate);
+        leading.className = `${LAYOUT_CLASSES.comparisonDifference} ${LAYOUT_CLASSES.leading}`;
+        leading.textContent = `领先${groupsBehind}组　`;
+        const behind = cloneTemplate(LAYOUT_CLASSES.comparisonDifferenceTemplate);
+        behind.className = `${LAYOUT_CLASSES.comparisonDifference} ${LAYOUT_CLASSES.behind}`;
+        behind.textContent = `落后${groupsLeading}组`;
+        diffLabel.append(leading, behind);
+        diffValue.hidden = true;
+        diffRate.hidden = true;
+    } else {
+        [diffLabel, diffValue, diffRate].forEach(element => {
+            element.className = `${element.className} ${diffClass}`;
+        });
+        diffLabel.className = `${LAYOUT_CLASSES.diffLabel} ${diffClass}`;
+        diffLabel.textContent = isBaseComparison ? '与基准组差距' : '领先下一组';
+        diffValue.textContent = isBaseComparison && index === 0 ? '-' : diffText;
+        const rateDiff = comparison.rateDiff ?? 0;
+        diffRate.textContent = isBaseComparison && index === 0
+            ? '-'
+            : `${rateDiff > 0 ? '+' : ''}${rateDiff}%`;
+    }
 
     return card;
 };
@@ -83,8 +104,30 @@ export class GroupResultRenderer {
         const container = content.querySelector(SELECTORS.groupComparison);
         container.replaceChildren();
         this.setGroupLayout(container, groups);
+        const isBaseComparison = templateId === LAYOUT_CLASSES.groupBaseTotalTemplate
+            || templateId === LAYOUT_CLASSES.groupBaseAvgTemplate;
+        const baseIndex = isBaseComparison
+            ? comparisons.findIndex(comparison => comparison.isBase)
+            : -1;
+        const baseMetric = baseIndex >= 0
+            ? comparisons[baseIndex].total ?? comparisons[baseIndex].avg ?? 0
+            : 0;
+        const baseRelation = isBaseComparison
+            ? {
+                groupsLeading: comparisons.filter(comparison => (comparison.total ?? comparison.avg ?? 0) > baseMetric).length,
+                groupsBehind: comparisons.filter(comparison => (comparison.total ?? comparison.avg ?? 0) < baseMetric).length
+            }
+            : null;
         groups.forEach((group, index) => {
-            container.append(renderGroupCard(group, index, comparisons[index], totalVotes, labels[index]));
+            container.append(renderGroupCard(
+                group,
+                index,
+                comparisons[index],
+                totalVotes,
+                labels[index],
+                isBaseComparison,
+                baseRelation
+            ));
         });
         return content;
     }

@@ -161,7 +161,8 @@ export class CharacterPageController {
         this.quickSelectModalController = new QuickSelectModalController({
             characterManager: this.characterManager,
             selectors: SELECTORS,
-            animationClasses: ANIMATION_CLASSES
+            animationClasses: ANIMATION_CLASSES,
+            layoutClasses: LAYOUT_CLASSES
         });
         this.characterSelectionController = new CharacterSelectionController({
             characterManager: this.characterManager,

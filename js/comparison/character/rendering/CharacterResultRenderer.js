@@ -38,8 +38,26 @@ const formatVoteDifference = comparison => {
     }
 
     return {
-        text: `${comparison.voteDiff > 0 ? '领先' : '落后'}${Math.abs(comparison.voteDiff)}票`,
+        text: `${comparison.voteDiff > 0 ? '+' : ''}${comparison.voteDiff}票`,
         className: differenceClass(comparison.voteDiff, LAYOUT_CLASSES.voteDifference)
+    };
+};
+
+const formatSignedPercentageDifference = diff => {
+    if (diff === null || diff === undefined) {
+        return null;
+    }
+
+    if (diff === 0) {
+        return {
+            text: '0%',
+            className: differenceClass(diff, LAYOUT_CLASSES.rateDifference)
+        };
+    }
+
+    return {
+        text: `${diff > 0 ? '+' : ''}${diff}%`,
+        className: differenceClass(diff, LAYOUT_CLASSES.rateDifference)
     };
 };
 
@@ -160,14 +178,7 @@ const populateCharacterCard = (card, character, comparison, {
         setText(rateValue, rateText);
         if (rateDifference) {
             rateValue.append(document.createTextNode('　'));
-            const difference = formatComparisonText(
-                rateDifference,
-                '高',
-                '低',
-                '相同',
-                '个百分点',
-                LAYOUT_CLASSES.rateDifference
-            );
+            const difference = formatSignedPercentageDifference(rateDifference);
             const element = createDifferenceElement(difference);
             if (element) {
                 rateValue.append(element);
