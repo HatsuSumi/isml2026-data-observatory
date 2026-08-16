@@ -298,9 +298,12 @@ window.addEventListener('resize', debouncedAdjustLayout);
 
 // 添加加载状态
 function showLoading() {
-    const loader = document.createElement('div');
-    loader.className = 'loading-container';
-    loader.innerHTML = '<div class="loading-spinner"></div>';
+    if (document.querySelector('.loading-container')) {
+        return;
+    }
+
+    const template = document.getElementById('loading-container-template');
+    const loader = template.content.firstElementChild.cloneNode(true);
     document.body.appendChild(loader);
 }
 
