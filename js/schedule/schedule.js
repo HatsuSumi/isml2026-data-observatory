@@ -326,49 +326,15 @@ function createElevatorNav(data) {
             let hasVisibleMatch = false;
             
             matches.forEach(match => {
-                // 状态筛选
-                const matchesStatus = currentFilter === 'all' ? true :
-                    currentFilter === 'upcoming' ? 
-                    match.classList.contains('upcoming') || match.classList.contains('pending') :
-                    match.classList.contains(currentFilter);
-                
-                // 日期筛选
-                const dateText = match.querySelector('.match-date').textContent;
-                const [startDateStr, endDateStr] = dateText.split(' - ');
-                const startDate = new Date(startDateStr.split(' (')[0]);
-                const endDateParts = endDateStr.split(' ')[0].split('-');
-                let endDate;
-                if (endDateParts.length === 3) {
-                    // 完整日期格式：2025-01-07
-                    endDate = new Date(endDateParts.join('-'));
-                } else if (endDateParts.length === 2) {
-                    // 月日格式：01-07
-                    endDate = new Date(`${startDate.getFullYear()}-${endDateParts.join('-')}`);
-                } else {
-                    // 只有日期：07
-                    const endDay = parseInt(endDateParts[0]);
-                    endDate = new Date(startDate);
-                    endDate.setDate(endDay);
-                    if (endDay < startDate.getDate()) {
-                        endDate.setMonth(endDate.getMonth() + 1);
-                        if (endDate < startDate) {
-                            endDate.setFullYear(startDate.getFullYear() + 1);
-                        }
-                    }
-                }
-                
-                const matchesStartDay = !startDay || startDate.getDay() === parseInt(startDay);
-                const matchesEndDay = !endDay || endDate.getDay() === parseInt(endDay);
-                
-                console.log('比赛筛选结果：', {
-                    title: match.querySelector('.match-title').textContent,
-                    matchesStatus,
-                    matchesStartDay,
-                    matchesEndDay,
-                    startDate: `${startDate.toISOString().split('T')[0]} (周${['日','一','二','三','四','五','六'][startDate.getDay()]})`,
-                    endDate: `${endDate.toISOString().split('T')[0]} (周${['日','一','二','三','四','五','六'][endDate.getDay()]})`
-                });
-                
+                const startDate = new Date(match.dataset.startDate);
+                const endDate = new Date(match.dataset.endDate);
+                const matchesStatus = currentFilter === 'all'
+                    || (currentFilter === 'upcoming'
+                        ? match.dataset.status === 'upcoming' || match.dataset.status === 'pending'
+                        : match.dataset.status === currentFilter);
+                const matchesStartDay = !startDay || startDate.getDay() === Number.parseInt(startDay, 10);
+                const matchesEndDay = !endDay || endDate.getDay() === Number.parseInt(endDay, 10);
+
                 // 组合所有筛选条件
                 const isVisible = matchesStatus && matchesStartDay && matchesEndDay;
                 match.style.display = isVisible ? '' : 'none';
@@ -389,11 +355,6 @@ function createElevatorNav(data) {
                 navLink.style.display = hasVisibleMatch ? '' : 'none';
                 updateRoundItems(navLink, matches);
             }
-        });
-        
-        console.log('筛选结果：', {
-            hasAnyVisibleMatch,
-            noResultsDisplay: noResults.style.display
         });
         
         // 更新无结果提示和时间线状态
@@ -814,6 +775,13 @@ function createMatchElement(match, nextMatch) {
     }[status];
     
     element.className = `timeline-item ${status}`;
+    element.dataset.status = status;
+    element.dataset.startDate = match.dateRange.isRescheduled && match.dateRange.Restart
+        ? match.dateRange.Restart
+        : match.dateRange.start;
+    element.dataset.endDate = match.dateRange.isRescheduled && match.dateRange.Reend
+        ? match.dateRange.Reend
+        : match.dateRange.end;
     
     element.innerHTML = `
     <div class="timeline-dot"></div>
