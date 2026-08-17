@@ -221,7 +221,7 @@ function updateCountdown() {
             // 找到包含倒计时的整个 p 标签并隐藏
             const countdownContainer = element.closest('p');
             if (countdownContainer) {
-                countdownContainer.style.display = 'none';
+                countdownContainer.hidden = true;
             }
         }
     });
@@ -238,10 +238,7 @@ function initReminders() {
                 const tooltip = cloneScheduleTemplate('schedule-tooltip-template', '.tooltip');
                 tooltip.textContent = '目前静态网站暂不支持，未来升级成动态网站后将支持提醒功能';
                 
-                tooltip.style.position = 'fixed';
-                tooltip.style.left = '50%';
-                tooltip.style.top = '100px';
-                tooltip.style.transform = 'translate(-50%, -50%)';
+                tooltip.classList.add('is-global-toast');
                 
                 document.body.appendChild(tooltip);
                 
@@ -427,7 +424,7 @@ function createElevatorNav(data) {
             );
             
             if (matchElement) {
-                item.style.display = matchElement.style.display;
+                item.hidden = matchElement.hidden;
             }
         });
     }
@@ -461,6 +458,7 @@ function createElevatorNav(data) {
         let noResults = document.querySelector('.no-results');
         if (!noResults) {
             noResults = cloneScheduleTemplate('schedule-no-results-template', '.no-results');
+            noResults.hidden = true;
             document.querySelector('.timeline').appendChild(noResults);
         }
         
@@ -484,14 +482,14 @@ function createElevatorNav(data) {
 
                 // 组合所有筛选条件
                 const isVisible = matchesStatus && matchesStartDay && matchesEndDay;
-                match.style.display = isVisible ? '' : 'none';
+                match.hidden = !isVisible;
                 if (isVisible) {
                     hasVisibleMatch = true;
                     hasAnyVisibleMatch = true;
                 }
             });
             
-            section.style.display = hasVisibleMatch ? '' : 'none';
+            section.hidden = !hasVisibleMatch;
             
             // 更新导航项显示状态
             const sectionId = section.id;
@@ -499,13 +497,13 @@ function createElevatorNav(data) {
                 link.getAttribute('href') === `#${sectionId}`
             );
             if (navLink) {
-                navLink.style.display = hasVisibleMatch ? '' : 'none';
+                navLink.parentElement.hidden = !hasVisibleMatch;
                 updateRoundItems(navLink, matches);
             }
         });
         
         // 更新无结果提示和时间线状态
-        noResults.style.display = hasAnyVisibleMatch ? 'none' : 'block';
+        noResults.hidden = hasAnyVisibleMatch;
         const timeline = document.querySelector('.timeline');
         timeline.classList.toggle('has-results', hasAnyVisibleMatch);
     }
@@ -517,9 +515,9 @@ function createElevatorNav(data) {
     function updateSearchInfo() {
         if (currentMatches.length > 0) {
             searchInfo.textContent = `${currentMatchIndex + 1}/${currentMatches.length}`;
-            searchInfo.style.display = 'block';
+            searchInfo.hidden = false;
         } else {
-            searchInfo.style.display = 'none';
+            searchInfo.hidden = true;
         }
     }
     
@@ -540,12 +538,11 @@ function createElevatorNav(data) {
         // 如果搜索框为空，清除所有高亮
         if (!searchText) {
             allMatches.forEach(match => {
-                match.style.transform = '';
-                match.style.boxShadow = '';
+                match.classList.remove('is-search-highlighted');
             });
             currentMatches = [];
             currentMatchIndex = -1;
-            searchInfo.style.display = 'none';
+            searchInfo.hidden = true;
             return;
         }
         
@@ -553,9 +550,8 @@ function createElevatorNav(data) {
         currentMatches = [];
         allMatches.forEach(match => {
             // 只搜索当前可见的比赛
-            if (match.closest('.timeline-item').style.display === 'none') {
-                match.style.transform = '';
-                match.style.boxShadow = '';
+            if (match.closest('.timeline-item').hidden) {
+                match.classList.remove('is-search-highlighted');
                 return;
             }
             
@@ -563,8 +559,7 @@ function createElevatorNav(data) {
             const isMatch = title.includes(searchText);
             
             // 高亮匹配项
-            match.style.transform = isMatch ? 'scale(1.02)' : '';
-            match.style.boxShadow = isMatch ? '0 0 20px rgba(255, 215, 0, 0.3)' : '';
+            match.classList.toggle('is-search-highlighted', isMatch);
             
             // 记录匹配项
             if (isMatch) {
@@ -575,7 +570,7 @@ function createElevatorNav(data) {
         // 更新搜索信息
         if (currentMatches.length === 0 && searchText) {
             searchInfo.textContent = '在当前筛选结果中未找到匹配项';
-            searchInfo.style.display = 'block';
+            searchInfo.hidden = false;
             searchInfo.classList.add('no-match');
         } else {
             updateSearchInfo();
@@ -657,7 +652,7 @@ function createElevatorNav(data) {
 
             const roundItem = cloneScheduleTemplate('schedule-round-item-template', '.round-item');
             roundItem.dataset.matchTitle = match.title;
-            roundItem.style.transitionDelay = `${0.05 * (index + 1)}s`;
+            roundItem.style.setProperty('--round-delay', `${0.05 * (index + 1)}s`);
             roundItem.querySelector('.round-title').textContent = `${match.title.split(' ').pop()}${match.dateRange.isRescheduled ? ' (重赛)' : ''}`;
             const roundStatus = roundItem.querySelector('.round-status');
             roundStatus.classList.add(statusClass);
@@ -1127,8 +1122,8 @@ document.getElementById('characterSearch').addEventListener('input',
         if (!searchValue) {  
             setScheduleFiltersEnabled(true);
             showAllMatches();
-            noCharacterEl.style.display = 'none'; 
-            timelineEl.style.display = 'block';
+            noCharacterEl.hidden = true; 
+            timelineEl.hidden = false;
             return;
         }
         
@@ -1145,23 +1140,23 @@ document.getElementById('characterSearch').addEventListener('input',
                     const [, character] = matchedCharacters[0];
                     setScheduleFiltersEnabled(false);
                     filterTimelineByCharacter(character);
-                    noCharacterEl.style.display = 'none';
-                    timelineEl.style.display = 'block';
+                    noCharacterEl.hidden = true;
+                    timelineEl.hidden = false;
                 } else {
                     setScheduleFiltersEnabled(false);
-                    noCharacterEl.style.display = 'none';
-                    timelineEl.style.display = 'none';
+                    noCharacterEl.hidden = true;
+                    timelineEl.hidden = true;
                     showCharacterSelection(matchedCharacters);
                 }
             } else {
-                noCharacterEl.style.display = 'block';
-                timelineEl.style.display = 'none';
+                noCharacterEl.hidden = false;
+                timelineEl.hidden = true;
                 noCharacterEl.textContent = `未找到角色"${searchValue}"`;
             }
         } catch (error) {
             console.error('Error fetching character data:', error);
-            noCharacterEl.style.display = 'none';  
-            timelineEl.style.display = 'block';
+            noCharacterEl.hidden = true;  
+            timelineEl.hidden = false;
         }
     }, 300)
 );
@@ -1221,7 +1216,7 @@ function filterTimelineByCharacter(character) {
         matches.forEach(match => {
             const matchTitle = match.querySelector('.match-title').textContent;
             if (participatedMatches.has(matchTitle)) {
-                match.style.display = 'block';
+                match.hidden = false;
                 hasVisibleMatch = true;
                 
                 const characterMatch = character.matches.find(m => m.title === matchTitle);
@@ -1229,15 +1224,15 @@ function filterTimelineByCharacter(character) {
                     renderCharacterMatchStatus(match, characterMatch.result);
                 }
             } else {
-                match.style.display = 'none';
+                match.hidden = true;
             }
         });
         
         // 如果该阶段没有可见的比赛，隐藏整个阶段和对应的导航项
-        section.style.display = hasVisibleMatch ? 'block' : 'none';
+        section.hidden = !hasVisibleMatch;
         const navItem = elevatorNav.querySelector(`[href="#${section.id}"]`);
         if (navItem) {
-            navItem.parentElement.style.display = hasVisibleMatch ? 'block' : 'none';
+            navItem.parentElement.hidden = !hasVisibleMatch;
         }
     });
 }
@@ -1249,10 +1244,10 @@ function showAllMatches() {
     
     // 先恢复所有阶段和导航项的显示
     sections.forEach(section => {
-        section.style.display = 'block';
+        section.hidden = false;
         const navItem = elevatorNav.querySelector(`[href="#${section.id}"]`);
         if (navItem) {
-            navItem.parentElement.style.display = 'block';
+            navItem.parentElement.hidden = false;
         }
     });
     
@@ -1265,7 +1260,7 @@ function showAllMatches() {
     
     // 遍历去重后的比赛
     allMatches.forEach(match => {
-        match.style.display = 'block';
+        match.hidden = false;
         // 重新渲染比赛状态
         const matchTitle = match.querySelector('.match-title').textContent;
         const matchData = getMatchDetails(matchTitle);
@@ -1307,21 +1302,7 @@ window.addEventListener('scroll', () => {
     const searchContainer = document.querySelector('.search-container');
     const scrollY = window.scrollY;
     
-    // 当滚动超过一定距离时
-    if (scrollY > 100) {  // 可以调整这个阈值
-        searchContainer.style.position = 'fixed';
-        searchContainer.style.right = '450px';
-        searchContainer.style.width = '400px';
-        searchContainer.style.top = '110px';
-        searchContainer.style.margin = '0';
-    } else {
-        // 恢复原始样式
-        searchContainer.style.position = 'sticky';
-        searchContainer.style.right = 'auto';
-        searchContainer.style.width = '600px';
-        searchContainer.style.top = '140px';
-        searchContainer.style.margin = '0 auto';
-    }
+    searchContainer.classList.toggle('is-compact-search', scrollY > 100);
 }); 
 // 获取比赛状态
 function getMatchStatus(match) {
@@ -1373,7 +1354,7 @@ function showCharacterSelection(characters) {
         button.addEventListener('click', () => {
             filterTimelineByCharacter(char);
             selectionEl.remove();
-            document.getElementById('timeline').style.display = 'block';
+            document.getElementById('timeline').hidden = false;
         });
         selectionEl.appendChild(button);
     });

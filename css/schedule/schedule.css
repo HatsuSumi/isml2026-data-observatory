@@ -683,6 +683,7 @@ body {
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    transition-delay: var(--round-delay, 0s);
     transform: translateX(-10px);
     opacity: 0;
     border-radius: 3px;
@@ -873,6 +874,9 @@ body {
     border-radius: 8px;
     margin: 20px auto;
     max-width: 600px;
+}
+
+.no-results[hidden] {
     display: none;
 }
 
@@ -886,6 +890,14 @@ body {
     z-index: 100;
     background: #1a1a1a;
     box-sizing: border-box;
+}
+
+.search-container.is-compact-search {
+    position: fixed;
+    right: 450px;
+    width: 400px;
+    top: 110px;
+    margin: 0;
 }
 
 /* 角色搜索样式 */
@@ -918,8 +930,11 @@ body {
     background: rgba(244, 67, 54, 0.1);
     border-radius: 8px;
     width: 100%;
-    display: none;
     box-sizing: border-box;
+}
+
+.no-character[hidden] {
+    display: none;
 }
 
 .character-search input {
@@ -1472,4 +1487,16 @@ body {
     align-items: center;
     gap: 12px;
     width: 100%;
+}
+
+.match-card.is-search-highlighted {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.tooltip.is-global-toast {
+    position: fixed;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%, -50%);
 }
