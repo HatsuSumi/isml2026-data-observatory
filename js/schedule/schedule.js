@@ -938,7 +938,8 @@ function renderMatchDetails(match, status) {
                     <div class="result-links-trigger">查看结果</div>
                     <div class="result-links-menu">
                         ${match.links.completed.items.map(link => {
-                            const fullUrl = `${link.url}?from=schedule`;
+                            const separator = link.url.includes('?') ? '&' : '?';
+                            const fullUrl = `${link.url}${separator}from=schedule`;
                             return `<a href="${fullUrl}">${link.text}</a>`;
                         }).join('')}
                     </div>
