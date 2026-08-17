@@ -14,7 +14,6 @@ const EXCEL_COLUMNS = [
 ];
 const SORTABLE = { stellar: [0, 4, 5, 6, 7], nova: [4, 5, 6, 7] };
 const AUTO_TEXT = '自动晋级';
-const CV_WARNING_NAME = '藤田咲';
 const CUSTOM_SELECT_TRIGGER_CLASS = 'custom-select-trigger';
 const CUSTOM_SELECT_VALUE_CLASS = 'custom-select-value';
 const CUSTOM_SELECT_OPTIONS_CLASS = 'custom-select-options';
@@ -286,7 +285,7 @@ function sortNova(rows, columnIndex, isAsc) {
 
 function buildRowHtml(row, mode) {
   const avatar = row.columns[8] ? `<img src="${row.columns[8]}" alt="${row.columns[2]}" width="50">` : '';
-  const cv = row.columns[4] === CV_WARNING_NAME ? `<span class="cv-warning"><span class="tooltip-arrow"></span>${row.columns[4]}</span>` : (row.columns[4] || '');
+  const cv = row.columns[4] || '';
   const rank = mode === 'stellar' && row.isAutoPromoted ? '-' : (row.rank ?? '-');
   const votes = mode === 'stellar' && row.isAutoPromoted ? AUTO_TEXT : String(row.votes);
   return `
