@@ -29,6 +29,22 @@
             <div id="timeline" class="timeline">    
             </div>
         </div>
+        <template id="schedule-custom-select-template">
+            <div class="select-wrapper custom-select">
+                <button
+                    type="button"
+                    class="custom-select-trigger"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                >
+                    <span class="custom-select-label"></span>
+                </button>
+                <div class="custom-select-menu" role="listbox"></div>
+            </div>
+        </template>
+        <template id="schedule-custom-select-option-template">
+            <button type="button" class="custom-select-option" role="option" aria-selected="false"></button>
+        </template>
         <include src="templates/footer.html"></include>
     </div>
     

@@ -759,13 +759,16 @@ body {
     margin-top: 8px;
 }
 
-.date-filter .select-wrapper {
+.date-filter-slot {
     flex: 1;
+}
+
+.date-filter .select-wrapper {
     position: relative;
 }
 
 .date-filter .select-wrapper::after {
-    content: '';    
+    content: '';
     position: absolute;
     right: 12px;
     top: 50%;
@@ -783,46 +786,81 @@ body {
     transform: translateY(-50%) rotate(225deg);
 }
 
-.date-filter select {
+.custom-select-trigger {
     width: 100%;
-    padding: 6px 12px;
+    padding: 6px 32px 6px 12px;
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 4px;
     background: rgba(26, 26, 26, 0.9);
     color: #999;
     font-size: 0.85rem;
     cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding-right: 32px;
+    text-align: left;
     transition: all 0.3s ease;
 }
 
-.date-filter select:hover {
+.custom-select-trigger:hover {
     border-color: rgba(255, 215, 0, 0.4);
 }
 
-.date-filter select:focus {
+.custom-select-trigger:focus-visible {
     outline: none;
     border-color: rgba(255, 215, 0, 0.6);
     color: #FFD700;
 }
 
-.date-filter select option {
-    background: rgba(26, 26, 26, 0.95);
+.custom-select-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.96);
+    border: 1px solid rgba(255, 215, 0, 0.18);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    padding: 6px;
+    display: grid;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 110;
+}
+
+.custom-select.active .custom-select-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.custom-select-option {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
     color: #999;
-    padding: 8px;
+    font-size: 0.85rem;
+    text-align: left;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-/* Firefox 特定样式 */
-.date-filter select::-moz-focus-inner {
-    border: 0;
+.custom-select-option:hover,
+.custom-select-option:focus-visible {
+    outline: none;
+    background: rgba(255, 215, 0, 0.08);
+    color: #FFD700;
 }
 
-/* IE 特定样式 */
-.date-filter select::-ms-expand {
-    display: none;
+.custom-select-option.selected {
+    background: rgba(255, 215, 0, 0.12);
+    color: #FFD700;
+}
+
+.custom-select.disabled .custom-select-trigger {
+    cursor: not-allowed;
 }
 
 /* 无结果提示样式 */
@@ -1411,3 +1449,20 @@ body {
     }
 }
 
+
+.filter-group.disabled {
+    opacity: 0.55;
+}
+
+.filter-group.disabled .filter-btn,
+.filter-group.disabled .custom-select-trigger {
+    cursor: not-allowed;
+}
+
+.filter-group.disabled .filter-btn {
+    pointer-events: none;
+}
+
+.filter-group.disabled .select-wrapper::after {
+    opacity: 0.45;
+}

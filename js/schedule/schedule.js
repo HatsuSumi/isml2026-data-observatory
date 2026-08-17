@@ -1,6 +1,181 @@
 let scheduleData = null;
+let scheduleFiltersEnabled = true;
+let scheduleFilterControls = null;
 
 const SCROLL_POSITION_KEY = 'schedule_scroll_position';
+
+function setScheduleFiltersEnabled(enabled) {
+    scheduleFiltersEnabled = enabled;
+    if (!scheduleFilterControls) {
+        return;
+    }
+
+    const { filterGroup, startDayFilter, endDayFilter } = scheduleFilterControls;
+    filterGroup.classList.toggle('disabled', !enabled);
+
+    filterGroup.querySelectorAll('.filter-btn').forEach(button => {
+        button.disabled = !enabled;
+        button.tabIndex = enabled ? 0 : -1;
+    });
+
+    [startDayFilter, endDayFilter].forEach(control => {
+        control.setDisabled(!enabled);
+    });
+}
+
+function createCustomSelect({ id, placeholder, options, onChange }) {
+    const selectTemplate = document.getElementById('schedule-custom-select-template');
+    const optionTemplate = document.getElementById('schedule-custom-select-option-template');
+
+    if (!selectTemplate || !optionTemplate) {
+        throw new Error('Custom select templates not found');
+    }
+
+    const wrapper = selectTemplate.content.cloneNode(true).querySelector('.custom-select');
+    const trigger = wrapper.querySelector('.custom-select-trigger');
+    const label = wrapper.querySelector('.custom-select-label');
+    const menu = wrapper.querySelector('.custom-select-menu');
+
+    trigger.id = id;
+    menu.setAttribute('aria-labelledby', id);
+    label.textContent = placeholder;
+
+    const optionButtons = [];
+    let value = '';
+    let disabled = false;
+    let isOpen = false;
+
+    function closeMenu() {
+        if (!isOpen) return;
+        isOpen = false;
+        wrapper.classList.remove('active');
+        trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    function openMenu() {
+        if (disabled || isOpen) return;
+        document.querySelectorAll('.custom-select.active').forEach(select => {
+            if (select !== wrapper) {
+                select.dispatchEvent(new CustomEvent('custom-select:close'));
+            }
+        });
+        isOpen = true;
+        wrapper.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+    }
+
+    function setValue(nextValue, { silent = false } = {}) {
+        value = nextValue;
+        const selectedOption = options.find(option => option.value === nextValue) || options[0];
+        label.textContent = selectedOption ? selectedOption.label : placeholder;
+
+        optionButtons.forEach(button => {
+            const isSelected = button.dataset.value === nextValue;
+            button.classList.toggle('selected', isSelected);
+            button.setAttribute('aria-selected', String(isSelected));
+        });
+
+        if (!silent && typeof onChange === 'function') {
+            onChange(nextValue);
+        }
+    }
+
+    function setDisabled(nextDisabled) {
+        disabled = nextDisabled;
+        trigger.disabled = nextDisabled;
+        trigger.tabIndex = nextDisabled ? -1 : 0;
+        wrapper.classList.toggle('disabled', nextDisabled);
+        if (nextDisabled) {
+            closeMenu();
+        }
+    }
+
+    options.forEach(option => {
+        const optionButton = optionTemplate.content.cloneNode(true).querySelector('.custom-select-option');
+        optionButton.dataset.value = option.value;
+        optionButton.textContent = option.label;
+
+        optionButton.addEventListener('click', () => {
+            setValue(option.value);
+            closeMenu();
+            trigger.focus();
+        });
+
+        optionButton.addEventListener('keydown', event => {
+            const currentIndex = optionButtons.indexOf(optionButton);
+
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closeMenu();
+                trigger.focus();
+                return;
+            }
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                optionButtons[(currentIndex + 1) % optionButtons.length]?.focus();
+                return;
+            }
+
+            if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                optionButtons[(currentIndex - 1 + optionButtons.length) % optionButtons.length]?.focus();
+                return;
+            }
+
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                setValue(option.value);
+                closeMenu();
+                trigger.focus();
+            }
+        });
+
+        optionButtons.push(optionButton);
+        menu.appendChild(optionButton);
+    });
+
+    trigger.addEventListener('click', () => {
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    trigger.addEventListener('keydown', event => {
+        if (disabled) return;
+
+        if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openMenu();
+            const selectedButton = optionButtons.find(button => button.dataset.value === value) || optionButtons[0];
+            selectedButton?.focus();
+        }
+
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    wrapper.addEventListener('custom-select:close', closeMenu);
+
+    document.addEventListener('click', event => {
+        if (!wrapper.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    setValue(options[0]?.value ?? '', { silent: true });
+
+    return {
+        element: wrapper,
+        close: closeMenu,
+        getValue: () => value,
+        setDisabled,
+        setValue
+    };
+}
 
 // 加载赛程数据
 async function loadScheduleData() {
@@ -205,67 +380,57 @@ function createElevatorNav(data) {
     // 添加筛选按钮组
     const filterGroup = document.createElement('div');
     filterGroup.className = 'filter-group';
+    const filterOptions = [
+        { value: '', label: '任意' },
+        { value: '0', label: '周日' },
+        { value: '1', label: '周一' },
+        { value: '2', label: '周二' },
+        { value: '3', label: '周三' },
+        { value: '4', label: '周四' },
+        { value: '5', label: '周五' },
+        { value: '6', label: '周六' }
+    ];
+
     filterGroup.innerHTML = `
         <button class="filter-btn active" data-filter="all">全部赛事</button>
         <button class="filter-btn" data-filter="ongoing">进行中</button>
         <button class="filter-btn" data-filter="completed">已结束</button>
         <button class="filter-btn" data-filter="upcoming">未开始</button>
         <div class="date-filter">
-            <div class="select-wrapper">
-                <select id="start-day-filter">
-                    <option value="">开始日期（任意）</option>
-                    <option value="0">周日</option>
-                    <option value="1">周一</option>
-                    <option value="2">周二</option>
-                    <option value="3">周三</option>
-                    <option value="4">周四</option>
-                    <option value="5">周五</option>
-                    <option value="6">周六</option>
-                </select>
-            </div>
-            <div class="select-wrapper">
-                <select id="end-day-filter">
-                    <option value="">结束日期（任意）</option>
-                    <option value="0">周日</option>
-                    <option value="1">周一</option>
-                    <option value="2">周二</option>
-                    <option value="3">周三</option>
-                    <option value="4">周四</option>
-                    <option value="5">周五</option>
-                    <option value="6">周六</option>
-                </select>
-            </div>
+            <div class="date-filter-slot" data-filter-slot="start"></div>
+            <div class="date-filter-slot" data-filter-slot="end"></div>
         </div>
     `;
     nav.appendChild(filterGroup);
-    
-    const startDayFilter = filterGroup.querySelector('#start-day-filter');
-    const endDayFilter = filterGroup.querySelector('#end-day-filter');
-    
-    // 添加日期筛选事件监听
-    startDayFilter.addEventListener('change', (e) => {
-        applyAllFilters();
-        e.target.blur();
+
+    const startDayFilter = createCustomSelect({
+        id: 'start-day-filter',
+        placeholder: '开始日期（任意）',
+        options: filterOptions.map(option => ({
+            ...option,
+            label: option.value === '' ? '开始日期（任意）' : option.label
+        })),
+        onChange: () => applyAllFilters()
     });
-    endDayFilter.addEventListener('change', (e) => {
-        applyAllFilters();
-        e.target.blur();
+
+    const endDayFilter = createCustomSelect({
+        id: 'end-day-filter',
+        placeholder: '结束日期（任意）',
+        options: filterOptions.map(option => ({
+            ...option,
+            label: option.value === '' ? '结束日期（任意）' : option.label
+        })),
+        onChange: () => applyAllFilters()
     });
-    
-    // 控制箭头状态
-    [startDayFilter, endDayFilter].forEach(select => {
-        const wrapper = select.closest('.select-wrapper');
-        select.addEventListener('focus', () => {
-            wrapper.classList.add('active');
-        });
-        select.addEventListener('blur', () => {
-            wrapper.classList.remove('active');
-        });
-    });
+
+    filterGroup.querySelector('[data-filter-slot="start"]').appendChild(startDayFilter.element);
+    filterGroup.querySelector('[data-filter-slot="end"]').appendChild(endDayFilter.element);
+
     
     // 筛选功能
     let currentFilter = 'all';
-    
+    scheduleFilterControls = { filterGroup, startDayFilter, endDayFilter };
+
     // 更新轮次项显示状态的辅助函数
     function updateRoundItems(navLink, matches) {
         const roundItems = navLink.querySelectorAll('.round-item');
@@ -282,7 +447,7 @@ function createElevatorNav(data) {
     }
     
     filterGroup.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('filter-btn')) return;
+        if (!scheduleFiltersEnabled || !e.target.classList.contains('filter-btn')) return;
         
         // 更新按钮状态
         filterGroup.querySelectorAll('.filter-btn').forEach(btn => {
@@ -299,14 +464,12 @@ function createElevatorNav(data) {
     
     // 统一处理所有筛选条件
     function applyAllFilters() {
-        const startDay = startDayFilter.value;
-        const endDay = endDayFilter.value;
-        
-        console.log('开始筛选：', {
-            currentFilter,
-            startDay: startDay ? `周${['日','一','二','三','四','五','六'][parseInt(startDay)]}` : '任意',
-            endDay: endDay ? `周${['日','一','二','三','四','五','六'][parseInt(endDay)]}` : '任意'
-        });
+        if (!scheduleFiltersEnabled) {
+            return;
+        }
+
+        const startDay = startDayFilter.getValue();
+        const endDay = endDayFilter.getValue();
         
         // 获取或创建无结果提示元素
         let noResults = document.querySelector('.no-results');
@@ -1015,6 +1178,7 @@ document.getElementById('characterSearch').addEventListener('input',
         const timelineEl = document.getElementById('timeline');
         
         if (!searchValue) {  
+            setScheduleFiltersEnabled(true);
             showAllMatches();
             noCharacterEl.style.display = 'none'; 
             timelineEl.style.display = 'block';
@@ -1032,10 +1196,12 @@ document.getElementById('characterSearch').addEventListener('input',
             if (matchedCharacters.length > 0) {
                 if (matchedCharacters.length === 1) {
                     const [, character] = matchedCharacters[0];
+                    setScheduleFiltersEnabled(false);
                     filterTimelineByCharacter(character);
                     noCharacterEl.style.display = 'none';
                     timelineEl.style.display = 'block';
                 } else {
+                    setScheduleFiltersEnabled(false);
                     noCharacterEl.style.display = 'none';
                     timelineEl.style.display = 'none';
                     showCharacterSelection(matchedCharacters);
@@ -1052,6 +1218,43 @@ document.getElementById('characterSearch').addEventListener('input',
         }
     }, 300)
 );
+
+function renderDefaultMatchStatus(match, status) {
+    const statusText = {
+        completed: '已结束',
+        ongoing: '进行中',
+        upcoming: '即将开始',
+        pending: '未开始',
+        postponed: '已延期'
+    };
+
+    const statusIcon = {
+        completed: '✓',
+        ongoing: '●',
+        upcoming: '○',
+        pending: '·',
+        postponed: '!'
+    };
+
+    const statusEl = match.querySelector('.match-status');
+    if (!statusEl) return;
+
+    statusEl.className = `match-status ${status}`;
+    statusEl.innerHTML = `
+        <span class="status-icon">${statusIcon[status]}</span>
+        ${statusText[status]}
+    `;
+    match.className = `timeline-item ${status}`;
+}
+
+function renderCharacterMatchStatus(match, result) {
+    const statusEl = match.querySelector('.match-status');
+    if (!statusEl) return;
+
+    const resultClass = getResultClass(result);
+    statusEl.textContent = result;
+    statusEl.className = `match-status ${resultClass}`;
+}
 
 function filterTimelineByCharacter(character) {
     const timeline = document.getElementById('timeline');
@@ -1074,14 +1277,9 @@ function filterTimelineByCharacter(character) {
                 match.style.display = 'block';
                 hasVisibleMatch = true;
                 
-                // 更新比赛结果
                 const characterMatch = character.matches.find(m => m.title === matchTitle);
                 if (characterMatch) {
-                    const resultEl = match.querySelector('.match-status');
-                    const resultClass = getResultClass(characterMatch.result);
-                    resultEl.textContent = characterMatch.result;
-                    resultEl.className = `match-status ${resultClass}`;
-                    match.classList.remove('completed', 'ongoing', 'upcoming', 'pending');
+                    renderCharacterMatchStatus(match, characterMatch.result);
                 }
             } else {
                 match.style.display = 'none';
@@ -1098,22 +1296,6 @@ function filterTimelineByCharacter(character) {
 }
 
 function showAllMatches() {
-    const statusText = {
-        'completed': '已结束',
-        'ongoing': '进行中',
-        'upcoming': '即将开始',
-        'pending': '未开始',
-        'postponed': '已延期'
-    };
-    
-    const statusIcon = {
-        'completed': '✓',
-        'ongoing': '●',
-        'upcoming': '○',
-        'pending': '·',
-        'postponed': '!'
-    };
-
     const timeline = document.getElementById('timeline');
     const sections = timeline.querySelectorAll('.timeline-section');
     const elevatorNav = document.querySelector('.elevator-nav'); 
@@ -1143,14 +1325,7 @@ function showAllMatches() {
         
         if (matchData) {
             const status = getMatchStatus(matchData);
-            const statusEl = match.querySelector('.match-status');
-            statusEl.className = `match-status ${status}`;
-            statusEl.innerHTML = `
-                <span class="status-icon">${statusIcon[status]}</span>
-                ${statusText[status]}
-            `;
-            // 恢复时间线状态类
-            match.className = `timeline-item ${status}`;
+            renderDefaultMatchStatus(match, status);
         }
     });
 }
