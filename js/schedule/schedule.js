@@ -4,6 +4,16 @@ let scheduleFilterControls = null;
 
 const SCROLL_POSITION_KEY = 'schedule_scroll_position';
 
+function cloneScheduleTemplate(templateId, selector) {
+    const template = document.getElementById(templateId);
+    if (!template) {
+        throw new Error(`Schedule template not found: ${templateId}`);
+    }
+
+    const fragment = template.content.cloneNode(true);
+    return selector ? fragment.querySelector(selector) : fragment.firstElementChild;
+}
+
 function setScheduleFiltersEnabled(enabled) {
     scheduleFiltersEnabled = enabled;
     if (!scheduleFilterControls) {
@@ -225,8 +235,7 @@ function initReminders() {
         if (link.textContent === '设置提醒') {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const tooltip = document.createElement('div');
-                tooltip.className = 'tooltip';
+                const tooltip = cloneScheduleTemplate('schedule-tooltip-template', '.tooltip');
                 tooltip.textContent = '目前静态网站暂不支持，未来升级成动态网站后将支持提醒功能';
                 
                 tooltip.style.position = 'fixed';
@@ -361,25 +370,15 @@ function updateNavHighlight() {
 
 // 创建电梯导航
 function createElevatorNav(data) {
-    const nav = document.createElement('nav');
-    nav.className = 'elevator-nav';
-    
+    const nav = cloneScheduleTemplate('schedule-elevator-nav-template', '.elevator-nav');
+    const searchDiv = nav.querySelector('.elevator-search');
+    const filterGroup = nav.querySelector('.filter-group');
+    const navList = nav.querySelector('.elevator-nav-list');
+
     // 保存当前搜索状态
     let currentMatches = [];
     let currentMatchIndex = -1;
-    
-    // 添加搜索框
-    const searchDiv = document.createElement('div');
-    searchDiv.className = 'elevator-search';
-    searchDiv.innerHTML = `
-        <input type="text" placeholder="搜索赛事...多个搜索结果可用回车键切换" />
-        <div class="search-info"></div>
-    `;
-    nav.appendChild(searchDiv);
-    
-    // 添加筛选按钮组
-    const filterGroup = document.createElement('div');
-    filterGroup.className = 'filter-group';
+
     const filterOptions = [
         { value: '', label: '任意' },
         { value: '0', label: '周日' },
@@ -390,19 +389,6 @@ function createElevatorNav(data) {
         { value: '5', label: '周五' },
         { value: '6', label: '周六' }
     ];
-
-    filterGroup.innerHTML = `
-        <button class="filter-btn active" data-filter="all">全部赛事</button>
-        <button class="filter-btn" data-filter="ongoing">进行中</button>
-        <button class="filter-btn" data-filter="completed">已结束</button>
-        <button class="filter-btn" data-filter="upcoming">未开始</button>
-        <div class="date-filter">
-            <div class="date-filter-slot" data-filter-slot="start"></div>
-            <div class="date-filter-slot" data-filter-slot="end"></div>
-        </div>
-    `;
-    nav.appendChild(filterGroup);
-
     const startDayFilter = createCustomSelect({
         id: 'start-day-filter',
         placeholder: '开始日期（任意）',
@@ -474,9 +460,7 @@ function createElevatorNav(data) {
         // 获取或创建无结果提示元素
         let noResults = document.querySelector('.no-results');
         if (!noResults) {
-            noResults = document.createElement('div');
-            noResults.className = 'no-results';
-            noResults.textContent = '没有找到符合条件的赛事';
+            noResults = cloneScheduleTemplate('schedule-no-results-template', '.no-results');
             document.querySelector('.timeline').appendChild(noResults);
         }
         
@@ -618,7 +602,6 @@ function createElevatorNav(data) {
     });
     
     // 添加导航列表
-    const ul = document.createElement('ul');
     Object.entries(data.phases).forEach(([phaseId, phase]) => {
         // 计算阶段状态
         const now = new Date();
@@ -627,7 +610,6 @@ function createElevatorNav(data) {
         // 检查阶段中所有比赛的状态
         const matches = phase.matches || [];
         const hasCompleted = matches.some(match => {
-            // 对于重赛，使用重赛的结束日期
             const endDate = match.dateRange.isRescheduled && match.dateRange.Reend 
                 ? new Date(match.dateRange.Reend)
                 : new Date(match.dateRange.end);
@@ -635,7 +617,6 @@ function createElevatorNav(data) {
         });
         
         const hasOngoing = matches.some(match => {
-            // 对于重赛，使用重赛的开始和结束日期
             const start = match.dateRange.isRescheduled && match.dateRange.Restart
                 ? new Date(match.dateRange.Restart)
                 : new Date(match.dateRange.start);
@@ -653,53 +634,67 @@ function createElevatorNav(data) {
             phaseStatus = 'ongoing';  
         }
 
-        const li = document.createElement('li');
-        li.innerHTML = `
-        <a href="#${phaseId}" class="nav-link ${phaseStatus}">
-            <span class="status-dot"></span>
-            <div class="nav-text">
-                <div class="nav-text-content">
-                    <span class="phase-title">${phase.title}</span>
-                    <span class="phase-status phase-status-toggle">${
-                        phaseStatus === 'completed' ? '已结束' :
-                        phaseStatus === 'ongoing' ? '进行中' : '未开始'
-                    }</span>
-                </div>
-                <span class="nav-arrow">›</span>
-            </div>
-            <div class="round-dropdown">
-                ${phase.matches.map((match, index) => {
-                    // 考虑重赛日期
-                    const originalEndDate = new Date(match.dateRange.end);
-                    const now = new Date();
-                    
-                        const status = match.dateRange.isRescheduled 
-                        ? (new Date(match.dateRange.Reend) < now ? '已结束' :
-                           (new Date(match.dateRange.Restart) <= now && now <= new Date(match.dateRange.Reend)) ? '进行中' : '未开始')
-                        : (originalEndDate < now ? '已结束' :
-                           (new Date(match.dateRange.start) <= now && now <= originalEndDate) ? '进行中' : '未开始');
-                    
-                    const statusClass = status === '已结束' ? 'completed' :
-                                      status === '进行中' ? 'ongoing' : 'pending';
-                    
-                    return `
-                        <div class="round-item" data-match-title="${match.title}">
-                            <span class="round-title">${match.title.split(' ').pop()}${match.dateRange.isRescheduled ? ' (重赛)' : ''}</span>
-                            <span class="round-status ${statusClass}">${status}</span>
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        </a>
-    `;
+        const li = cloneScheduleTemplate('schedule-nav-item-template', 'li');
+        const link = li.querySelector('.nav-link');
+        const phaseTitle = li.querySelector('.phase-title');
+        const phaseStatusEl = li.querySelector('.phase-status');
+        const roundDropdown = li.querySelector('.round-dropdown');
+
+        link.href = `#${phaseId}`;
+        link.classList.add(phaseStatus);
+        phaseTitle.textContent = phase.title;
+        phaseStatusEl.textContent = phaseStatus === 'completed' ? '已结束' : phaseStatus === 'ongoing' ? '进行中' : '未开始';
+
+        phase.matches.forEach((match, index) => {
+            const originalEndDate = new Date(match.dateRange.end);
+            const roundNow = new Date();
+            const status = match.dateRange.isRescheduled
+                ? (new Date(match.dateRange.Reend) < roundNow ? '已结束' :
+                   (new Date(match.dateRange.Restart) <= roundNow && roundNow <= new Date(match.dateRange.Reend)) ? '进行中' : '未开始')
+                : (originalEndDate < roundNow ? '已结束' :
+                   (new Date(match.dateRange.start) <= roundNow && roundNow <= originalEndDate) ? '进行中' : '未开始');
+            const statusClass = status === '已结束' ? 'completed' : status === '进行中' ? 'ongoing' : 'pending';
+
+            const roundItem = cloneScheduleTemplate('schedule-round-item-template', '.round-item');
+            roundItem.dataset.matchTitle = match.title;
+            roundItem.style.transitionDelay = `${0.05 * (index + 1)}s`;
+            roundItem.querySelector('.round-title').textContent = `${match.title.split(' ').pop()}${match.dateRange.isRescheduled ? ' (重赛)' : ''}`;
+            const roundStatus = roundItem.querySelector('.round-status');
+            roundStatus.classList.add(statusClass);
+            roundStatus.textContent = status;
+
+            roundItem.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                document.querySelectorAll('.round-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                roundItem.classList.add('active');
+
+                const matchTitle = roundItem.dataset.matchTitle;
+                const allMatches = document.querySelectorAll('.match-card');
+                const matchElement = Array.from(allMatches).find(card =>
+                    card.querySelector('.match-title').textContent === matchTitle
+                );
+
+                if (matchElement) {
+                    const targetPosition = getOffsetTop(matchElement) - 120;
+                    smoothScrollTo(targetPosition);
+                }
+            });
+
+            roundDropdown.appendChild(roundItem);
+        });
+
         
         // 添加点击事件处理
-        li.querySelector('a').addEventListener('click', (e) => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            const link = e.target.closest('a');
-            if (!link) return;
+            const currentLink = e.target.closest('a');
+            if (!currentLink) return;
             
-            const targetId = e.target.closest('a').getAttribute('href').slice(1);
+            const targetId = currentLink.getAttribute('href').slice(1);
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
@@ -714,46 +709,14 @@ function createElevatorNav(data) {
             e.preventDefault();
             e.stopPropagation();
             
-            const link = e.target.closest('.nav-link');
-            if (!link) return;
+            const currentLink = e.target.closest('.nav-link');
+            if (!currentLink) return;
             
-            // 直接切换当前项的展开状态
-            link.classList.toggle('expanded');
+            currentLink.classList.toggle('expanded');
         });
         
-        // 添加轮次点击事件
-        li.querySelectorAll('.round-item').forEach((roundItem, index) => {
-            // 动态添加延迟动画
-            roundItem.style.transitionDelay = `${0.05 * (index + 1)}s`;
-            
-            roundItem.addEventListener('click', (e) => {
-                e.stopPropagation(); 
-                
-                // 移除所有轮次的激活状态
-                document.querySelectorAll('.round-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // 添加当前轮次的激活状态
-                roundItem.classList.add('active');
-                
-                // 查找对应的比赛卡片并滚动
-                const matchTitle = roundItem.dataset.matchTitle;
-                const allMatches = document.querySelectorAll('.match-card');
-                const matchElement = Array.from(allMatches).find(card => 
-                    card.querySelector('.match-title').textContent === matchTitle
-                );
-                
-                if (matchElement) {
-                    const targetPosition = getOffsetTop(matchElement) - 120;
-                    smoothScrollTo(targetPosition);
-                }
-            });
-        });
-        
-        ul.appendChild(li);
+        navList.appendChild(li);
     });
-    nav.appendChild(ul);
     
     // 查找当前进行中或即将开始的比赛
     function findCurrentMatch(data) {
@@ -786,26 +749,23 @@ function createElevatorNav(data) {
     // 创建当前赛事信息
     const currentMatch = findCurrentMatch(data);
         if (currentMatch) {
-            const currentMatchDiv = document.createElement('div');
-            currentMatchDiv.className = 'current-match-info';
-            currentMatchDiv.innerHTML = `
-            <div class="info-label">${
-                // 直接返回文案
-                currentMatch.dateRange.isRescheduled 
-                    ? (new Date() >= new Date(currentMatch.dateRange.Restart) && 
-                       new Date() <= new Date(currentMatch.dateRange.Reend))
-                        ? '当前进行中的赛事：' 
-                        : '即将开始的赛事：'
-                    : (new Date() >= new Date(currentMatch.dateRange.start) && 
-                       new Date() <= new Date(currentMatch.dateRange.end))
-                        ? '当前进行中的赛事：'
-                        : '即将开始的赛事：'
-            }</div>
-            <div class="match-name">${currentMatch.title}${currentMatch.dateRange.isRescheduled ? ' (重赛)' : ''}</div>
-        `;
+            const currentMatchDiv = cloneScheduleTemplate('schedule-current-match-template', '.current-match-info');
+            const infoLabel = currentMatchDiv.querySelector('.info-label');
+            const matchName = currentMatchDiv.querySelector('.match-name');
+
+            infoLabel.textContent = currentMatch.dateRange.isRescheduled
+                ? (new Date() >= new Date(currentMatch.dateRange.Restart) &&
+                   new Date() <= new Date(currentMatch.dateRange.Reend))
+                    ? '当前进行中的赛事：'
+                    : '即将开始的赛事：'
+                : (new Date() >= new Date(currentMatch.dateRange.start) &&
+                   new Date() <= new Date(currentMatch.dateRange.end))
+                    ? '当前进行中的赛事：'
+                    : '即将开始的赛事：';
+            matchName.textContent = `${currentMatch.title}${currentMatch.dateRange.isRescheduled ? ' (重赛)' : ''}`;
             
             // 点击跳转到对应赛事
-            currentMatchDiv.querySelector('.match-name').addEventListener('click', () => {
+            matchName.addEventListener('click', () => {
                 // 查找包含指定标题的赛事卡片
                 const allMatches = document.querySelectorAll('.match-card');
                 const matchElement = Array.from(allMatches).find(card => 
@@ -894,14 +854,9 @@ function renderSchedule(data) {
     const nextMatch = getNextMatch(data);
     
     Object.entries(data.phases).forEach(([phaseId, phase]) => {
-        const section = document.createElement('div');
-        section.className = 'timeline-section';
+        const section = cloneScheduleTemplate('schedule-timeline-section-template', '.timeline-section');
         section.id = phaseId;
-        section.innerHTML = `
-            <div class="timeline-header">
-                <h2>${phase.title}</h2>
-            </div>
-        `;
+        section.querySelector('.timeline-header h2').textContent = phase.title;
         
         phase.matches.forEach(match => {
             const matchElement = createMatchElement(match, nextMatch);
@@ -918,7 +873,7 @@ function renderSchedule(data) {
 
 // 创建比赛元素
 function createMatchElement(match, nextMatch) {
-    const element = document.createElement('div');
+    const element = cloneScheduleTemplate('schedule-timeline-item-template', '.timeline-item');
     const status = getMatchStatus(match);
     
     const statusText = {
@@ -945,12 +900,14 @@ function createMatchElement(match, nextMatch) {
     element.dataset.endDate = match.dateRange.isRescheduled && match.dateRange.Reend
         ? match.dateRange.Reend
         : match.dateRange.end;
-    
-    element.innerHTML = `
-    <div class="timeline-dot"></div>
-         <div class="timeline-content">
-             <div class="match-card">
-                 <div class="match-date">
+
+    const matchDate = element.querySelector('.match-date');
+    const matchTitle = element.querySelector('.match-title');
+    const matchStatus = element.querySelector('.match-status');
+    const matchStats = element.querySelector('.match-stats');
+    const matchDetails = element.querySelector('.match-details');
+
+    matchDate.innerHTML = `
                      ${match.title === '恒星组提名' ? 
                          `2024-12-31 20:00:00 (周二) - 2025-01-07 19:59:59 (周二)` :
                          (() => {
@@ -1007,11 +964,10 @@ function createMatchElement(match, nextMatch) {
                              </div>
                          </div>
                      ` : ''}
-                </div>
-                <h3 class="match-title">${match.title}</h3>
-                <div class="match-header">
-                    <div class="match-status">
-                        ${status === 'postponed' ? `
+    `;
+
+    matchTitle.textContent = match.title;
+    matchStatus.innerHTML = status === 'postponed' ? `
                             <div class="status-wrapper">
                                 <span class="status-icon">${statusIcon}</span>
                                 ${statusText}
@@ -1023,20 +979,11 @@ function createMatchElement(match, nextMatch) {
                         ` : `
                             <span class="status-icon">${statusIcon}</span>
                             ${statusText}
-                        `}
-                    </div>
-                    <div class="match-stats">
-                        ${match.details?.votes ? 
-                            `<span class="stats-item">总选票数：${match.details.votes.total}（有效：${match.details.votes.valid}）</span>` 
-                            : ''}
-                    </div>
-                </div>
-                <div class="match-details">
-                    ${renderMatchDetails(match, status)}
-                </div>
-            </div>
-        </div>
-    `;
+                        `;
+    matchStats.innerHTML = match.details?.votes
+        ? `<span class="stats-item">总选票数：${match.details.votes.total}（有效：${match.details.votes.valid}）</span>`
+        : '';
+    matchDetails.innerHTML = renderMatchDetails(match, status);
     
     return element;
 }
@@ -1407,38 +1354,27 @@ function getMatchStatus(match) {
 
 // 显示角色选择列表
 function showCharacterSelection(characters) {
-    const selectionEl = document.createElement('div');
-    selectionEl.className = 'character-selection';
-    
-    const title = document.createElement('p');
-    title.textContent = '匹配到多个角色，请选择：';
-    selectionEl.appendChild(title);
-    
+    const selectionEl = cloneScheduleTemplate('schedule-character-selection-template', '.character-selection');
+
     characters.forEach(([, char]) => {
-        const button = document.createElement('button');
-        
-        // 创建头像容器
-        const avatar = document.createElement('div');
-        avatar.className = 'avatar';
-        const img = document.createElement('img');
+        const button = cloneScheduleTemplate('schedule-character-selection-item-template', '.character-selection-item');
+        const avatar = button.querySelector('.avatar');
+        const img = button.querySelector('img');
+        const info = button.querySelector('.info');
+
         if (char.avatar) {
+            avatar.hidden = false;
             img.src = char.avatar;
-            avatar.appendChild(img);
-            button.appendChild(avatar);
+            img.alt = `${char.name}头像`;
         }
-        
-        // 创建信息容器
-        const info = document.createElement('div');
-        info.className = 'info';
+
         info.textContent = `${char.name}（${char.ip}）`;
-        
-        button.appendChild(info);
-        
-        button.onclick = () => {
+
+        button.addEventListener('click', () => {
             filterTimelineByCharacter(char);
             selectionEl.remove();
             document.getElementById('timeline').style.display = 'block';
-        };
+        });
         selectionEl.appendChild(button);
     });
     

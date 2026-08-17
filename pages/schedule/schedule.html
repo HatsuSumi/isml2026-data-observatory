@@ -26,9 +26,48 @@
                 <div class="match-list"></div>
             </div>
             
-            <div id="timeline" class="timeline">    
-            </div>
+            <div id="timeline" class="timeline"></div>
         </div>
+        <template id="schedule-elevator-nav-template">
+            <nav class="elevator-nav">
+                <div class="elevator-search">
+                    <input type="text" placeholder="搜索赛事...多个搜索结果可用回车键切换" />
+                    <div class="search-info"></div>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">全部赛事</button>
+                    <button class="filter-btn" data-filter="ongoing">进行中</button>
+                    <button class="filter-btn" data-filter="completed">已结束</button>
+                    <button class="filter-btn" data-filter="upcoming">未开始</button>
+                    <div class="date-filter">
+                        <div class="date-filter-slot" data-filter-slot="start"></div>
+                        <div class="date-filter-slot" data-filter-slot="end"></div>
+                    </div>
+                </div>
+                <ul class="elevator-nav-list"></ul>
+            </nav>
+        </template>
+        <template id="schedule-nav-item-template">
+            <li>
+                <a href="#" class="nav-link">
+                    <span class="status-dot"></span>
+                    <div class="nav-text">
+                        <div class="nav-text-content">
+                            <span class="phase-title"></span>
+                            <span class="phase-status phase-status-toggle"></span>
+                        </div>
+                        <span class="nav-arrow">›</span>
+                    </div>
+                    <div class="round-dropdown"></div>
+                </a>
+            </li>
+        </template>
+        <template id="schedule-round-item-template">
+            <div class="round-item" data-match-title="">
+                <span class="round-title"></span>
+                <span class="round-status"></span>
+            </div>
+        </template>
         <template id="schedule-custom-select-template">
             <div class="select-wrapper custom-select">
                 <button
@@ -45,6 +84,54 @@
         <template id="schedule-custom-select-option-template">
             <button type="button" class="custom-select-option" role="option" aria-selected="false"></button>
         </template>
+        <template id="schedule-no-results-template">
+            <div class="no-results">没有找到符合条件的赛事</div>
+        </template>
+        <template id="schedule-current-match-template">
+            <div class="current-match-info">
+                <div class="info-label"></div>
+                <div class="match-name"></div>
+            </div>
+        </template>
+        <template id="schedule-character-selection-template">
+            <div class="character-selection">
+                <p class="character-selection-title">匹配到多个角色，请选择：</p>
+            </div>
+        </template>
+        <template id="schedule-character-selection-item-template">
+            <button type="button" class="character-selection-item">
+                <div class="avatar" hidden>
+                    <img alt="">
+                </div>
+                <div class="info"></div>
+            </button>
+        </template>
+        <template id="schedule-tooltip-template">
+            <div class="tooltip"></div>
+        </template>
+        <template id="schedule-timeline-section-template">
+            <div class="timeline-section">
+                <div class="timeline-header">
+                    <h2></h2>
+                </div>
+            </div>
+        </template>
+        <template id="schedule-timeline-item-template">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="match-card">
+                        <div class="match-date"></div>
+                        <h3 class="match-title"></h3>
+                        <div class="match-header">
+                            <div class="match-status"></div>
+                            <div class="match-stats"></div>
+                        </div>
+                        <div class="match-details"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
         <include src="templates/footer.html"></include>
     </div>
     
@@ -59,4 +146,3 @@
     </script>
 </body>
 </html>
-
