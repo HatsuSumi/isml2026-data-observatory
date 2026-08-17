@@ -233,7 +233,7 @@ function observeImages() {
 function adjustCardLayout() {
     const contentWidth = document.querySelector('.tournament-section').offsetWidth;
     
-    const activePanels = document.querySelectorAll('.character-panel.active');
+    const activePanels = document.querySelectorAll('.tournament-section .character-panel.active');
     let minCardWidth, gap;
     
     // 根据内容区域宽度优化卡片大小和间距

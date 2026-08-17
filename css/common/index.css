@@ -482,14 +482,17 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-width: 0;
 }
 
 .stellar-results, .nova-results {
     display: grid;
     gap: 1rem;
+    min-width: 0;
 }
 
 .results-section {
+    min-width: 0;
     margin: 1rem 0;
 }
 
@@ -499,6 +502,22 @@ body {
     margin-bottom: 1rem;
     padding-left: 1rem;
     border-left: 3px solid #FFD700;
+}
+
+.results-section .character-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(149px, 100%), 149px));
+    justify-content: center;
+    align-items: start;
+    gap: 0.7rem;
+    min-width: 0;
+    width: 100%;
+}
+
+.results-section .character-card {
+    width: 149px;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .no-results {
