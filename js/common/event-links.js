@@ -9,31 +9,58 @@ async function checkPageExists(url) {
     }
 }
 
-async function generateDropdownMenu() {
+function getCurrentContext() {
+    const params = new URLSearchParams(window.location.search);
     const currentPath = window.location.pathname;
     const currentPage = currentPath.split('/').pop().replace('.html', '');
-    const visualizationId = new URLSearchParams(window.location.search).get('id');
-    const pageKey = currentPage === 'visualization' && visualizationId ? visualizationId : currentPage;
+    const currentId = params.get('id');
+
+    if (currentPage === 'visualization' && currentId) {
+        return {
+            isTablePage: false,
+            pageKey: currentId,
+            currentFrom: params.get('from')
+        };
+    }
+
+    if (currentPage === 'nomination-table' && currentId) {
+        return {
+            isTablePage: true,
+            pageKey: `${currentId}-table`,
+            currentFrom: params.get('from')
+        };
+    }
+
+    return {
+        isTablePage: currentPage.includes('-table'),
+        pageKey: currentPage,
+        currentFrom: params.get('from')
+    };
+}
+
+function getTargetUrl(id, isTablePage, currentFrom) {
+    if (isTablePage) {
+        const params = new URLSearchParams({ id });
+        if (currentFrom) {
+            params.set('from', currentFrom);
+        }
+        return `pages/tables/nomination-table.html?${params.toString()}`;
+    }
+
+    const params = new URLSearchParams({ id });
+    if (currentFrom) {
+        params.set('from', currentFrom);
+    }
+    return `pages/visualization/visualization.html?${params.toString()}`;
+}
+
+async function generateDropdownMenu() {
+    const { isTablePage, pageKey, currentFrom } = getCurrentContext();
     const currentPhase = EVENT_LINKS[pageKey]?.phase;
 
     if (!currentPhase) {
         return;
     }
-
-    const isTablePage = currentPage.includes('-table');
-    const currentFrom = new URLSearchParams(window.location.search).get('from');
-
-    const getTargetUrl = (id) => {
-        if (isTablePage) {
-            return `pages/tables/${id}-table.html${currentFrom ? `?from=${currentFrom}` : ''}`;
-        }
-
-        const params = new URLSearchParams({ id });
-        if (currentFrom) {
-            params.set('from', currentFrom);
-        }
-        return `pages/visualization/visualization.html?${params.toString()}`;
-    };
 
     const dropdown = document.createElement('div');
     dropdown.className = 'events-dropdown';
@@ -52,7 +79,8 @@ async function generateDropdownMenu() {
             return id !== pageKey && info.phase === currentPhase && isTargetTable === isTablePage;
         })
         .map(async ([id, info]) => {
-            const pageUrl = getTargetUrl(id.replace('-table', ''));
+            const targetId = id.replace('-table', '');
+            const pageUrl = getTargetUrl(targetId, isTablePage, currentFrom);
             const exists = await checkPageExists(pageUrl);
             return { info, exists, pageUrl };
         });
@@ -76,7 +104,7 @@ async function generateDropdownMenu() {
     dropdown.appendChild(content);
 
     if (isTablePage) {
-        document.querySelector('.visualization-btn')?.after(dropdown);
+        document.querySelector('.dropdown')?.after(dropdown);
         return;
     }
 
