@@ -106,6 +106,24 @@ body {
     align-items: center;
 }
 
+.tooltip-trigger {
+    cursor: help;
+    background-color: #f0e6ff;
+    color: #333;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: -83px;
+    position: relative;
+    top: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
 .match-title {
     color: #fff;
     font-size: 1.2rem;
@@ -1398,28 +1416,6 @@ body {
     flex: 1;
 }
 
-.tooltip-trigger {
-    cursor: help;
-    background-color: #f0e6ff; 
-    color: #333;
-    border-radius: 50%;
-    width: 12px;  
-    height: 12px; 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;  
-    font-weight: bold;
-    margin-left: -83px;
-    position: relative;
-    top: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-
-.tooltip-trigger:hover {
-    background-color: #e6d6ff; 
-}
-
 .tooltip-trigger:hover::after {
     content: attr(data-title);
     position: absolute;
@@ -1430,7 +1426,7 @@ body {
     font-size: 0.8rem;
     font-weight: normal;
     white-space: nowrap;
-    top: -36px;
+    bottom: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -1441,7 +1437,7 @@ body {
 .tooltip-trigger:hover::before {
     content: '';
     position: absolute;
-    top: -10px;
+    bottom: calc(100% + 2px);
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -1499,4 +1495,14 @@ body {
     left: 50%;
     top: 100px;
     transform: translate(-50%, -50%);
+}
+#characterSearch {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#characterSearch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.12);
+    border-color: rgba(255, 215, 0, 0.45);
+    background-color: rgba(255, 255, 255, 0.12);
 }

@@ -12,6 +12,10 @@ function cloneParagraph() {
     return cloneScheduleTemplate('schedule-paragraph-template', 'p');
 }
 
+function appendTextNode(parent, text) {
+    parent.appendChild(document.createTextNode(text));
+}
+
 function cloneLineBreak() {
     return cloneScheduleTemplate('schedule-line-break-template', 'br');
 }
@@ -42,7 +46,7 @@ function buildDateContent(match) {
     const fragment = document.createDocumentFragment();
 
     if (match.title === '恒星组提名') {
-        fragment.appendChild(cloneInlineText('', '2024-12-31 20:00:00 (周二) - 2025-01-07 19:59:59 (周二)'));
+        appendTextNode(fragment, '2024-12-31 20:00:00 (周二) - 2025-01-07 19:59:59 (周二)');
     } else {
         const startDate = match.dateRange.isRescheduled && match.dateRange.Restart
             ? new Date(match.dateRange.Restart)
@@ -67,25 +71,25 @@ function buildDateContent(match) {
         const originalDateText = `${startStr} (${getWeekday(startDate)}) - ${normalizedEndDate} (${getWeekday(endDate)})`;
 
         if (match.dateRange.isRescheduled) {
-            fragment.appendChild(cloneInlineText('', `原定：${originalDateText}`));
+            appendTextNode(fragment, `原定：${originalDateText}`);
             fragment.appendChild(cloneLineBreak());
-            fragment.appendChild(cloneInlineText('', '重赛：'));
+            appendTextNode(fragment, '重赛：');
 
             if (match.dateRange.Restart) {
                 const retryText = `${match.dateRange.Restart} (${getWeekday(new Date(match.dateRange.Restart))}) - ${match.dateRange.Reend} (${getWeekday(new Date(match.dateRange.Reend))})`;
-                fragment.appendChild(cloneInlineText('', retryText));
+                appendTextNode(fragment, retryText);
 
                 const tooltipTrigger = cloneInlineText('tooltip-trigger', '?');
                 tooltipTrigger.dataset.title = match.dateRange.rescheduledReason || '';
                 fragment.appendChild(tooltipTrigger);
             }
         } else {
-            fragment.appendChild(cloneInlineText('', originalDateText));
+            appendTextNode(fragment, originalDateText);
         }
     }
 
     if (match.dateRange.result) {
-        fragment.appendChild(cloneInlineText('', ` | 结果公布：${match.dateRange.result} (${getWeekday(new Date(match.dateRange.result))})`));
+        appendTextNode(fragment, ` | 结果公布：${match.dateRange.result} (${getWeekday(new Date(match.dateRange.result))})`);
     }
 
     if (match.details?.format) {
