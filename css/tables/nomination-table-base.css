@@ -232,7 +232,7 @@ tr:nth-child(even):hover {
     transform-origin: top center;
     transform: scale(.8);
     opacity: 0;
-    transition: all .2s
+    transition: all .35s ease, background-color .35s ease, transform .35s ease
 }
 
 .events-dropdown-content {
@@ -284,7 +284,23 @@ tr:nth-child(even):hover {
     display: block;
     font-size: 14px;
     text-align: center;
-    border-bottom: 1px solid var(--border)
+    border-bottom: 1px solid var(--border);
+    background-color: transparent;
+    transition: background-color .25s ease, color .25s ease, transform .25s ease, padding-left .25s ease
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:focus-visible {
+    background-color: #3e9d65;
+    color: #fff;
+    transform: translateX(2px);
+    padding-left: 18px;
+    outline: 0
+}
+
+.dropdown-content a:last-child,
+.events-dropdown-content a:last-child {
+    border: 0
 }
 
 .events-dropdown-content a {
@@ -294,16 +310,6 @@ tr:nth-child(even):hover {
     display: block;
     transition: all 0.3s ease;
     font-family: "Microsoft YaHei";
-}
-
-.dropdown-content a:last-child,
-.events-dropdown-content a:last-child {
-    border: 0
-}
-
-.dropdown-content a:hover {
-    background: linear-gradient(145deg, #3d7644, #3e9d65);
-    transform: scale(1.02)
 }
 
 .events-dropdown-content a:hover {
@@ -640,7 +646,7 @@ tr.fade-in {
 }
 
 .cv-warning::before {
-    content: '严谨来说是音源';
+    content: 'audio source';
     position: absolute;
     top: -15px;
     right: -60px;
