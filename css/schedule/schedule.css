@@ -721,7 +721,7 @@ body {
 /* 筛选按钮组样式 */
 .filter-group {
     display: flex;
-    gap: 8px;
+    gap: 4px;
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(255, 215, 0, 0.1);

@@ -132,14 +132,65 @@
                 </div>
             </div>
         </template>
+        <template id="schedule-inline-text-template">
+            <span></span>
+        </template>
+        <template id="schedule-paragraph-template">
+            <p></p>
+        </template>
+        <template id="schedule-line-break-template">
+            <br>
+        </template>
+        <template id="schedule-voting-format-wrapper-template">
+            <div class="voting-format-wrapper">
+                <span class="key"></span>
+                <div class="voting-format-menu"></div>
+            </div>
+        </template>
+        <template id="schedule-format-item-template">
+            <div class="format-item"></div>
+        </template>
+        <template id="schedule-status-wrapper-template">
+            <div class="status-wrapper">
+                <span class="status-icon"></span>
+                <div class="postpone-hint">
+                    <i class="fas fa-question-circle"></i>
+                    <div class="tooltip"></div>
+                </div>
+            </div>
+        </template>
+        <template id="schedule-stats-item-template">
+            <span class="stats-item"></span>
+        </template>
+        <template id="schedule-detail-row-template">
+            <p>
+                <span class="key"></span>
+                <span class="value"></span>
+            </p>
+        </template>
+        <template id="schedule-countdown-template">
+            <span data-countdown="">计算中...</span>
+        </template>
+        <template id="schedule-result-links-wrapper-template">
+            <div class="result-links-wrapper">
+                <div class="result-links-trigger"></div>
+                <div class="result-links-menu"></div>
+            </div>
+        </template>
+        <template id="schedule-result-link-template">
+            <a></a>
+        </template>
+        <template id="schedule-reminder-button-template">
+            <div class="match-link reminder-btn"></div>
+        </template>
         <include src="templates/footer.html"></include>
     </div>
     
     <script type="module" src="js/common/template-loader.js"></script>
-    <script src="js/schedule/schedule.js"></script>
+    <script type="module" src="js/schedule/schedule.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        if (sessionStorage.getItem(SCROLL_POSITION_KEY)) {
+        if (sessionStorage.getItem('schedule_scroll_position')) {
             history.scrollRestoration = 'manual';
             window.scrollTo(0, 0);
         }
