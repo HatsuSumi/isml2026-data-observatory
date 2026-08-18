@@ -13,7 +13,16 @@ class CharacterDetail {
         this.templates = {
             battleRecord: document.getElementById('battle-record-template'),
             eventReport: document.getElementById('event-report-template'),
-            navItem: document.getElementById('nav-item-template')
+            navItem: document.getElementById('nav-item-template'),
+            backBtn: document.getElementById('back-btn-template'),
+            loadingContainer: document.getElementById('loading-container-template'),
+            dataRow: document.getElementById('data-row-template'),
+            recordLink: document.getElementById('record-link-template'),
+            hoverArea: document.getElementById('hover-area-template'),
+            characterItem: document.getElementById('character-item-template'),
+            noContent: document.getElementById('no-content-template'),
+            errorToast: document.getElementById('error-toast-template'),
+            characterNavEmpty: document.getElementById('character-nav-empty-template')
         };
         
         // 缓存容器元素
@@ -65,9 +74,7 @@ class CharacterDetail {
     }
     
     addBackButton() {
-        const backBtn = document.createElement('button');
-        backBtn.className = 'back-btn';
-        backBtn.innerHTML = '<i class="fas fa-arrow-left"></i> 返回列表';
+        const backBtn = this.templates.backBtn.content.cloneNode(true).querySelector('.back-btn');
         backBtn.addEventListener('click', () => {
             sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
             window.location.href = 'pages/characters-data/characters-data.html';
@@ -84,9 +91,7 @@ class CharacterDetail {
         
         let loadingContainer;
         if (!this.fromNav) {
-            loadingContainer = document.createElement('div');
-            loadingContainer.className = 'loading-container';
-            loadingContainer.innerHTML = '<div class="loading-spinner"></div>';
+            loadingContainer = this.templates.loadingContainer.content.cloneNode(true).querySelector('.loading-container');
             document.body.appendChild(loadingContainer);
             
             requestAnimationFrame(() => {
@@ -180,6 +185,34 @@ class CharacterDetail {
         }
     }
     
+    showError(message) {
+        const existingToast = document.querySelector('.error-toast');
+        if (existingToast) {
+            existingToast.remove();
+        }
+
+        if (this.errorTimer) {
+            clearTimeout(this.errorTimer);
+            this.errorTimer = null;
+        }
+
+        const toast = this.templates.errorToast.content.cloneNode(true).querySelector('.error-toast');
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        requestAnimationFrame(() => {
+            toast.classList.add('visible');
+        });
+
+        this.errorTimer = setTimeout(() => {
+            toast.classList.remove('visible');
+            this.errorTimer = setTimeout(() => {
+                toast.remove();
+                this.errorTimer = null;
+            }, 240);
+        }, 2800);
+    }
+
     renderEventReports() {
         // 添加防御性检查
         if (!this.eventData || !Array.isArray(this.eventData)) {
@@ -212,7 +245,8 @@ class CharacterDetail {
         const hasOnlyRound = Object.keys(round).length === 1 && round.round;
         
         if (hasOnlyRound) {
-            battleList.innerHTML = '<div class="no-content">暂无数据</div>';
+            const noContent = this.templates.noContent.content.cloneNode(true);
+            battleList.appendChild(noContent);
         } else {
             const record = this.createBattleRecord(round);
             battleList.appendChild(record);
@@ -277,23 +311,17 @@ class CharacterDetail {
             const createDataRow = (label, value) => {
                 if (!value) return null;
                 
-                // 检查是否包含排名信息
                 const rank = !excludeRankFields.has(label) ? extractRank(value) : null;
                 const rankStyle = rank ? getRankStyle(rank) : '';
-                
-                const row = document.createElement('div');
-                row.className = 'data-row';
-                
-                const labelDiv = document.createElement('div');
-                labelDiv.className = `data-label ${rankStyle}`;
+                const row = this.templates.dataRow.content.cloneNode(true).querySelector('.data-row');
+                const labelDiv = row.querySelector('.data-label');
+                const valueDiv = row.querySelector('.data-value');
+
+                labelDiv.className = rankStyle ? `data-label ${rankStyle}` : 'data-label';
                 labelDiv.textContent = label;
-                
-                const valueDiv = document.createElement('div');
-                valueDiv.className = `data-value ${rankStyle}`;
+                valueDiv.className = rankStyle ? `data-value ${rankStyle}` : 'data-value';
                 valueDiv.textContent = value;
-                
-                row.appendChild(labelDiv);
-                row.appendChild(valueDiv);
+
                 return row;
             };
             
@@ -370,12 +398,17 @@ class CharacterDetail {
             // 如果有链接，显示链接按钮，否则隐藏
             const linksSection = record.querySelector('.record-links');
             if (links.length > 0) {
+                const linksFragment = document.createDocumentFragment();
                 links.forEach(link => {
-                    const a = document.createElement('a');
-                    a.href = link.url;
-                    a.innerHTML = `<i class="fas fa-${link.icon}"></i>${link.text}`;
-                    linksDropdown.appendChild(a);
+                    const linkNode = this.templates.recordLink.content.cloneNode(true).querySelector('a');
+                    const icon = linkNode.querySelector('i');
+                    const text = linkNode.querySelector('.link-text');
+                    linkNode.href = link.url;
+                    icon.classList.add(`fa-${link.icon}`);
+                    text.textContent = link.text;
+                    linksFragment.appendChild(linkNode);
                 });
+                linksDropdown.appendChild(linksFragment);
             } else {
                 linksSection.style.display = 'none';
             }
@@ -419,7 +452,7 @@ class CharacterDetail {
             };
 
             // 扩大悬停区域
-            const hoverArea = document.createElement('div');
+            const hoverArea = this.templates.hoverArea.content.cloneNode(true).querySelector('.record-links-hover-area');
             hoverArea.style.position = 'absolute';
             hoverArea.style.bottom = '100%';
             hoverArea.style.left = '0';
@@ -589,13 +622,6 @@ class CharacterDetail {
         });
     }
     
-    showError(message) {
-        const errorEl = document.createElement('div');
-        errorEl.className = 'error-message';
-        errorEl.textContent = message;
-        this.containers.reports.appendChild(errorEl);
-    }
-    
     destroy() {
         
         if (this.scrollAnimation) {
@@ -659,56 +685,76 @@ class CharacterDetail {
         const container = document.querySelector('.characters-list');
         container.innerHTML = '';
         
-        // 获取最近访问记录
         const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
-        
-        // 筛选并添加角色
         const characters = this.filterCharacters(filter);
+
+        if (characters.length === 0) {
+            const emptyState = this.templates.characterNavEmpty.content.cloneNode(true).querySelector('.character-nav-empty');
+            const emptyMessages = {
+                all: '当前分组下没有其他角色可显示',
+                cv: '没有找到同声优的其他角色',
+                ip: '没有找到同作品的其他角色'
+            };
+            emptyState.classList.add('is-entering');
+            emptyState.textContent = emptyMessages[filter] ?? '暂无可显示角色';
+            container.appendChild(emptyState);
+            requestAnimationFrame(() => {
+                emptyState.classList.add('visible');
+            });
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        const renderedItems = [];
         characters.forEach(([id, char]) => {
-            const item = document.createElement('div');
-            item.className = 'character-item';
+            const item = this.templates.characterItem.content.cloneNode(true).querySelector('.character-item');
+            item.classList.add('is-entering');
             if (recentChars.includes(id)) {
                 item.classList.add('recently-visited');
             }
-            
-            const hasAvatar = Boolean(char.basic.avatar);
-            item.innerHTML = `
-                ${hasAvatar ? `<img src="${char.basic.avatar}" alt="${char.basic.name}">` : ''}
-                <div class="character-info-text">
-                    <div class="name">${char.basic.name}</div>
-                    <div class="details">
-                        <span class="text-wrapper">
-                            <span class="text-content">${char.basic.ip}</span>
-                        </span>
-                        <span class="text-wrapper">
-                            <span class="text-content">${char.basic.cv}</span>
-                        </span>
-                    </div>
-                </div>
-            `;
-            
-            container.appendChild(item);
-            
-            // 在元素添加到 DOM 后检查文本是否溢出
+
+            const avatar = item.querySelector('.character-item-avatar');
+            const name = item.querySelector('.name');
             const textContents = item.querySelectorAll('.text-content');
-            textContents.forEach(text => {
-                // 检查实际宽度是否超过容器宽度
-                if (text.scrollWidth > text.clientWidth) {
-                    text.parentElement.className = 'tooltip';
-                    text.parentElement.setAttribute('data-tooltip', text.textContent);
-                }
-            });
-            
+            const hasAvatar = Boolean(char.basic.avatar);
+
+            if (hasAvatar) {
+                avatar.hidden = false;
+                avatar.src = char.basic.avatar;
+                avatar.alt = char.basic.name;
+            }
+
+            name.textContent = char.basic.name;
+            textContents[0].textContent = char.basic.ip;
+            textContents[1].textContent = char.basic.cv;
+
+            renderedItems.push({ item, textContents });
+            fragment.appendChild(item);
+
             item.addEventListener('click', () => {
-                // 保存当前滚动位置
                 sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
                 
-                // 更新最近访问记录
                 const newRecentChars = [id, ...recentChars.filter(cid => cid !== id)]
                     .slice(0, this.MAX_RECENT_CHARS);
                 localStorage.setItem(this.RECENT_CHARS_KEY, JSON.stringify(newRecentChars));
                 
                 window.location.href = `character-detail.html?id=${id}&from=nav`;
+            });
+        });
+
+        container.appendChild(fragment);
+
+        requestAnimationFrame(() => {
+            renderedItems.forEach(({ item, textContents }, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                    textContents.forEach(text => {
+                        if (text.scrollWidth > text.clientWidth) {
+                            text.parentElement.className = 'tooltip';
+                            text.parentElement.setAttribute('data-tooltip', text.textContent);
+                        }
+                    });
+                }, index * 45);
             });
         });
     }

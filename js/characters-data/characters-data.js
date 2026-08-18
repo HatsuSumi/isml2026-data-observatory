@@ -2,6 +2,17 @@ import { CONFIG } from '../common/config.js';
 import { SERIES_ALIASES } from '../aliases/aliases.js';
 import { Router } from '../common/router.js';
 
+const templates = {
+    characterCard: document.getElementById('character-card-template'),
+    rankGroup: document.getElementById('rank-group-template'),
+    rankRound: document.getElementById('rank-round-template'),
+    characterCards: document.getElementById('character-cards-template'),
+    ipText: document.getElementById('ip-text-template'),
+    customTooltip: document.getElementById('custom-tooltip-template'),
+    novaGroup: document.getElementById('nova-group-template'),
+    seasonGroup: document.getElementById('season-group-template')
+};
+
 function normalizeSeriesName(name) {
     for (const [originalName, aliases] of Object.entries(SERIES_ALIASES)) {
         if (aliases.includes(name)) {
@@ -45,17 +56,15 @@ function renderCharacters(data) {
 }
 
 function renderStellarGroups(data, container) {
-    const femaleGroup = document.createElement('div');
-    femaleGroup.className = 'rank-group';
+    const femaleGroup = templates.rankGroup.content.cloneNode(true).querySelector('.rank-group');
     femaleGroup.dataset.gender = 'female';
-    femaleGroup.classList.add('show');  
+    femaleGroup.classList.add('show');
     renderStellarGender(data.female, femaleGroup, 'female');
     container.appendChild(femaleGroup);
     
-    const maleGroup = document.createElement('div');
-    maleGroup.className = 'rank-group';
+    const maleGroup = templates.rankGroup.content.cloneNode(true).querySelector('.rank-group');
     maleGroup.dataset.gender = 'male';
-    maleGroup.style.display = 'none';  
+    maleGroup.style.display = 'none';
     renderStellarGender(data.male, maleGroup, 'male');
     container.appendChild(maleGroup);
     
@@ -110,22 +119,13 @@ function renderStellarGroups(data, container) {
 function renderStellarGender(groups, container, gender) {
     if (CONFIG.characters.showRounds) {
         groups.forEach(group => {
-            // 创建轮次容器
-            const roundDiv = document.createElement('div');
-            roundDiv.className = 'rank-round';
+            const roundDiv = templates.rankRound.content.cloneNode(true).querySelector('.rank-round');
+            const titleDiv = roundDiv.querySelector('.rank-title');
+            const cardsDiv = roundDiv.querySelector('.character-cards');
 
-            
-            // 添加标题
-            const titleDiv = document.createElement('div');
-            titleDiv.className = 'rank-title';
             titleDiv.textContent = group.rankLabel;
             const rank = parseInt(group.rankLabel);
             titleDiv.dataset.rank = rank;
-            roundDiv.appendChild(titleDiv);
-            
-            // 添加角色卡片容器
-            const cardsDiv = document.createElement('div');
-            cardsDiv.className = 'character-cards';
             
             group.characters.forEach(char => {
                 const card = createCharacterCard(char, gender);
@@ -135,22 +135,18 @@ function renderStellarGender(groups, container, gender) {
                 cardsDiv.appendChild(card);
             });
             
-            roundDiv.appendChild(cardsDiv);
             container.appendChild(roundDiv);
         });
     } else {
-        const groupDiv = document.createElement('div');
-        groupDiv.className = 'rank-group';
+        const groupDiv = templates.rankGroup.content.cloneNode(true).querySelector('.rank-group');
         groupDiv.dataset.gender = gender;
         
-        // 如果是女性角色（默认显示），立即添加 show 类
         if (gender === 'female') {
             groupDiv.classList.add('show');
         }
         
-        const cardsDiv = document.createElement('div');
-        cardsDiv.className = 'character-cards';
-        cardsDiv.dataset.gender = gender;  // 添加性别标记到容器
+        const cardsDiv = templates.characterCards.content.cloneNode(true).querySelector('.character-cards');
+        cardsDiv.dataset.gender = gender;
         
         // 获取所有角色并排序
         const allCharacters = groups.flatMap(group => group.characters);
@@ -193,8 +189,7 @@ function renderStellarGender(groups, container, gender) {
 }
 
 function createCharacterCard(char, gender) {
-    const template = document.getElementById('character-card-template');
-    const card = template.content.cloneNode(true).querySelector('.character-card');
+    const card = templates.characterCard.content.cloneNode(true).querySelector('.character-card');
     card.dataset.gender = gender;
     card.dataset.id = char.id;
     card.dataset.ip = char.ip;
@@ -215,14 +210,11 @@ function createCharacterCard(char, gender) {
     
     const ip = card.querySelector('.character-ip');
     
-    const ipText = document.createElement('div');
-    ipText.className = 'ip-text';
+    const ipText = templates.ipText.content.cloneNode(true).querySelector('.ip-text');
     ipText.textContent = char.ip;
     ip.appendChild(ipText);
 
-    // 先创建提示框
-    const tooltip = document.createElement('div');
-    tooltip.className = 'custom-tooltip';
+    const tooltip = templates.customTooltip.content.cloneNode(true).querySelector('.custom-tooltip');
     tooltip.textContent = char.ip;
     ip.appendChild(tooltip);
     
@@ -333,8 +325,7 @@ function handleSearch() {
     if (useRegex && keyword) {
         if (!isValidRegex(keyword)) {
             // 显示错误提示
-            const tooltip = document.createElement('div');
-            tooltip.className = 'regex-error-tooltip';
+            const tooltip = templates.regexErrorTooltip.content.cloneNode(true).querySelector('.regex-error-tooltip');
             tooltip.textContent = '正则表达式语法错误';
             
             // 定位到搜索框旁边
@@ -455,8 +446,7 @@ function updateSearchCount() {
     
     // 如果计数元素不存在，创建一个
     if (!searchCount) {
-        searchCount = document.createElement('span');
-        searchCount.className = 'search-count';
+        searchCount = templates.searchCount.content.cloneNode(true).querySelector('.search-count');
         searchBox.querySelector('.search-input-wrapper').appendChild(searchCount);
     }
     
@@ -545,12 +535,6 @@ function initializeSearch() {
     const searchBtn = document.querySelector('#searchBtn');
     const exactMatchCheckbox = document.querySelector('#exactMatch');
     
-    // 添加搜索输入包装器
-    const inputWrapper = document.createElement('div');
-    inputWrapper.className = 'search-input-wrapper';
-    searchInput.parentNode.insertBefore(inputWrapper, searchInput);
-    inputWrapper.appendChild(searchInput);
-    
     // 添加搜索框事件
     searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -618,19 +602,15 @@ function clearIpCache() {
 }
 
 function renderNovaGroups(data, container) {
-    // 创建女性角色组
-    const femaleGroup = document.createElement('div');
-    femaleGroup.className = 'nova-group';
+    const femaleGroup = templates.novaGroup.content.cloneNode(true).querySelector('.nova-group');
     femaleGroup.dataset.gender = 'female';
-    femaleGroup.classList.add('show');  // 默认显示女性组
+    femaleGroup.classList.add('show');
     renderNovaGender(data.female, femaleGroup, 'female');
     container.appendChild(femaleGroup);
     
-    // 创建男性角色组
-    const maleGroup = document.createElement('div');
-    maleGroup.className = 'nova-group';
+    const maleGroup = templates.novaGroup.content.cloneNode(true).querySelector('.nova-group');
     maleGroup.dataset.gender = 'male';
-    maleGroup.style.display = 'none';  // 默认隐藏男性组
+    maleGroup.style.display = 'none';
     renderNovaGender(data.male, maleGroup, 'male');
     container.appendChild(maleGroup);
     
@@ -713,46 +693,32 @@ function renderNovaGender(groups, container, gender) {
         return;
     }
     
-    // 创建性别组容器
-    const groupDiv = document.createElement('div');
-    groupDiv.className = 'nova-group';
+    const groupDiv = templates.novaGroup.content.cloneNode(true).querySelector('.nova-group');
     groupDiv.dataset.gender = gender;
     
     if (gender === 'female') {
         groupDiv.classList.add('show');
     }
     
-    // 按季节分组显示
     groups.forEach(seasonGroup => {
-        // 检查季节数据
         if (!seasonGroup.season || !Array.isArray(seasonGroup.characters)) {
             console.error('Invalid season group data:', seasonGroup);
             return;
         }
         
-        // 如果该季节没有角色，跳过
         if (seasonGroup.characters.length === 0) {
             return;
         }
         
-        // 创建季节容器
-        const seasonDiv = document.createElement('div');
-        seasonDiv.className = 'season-group';
+        const seasonDiv = templates.seasonGroup.content.cloneNode(true).querySelector('.season-group');
         seasonDiv.dataset.season = seasonGroup.season;
         
-        // 如果是女性组，默认显示
         if (gender === 'female') {
             seasonDiv.classList.add('show');
         }
         
-        // 创建季节标题包装容器
-        const titleWrapper = document.createElement('div');
-        titleWrapper.className = 'season-title-wrapper';
-        
-        // 添加季节标题
-        const titleDiv = document.createElement('div');
-        titleDiv.className = 'season-title';
-        // 转换季节名称为中文
+        const titleDiv = seasonDiv.querySelector('.season-title');
+        const cardsDiv = seasonDiv.querySelector('.character-cards');
         const seasonName = {
             'spring': '春季',
             'summer': '夏季',
@@ -761,23 +727,6 @@ function renderNovaGender(groups, container, gender) {
         }[seasonGroup.season] || seasonGroup.season;
         titleDiv.textContent = seasonName;
         
-        // 添加装饰元素
-        const decorLeft = document.createElement('span');
-        decorLeft.className = 'season-title-decor left';
-        const decorRight = document.createElement('span');
-        decorRight.className = 'season-title-decor right';
-        
-        // 组装标题区域
-        titleWrapper.appendChild(decorLeft);
-        titleWrapper.appendChild(titleDiv);
-        titleWrapper.appendChild(decorRight);
-        seasonDiv.appendChild(titleWrapper);
-        
-        // 创建角色卡片容器
-        const cardsDiv = document.createElement('div');
-        cardsDiv.className = 'character-cards';
-        
-        // 直接按照数据顺序渲染角色卡片
         seasonGroup.characters.forEach(char => {
             const card = createCharacterCard(char, gender);
             if (gender === 'female') {
@@ -786,7 +735,6 @@ function renderNovaGender(groups, container, gender) {
             cardsDiv.appendChild(card);
         });
         
-        seasonDiv.appendChild(cardsDiv);
         groupDiv.appendChild(seasonDiv);
     });
     
