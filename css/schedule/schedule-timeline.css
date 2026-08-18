@@ -1,0 +1,231 @@
+/* 时间线样式 */
+.timeline {
+    position: relative;
+    padding: 2rem 0 5rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg,
+        rgba(255,215,0,0.8),
+        rgba(255,215,0,0.3)
+    );
+    display: none;
+}
+
+.timeline.has-results::before {
+    display: block;
+}
+
+.timeline-section {
+    margin-bottom: 3rem;
+}
+
+.timeline-header {
+    margin-bottom: 2rem;
+    padding-left: 100px;
+}
+
+.timeline-header h2 {
+    color: #FFD700;
+    font-size: 1.8rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 100px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 44px;
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #FFD700;
+    background: #1a1a1a;
+}
+
+.match-card {
+    width: 600px;
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+}
+
+.match-date {
+    color: #a6c1ee;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.match-title {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.match-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.timeline-item.completed .match-status {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.timeline-item.ongoing .match-status {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.timeline-item.upcoming .match-status {
+    background: rgba(255, 152, 0, 0.1);
+    color: #FF9800;
+}
+
+.timeline-item.pending .match-status {
+    background: rgba(158, 158, 158, 0.1);
+    color: #9E9E9E;
+}
+
+.match-status.win {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.match-status.lose {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.match-status.pending {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.match-status.status-postponed {
+    background: rgba(255, 99, 71, 0.1);
+    color: #ff6347;
+}
+
+.timeline-item.postponed .match-status {
+    background: rgba(255, 99, 71, 0.1);
+    color: #ff6347;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.match-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-details p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    line-height: 2.0;
+}
+
+.match-details .key {
+    color: #8BC34A;
+    display: inline-block;
+}
+
+.match-details .value {
+    color: #FFB74D;
+    margin-left: 0.3rem;
+    display: inline-block;
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.match-stats {
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    gap: 10px;
+}
+
+.stats-item {
+    background: rgba(166, 193, 238, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(166, 193, 238, 0.2);
+    display: inline-flex;
+    align-items: center;
+}
+
+.stats-item::before {
+    content: '\f0c0';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 6px;
+    color: #a6c1ee;
+}
+
+.event-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.match-time {
+    color: #a6c1ee;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .match-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-header {
+        padding-left: 60px;
+    }
+
+    .timeline-item {
+        padding-left: 60px;
+    }
+
+    .timeline-dot {
+        left: 24px;
+    }
+}

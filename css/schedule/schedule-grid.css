@@ -1,16 +1,4 @@
-.schedule-container {
-    max-width: 1200px;
-    margin: 100px auto 50px;
-    padding: 0 20px;
-}
-
-.schedule-title {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 3rem;
-    font-size: 2rem;
-}
-
+/* 赛程总览图页面 */
 .schedule-image {
     text-align: center;
     max-width: 800px;
@@ -34,5 +22,4 @@
     .schedule-image {
         max-width: 100%;
     }
-} 
-
+}
