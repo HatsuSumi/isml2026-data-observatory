@@ -1,0 +1,78 @@
+/* 基础样式 */
+body {
+    background: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.guide-container {
+    display: grid;
+    grid-template-columns: 250px minmax(600px, 1fr) 400px;
+    gap: 25px;
+    max-width: 2000px;
+    margin: 80px auto 0;
+    padding: 25px;
+    min-height: 1233.33px;
+}
+
+.type-section {
+    animation: fadeIn 0.5s ease;
+    padding-top: 40px;
+    scroll-margin-top: 40px;
+}
+
+.type-section:first-child {
+    padding-top: 0;
+    scroll-margin-top: 0;
+}
+
+.type-section h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #fff;
+    position: relative;
+}
+
+.type-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #1565c0;
+    border-radius: 2px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1600px) {
+    .guide-container {
+        grid-template-columns: 250px minmax(500px, 1fr) 350px;
+        max-width: 1800px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .guide-container {
+        grid-template-columns: 250px minmax(450px, 1fr);
+        max-width: 1400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}

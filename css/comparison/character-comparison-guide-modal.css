@@ -1,0 +1,138 @@
+/* 模态框 */
+.code-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.code-modal.show {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.code-modal-container {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    width: 800px;
+    max-width: 90%;
+    max-height: 90vh;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+}
+
+.code-modal.show .code-modal-container {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.code-modal-container pre {
+    margin: 20px 0 0;
+    max-height: calc(90vh - 80px);
+    overflow-y: auto;
+    overflow-x: scroll;
+    background: #1e1e1e;
+    border-radius: 4px;
+    font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+}
+
+.code-modal-container .code-line {
+    white-space: pre;
+    padding: 0 16px;
+    min-height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+}
+
+.code-modal-container .code-line::before {
+    content: attr(data-line-number);
+    width: 40px;
+    padding-right: 16px;
+    color: #858585;
+    text-align: right;
+    user-select: none;
+    flex-shrink: 0;
+    margin-right: 16px;
+    border-right: 1px solid #404040;
+}
+
+.code-modal-container .hljs {
+    background: transparent;
+    color: #d4d4d4;
+}
+
+.code-modal-container .hljs-keyword {
+    color: #569cd6;
+    margin-right: 0.5em;
+}
+
+.code-modal-container .hljs-string {
+    color: #ce9178;
+}
+
+.code-modal-container .hljs-comment {
+    color: #6a9955;
+}
+
+.code-modal-container .code-line:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.code-modal-container pre::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+.code-modal-container pre::-webkit-scrollbar-thumb {
+    background: #424242;
+    border: 4px solid #1e1e1e;
+    border-radius: 7px;
+}
+
+.code-modal-container pre::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.code-modal-container pre::-webkit-scrollbar-corner {
+    background: #1e1e1e;
+}
+
+.code-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code-modal-close:hover {
+    color: #ff4444;
+    transform: rotate(90deg);
+}
+
+.code-modal-close i {
+    font-size: 20px;
+}
