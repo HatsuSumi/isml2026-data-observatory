@@ -51,7 +51,12 @@ export function renderCharacterMatchStatus(match, result) {
     statusEl.className = `match-status ${resultClass}`;
 }
 
+export function clearCharacterSelection() {
+    document.querySelector('.character-selection')?.remove();
+}
+
 export function showCharacterSelection(characters, onSelectCharacter) {
+    clearCharacterSelection();
     const selectionEl = cloneScheduleTemplate('schedule-character-selection-template', '.character-selection');
 
     characters.forEach(([, char]) => {

@@ -794,7 +794,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 延迟执行，确保元素已经渲染
     setTimeout(() => {
-        console.log('Searching for elements');
         
         // 更宽松的选择器
         $('*').filter(function() {
@@ -803,8 +802,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }).each(function() {
             const originalText = $(this).text();
             const originalTarget = $(this).attr('data-target');
-            
-            console.log('Found element:', this, 'Text:', originalText, 'Target:', originalTarget);
             
             // 替换文本
             if (ROUND_NAME_MAP[originalText]) {

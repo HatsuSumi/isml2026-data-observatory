@@ -551,11 +551,6 @@ function initializeSearch() {
     searchInput.parentNode.insertBefore(inputWrapper, searchInput);
     inputWrapper.appendChild(searchInput);
     
-    // 添加全词匹配切换事件
-    exactMatchCheckbox.addEventListener('change', () => {
-        isExactMatch = exactMatchCheckbox.checked;
-    });
-    
     // 添加搜索框事件
     searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {

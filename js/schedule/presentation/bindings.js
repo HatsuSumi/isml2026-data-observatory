@@ -1,7 +1,7 @@
 import { getScheduleData, getScheduleFilterControls, setScheduleFiltersEnabledState } from '../state/scheduleState.js';
 import { debounce } from '../utils/dom.js';
 import { loadJson } from '../utils/loadJson.js';
-import { filterTimelineByCharacter, showAllMatches, showCharacterSelection } from './characterSearch.js';
+import { clearCharacterSelection, filterTimelineByCharacter, showAllMatches, showCharacterSelection } from './characterSearch.js';
 import { setScheduleFiltersEnabled } from './elevatorNav.js';
 
 export function bindCharacterSearch() {
@@ -11,6 +11,7 @@ export function bindCharacterSearch() {
         const timelineEl = document.getElementById('timeline');
 
         if (!searchValue) {
+            clearCharacterSelection();
             setScheduleFiltersEnabledState(true);
             setScheduleFiltersEnabled(true, getScheduleFilterControls());
             showAllMatches();
@@ -18,6 +19,8 @@ export function bindCharacterSearch() {
             timelineEl.hidden = false;
             return;
         }
+
+        clearCharacterSelection();
 
         const data = await loadJson('data/matches/character-matches.json', 'Error fetching character data:');
         if (!data) {

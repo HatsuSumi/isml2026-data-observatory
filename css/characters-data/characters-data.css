@@ -142,6 +142,13 @@ body {
     color: #666;
 }
 
+.search-box input:hover {
+    border-color: rgba(74, 144, 226, 0.55);
+    background: #383838;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.18);
+    transform: translateY(-1px);
+}
+
 /* 修改焦点和激活状态的样式 */
 .search-box input:focus,
 .search-box input:active {
@@ -435,7 +442,7 @@ body {
 .search-box .search-tips {
     top: 160%;
     left: 0;
-    font-size: 12px;
+    font-size: 14px;
     color: #888;
     line-height: 1.5;
     max-width: 70%;  /* 限制宽度，避免和复选框重叠 */

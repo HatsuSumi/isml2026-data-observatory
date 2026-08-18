@@ -212,7 +212,6 @@ export class DanmakuGenerator {
                 const danmaku = new Danmaku(welcomeMessage.text, welcomeMessage.type, availableTrack, this.container);
                 this.activeDanmaku.push(danmaku);
                 this.container.appendChild(danmaku.element);
-                console.log(`生成欢迎弹幕: ${welcomeMessage.text}, 当前时间: ${new Date().toLocaleTimeString()}`);
             }
             this.hasWelcomeSent = true;
             localStorage.setItem('hasWelcomeSent', 'true');
