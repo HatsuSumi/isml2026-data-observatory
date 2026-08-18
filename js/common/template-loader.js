@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', async function() {
             try {
                 const response = await fetch(file);
                 let text = await response.text();
+
+                // 先替换配置占位符，避免模板在临时解析时出现非法 input 值
+                text = text
+                    .replace(/\{\{defaultInterval\}\}/g, (CONFIG.danmaku.defaultInterval / 1000 / 60).toFixed(1))
+                    .replace(/\{\{minSpeed\}\}/g, CONFIG.danmaku.minSpeed)
+                    .replace(/\{\{maxSpeed\}\}/g, CONFIG.danmaku.maxSpeed)
+                    .replace(/\{\{defaultSpeed\}\}/g, CONFIG.danmaku.speed);
     
                 if (file.includes('navbar.html')) {
                     if (!CONFIG.features.danmaku) {
@@ -24,13 +31,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                     }
                     setActiveNavLink();
                 }
-                
-                // 替换基础路径和配置值
-                text = text
-                    .replace(/\{\{defaultInterval\}\}/g, (5 / 1000 / 60).toFixed(1))
-                    .replace(/\{\{minSpeed\}\}/g, 50)
-                    .replace(/\{\{maxSpeed\}\}/g, 200)
-                    .replace(/\{\{defaultSpeed\}\}/g, 100);
                 
                 // 使用正则表达式提取 head 内容
                 const headMatch = text.match(/<head>([\s\S]*?)<\/head>/i);
