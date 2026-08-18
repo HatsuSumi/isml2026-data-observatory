@@ -1,0 +1,177 @@
+/* 模态框样式 */
+.cv-modal,
+.ip-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    visibility: hidden;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(0);  /* 初始无模糊 */
+}
+
+.cv-modal.show,
+.ip-modal.show {
+    background: rgba(0, 0, 0, 0.6);
+    visibility: visible;
+    transition-delay: 0s;
+    backdrop-filter: blur(4px);  /* 显示时背景模糊 */
+}
+
+.cv-modal-content,
+.ip-modal-content {
+    background: linear-gradient(145deg, #323232, #2a2a2a);  /* 渐变背景 */
+    border-radius: 15px;
+    padding: 25px;
+    width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);  /* 半透明边框 */
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;  /* 内外阴影 */
+}
+
+.cv-modal.show .cv-modal-content,
+.ip-modal.show .ip-modal-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cv-modal-header,
+.ip-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);  /* 分隔线 */
+}
+
+.cv-modal-header h3,
+.ip-modal-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);  /* 文字阴影 */
+}
+
+.cv-modal-close,
+.ip-modal-close {
+    background: none;
+    border: none;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+    border-radius: 50%;  /* 圆形按钮 */
+}
+
+.cv-modal-close:hover,
+.ip-modal-close:hover {
+    color: #fff;
+    transform: scale(1.1) rotate(90deg);
+    background: rgba(255, 255, 255, 0.1);  /* 悬停背景 */
+}
+
+/* 下拉框包装容器 */
+.cv-select-wrapper,
+.ip-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* 自定义箭头 */
+.cv-select-arrow,
+.ip-select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.5)' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 激活状态时箭头旋转 */
+.cv-select.active .cv-select-arrow,
+.ip-select.active .ip-select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* 悬停时箭头颜色变化 */
+.cv-select-trigger:hover .cv-select-arrow,
+.ip-select-trigger:hover .ip-select-arrow {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.8)' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+}
+
+.cv-modal-footer,
+.ip-modal-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cv-modal-btn,
+.ip-modal-btn {
+    min-width: 100px;  /* 添加最小宽度 */
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;  /* 添加 flex 布局 */
+    align-items: center;
+    justify-content: center;  /* 文字居中 */
+}
+
+.cv-modal-btn.cancel,
+.ip-modal-btn.cancel {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cv-modal-btn.cancel:hover,
+.ip-modal-btn.cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cv-modal-btn.confirm,
+.ip-modal-btn.confirm {
+    background: #1565c0;
+    color: #fff;
+}
+
+.cv-modal-btn.confirm:hover,
+.ip-modal-btn.confirm:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+}
+
+.cv-modal-btn.confirm:disabled,
+.ip-modal-btn.confirm:disabled {
+    background: #424242;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transform: none;
+}

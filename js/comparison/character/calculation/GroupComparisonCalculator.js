@@ -7,6 +7,7 @@ function sortByValue(values) {
 }
 
 export function calculateGroupTotal(groups, totalVotes) {
+    // 按组总票数排序，展示相邻组之间的差距。
     const totals = groups.map(sumVotes);
     const allGroupsTotal = totals.reduce((total, value) => total + value, 0);
     const sorted = sortByValue(totals);
@@ -31,6 +32,7 @@ export function calculateGroupTotal(groups, totalVotes) {
 }
 
 export function calculateGroupAverage(groups, totalVotes) {
+    // 按组平均票数排序，再和整体平均线比较。
     const averages = groups.map(averageVotes);
     const allGroupsAverage = averages.length === 0
         ? 0
@@ -57,6 +59,7 @@ export function calculateGroupAverage(groups, totalVotes) {
 }
 
 export function calculateGroupBaseTotal(groups, totalVotes) {
+    // 第一个组作为基准组，其他组和它比较总票数。
     const totals = groups.map(sumVotes);
     const baseTotal = totals[0] ?? 0;
     const allGroupsTotal = totals.reduce((total, value) => total + value, 0);
@@ -77,6 +80,7 @@ export function calculateGroupBaseTotal(groups, totalVotes) {
 }
 
 export function calculateGroupBaseAverage(groups, totalVotes) {
+    // 第一个组作为基准组，其他组和它比较平均票数。
     const averages = groups.map(averageVotes);
     const baseAverage = averages[0] ?? 0;
     const allGroupsTotal = groups.reduce((total, group) => total + sumVotes(group), 0);

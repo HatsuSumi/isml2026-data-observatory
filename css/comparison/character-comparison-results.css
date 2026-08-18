@@ -1,0 +1,208 @@
+﻿/* 对比结果区域 */
+.comparison-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    border: 1px solid #444;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* 基本信息区域 */
+.basic-info {
+    display: grid;
+    grid-template-columns: repeat(3, 360px);  
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+/* 两个角色时的布局 */
+.basic-info.two-chars {
+    grid-template-columns: repeat(2, 360px);  
+    max-width: 735px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 角色信息卡片 */
+.char-info-card {
+    width: 360px; 
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #444;
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.char-info-card.init {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.char-info-card.deleting {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.char-info-card img {
+    height: 120px;
+    border-radius: 4%;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.info-content h3 {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.info-content p {
+    margin: 5px 0;
+    color: #bbb;
+    font-size: 14px;
+}
+
+/* 显示结果时的样式 */
+.comparison-result.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* 响应式布局 */
+@media (max-width: 1400px) {
+    .main-content {
+        min-width: auto;  /* 在小屏幕上取消最小宽度 */
+    }
+    .container {
+        padding-right: 20px;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+        transform: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .button-group,
+    .quick-compare {
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+
+    .btn {
+        width: auto;
+    }
+
+    .compare-type-wrapper {
+        width: 200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .basic-info {
+        grid-template-columns: repeat(2, 1fr);  /* 中等屏幕一行2个 */
+    }
+}
+
+@media (max-width: 768px) {
+    .character-comparison {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .character-card {
+        width: 100%;
+    }
+
+    .sidebar {
+        flex-direction: column;
+    }
+
+    .button-group,
+    .quick-compare {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .compare-type-wrapper {
+        width: 100%;
+    }
+
+    .basic-info {
+        grid-template-columns: 1fr;  /* 小屏幕一行1个 */
+    }
+
+    .char-info-card.main {
+        max-width: 100%;
+    }
+    
+    .compare-characters .char-comparison-grid {
+        grid-template-columns: 1fr;  /* 小屏幕一列显示 */
+    }
+}
+
+/* 提示框样式 */
+.alert-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 不同类型的提示框颜色 */
+.alert-box.error {
+    background-color: #dc3545;  /* 错误提示用红色 */
+}
+
+.alert-box.success {
+    background-color: #4CAF50;  /* 成功提示用绿色 */
+}
+
+.alert-box.info {
+    background-color: #1565c0;  /* 普通提示用蓝色 */
+}
+
+.alert-box.show {
+    opacity: 1;
+    animation: alertPop 0.3s ease-out;
+}
+
+@keyframes alertPop {
+    0% {
+        transform: translate(-50%, -10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+

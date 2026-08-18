@@ -1,6 +1,7 @@
 import { formatPercentage, parseVotes, percentage } from './VoteCalculator.js';
 
 export function calculateOneToOne(characters, totalVotes) {
+    // 先找出可参与计算的角色，避免自动晋级干扰差值结果。
     const validCharacters = characters
         .map(character => parseVotes(character.votes))
         .filter(votes => votes !== null);
@@ -38,6 +39,7 @@ export function calculateOneToOne(characters, totalVotes) {
 }
 
 export function calculateBase(characters, totalVotes) {
+    // 以第一个角色作为基准，后续角色都和它比较。
     const [baseCharacter, ...compareCharacters] = characters;
     const baseVotes = parseVotes(baseCharacter?.votes);
 
@@ -73,6 +75,7 @@ export function calculateBase(characters, totalVotes) {
 }
 
 export function calculateAverage(characters, totalVotes) {
+    // 只用正常票数角色计算平均值，自动晋级角色不参与均值。
     const normalCharacters = characters.filter(character => parseVotes(character.votes) !== null);
     const average = normalCharacters.length === 0
         ? 0

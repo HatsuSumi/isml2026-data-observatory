@@ -1,0 +1,462 @@
+/* 一对多布局 */
+.character-comparison.one-to-many-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    position: relative;
+    padding-top: 30px;
+    max-width: 1160px;
+    margin: 0 auto;
+    justify-content: center;  
+}
+
+/* 两个对比角色时的布局 */
+.character-comparison.one-to-many-layout.two-chars {
+    grid-template-columns: repeat(2, 360px);  
+}
+
+/* 对比角色区域 */
+.character-comparison.one-to-many-layout .character-card:not(:first-child) {
+    position: relative;
+    width: 300px;
+    margin: 0 auto; 
+    border: 1px solid #4caf50;
+    height: 60px;
+}
+
+/* 基准角色标题 */
+.character-comparison.one-to-many-layout::before {
+    content: '基准角色';
+    position: absolute;
+    top: -15px; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: #1565c0;
+    font-size: 14px;
+    font-weight: bold;
+    background: #1a1a1a;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 1px solid #1565c0;
+}
+
+/* 对比角色标题 */
+.character-comparison.one-to-many-layout::after {
+    content: '对比角色';
+    position: absolute;
+    top: 145px;  
+    left: 50%;
+    transform: translateX(-50%);
+    color: #4caf50;
+    font-size: 14px;
+    font-weight: bold;
+    background: #1a1a1a;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 1px solid #4caf50;
+}
+
+/* 基准角色和对比角色的分隔 */
+.character-comparison.one-to-many-layout .character-card:first-child {
+    grid-column: 1 / -1;
+    height: 60px;
+    z-index: 11;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: 1px solid #1565c0;
+    position: relative;
+}
+
+/* 分割线基础样式 */
+.character-comparison .divider {
+    width: 1160px; 
+    height: 2px;  
+    background: #444;
+    position: absolute;
+    left: 50%;
+    top: 122px;    
+    transform: translate(-50%, -50%); 
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 基准对比模式下显示分割线 */
+.character-comparison.one-to-many-layout .divider {
+    opacity: 1;
+    background: linear-gradient(90deg, transparent, #9c27b0, transparent);
+    box-shadow: 0 0 8px rgba(156, 39, 176, 0.6);
+}
+
+/* 第一行对比角色次高层级 */
+.character-comparison.one-to-many-layout .character-card:nth-child(3),
+.character-comparison.one-to-many-layout .character-card:nth-child(4),
+.character-comparison.one-to-many-layout .character-card:nth-child(5) {
+    margin-top: 55px;
+}
+
+/* 对比角色容器 */
+.character-comparison.one-to-many-layout .character-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;  
+    width: 100%;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .character-comparison.one-to-many-layout {
+        grid-template-columns: 1fr;
+        max-width: 500px;  
+    }
+    .character-comparison.one-to-many-layout .character-card:first-child::after {
+        width: 100vw; 
+    }
+}
+
+/* 默认隐藏高级对比选项 */
+.compare-type-wrapper select option[value="baseCompare"],
+.compare-type-wrapper select option[value="avgCompare"],
+.compare-type-wrapper select option[value="groupBaseAvgCompare"],
+.compare-type-wrapper select option[value="groupAvgCompare"],
+.compare-type-wrapper select option[value="groupTotalCompare"],
+.compare-type-wrapper select option[value="groupBaseTotalCompare"] {
+    display: none;
+}
+
+/* 组编辑态 */
+.character-group {
+    border: transparent;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.character-group.init {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.character-group.deleting {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+.character-group.error {
+    border-color: #f44336;
+    box-shadow: 0 0 0 1px #f44336;
+}
+
+.group-footer {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 10px;
+}
+
+.group-name {
+    flex: 1;
+    background: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    padding: 8px 12px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.group-name:focus {
+    border-color: #1565c0;
+    outline: none;
+}
+
+.group-name.invalid {
+    border-color: #f44336;
+}
+
+.base-group-tag {
+    position: absolute;
+    left: 0;
+    top: -15px;
+    color: #1565c0;
+    background: transparent;
+    padding: 2px 8px;
+    font-size: 14px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.group-characters {
+    min-height: 100px;
+    background: #1a1a1a;
+    border-radius: 4px;
+    border: 1px dashed #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px;
+}
+
+.group-characters:not(:has(.group-member))::before {
+    content: '+';
+    font-size: 48px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.group-characters:not(:has(.group-member)):hover {
+    border-color: #1565c0;
+    transform: scale(1.1);
+}
+
+.group-characters:not(:has(.group-member)):hover::before {
+    color: #1565c0;
+    transform: scale(1.1);
+}
+
+.group-characters:has(.group-member) {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    justify-content: start;
+    gap: 10px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 120px;
+    cursor: default;
+}
+
+.add-character-btn {
+    font-size: 48px;
+    color: #666;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2a2a2a;
+    border: 1px dashed #444;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-character-btn:hover {
+    color: #1565c0;
+    border-color: #1565c0;
+    transform: scale(1.1);
+}
+
+.group-characters:has(.group-member) .group-member {
+    position: relative;
+    transition: all 0.3s ease;
+    width: 60px;
+}
+
+.group-characters:has(.group-member) .group-member:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.delete-group-btn {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #666;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1;
+    opacity: 0;
+}
+
+.character-group:hover .delete-group-btn {
+    opacity: 1;
+}
+
+.delete-group-btn i {
+    font-size: 10px;
+}
+
+.delete-group-btn:hover {
+    color: #ff4444;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.character-comparison:has(.character-group:nth-child(2):last-child) .delete-group-btn {
+    display: none;
+}
+
+/* 基准对比结果布局 */
+.comparison-result .basic-info.one-to-many {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+/* 基准角色区域 */
+.comparison-result .base-character {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 基准角色卡片 */
+.comparison-result .base-character .char-info-card.main {
+    border: 1px solid #1565c0;
+    background: #1a1a1a;
+    position: relative;
+}
+
+/* 基准角色卡片分割线 */
+.comparison-result .base-character .char-info-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1160px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9c27b0, transparent);
+}
+
+/* 响应式布局下的分割线 */
+@media (max-width: 768px) {
+    .comparison-result .base-character .char-info-card::after {
+        width: 100vw;
+    }
+}
+
+/* 对比角色区域 */
+.comparison-result .compare-characters {
+    position: relative;
+    margin-top: 11px;
+}
+
+/* 对比角色网格 */
+.comparison-result .char-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 360px);
+    gap: 30px;
+    justify-content: center;
+}
+
+/* 两个对比角色时的布局 */
+.comparison-result .basic-info.one-to-many.two-chars .char-comparison-grid {
+    grid-template-columns: repeat(2, 360px);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* 对比角色卡片 */
+.comparison-result .compare-characters .char-info-card {
+    border: 1px solid #4caf50;
+    background: #1a1a1a;
+}
+
+/* 响应式布局 */
+@media (max-width: 1200px) {
+    .comparison-result .char-comparison-grid {
+        grid-template-columns: repeat(2, 360px);
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-result .char-comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.character-card .delete-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f44336;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.character-card:hover .delete-btn {
+    opacity: 1;
+}
+
+.character-card .delete-btn:hover {
+    background: #d32f2f;
+}
+
+/* 角色卡片删除动画 */
+.character-card.deleting {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+/* 对比结果中的删除按钮样式 */
+.comparison-result .char-info-card {
+    position: relative;  
+}
+
+.comparison-result .char-info-card .delete-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f44336;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;  
+}
+
+.comparison-result .char-info-card .delete-btn[hidden] {
+    display: none;
+}
+
+.comparison-result .char-info-card:hover .delete-btn {
+    opacity: 1;
+}
+
+.comparison-result .char-info-card .delete-btn:hover {
+    background: #d32f2f;
+}
+
+.quick-compare .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

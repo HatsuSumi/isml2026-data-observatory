@@ -1,0 +1,164 @@
+/* 票数信息 */
+.vote-info,
+.vote-rate,
+.rank-info {
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vote-info {
+    border-top: 1px solid #444;
+}
+
+.vote-label,
+.rate-label,
+.rank-label {
+    color: #bbb;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.vote-count,
+.rate-value,
+.rank-value {
+    color: #1565c0;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.auto-tag {
+    color: #1565c0;  
+    font-weight: bold; 
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.vote-trend {
+    font-size: 14px;
+    margin-left: 5px;
+    flex-shrink: 0;
+}
+
+.vote-trend.leading,
+.rate-difference.leading,
+.rank-difference.leading {
+    color: #4caf50;
+}
+
+.vote-trend.behind,
+.rate-difference.behind,
+.rank-difference.behind {
+    color: #f44336;
+}
+
+.vote-trend.tie,
+.rate-difference.tie,
+.rank-difference.tie {
+    color: #ffc107;
+}
+
+.rate-difference,
+.rank-difference {
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.vote-difference {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.total-votes {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #444;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.total-votes.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.total-votes-label {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.total-votes-value,
+.total-votes-valid {
+    color: #1565c0;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* 一对多对比样式 */
+.avg-compare-summary {
+    grid-column: 1 / -1;
+    width: min(100%, 1110px);
+    margin: 0 auto 10px;
+    padding: 18px 20px;
+    background: linear-gradient(145deg, #1f1f1f, #252525);
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.avg-compare-title {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.avg-compare-value {
+    color: #1565c0;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.avg-compare-formula {
+    color: #ddd;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+/* 一对多对比样式 */
+.basic-info.one-to-many {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.base-character {
+    margin-bottom: 30px;
+}
+
+.char-info-card.main {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.compare-characters .char-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}

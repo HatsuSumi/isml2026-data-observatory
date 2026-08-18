@@ -1,0 +1,423 @@
+/* 一对一结果差值 */
+.vote-difference {
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.rate-difference,
+.rank-difference {
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.vote-difference.leading,
+.rate-difference.leading,
+.rank-difference.leading {
+    color: #4caf50;
+}
+
+.vote-difference.behind,
+.rate-difference.behind,
+.rank-difference.behind {
+    color: #f44336;
+}
+
+.vote-difference.tie,
+.rate-difference.tie,
+.rank-difference.tie {
+    color: #ffc107;
+}
+
+/* 删除按钮样式 */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.group-member:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 68, 68, 0.8);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.delete-btn i {
+    font-size: 12px;
+}
+
+/* 关闭按钮样式 */
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal-btn:hover {
+    color: #ff4444;
+    transform: rotate(90deg);
+}
+
+.close-modal-btn i {
+    font-size: 20px;
+}
+
+.character-grid::-webkit-scrollbar-track:hover {
+    background: #222;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    40% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    65% {
+        transform: scale(0.95);
+        opacity: 1;
+    }
+    85% {
+        transform: scale(1.02);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+}
+
+.quick-select-btn {
+    padding: 6px 12px;
+    background: #1565c0;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.quick-select-btn:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+}
+
+/* 一键勾选模态框 */
+.quick-select-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.quick-select-modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+}
+
+.quick-select-content {
+    background: #2a2a2a;
+    border-radius: 8px;
+    width: 400px;
+    margin-top: 100px;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quick-select-modal.show .quick-select-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.quick-select-header {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    border-radius: 8px 8px 0 0;
+}
+
+.quick-select-header h3 {
+    margin: 0;
+    color: #fff;
+}
+
+.close-quick-select-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-quick-select-btn:hover {
+    color: #ff4444;
+    transform: rotate(90deg);
+}
+
+.quick-select-options {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.quick-select-divider {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.quick-select-divider::before,
+.quick-select-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #444;
+}
+
+.quick-select-divider::before {
+    left: 0;
+}
+
+.quick-select-divider::after {
+    right: 0;
+}
+
+.quick-select-footer {
+    padding: 15px;
+    border-top: 1px solid #444;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.quick-select-footer .quick-select-btn {
+    min-width: 80px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.quick-select-footer .quick-select-btn.cancel {
+    background: #424242;
+    color: #fff;
+}
+
+.quick-select-footer .quick-select-btn.cancel:hover {
+    background: #555;
+    transform: translateY(-2px);
+}
+
+.quick-select-footer .quick-select-btn.confirm {
+    background: #1565c0;
+    color: #fff;
+}
+
+.quick-select-footer .quick-select-btn.confirm:hover:not(:disabled) {
+    background: #1976d2;
+    transform: translateY(-2px);
+}
+
+.quick-select-footer .quick-select-btn.confirm:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quick-select-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quick-select-group i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    color: #666;
+}
+
+.quick-select-dropdown {
+    position: relative;
+    flex: 1;
+}
+
+.quick-select-dropdown.disabled {
+    pointer-events: none;
+}
+
+.quick-select-dropdown.disabled .quick-select-trigger {
+    opacity: 0.5;
+}
+
+.quick-select-group:has(.quick-select-dropdown.disabled) {
+    cursor: not-allowed;
+}
+
+.quick-select-trigger {
+    padding: 8px 32px 8px 12px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.quick-select-trigger i {
+    position: absolute;
+    right: 12px;
+    transition: transform 0.3s ease;
+    color: #666;
+}
+
+.quick-select-dropdown.open .quick-select-trigger i {
+    transform: rotate(180deg);
+}
+
+.quick-select-options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-top: 4px;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1200;
+}
+
+.quick-select-dropdown.open .quick-select-options-list {
+    height: 600px;
+    opacity: 1;
+    transform: translateY(0);
+    overflow-y: auto;
+}
+
+.quick-select-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.quick-select-option:hover {
+    background: #1565c0;
+}
+
+.quick-select-option.selected {
+    background: #1565c0;
+    color: #fff;
+}
+
+/* 下拉菜单滚动条样式 */
+.quick-select-dropdown.open .quick-select-options-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.quick-select-dropdown.open .quick-select-options-list::-webkit-scrollbar-thumb {
+    background: #1976d2;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.quick-select-dropdown.open .quick-select-options-list::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+    margin: 5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quick-select-dropdown.open .quick-select-options-list::-webkit-scrollbar-track:hover {
+    background: #222;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.character-avatar {
+    height: 40px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
