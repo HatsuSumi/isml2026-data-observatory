@@ -783,42 +783,8 @@ class CharacterDetail {
 document.addEventListener('DOMContentLoaded', () => {
     const detail = new CharacterDetail();
     detail.init();
-    const ROUND_NAME_MAP = {
-        '预选赛第一轮': '预选赛第1-1轮',
-        '预选赛第二轮': '预选赛第1-2轮',
-        '预选赛第三轮': '预选赛第2-1轮',
-        '预选赛第四轮': '预选赛第2-2轮',
-        '预选赛第五轮': '预选赛第3-1轮',
-        '预选赛第六轮': '预选赛第3-2轮'
-    };
-
-    // 延迟执行，确保元素已经渲染
-    setTimeout(() => {
-        
-        // 更宽松的选择器
-        $('*').filter(function() {
-            return $(this).text().includes('预选赛第') || 
-                   $(this).attr('data-target') && $(this).attr('data-target').includes('round-');
-        }).each(function() {
-            const originalText = $(this).text();
-            const originalTarget = $(this).attr('data-target');
-            
-            // 替换文本
-            if (ROUND_NAME_MAP[originalText]) {
-                $(this).text(ROUND_NAME_MAP[originalText]);
-            }
-            
-            // 替换 data-target
-            if (originalTarget) {
-                const roundPart = originalTarget.replace('round-', '');
-                const newTarget = ROUND_NAME_MAP[`预选赛${roundPart}`] 
-                    ? `round-${ROUND_NAME_MAP[`预选赛${roundPart}`].replace('预选赛', '')}` 
-                    : originalTarget;
-                $(this).attr('data-target', newTarget);
-            }
-        });
-    }, 1000);
 });
+
 
 // 单独的赛事处理器文件
 class StageHandler {

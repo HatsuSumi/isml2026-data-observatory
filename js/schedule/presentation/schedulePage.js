@@ -3,7 +3,6 @@ import { smoothScrollTo } from '../utils/dom.js';
 import { loadJson } from '../utils/loadJson.js';
 import { createMatchElement, renderSchedule } from './renderSchedule.js';
 import { initReminders, initSavePosition, initStickySearchContainer, updateCountdown } from './pageEffects.js';
-import { normalizeRoundNames } from './roundNameNormalizer.js';
 import { createScheduleNavController } from './scheduleNavController.js';
 import { bindCharacterSearch } from './bindings.js';
 
@@ -34,5 +33,4 @@ export async function startSchedulePage(renderMatchDetails) {
 
     initStickySearchContainer();
     bindCharacterSearch();
-    normalizeRoundNames();
 }
