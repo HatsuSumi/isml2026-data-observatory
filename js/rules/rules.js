@@ -1,12 +1,16 @@
 class Rules {
     constructor() {
         this.ruleId = new URLSearchParams(window.location.search).get('id');
+        this.templates = {
+            rulesList: document.getElementById('rules-list-template'),
+            ruleItem: document.getElementById('rule-item-template'),
+            rulesError: document.getElementById('rules-error-template')
+        };
         this.containers = {
             content: document.querySelector('.rules-content'),
             title: document.querySelector('.rules-title')
         };
 
-        // 绑定返回按钮事件
         document.querySelector('.back-btn').addEventListener('click', () => {
             window.history.back();
         });
@@ -16,7 +20,7 @@ class Rules {
         try {
             await this.loadRules();
             this.renderRules();
-            this.animateRules(); 
+            this.animateRules();
         } catch (error) {
             console.error('初始化规则页面失败:', error);
             this.showError('规则加载失败，请稍后重试');
@@ -41,25 +45,21 @@ class Rules {
         }
 
         this.containers.title.textContent = rule.title;
-        
-        // 创建有序列表
-        const ol = document.createElement('ol');
+
+        const list = this.templates.rulesList.content.cloneNode(true).querySelector('.rules-list');
         Object.entries(rule.content).forEach(([number, text]) => {
-            const li = document.createElement('li');
-            li.textContent = text;
-            ol.appendChild(li);
+            const item = this.templates.ruleItem.content.cloneNode(true).querySelector('li');
+            item.textContent = text;
+            list.appendChild(item);
         });
-        
-        this.containers.content.innerHTML = '';
-        this.containers.content.appendChild(ol);
+
+        this.containers.content.replaceChildren(list);
     }
 
     showError(message) {
-        const errorEl = document.createElement('div');
-        errorEl.className = 'error-message';
+        const errorEl = this.templates.rulesError.content.cloneNode(true).querySelector('.error-message');
         errorEl.textContent = message;
-        this.containers.content.innerHTML = '';
-        this.containers.content.appendChild(errorEl);
+        this.containers.content.replaceChildren(errorEl);
     }
 
     animateRules() {
@@ -67,13 +67,12 @@ class Rules {
         rules.forEach((rule, index) => {
             setTimeout(() => {
                 rule.classList.add('slide-in');
-            }, index * 100);  
+            }, index * 100);
         });
     }
 }
 
-// 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', () => {
     const rules = new Rules();
     rules.init();
-}); 
+});

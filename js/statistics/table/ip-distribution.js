@@ -325,10 +325,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     // 初始化搜索计数显示
-    const searchInputWrapper = document.querySelector('.search-input-wrapper');
-    const searchCount = document.createElement('span');
-    searchCount.className = 'search-count';
-    searchInputWrapper.appendChild(searchCount);
+    const searchCount = document.querySelector('.search-input-wrapper .search-count');
 
     // 搜索函数
     function searchAndHighlight() {

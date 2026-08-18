@@ -2,8 +2,8 @@ class GroupRendererStrategy {
     static strategies = {
         preliminary: (groupConfig, charactersData, containers) => {
             const template = document.getElementById('preliminary-group-template');
-            const groupContainer = document.createElement('div');
-            groupContainer.className = 'group-list';
+            const groupListTemplate = document.getElementById('group-list-template');
+            const groupContainer = groupListTemplate.content.cloneNode(true).querySelector('.group-list');
         
             Object.entries(groupConfig.groups).forEach(([groupName, characters]) => {
                 const groupSection = template.content.cloneNode(true);

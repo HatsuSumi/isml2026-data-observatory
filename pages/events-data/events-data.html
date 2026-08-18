@@ -9,6 +9,44 @@
 </head>
 <body>
     <include src="templates/header.html"></include>
+    <template id="events-page-template">
+        <div>
+            <h1>赛事数据</h1>
+            <div class="events-container"></div>
+        </div>
+    </template>
+    <template id="event-card-template">
+        <div class="event-card"></div>
+    </template>
+    <template id="month-section-template">
+        <section class="month-section">
+            <h2 class="month-title"></h2>
+            <div class="events-grid"></div>
+        </section>
+    </template>
+    <template id="date-section-template">
+        <div class="date-section">
+            <div class="date-header"></div>
+        </div>
+    </template>
+    <template id="phase-section-template">
+        <div class="phase-group">
+            <div class="phase-header"></div>
+            <div class="phase-content"></div>
+        </div>
+    </template>
+    <template id="group-section-template">
+        <div class="group-section">
+            <div class="group-header">
+                <div class="group-info">
+                    <div class="group-title"></div>
+                    <div class="group-date"></div>
+                </div>
+                <div class="status-info"></div>
+            </div>
+            <div class="cards-container"></div>
+        </div>
+    </template>
     <div class="container"></div>
     <include src="templates/footer.html"></include>
     <script type="module" src="js/common/template-loader.js"></script>

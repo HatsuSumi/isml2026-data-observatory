@@ -2,6 +2,15 @@ let observer;
 let eventsData;
 let nav;
 
+const templates = {
+    eventsPage: document.getElementById('events-page-template'),
+    eventCard: document.getElementById('event-card-template'),
+    monthSection: document.getElementById('month-section-template'),
+    dateSection: document.getElementById('date-section-template'),
+    phaseSection: document.getElementById('phase-section-template'),
+    groupSection: document.getElementById('group-section-template')
+};
+
 // 添加常量
 const SCROLL_POSITION_KEY = 'events_scroll_position';
 const RETURN_FROM_KEY = 'return_from_event';
@@ -233,8 +242,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const hash = window.location.hash.slice(1);
         
         window.createEventCard = function(event, match, nextEventStartTime) {
-            const card = document.createElement('div');
-            card.className = 'event-card';
+            const card = templates.eventCard.content.cloneNode(true).querySelector('.event-card');
             
             const eventTitle = match.title;
             
@@ -314,10 +322,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         const container = document.querySelector('.container');
-        container.innerHTML = `
-            <h1>赛事数据</h1>
-            <div class="events-container"></div>
-        `;
+        const pageContent = templates.eventsPage.content.cloneNode(true).firstElementChild;
+        container.replaceChildren(pageContent);
         
         // 添加电梯导航
         nav = document.createElement('nav');
@@ -541,20 +547,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 });
 
 function createMonthSection(month, nextEventStartTime) {
-    const section = document.createElement('section');
-    section.className = 'month-section';
-    
-    const title = document.createElement('h2');
-    title.className = 'month-title';
-    title.textContent = month.title;
-    section.appendChild(title);
-    
-    // 按日期分组事件
+    const section = templates.monthSection.content.cloneNode(true).querySelector('.month-section');
+    const title = section.querySelector('.month-title');
+    const grid = section.querySelector('.events-grid');
     const eventsByDate = groupEventsByStructure(month.events);
     
-    // 创建事件网格
-    const grid = document.createElement('div');
-    grid.className = 'events-grid';
+    title.textContent = month.title;
     
     // 按日期顺序创建日期区块
     Object.keys(eventsByDate).sort((a, b) => {
@@ -567,7 +565,6 @@ function createMonthSection(month, nextEventStartTime) {
         grid.appendChild(dateSection);
     });
     
-    section.appendChild(grid);
     return section;
 }
 
@@ -663,13 +660,10 @@ function groupEventsByStructure(events) {
 }
 
 function createDateSection(date, dateGroup, nextEventStartTime) {
-    const dateSection = document.createElement('div');
-    dateSection.className = 'date-section';
+    const dateSection = templates.dateSection.content.cloneNode(true).querySelector('.date-section');
+    const dateHeader = dateSection.querySelector('.date-header');
     
-    const dateHeader = document.createElement('div');
-    dateHeader.className = 'date-header';
     dateHeader.textContent = date;
-    dateSection.appendChild(dateHeader);
     
     // 遍历每个阶段
     Object.entries(dateGroup.phases).forEach(([phaseName, phase]) => {
@@ -681,8 +675,9 @@ function createDateSection(date, dateGroup, nextEventStartTime) {
 }
 
 function createPhaseSection(phaseName, phase, nextEventStartTime) {
-    const phaseSection = document.createElement('div');
-    phaseSection.className = 'phase-group';
+    const phaseSection = templates.phaseSection.content.cloneNode(true).querySelector('.phase-group');
+    const phaseHeader = phaseSection.querySelector('.phase-header');
+    const phaseContent = phaseSection.querySelector('.phase-content');
     
     const firstMatch = Object.values(phase.groups)[0]?.[0];
     if (firstMatch?.phaseId) {
@@ -691,17 +686,9 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
     
     phaseSection.id = phaseName;
     observer.observe(phaseSection);
-    
-    const phaseHeader = document.createElement('div');
-    phaseHeader.className = 'phase-header';
     phaseHeader.textContent = phaseName;
-    phaseSection.appendChild(phaseHeader);
-    
-    const phaseContent = document.createElement('div');
-    phaseContent.className = 'phase-content';
     
     Object.entries(phase.groups).forEach(([groupName, matches]) => {
-        // 使用 TITLE_MAPPING 获取 groupTitle
         const finalGroupTitle = 
             TITLE_MAPPING[groupName]?.groupTitle || groupName;
         
@@ -732,8 +719,6 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
         phaseContent.appendChild(groupSection);
     });
     
-    phaseSection.appendChild(phaseContent);
-    
     phaseHeader.addEventListener('click', () => {
         phaseSection.classList.toggle('collapsed');
     });
@@ -742,52 +727,57 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
 }
 
 function createGroupSection(groupTitle, groupData, nextEventStartTime) {
-    const section = document.createElement('div');
-    section.className = 'group-section';
+    const section = templates.groupSection.content.cloneNode(true).querySelector('.group-section');
+    const titleEl = section.querySelector('.group-title');
+    const dateEl = section.querySelector('.group-date');
+    const statusInfo = section.querySelector('.status-info');
+    const cardsContainer = section.querySelector('.cards-container');
     
-    // 获取第一个事件的月份和数据
     const firstEvent = groupData[0].event;
     const stats = firstEvent?.stats;
     const status = getEventStatus(firstEvent, nextEventStartTime);
-    
-    section.innerHTML = `
-        <div class="group-header">
-            <div class="group-info">
-                <div class="group-title">${groupTitle}</div>
-               <div class="group-date">
-                   ${groupData[0].event.dateRange.isRescheduled ? 
-                       `原定：${formatDateTime(groupData[0].event.dateRange.start)} - ${formatDateTime(groupData[0].event.dateRange.end)}<br>
-                       重赛：${formatDateTime(groupData[0].event.dateRange.Restart)} - ${formatDateTime(groupData[0].event.dateRange.Reend)}
-                       <span class="tooltip-trigger" data-title="${groupData[0].event.dateRange.rescheduledReason}">?</span>` 
-                       : `${formatDateTime(groupData[0].event.dateRange.start)} - ${formatDateTime(groupData[0].event.dateRange.end)}`}
-                   ${firstEvent.dateRange.result ? ` | 结果公布：${formatDateTime(firstEvent.dateRange.result, 'date')}` : ''}
+
+    titleEl.textContent = groupTitle;
+    dateEl.innerHTML = groupData[0].event.dateRange.isRescheduled
+        ? `原定：${formatDateTime(groupData[0].event.dateRange.start)} - ${formatDateTime(groupData[0].event.dateRange.end)}<br>
+           重赛：${formatDateTime(groupData[0].event.dateRange.Restart)} - ${formatDateTime(groupData[0].event.dateRange.Reend)}
+           <span class="tooltip-trigger" data-title="${groupData[0].event.dateRange.rescheduledReason}">?</span>`
+        : `${formatDateTime(groupData[0].event.dateRange.start)} - ${formatDateTime(groupData[0].event.dateRange.end)}`;
+
+    if (firstEvent.dateRange.result) {
+        dateEl.insertAdjacentHTML('beforeend', ` | 结果公布：${formatDateTime(firstEvent.dateRange.result, 'date')}`);
+    }
+
+    statusInfo.innerHTML = status === 'postponed'
+        ? `
+            <div class="status-wrapper">
+                <span class="event-status status-postponed">已延期</span>
+                <div class="postpone-hint">
+                    <i class="fas fa-question-circle"></i>
+                    <div class="tooltip">该赛事已延期，具体时间待定</div>
                 </div>
             </div>
-            <div class="status-info">
-                ${status === 'postponed' ? `
-                    <div class="status-wrapper">
-                        <span class="event-status status-postponed">已延期</span>
-                        <div class="postpone-hint">
-                            <i class="fas fa-question-circle"></i>
-                            <div class="tooltip">该赛事已延期，具体时间待定</div>
-                        </div>
-                    </div>
-                ` : `
-                    <span class="event-status status-${status}">${getStatusText(status)}</span>
-                `}
-                ${stats ? `
-                    <div class="event-stats">
-                        <span class="stat-item">
-                            总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）
-                        </span>
-                    </div>
-                ` : ''}
+        `
+        : `
+            <span class="event-status status-${status}">${getStatusText(status)}</span>
+        `;
+
+    if (stats) {
+        statusInfo.insertAdjacentHTML('beforeend', `
+            <div class="event-stats">
+                <span class="stat-item">
+                    总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）
+                </span>
             </div>
-        </div>
-        <div class="cards-container" style="display: ${status === 'completed' ? 'block' : 'none'}">
-            ${groupData.map(data => createEventCard(data.event, data.match, nextEventStartTime).outerHTML).join('')}
-        </div>
-    `;
+        `);
+    }
+
+    cardsContainer.style.display = status === 'completed' ? 'block' : 'none';
+    const cardsFragment = document.createDocumentFragment();
+    groupData.forEach(data => {
+        cardsFragment.appendChild(createEventCard(data.event, data.match, nextEventStartTime));
+    });
+    cardsContainer.appendChild(cardsFragment);
     
     return section;
 }
