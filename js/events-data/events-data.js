@@ -569,18 +569,15 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }, { threshold: 0.5 });
         
-        // 监听所有阶段区块
         const eventsContainer = container.querySelector('.events-container');
-        
-        // 找到下一场比赛的开始时间
         const nextEventStartTime = findNextEventStartTime(eventsData);
+        const monthFragment = document.createDocumentFragment();
         
-        // 遍历所有月份
         for (const [monthKey, month] of Object.entries(eventsData.months)) {
             const monthSection = createMonthSection(month, nextEventStartTime);
-            
-            eventsContainer.appendChild(monthSection);
+            monthFragment.appendChild(monthSection);
         }
+        eventsContainer.appendChild(monthFragment);
 
         // 在页面加载时检查
         const returnFrom = sessionStorage.getItem(RETURN_FROM_KEY);
@@ -615,6 +612,7 @@ function createMonthSection(month, nextEventStartTime) {
     title.textContent = month.title;
     
     // 按日期顺序创建日期区块
+    const dateFragment = document.createDocumentFragment();
     Object.keys(eventsByDate).sort((a, b) => {
         const dateA = new Date(eventsByDate[a].date);
         const dateB = new Date(eventsByDate[b].date);
@@ -622,8 +620,9 @@ function createMonthSection(month, nextEventStartTime) {
     }).forEach(dateKey => {
         const dateGroup = eventsByDate[dateKey];
         const dateSection = createDateSection(dateKey, dateGroup, nextEventStartTime);
-        grid.appendChild(dateSection);
+        dateFragment.appendChild(dateSection);
     });
+    grid.appendChild(dateFragment);
     
     return section;
 }
@@ -725,11 +724,12 @@ function createDateSection(date, dateGroup, nextEventStartTime) {
     
     dateHeader.textContent = date;
     
-    // 遍历每个阶段
+    const phaseFragment = document.createDocumentFragment();
     Object.entries(dateGroup.phases).forEach(([phaseName, phase]) => {
         const phaseSection = createPhaseSection(phaseName, phase, nextEventStartTime);
-        dateSection.appendChild(phaseSection);
+        phaseFragment.appendChild(phaseSection);
     });
+    dateSection.appendChild(phaseFragment);
     
     return dateSection;
 }
@@ -748,6 +748,7 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
     observer.observe(phaseSection);
     phaseHeader.textContent = phaseName;
     
+    const groupFragment = document.createDocumentFragment();
     Object.entries(phase.groups).forEach(([groupName, matches]) => {
         const finalGroupTitle = 
             TITLE_MAPPING[groupName]?.groupTitle || groupName;
@@ -776,8 +777,9 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
         });
         
         const groupSection = createGroupSection(finalGroupTitle, modifiedMatches, nextEventStartTime);
-        phaseContent.appendChild(groupSection);
+        groupFragment.appendChild(groupSection);
     });
+    phaseContent.appendChild(groupFragment);
     
     phaseHeader.addEventListener('click', () => {
         phaseSection.classList.toggle('collapsed');
@@ -792,7 +794,9 @@ function createDateContent(event) {
         fragment.appendChild(document.createTextNode(`原定：${formatDateTime(event.dateRange.start)} - ${formatDateTime(event.dateRange.end)}`));
         fragment.appendChild(document.createElement('br'));
         fragment.appendChild(document.createTextNode(`重赛：${formatDateTime(event.dateRange.Restart)} - ${formatDateTime(event.dateRange.Reend)}`));
-        const tooltip = createElement('span', 'tooltip-trigger', '?');
+        const tooltip = document.createElement('span');
+        tooltip.className = 'tooltip-trigger';
+        tooltip.textContent = '?';
         tooltip.dataset.title = event.dateRange.rescheduledReason;
         fragment.appendChild(document.createTextNode(' '));
         fragment.appendChild(tooltip);

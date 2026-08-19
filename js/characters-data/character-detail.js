@@ -220,14 +220,12 @@ class CharacterDetail {
             return;
         }
         
-        // 清空容器
-        this.containers.reports.replaceChildren();
-        
-        // 按事件渲染战报
+        const fragment = document.createDocumentFragment();
         this.eventData.forEach(round => {
             const report = this.createEventReport(round);
-            this.containers.reports.appendChild(report);
+            fragment.appendChild(report);
         });
+        this.containers.reports.replaceChildren(fragment);
     }
     
     createEventReport(round) {
@@ -327,12 +325,14 @@ class CharacterDetail {
             };
             
             // 按顺序创建数据行
+            const rowsFragment = document.createDocumentFragment();
             Object.entries(fields)
                 .filter(([_, value]) => value !== null && value !== undefined)
                 .forEach(([label, value]) => {
                     const row = createDataRow(label, value);
-                    if (row) content.appendChild(row);
+                    if (row) rowsFragment.appendChild(row);
                 });
+            content.appendChild(rowsFragment);
             
             // 添加相关链接
             const linkConfigs = [
@@ -461,16 +461,13 @@ class CharacterDetail {
     }
     
     setupNavigation() {
-        // 清空导航栏
-        this.containers.nav.replaceChildren();
-        
-        // 添加导航项
+        const fragment = document.createDocumentFragment();
         this.eventData.forEach(round => {
             const navItem = this.createNavItem(round);
-            this.containers.nav.appendChild(navItem);
+            fragment.appendChild(navItem);
         });
+        this.containers.nav.replaceChildren(fragment);
         
-        // 激活第一个导航项
         const firstItem = this.containers.nav.firstElementChild;
         if (firstItem) firstItem.classList.add('active');
     }
