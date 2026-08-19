@@ -221,7 +221,7 @@ class CharacterDetail {
         }
         
         // 清空容器
-        this.containers.reports.innerHTML = '';
+        this.containers.reports.replaceChildren();
         
         // 按事件渲染战报
         this.eventData.forEach(round => {
@@ -235,10 +235,11 @@ class CharacterDetail {
         report.id = `round-${round.round}`;
 
         const titleBar = report.querySelector('.event-title');
-        titleBar.innerHTML = `
-            <i class="fas fa-chevron-down collapse-icon"></i>
-            <span>${round.round}</span>
-        `;
+        const collapseIcon = document.createElement('i');
+        collapseIcon.className = 'fas fa-chevron-down collapse-icon';
+        const titleText = document.createElement('span');
+        titleText.textContent = round.round;
+        titleBar.replaceChildren(collapseIcon, titleText);
         
         const battleList = report.querySelector('.battle-list');
 
@@ -476,7 +477,7 @@ class CharacterDetail {
     
     setupNavigation() {
         // 清空导航栏
-        this.containers.nav.innerHTML = '';
+        this.containers.nav.replaceChildren();
         
         // 添加导航项
         this.eventData.forEach(round => {

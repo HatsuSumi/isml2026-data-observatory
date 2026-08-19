@@ -283,34 +283,53 @@ function sortNova(rows, columnIndex, isAsc) {
   return [...rows].sort((a, b) => compareRows(a, b, columnIndex, isAsc));
 }
 
-function buildRowHtml(row, mode) {
-  const avatar = row.columns[8] ? `<img src="${row.columns[8]}" alt="${row.columns[2]}" width="50">` : '';
+function createCell(text = '', className = '') {
+  const td = document.createElement('td');
+  if (className) td.className = className;
+  td.textContent = text;
+  return td;
+}
+
+function createAvatarCell(row) {
+  const td = document.createElement('td');
+  if (!row.columns[8]) return td;
+  const img = document.createElement('img');
+  img.src = row.columns[8];
+  img.alt = row.columns[2] || '';
+  img.width = 50;
+  td.appendChild(img);
+  return td;
+}
+
+function buildRowNode(row, mode) {
+  const tr = document.createElement('tr');
   const cv = row.columns[4] || '';
   const rank = mode === 'stellar' && row.isAutoPromoted ? '-' : (row.rank ?? '-');
   const votes = mode === 'stellar' && row.isAutoPromoted ? AUTO_TEXT : String(row.votes);
-  return `
-    <td class="rank">${rank}</td>
-    <td>${row.columns[0] || ''}</td>
-    <td>${row.columns[1] || ''}</td>
-    <td>${avatar}</td>
-    <td>${row.columns[2] || ''}</td>
-    <td>${row.columns[3] || ''}</td>
-    <td>${cv}</td>
-    <td class="votes">${votes}</td>
-  `;
+
+  tr.dataset.promoted = row.isPromoted ? 'true' : 'false';
+  tr.dataset.autoPromoted = row.isAutoPromoted ? 'true' : 'false';
+  tr.append(
+    createCell(String(rank), 'rank'),
+    createCell(row.columns[0] || ''),
+    createCell(row.columns[1] || ''),
+    createAvatarCell(row),
+    createCell(row.columns[2] || ''),
+    createCell(row.columns[3] || ''),
+    createCell(cv),
+    createCell(votes, 'votes')
+  );
+  return tr;
 }
 
 function renderTable(state, rows) {
   const tableBody = document.getElementById('tableBody');
-  tableBody.innerHTML = '';
+  const fragment = document.createDocumentFragment();
   rows.forEach(row => {
-    const tr = document.createElement('tr');
-    tr.dataset.promoted = row.isPromoted ? 'true' : 'false';
-    tr.dataset.autoPromoted = row.isAutoPromoted ? 'true' : 'false';
-    tr.innerHTML = buildRowHtml(row, state.config.mode);
-    tableBody.appendChild(tr);
+    fragment.appendChild(buildRowNode(row, state.config.mode));
   });
-  document.querySelectorAll('#tableBody tr').forEach(row => row.classList.add('fade-in'));
+  tableBody.replaceChildren(fragment);
+  tableBody.querySelectorAll('tr').forEach(row => row.classList.add('fade-in'));
   bindBackToTop();
 }
 

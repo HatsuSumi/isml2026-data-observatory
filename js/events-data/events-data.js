@@ -173,21 +173,27 @@ function withFromParam(url, from) {
     return `${base}${separator}from=${encodeURIComponent(from)}${hash ? `#${hash}` : ''}`;
 }
 
-function getEventLinks(match, status) {
-    if (match.links && status === 'completed') {
-        return `
-            <a href="${withFromParam(match.links.visualization, 'events-data')}" 
-               class="event-link visualization-link"
-               onclick="savePosition('visualization')">数据可视化</a>
-            <a href="${withFromParam(match.links.table, 'events-data')}" 
-               class="event-link table-link"
-               onclick="savePosition('table')">查看表格</a>
-        `;
+function createEventLink(url, className, text, disabled = false) {
+    const element = document.createElement(disabled ? 'span' : 'a');
+    element.className = `event-link ${className}${disabled ? ' disabled-link' : ''}`;
+    element.textContent = text;
+    if (!disabled) {
+        element.href = withFromParam(url, 'events-data');
+        element.addEventListener('click', () => savePosition(className.includes('visualization') ? 'visualization' : 'table'));
     }
-    return `
-        <span class="event-link visualization-link disabled-link">数据可视化</span>
-        <span class="event-link table-link disabled-link">查看表格</span>
-    `;
+    return element;
+}
+
+function getEventLinks(match, status) {
+    const fragment = document.createDocumentFragment();
+    if (match.links && status === 'completed') {
+        fragment.appendChild(createEventLink(match.links.visualization, 'visualization-link', '数据可视化'));
+        fragment.appendChild(createEventLink(match.links.table, 'table-link', '查看表格'));
+        return fragment;
+    }
+    fragment.appendChild(createEventLink('', 'visualization-link', '数据可视化', true));
+    fragment.appendChild(createEventLink('', 'table-link', '查看表格', true));
+    return fragment;
 }
 
 // 保存位置
@@ -198,15 +204,141 @@ function savePosition(from) {
     sessionStorage.setItem(RETURN_FROM_KEY, from);
 }
 
-// 添加一个函数来判断当前阶段
+function createInfoRow(wrapperClass, keyText, valueText) {
+    const wrapper = document.createElement('div');
+    wrapper.className = wrapperClass;
+
+    const key = document.createElement('span');
+    key.className = 'key';
+    key.textContent = keyText;
+
+    const value = document.createElement('span');
+    value.className = 'value';
+    value.textContent = valueText;
+
+    wrapper.appendChild(key);
+    wrapper.appendChild(value);
+    return wrapper;
+}
+
+function createTopCharacterItem(item, index, topFiveData, charactersData) {
+    const characterKey = `${item.name}@${item.ip}`;
+    const characterData = charactersData[characterKey];
+    const row = document.createElement('div');
+    row.className = 'character-item';
+
+    if (characterData?.avatar) {
+        const avatar = document.createElement('div');
+        avatar.className = 'character-avatar';
+        const img = document.createElement('img');
+        img.src = characterData.avatar;
+        img.alt = item.name;
+        avatar.appendChild(img);
+        row.appendChild(avatar);
+    }
+
+    const rank = document.createElement('span');
+    rank.className = 'rank';
+    rank.textContent = String(index + 1);
+
+    const name = document.createElement('span');
+    name.className = 'name';
+    name.textContent = item.name;
+    const ip = document.createElement('span');
+    ip.className = 'ip';
+    ip.textContent = `@${characterData?.ip || item.ip}`;
+    name.appendChild(ip);
+
+    const votes = document.createElement('span');
+    votes.className = 'votes';
+    votes.textContent = `${item.votes}票`;
+
+    row.appendChild(rank);
+    row.appendChild(name);
+    row.appendChild(votes);
+
+    if (index > 0) {
+        const votesDiff = topFiveData[index - 1].votes - item.votes;
+        const diff = document.createElement('div');
+        diff.className = 'votes-diff';
+        diff.textContent = `↓${votesDiff}`;
+        row.appendChild(diff);
+    }
+
+    return row;
+}
+
+function createTopCharactersSection(topFiveData, charactersData) {
+    if (!topFiveData?.length) return null;
+    const section = document.createElement('div');
+    section.className = 'top-characters';
+    const title = document.createElement('h4');
+    title.className = 'top-title';
+    title.textContent = '得票数 Top 5';
+    const list = document.createElement('div');
+    list.className = 'character-list';
+    topFiveData.forEach((item, index) => {
+        list.appendChild(createTopCharacterItem(item, index, topFiveData, charactersData));
+    });
+    section.appendChild(title);
+    section.appendChild(list);
+    return section;
+}
+
+function createEventCardBody(match, status, topFiveData, charactersData) {
+    const fragment = document.createDocumentFragment();
+    const header = document.createElement('div');
+    header.className = 'event-header';
+    const info = document.createElement('div');
+    info.className = 'event-info';
+    const title = document.createElement('div');
+    title.className = 'event-title';
+    title.textContent = match.title;
+    info.appendChild(title);
+
+    if (match.format) {
+        info.appendChild(createInfoRow('voting-format-wrapper', '投票制度：', match.format));
+    }
+    if (match.resultDate) {
+        info.appendChild(createInfoRow('result-date-wrapper', '出结果日：', formatDateTime(match.resultDate)));
+    }
+
+    header.appendChild(info);
+    if (status === 'postponed') {
+        const hint = document.createElement('div');
+        hint.className = 'postpone-hint';
+        hint.title = '该赛事已延期';
+        hint.textContent = '?';
+        header.appendChild(hint);
+    }
+    fragment.appendChild(header);
+
+    const description = match.details?.qualified?.description;
+    if (description) {
+        const content = document.createElement('div');
+        content.className = 'event-content';
+        content.textContent = description;
+        fragment.appendChild(content);
+    }
+
+    const topCharacters = createTopCharactersSection(topFiveData, charactersData);
+    if (topCharacters) {
+        fragment.appendChild(topCharacters);
+    }
+
+    const footer = document.createElement('div');
+    footer.className = 'event-footer';
+    footer.appendChild(getEventLinks(match, status));
+    fragment.appendChild(footer);
+    return fragment;
+}
+
 function getCurrentPhase(eventsData) {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
     
-    // 遍历所有月份和事件
     for (const month of Object.values(eventsData.months)) {
         for (const event of month.events) {
-            // 根据是否重赛选择开始和结束日期
             const startDate = event.dateRange.isRescheduled && event.dateRange.Restart
                 ? new Date(event.dateRange.Restart)
                 : new Date(event.dateRange.start);
@@ -219,9 +351,9 @@ function getCurrentPhase(eventsData) {
             endDate.setHours(23, 59, 59, 999);
             
             if (now >= startDate && now <= endDate) {
-                const match = event.matches[0]; 
+                const match = event.matches[0];
                 if (match.phase) {
-                    return match.phase;  
+                    return match.phase;
                 }
             }
         }
@@ -243,81 +375,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         window.createEventCard = function(event, match, nextEventStartTime) {
             const card = templates.eventCard.content.cloneNode(true).querySelector('.event-card');
-            
-            const eventTitle = match.title;
-            
             const status = getEventStatus(event, nextEventStartTime);
-            
-            let description = '';
-            if (match.details?.qualified) {
-                description = match.details.qualified.description;
-            }
-            
             const topFiveData = rankingData?.[match.title]?.top5;
-            
-            card.innerHTML = `
-                <div class="event-header">
-                    <div class="event-info">
-                        <div class="event-title">
-                            ${eventTitle}
-                        </div>
-                        ${match.format ? `
-                            <div class="voting-format-wrapper">
-                                <span class="key">投票制度：</span>
-                                <span class="value">${match.format}</span>
-                            </div>
-                        ` : ''}
-                        ${match.resultDate ? `
-                            <div class="result-date-wrapper">
-                                <span class="key">出结果日：</span>
-                                <span class="value">${formatDateTime(match.resultDate)}</span>
-                            </div>
-                        ` : ''}
-                    </div>
-                    ${status === 'postponed' ? 
-                        `<div class="postpone-hint" title="该赛事已延期">?</div>` : 
-                        ''
-                    }
-                </div>
-                ${description ? `
-                    <div class="event-content">
-                        ${description}
-                    </div>
-                ` : ''}
-                ${topFiveData && topFiveData.length > 0 ? `
-                    <div class="top-characters">
-                        <h4 class="top-title">得票数 Top 5</h4>
-                        <div class="character-list">
-                            ${topFiveData.map((item, index) => {
-                                const characterKey = `${item.name}@${item.ip}`;
-                                const characterData = charactersData[characterKey];
-                                
-                                const prevVotes = index > 0 ? topFiveData[index - 1].votes : item.votes;
-                                const votesDiff = prevVotes - item.votes;
-                                const diffHtml = index > 0 ? `<div class="votes-diff">↓${votesDiff}</div>` : '';
-                                
-                                return `
-                                    <div class="character-item">
-                                        ${characterData?.avatar ? `
-                                            <div class="character-avatar">
-                                                <img src="${characterData.avatar}" alt="${item.name}">
-                                            </div>
-                                        ` : ''}
-                                        <span class="rank">${index + 1}</span>
-                                        <span class="name">${item.name}<span class="ip">@${characterData?.ip || item.ip}</span></span>
-                                        <span class="votes">${item.votes}票</span>
-                                        ${diffHtml}
-                                    </div>
-                                `;
-                            }).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-                <div class="event-footer">
-                    ${getEventLinks(match, status)}
-                </div>
-            `;
-            
+            card.replaceChildren(createEventCardBody(match, status, topFiveData, charactersData));
             return card;
         }
         
@@ -726,6 +786,63 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
     return phaseSection;
 }
 
+function createDateContent(event) {
+    const fragment = document.createDocumentFragment();
+    if (event.dateRange.isRescheduled) {
+        fragment.appendChild(document.createTextNode(`原定：${formatDateTime(event.dateRange.start)} - ${formatDateTime(event.dateRange.end)}`));
+        fragment.appendChild(document.createElement('br'));
+        fragment.appendChild(document.createTextNode(`重赛：${formatDateTime(event.dateRange.Restart)} - ${formatDateTime(event.dateRange.Reend)}`));
+        const tooltip = createElement('span', 'tooltip-trigger', '?');
+        tooltip.dataset.title = event.dateRange.rescheduledReason;
+        fragment.appendChild(document.createTextNode(' '));
+        fragment.appendChild(tooltip);
+    } else {
+        fragment.appendChild(document.createTextNode(`${formatDateTime(event.dateRange.start)} - ${formatDateTime(event.dateRange.end)}`));
+    }
+    if (event.dateRange.result) {
+        fragment.appendChild(document.createTextNode(` | 结果公布：${formatDateTime(event.dateRange.result, 'date')}`));
+    }
+    return fragment;
+}
+
+function createStatusInfo(status, stats) {
+    const fragment = document.createDocumentFragment();
+    if (status === 'postponed') {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'status-wrapper';
+        const statusLabel = document.createElement('span');
+        statusLabel.className = 'event-status status-postponed';
+        statusLabel.textContent = '已延期';
+        const hint = document.createElement('div');
+        hint.className = 'postpone-hint';
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-question-circle';
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = '该赛事已延期，具体时间待定';
+        hint.appendChild(icon);
+        hint.appendChild(tooltip);
+        wrapper.appendChild(statusLabel);
+        wrapper.appendChild(hint);
+        fragment.appendChild(wrapper);
+    } else {
+        const statusNode = document.createElement('span');
+        statusNode.className = `event-status status-${status}`;
+        statusNode.textContent = getStatusText(status);
+        fragment.appendChild(statusNode);
+    }
+    if (stats) {
+        const statsContainer = document.createElement('div');
+        statsContainer.className = 'event-stats';
+        const item = document.createElement('span');
+        item.className = 'stat-item';
+        item.textContent = `总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）`;
+        statsContainer.appendChild(item);
+        fragment.appendChild(statsContainer);
+    }
+    return fragment;
+}
+
 function createGroupSection(groupTitle, groupData, nextEventStartTime) {
     const section = templates.groupSection.content.cloneNode(true).querySelector('.group-section');
     const titleEl = section.querySelector('.group-title');
@@ -738,39 +855,8 @@ function createGroupSection(groupTitle, groupData, nextEventStartTime) {
     const status = getEventStatus(firstEvent, nextEventStartTime);
 
     titleEl.textContent = groupTitle;
-    dateEl.innerHTML = groupData[0].event.dateRange.isRescheduled
-        ? `原定：${formatDateTime(groupData[0].event.dateRange.start)} - ${formatDateTime(groupData[0].event.dateRange.end)}<br>
-           重赛：${formatDateTime(groupData[0].event.dateRange.Restart)} - ${formatDateTime(groupData[0].event.dateRange.Reend)}
-           <span class="tooltip-trigger" data-title="${groupData[0].event.dateRange.rescheduledReason}">?</span>`
-        : `${formatDateTime(groupData[0].event.dateRange.start)} - ${formatDateTime(groupData[0].event.dateRange.end)}`;
-
-    if (firstEvent.dateRange.result) {
-        dateEl.insertAdjacentHTML('beforeend', ` | 结果公布：${formatDateTime(firstEvent.dateRange.result, 'date')}`);
-    }
-
-    statusInfo.innerHTML = status === 'postponed'
-        ? `
-            <div class="status-wrapper">
-                <span class="event-status status-postponed">已延期</span>
-                <div class="postpone-hint">
-                    <i class="fas fa-question-circle"></i>
-                    <div class="tooltip">该赛事已延期，具体时间待定</div>
-                </div>
-            </div>
-        `
-        : `
-            <span class="event-status status-${status}">${getStatusText(status)}</span>
-        `;
-
-    if (stats) {
-        statusInfo.insertAdjacentHTML('beforeend', `
-            <div class="event-stats">
-                <span class="stat-item">
-                    总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）
-                </span>
-            </div>
-        `);
-    }
+    dateEl.replaceChildren(createDateContent(firstEvent));
+    statusInfo.replaceChildren(createStatusInfo(status, stats));
 
     cardsContainer.style.display = status === 'completed' ? 'block' : 'none';
     const cardsFragment = document.createDocumentFragment();

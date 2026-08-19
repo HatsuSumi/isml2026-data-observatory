@@ -1,4 +1,4 @@
-﻿import { NOMINATION_TABLE_CONFIGS } from '../table/nomination-table-config.js';
+import { NOMINATION_TABLE_CONFIGS } from '../table/nomination-table-config.js';
 import { normalizeNominationVisualizationRows } from '../table/nomination-data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -333,5 +333,9 @@ function bindButtonEffects() {
 
 function renderError(message) {
     const chartWrapper = document.querySelector('.chart-wrapper');
-    if (chartWrapper) chartWrapper.innerHTML = `<div class="error-message">${message}</div>`;
+    if (!chartWrapper) return;
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'error-message';
+    errorMessage.textContent = message;
+    chartWrapper.replaceChildren(errorMessage);
 }

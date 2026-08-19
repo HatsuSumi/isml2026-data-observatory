@@ -83,13 +83,7 @@
             </div>
         </div>
         
-        <div class="search-results-container" style="display: none;">
-            <h2 class="search-results-title">搜索结果</h2>
-            <div class="search-results-content">
-                <div class="stellar-results"></div>
-                <div class="nova-results"></div>
-            </div>
-        </div>
+        <div class="search-results-container" style="display: none;"></div>
         
         <section class="tournament-section">
             <h1 class="main-title">欢迎来到2026赛季国际最萌大会数据观测主页！</h1>
@@ -101,6 +95,42 @@
                 <div class="loading-container">
                     <div class="loading-spinner"></div>
                 </div>
+            </template>
+
+            <template id="home-character-card-template">
+                <div class="character-card">
+                    <div class="character-image-container" hidden>
+                        <img class="character-image"
+                             loading="lazy"
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                             alt="">
+                    </div>
+                    <div class="character-info">
+                        <div class="character-name"></div>
+                        <div class="character-series"></div>
+                        <div class="character-cv" hidden></div>
+                        <div class="character-status" hidden></div>
+                    </div>
+                </div>
+            </template>
+
+            <template id="search-results-layout-template">
+                <h2 class="search-results-title">搜索结果</h2>
+                <div class="search-results-content">
+                    <div class="stellar-results"></div>
+                    <div class="nova-results"></div>
+                </div>
+            </template>
+
+            <template id="search-results-section-template">
+                <div class="results-section">
+                    <h3></h3>
+                    <div class="character-panel active"></div>
+                </div>
+            </template>
+
+            <template id="search-results-empty-template">
+                <div class="no-results-message">未找到匹配的角色</div>
             </template>
             
             <section class="division stellar">
@@ -120,14 +150,8 @@
                     <div class="tab-slider"></div>
                 </div>
                 <div class="character-panels">
-                    <div class="character-panel active" id="stellar-female">
-                        <div class="character-card loaded">
-                        </div>
-                    </div>
-                    <div class="character-panel" id="stellar-male">
-                        <div class="character-card loaded">
-                        </div>
-                    </div>
+                    <div class="character-panel active" id="stellar-female"></div>
+                    <div class="character-panel" id="stellar-male"></div>
                 </div>
             </section>
 
@@ -151,14 +175,8 @@
                         <div class="tab-slider"></div>
                     </div>
                     <div class="character-panels">
-                        <div class="character-panel active" id="nova-winter-female">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
-                        <div class="character-panel" id="nova-winter-male">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
+                        <div class="character-panel active" id="nova-winter-female"></div>
+                        <div class="character-panel" id="nova-winter-male"></div>
                     </div>
                 </div>
 
@@ -172,14 +190,8 @@
                         <div class="tab-slider"></div>
                     </div>
                     <div class="character-panels">
-                        <div class="character-panel active" id="nova-spring-female">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
-                        <div class="character-panel" id="nova-spring-male">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
+                        <div class="character-panel active" id="nova-spring-female"></div>
+                        <div class="character-panel" id="nova-spring-male"></div>
                     </div>
                 </div>
 
@@ -193,14 +205,8 @@
                         <div class="tab-slider"></div>
                     </div>
                     <div class="character-panels">
-                        <div class="character-panel active" id="nova-summer-female">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
-                        <div class="character-panel" id="nova-summer-male">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
+                        <div class="character-panel active" id="nova-summer-female"></div>
+                        <div class="character-panel" id="nova-summer-male"></div>
                     </div>
                 </div>
 
@@ -214,14 +220,8 @@
                         <div class="tab-slider"></div>
                     </div>
                     <div class="character-panels">
-                        <div class="character-panel active" id="nova-autumn-female">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
-                        <div class="character-panel" id="nova-autumn-male">
-                            <div class="character-card loaded">
-                            </div>
-                        </div>
+                        <div class="character-panel active" id="nova-autumn-female"></div>
+                        <div class="character-panel" id="nova-autumn-male"></div>
                     </div>
                 </div>
             </section>
