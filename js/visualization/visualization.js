@@ -287,9 +287,9 @@ function bindSizeControls(chart) {
         const height = Math.min(Math.max(Number(heightSlider.value), 100), 5000);
         widthValue.textContent = String(width);
         heightValue.textContent = String(height);
-        chartContainer.style.maxWidth = `${width}px`;
-        chartWrapper.style.maxWidth = `${width}px`;
-        chartContainer.style.height = `${height}px`;
+        chartContainer.style.setProperty('--chart-width', `${width}px`);
+        chartContainer.style.setProperty('--chart-height', `${height}px`);
+        chartWrapper.style.setProperty('--chart-width', `${width}px`);
         chart.resize();
     };
 
@@ -305,7 +305,7 @@ function bindSizeControls(chart) {
 
 function bindCustomLegend(id, mode) {
     document.querySelectorAll('.legend-item').forEach((item) => {
-        item.style.cursor = 'pointer';
+        item.classList.add('is-clickable');
         item.addEventListener('click', () => navigateToVisualization(id, getNextMode(item.dataset.series, mode)));
     });
 }
@@ -324,18 +324,5 @@ function navigateToVisualization(id, mode) {
     window.location.href = `pages/visualization/visualization.html?${params.toString()}`;
 }
 
-function bindButtonEffects() {
-    document.querySelectorAll('.home-btn, .table-btn').forEach((button) => {
-        button.addEventListener('mouseenter', function() { this.style.transform = 'scale(1.05)'; });
-        button.addEventListener('mouseleave', function() { this.style.transform = 'scale(1)'; });
-    });
-}
+function bindButtonEffects() {}
 
-function renderError(message) {
-    const chartWrapper = document.querySelector('.chart-wrapper');
-    if (!chartWrapper) return;
-    const errorMessage = document.createElement('div');
-    errorMessage.className = 'error-message';
-    errorMessage.textContent = message;
-    chartWrapper.replaceChildren(errorMessage);
-}

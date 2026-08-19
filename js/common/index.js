@@ -198,9 +198,9 @@ function adjustCardLayout() {
         const gapWidth = parseFloat(gap) * 16;
         const idealColumns = Math.floor((availableWidth + gapWidth) / (cardWidth + gapWidth));
         const actualCardWidth = Math.floor((availableWidth - (idealColumns - 1) * gapWidth) / idealColumns);
-        panel.style.gridTemplateColumns = `repeat(${idealColumns}, ${actualCardWidth}px)`;
-        panel.style.gap = gap;
-        panel.style.justifyContent = 'center';
+        panel.style.setProperty('--character-grid-columns', `repeat(${idealColumns}, ${actualCardWidth}px)`);
+        panel.style.setProperty('--character-grid-gap', gap);
+        panel.style.setProperty('--character-card-width', `${actualCardWidth}px`);
     });
 }
 

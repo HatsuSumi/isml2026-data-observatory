@@ -57,7 +57,7 @@ body {
     width: 100%;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1800px;
+    max-width: var(--chart-width, 1800px);
 }
 
 @keyframes fadeIn {
@@ -71,8 +71,8 @@ body {
 
 .chart-container {
     width: 100%;
-    max-width: 1800px;
-    height: 2200px;
+    max-width: var(--chart-width, 1800px);
+    height: var(--chart-height, 2200px);
     padding-bottom: 40px;
     opacity: 0;
     animation: fadeIn 0.3s ease-out forwards;
@@ -87,7 +87,7 @@ body {
     transform: translateX(-50%);
     z-index: 100;
     width: 100%;    
-    max-width: 1800px;
+    max-width: var(--chart-width, 1800px);
     text-align: center;
     background-color: #1a1a1a;
     padding-top: 10px;
@@ -190,6 +190,10 @@ body {
     opacity: 1;
     transition: opacity 0.3s;
     cursor: default;
+}
+
+.legend-item.is-clickable {
+    cursor: pointer;
 }
 
 .legend-item.inactive {

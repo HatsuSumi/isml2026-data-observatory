@@ -392,6 +392,23 @@ body {
     pointer-events: none;
 }
 
+.links-dropdown.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.record-links-hover-area {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+    z-index: 10;
+}
+
 .links-dropdown a {
     display: flex;
     align-items: center;

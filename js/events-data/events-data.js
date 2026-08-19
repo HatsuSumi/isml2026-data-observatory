@@ -858,7 +858,7 @@ function createGroupSection(groupTitle, groupData, nextEventStartTime) {
     dateEl.replaceChildren(createDateContent(firstEvent));
     statusInfo.replaceChildren(createStatusInfo(status, stats));
 
-    cardsContainer.style.display = status === 'completed' ? 'block' : 'none';
+    cardsContainer.hidden = status !== 'completed';
     const cardsFragment = document.createDocumentFragment();
     groupData.forEach(data => {
         cardsFragment.appendChild(createEventCard(data.event, data.match, nextEventStartTime));

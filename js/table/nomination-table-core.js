@@ -371,7 +371,7 @@ function applyFilters(state) {
     const value = parseInt(valueText || '', 10);
     const matchesRange = (searchType !== 'votes' && searchType !== 'rank') || isAutoPromoted || ((!Number.isNaN(minVotes) ? value >= minVotes : true) && (!Number.isNaN(maxVotes) ? value <= maxVotes : true));
     const matchesText = terms.length === 0 || (searchType !== 'votes' && searchType !== 'rank' && searchType !== 'none' ? matchesTextSearch(row, searchType, terms) : true);
-    row.style.display = matchesRange && matchesText && matchesStatus(state.config.mode, statusValue, row) ? '' : 'none';
+    row.hidden = !(matchesRange && matchesText && matchesStatus(state.config.mode, statusValue, row));
   });
 }
 

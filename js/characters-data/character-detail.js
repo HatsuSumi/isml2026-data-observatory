@@ -178,7 +178,7 @@ class CharacterDetail {
         this.infoElements.cv.textContent = basic.cv;
         
         if (basic.birthday) {
-            this.infoElements.birthdayRow.style.display = '';
+            this.infoElements.birthdayRow.hidden = false;
             this.infoElements.birthday.textContent = basic.birthday;
         } else {
             this.infoElements.birthdayRow.remove();
@@ -411,7 +411,7 @@ class CharacterDetail {
                 });
                 linksDropdown.appendChild(linksFragment);
             } else {
-                linksSection.style.display = 'none';
+                linksSection.hidden = true;
             }
         } catch (error) {
             console.error('处理赛事数据失败:', error);
@@ -423,17 +423,11 @@ class CharacterDetail {
             let hoverTimeout;
 
             const showDropdown = () => {
-                linksDropdown.style.opacity = '1';
-                linksDropdown.style.visibility = 'visible';
-                linksDropdown.style.transform = 'translateY(0) scale(1)';
-                linksDropdown.style.pointerEvents = 'auto';
+                linksDropdown.classList.add('is-open');
             };
 
             const hideDropdown = () => {
-                linksDropdown.style.opacity = '0';
-                linksDropdown.style.visibility = 'hidden';
-                linksDropdown.style.transform = 'translateY(8px) scale(0.95)';
-                linksDropdown.style.pointerEvents = 'none';
+                linksDropdown.classList.remove('is-open');
             };
 
             const handleMouseEnter = () => {
@@ -452,18 +446,9 @@ class CharacterDetail {
                 }, 100);
             };
 
-            // 扩大悬停区域
             const hoverArea = this.templates.hoverArea.content.cloneNode(true).querySelector('.record-links-hover-area');
-            hoverArea.style.position = 'absolute';
-            hoverArea.style.bottom = '100%';
-            hoverArea.style.left = '0';
-            hoverArea.style.right = '0';
-            hoverArea.style.height = '20px';
-            hoverArea.style.background = 'transparent';
-            hoverArea.style.zIndex = '10';
             recordLinks.appendChild(hoverArea);
 
-            // 添加事件监听
             linksBtn.addEventListener('mouseenter', handleMouseEnter);
             linksBtn.addEventListener('mouseleave', handleMouseLeave);
             linksDropdown.addEventListener('mouseenter', handleMouseEnter);
