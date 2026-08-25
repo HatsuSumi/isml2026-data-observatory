@@ -211,6 +211,14 @@ function downloadCurrentTableView(state, format) {
   });
 }
 
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
+
 function bindGlobals(state) {
   window.toggleDropdown = () => document.getElementById('downloadDropdown')?.classList.toggle('show');
   window.downloadFile = (format, event) => {
@@ -316,12 +324,25 @@ function getRowKey(row) {
   return `${row.columns[2] || ''}@${row.columns[3] || ''}`;
 }
 
+function createNominationRow() {
+  const template = document.getElementById('nomination-row-template');
+  const row = template?.content?.firstElementChild;
+  if (!row) {
+    throw new Error('提名表缺少有效的 nomination-row-template 模板');
+  }
+  return row.cloneNode(true);
+}
+
 function renderTable(state, rows) {
   const tableBody = document.getElementById('tableBody');
+  if (!tableBody) {
+    throw new Error('提名表缺少 tableBody 容器');
+  }
+
   reconcileKeyedList(tableBody, rows, {
     getKey: getRowKey,
     keyAttribute: 'rowKey',
-    create: () => document.getElementById('nomination-row-template').content.cloneNode(true).firstElementChild,
+    create: createNominationRow,
     update: (tr, row) => updateRowNode(tr, row, state.config.mode)
   });
   tableBody.querySelectorAll('tr').forEach(row => row.classList.add('fade-in'));
@@ -445,9 +466,10 @@ function bindFilters(state) {
     syncCustomSelect(statusFilter);
     applyFilters(state);
   });
-  searchInput.addEventListener('input', () => applyFilters(state));
-  document.getElementById('minVotes').addEventListener('input', () => applyFilters(state));
-  document.getElementById('maxVotes').addEventListener('input', () => applyFilters(state));
+  const debouncedApplyFilters = debounce(() => applyFilters(state), 300);
+  searchInput.addEventListener('input', debouncedApplyFilters);
+  document.getElementById('minVotes').addEventListener('input', debouncedApplyFilters);
+  document.getElementById('maxVotes').addEventListener('input', debouncedApplyFilters);
   document.querySelector('.reset-btn')?.addEventListener('click', () => resetState(state));
 }
 

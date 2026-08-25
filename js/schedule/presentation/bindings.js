@@ -5,7 +5,9 @@ import { clearCharacterSelection, filterTimelineByCharacter, showAllMatches, sho
 import { setScheduleFiltersEnabled } from './elevatorNav.js';
 
 export function bindCharacterSearch() {
-    document.getElementById('characterSearch').addEventListener('input', debounce(async event => {
+    let searchRequestId = 0;
+    const searchInput = document.getElementById('characterSearch');
+    const handleSearch = debounce(async (event, requestId) => {
         const searchValue = event.target.value.trim();
         const noCharacterEl = document.querySelector('.no-character');
         const timelineEl = document.getElementById('timeline');
@@ -23,6 +25,7 @@ export function bindCharacterSearch() {
         clearCharacterSelection();
 
         const data = await loadJson('data/matches/character-matches.json', 'Error fetching character data:');
+        if (requestId !== searchRequestId) return;
         if (!data) {
             noCharacterEl.hidden = true;
             timelineEl.hidden = false;
@@ -53,7 +56,12 @@ export function bindCharacterSearch() {
         noCharacterEl.hidden = false;
         timelineEl.hidden = true;
         noCharacterEl.textContent = `未找到角色"${searchValue}"`;
-    }, 300));
+    }, 300);
+
+    searchInput.addEventListener('input', event => {
+        const requestId = ++searchRequestId;
+        handleSearch(event, requestId);
+    });
 }
 
 export function getCurrentMatchData(data) {
