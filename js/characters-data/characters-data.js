@@ -73,8 +73,6 @@ function renderStellarGroups(data, container) {
         tab.addEventListener('click', () => {
             if (tab.classList.contains('active')) return;
             
-            clearIpCache();
-            
             genderTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
             
@@ -194,10 +192,12 @@ function createCharacterCard(char, gender) {
     card.dataset.id = char.id;
     card.dataset.ip = char.ip;
     
-    if (!ipMap.has(char.ip)) {
-        ipMap.set(char.ip, new Set());
+    let sameIpCards = ipMap.get(char.ip);
+    if (!sameIpCards) {
+        sameIpCards = new Set();
+        ipMap.set(char.ip, sameIpCards);
     }
-    ipMap.get(char.ip).add(card);
+    sameIpCards.add(card);
     
     if (char.avatar) {
         const img = card.querySelector('img');
@@ -226,14 +226,12 @@ function createCharacterCard(char, gender) {
     });
     
     card.addEventListener('mouseenter', () => {
-        const sameIpCards = ipMap.get(char.ip);
         sameIpCards.forEach(card => {
             card.classList.add('same-ip');
         });
     });
     
     card.addEventListener('mouseleave', () => {
-        const sameIpCards = ipMap.get(char.ip);
         sameIpCards.forEach(card => {
             card.classList.remove('same-ip');
         });
@@ -242,7 +240,6 @@ function createCharacterCard(char, gender) {
     return card;
 }
 
-// 在渲染完成后检查并移除不需要的提示框
 function checkTooltips() {
     document.querySelectorAll('.character-ip').forEach(ip => {
         const ipText = ip.querySelector('.ip-text');
@@ -410,46 +407,35 @@ function switchToNextResult() {
                      currentResultIndex < currentSearchResults.length - 1 ? currentResultIndex + 1 : 0;
     
     const targetResult = currentSearchResults[nextIndex];
-    const targetGender = CONFIG.characters.showRounds ? 
-        targetResult.closest('.rank-group').dataset.gender :
-        targetResult.closest('.character-cards').dataset.gender;
-    
-    const currentGender = document.querySelector('.tab-btn.active').dataset.gender;
+    const targetGender = targetResult.dataset.gender;
+    const targetGroup = targetResult.closest('.group-container');
+    const currentGender = targetGroup.querySelector('.tab-btn.active')?.dataset.gender;
 
-    // 如果需要切换标签页
+    currentResultIndex = nextIndex;
+
     if (targetGender !== currentGender) {
         isEnterKeySwitch = true;
         isCrossGenderSwitching = true;
-        currentResultIndex = nextIndex;
-        
-        const tabToSwitch = document.querySelector(`.tab-btn[data-gender="${targetGender}"]`);
+
+        const tabToSwitch = targetGroup.querySelector(`.tab-btn[data-gender="${targetGender}"]`);
         if (tabToSwitch) {
             tabToSwitch.click();
-            highlightCurrentResult();
-            updateSearchCount();
-            
-            setTimeout(() => {
-                isCrossGenderSwitching = false;
-            }, 350);
         }
-    } else {
-        currentResultIndex = nextIndex;
-        highlightCurrentResult();
-        updateSearchCount();
+
+        setTimeout(() => {
+            isCrossGenderSwitching = false;
+        }, 350);
     }
+
+    highlightCurrentResult();
+    updateSearchCount();
 }
 
 // 更新搜索结果计数显示
 function updateSearchCount() {
-    const searchBox = document.querySelector('.search-box');
-    let searchCount = searchBox.querySelector('.search-count');
-    
-    // 如果计数元素不存在，创建一个
-    if (!searchCount) {
-        searchCount = templates.searchCount.content.cloneNode(true).querySelector('.search-count');
-        searchBox.querySelector('.search-input-wrapper').appendChild(searchCount);
-    }
-    
+    const searchCount = document.querySelector('.search-count');
+    if (!searchCount) return;
+
     const searchInput = document.getElementById('searchInput');
     
     // 如果搜索框为空，隐藏计数器
@@ -619,8 +605,6 @@ function renderNovaGroups(data, container) {
     genderTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             if (tab.classList.contains('active')) return;
-            
-            clearIpCache();
             
             genderTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
