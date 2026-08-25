@@ -163,7 +163,7 @@
 }
 
 .character-card-select img {
-    width: 80px;
+    width: 90px;
     height: 60px;
     object-fit: contain;
     flex-shrink: 0;
