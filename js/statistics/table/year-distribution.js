@@ -1,3 +1,5 @@
+import { loadNominationStats } from '../statisticsData.js';
+
 const seasonMap = {
     'winter': 1,
     'spring': 4,
@@ -20,10 +22,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     let sortDirection = 'desc';
     let filteredData = [];
     let originalData = null;
-    let previousPage = 1; 
-    let matchedIndexes = [];  
-    let currentMatchIndex = 0;  
-    let matchedCharacters = new Map(); 
+    let previousPage = 1;
+    let matchedIndexes = [];
+    let currentMatchIndex = 0;
+    let matchedCharacters = new Map();
     let lastSearchText = '';
     let initialPage = 1;
 
@@ -204,7 +206,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // 初始化表格
     async function initTable() {
         try {
-            const data = await fetch("data/statistics/nomination-stats.json").then(r => r.json());
+            const data = await loadNominationStats();
             originalData = data;
     
             // 添加事件监听

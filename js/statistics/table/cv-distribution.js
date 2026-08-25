@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', async function() {
+import { loadNominationStats } from '../statisticsData.js';
+
     let currentPage = 1;
     const pageSize = 20;
     let sortColumn = 'total';
@@ -186,7 +187,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // 初始化
     async function initTable() {
         try {
-            const data = await fetch("data/statistics/nomination-stats.json").then(r => r.json());
+            const data = await loadNominationStats();
             originalData = data;
             const filters = getFilters();
             const characters = filterCharacters(data, filters);
