@@ -3,6 +3,7 @@ import { SCROLL_POSITION_KEY } from '../state/scheduleState.js';
 
 export function updateCountdown() {
     const countdowns = document.querySelectorAll('[data-countdown]');
+    let hasActiveCountdown = false;
 
     countdowns.forEach(element => {
         const dateStr = element.dataset.countdown;
@@ -12,6 +13,7 @@ export function updateCountdown() {
         const diff = targetDate - now;
 
         if (diff > 0) {
+            hasActiveCountdown = true;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -24,6 +26,33 @@ export function updateCountdown() {
             }
         }
     });
+
+    return hasActiveCountdown;
+}
+
+export function startCountdownLoop() {
+    let rafId = null;
+    let lastSecond = null;
+
+    const step = () => {
+        const currentSecond = Math.floor(Date.now() / 1000);
+        if (currentSecond !== lastSecond) {
+            lastSecond = currentSecond;
+            if (!updateCountdown()) {
+                rafId = null;
+                return;
+            }
+        }
+        rafId = requestAnimationFrame(step);
+    };
+
+    step();
+
+    return () => {
+        if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+        }
+    };
 }
 
 export function initReminders() {

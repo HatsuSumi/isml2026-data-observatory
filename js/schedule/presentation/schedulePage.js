@@ -2,7 +2,7 @@ import { SCROLL_POSITION_KEY, setScheduleData } from '../state/scheduleState.js'
 import { smoothScrollTo } from '../utils/dom.js';
 import { loadJson } from '../utils/loadJson.js';
 import { createMatchElement, renderSchedule } from './renderSchedule.js';
-import { initReminders, initSavePosition, initStickySearchContainer, updateCountdown } from './pageEffects.js';
+import { initReminders, initSavePosition, initStickySearchContainer, startCountdownLoop } from './pageEffects.js';
 import { createScheduleNavController } from './scheduleNavController.js';
 import { bindCharacterSearch } from './bindings.js';
 
@@ -20,8 +20,7 @@ export async function startSchedulePage(renderMatchDetails) {
         initSavePosition,
     });
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    startCountdownLoop();
 
     const savedPosition = sessionStorage.getItem(SCROLL_POSITION_KEY);
     if (savedPosition) {
