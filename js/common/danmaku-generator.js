@@ -7,17 +7,17 @@ export class DanmakuGenerator {
         const savedSettings = localStorage.getItem(CONFIG.danmaku.storageKey);
         const settings = savedSettings ? JSON.parse(savedSettings) : {};
 
-        if (!settings.interval || settings.interval < 1000) {
+        if (settings.interval == null || settings.interval < 1000) {
             settings.interval = CONFIG.danmaku.defaultInterval;
         }
 
         this.options = {
-            interval: options.interval || CONFIG.danmaku.interval,
-            speed: options.speed || CONFIG.danmaku.speed,
+            interval: options.interval ?? CONFIG.danmaku.interval,
+            speed: options.speed ?? CONFIG.danmaku.speed,
             trackCount: CONFIG.danmaku.trackCount,
-            enabled: options.enabled !== undefined ? options.enabled : true,
-            fontSize: options.fontSize || CONFIG.danmaku.fontSize,
-            position: options.position || CONFIG.danmaku.position,
+            enabled: options.enabled ?? true,
+            fontSize: options.fontSize ?? CONFIG.danmaku.fontSize,
+            position: options.position ?? CONFIG.danmaku.position,
             ...settings
         };
 

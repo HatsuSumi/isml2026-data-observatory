@@ -10,7 +10,7 @@ export class Danmaku {
         this.position = window.innerWidth;
         this.isPaused = false;
         const totalDistance = window.innerWidth + CONFIG.danmaku.buffer;
-        const seconds = container.danmakuGenerator?.options.speed || 15;
+        const seconds = container.danmakuGenerator?.options.speed ?? 15;
         this.speed = totalDistance / seconds;  
         this.createDOMElement();
         this.bindEvents();

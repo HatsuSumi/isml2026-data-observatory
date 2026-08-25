@@ -1,4 +1,4 @@
-import { CONFIG, COMPARISON_TYPES, LAYOUT_CLASSES, SELECTORS } from '../../../common/config.js';
+import { CONFIG, COMPARISON_TYPES } from '../../../common/config.js';
 import { CharacterResultRenderer } from './CharacterResultRenderer.js';
 import { GroupResultRenderer } from './GroupResultRenderer.js';
 
@@ -15,40 +15,50 @@ export class ComparisonResultGenerator {
             return this.generateStageInfo(characters, totalVotes, compareType, result);
         }
 
-        if (compareType === COMPARISON_TYPES.baseCompare) {
-            return this.generateOneToManyHTML(
+        const strategy = {
+            [COMPARISON_TYPES.baseCompare]: () => this.generateOneToManyHTML(
                 result.baseCharacter,
                 result.compareCharacters,
                 result.comparisons,
                 totalVotes
-            );
-        }
-        if (compareType === COMPARISON_TYPES.avgCompare) {
-            return this.generateAvgCompareHTML(
+            ),
+            [COMPARISON_TYPES.avgCompare]: () => this.generateAvgCompareHTML(
                 characters,
                 result.average,
                 result.comparisons,
                 totalVotes,
                 allCharacters
-            );
-        }
-        if (compareType === COMPARISON_TYPES.oneToOne) {
-            return this.generateOneToOneHTML(
+            ),
+            [COMPARISON_TYPES.oneToOne]: () => this.generateOneToOneHTML(
                 result.characters,
                 result.hasMultipleNormal
-            );
-        }
-        if (compareType === COMPARISON_TYPES.groupBaseTotalCompare) {
-            return this.generateGroupBaseTotalHTML(result.groups, result.comparisons, totalVotes);
-        }
-        if (compareType === COMPARISON_TYPES.groupBaseAvgCompare) {
-            return this.generateGroupBaseAvgHTML(result.groups, result.comparisons, totalVotes);
-        }
-        if (compareType === COMPARISON_TYPES.groupAvgCompare) {
-            return this.generateGroupAvgHTML(result.groups, result.comparisons, totalVotes, result.allGroupsAverage);
-        }
-        if (compareType === COMPARISON_TYPES.groupTotalCompare) {
-            return this.generateGroupTotalHTML(result.groups, result.comparisons, totalVotes, result.allGroupsTotal);
+            ),
+            [COMPARISON_TYPES.groupBaseTotalCompare]: () => this.generateGroupBaseTotalHTML(
+                result.groups,
+                result.comparisons,
+                totalVotes
+            ),
+            [COMPARISON_TYPES.groupBaseAvgCompare]: () => this.generateGroupBaseAvgHTML(
+                result.groups,
+                result.comparisons,
+                totalVotes
+            ),
+            [COMPARISON_TYPES.groupAvgCompare]: () => this.generateGroupAvgHTML(
+                result.groups,
+                result.comparisons,
+                totalVotes,
+                result.allGroupsAverage
+            ),
+            [COMPARISON_TYPES.groupTotalCompare]: () => this.generateGroupTotalHTML(
+                result.groups,
+                result.comparisons,
+                totalVotes,
+                result.allGroupsTotal
+            )
+        }[compareType];
+
+        if (strategy) {
+            return strategy();
         }
 
         console.error(`未知的比较模式: ${compareType}`);

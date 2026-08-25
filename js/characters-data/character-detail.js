@@ -748,6 +748,45 @@ class CharacterDetail {
         });
     }
 
+    getRoundContext(roundText) {
+        const round = roundText || '';
+        const groupMap = {
+            '恒星组': '恒星组',
+            '新星组': '新星组'
+        };
+        const seasonOrder = ['春季赛', '夏季赛', '秋季赛', '冬季赛'];
+
+        return {
+            group: Object.keys(groupMap).find(group => round.includes(group)) ?? null,
+            gender: ['女性', '男性'].find(gender => round.includes(gender)) ?? null,
+            season: seasonOrder.find(season => round.includes(season)) ?? null
+        };
+    }
+
+    matchesCharacterRound(charRound, context) {
+        const roundContext = this.getRoundContext(charRound);
+        if (roundContext.group !== context.group || roundContext.gender !== context.gender) {
+            return false;
+        }
+
+        if (context.group === '新星组') {
+            return roundContext.season === context.season;
+        }
+
+        return true;
+    }
+
+    matchesCharacterFilter(char, filter) {
+        switch (filter) {
+            case 'cv':
+                return char.basic.cv === this.characterData.basic.cv;
+            case 'ip':
+                return char.basic.ip === this.characterData.basic.ip;
+            default:
+                return true;
+        }
+    }
+
     filterCharacters(filter) {
         const container = document.querySelector('.characters-list');
         const innerContainer = container.querySelector('.characters-list-inner');
@@ -757,47 +796,17 @@ class CharacterDetail {
         
         // 获取当前角色的组别、季节和性别
         const currentRound = this.eventData[0]?.round || '';
-        const currentGroup = currentRound.includes('恒星组') ? '恒星组' : 
-                            currentRound.includes('新星组') ? '新星组' : null;
-        const currentGender = currentRound.includes('女性') ? '女性' : 
-                             currentRound.includes('男性') ? '男性' : null;
-        
-        // 如果是新星组，获取季节
-        const currentSeason = currentGroup === '新星组' ? 
-            ['春季赛', '夏季赛', '秋季赛', '冬季赛'].find(season => currentRound.includes(season)) : 
-            null;
+        const currentContext = this.getRoundContext(currentRound);
         
         // 过滤角色
         const characters = Object.entries(this.allCharacters)
             .filter(([id, char]) => {
                 // 排除当前角色
                 if (id === this.characterId) return false;
-                
+
                 const charRound = char.rounds[0]?.round || '';
-                const charGroup = charRound.includes('恒星组') ? '恒星组' : 
-                                charRound.includes('新星组') ? '新星组' : null;
-                const charGender = charRound.includes('女性') ? '女性' : 
-                                 charRound.includes('男性') ? '男性' : null;
-                
-                // 检查组别和性别
-                if (charGroup !== currentGroup || charGender !== currentGender) return false;
-                
-                // 如果是新星组，还要检查季节
-                if (currentGroup === '新星组') {
-                    const charSeason = ['春季赛', '夏季赛', '秋季赛', '冬季赛']
-                        .find(season => charRound.includes(season));
-                    if (charSeason !== currentSeason) return false;
-                }
-                
-                // 根据筛选条件过滤
-                switch (filter) {
-                    case 'cv':
-                        return char.basic.cv === this.characterData.basic.cv;
-                    case 'ip':
-                        return char.basic.ip === this.characterData.basic.ip;
-                    default:
-                        return true;
-                }
+                if (!this.matchesCharacterRound(charRound, currentContext)) return false;
+                return this.matchesCharacterFilter(char, filter);
             });
         
         // 对角色列表进行排序：最近访问的排在前面
