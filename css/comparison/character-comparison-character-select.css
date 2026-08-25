@@ -163,12 +163,13 @@
 }
 
 .character-card-select img {
+    width: 80px;
     height: 60px;
-    object-fit: cover;
+    object-fit: contain;
+    flex-shrink: 0;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-
 .character-card-select .info {
     flex: 1;
     margin-right: 35px;
