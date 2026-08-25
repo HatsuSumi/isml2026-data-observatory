@@ -2,8 +2,9 @@ import { CONFIG } from '../common/config.js';
 
 class CharacterDetail {
     constructor() {
-        this.characterId = new URLSearchParams(window.location.search).get('id');
-        this.fromNav = new URLSearchParams(window.location.search).get('from') === 'nav';
+        const params = new URLSearchParams(window.location.search);
+        this.characterId = params.get('id');
+        this.fromNav = params.get('from') === 'characters-data';
         
         this.characterData = null;
         this.eventData = null;
@@ -672,7 +673,7 @@ class CharacterDetail {
             const newRecentChars = [id, ...recentChars.filter(cid => cid !== id)]
                 .slice(0, this.MAX_RECENT_CHARS);
             localStorage.setItem(this.RECENT_CHARS_KEY, JSON.stringify(newRecentChars));
-            window.location.href = `pages/characters-data/character-detail.html?id=${encodeURIComponent(id)}&from=nav`;
+            window.location.href = `pages/characters-data/character-detail.html?id=${encodeURIComponent(id)}&from=characters-data`;
         });
 
         // 初始显示全部角色
