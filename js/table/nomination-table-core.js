@@ -188,8 +188,8 @@ async function exportCurrentTableToExcel(state, rows) {
 function downloadCurrentTableView(state, format) {
   const table = document.querySelector('table');
   const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim());
-  const rows = Array.from(document.querySelectorAll('tbody tr'))
-    .filter(row => row.style.display !== 'none')
+  const rows = Array.from(document.querySelectorAll('#tableBody tr'))
+    .filter(row => !row.hidden)
     .map(row => Array.from(row.cells).map(cell => cell.querySelector('img')?.src || cell.textContent.trim()));
   const reorderedHeaders = COLUMN_ORDER.map(i => headers[i]);
   const reorderedRows = rows.map(row => COLUMN_ORDER.map(i => row[i]));
