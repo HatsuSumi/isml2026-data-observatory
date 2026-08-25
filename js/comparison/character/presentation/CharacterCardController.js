@@ -1,3 +1,5 @@
+import { reconcileKeyedList } from '../../../common/keyed-list.js';
+
 export class CharacterCardController {
     constructor({
         characterManager,
@@ -57,33 +59,31 @@ export class CharacterCardController {
         return card;
     }
 
+
     createSearchItem(character, onSelect) {
         const item = this.cloneTemplate(this.layoutClasses.searchItemTemplate);
-        const avatar = item.querySelector('.search-avatar');
-        const name = item.querySelector('.name');
-        const ip = item.querySelector('.ip');
-        const cv = item.querySelector('.cv');
-
-        avatar.hidden = !character.avatar;
-
-        if (character.avatar) {
-            avatar.src = character.avatar;
-            avatar.alt = character.name;
-        }
-
-        name.textContent = character.name;
-        ip.textContent = `IP：${character.ip}`;
-
-        cv.hidden = !character.cv;
-
-        if (character.cv) {
-            cv.textContent = `CV：${character.cv}`;
-        }
-
-        item.__character = character;
-        item.addEventListener('click', () => onSelect(character));
-
+        item.addEventListener('click', () => onSelect(item.__character));
+        this.updateSearchItem(item, character);
         return item;
+    }
+    
+    renderSearchResults(container, characters, emptyMessage, onSelect) {
+        if (!characters.length) {
+            container.replaceChildren(this.createEmptySearchItem(emptyMessage));
+            return;
+        }
+    
+        container.querySelector('.empty-search-message')?.remove();
+        reconcileKeyedList(container, characters, {
+            keyAttribute: 'characterKey',
+            getKey: character => `${character.name}@${character.ip}@${character.cv || ''}`,
+            create: character => this.createSearchItem(character, onSelect),
+            update: (item, character) => this.updateSearchItem(item, character)
+        });
+    
+        container.querySelectorAll(this.selectors.searchItem).forEach((item, index) => {
+            item.classList.toggle(this.animationClasses.active, index === 0);
+        });
     }
 
     createEmptySearchItem(message) {
@@ -95,24 +95,29 @@ export class CharacterCardController {
         return item;
     }
 
-    renderSearchResults(container, characters, emptyMessage, onSelect) {
-        container.replaceChildren();
-
-        if (!characters.length) {
-            container.appendChild(this.createEmptySearchItem(emptyMessage));
-            return;
+    updateSearchItem(item, character) {
+        const avatar = item.querySelector('.search-avatar');
+        const name = item.querySelector('.name');
+        const ip = item.querySelector('.ip');
+        const cv = item.querySelector('.cv');
+    
+        avatar.hidden = !character.avatar;
+        if (character.avatar) {
+            avatar.src = character.avatar;
+            avatar.alt = character.name;
+        } else {
+            avatar.removeAttribute('src');
+            avatar.alt = '';
         }
-
-        characters.forEach((character, index) => {
-            const item = this.createSearchItem(character, onSelect);
-
-            if (index === 0) {
-                item.classList.add(this.animationClasses.active);
-            }
-
-            container.appendChild(item);
-        });
+    
+        name.textContent = character.name;
+        ip.textContent = `IP：${character.ip}`;
+        cv.hidden = !character.cv;
+        cv.textContent = character.cv ? `CV：${character.cv}` : '';
+    
+        item.__character = character;
     }
+
 
     getSearchItems(container) {
         return Array.from(

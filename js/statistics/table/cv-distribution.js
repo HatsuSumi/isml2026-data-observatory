@@ -1,5 +1,7 @@
 import { loadNominationStats } from '../statisticsData.js';
+import { reconcileKeyedList } from '../../common/keyed-list.js';
 
+document.addEventListener('DOMContentLoaded', async function() {
     let currentPage = 1;
     const pageSize = 20;
     let sortColumn = 'total';
@@ -115,18 +117,27 @@ import { loadNominationStats } from '../statisticsData.js';
         const endIndex = startIndex + pageSize;
         const pageData = sortData(filteredData).slice(startIndex, endIndex);
 
-        tbody.innerHTML = pageData.map(item => `
-            <tr>
-                <td>${item.name}</td>
-                <td onclick="${item.female > 0 ? `showCharacterDetails('${item.name}', 'female')` : ''}" 
-                    data-value="${item.female}">${item.female}</td>
-                <td onclick="${item.male > 0 ? `showCharacterDetails('${item.name}', 'male')` : ''}" 
-                    data-value="${item.male}">${item.male}</td>
-                <td onclick="${item.total > 0 ? `showCharacterDetails('${item.name}', 'total')` : ''}" 
-                    data-value="${item.total}">${item.total}</td>
-                <td>${item.percentage}</td>
-            </tr>
-        `).join('');
+        reconcileKeyedList(tbody, pageData, {
+            getKey: item => item.name,
+            keyAttribute: 'rowKey',
+            create: () => document.getElementById('cv-row-template').content.cloneNode(true).firstElementChild,
+            update: (row, item) => {
+                while (row.cells.length < 5) row.insertCell();
+                const values = [item.name, item.female, item.male, item.total, item.percentage];
+                Array.from(row.cells).forEach((cell, index) => {
+                    cell.textContent = values[index];
+                    cell.removeAttribute('data-value');
+                    cell.onclick = null;
+                });
+                [['female', 1], ['male', 2], ['total', 3]].forEach(([gender, index]) => {
+                    if (item[gender] > 0) {
+                        const cell = row.cells[index];
+                        cell.dataset.value = item[gender];
+                        cell.onclick = () => showCharacterDetails(item.name, gender);
+                    }
+                });
+            }
+        });
 
         updatePagination();
     }

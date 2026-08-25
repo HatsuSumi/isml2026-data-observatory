@@ -1,4 +1,5 @@
 import { CONFIG } from '../common/config.js';
+import { reconcileKeyedList } from '../common/keyed-list.js';
 
 class CharacterDetail {
     constructor() {
@@ -682,70 +683,47 @@ class CharacterDetail {
 
     showFilteredCharacters(filter) {
         const container = document.querySelector('.characters-list');
-        container.replaceChildren();
-        
         const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
         const characters = this.filterCharacters(filter);
+        const emptyState = container.querySelector('.character-nav-empty');
 
         if (characters.length === 0) {
-            const emptyState = this.templates.characterNavEmpty.content.cloneNode(true).querySelector('.character-nav-empty');
+            container.querySelectorAll('.character-item').forEach(item => item.remove());
+            const nextEmptyState = emptyState || this.templates.characterNavEmpty.content.cloneNode(true).querySelector('.character-nav-empty');
             const emptyMessages = {
                 all: '当前分组下没有其他角色可显示',
                 cv: '没有找到同声优的其他角色',
                 ip: '没有找到同作品的其他角色'
             };
-            emptyState.classList.add('is-entering');
-            emptyState.textContent = emptyMessages[filter] ?? '暂无可显示角色';
-            container.appendChild(emptyState);
-            requestAnimationFrame(() => {
-                emptyState.classList.add('visible');
-            });
+            nextEmptyState.classList.add('is-entering');
+            nextEmptyState.textContent = emptyMessages[filter] ?? '暂无可显示角色';
+            if (!emptyState) container.appendChild(nextEmptyState);
+            requestAnimationFrame(() => nextEmptyState.classList.add('visible'));
             return;
         }
 
-        const fragment = document.createDocumentFragment();
-        const renderedItems = [];
-        characters.forEach(([id, char]) => {
-            const item = this.templates.characterItem.content.cloneNode(true).querySelector('.character-item');
-            item.dataset.characterId = id;
-            item.classList.add('is-entering');
-            if (recentChars.includes(id)) {
-                item.classList.add('recently-visited');
+        emptyState?.remove();
+        reconcileKeyedList(container, characters, {
+            getKey: ([id]) => id,
+            keyAttribute: 'characterId',
+            create: () => this.templates.characterItem.content.cloneNode(true).querySelector('.character-item'),
+            update: (item, [id, char]) => {
+                item.dataset.characterId = id;
+                item.classList.add('visible');
+                item.classList.toggle('recently-visited', recentChars.includes(id));
+
+                const avatar = item.querySelector('.character-item-avatar');
+                const name = item.querySelector('.name');
+                const textContents = item.querySelectorAll('.text-content');
+                avatar.hidden = !char.basic.avatar;
+                if (char.basic.avatar) {
+                    avatar.src = char.basic.avatar;
+                    avatar.alt = char.basic.name;
+                }
+                name.textContent = char.basic.name;
+                textContents[0].textContent = char.basic.ip;
+                textContents[1].textContent = char.basic.cv;
             }
-
-            const avatar = item.querySelector('.character-item-avatar');
-            const name = item.querySelector('.name');
-            const textContents = item.querySelectorAll('.text-content');
-            const hasAvatar = Boolean(char.basic.avatar);
-
-            if (hasAvatar) {
-                avatar.hidden = false;
-                avatar.src = char.basic.avatar;
-                avatar.alt = char.basic.name;
-            }
-
-            name.textContent = char.basic.name;
-            textContents[0].textContent = char.basic.ip;
-            textContents[1].textContent = char.basic.cv;
-
-            renderedItems.push({ item, textContents });
-            fragment.appendChild(item);
-        });
-
-        container.appendChild(fragment);
-
-        requestAnimationFrame(() => {
-            renderedItems.forEach(({ item, textContents }, index) => {
-                setTimeout(() => {
-                    item.classList.add('visible');
-                    textContents.forEach(text => {
-                        if (text.scrollWidth > text.clientWidth) {
-                            text.parentElement.className = 'tooltip';
-                            text.parentElement.setAttribute('data-tooltip', text.textContent);
-                        }
-                    });
-                }, index * 45);
-            });
         });
     }
 

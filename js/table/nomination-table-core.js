@@ -1,5 +1,6 @@
 ﻿import { SERIES_ALIASES } from '../aliases/aliases.js';
 import { buildStellarDisplayRows, parseNominationCsvRow } from './nomination-data.js';
+import { reconcileKeyedList } from '../common/keyed-list.js';
 
 const COLUMN_ORDER = [0, 1, 2, 4, 5, 6, 7, 3];
 const EXCEL_COLUMNS = [
@@ -287,52 +288,42 @@ function sortNova(rows, columnIndex, isAsc) {
   return [...rows].sort((a, b) => compareRows(a, b, columnIndex, isAsc));
 }
 
-function createCell(text = '', className = '') {
-  const td = document.createElement('td');
-  if (className) td.className = className;
-  td.textContent = text;
-  return td;
-}
-
-function createAvatarCell(row) {
-  const td = document.createElement('td');
-  if (!row.columns[8]) return td;
-  const img = document.createElement('img');
-  img.src = row.columns[8];
-  img.alt = row.columns[2] || '';
-  img.width = 50;
-  td.appendChild(img);
-  return td;
-}
-
-function buildRowNode(row, mode) {
-  const tr = document.createElement('tr');
+function updateRowNode(tr, row, mode) {
+  const cells = tr.cells;
   const cv = row.columns[4] || '';
   const rank = mode === 'stellar' && row.isAutoPromoted ? '-' : (row.rank ?? '-');
   const votes = mode === 'stellar' && row.isAutoPromoted ? AUTO_TEXT : String(row.votes);
 
   tr.dataset.promoted = row.isPromoted ? 'true' : 'false';
   tr.dataset.autoPromoted = row.isAutoPromoted ? 'true' : 'false';
-  tr.append(
-    createCell(String(rank), 'rank'),
-    createCell(row.columns[0] || ''),
-    createCell(row.columns[1] || ''),
-    createAvatarCell(row),
-    createCell(row.columns[2] || ''),
-    createCell(row.columns[3] || ''),
-    createCell(cv),
-    createCell(votes, 'votes')
-  );
-  return tr;
+  cells[0].textContent = String(rank);
+  cells[1].textContent = row.columns[0] || '';
+  cells[2].textContent = row.columns[1] || '';
+  cells[4].textContent = row.columns[2] || '';
+  cells[5].textContent = row.columns[3] || '';
+  cells[6].textContent = cv;
+  cells[7].textContent = votes;
+
+  const avatar = cells[3].querySelector('img');
+  avatar.hidden = !row.columns[8];
+  if (row.columns[8]) {
+    avatar.src = row.columns[8];
+    avatar.alt = row.columns[2] || '';
+  }
+}
+
+function getRowKey(row) {
+  return `${row.columns[2] || ''}@${row.columns[3] || ''}`;
 }
 
 function renderTable(state, rows) {
   const tableBody = document.getElementById('tableBody');
-  const fragment = document.createDocumentFragment();
-  rows.forEach(row => {
-    fragment.appendChild(buildRowNode(row, state.config.mode));
+  reconcileKeyedList(tableBody, rows, {
+    getKey: getRowKey,
+    keyAttribute: 'rowKey',
+    create: () => document.getElementById('nomination-row-template').content.cloneNode(true).firstElementChild,
+    update: (tr, row) => updateRowNode(tr, row, state.config.mode)
   });
-  tableBody.replaceChildren(fragment);
   tableBody.querySelectorAll('tr').forEach(row => row.classList.add('fade-in'));
   bindBackToTop();
 }

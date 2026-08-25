@@ -1,4 +1,5 @@
 ﻿import { SERIES_ALIASES } from '../aliases/aliases.js';
+import { reconcileKeyedList } from './keyed-list.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeTabs();
@@ -110,8 +111,7 @@ function getStatusClass(status) {
     return 'pending';
 }
 
-function createCharacterCard(character) {
-    const card = cloneTemplate(TEMPLATES.card, '.character-card');
+function updateCharacterCard(card, character) {
     const imageContainer = card.querySelector('.character-image-container');
     const image = card.querySelector('.character-image');
     const cv = card.querySelector('.character-cv');
@@ -119,41 +119,58 @@ function createCharacterCard(character) {
 
     card.querySelector('.character-name').textContent = character.name;
     card.querySelector('.character-series').textContent = character.ip;
-
+    imageContainer.hidden = !character.avatar;
     if (character.avatar) {
-        imageContainer.hidden = false;
         image.dataset.src = character.avatar;
         image.alt = character.name;
-        image.addEventListener('load', () => imageContainer.classList.remove('loading'));
-        image.addEventListener('error', () => imageContainer.classList.add('error'));
+    } else {
+        delete image.dataset.src;
     }
+    cv.hidden = !character.cv;
+    cv.textContent = character.cv ? `CV: ${character.cv}` : '';
+    status.hidden = !character.status;
+    status.className = `character-status ${character.status ? getStatusClass(character.status) : ''}`;
+    status.textContent = character.status || '';
+}
 
-    if (character.cv) {
-        cv.hidden = false;
-        cv.textContent = `CV: ${character.cv}`;
-    }
-
-    if (character.status) {
-        status.hidden = false;
-        status.classList.add(getStatusClass(character.status));
-        status.textContent = character.status;
-    }
-
+function createCharacterCard(character) {
+    const card = cloneTemplate(TEMPLATES.card, '.character-card');
+    updateCharacterCard(card, character);
     return card;
+}
+
+function getCharacterKey(character) {
+    return `${character.name}@${character.ip}@${character.cv || ''}`;
 }
 
 function renderCharacterList(panel, characters) {
     if (!panel) return;
-    const fragment = document.createDocumentFragment();
-    characters.forEach(character => fragment.appendChild(createCharacterCard(character)));
-    panel.replaceChildren(fragment);
-    requestAnimationFrame(() => {
-        const cards = panel.querySelectorAll('.character-card');
-        void panel.offsetHeight;
-        cards.forEach(card => card.classList.add('loaded'));
+    reconcileKeyedList(panel, characters, {
+        keyAttribute: 'characterKey',
+        getKey: getCharacterKey,
+        create: () => cloneTemplate(TEMPLATES.card, '.character-card'),
+        update: (card, character) => {
+            updateCharacterCard(card, character);
+            card.classList.add('loaded');
+        }
     });
 }
 
+function getResultGroups(results) {
+    const groups = [];
+    if (results.stellar.length > 0) groups.push({ key: 'stellar', title: `恒星组 (${results.stellar.length})`, characters: results.stellar });
+    const seasonNames = { winter: '冬季', spring: '春季', summer: '夏季', autumn: '秋季' };
+    ['winter', 'spring', 'summer', 'autumn'].forEach(season => {
+        if (results.nova[season]?.length > 0) {
+            groups.push({
+                key: season,
+                title: `新星组 - ${seasonNames[season]} (${results.nova[season].length})`,
+                characters: results.nova[season]
+            });
+        }
+    });
+    return groups;
+}
 function renderStellarCharacters(data) {
     renderCharacterList(document.getElementById('stellar-female'), data.female);
     renderCharacterList(document.getElementById('stellar-male'), data.male);
@@ -379,45 +396,52 @@ function showAllCharacters() {
     }, 300);
 }
 
-function createResultsSection(title, characters) {
+function createResultsSection(group) {
     const section = cloneTemplate(TEMPLATES.resultsSection, '.results-section');
-    section.querySelector('h3').textContent = title;
-    renderCharacterList(section.querySelector('.character-panel'), characters);
+    section.querySelector('h3').textContent = group.title;
     return section;
+}
+
+function updateResultsGroup(container, groups) {
+    reconcileKeyedList(container, groups, {
+        keyAttribute: 'resultGroupKey',
+        getKey: group => group.key,
+        create: createResultsSection,
+        update: (section, group) => {
+            section.querySelector('h3').textContent = group.title;
+            renderCharacterList(section.querySelector('.character-panel'), group.characters);
+        }
+    });
 }
 
 function displaySearchResults(results) {
     const container = document.querySelector('.search-results-container');
     const tournamentSection = document.querySelector('.tournament-section');
-    const seasons = ['winter', 'spring', 'summer', 'autumn'];
-    let totalResults = results.stellar.length;
-    seasons.forEach(season => {
-        totalResults += results.nova[season]?.length ?? 0;
-    });
-    container.replaceChildren();
-    if (totalResults === 0) {
+    const groups = getResultGroups(results);
+
+    if (groups.length === 0) {
         container.classList.add('no-results');
         container.classList.remove('has-results');
-        container.appendChild(cloneTemplate(TEMPLATES.resultsEmpty, '.no-results-message'));
+        container.replaceChildren(cloneTemplate(TEMPLATES.resultsEmpty, '.no-results-message'));
         container.style.display = 'block';
         tournamentSection.style.display = 'none';
         requestAnimationFrame(() => container.classList.add('visible'));
         return;
     }
+
     container.classList.remove('no-results');
     container.classList.add('has-results');
-    container.appendChild(cloneTemplate(TEMPLATES.resultsLayout));
-    const stellarResults = container.querySelector('.stellar-results');
-    const novaResults = container.querySelector('.nova-results');
-    if (results.stellar.length > 0) {
-        stellarResults.appendChild(createResultsSection(`恒星组 (${results.stellar.length})`, results.stellar));
+    let content = container.querySelector('.search-results-content');
+    if (!content) {
+        container.replaceChildren(cloneTemplate(TEMPLATES.resultsLayout));
+        content = container.querySelector('.search-results-content');
     }
-    const seasonNames = { winter: '冬季', spring: '春季', summer: '夏季', autumn: '秋季' };
-    seasons.forEach(season => {
-        if (results.nova[season]?.length > 0) {
-            novaResults.appendChild(createResultsSection(`新星组 - ${seasonNames[season]} (${results.nova[season].length})`, results.nova[season]));
-        }
-    });
+
+    const stellarGroups = groups.filter(group => group.key === 'stellar');
+    const novaGroups = groups.filter(group => group.key !== 'stellar');
+    updateResultsGroup(content.querySelector('.stellar-results'), stellarGroups);
+    updateResultsGroup(content.querySelector('.nova-results'), novaGroups);
+
     container.style.display = 'block';
     tournamentSection.style.display = 'none';
     requestAnimationFrame(() => {

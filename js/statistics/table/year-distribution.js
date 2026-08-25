@@ -1,4 +1,5 @@
 import { loadNominationStats } from '../statisticsData.js';
+import { reconcileKeyedList } from '../../common/keyed-list.js';
 
 const seasonMap = {
     'winter': 1,
@@ -155,22 +156,27 @@ document.addEventListener('DOMContentLoaded', async function() {
         const start = (currentPage - 1) * pageSize;
         const paginatedData = filteredData.slice(start, start + pageSize);
 
-        tbody.innerHTML = paginatedData.map(year => `
-            <tr>
-                <td>${year.year}</td>
-                <td ${year.winter > 0 ? `onclick="showCharacterDetails(${year.year}, 'winter')"` : ''} 
-                    data-value="${year.winter}">${year.winter || 0}</td>
-                <td ${year.spring > 0 ? `onclick="showCharacterDetails(${year.year}, 'spring')"` : ''} 
-                    data-value="${year.spring}">${year.spring || 0}</td>
-                <td ${year.summer > 0 ? `onclick="showCharacterDetails(${year.year}, 'summer')"` : ''} 
-                    data-value="${year.summer}">${year.summer || 0}</td>
-                <td ${year.autumn > 0 ? `onclick="showCharacterDetails(${year.year}, 'autumn')"` : ''} 
-                    data-value="${year.autumn}">${year.autumn || 0}</td>
-                <td ${year.total > 0 ? `onclick="showCharacterDetails(${year.year}, 'total')"` : ''} 
-                    data-value="${year.total}">${year.total}</td>
-                <td>${year.percentage}</td>
-            </tr>
-        `).join('');
+        reconcileKeyedList(tbody, paginatedData, {
+            getKey: year => year.year,
+            keyAttribute: 'rowKey',
+            create: () => document.getElementById('year-row-template').content.cloneNode(true).firstElementChild,
+            update: (row, year) => {
+                const values = [year.year, year.winter || 0, year.spring || 0, year.summer || 0, year.autumn || 0, year.total, year.percentage];
+                const seasons = ['winter', 'spring', 'summer', 'autumn', 'total'];
+                Array.from(row.cells).forEach((cell, index) => {
+                    cell.textContent = values[index];
+                    cell.removeAttribute('data-value');
+                    cell.onclick = null;
+                });
+                seasons.forEach((season, index) => {
+                    if (year[season] > 0) {
+                        const cell = row.cells[index + 1];
+                        cell.dataset.value = year[season];
+                        cell.onclick = () => showCharacterDetails(year.year, season);
+                    }
+                });
+            }
+        });
 
         updatePagination();
     }
