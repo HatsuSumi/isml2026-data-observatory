@@ -644,7 +644,8 @@ class CharacterDetail {
 
     setupCharacterNav() {
         const filters = document.querySelector('.nav-filters');
-        
+        const charactersList = document.querySelector('.characters-list');
+
         // 过滤按钮点击事件
         filters.addEventListener('click', e => {
             const btn = e.target.closest('.filter-btn');
@@ -660,13 +661,27 @@ class CharacterDetail {
             this.showFilteredCharacters(filter);
         });
         
+        charactersList.addEventListener('click', event => {
+            const item = event.target.closest('.character-item');
+            if (!item || !charactersList.contains(item)) return;
+
+            const id = item.dataset.characterId;
+            if (!id) return;
+            sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
+            const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
+            const newRecentChars = [id, ...recentChars.filter(cid => cid !== id)]
+                .slice(0, this.MAX_RECENT_CHARS);
+            localStorage.setItem(this.RECENT_CHARS_KEY, JSON.stringify(newRecentChars));
+            window.location.href = `pages/characters-data/character-detail.html?id=${encodeURIComponent(id)}&from=nav`;
+        });
+
         // 初始显示全部角色
         this.showFilteredCharacters('all');
     }
 
     showFilteredCharacters(filter) {
         const container = document.querySelector('.characters-list');
-        container.innerHTML = '';
+        container.replaceChildren();
         
         const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
         const characters = this.filterCharacters(filter);
@@ -691,6 +706,7 @@ class CharacterDetail {
         const renderedItems = [];
         characters.forEach(([id, char]) => {
             const item = this.templates.characterItem.content.cloneNode(true).querySelector('.character-item');
+            item.dataset.characterId = id;
             item.classList.add('is-entering');
             if (recentChars.includes(id)) {
                 item.classList.add('recently-visited');
@@ -713,16 +729,6 @@ class CharacterDetail {
 
             renderedItems.push({ item, textContents });
             fragment.appendChild(item);
-
-            item.addEventListener('click', () => {
-                sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
-                
-                const newRecentChars = [id, ...recentChars.filter(cid => cid !== id)]
-                    .slice(0, this.MAX_RECENT_CHARS);
-                localStorage.setItem(this.RECENT_CHARS_KEY, JSON.stringify(newRecentChars));
-                
-                window.location.href = `character-detail.html?id=${id}&from=nav`;
-            });
         });
 
         container.appendChild(fragment);

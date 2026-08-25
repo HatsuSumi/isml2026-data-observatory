@@ -64,7 +64,7 @@ export class CharacterPageController {
 
     constructor(characterManager) {
         this.characterManager = characterManager;
-        this.cardCounter = 0;
+        this.searchInputDebouncers = new WeakMap();
         this.clickHandlers = new WeakMap();
         this.comparisonService = new CharacterComparisonService({ strategies: createCharacterComparisonStrategies() });
         this.resultRenderer = new ComparisonResultRenderer({ generator: ComparisonResultGenerator });
@@ -353,13 +353,34 @@ export class CharacterPageController {
             return;
         }
 
-        document.querySelectorAll(`${SELECTORS.characterCard} ${SELECTORS.searchInput}`).forEach(input => {
-            input.addEventListener('input', this.debounce(e => this.handleSearch(e.target), CONFIG.comparison.debounce.delay));
+        const comparisonContainer = document.querySelector(SELECTORS.characterComparison);
+        if (!comparisonContainer) {
+            console.error('角色对比页面缺少角色卡容器');
+            return;
+        }
 
-            input.addEventListener('focus', e => this.handleFocus(e.target));
+        comparisonContainer.addEventListener('input', event => {
+            const input = event.target.closest(`${SELECTORS.characterCard} ${SELECTORS.searchInput}`);
+            if (!input || !comparisonContainer.contains(input)) return;
 
-            input.addEventListener('keydown', e => this.handleKeydown(e));
+            let debouncedSearch = this.searchInputDebouncers.get(input);
+            if (!debouncedSearch) {
+                debouncedSearch = this.debounce(target => this.handleSearch(target), CONFIG.comparison.debounce.delay);
+                this.searchInputDebouncers.set(input, debouncedSearch);
+            }
+            debouncedSearch(input);
         });
+
+        comparisonContainer.addEventListener('focusin', event => {
+            const input = event.target.closest(`${SELECTORS.characterCard} ${SELECTORS.searchInput}`);
+            if (input && comparisonContainer.contains(input)) this.handleFocus(input);
+        });
+
+        comparisonContainer.addEventListener('keydown', event => {
+            const input = event.target.closest(`${SELECTORS.characterCard} ${SELECTORS.searchInput}`);
+            if (input && comparisonContainer.contains(input)) this.handleKeydown(event);
+        });
+
 
         document.addEventListener('click', e => {
             document.querySelectorAll(SELECTORS.characterCard).forEach(card => {

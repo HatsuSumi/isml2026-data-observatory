@@ -98,19 +98,23 @@ function buildCustomSelect(select) {
     option.className = CUSTOM_SELECT_OPTION_CLASS;
     option.dataset.value = nativeOption.value;
     option.textContent = nativeOption.textContent;
-    option.addEventListener('click', () => {
-      if (select.value === nativeOption.value) {
-        wrapper.classList.remove('active');
-        trigger.setAttribute('aria-expanded', 'false');
-        return;
-      }
-      select.value = nativeOption.value;
-      select.dispatchEvent(new Event('change', { bubbles: true }));
-      syncCustomSelect(select);
+    options.appendChild(option);
+  });
+
+  options.addEventListener('click', event => {
+    const option = event.target.closest(`.${CUSTOM_SELECT_OPTION_CLASS}`);
+    if (!option || !options.contains(option)) return;
+    const nextValue = option.dataset.value;
+    if (select.value === nextValue) {
       wrapper.classList.remove('active');
       trigger.setAttribute('aria-expanded', 'false');
-    });
-    options.appendChild(option);
+      return;
+    }
+    select.value = nextValue;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    syncCustomSelect(select);
+    wrapper.classList.remove('active');
+    trigger.setAttribute('aria-expanded', 'false');
   });
 
   trigger.addEventListener('click', () => {

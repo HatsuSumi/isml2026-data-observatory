@@ -510,47 +510,39 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         });
         
-        // 点击事件处理
-        nav.querySelectorAll('.elevator-nav-item').forEach(item => {
-            // 处理折叠/展开
+        nav.addEventListener('click', (e) => {
+            const item = e.target.closest('.elevator-nav-item');
+            if (!item || !nav.contains(item)) return;
+
             if (item.querySelector('.collapse-icon')) {
-                item.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const group = item.closest('.elevator-nav-group');
-                    const icon = item.querySelector('.collapse-icon');
-                    
-                    // 折叠/展开当前组
-                    group.classList.toggle('collapsed');
-                    icon.classList.toggle('fa-chevron-down');
-                    icon.classList.toggle('fa-chevron-right');
-                    
-                    // 关闭其他已展开的组
-                    nav.querySelectorAll('.elevator-nav-group').forEach(otherGroup => {
-                        if (otherGroup !== group && !otherGroup.classList.contains('collapsed')) {
-                            otherGroup.classList.add('collapsed');
-                            const otherIcon = otherGroup.querySelector('.collapse-icon');
-                            otherIcon.classList.remove('fa-chevron-down');
-                            otherIcon.classList.add('fa-chevron-right');
-                        }
-                    });
+                e.stopPropagation();
+                const group = item.closest('.elevator-nav-group');
+                const icon = item.querySelector('.collapse-icon');
+                group.classList.toggle('collapsed');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-right');
+                nav.querySelectorAll('.elevator-nav-group').forEach(otherGroup => {
+                    if (otherGroup !== group && !otherGroup.classList.contains('collapsed')) {
+                        otherGroup.classList.add('collapsed');
+                        const otherIcon = otherGroup.querySelector('.collapse-icon');
+                        otherIcon?.classList.remove('fa-chevron-down');
+                        otherIcon?.classList.add('fa-chevron-right');
+                    }
                 });
             }
-            
-            // 处理滚动
-            item.addEventListener('click', (e) => {
-                const targetId = item.dataset.target;
-                
-                const targetElement = document.querySelector(`[data-phase="${targetId}"]`);
-                if (targetElement) {
-                    e.preventDefault();
-                    smoothScrollTo(targetElement.offsetTop - 80);
+
+            const targetId = item.dataset.target;
+            const targetElement = document.querySelector(`[data-phase="${targetId}"]`);
+            if (!targetElement) {
+                console.warn('未找到目标元素:', targetId);
+                return;
+            }
+            e.preventDefault();
+            smoothScrollTo(targetElement.offsetTop - 80);
             history.pushState(null, '', `./pages/events-data/events-data.html#${targetId}`);
-                    updateNavActiveState(targetId);
-                } else {
-                    console.warn('未找到目标元素:', targetId);  
-                }
-            });
+            updateNavActiveState(targetId);
         });
+
         
         document.body.appendChild(nav);
         
