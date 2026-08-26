@@ -1,9 +1,12 @@
+import { smoothScrollTo } from '../common/dom.js';
+
 export class CharacterDetailScrollController {
     constructor({ reports, nav }) {
         this.reports = reports;
         this.nav = nav;
-        this.scrollAnimation = null;
-        this.navScrollAnimation = null;
+        this.cancelReportScroll = null;
+        this.cancelNavScroll = null;
+        this.scrollTimer = null;
     }
 
     smoothScroll(target, duration = 500) {
@@ -11,19 +14,8 @@ export class CharacterDetailScrollController {
             console.warn('Invalid scroll target:', target);
             return;
         }
-        if (typeof duration !== 'number' || duration <= 0) duration = 500;
-        if (this.scrollAnimation) cancelAnimationFrame(this.scrollAnimation);
-
-        const start = this.reports.scrollTop;
-        const distance = target - start;
-        const startTime = performance.now();
-        const easeOutCubic = value => 1 - Math.pow(1 - value, 3);
-        const animate = currentTime => {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            this.reports.scrollTop = start + distance * easeOutCubic(progress);
-            if (progress < 1) this.scrollAnimation = requestAnimationFrame(animate);
-        };
-        this.scrollAnimation = requestAnimationFrame(animate);
+        if (this.cancelReportScroll) this.cancelReportScroll();
+        this.cancelReportScroll = smoothScrollTo(target, duration, this.reports);
     }
 
     handleScroll() {
@@ -73,22 +65,13 @@ export class CharacterDetailScrollController {
     }
 
     smoothScrollNav(target, duration = 300) {
-        if (this.navScrollAnimation) cancelAnimationFrame(this.navScrollAnimation);
-        const start = this.nav.scrollTop;
-        const distance = target - start;
-        const startTime = performance.now();
-        const easeOutCubic = value => 1 - Math.pow(1 - value, 3);
-        const animate = currentTime => {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            this.nav.scrollTop = start + distance * easeOutCubic(progress);
-            if (progress < 1) this.navScrollAnimation = requestAnimationFrame(animate);
-        };
-        this.navScrollAnimation = requestAnimationFrame(animate);
+        if (this.cancelNavScroll) this.cancelNavScroll();
+        this.cancelNavScroll = smoothScrollTo(target, duration, this.nav);
     }
 
     destroy() {
-        if (this.scrollAnimation) cancelAnimationFrame(this.scrollAnimation);
-        if (this.navScrollAnimation) cancelAnimationFrame(this.navScrollAnimation);
+        if (this.cancelReportScroll) this.cancelReportScroll();
+        if (this.cancelNavScroll) this.cancelNavScroll();
         if (this.scrollTimer) cancelAnimationFrame(this.scrollTimer);
         this.reports = null;
         this.nav = null;
