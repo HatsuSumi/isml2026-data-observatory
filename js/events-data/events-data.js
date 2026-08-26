@@ -138,6 +138,26 @@ function resolvePhaseTarget(targetId) {
     return null;
 }
 
+function resolveNavigationTargetId(phaseId) {
+    const exactItem = nav.querySelector(`.elevator-nav-item[data-target="${phaseId}"]`);
+    if (exactItem && !exactItem.hidden) return phaseId;
+
+    const preliminaryPhase = phaseId.match(/^preliminary-(\d+)-(\d+)$/);
+    if (preliminaryPhase) {
+        const round = (Number.parseInt(preliminaryPhase[1], 10) - 1) * 2
+            + Number.parseInt(preliminaryPhase[2], 10);
+        return `preliminary-${round}`;
+    }
+
+    for (const [targetId, prefixes] of Object.entries(PHASE_TARGET_PREFIXES)) {
+        if (prefixes.some(prefix => phaseId.startsWith(prefix))) {
+            return targetId;
+        }
+    }
+
+    return phaseId;
+}
+
 function syncNavigationTargets() {
     nav.querySelectorAll('.elevator-nav-item[data-target]').forEach(item => {
         item.hidden = !resolvePhaseTarget(item.dataset.target);
@@ -952,7 +972,7 @@ window.addEventListener('scroll', () => {
         
         // 更新导航栏状态
         if (currentPhase) {
-            updateNavActiveState(currentPhase);
+            updateNavActiveState(resolveNavigationTargetId(currentPhase));
         }
     }, 100); // 100ms 的防抖
 });
@@ -961,11 +981,11 @@ window.addEventListener('scroll', () => {
 window.addEventListener('load', () => {
     const hash = window.location.hash.slice(1);
     if (hash) {
-        const targetElement = document.querySelector(`[data-phase="${hash}"]`);
+        const targetElement = resolvePhaseTarget(hash);
         if (targetElement) {
             setTimeout(() => {
                 scrollWindowTo(targetElement.offsetTop - 80);
-                updateNavActiveState(hash);
+                updateNavActiveState(resolveNavigationTargetId(targetElement.dataset.phase));
             }, 100);
         }
     }
