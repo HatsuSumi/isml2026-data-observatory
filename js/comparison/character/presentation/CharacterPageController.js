@@ -24,6 +24,7 @@ import { EventSelectionController } from './EventSelectionController.js';
 import { CharacterModalController } from './CharacterModalController.js';
 import { ComparisonActionsController } from './ComparisonActionsController.js';
 import { ComparisonInputCollector } from './ComparisonInputCollector.js';
+import { debounce } from '../../../common/dom.js';
 class AlertBox {
     static show(message, duration = CONFIG.alert.duration.normal, type = LAYOUT_CLASSES.alertInfo) {
 
@@ -149,7 +150,7 @@ export class CharacterPageController {
             comparisonTypes: COMPARISON_TYPES,
             messages: MESSAGES,
             alertBox: AlertBox,
-            debounce: this.debounce.bind(this),
+            debounce,
             searchItemTemplate,
             getCompareType: () => document.getElementById(LAYOUT_CLASSES.compareType).value,
             calculateZIndex: this.calculateZIndex.bind(this),
@@ -185,7 +186,7 @@ export class CharacterPageController {
             layoutClasses: LAYOUT_CLASSES,
             animationClasses: ANIMATION_CLASSES,
             config: CONFIG,
-            debounce: this.debounce.bind(this),
+            debounce,
             quickSelectModalController: this.quickSelectModalController,
             characterSelectionController: this.characterSelectionController,
             characterSelectModalShellController: this.characterSelectModalShellController,
@@ -365,7 +366,7 @@ export class CharacterPageController {
 
             let debouncedSearch = this.searchInputDebouncers.get(input);
             if (!debouncedSearch) {
-                debouncedSearch = this.debounce(target => this.handleSearch(target), CONFIG.comparison.debounce.delay);
+                debouncedSearch = debounce(target => this.handleSearch(target), CONFIG.comparison.debounce.delay);
                 this.searchInputDebouncers.set(input, debouncedSearch);
             }
             debouncedSearch(input);
@@ -401,18 +402,6 @@ export class CharacterPageController {
             event.stopPropagation();
             this.deleteCharacter(deleteButton.closest(SELECTORS.charInfoCard), true);
         });
-    }
-
-    debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
     }
 
     calculateZIndex(index, compareType) {

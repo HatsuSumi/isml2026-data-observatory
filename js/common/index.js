@@ -1,5 +1,6 @@
 ﻿import { SERIES_ALIASES } from '../aliases/aliases.js';
 import { reconcileKeyedList } from './keyed-list.js';
+import { debounce } from './dom.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeTabs();
@@ -224,20 +225,6 @@ function adjustCardLayout() {
         panel.style.setProperty('--character-grid-gap', gap);
         panel.style.setProperty('--character-card-width', `${actualCardWidth}px`);
     });
-}
-
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction() {
-        const context = this;
-        const args = arguments;
-        const later = function() {
-            timeout = null;
-            func.apply(context, args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
 }
 
 const debouncedAdjustLayout = debounce(adjustCardLayout, 250);
