@@ -1,5 +1,10 @@
-import { CONFIG } from '../common/config.js';
-import { reconcileKeyedList } from '../common/keyed-list.js';
+import { loadCharacterDetailData } from './character-detail-data.js';
+import { StageHandlerFactory } from './character-detail-stage-handlers.js';
+import { collectCharacterDetailView, renderCharacterInfo as renderCharacterInfoView, setPageLoaded } from './character-detail-view.js';
+import { CharacterDetailScrollController } from './character-detail-scroll.js';
+import { ErrorToast } from './character-detail-toast.js';
+import { renderEventReports, renderEventNavigation } from './character-detail-reports.js';
+import { setupCharacterNavigation } from './character-detail-navigation.js';
 
 class CharacterDetail {
     constructor() {
@@ -11,68 +16,20 @@ class CharacterDetail {
         this.eventData = null;
         this.allCharacters = null;  
         
-        // 缓存模板元素
-        this.templates = {
-            battleRecord: document.getElementById('battle-record-template'),
-            eventReport: document.getElementById('event-report-template'),
-            navItem: document.getElementById('nav-item-template'),
-            backBtn: document.getElementById('back-btn-template'),
-            loadingContainer: document.getElementById('loading-container-template'),
-            dataRow: document.getElementById('data-row-template'),
-            recordLink: document.getElementById('record-link-template'),
-            hoverArea: document.getElementById('hover-area-template'),
-            characterItem: document.getElementById('character-item-template'),
-            noContent: document.getElementById('no-content-template'),
-            errorToast: document.getElementById('error-toast-template'),
-            characterNavEmpty: document.getElementById('character-nav-empty-template')
-        };
-        
-        // 缓存容器元素
-        this.containers = {
-            info: document.querySelector('.character-info'),
-            reports: document.querySelector('.battle-reports'),
-            nav: document.querySelector('.nav-list')
-        };
-        
-        // 缓存基本信息元素
-        this.infoElements = {
-            avatar: this.containers.info.querySelector('.character-avatar img'),
-            avatarContainer: document.querySelector('.character-avatar'),
-            name: this.containers.info.querySelector('.character-name'),
-            ip: this.containers.info.querySelector('.character-ip'),
-            cv: this.containers.info.querySelector('.character-cv'),
-            birthdayRow: this.containers.info.querySelector('.birthday-row'),
-            birthday: this.containers.info.querySelector('.character-birthday')
-        };
-        
-        // 保存滚动位置的 key
+        const view = collectCharacterDetailView();
+        this.templates = view.templates;
+        this.containers = view.containers;
+        this.infoElements = view.infoElements;
+        this.toast = new ErrorToast(this.templates.errorToast);
+        this.scrollController = new CharacterDetailScrollController({
+            reports: this.containers.reports,
+            nav: this.containers.nav
+        });
         this.SCROLL_POSITION_KEY = 'character_detail_scroll_position';
-        
-        // 最近访问的角色 key
-        this.RECENT_CHARS_KEY = 'recent_visited_characters';
-        // 最大记录数
-        this.MAX_RECENT_CHARS = 5;
         
         // 添加返回按钮
         this.addBackButton();
-        
-        // 绑定事件处理
         this.bindEvents();
-        
-        // 滚动动画相关
-        this.scrollAnimation = null;
-        
-        // 定义需要过滤的字段
-        this.excludeFields = new Set([
-            'round',
-            'visualization',
-            'hasRules',
-            'rules',
-            'groupResults',
-            'visualizationUrl',
-            'visualizationUrl2',
-            'type'
-        ]);
     }
     
     addBackButton() {
@@ -108,8 +65,7 @@ class CharacterDetail {
             this.setupNavigation();
             this.setupCharacterNav();
             
-            const container = document.querySelector('.character-detail-container');
-            container.classList.add('loaded');
+            setPageLoaded();
             
             const savedPosition = sessionStorage.getItem(this.SCROLL_POSITION_KEY);
             if (savedPosition) {
@@ -130,32 +86,8 @@ class CharacterDetail {
     
     async loadData() {
         try {
-            // 并行加载所有数据
-            const [charactersResponse, rulesResponse, groupsResponse] = await Promise.all([
-                fetch("data/characters/characters-details.json"),
-                fetch("data/rules/rules.json"),
-                fetch("data/groups/groups.json")
-            ]);
-            if (!charactersResponse.ok || !rulesResponse.ok || !groupsResponse.ok) {
-                throw new Error('数据加载失败');
-            }
-
-            const [charactersData, rulesData, groupsData] = await Promise.all([
-                charactersResponse.json(),
-                rulesResponse.json(),
-                groupsResponse.json()
-            ]);
-
-            this.allCharacters = charactersData.characters;
-            this.characterData = charactersData.characters[this.characterId];
-            this.configData = charactersData.config;
-            this.rulesData = rulesData;
-            this.groupsData = groupsData;
-
-            if (!this.characterData) {
-                throw new Error('角色数据不存在');
-            }
-            this.eventData = this.characterData.rounds;
+            const data = await loadCharacterDetailData(this.characterId);
+            Object.assign(this, data);
         } catch (error) {
             console.error('加载数据失败:', error);
             this.showError('数据加载失败，请稍后重试');
@@ -164,361 +96,38 @@ class CharacterDetail {
     }
     
     renderCharacterInfo() {
-        if (!this.characterData) return;
-        
-        const basic = this.characterData.basic;
-
-        if (basic.avatar) {
-            this.infoElements.avatar.src = basic.avatar;
-            this.infoElements.avatar.alt = basic.name;
-        } else {
-            this.infoElements.avatarContainer.remove();
-        }
-
-        this.infoElements.name.textContent = basic.name;
-        this.infoElements.ip.textContent = basic.ip;
-        this.infoElements.cv.textContent = basic.cv;
-        
-        if (basic.birthday) {
-            this.infoElements.birthdayRow.hidden = false;
-            this.infoElements.birthday.textContent = basic.birthday;
-        } else {
-            this.infoElements.birthdayRow.remove();
-        }
+        renderCharacterInfoView({ infoElements: this.infoElements }, this.characterData);
     }
     
     showError(message) {
-        const existingToast = document.querySelector('.error-toast');
-        if (existingToast) {
-            existingToast.remove();
-        }
-
-        if (this.errorTimer) {
-            clearTimeout(this.errorTimer);
-            this.errorTimer = null;
-        }
-
-        const toast = this.templates.errorToast.content.cloneNode(true).querySelector('.error-toast');
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        requestAnimationFrame(() => {
-            toast.classList.add('visible');
-        });
-
-        this.errorTimer = setTimeout(() => {
-            toast.classList.remove('visible');
-            this.errorTimer = setTimeout(() => {
-                toast.remove();
-                this.errorTimer = null;
-            }, 240);
-        }, 2800);
+        this.toast.show(message);
     }
 
     renderEventReports() {
-        // 添加防御性检查
-        if (!this.eventData || !Array.isArray(this.eventData)) {
-            console.error('事件数据无效:', this.eventData);
-            return;
-        }
-        
-        const fragment = document.createDocumentFragment();
-        this.eventData.forEach(round => {
-            const report = this.createEventReport(round);
-            fragment.appendChild(report);
+        renderEventReports(this.eventData, {
+            templates: this.templates,
+            reports: this.containers.reports,
+            rulesData: this.rulesData,
+            stageContext: {
+                stages: this.configData.stages,
+                characterId: this.characterId,
+                charactersData: this.allCharacters
+            },
+            stageHandlerFactory: (round, context) => StageHandlerFactory.getHandler(round, context),
+            onScroll: () => this.handleScroll(),
+            onSmoothScroll: (target, duration) => this.smoothScroll(target, duration)
         });
-        this.containers.reports.replaceChildren(fragment);
-    }
-    
-    createEventReport(round) {
-        const report = this.templates.eventReport.content.cloneNode(true).querySelector('.event-report');
-        report.id = `round-${round.round}`;
-
-        const titleBar = report.querySelector('.event-title');
-        const collapseIcon = document.createElement('i');
-        collapseIcon.className = 'fas fa-chevron-down collapse-icon';
-        const titleText = document.createElement('span');
-        titleText.textContent = round.round;
-        titleBar.replaceChildren(collapseIcon, titleText);
-        
-        const battleList = report.querySelector('.battle-list');
-
-        const hasOnlyRound = Object.keys(round).length === 1 && round.round;
-        
-        if (hasOnlyRound) {
-            const noContent = this.templates.noContent.content.cloneNode(true);
-            battleList.appendChild(noContent);
-        } else {
-            const record = this.createBattleRecord(round);
-            battleList.appendChild(record);
-        }
-        
-        titleBar.addEventListener('click', () => {
-            const icon = titleBar.querySelector('.collapse-icon');
-            
-            const isCollapsed = battleList.classList.contains('collapsed');
-            battleList.classList.toggle('collapsed');
-            icon.className = `fas ${isCollapsed ? 'fa-chevron-down' : 'fa-chevron-right'} collapse-icon`;
-            titleBar.classList.toggle('collapsed');
-            
-            setTimeout(() => {
-                this.handleScroll();
-
-                if (!isCollapsed) {
-                    const targetRect = report.getBoundingClientRect();
-                    const containerRect = this.containers.reports.getBoundingClientRect();
-                    const targetTop = this.containers.reports.scrollTop + targetRect.top - containerRect.top;
-                    this.smoothScroll(targetTop);
-                }
-            }, 300); 
-        });
-        
-        return report;
-    }
-    
-    createBattleRecord(round) {
-        const record = this.templates.battleRecord.content.cloneNode(true).querySelector('.battle-record');
-        const content = record.querySelector('.record-content');
-        const linksDropdown = record.querySelector('.links-dropdown');
-        const linksBtn = record.querySelector('.links-btn');
-        const recordLinks = record.querySelector('.record-links');
-        
-        const excludeRankFields = new Set(['弃票数', '弃票率']);
-        
-        // 获取排名样式
-        const getRankStyle = (rank) => {
-            const rankNum = parseInt(rank);
-            switch(rankNum) {
-                case 1: return 'rank-first';
-                case 2: return 'rank-second';
-                case 3: return 'rank-third';
-                default: return '';
-            }
-        };
-
-        // 提取排名信息的函数
-        const extractRank = (value) => {
-            if (typeof value !== 'string') return null;
-            const match = value.match(/（全场排名第\s*(\d+)）/);
-            return match ? match[1] : null;
-        };
-        
-        try {
-            const handler = StageHandlerFactory.getHandler(round, this.configData.stages, this.characterId, this.allCharacters);
-            const { roundConfig, stageConfig } = handler.config;
-            const fields = handler.getFields(round);
-            
-            // 创建数据行
-            const createDataRow = (label, value) => {
-                if (!value) return null;
-                
-                const rank = !excludeRankFields.has(label) ? extractRank(value) : null;
-                const rankStyle = rank ? getRankStyle(rank) : '';
-                const row = this.templates.dataRow.content.cloneNode(true).querySelector('.data-row');
-                const labelDiv = row.querySelector('.data-label');
-                const valueDiv = row.querySelector('.data-value');
-
-                labelDiv.className = rankStyle ? `data-label ${rankStyle}` : 'data-label';
-                labelDiv.textContent = label;
-                valueDiv.className = rankStyle ? `data-value ${rankStyle}` : 'data-value';
-                valueDiv.textContent = value;
-
-                return row;
-            };
-            
-            // 按顺序创建数据行
-            const rowsFragment = document.createDocumentFragment();
-            Object.entries(fields)
-                .filter(([_, value]) => value !== null && value !== undefined)
-                .forEach(([label, value]) => {
-                    const row = createDataRow(label, value);
-                    if (row) rowsFragment.appendChild(row);
-                });
-            content.appendChild(rowsFragment);
-            
-            // 添加相关链接
-            const linkConfigs = [
-                {
-                    key: 'visualization',
-                    icon: 'chart-line',
-                    text: '数据可视化'
-                },
-                {
-                    key: 'table',
-                    icon: 'table',
-                    text: '详细表格'
-                },
-                {
-                    key: 'groups',
-                    icon: 'users', 
-                    text: '角色分组'
-                },
-                {
-                    key: 'rules',
-                    icon: 'book',
-                    text: '赛事规则'
-                }
-            ];
-
-            const links = linkConfigs
-            .filter(config => { 
-                if (config.key === 'rules') {
-                    const ruleKey = roundConfig?.[config.key];
-                    return ruleKey && this.rulesData[ruleKey];
-                }
-                if (config.key === 'visualization' || config.key === 'table') {
-                    const linkKey = roundConfig?.[config.key];
-                    const result = !!linkKey;
-                    return result;
-                }
-                return roundConfig?.[config.key];
-            })
-            .map(config => {
-                let url;
-                if (config.key === 'visualization' || config.key === 'table') {
-                    url = roundConfig[config.key];
-                } else if (config.key === 'rules') {
-                    url = `pages/rules/rules.html?id=${roundConfig[config.key]}&from=characters-data`;
-                } else if (config.key === 'groups') {
-                    url = `pages/groups/groups.html?id=${roundConfig[config.key]}&from=characters-data`;
-                } else {
-                    url = roundConfig[config.key];
-                }
-                
-                
-                if (!url.includes('from=characters-data')) {
-                    url += url.includes('?') ? `&from=characters-data` : `?from=characters-data`;
-                }
-                
-                return {
-                    key: config.key,
-                    icon: config.icon,
-                    text: config.text,
-                    url: url
-                };
-            });
-            
-            // 如果有链接，显示链接按钮，否则隐藏
-            const linksSection = record.querySelector('.record-links');
-            if (links.length > 0) {
-                const linksFragment = document.createDocumentFragment();
-                links.forEach(link => {
-                    const linkNode = this.templates.recordLink.content.cloneNode(true).querySelector('a');
-                    const icon = linkNode.querySelector('i');
-                    const text = linkNode.querySelector('.link-text');
-                    linkNode.href = link.url;
-                    icon.classList.add(`fa-${link.icon}`);
-                    text.textContent = link.text;
-                    linksFragment.appendChild(linkNode);
-                });
-                linksDropdown.appendChild(linksFragment);
-            } else {
-                linksSection.hidden = true;
-            }
-        } catch (error) {
-            console.error('处理赛事数据失败:', error);
-        }
-        
-        // 改进悬停交互逻辑
-        if (linksBtn && linksDropdown && recordLinks) {
-            let isHovering = false;
-            let hoverTimeout;
-
-            const showDropdown = () => {
-                linksDropdown.classList.add('is-open');
-            };
-
-            const hideDropdown = () => {
-                linksDropdown.classList.remove('is-open');
-            };
-
-            const handleMouseEnter = () => {
-                isHovering = true;
-                clearTimeout(hoverTimeout);
-                hoverTimeout = setTimeout(showDropdown, 50);
-            };
-
-            const handleMouseLeave = () => {
-                isHovering = false;
-                clearTimeout(hoverTimeout);
-                hoverTimeout = setTimeout(() => {
-                    if (!isHovering) {
-                        hideDropdown();
-                    }
-                }, 100);
-            };
-
-            const hoverArea = this.templates.hoverArea.content.cloneNode(true).querySelector('.record-links-hover-area');
-            recordLinks.appendChild(hoverArea);
-
-            linksBtn.addEventListener('mouseenter', handleMouseEnter);
-            linksBtn.addEventListener('mouseleave', handleMouseLeave);
-            linksDropdown.addEventListener('mouseenter', handleMouseEnter);
-            linksDropdown.addEventListener('mouseleave', handleMouseLeave);
-            hoverArea.addEventListener('mouseenter', handleMouseEnter);
-            hoverArea.addEventListener('mouseleave', handleMouseLeave);
-        }
-
-        return record;
     }
     
     setupNavigation() {
-        const fragment = document.createDocumentFragment();
-        this.eventData.forEach(round => {
-            const navItem = this.createNavItem(round);
-            fragment.appendChild(navItem);
+        renderEventNavigation(this.eventData, {
+            templates: this.templates,
+            nav: this.containers.nav
         });
-        this.containers.nav.replaceChildren(fragment);
-        
-        const firstItem = this.containers.nav.firstElementChild;
-        if (firstItem) firstItem.classList.add('active');
     }
     
-    createNavItem(round) {
-        const item = this.templates.navItem.content.cloneNode(true).querySelector('.nav-item');
-        const link = item.querySelector('a');
-        link.href = 'javascript:void(0)';
-        link.dataset.target = `round-${round.round}`;
-        const navText = round.round.split('（')[0];
-        link.textContent = navText;
-        return item;
-    }
-    
-    // 自定义平滑滚动函数
     smoothScroll(target, duration = 500) {
-        // 参数验证
-        if (typeof target !== 'number' || target < 0) {
-            console.warn('Invalid scroll target:', target);
-            return;
-        }
-        if (typeof duration !== 'number' || duration <= 0) {
-            duration = 500;
-        }
-
-        if (this.scrollAnimation) {
-            cancelAnimationFrame(this.scrollAnimation);
-        }
-        
-        const container = this.containers.reports;
-        const start = container.scrollTop;
-        const distance = target - start;
-        const startTime = performance.now();
-        
-        // 使用更柔和的缓动函数
-        const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
-        
-        const animate = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            container.scrollTop = start + distance * easeOutCubic(progress);
-            
-            if (progress < 1) {
-                this.scrollAnimation = requestAnimationFrame(animate);
-            }
-        };
-        
-        this.scrollAnimation = requestAnimationFrame(animate);
+        this.scrollController.smoothScroll(target, duration);
     }
     
     bindEvents() {
@@ -555,250 +164,34 @@ class CharacterDetail {
     }
     
     handleScroll(e) {
-        if (this.scrollTimer) {
-            cancelAnimationFrame(this.scrollTimer);
-        }
-        
-        this.scrollTimer = requestAnimationFrame(() => {
-            const reports = this.containers.reports.querySelectorAll('.event-report');
-            let currentReport = null;
-            const scrollTop = this.containers.reports.scrollTop;
-            const containerHeight = this.containers.reports.clientHeight;
-            const buffer = 100;
-            
-            for (const report of reports) {
-                const reportTop = report.offsetTop - scrollTop;
-                if (reportTop >= -buffer && reportTop <= containerHeight / 2) {
-                    currentReport = report;
-                    break;
-                }
-            }
-            
-            if (!currentReport) {
-                for (const report of reports) {
-                    const reportTop = report.offsetTop - scrollTop;
-                    if (reportTop > -report.offsetHeight) {
-                        currentReport = report;
-                        break;
-                    }
-                }
-            }
-            
-            if (currentReport) {
-                const id = currentReport.id;
-                this.containers.nav.querySelectorAll('.nav-item').forEach(item => {
-                    const link = item.querySelector('a');
-                    item.classList.toggle('active', link.dataset.target === id);
-                });
-                
-                const activeItem = this.containers.nav.querySelector('.nav-item.active');
-                if (activeItem) {
-                    const navContainer = this.containers.nav;
-                    const itemTop = activeItem.offsetTop;
-                    const containerScrollTop = navContainer.scrollTop;
-                    const containerHeight = navContainer.clientHeight;
-                    
-                    if (itemTop < containerScrollTop || itemTop > containerScrollTop + containerHeight) {
-                        const targetScroll = itemTop - containerHeight / 2 + activeItem.offsetHeight / 2;
-                        this.smoothScrollNav(targetScroll);
-                    }
-                }
-            }
-        });
+        this.scrollController.handleScroll(e);
     }
     
     destroy() {
-        
-        if (this.scrollAnimation) {
-            cancelAnimationFrame(this.scrollAnimation);
-        }
-
-        this.containers = null;
+        this.scrollController.destroy();
+        this.toast.destroy();
         this.templates = null;
         this.infoElements = null;
     }
 
     smoothScrollNav(target, duration = 300) {
-        if (this.navScrollAnimation) {
-            cancelAnimationFrame(this.navScrollAnimation);
-        }
-        
-        const container = this.containers.nav;
-        const start = container.scrollTop;
-        const distance = target - start;
-        const startTime = performance.now();
-        
-        const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
-        
-        const animate = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            container.scrollTop = start + distance * easeOutCubic(progress);
-            
-            if (progress < 1) {
-                this.navScrollAnimation = requestAnimationFrame(animate);
-            }
-        };
-        
-        this.navScrollAnimation = requestAnimationFrame(animate);
+        this.scrollController.smoothScrollNav(target, duration);
     }
 
     setupCharacterNav() {
-        const filters = document.querySelector('.nav-filters');
-        const charactersList = document.querySelector('.characters-list');
-
-        // 过滤按钮点击事件
-        filters.addEventListener('click', e => {
-            const btn = e.target.closest('.filter-btn');
-            if (!btn) return;
-            
-            // 更新按钮状态
-            filters.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.toggle('active', b === btn);
-            });
-            
-            // 根据筛选条件显示角色
-            const filter = btn.dataset.filter;
-            this.showFilteredCharacters(filter);
-        });
-        
-        charactersList.addEventListener('click', event => {
-            const item = event.target.closest('.character-item');
-            if (!item || !charactersList.contains(item)) return;
-
-            const id = item.dataset.characterId;
-            if (!id) return;
-            sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
-            const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
-            const newRecentChars = [id, ...recentChars.filter(cid => cid !== id)]
-                .slice(0, this.MAX_RECENT_CHARS);
-            localStorage.setItem(this.RECENT_CHARS_KEY, JSON.stringify(newRecentChars));
-            window.location.href = `pages/characters-data/character-detail.html?id=${encodeURIComponent(id)}&from=characters-data`;
-        });
-
-        // 初始显示全部角色
-        this.showFilteredCharacters('all');
-    }
-
-    showFilteredCharacters(filter) {
-        const container = document.querySelector('.characters-list');
-        const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
-        const characters = this.filterCharacters(filter);
-        const emptyState = container.querySelector('.character-nav-empty');
-
-        if (characters.length === 0) {
-            container.querySelectorAll('.character-item').forEach(item => item.remove());
-            const nextEmptyState = emptyState || this.templates.characterNavEmpty.content.cloneNode(true).querySelector('.character-nav-empty');
-            const emptyMessages = {
-                all: '当前分组下没有其他角色可显示',
-                cv: '没有找到同声优的其他角色',
-                ip: '没有找到同作品的其他角色'
-            };
-            nextEmptyState.classList.add('is-entering');
-            nextEmptyState.textContent = emptyMessages[filter] ?? '暂无可显示角色';
-            if (!emptyState) container.appendChild(nextEmptyState);
-            requestAnimationFrame(() => nextEmptyState.classList.add('visible'));
-            return;
-        }
-
-        emptyState?.remove();
-        reconcileKeyedList(container, characters, {
-            getKey: ([id]) => id,
-            keyAttribute: 'characterId',
-            create: () => this.templates.characterItem.content.cloneNode(true).querySelector('.character-item'),
-            update: (item, [id, char]) => {
-                item.dataset.characterId = id;
-                item.classList.add('visible');
-                item.classList.toggle('recently-visited', recentChars.includes(id));
-
-                const avatar = item.querySelector('.character-item-avatar');
-                const name = item.querySelector('.name');
-                const textContents = item.querySelectorAll('.text-content');
-                avatar.hidden = !char.basic.avatar;
-                if (char.basic.avatar) {
-                    avatar.src = char.basic.avatar;
-                    avatar.alt = char.basic.name;
-                }
-                name.textContent = char.basic.name;
-                textContents[0].textContent = char.basic.ip;
-                textContents[1].textContent = char.basic.cv;
+        setupCharacterNavigation({
+            filters: document.querySelector('.nav-filters'),
+            list: document.querySelector('.characters-list'),
+            templates: this.templates,
+            characterId: this.characterId,
+            characterData: this.characterData,
+            eventData: this.eventData,
+            allCharacters: this.allCharacters,
+            onNavigate: id => {
+                sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
+                window.location.href = `pages/characters-data/character-detail.html?id=${encodeURIComponent(id)}&from=characters-data`;
             }
         });
-    }
-
-    getRoundContext(roundText) {
-        const round = roundText || '';
-        const groupMap = {
-            '恒星组': '恒星组',
-            '新星组': '新星组'
-        };
-        const seasonOrder = ['春季赛', '夏季赛', '秋季赛', '冬季赛'];
-
-        return {
-            group: Object.keys(groupMap).find(group => round.includes(group)) ?? null,
-            gender: ['女性', '男性'].find(gender => round.includes(gender)) ?? null,
-            season: seasonOrder.find(season => round.includes(season)) ?? null
-        };
-    }
-
-    matchesCharacterRound(charRound, context) {
-        const roundContext = this.getRoundContext(charRound);
-        if (roundContext.group !== context.group || roundContext.gender !== context.gender) {
-            return false;
-        }
-
-        if (context.group === '新星组') {
-            return roundContext.season === context.season;
-        }
-
-        return true;
-    }
-
-    matchesCharacterFilter(char, filter) {
-        switch (filter) {
-            case 'cv':
-                return char.basic.cv === this.characterData.basic.cv;
-            case 'ip':
-                return char.basic.ip === this.characterData.basic.ip;
-            default:
-                return true;
-        }
-    }
-
-    filterCharacters(filter) {
-        const container = document.querySelector('.characters-list');
-        const innerContainer = container.querySelector('.characters-list-inner');
-        
-        // 获取最近访问的角色
-        const recentChars = JSON.parse(localStorage.getItem(this.RECENT_CHARS_KEY) || '[]');
-        
-        // 获取当前角色的组别、季节和性别
-        const currentRound = this.eventData[0]?.round || '';
-        const currentContext = this.getRoundContext(currentRound);
-        
-        // 过滤角色
-        const characters = Object.entries(this.allCharacters)
-            .filter(([id, char]) => {
-                // 排除当前角色
-                if (id === this.characterId) return false;
-
-                const charRound = char.rounds[0]?.round || '';
-                if (!this.matchesCharacterRound(charRound, currentContext)) return false;
-                return this.matchesCharacterFilter(char, filter);
-            });
-        
-        // 对角色列表进行排序：最近访问的排在前面
-        characters.sort(([idA], [idB]) => {
-            const indexA = recentChars.indexOf(idA);
-            const indexB = recentChars.indexOf(idB);
-            if (indexA === -1 && indexB === -1) return 0;
-            if (indexA === -1) return 1;
-            if (indexB === -1) return -1;
-            return indexA - indexB;
-        });
-
-        return characters;
     }
 }
 
@@ -807,162 +200,3 @@ document.addEventListener('DOMContentLoaded', () => {
     const detail = new CharacterDetail();
     detail.init();
 });
-
-
-// 单独的赛事处理器文件
-class StageHandler {
-    constructor(config = {}) {
-        this.characterId = config.characterId;
-        this.charactersData = config.charactersData;
-        this.config = config.config || {};
-        this.roundConfig = this.config.roundConfig;
-        this.stageConfig = this.config.stageConfig;
-    }
-    
-    getFields() {
-        throw new Error('必须实现 getFields 方法');
-    }
-    
-    getConfig() {
-        throw new Error('必须实现 getConfig 方法');
-    }
-}
-
-class NominationHandler extends StageHandler {
-    constructor(config = {}) {
-        super(config);
-    }
-    
-    getFields(round) {
-        return {
-            '提名时间': this.stageConfig?.['提名时间'],
-            '被提名角色数': round['名次'] !== '自动晋级' ? this.roundConfig?.['被提名角色数'] : null,
-            '提名票': round['提名票'],
-            '名次': round['名次'],
-            '上届世萌战绩': round['上届世萌战绩']
-        };
-    }
-    
-    getConfig(round, stages) {
-        const gender = round.round.includes('女性') ? '女性组别' : '男性组别';
-        if (round.round.includes('恒星组')) {
-            return {
-                roundConfig: stages['提名阶段']['恒星组'][gender],
-                stageConfig: stages['提名阶段']['恒星组']
-            };
-        }
-        
-        const seasonMap = {
-            '冬季赛': '冬季赛',
-            '春季赛': '春季赛',
-            '夏季赛': '夏季赛',
-            '秋季赛': '秋季赛'
-        };
-        const season = Object.keys(seasonMap).find(s => round.round.includes(s)) || '冬季赛';
-        
-        return {
-            roundConfig: stages['提名阶段']['新星组'][season][gender],
-            stageConfig: stages['提名阶段']['新星组'][season]
-        };
-    }
-}
-
-class PreliminariesHandler extends StageHandler {
-    constructor(config = {}) {
-        super(config);
-    }
-    
-    getFields(round) {
-        return {
-            '赛事时间': this.roundConfig?.['赛事时间'],
-        };
-    }
-    
-    getConfig(round, stages) {     
-        // 从提名阶段的 round 获取性别
-        const characterData = this.charactersData || window.charactersData;
-        const characterId = this.characterId || window.currentCharacterId;
-        
-        // 添加安全检查
-        if (!characterData || !characterData[characterId] || !characterData[characterId].rounds || characterData[characterId].rounds.length === 0) {
-            console.error('无法获取角色数据:', { characterData, characterId });
-            return { roundConfig: null, stageConfig: null };
-        }
-
-        const gender = characterData[characterId].rounds[0].round.includes('女性组别') ? '女性组别' : '男性组别';
-        
-        // 从 round 中提取轮次
-        const roundMatch = round.round.match(/第([一二三四五六])轮/);
-        if (!roundMatch) {
-            console.error('无法解析轮次:', round.round);
-            return { roundConfig: null, stageConfig: null };
-        }
-        
-        const roundNumber = roundMatch[1];
-        const roundKey = `预选赛第${roundNumber}轮`; 
-        
-        // 检查配置是否存在
-        if (!stages['预选赛阶段'] || !stages['预选赛阶段'][roundKey]) {
-            console.error(`未找到配置: 预选赛阶段 -> ${roundKey}`);
-            return { roundConfig: null, stageConfig: null };
-        }
-        
-        const stageConfig = stages['预选赛阶段'][roundKey]['恒星组'];
-        if (!stageConfig) {
-            console.error(`未找到恒星组配置: 预选赛阶段 -> ${roundKey} -> 恒星组`);
-            return { roundConfig: null, stageConfig: null };
-        }
-        
-        return {
-            roundConfig: {
-                ...stageConfig[gender],
-                '赛事时间': stages['预选赛阶段'][roundKey]['赛事时间']
-            },
-            stageConfig: stageConfig
-        };
-    }
-}
-
-// 处理器工厂
-class StageHandlerFactory {
-    // 使用正则表达式来匹配赛事类型
-    static patterns = [
-        {
-            pattern: /恒星组提名/,
-            handler: NominationHandler
-        },
-        {
-            pattern: /新星组.*?[春夏秋冬]季赛提名/,
-            handler: NominationHandler
-        },
-        {
-            pattern: /预选赛第[一二三四五六]轮/,
-            handler: PreliminariesHandler
-        }
-    ];
-    
-    static getHandler(round, stages, characterId, charactersData) {
-        // 使用正则表达式匹配
-        const match = this.patterns.find(p => {
-            const isMatch = p.pattern.test(round.round);
-            return isMatch;
-        });
-    
-        if (!match) {
-            throw new Error(`未找到对应的处理器: ${round.round}`);
-        }
-        
-        const handler = new match.handler({
-            characterId: characterId,
-            charactersData: charactersData
-        });
-        
-        const config = handler.getConfig(round, stages);
-
-        return new match.handler({
-            characterId: characterId,
-            charactersData: charactersData,
-            config: config
-        });
-    }
-}
