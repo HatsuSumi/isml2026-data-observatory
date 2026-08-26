@@ -1,3 +1,4 @@
+import { smoothScrollTo } from '../../../common/dom.js';
 import { addRanks } from '../calculation/RankingCalculator.js';
 
 export class ComparisonActionsController {
@@ -159,7 +160,10 @@ export class ComparisonActionsController {
             });
         });
 
-        resultContainer.scrollIntoView({ behavior: this.config.comparison.scroll.behavior });
+        const resultRect = resultContainer.getBoundingClientRect();
+        const targetPosition = window.scrollY + resultRect.top - 24;
+        smoothScrollTo(targetPosition, this.config.comparison.scroll.duration);
+
     }
 
     showMessage(message) {

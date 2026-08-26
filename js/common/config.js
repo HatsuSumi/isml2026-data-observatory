@@ -60,7 +60,8 @@ export const CONFIG = {
         },
         scroll: {
             behavior: 'smooth',
-            block: 'nearest'
+            block: 'nearest',
+            duration: 500
         }
     },
     events: {
