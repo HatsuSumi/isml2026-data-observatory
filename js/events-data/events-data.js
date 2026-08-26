@@ -104,6 +104,46 @@ function getEventStatus(event, nextEventStartTime) {
     }
 }
 
+const PHASE_TARGET_PREFIXES = {
+    nomination: ['stellar-nomination', 'nova-nomination'],
+    preliminary: ['preliminary-'],
+    'phase-1': ['phase-1-'],
+    'phase-2': ['phase-2-'],
+    'phase-3': ['phase-3-'],
+    'phase-4': ['phase-4-'],
+    knockout: ['knockout-']
+};
+
+function resolvePhaseTarget(targetId) {
+    const exactTarget = document.querySelector(`[data-phase="${targetId}"]`);
+    if (exactTarget) return exactTarget;
+
+    const prefixes = PHASE_TARGET_PREFIXES[targetId];
+    if (prefixes) {
+        for (const prefix of prefixes) {
+            const target = document.querySelector(`[data-phase^="${prefix}"]`);
+            if (target) return target;
+        }
+        return null;
+    }
+
+    const preliminaryRound = targetId.match(/^preliminary-(\d+)$/);
+    if (preliminaryRound) {
+        const round = Number.parseInt(preliminaryRound[1], 10);
+        const stage = Math.ceil(round / 2);
+        const gender = round % 2 === 1 ? 1 : 2;
+        return document.querySelector(`[data-phase="preliminary-${stage}-${gender}"]`);
+    }
+
+    return null;
+}
+
+function syncNavigationTargets() {
+    nav.querySelectorAll('.elevator-nav-item[data-target]').forEach(item => {
+        item.hidden = !resolvePhaseTarget(item.dataset.target);
+    });
+}
+
 // 修改链接点击事件
 function withFromParam(url, from) {
     if (!url) return '#';
@@ -138,7 +178,6 @@ function getEventLinks(match, status) {
 // 保存位置
 function savePosition(from) {
     const currentPosition = window.scrollY;
-    sessionStorage.setItem(SCROLL_POSITION_KEY, currentPosition.toString());
     sessionStorage.setItem(SCROLL_POSITION_KEY, currentPosition.toString());
     sessionStorage.setItem(RETURN_FROM_KEY, from);
 }
@@ -471,9 +510,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
 
             const targetId = item.dataset.target;
-            const targetElement = document.querySelector(`[data-phase="${targetId}"]`);
+            const targetElement = resolvePhaseTarget(targetId);
             if (!targetElement) {
-                console.warn('未找到目标元素:', targetId);
                 return;
             }
             e.preventDefault();
@@ -509,6 +547,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             monthFragment.appendChild(monthSection);
         }
         eventsContainer.appendChild(monthFragment);
+        syncNavigationTargets();
 
         // 在页面加载时检查
         const returnFrom = sessionStorage.getItem(RETURN_FROM_KEY);
