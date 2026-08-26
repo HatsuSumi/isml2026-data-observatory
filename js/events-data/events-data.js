@@ -1,6 +1,5 @@
 import { smoothScrollTo as scrollWindowTo } from '../common/dom.js';
 
-let observer;
 let eventsData;
 let nav;
 
@@ -104,63 +103,50 @@ function getEventStatus(event, nextEventStartTime) {
     }
 }
 
-const PHASE_TARGET_PREFIXES = {
-    nomination: ['stellar-nomination', 'nova-nomination'],
-    preliminary: ['preliminary-'],
-    'phase-1': ['phase-1-'],
-    'phase-2': ['phase-2-'],
-    'phase-3': ['phase-3-'],
-    'phase-4': ['phase-4-'],
-    knockout: ['knockout-']
+const PHASE_NAME_TARGETS = {
+    '主赛事提名阶段': 'nomination',
+    '预选赛阶段': 'preliminary',
+    '第一阶段': 'phase-1',
+    '第二阶段': 'phase-2',
+    '第三阶段': 'phase-3',
+    '第四阶段': 'phase-4',
+    '淘汰赛阶段': 'knockout'
 };
 
-function resolvePhaseTarget(targetId) {
-    const exactTarget = document.querySelector(`[data-phase="${targetId}"]`);
-    if (exactTarget) return exactTarget;
+const CHINESE_ROUND_NUMBERS = {
+    '一': 1,
+    '二': 2,
+    '三': 3,
+    '四': 4,
+    '五': 5,
+    '六': 6,
+    '七': 7,
+    '八': 8,
+    '九': 9
+};
 
-    const prefixes = PHASE_TARGET_PREFIXES[targetId];
-    if (prefixes) {
-        for (const prefix of prefixes) {
-            const target = document.querySelector(`[data-phase^="${prefix}"]`);
-            if (target) return target;
-        }
-        return null;
-    }
-
-    const preliminaryRound = targetId.match(/^preliminary-(\d+)$/);
-    if (preliminaryRound) {
-        const round = Number.parseInt(preliminaryRound[1], 10);
-        const stage = Math.ceil(round / 2);
-        const gender = round % 2 === 1 ? 1 : 2;
-        return document.querySelector(`[data-phase="preliminary-${stage}-${gender}"]`);
-    }
-
-    return null;
+function getPhaseTargetId(phaseName) {
+    return PHASE_NAME_TARGETS[phaseName] ?? null;
 }
 
-function resolveNavigationTargetId(phaseId) {
-    const exactItem = nav.querySelector(`.elevator-nav-item[data-target="${phaseId}"]`);
-    if (exactItem && !exactItem.hidden) return phaseId;
+function getRoundNumber(title) {
+    const round = title.match(/第([一二三四五六七八九])轮/)?.[1];
+    return round ? CHINESE_ROUND_NUMBERS[round] : null;
+}
 
-    const preliminaryPhase = phaseId.match(/^preliminary-(\d+)-(\d+)$/);
-    if (preliminaryPhase) {
-        const round = (Number.parseInt(preliminaryPhase[1], 10) - 1) * 2
-            + Number.parseInt(preliminaryPhase[2], 10);
-        return `preliminary-${round}`;
-    }
+function getMatchTargetId(match) {
+    if (match.title.includes('恒星组提名')) return 'stellar-nomination';
+    if (match.title.includes('新星组') && match.title.includes('提名')) return 'nova-nomination';
 
-    for (const [targetId, prefixes] of Object.entries(PHASE_TARGET_PREFIXES)) {
-        if (prefixes.some(prefix => phaseId.startsWith(prefix))) {
-            return targetId;
-        }
-    }
-
-    return phaseId;
+    const phaseTarget = getPhaseTargetId(match.phase);
+    const round = getRoundNumber(match.title);
+    if (!phaseTarget || !round) return '';
+    return `${phaseTarget}-${round}`;
 }
 
 function syncNavigationTargets() {
     nav.querySelectorAll('.elevator-nav-item[data-target]').forEach(item => {
-        item.hidden = !resolvePhaseTarget(item.dataset.target);
+        item.hidden = !document.querySelector(`[data-phase="${item.dataset.target}"]`);
     });
 }
 
@@ -530,7 +516,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
 
             const targetId = item.dataset.target;
-            const targetElement = resolvePhaseTarget(targetId);
+            const targetElement = document.querySelector(`[data-phase="${targetId}"]`);
             if (!targetElement) {
                 return;
             }
@@ -542,21 +528,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         
         document.body.appendChild(nav);
-        
-        // 添加滚动监听
-        observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const phase = entry.target.querySelector('.phase-header')?.textContent;
-                    document.querySelectorAll('.elevator-nav a').forEach(a => {
-                        a.classList.remove('active');
-                        if (a.getAttribute('data-target') === phase) {
-                            a.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
         
         const eventsContainer = container.querySelector('.events-container');
         const nextEventStartTime = findNextEventStartTime(eventsData);
@@ -658,26 +629,7 @@ function groupEventsByStructure(events) {
                 };
             }
             
-            // 生成 phaseId
-            let phaseId = '';
-            if (match.title.includes('恒星组提名')) {
-                phaseId = 'stellar-nomination';
-            } else if (match.title.includes('新星组') && match.title.includes('提名')) {
-                phaseId = 'nova-nomination';
-            } else if (match.title.includes('预选赛')) {
-                const round = match.title.match(/第([一二三四五六])轮/)?.[1];
-                if (round) {
-                    const numMap = {
-                        '一': '1-1', 
-                        '二': '1-2', 
-                        '三': '2-1', 
-                        '四': '2-2', 
-                        '五': '3-1', 
-                        '六': '3-2'
-                    };
-                    phaseId = `preliminary-${numMap[round]}`;
-                }
-            }
+            const phaseId = getMatchTargetId(match);
 
             // 保留原有的分组逻辑
             let mainGroup;
@@ -729,13 +681,12 @@ function createPhaseSection(phaseName, phase, nextEventStartTime) {
     const phaseHeader = phaseSection.querySelector('.phase-header');
     const phaseContent = phaseSection.querySelector('.phase-content');
     
-    const firstMatch = Object.values(phase.groups)[0]?.[0];
-    if (firstMatch?.phaseId) {
-        phaseSection.dataset.phase = firstMatch.phaseId;
+    const phaseTargetId = getPhaseTargetId(phaseName);
+    if (phaseTargetId) {
+        phaseSection.dataset.phase = phaseTargetId;
     }
     
     phaseSection.id = phaseName;
-    observer.observe(phaseSection);
     phaseHeader.textContent = phaseName;
     
     const groupFragment = document.createDocumentFragment();
@@ -839,6 +790,10 @@ function createStatusInfo(status, stats) {
 
 function createGroupSection(groupTitle, groupData, nextEventStartTime) {
     const section = templates.groupSection.content.cloneNode(true).querySelector('.group-section');
+    const phaseId = groupData.find(item => item.phaseId)?.phaseId;
+    if (phaseId) {
+        section.dataset.phase = phaseId;
+    }
     const titleEl = section.querySelector('.group-title');
     const dateEl = section.querySelector('.group-date');
     const statusInfo = section.querySelector('.status-info');
@@ -972,7 +927,7 @@ window.addEventListener('scroll', () => {
         
         // 更新导航栏状态
         if (currentPhase) {
-            updateNavActiveState(resolveNavigationTargetId(currentPhase));
+            updateNavActiveState(currentPhase);
         }
     }, 100); // 100ms 的防抖
 });
@@ -981,11 +936,11 @@ window.addEventListener('scroll', () => {
 window.addEventListener('load', () => {
     const hash = window.location.hash.slice(1);
     if (hash) {
-        const targetElement = resolvePhaseTarget(hash);
+        const targetElement = document.querySelector(`[data-phase="${hash}"]`);
         if (targetElement) {
             setTimeout(() => {
                 scrollWindowTo(targetElement.offsetTop - 80);
-                updateNavActiveState(resolveNavigationTargetId(targetElement.dataset.phase));
+                updateNavActiveState(targetElement.dataset.phase);
             }, 100);
         }
     }
