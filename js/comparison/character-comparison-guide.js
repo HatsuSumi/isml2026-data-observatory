@@ -1,3 +1,4 @@
+import { smoothScrollTo } from '../common/dom.js';
 import { calculateAverage, calculateBase, calculateOneToOne } from './character/calculation/CharacterComparisonCalculator.js';
 import {
     calculateGroupAverage,
@@ -13,30 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.type-section');
     const navItems = document.querySelectorAll('.nav-item');
     const guideContent = document.querySelector('.guide-content');
-    
-    // 自定义平滑滚动函数
-    function smoothScroll(element, target, duration = 500) {
-        const start = element.scrollTop;
-        const distance = target - start;
-        const startTime = performance.now();
-        
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-        
-        function animation(currentTime) {
-            const timeElapsed = currentTime - startTime;
-            const progress = Math.min(timeElapsed / duration, 1);
-            
-            element.scrollTop = start + (distance * easeOutCubic(progress));
-            
-            if (progress < 1) {
-                requestAnimationFrame(animation);
-            }
-        }
-        
-        requestAnimationFrame(animation);
-    }
     
     // 滚动监听
     const observerOptions = {
@@ -57,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // 使用自定义滚动让导航项滚动到可见区域
                     const navContainer = targetNav.parentElement;
                     const targetPosition = targetNav.offsetTop - navContainer.offsetHeight / 2 + targetNav.offsetHeight / 2;
-                    smoothScroll(navContainer, targetPosition, 300);
+                    smoothScrollTo(targetPosition, 300, navContainer);
                 }
             }
         });
@@ -74,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (targetSection) {
                 const targetPosition = targetSection.offsetTop - guideContent.offsetTop;
-                smoothScroll(guideContent, targetPosition);
+                smoothScrollTo(targetPosition, 500, guideContent);
                 history.pushState(null, '', targetId);
             }
         });
@@ -86,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetSection) {
             setTimeout(() => {
                 const targetPosition = targetSection.offsetTop - guideContent.offsetTop;
-                smoothScroll(guideContent, targetPosition);
+                smoothScrollTo(targetPosition, 500, guideContent);
             }, 100);
         }
     }

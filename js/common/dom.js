@@ -6,10 +6,11 @@ export function debounce(fn, delay) {
     };
 }
 
-export function smoothScrollTo(targetPosition, duration = 500) {
-    const startPosition = window.scrollY;
+export function smoothScrollTo(targetPosition, duration = 500, container = window) {
+    const isWindow = container === window;
+    const startPosition = isWindow ? window.scrollY : container.scrollTop;
     const distance = Math.abs(targetPosition - startPosition);
-    const adjustedDuration = Math.min(Math.max(distance / 4, 400), 1200);
+    const adjustedDuration = typeof duration === 'number' && duration > 0 ? duration : 500;
     let startTime = null;
 
     function animation(currentTime) {
@@ -18,7 +19,11 @@ export function smoothScrollTo(targetPosition, duration = 500) {
         const ease = progress < 0.5
             ? 2 * progress * progress
             : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-        window.scrollTo(0, startPosition + (targetPosition - startPosition) * ease);
+        if (isWindow) {
+            window.scrollTo(0, startPosition + (targetPosition - startPosition) * ease);
+        } else {
+            container.scrollTop = startPosition + (targetPosition - startPosition) * ease;
+        }
         if (progress < 1) requestAnimationFrame(animation);
     }
 
