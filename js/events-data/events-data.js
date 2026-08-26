@@ -1,3 +1,5 @@
+import { smoothScrollTo as scrollWindowTo } from '../common/dom.js';
+
 let observer;
 let eventsData;
 let nav;
@@ -100,69 +102,6 @@ function getEventStatus(event, nextEventStartTime) {
     } else {
         return 'notstarted';
     }
-}
-
-function smoothScroll(targetId) {
-    const target = document.getElementById(targetId);
-    if (!target) return;
-    
-    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-    const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition - 100;
-    const duration = 500;
-    let start = null;
-    
-    function animation(currentTime) {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const progress = Math.min(timeElapsed / duration, 1);
-        
-        const ease = progress => {
-            return progress < 0.5
-                ? 2 * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-        };
-        
-        window.scrollTo(0, startPosition + distance * ease(progress));
-        
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animation);
-        }
-    }
-    
-    requestAnimationFrame(animation);
-}
-
-function smoothScrollTo(targetPosition) {
-    const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition;
-    const duration = 500;
-    let startTime = null;
-
-    function animation(currentTime) {
-        if (startTime === null) {
-            startTime = currentTime;
-        }
-        
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-        
-        const ease = progress => {
-            return progress < 0.5
-                ? 2 * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-        };
-
-        const currentPos = startPosition + (distance * ease(progress));
-
-        window.scrollTo(0, currentPos);
-
-        if (progress < 1) {
-            requestAnimationFrame(animation);
-        } 
-    }
-
-    requestAnimationFrame(animation);
 }
 
 // 修改链接点击事件
@@ -538,7 +477,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 return;
             }
             e.preventDefault();
-            smoothScrollTo(targetElement.offsetTop - 80);
+            scrollWindowTo(targetElement.offsetTop - 80);
             history.pushState(null, '', `./pages/events-data/events-data.html#${targetId}`);
             updateNavActiveState(targetId);
         });
@@ -578,7 +517,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (returnFrom && savedPosition) {
             setTimeout(() => {
                 const targetPosition = parseInt(savedPosition);
-                smoothScrollTo(targetPosition);
+                scrollWindowTo(targetPosition);
                 
                 // 清理存储
                 sessionStorage.removeItem(SCROLL_POSITION_KEY);
@@ -986,7 +925,7 @@ window.addEventListener('load', () => {
         const targetElement = document.querySelector(`[data-phase="${hash}"]`);
         if (targetElement) {
             setTimeout(() => {
-                smoothScrollTo(targetElement.offsetTop - 80);
+                scrollWindowTo(targetElement.offsetTop - 80);
                 updateNavActiveState(hash);
             }, 100);
         }

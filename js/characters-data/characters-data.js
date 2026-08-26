@@ -1,3 +1,4 @@
+import { smoothScrollTo as scrollWindowTo } from '../common/dom.js';
 import { CONFIG } from '../common/config.js';
 import { SERIES_ALIASES } from '../aliases/aliases.js';
 import { Router } from '../common/router.js';
@@ -464,30 +465,6 @@ function clearHighlight() {
     });
 }
 
-// 自定义平滑滚动函数
-function smoothScrollTo(targetY, duration = 500) {
-    const startY = window.scrollY;
-    const difference = targetY - startY;
-    const startTime = performance.now();
-    
-    function easeOutQuart(t) {
-        return 1 - (--t) * t * t * t;
-    }
-    
-    function step() {
-        const currentTime = performance.now() - startTime;
-        const progress = Math.min(currentTime / duration, 1);
-        
-        window.scrollTo(0, startY + (difference * easeOutQuart(progress)));
-        
-        if (progress < 1) {
-            requestAnimationFrame(step);
-        }
-    }
-    
-    requestAnimationFrame(step);
-}
-
 // 修改滚动到结果的函数
 function scrollToResult(card) {
     // 等待标签页切换动画完成后再滚动
@@ -495,7 +472,7 @@ function scrollToResult(card) {
         const cardRect = card.getBoundingClientRect();
         const targetY = window.scrollY + cardRect.top - (window.innerHeight / 2) + (cardRect.height / 2);
         
-        smoothScrollTo(targetY);
+        scrollWindowTo(targetY);
     }, isEnterKeySwitch ? 300 : 0);
 }
 
