@@ -76,7 +76,12 @@ function normalizeVisualizationData(rawData, mode, visualizationId) {
     const sourceRows = nominationConfig
         ? normalizeNominationVisualizationRows(nominationConfig, rawData)
         : (Array.isArray(rawData.data) ? rawData.data : [])
-            .filter((item) => Number(item.votes) > 0)
+            .map((item) => ({
+                ...item,
+                votes: Number(item.votes),
+                isPromoted: item.is_advanced === true
+            }))
+            .filter((item) => Number.isFinite(item.votes) && item.votes > 0)
             .sort((a, b) => (a.rank !== b.rank ? a.rank - b.rank : b.votes - a.votes));
     const rows = nominationConfig && mode !== 'main'
         ? sourceRows.filter((item) => (mode === 'advance' ? item.isPromoted : !item.isPromoted))
@@ -88,11 +93,11 @@ function normalizeVisualizationData(rawData, mode, visualizationId) {
         labels: rows.map((item) => `${item.name}（${item.ip}）`).reverse(),
         ranks: rows.map((item) => String(item.rank)).reverse(),
         advanceData: rows.map((item) => {
-            const isAdvanced = nominationConfig ? item.isPromoted : item.is_advanced;
+            const isAdvanced = item.isPromoted;
             return !isAdvanced || mode === 'eliminate' ? null : item.votes;
         }).reverse(),
         eliminateData: rows.map((item) => {
-            const isAdvanced = nominationConfig ? item.isPromoted : item.is_advanced;
+            const isAdvanced = item.isPromoted;
             return isAdvanced || mode === 'advance' ? null : item.votes;
         }).reverse()
     };
@@ -193,17 +198,20 @@ function updateLegendState(mode) {
 
 function renderChart(data, mode) {
     const chartElement = document.getElementById('vote_chart');
-    chartElement.style.maxWidth = `${DEFAULT_SIZE.width}px`;
-    chartElement.style.height = `${DEFAULT_SIZE.height}px`;
-    chartElement.parentElement.style.maxWidth = `${DEFAULT_SIZE.width}px`;
+    applyChartSize(DEFAULT_SIZE);
 
     const chart = echarts.init(chartElement, RENDER_CONFIG.theme, { renderer: RENDER_CONFIG.renderer });
     const option = buildChartOption(data, mode);
     option.grid = RENDER_CONFIG.grid;
     chart.setOption(option);
+    chart.resize(DEFAULT_SIZE);
     window.chart_vote_chart = chart;
     window.addEventListener('resize', () => chart.resize());
     return chart;
+}
+
+function hasVoteValue(value) {
+    return Number.isFinite(value) && value >= 0;
 }
 
 function buildChartOption(data, mode) {
@@ -221,7 +229,7 @@ function buildChartOption(data, mode) {
             borderColor: 'rgba(50, 50, 50, 0.9)',
             borderWidth: 0,
             formatter(params) {
-                const target = params.find((item) => item.value !== null && !Number.isNaN(item.value));
+                const target = params.find((item) => hasVoteValue(item.value));
                 return target ? `${target.seriesName}<br/>${data.labels[target.dataIndex]}<br/>得票数：${target.value}票<br/>排名：${data.ranks[target.dataIndex]}` : '';
             }
         },
@@ -256,7 +264,7 @@ function buildSeries(name, values, labels, startColor, endColor) {
             show: true,
             position: 'right',
             formatter(params) {
-                return params.value === null ? '' : `{vote|${params.value}票}{name| - ${labels[params.dataIndex]}}`;
+                return hasVoteValue(params.value) ? `{vote|${params.value}票}{name| - ${labels[params.dataIndex]}}` : '';
             },
             rich: {
                 vote: { color: '#ff7875', fontSize: 13, fontWeight: 'bold', padding: [0, 5, 0, 5] },
@@ -273,24 +281,57 @@ function buildSeries(name, values, labels, startColor, endColor) {
     };
 }
 
+function getChartSizeElements() {
+    return {
+        widthSlider: document.getElementById('width-slider'),
+        heightSlider: document.getElementById('height-slider'),
+        widthValue: document.getElementById('width-value'),
+        heightValue: document.getElementById('height-value'),
+        chartContainer: document.getElementById('vote_chart'),
+        chartWrapper: document.querySelector('.chart-wrapper'),
+        titleContainer: document.querySelector('.title-container'),
+        resetBtn: document.getElementById('reset-size')
+    };
+}
+
+function clampSliderValue(slider) {
+    const value = Number(slider.value);
+    return Math.min(Math.max(value, Number(slider.min)), Number(slider.max));
+}
+
+function applyChartSize({ width, height }, chart = null) {
+    const { chartContainer, chartWrapper, titleContainer, widthValue, heightValue } = getChartSizeElements();
+    if (!chartContainer || !chartWrapper) {
+        throw new Error('可视化页面缺少图表尺寸容器');
+    }
+
+    const widthPx = `${width}px`;
+    const heightPx = `${height}px`;
+    chartContainer.style.width = widthPx;
+    chartContainer.style.maxWidth = widthPx;
+    chartContainer.style.height = heightPx;
+    chartContainer.style.setProperty('--chart-width', widthPx);
+    chartContainer.style.setProperty('--chart-height', heightPx);
+    chartWrapper.style.width = widthPx;
+    chartWrapper.style.maxWidth = widthPx;
+    chartWrapper.style.setProperty('--chart-width', widthPx);
+    titleContainer?.style.setProperty('--chart-width', widthPx);
+    widthValue.textContent = String(width);
+    heightValue.textContent = String(height);
+    chart?.resize({ width, height });
+}
+
 function bindSizeControls(chart) {
-    const widthSlider = document.getElementById('width-slider');
-    const heightSlider = document.getElementById('height-slider');
-    const widthValue = document.getElementById('width-value');
-    const heightValue = document.getElementById('height-value');
-    const chartContainer = document.querySelector('.chart-container');
-    const chartWrapper = document.querySelector('.chart-wrapper');
-    const resetBtn = document.getElementById('reset-size');
+    const { widthSlider, heightSlider, resetBtn } = getChartSizeElements();
+    if (!widthSlider || !heightSlider || !resetBtn) {
+        throw new Error('可视化页面缺少尺寸控制元素');
+    }
 
     const updateSize = () => {
-        const width = Math.min(Math.max(Number(widthSlider.value), 100), 2500);
-        const height = Math.min(Math.max(Number(heightSlider.value), 100), 5000);
-        widthValue.textContent = String(width);
-        heightValue.textContent = String(height);
-        chartContainer.style.setProperty('--chart-width', `${width}px`);
-        chartContainer.style.setProperty('--chart-height', `${height}px`);
-        chartWrapper.style.setProperty('--chart-width', `${width}px`);
-        chart.resize();
+        applyChartSize({
+            width: clampSliderValue(widthSlider),
+            height: clampSliderValue(heightSlider)
+        }, chart);
     };
 
     resetBtn.addEventListener('click', () => {
@@ -300,7 +341,7 @@ function bindSizeControls(chart) {
     });
     widthSlider.addEventListener('input', updateSize);
     heightSlider.addEventListener('input', updateSize);
-    resetBtn.click();
+    updateSize();
 }
 
 function bindCustomLegend(id, mode) {
