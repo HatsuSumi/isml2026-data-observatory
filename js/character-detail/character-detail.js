@@ -189,7 +189,7 @@ class CharacterDetail {
             allCharacters: this.allCharacters,
             onNavigate: id => {
                 sessionStorage.setItem(this.SCROLL_POSITION_KEY, this.containers.reports.scrollTop);
-                window.location.href = `pages/characters-data/character-detail.html?id=${encodeURIComponent(id)}&from=characters-data`;
+                window.location.href = `pages/characters-detail/character-detail.html?id=${encodeURIComponent(id)}&from=characters-data`;
             }
         });
     }
