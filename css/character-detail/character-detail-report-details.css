@@ -1,0 +1,215 @@
+/* 返回按钮 */
+.back-btn {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px 15px;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1;
+}
+
+.back-btn:hover {
+    background: #333;
+    transform: translateX(-3px);
+}
+
+.back-btn i {
+    font-size: 14px;
+} 
+
+.data-row {
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s;
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+.data-row:hover {
+    background-color: #383838;
+    border-radius: 4px;
+}
+
+.data-label {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.data-value {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.record-links {
+    position: relative;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links-btn {
+    position: relative;
+    margin-bottom: 10px; 
+    background: transparent;
+    border: none;
+    color: #64B5F6;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.links-btn:hover {
+    color: #90CAF9;
+}
+
+.links-dropdown {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 8px;
+    min-width: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px) scale(0.95);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top right;
+    margin-bottom: 8px;
+    pointer-events: none;
+}
+
+.links-dropdown.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.record-links-hover-area {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+    z-index: 10;
+}
+
+.links-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    color: #ccc;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.15s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.links-dropdown a:hover {
+    background: #333;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.links-dropdown a i {
+    width: 20px;
+    text-align: center;
+    color: #64B5F6;
+}
+
+.links-dropdown a:hover i {
+    color: #90CAF9;
+}
+
+.links-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #2a2a2a;
+}
+
+/* 排名样式 */
+.rank-first {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.rank-second {
+    background: linear-gradient(45deg, #C0C0C0, #A9A9A9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.rank-third {
+    background: linear-gradient(45deg, #CD7F32, #B87333);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+/* 加载动画 */
+.loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    border-top-color: #64B5F6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

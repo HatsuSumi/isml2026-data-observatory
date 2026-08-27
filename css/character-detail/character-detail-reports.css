@@ -1,0 +1,89 @@
+/* 中间：战报区域 */
+.battle-reports {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.event-report {
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.event-report:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.event-report::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #4CAF50, #2196F3);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.event-title {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background-color 0.2s;
+    color: #fff;
+    font-size: 18px;
+    border-bottom: 1px solid #444;
+}
+
+.event-title:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.collapse-icon {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    color: #64B5F6;
+}
+
+.event-title.collapsed .collapse-icon {
+    transform: rotate(-90deg);
+}
+
+.battle-list {
+    max-height: 2000px; 
+    overflow: visible;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.battle-list.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.battle-record {
+    padding: 15px;
+    background: #333;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    border: 1px solid #444;
+}
+
+.battle-record:hover {
+    background: #3a3a3a;
+    border-color: #555;
+}
+
