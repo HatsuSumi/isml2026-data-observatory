@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     window.location.href = 'pages/statistics/table/cv-distribution.html';
                     break;
                 case 'yearDistribution':
-                    window.location.href = 'pages/statistics/table/year-distribution.html';
+                    window.location.href = 'pages/nomination-statistics/year-distribution/year-distribution.html';
                     break;
             }
         });

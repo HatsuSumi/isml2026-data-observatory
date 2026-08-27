@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="../../../">   
+    <base href="../../">   
     <include src="templates/header.html"></include>
-    <link rel="stylesheet" href="css/statistics/table/cv-distribution.css">
+    <link rel="stylesheet" href="css/statistics/table/year-distribution.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
                 <i class="fas fa-arrow-left"></i> 返回提名统计
             </a>
         </div>
-        <h1>声优分布详情</h1>
+        <h1>年份分布详情</h1>
         
         <!-- 筛选区域 -->
         <div class="filter-section">
@@ -51,7 +51,7 @@
         <div class="search-section">
             <div class="search-box">
                 <div class="search-input-wrapper">
-                    <input type="text" id="searchInput" placeholder="搜索声优名称或角色名...">
+                    <input type="text" id="searchInput" placeholder="搜索年份或角色名...">
                     <i class="fas fa-search search-icon"></i>
                     <span class="search-count" style="display: none;"></span>
                 </div>
@@ -61,12 +61,14 @@
 
         <!-- 表格区域 -->
         <div class="table-section">
-            <table id="cvTable">
+            <table id="yearTable">
                 <thead>
                     <tr>
-                        <th data-column="name">声优名称</th>
-                        <th data-column="female">女性角色</th>
-                        <th data-column="male">男性角色</th>
+                        <th data-column="year">年份</th>
+                        <th data-column="winter">冬季</th>
+                        <th data-column="spring">春季</th>
+                        <th data-column="summer">夏季</th>
+                        <th data-column="autumn">秋季</th>
                         <th data-column="total">总计</th>
                         <th data-column="percentage">占比</th>
                     </tr>
@@ -74,8 +76,10 @@
                 <tbody>
                 </tbody>
             </table>
-            <template id="cv-row-template">
+            <template id="year-row-template">
                 <tr>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -86,13 +90,13 @@
         </div>
 
         <!-- 弹窗 -->
-        <div class="cv-modal" id="characterModal">
-            <div class="cv-modal-content">
-                <span class="cv-close-btn">&times;</span>
+        <div class="year-modal" id="characterModal">
+            <div class="year-modal-content">
+                <span class="year-close-btn">&times;</span>
                 <h2 id="modalTitle"></h2>
-                <div class="cv-character-lists">
-                    <div class="cv-character-group">
-                        <h3>配音角色列表</h3>
+                <div class="year-character-lists">
+                    <div class="year-character-group">
+                        <h3>该季度角色列表</h3>
                         <ul id="characterList"></ul>
                     </div>
                 </div>
@@ -102,6 +106,6 @@
 
     <include src="templates/footer.html"></include>
     <script type="module" src="js/common/template-loader.js"></script>
-    <script type="module" src="js/statistics/table/cv-distribution.js"></script>
+    <script type="module" src="js/statistics/table/year-distribution.js"></script>
 </body>
 </html> 

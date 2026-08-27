@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="../../../">   
+    <base href="../../">   
     <include src="templates/header.html"></include>
-    <link rel="stylesheet" href="css/statistics/table/year-distribution.css">
+    <link rel="stylesheet" href="css/statistics/table/ip-distribution.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <!-- 返回按钮 -->
+        <!-- 添加返回按钮 -->
         <div class="back-section">
             <a href="pages/statistics/nomination-stats.html" class="back-button">
                 <i class="fas fa-arrow-left"></i> 返回提名统计
             </a>
         </div>
-        <h1>年份分布详情</h1>
+        <h1>IP分布详情</h1>
         
         <!-- 筛选区域 -->
         <div class="filter-section">
@@ -51,9 +51,9 @@
         <div class="search-section">
             <div class="search-box">
                 <div class="search-input-wrapper">
-                    <input type="text" id="searchInput" placeholder="搜索年份或角色名...">
+                    <input type="text" id="searchInput" placeholder="搜索作品名称或角色名...">
                     <i class="fas fa-search search-icon"></i>
-                    <span class="search-count" style="display: none;"></span>
+                    <span class="search-count"></span>
                 </div>
                 <button id="searchBtn">搜索</button>
             </div>
@@ -61,14 +61,12 @@
 
         <!-- 表格区域 -->
         <div class="table-section">
-            <table id="yearTable">
+            <table id="ipTable">
                 <thead>
                     <tr>
-                        <th data-column="year">年份</th>
-                        <th data-column="winter">冬季</th>
-                        <th data-column="spring">春季</th>
-                        <th data-column="summer">夏季</th>
-                        <th data-column="autumn">秋季</th>
+                        <th data-column="name">IP名称</th>
+                        <th data-column="female">女性角色</th>
+                        <th data-column="male">男性角色</th>
                         <th data-column="total">总计</th>
                         <th data-column="percentage">占比</th>
                     </tr>
@@ -76,10 +74,8 @@
                 <tbody>
                 </tbody>
             </table>
-            <template id="year-row-template">
+            <template id="ip-row-template">
                 <tr>
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -89,15 +85,18 @@
             </template>
         </div>
 
-        <!-- 弹窗 -->
-        <div class="year-modal" id="characterModal">
-            <div class="year-modal-content">
-                <span class="year-close-btn">&times;</span>
+        <div class="ip-modal" id="characterModal">
+            <div class="ip-modal-content">
+                <span class="ip-close-btn">&times;</span>
                 <h2 id="modalTitle"></h2>
-                <div class="year-character-lists">
-                    <div class="year-character-group">
-                        <h3>该季度角色列表</h3>
-                        <ul id="characterList"></ul>
+                <div class="ip-character-lists">
+                    <div class="ip-character-group">
+                        <h3>女性角色</h3>
+                        <ul id="femaleList"></ul>
+                    </div>
+                    <div class="ip-character-group">
+                        <h3>男性角色</h3>
+                        <ul id="maleList"></ul>
                     </div>
                 </div>
             </div>
@@ -106,6 +105,6 @@
 
     <include src="templates/footer.html"></include>
     <script type="module" src="js/common/template-loader.js"></script>
-    <script type="module" src="js/statistics/table/year-distribution.js"></script>
+    <script type="module" src="js/statistics/table/ip-distribution.js"></script>
 </body>
 </html> 
