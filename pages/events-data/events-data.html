@@ -63,6 +63,41 @@
             <div class="nav-sub-items"></div>
         </div>
     </template>
+    <template id="event-card-body-template">
+        <div class="event-card-body">
+            <div class="event-header">
+                <div class="event-info">
+                    <div class="event-title"></div>
+                </div>
+            </div>
+            <div class="event-content"></div>
+            <div class="top-characters">
+                <h4 class="top-title">得票数 Top 5</h4>
+                <div class="character-list"></div>
+            </div>
+            <div class="event-footer"></div>
+        </div>
+    </template>
+    <template id="top-character-item-template">
+        <div class="character-item">
+            <div class="character-avatar">
+                <img alt="">
+            </div>
+            <span class="rank"></span>
+            <span class="name"></span>
+            <span class="votes"></span>
+            <div class="votes-diff"></div>
+        </div>
+    </template>
+    <template id="info-row-template">
+        <div>
+            <span class="key"></span>
+            <span class="value"></span>
+        </div>
+    </template>
+    <template id="postpone-hint-template">
+        <div class="postpone-hint" title="该赛事已延期">?</div>
+    </template>
     <div class="container"></div>
     <include src="templates/footer.html"></include>
     <script type="module" src="js/common/template-loader.js"></script>

@@ -11,7 +11,11 @@ const templates = {
     phaseSection: document.getElementById('phase-section-template'),
     groupSection: document.getElementById('group-section-template'),
     elevatorNav: document.getElementById('elevator-nav-template'),
-    elevatorNavGroup: document.getElementById('elevator-nav-group-template')
+    elevatorNavGroup: document.getElementById('elevator-nav-group-template'),
+    eventCardBody: document.getElementById('event-card-body-template'),
+    topCharacterItem: document.getElementById('top-character-item-template'),
+    infoRow: document.getElementById('info-row-template'),
+    postponeHint: document.getElementById('postpone-hint-template')
 };
 
 // 添加常量
@@ -244,96 +248,60 @@ function savePosition(from) {
 }
 
 function createInfoRow(wrapperClass, keyText, valueText) {
-    const wrapper = document.createElement('div');
+    const wrapper = templates.infoRow.content.cloneNode(true).firstElementChild;
     wrapper.className = wrapperClass;
-
-    const key = document.createElement('span');
-    key.className = 'key';
-    key.textContent = keyText;
-
-    const value = document.createElement('span');
-    value.className = 'value';
-    value.textContent = valueText;
-
-    wrapper.appendChild(key);
-    wrapper.appendChild(value);
+    wrapper.querySelector('.key').textContent = keyText;
+    wrapper.querySelector('.value').textContent = valueText;
     return wrapper;
 }
 
 function createTopCharacterItem(item, index, topFiveData, charactersData) {
     const characterKey = `${item.name}@${item.ip}`;
     const characterData = charactersData[characterKey];
-    const row = document.createElement('div');
-    row.className = 'character-item';
+    const row = templates.topCharacterItem.content.cloneNode(true).firstElementChild;
+    const avatar = row.querySelector('.character-avatar');
+    const image = row.querySelector('img');
+    const name = row.querySelector('.name');
+    const diff = row.querySelector('.votes-diff');
 
     if (characterData?.avatar) {
-        const avatar = document.createElement('div');
-        avatar.className = 'character-avatar';
-        const img = document.createElement('img');
-        img.src = characterData.avatar;
-        img.alt = item.name;
-        avatar.appendChild(img);
-        row.appendChild(avatar);
+        image.src = characterData.avatar;
+        image.alt = item.name;
+    } else {
+        avatar.hidden = true;
     }
 
-    const rank = document.createElement('span');
-    rank.className = 'rank';
-    rank.textContent = String(index + 1);
-
-    const name = document.createElement('span');
-    name.className = 'name';
+    row.querySelector('.rank').textContent = String(index + 1);
     name.textContent = item.name;
     const ip = document.createElement('span');
     ip.className = 'ip';
     ip.textContent = `@${characterData?.ip || item.ip}`;
     name.appendChild(ip);
-
-    const votes = document.createElement('span');
-    votes.className = 'votes';
-    votes.textContent = `${item.votes}票`;
-
-    row.appendChild(rank);
-    row.appendChild(name);
-    row.appendChild(votes);
+    row.querySelector('.votes').textContent = `${item.votes}票`;
 
     if (index > 0) {
-        const votesDiff = topFiveData[index - 1].votes - item.votes;
-        const diff = document.createElement('div');
-        diff.className = 'votes-diff';
-        diff.textContent = `↓${votesDiff}`;
-        row.appendChild(diff);
+        diff.textContent = `↓${topFiveData[index - 1].votes - item.votes}`;
+    } else {
+        diff.hidden = true;
     }
 
     return row;
 }
 
-function createTopCharactersSection(topFiveData, charactersData) {
-    if (!topFiveData?.length) return null;
-    const section = document.createElement('div');
-    section.className = 'top-characters';
-    const title = document.createElement('h4');
-    title.className = 'top-title';
-    title.textContent = '得票数 Top 5';
-    const list = document.createElement('div');
-    list.className = 'character-list';
-    topFiveData.forEach((item, index) => {
-        list.appendChild(createTopCharacterItem(item, index, topFiveData, charactersData));
-    });
-    section.appendChild(title);
-    section.appendChild(list);
-    return section;
-}
-
 function createEventCardBody(match, status, topFiveData, charactersData) {
-    const fragment = document.createDocumentFragment();
-    const header = document.createElement('div');
-    header.className = 'event-header';
-    const info = document.createElement('div');
-    info.className = 'event-info';
-    const title = document.createElement('div');
-    title.className = 'event-title';
+    const body = templates.eventCardBody.content.cloneNode(true).firstElementChild;
+    const header = body.querySelector('.event-header');
+    const info = body.querySelector('.event-info');
+    const title = body.querySelector('.event-title');
+    const description = body.querySelector('.event-content');
+    const topCharacters = body.querySelector('.top-characters');
+    const footer = body.querySelector('.event-footer');
+
     title.textContent = match.title;
-    info.appendChild(title);
+    description.hidden = !match.details?.qualified?.description;
+    if (!description.hidden) {
+        description.textContent = match.details.qualified.description;
+    }
 
     if (match.format) {
         info.appendChild(createInfoRow('voting-format-wrapper', '投票制度：', match.format));
@@ -341,35 +309,21 @@ function createEventCardBody(match, status, topFiveData, charactersData) {
     if (match.resultDate) {
         info.appendChild(createInfoRow('result-date-wrapper', '出结果日：', formatDateTime(match.resultDate)));
     }
-
-    header.appendChild(info);
     if (status === 'postponed') {
-        const hint = document.createElement('div');
-        hint.className = 'postpone-hint';
-        hint.title = '该赛事已延期';
-        hint.textContent = '?';
-        header.appendChild(hint);
-    }
-    fragment.appendChild(header);
-
-    const description = match.details?.qualified?.description;
-    if (description) {
-        const content = document.createElement('div');
-        content.className = 'event-content';
-        content.textContent = description;
-        fragment.appendChild(content);
+        header.appendChild(templates.postponeHint.content.cloneNode(true));
     }
 
-    const topCharacters = createTopCharactersSection(topFiveData, charactersData);
-    if (topCharacters) {
-        fragment.appendChild(topCharacters);
+    if (topFiveData?.length) {
+        const list = topCharacters.querySelector('.character-list');
+        topFiveData.forEach((item, index) => {
+            list.appendChild(createTopCharacterItem(item, index, topFiveData, charactersData));
+        });
+    } else {
+        topCharacters.hidden = true;
     }
 
-    const footer = document.createElement('div');
-    footer.className = 'event-footer';
     footer.appendChild(getEventLinks(match, status));
-    fragment.appendChild(footer);
-    return fragment;
+    return body;
 }
 
 function getCurrentPhase(eventsData) {
