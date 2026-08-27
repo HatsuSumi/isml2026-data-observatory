@@ -9,13 +9,31 @@ const templates = {
     monthSection: document.getElementById('month-section-template'),
     dateSection: document.getElementById('date-section-template'),
     phaseSection: document.getElementById('phase-section-template'),
-    groupSection: document.getElementById('group-section-template')
+    groupSection: document.getElementById('group-section-template'),
+    elevatorNav: document.getElementById('elevator-nav-template'),
+    elevatorNavGroup: document.getElementById('elevator-nav-group-template')
 };
 
 // 添加常量
 const SCROLL_POSITION_KEY = 'events_scroll_position';
 const RETURN_FROM_KEY = 'return_from_event';
 
+const NAVIGATION_GROUPS = [
+    {
+        target: 'nomination',
+        label: '主赛事提名阶段',
+        items: [
+            { target: 'stellar-nomination', label: '恒星组提名' },
+            { target: 'nova-nomination', label: '新星组提名' }
+        ]
+    },
+    { target: 'preliminary', label: '预选赛阶段', roundPrefix: 'preliminary-', roundLabel: '预选赛第', rounds: 6 },
+    { target: 'phase-1', label: '第一阶段', roundPrefix: 'phase-1-', roundLabel: '第', rounds: 6 },
+    { target: 'phase-2', label: '第二阶段', roundPrefix: 'phase-2-', roundLabel: '第', rounds: 6 },
+    { target: 'phase-3', label: '第三阶段', roundPrefix: 'phase-3-', roundLabel: '第', rounds: 6 },
+    { target: 'phase-4', label: '第四阶段', roundPrefix: 'phase-4-', roundLabel: '第', rounds: 6 },
+    { target: 'knockout', label: '淘汰赛阶段', roundPrefix: 'knockout-', roundLabel: '第', rounds: 9 }
+];
 const TITLE_MAPPING = {
     '预选赛第一轮': [
         { 
@@ -43,7 +61,40 @@ const TITLE_MAPPING = {
     ]
 };
 
-// 添加一个函数来找到下一场比赛的开始时间
+function createElevatorNavigation() {
+    const navigation = templates.elevatorNav.content.cloneNode(true).firstElementChild;
+    const list = navigation.querySelector('.elevator-nav-list');
+
+    NAVIGATION_GROUPS.forEach(groupConfig => {
+        const group = templates.elevatorNavGroup.content.cloneNode(true).firstElementChild;
+        const mainItem = group.querySelector('.elevator-nav-item');
+        const label = group.querySelector('.nav-label');
+        const toggle = group.querySelector('.collapse-toggle');
+        const subItems = group.querySelector('.nav-sub-items');
+
+        mainItem.dataset.target = groupConfig.target;
+        label.textContent = groupConfig.label;
+        toggle.setAttribute('aria-label', `展开或折叠${groupConfig.label}`);
+
+        const items = groupConfig.items || Array.from({ length: groupConfig.rounds }, (_, index) => ({
+            target: `${groupConfig.roundPrefix}${index + 1}`,
+            label: `${groupConfig.roundLabel}${toChineseNumber(index + 1)}轮`
+        }));
+        items.forEach(itemConfig => {
+            const item = document.createElement('div');
+            item.className = 'elevator-nav-item sub-item';
+            item.dataset.target = itemConfig.target;
+            item.textContent = itemConfig.label;
+            subItems.appendChild(item);
+        });
+
+        list.appendChild(group);
+    });
+
+    return navigation;
+}
+
+
 function findNextEventStartTime(data) {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
@@ -374,117 +425,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         container.replaceChildren(pageContent);
         
         // 添加电梯导航
-        nav = document.createElement('nav');
-        nav.className = 'elevator-nav';
-        nav.innerHTML = `
-            <ul class="elevator-nav-list">
-                <!-- 主赛事提名阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="nomination">
-                        <span class="nav-label">主赛事提名阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠主赛事提名阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    <div class="elevator-nav-item sub-item" data-target="stellar-nomination">
-                        <span>恒星组提名</span>
-                    </div>
-                    <div class="elevator-nav-item sub-item" data-target="nova-nomination">
-                        <span>新星组提名</span>
-                    </div>
-                </div>
-                
-                <!-- 预选赛阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="preliminary">
-                        <span class="nav-label">预选赛阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠预选赛阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
-                        <div class="elevator-nav-item sub-item" data-target="preliminary-${round}">
-                            <span>预选赛第${toChineseNumber(round)}轮</span>
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <!-- 第一阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="phase-1">
-                        <span class="nav-label">第一阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第一阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
-                        <div class="elevator-nav-item sub-item" data-target="phase-1-${round}">
-                            <span>第${toChineseNumber(round)}轮</span>
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <!-- 第二阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="phase-2">
-                        <span class="nav-label">第二阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第二阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
-                        <div class="elevator-nav-item sub-item" data-target="phase-2-${round}">
-                            <span>第${toChineseNumber(round)}轮</span>
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <!-- 第三阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="phase-3">
-                        <span class="nav-label">第三阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第三阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
-                        <div class="elevator-nav-item sub-item" data-target="phase-3-${round}">
-                            <span>第${toChineseNumber(round)}轮</span>
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <!-- 第四阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="phase-4">
-                        <span class="nav-label">第四阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第四阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
-                        <div class="elevator-nav-item sub-item" data-target="phase-4-${round}">
-                            <span>第${toChineseNumber(round)}轮</span>
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <!-- 淘汰赛阶段 -->
-                <div class="elevator-nav-group">
-                    <div class="elevator-nav-item" data-target="knockout">
-                        <span class="nav-label">淘汰赛阶段</span>
-                        <button class="collapse-toggle" type="button" aria-label="展开或折叠淘汰赛阶段">
-                            <i class="fas fa-chevron-down collapse-icon"></i>
-                        </button>
-                    </div>
-                    ${Array.from({length: 9}, (_, i) => i + 1).map(round => `
-                        <div class="elevator-nav-item sub-item" data-target="knockout-${round}">
-                            <span>第${toChineseNumber(round)}轮</span>
-                        </div>
-                    `).join('')}
-                </div>
-            </ul>
-        `;
+        nav = createElevatorNavigation();
         
         // 获取当前阶段
         const currentPhase = getCurrentPhase(eventsData);

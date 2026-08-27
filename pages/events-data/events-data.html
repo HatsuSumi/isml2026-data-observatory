@@ -47,6 +47,22 @@
             <div class="cards-container"></div>
         </div>
     </template>
+    <template id="elevator-nav-template">
+        <nav class="elevator-nav">
+            <ul class="elevator-nav-list"></ul>
+        </nav>
+    </template>
+    <template id="elevator-nav-group-template">
+        <div class="elevator-nav-group">
+            <div class="elevator-nav-item">
+                <span class="nav-label"></span>
+                <button class="collapse-toggle" type="button">
+                    <i class="fas fa-chevron-down collapse-icon"></i>
+                </button>
+            </div>
+            <div class="nav-sub-items"></div>
+        </div>
+    </template>
     <div class="container"></div>
     <include src="templates/footer.html"></include>
     <script type="module" src="js/common/template-loader.js"></script>
