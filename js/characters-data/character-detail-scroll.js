@@ -1,5 +1,11 @@
 import { smoothScrollTo } from '../common/dom.js';
 
+const NAVIGATION_DEBUG_PREFIX = '[CharacterDetailNav]';
+
+function logNavigationDebug(event, details = {}) {
+    console.debug(NAVIGATION_DEBUG_PREFIX, event, details);
+}
+
 export class CharacterDetailScrollController {
     constructor({ reports, nav }) {
         this.reports = reports;
@@ -16,6 +22,13 @@ export class CharacterDetailScrollController {
             console.warn('Invalid scroll target:', target);
             return;
         }
+        logNavigationDebug('report-scroll-start', {
+            activeReportId,
+            requestedTarget: target,
+            startScrollTop: this.reports.scrollTop,
+            maxScrollTop: this.reports.scrollHeight - this.reports.clientHeight,
+            duration
+        });
         if (this.cancelReportScroll) this.cancelReportScroll();
         this.pendingReportId = activeReportId;
         this.isProgrammaticReportScroll = true;
@@ -23,15 +36,26 @@ export class CharacterDetailScrollController {
             this.isProgrammaticReportScroll = false;
             const reportId = this.pendingReportId;
             this.pendingReportId = null;
+            logNavigationDebug('report-scroll-complete', {
+                reportId,
+                finalScrollTop: this.reports.scrollTop,
+                maxScrollTop: this.reports.scrollHeight - this.reports.clientHeight
+            });
             if (reportId) {
-                this.setActiveReport(reportId);
+                this.setActiveReport(reportId, 'navigation-scroll-complete');
             } else {
                 this.handleScroll();
             }
         });
     }
 
-    setActiveReport(reportId) {
+    setActiveReport(reportId, source = 'unknown') {
+        const activeBefore = this.nav.querySelector('.nav-item.active a')?.dataset.target;
+        logNavigationDebug('active-report-update', {
+            source,
+            reportId,
+            activeBefore
+        });
         this.nav.querySelectorAll('.nav-item').forEach(item => {
             const link = item.querySelector('a');
             item.classList.toggle('active', link.dataset.target === reportId);
@@ -68,7 +92,16 @@ export class CharacterDetailScrollController {
             }
 
             if (!currentReport) return;
-            this.setActiveReport(currentReport.id);
+            logNavigationDebug('scroll-position-candidate', {
+                scrollTop,
+                currentReportId: currentReport.id,
+                reports: Array.from(reports, report => ({
+                    id: report.id,
+                    top: report.offsetTop - scrollTop,
+                    distance: Math.abs(report.offsetTop - scrollTop - activeLine)
+                }))
+            });
+            this.setActiveReport(currentReport.id, 'scroll-position');
         });
     }
 
