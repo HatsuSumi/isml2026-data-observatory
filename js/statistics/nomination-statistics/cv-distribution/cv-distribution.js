@@ -1,5 +1,5 @@
-import { loadNominationStats } from '../statisticsData.js';
-import { reconcileKeyedList } from '../../common/keyed-list.js';
+import { loadNominationStats } from '../../statisticsData.js';
+import { reconcileKeyedList } from '../../../common/keyed-list.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
     let currentPage = 1;

@@ -1,5 +1,5 @@
-import { loadNominationStats } from '../statisticsData.js';
-import { reconcileKeyedList } from '../../common/keyed-list.js';
+import { loadNominationStats } from '../../statisticsData.js';
+import { reconcileKeyedList } from '../../../common/keyed-list.js';
 
 const seasonMap = {
     'winter': 1,

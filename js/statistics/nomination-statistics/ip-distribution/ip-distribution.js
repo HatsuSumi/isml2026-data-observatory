@@ -1,6 +1,6 @@
-import { SERIES_ALIASES } from '../../aliases/aliases.js';
-import { loadNominationStats } from '../statisticsData.js';
-import { reconcileKeyedList } from '../../common/keyed-list.js';
+import { SERIES_ALIASES } from '../../../aliases/aliases.js';
+import { loadNominationStats } from '../../statisticsData.js';
+import { reconcileKeyedList } from '../../../common/keyed-list.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
     let currentPage = 1;
