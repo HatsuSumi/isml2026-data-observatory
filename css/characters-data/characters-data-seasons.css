@@ -1,0 +1,173 @@
+/* 定义季节颜色变量 */
+:root {
+    --spring-color: 255, 158, 205;  /* 樱花粉 */
+    --summer-color: 78, 180, 245;   /* 清爽蓝 */
+    --autumn-color: 255, 126, 61;   /* 枫叶橙 */
+    --winter-color: 160, 216, 239;  /* 冰雪蓝 */
+}
+
+/* 季节组基础样式 */
+.season-group {
+    position: relative;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+.season-group.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 季节标题样式 */
+.season-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin: 30px 0;
+    padding: 10px 0;
+}
+
+.season-title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 季节标题装饰线 */
+.season-title-decor {
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 2px;
+}
+
+.season-title-decor.left {
+    right: calc(50% + 80px);
+    transform: translateY(-50%);
+}
+
+.season-title-decor.right {
+    left: calc(50% + 80px);
+    transform: translateY(-50%);
+}
+
+/* 季节图标公共样式 */
+.season-group::before {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    opacity: 0.5;
+}
+
+/* 季节特定样式 */
+.season-group[data-season="spring"] { --season-color: var(--spring-color); }
+.season-group[data-season="summer"] { --season-color: var(--summer-color); }
+.season-group[data-season="autumn"] { --season-color: var(--autumn-color); }
+.season-group[data-season="winter"] { --season-color: var(--winter-color); }
+
+/* 季节组背景和边框 */
+.season-group[data-season] {
+    background: linear-gradient(135deg, 
+        rgba(var(--season-color), 0.1), 
+        rgba(var(--season-color), 0.05)
+    );
+    border: 1px solid rgba(var(--season-color), 0.2);
+    box-shadow: 0 0 20px rgba(var(--season-color), 0.1);
+}
+
+/* 季节标题颜色和装饰线 */
+.season-group[data-season] .season-title {
+    color: rgb(var(--season-color));
+}
+
+.season-group[data-season] .season-title-decor {
+    background: linear-gradient(90deg, 
+        rgba(var(--season-color), 0) 0%,
+        rgba(var(--season-color), 0.5) 50%,
+        rgba(var(--season-color), 0) 100%
+    );
+}
+
+/* 季节图标和动画 */
+.season-group[data-season="spring"]::before { content: '🌸'; animation: floating 3s ease-in-out infinite; }
+.season-group[data-season="summer"]::before { content: '☀️'; animation: rotate 10s linear infinite; }
+.season-group[data-season="autumn"]::before { content: '🍁'; animation: falling 4s ease-in-out infinite; }
+.season-group[data-season="winter"]::before { content: '❄️'; animation: snowfall 3s ease-in-out infinite; }
+
+/* 卡片样式 */
+.season-group[data-season] .character-card {
+    border: 1px solid rgba(var(--season-color), 0.2);
+}
+
+.season-group[data-season] .character-card:hover {
+    box-shadow: 0 0 20px rgba(var(--season-color), 0.3);
+}
+
+/* 悬停效果 */
+.season-group:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.season-title-wrapper:hover .season-title {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.season-title-wrapper:hover .season-title-decor {
+    width: 120px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+/* 动画关键帧 */
+@keyframes floating {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes falling {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(10px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes snowfall {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(5px) scale(0.8); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.season-group .character-cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 确保卡片尺寸合适 */
+.season-group .character-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;  
+}
+
+/* 在较小屏幕上自适应 */

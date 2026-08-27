@@ -1,0 +1,111 @@
+/* 角色卡片网格样式 */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.rank-groups {
+    display: block;
+    width: 100%;
+}
+
+.rank-group,
+.nova-group {
+    margin-bottom: 2rem;
+    display: block;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 只有在非回车键切换时才添加过渡动画 */
+.rank-group[data-gender]:not(.enter-switch),
+.nova-group[data-gender]:not(.enter-switch) {
+    transition: opacity 0.3s ease;
+}
+
+.rank-group[data-gender].show,
+.nova-group[data-gender].show {
+    opacity: 1;
+}
+
+/* 轮次容器样式 */
+.rank-round {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;  
+}
+
+.rank-title {
+    margin-right: 2rem;
+    min-width: 70px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-align: center;
+    background: linear-gradient(45deg, #333, #444);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 8强 - 金色渐变 */
+.rank-title[data-rank="8"] {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 16强 - 银色渐变 */
+.rank-title[data-rank="16"] {
+    background: linear-gradient(45deg, #C0C0C0, #A9A9A9);
+}
+
+/* 24强 - 青铜渐变 */
+.rank-title[data-rank="24"] {
+    background: linear-gradient(45deg, #CD7F32, #B8860B);
+}
+
+/* 32强 - 紫色渐变 */
+.rank-title[data-rank="32"] {
+    background: linear-gradient(45deg, #9370DB, #8A2BE2);
+}
+
+/* 40-80强 - 蓝色渐变，颜色逐渐变深 */
+.rank-title[data-rank="40"] { background: linear-gradient(45deg, #4169E1, #1E90FF); }
+.rank-title[data-rank="48"] { background: linear-gradient(45deg, #3A5FD1, #1A80EF); }
+.rank-title[data-rank="56"] { background: linear-gradient(45deg, #3355C1, #1670DF); }
+.rank-title[data-rank="64"] { background: linear-gradient(45deg, #2C4BB1, #1260CF); }
+.rank-title[data-rank="72"] { background: linear-gradient(45deg, #2541A1, #0E50BF); }
+.rank-title[data-rank="80"] { background: linear-gradient(45deg, #1E3791, #0A40AF); }
+
+/* 88-136强 - 深蓝到深紫渐变 */
+.rank-title[data-rank="88"] { background: linear-gradient(45deg, #172D81, #06309F); }
+.rank-title[data-rank="96"] { background: linear-gradient(45deg, #102371, #02208F); }
+.rank-title[data-rank="104"] { background: linear-gradient(45deg, #091961, #01107F); }
+.rank-title[data-rank="112"] { background: linear-gradient(45deg, #020F51, #00006F); }
+.rank-title[data-rank="120"] { background: linear-gradient(45deg, #010541, #1A005F); }
+.rank-title[data-rank="128"] { background: linear-gradient(45deg, #000031, #35004F); }
+.rank-title[data-rank="136"] { background: linear-gradient(45deg, #000021, #4F003F); }
+
+/* 144-176强 - 深紫到深红渐变 */
+.rank-title[data-rank="144"] { background: linear-gradient(45deg, #000011, #69002F); }
+.rank-title[data-rank="152"] { background: linear-gradient(45deg, #000008, #83001F); }
+.rank-title[data-rank="160"] { background: linear-gradient(45deg, #000004, #9D000F); }
+.rank-title[data-rank="168"] { background: linear-gradient(45deg, #000002, #B70000); }
+.rank-title[data-rank="176"] { background: linear-gradient(45deg, #000000, #D10000); }
+
+.character-cards {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1rem;
+    flex: 1;
+}
+

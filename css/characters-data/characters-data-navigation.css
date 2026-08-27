@@ -1,0 +1,147 @@
+/* 电梯导航栏样式 */
+.elevator-nav {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(42, 42, 42, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.elevator-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 主要分组标题 */
+.elevator-nav-group-title {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 5px;
+    padding-left: 12px;
+}
+
+/* 导航项样式 */
+.elevator-nav-item {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #ccc;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;  /* 确保宽度充满容器 */
+    box-sizing: border-box;
+}
+
+/* 导航项图标 */
+.elevator-nav-item .icon {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/* 季节图标 */
+.elevator-nav-item[data-season="spring"] .icon { content: '🌸'; }
+.elevator-nav-item[data-season="summer"] .icon { content: '☀️'; }
+.elevator-nav-item[data-season="autumn"] .icon { content: '🍁'; }
+.elevator-nav-item[data-season="winter"] .icon { content: '❄️'; }
+
+/* 悬停和激活状态 */
+.elevator-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.elevator-nav-item.active {
+    background: #4a90e2;
+    color: #fff;
+}
+
+/* 分组样式 */
+.elevator-nav-group {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.elevator-nav-group:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* 子项目缩进 */
+.elevator-nav-item.sub-item {
+    padding-left: 24px;  
+    font-size: 13px;   
+    opacity: 0.9;
+    max-height: 40px;  /* 设置固定高度 */
+    overflow: hidden;  /* 超出部分隐藏 */
+    transition: all 0.3s ease;  /* 添加过渡效果 */
+}
+
+/* 主项目加粗 */
+.elevator-nav-item:not(.sub-item) {
+    font-weight: 500;
+}
+
+/* 导航图标样式 */
+.elevator-nav-item .nav-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain; 
+    opacity: 0.7;
+    filter: brightness(1.2) contrast(1.1); 
+    mix-blend-mode: screen; 
+}
+
+/* 悬停时的图标效果 */
+.elevator-nav-item:hover .nav-icon {
+    opacity: 1;
+    filter: brightness(1.4) contrast(1.2);
+}
+
+/* 激活状态的图标效果 */
+.elevator-nav-item.active .nav-icon {
+    opacity: 1;
+    filter: brightness(1.4) contrast(1.2);
+}
+
+/* 折叠箭头样式 */
+.elevator-nav-item .collapse-icon {
+    font-size: 12px;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+    transform: rotate(0deg);  
+}
+
+/* 折叠状态箭头 */
+.elevator-nav-item.collapsed .collapse-icon {
+    transform: rotate(180deg); 
+}
+
+/* 折叠时隐藏所有子项 */
+.elevator-nav-item.collapsed ~ .elevator-nav-item.sub-item {
+    max-height: 0; 
+    padding-top: 0;  
+    padding-bottom: 0;
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+/* 悬停效果 */
+.elevator-nav-item:hover .collapse-icon {
+    opacity: 1;
+}

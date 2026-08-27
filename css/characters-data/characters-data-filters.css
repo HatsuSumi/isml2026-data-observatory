@@ -1,0 +1,130 @@
+/* 恒星组特殊样式 */
+.group-container.stellar h2 {
+    border-color: #FFD700;
+}
+
+/* 新星组特殊样式 */
+.group-container.nova h2 {
+    border-color: #4A90E2;
+}
+
+/* Tab栏样式 */
+.gender-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.tab-btn.active {
+    color: #fff;
+}
+
+/* 女性角色按钮样式 */
+.tab-btn[data-gender="female"].active {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+}
+
+/* 男性角色按钮样式 */
+.tab-btn[data-gender="male"].active {
+    background: linear-gradient(45deg, #4A90E2, #2962FF);
+}
+
+/* 修改搜索区域样式 */
+.search-section {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+    background: rgba(42, 42, 42, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 轮次模式下的宽度 */
+.show-rounds-mode .search-section {
+    width: 500px;  
+}
+
+.search-box {
+    width: 450px;  
+    min-width: 0;
+    position: relative;
+}
+
+.search-box input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 15px 10px 35px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+    caret-color: #fff;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;  
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+}
+
+.search-box input::placeholder {
+    color: #666;
+}
+
+.search-box input:hover {
+    border-color: rgba(74, 144, 226, 0.55);
+    background: #383838;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.18);
+    transform: translateY(-1px);
+}
+
+/* 修改焦点和激活状态的样式 */
+.search-box input:focus,
+.search-box input:active {
+    border-color: #4a90e2;
+    background: #3a3a3a;
+    box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.3);
+}
+
+/* 修改搜索按钮样式 */
+#searchBtn {
+    flex-shrink: 0;
+    width: 60px;
+    padding: 8px 0;
+    background: linear-gradient(45deg, #4a90e2, #3eaf7c);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+

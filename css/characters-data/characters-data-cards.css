@@ -1,0 +1,80 @@
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: #2a2a2a;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    width: 130px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform, opacity;
+    cursor: pointer;
+}
+
+.character-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.character-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    background: #333;
+}
+
+.character-avatar {
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.character-avatar img {
+    max-width: 100%;
+    display: block;
+}
+
+.character-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    color: #fff;
+}
+
+/* 角色卡片 IP 样式 */
+.character-card .character-ip {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+/* IP 文本容器 */
+.character-card .character-ip .ip-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    width: 120px;
+    display: block;
+    text-align: center;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.season-group[data-season="winter"] .character-ip::before {
+    border-top-color: rgba(160, 216, 239, 0.95);
+}
+
+.character-cv {
+    font-size: 0.9rem;
+    color: #999;
+    text-align: center;
+}
+

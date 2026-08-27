@@ -1,0 +1,60 @@
+@media screen and (max-width: 1600px) {
+    .season-group .character-cards {
+        grid-template-columns: repeat(5, 1fr); 
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .season-group .character-cards {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .season-group .character-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .season-group .character-cards {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .season-group .character-cards {
+        grid-template-columns: 1fr;  
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .search-section {
+        position: fixed;
+        right: 10px; 
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .search-section {
+        width: 400px;
+        right: 5px;
+    }
+    
+    .search-box {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .search-section {
+        position: static;
+        margin: 20px auto; 
+        width: 90%; 
+    }
+    
+    .search-box {
+        width: 100%; 
+    }
+}
+

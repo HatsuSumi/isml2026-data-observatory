@@ -1,0 +1,198 @@
+/* 修改搜索结果高亮样式 */
+.character-card.highlight {
+    background: #3a3a3a;  /* 更亮的背景 */
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.7);  /* 更强的外发光 */
+    transform: translateY(-3px);  /* 更明显的上浮 */
+    transition: all 0.3s ease;
+    border: 2px solid rgba(74, 144, 226, 0.5);  /* 添加边框 */
+}
+
+/* 当前选中的搜索结果 */
+.character-card.current-result {
+    background: #404040;  /* 最亮的背景 */
+    box-shadow: 0 0 25px rgba(74, 144, 226, 1);  /* 最强的外发光 */
+    border: 2px solid rgba(74, 144, 226, 1);  /* 更亮的边框 */
+    z-index: 1;  /* 确保当前选中的卡片在最上层 */
+    transform: scale(1.1) translateY(-3px);  /* 添加放大效果和上浮 */
+}
+
+/* 搜索框下方的提示和选项容器 */
+.search-box .search-tips,
+.search-box .search-options {
+    position: absolute;
+    top: calc(100% + 30px);  /* 改用 calc 计算位置 */
+}
+
+.search-box .search-tips {
+    top: 160%;
+    left: 0;
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+    max-width: 70%;  /* 限制宽度，避免和复选框重叠 */
+}
+
+.search-box .search-tips p {
+    line-height: 22px;
+    margin: 0;
+}
+
+/* 覆盖浏览器默认的自动填充背景色 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #333 inset !important;  /* 保持深色背景 */
+    -webkit-text-fill-color: #fff !important;  /* 保持文字颜色 */
+    transition: background-color 5000s ease-in-out 0s;  /* 延长过渡时间 */
+}
+
+/* 修改搜索选项样式 */
+.search-options {
+    right: 0;
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    flex-direction: column;  /* 改为垂直排列 */
+    gap: 8px;  /* 调整间距 */
+}
+
+.search-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative; /* 为tooltip定位 */
+}
+
+.search-options input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+/* 修改计数器样式 */
+.search-count {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    display: none;  /* 默认隐藏 */
+}
+
+/* 添加无结果时的样式 */
+.search-count.no-results {
+    color: #ff4d4d;  /* 红色文字 */
+    background: rgba(255, 77, 77, 0.1);  /* 红色半透明背景 */
+}
+
+/* 添加提示图标样式 */
+.tooltip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 10px;
+    margin-left: 5px;
+    cursor: help;
+    position: relative;
+}
+
+.tooltip-icon::after {
+    content: attr(data-tooltip);  /* 需要设置初始content */
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(-50%) translateX(10px);
+}
+
+.tooltip-icon::before {
+    content: '';  /* 需要设置初始content */
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(-50%) translateX(10px);
+}
+
+.tooltip-icon:hover::after,
+.tooltip-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* 添加错误提示框样式 */
+.regex-error-tooltip {
+    position: fixed;
+    background: rgba(255, 87, 34, 0.9);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1001;
+    animation: tooltip-slide-in 0.3s ease;
+}
+
+.regex-error-tooltip.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+@keyframes tooltip-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.character-card.same-ip {
+    background: #3a3a3a;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); 
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.character-card.same-ip:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    z-index: 2;
+}
+

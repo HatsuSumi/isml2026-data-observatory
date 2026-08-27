@@ -1,0 +1,44 @@
+body {
+    background-color: #121212;
+}
+
+.characters-data-container {
+    padding: 80px 20px 20px;
+    margin: 0 auto;
+}
+
+/* 筛选区域样式 */
+.filter-section {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 轮次模式下的宽度 */
+.show-rounds-mode .filter-section,
+.show-rounds-mode .group-container,
+.show-rounds-mode .rank-group {
+    max-width: 1414px;
+}
+
+/* 组别容器样式 */
+.group-container {
+    margin-bottom: 40px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.group-container h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #444;
+}
+
