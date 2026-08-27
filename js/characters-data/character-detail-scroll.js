@@ -7,20 +7,45 @@ export class CharacterDetailScrollController {
         this.cancelReportScroll = null;
         this.cancelNavScroll = null;
         this.isProgrammaticReportScroll = false;
+        this.pendingReportId = null;
         this.scrollTimer = null;
     }
 
-    smoothScroll(target, duration = 500) {
+    smoothScroll(target, duration = 500, activeReportId = null) {
         if (typeof target !== 'number' || target < 0) {
             console.warn('Invalid scroll target:', target);
             return;
         }
         if (this.cancelReportScroll) this.cancelReportScroll();
+        this.pendingReportId = activeReportId;
         this.isProgrammaticReportScroll = true;
         this.cancelReportScroll = smoothScrollTo(target, duration, this.reports, () => {
             this.isProgrammaticReportScroll = false;
-            this.handleScroll();
+            const reportId = this.pendingReportId;
+            this.pendingReportId = null;
+            if (reportId) {
+                this.setActiveReport(reportId);
+            } else {
+                this.handleScroll();
+            }
         });
+    }
+
+    setActiveReport(reportId) {
+        this.nav.querySelectorAll('.nav-item').forEach(item => {
+            const link = item.querySelector('a');
+            item.classList.toggle('active', link.dataset.target === reportId);
+        });
+
+        const activeItem = this.nav.querySelector('.nav-item.active');
+        if (!activeItem) return;
+        const itemTop = activeItem.offsetTop;
+        const containerScrollTop = this.nav.scrollTop;
+        const navHeight = this.nav.clientHeight;
+        if (itemTop < containerScrollTop || itemTop > containerScrollTop + navHeight) {
+            const targetScroll = itemTop - navHeight / 2 + activeItem.offsetHeight / 2;
+            this.smoothScrollNav(targetScroll);
+        }
     }
 
     handleScroll() {
@@ -43,21 +68,7 @@ export class CharacterDetailScrollController {
             }
 
             if (!currentReport) return;
-            const id = currentReport.id;
-            this.nav.querySelectorAll('.nav-item').forEach(item => {
-                const link = item.querySelector('a');
-                item.classList.toggle('active', link.dataset.target === id);
-            });
-
-            const activeItem = this.nav.querySelector('.nav-item.active');
-            if (!activeItem) return;
-            const itemTop = activeItem.offsetTop;
-            const containerScrollTop = this.nav.scrollTop;
-            const navHeight = this.nav.clientHeight;
-            if (itemTop < containerScrollTop || itemTop > containerScrollTop + navHeight) {
-                const targetScroll = itemTop - navHeight / 2 + activeItem.offsetHeight / 2;
-                this.smoothScrollNav(targetScroll);
-            }
+            this.setActiveReport(currentReport.id);
         });
     }
 

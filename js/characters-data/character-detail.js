@@ -126,8 +126,8 @@ class CharacterDetail {
         });
     }
     
-    smoothScroll(target, duration = 500) {
-        this.scrollController.smoothScroll(target, duration);
+    smoothScroll(target, duration = 500, activeReportId = null) {
+        this.scrollController.smoothScroll(target, duration, activeReportId);
     }
     
     bindEvents() {
@@ -158,7 +158,7 @@ class CharacterDetail {
                 const targetRect = target.getBoundingClientRect();
                 const containerRect = this.containers.reports.getBoundingClientRect();
                 const targetTop = this.containers.reports.scrollTop + targetRect.top - containerRect.top;
-                this.smoothScroll(targetTop);
+                this.smoothScroll(targetTop, 500, targetId);
             }
         });
     }
