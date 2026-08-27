@@ -29,25 +29,16 @@ export class CharacterDetailScrollController {
         this.scrollTimer = requestAnimationFrame(() => {
             const reports = this.reports.querySelectorAll('.event-report');
             let currentReport = null;
+            let closestDistance = Infinity;
             const scrollTop = this.reports.scrollTop;
-            const containerHeight = this.reports.clientHeight;
-            const buffer = 100;
+            const activeLine = 0;
 
             for (const report of reports) {
                 const reportTop = report.offsetTop - scrollTop;
-                if (reportTop >= -buffer && reportTop <= containerHeight / 2) {
+                const distance = Math.abs(reportTop - activeLine);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
                     currentReport = report;
-                    break;
-                }
-            }
-
-            if (!currentReport) {
-                for (const report of reports) {
-                    const reportTop = report.offsetTop - scrollTop;
-                    if (reportTop > -report.offsetHeight) {
-                        currentReport = report;
-                        break;
-                    }
                 }
             }
 
