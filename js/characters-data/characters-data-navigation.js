@@ -46,6 +46,11 @@ export function initElevatorNav() {
         if (!event.target.closest('.sub-item')) novaGroup.classList.toggle('collapsed');
     });
 
+    setupScrollTracking(nav);
+}
+
+export function setupScrollTracking(nav = document.querySelector('.elevator-nav')) {
+    if (!nav) return;
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (ticking) return;

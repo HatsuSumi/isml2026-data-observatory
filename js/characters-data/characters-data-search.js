@@ -1,5 +1,5 @@
 import { CONFIG, SERIES_ALIASES, normalizeSeriesName } from './characters-data-config.js';
-import { scrollToElement } from './characters-data-navigation.js';
+import { smoothScrollTo } from '../common/dom.js';
 
 export function isValidRegex(pattern) {
     try {
@@ -77,7 +77,7 @@ export function createSearchController({ templates, getSwitchController, getVisi
         setTimeout(() => {
             const cardRect = card.getBoundingClientRect();
             const targetY = window.scrollY + cardRect.top - window.innerHeight / 2 + cardRect.height / 2;
-            scrollWindowTo(targetY);
+            smoothScrollTo(targetY);
         }, waitForSwitch ? 300 : 0);
     }
 

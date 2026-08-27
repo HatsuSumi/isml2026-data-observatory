@@ -2,7 +2,7 @@ import { CONFIG, collectCharacterTemplates } from './characters-data-config.js';
 import { createCardContext, checkTooltips } from './characters-data-card.js';
 import { renderCharacters } from './characters-data-groups.js';
 import { createSearchController } from './characters-data-search.js';
-import { initElevatorNav, setupScrollTracking } from './characters-data-navigation.js';
+import { initElevatorNav } from './characters-data-navigation.js';
 
 async function loadCharactersData() {
     const response = await fetch('data/characters/roundsData.json');
@@ -55,7 +55,6 @@ export async function initializeCharactersPage() {
         });
         search.bind();
         initElevatorNav();
-        setupScrollTracking();
         requestAnimationFrame(() => setTimeout(checkTooltips, 500));
     } catch (error) {
         console.error('加载角色数据失败:', error);
