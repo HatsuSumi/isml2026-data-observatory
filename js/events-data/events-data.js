@@ -144,6 +144,10 @@ function getMatchTargetId(match) {
     return `${phaseTarget}-${round}`;
 }
 
+function getDocumentTop(element) {
+    return element.getBoundingClientRect().top + window.scrollY;
+}
+
 function syncNavigationTargets() {
     nav.querySelectorAll('.elevator-nav-item[data-target]').forEach(item => {
         item.hidden = !document.querySelector(`[data-phase="${item.dataset.target}"]`);
@@ -521,7 +525,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 return;
             }
             e.preventDefault();
-            scrollWindowTo(targetElement.offsetTop - 80);
+            scrollWindowTo(getDocumentTop(targetElement) - 80);
             history.pushState(null, '', `./pages/events-data/events-data.html#${targetId}`);
             updateNavActiveState(targetId);
         });
@@ -939,7 +943,7 @@ window.addEventListener('load', () => {
         const targetElement = document.querySelector(`[data-phase="${hash}"]`);
         if (targetElement) {
             setTimeout(() => {
-                scrollWindowTo(targetElement.offsetTop - 80);
+                scrollWindowTo(getDocumentTop(targetElement) - 80);
                 updateNavActiveState(targetElement.dataset.phase);
             }, 100);
         }
