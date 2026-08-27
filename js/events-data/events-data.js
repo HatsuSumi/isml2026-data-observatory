@@ -888,37 +888,9 @@ function toChineseNumber(num) {
 
 // 更新导航激活状态
 function updateNavActiveState(activeId) {
-    // 先移除所有项的激活状态
     nav.querySelectorAll('.elevator-nav-item').forEach(item => {
-        item.classList.remove('active');
+        item.classList.toggle('active', item.dataset.target === activeId);
     });
-    
-    // 先折叠所有组
-    nav.querySelectorAll('.elevator-nav-group').forEach(group => {
-        group.classList.add('collapsed');
-        const icon = group.querySelector('.collapse-icon');
-        if (icon) {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-right');
-        }
-    });
-    
-    // 激活当前项并展开其所在组
-    const activeItem = nav.querySelector(`.elevator-nav-item[data-target="${activeId}"]`);
-    if (activeItem) {
-        activeItem.classList.add('active');
-        
-        // 展开当前项所在的组
-        const group = activeItem.closest('.elevator-nav-group');
-        if (group) {
-            group.classList.remove('collapsed');
-            const icon = group.querySelector('.collapse-icon');
-            if (icon) {
-                icon.classList.remove('fa-chevron-right');
-                icon.classList.add('fa-chevron-down');
-            }
-        }
-    }
 }
 
 // 滚动监听

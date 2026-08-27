@@ -728,6 +728,7 @@ html {
     border: 0;
     background: transparent;
     color: #666;
+    transition: color 0.2s ease, background-color 0.2s ease;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
