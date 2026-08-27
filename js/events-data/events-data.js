@@ -381,8 +381,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 主赛事提名阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="nomination">
-                        <span>主赛事提名阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">主赛事提名阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠主赛事提名阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     <div class="elevator-nav-item sub-item" data-target="stellar-nomination">
                         <span>恒星组提名</span>
@@ -395,8 +397,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 预选赛阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="preliminary">
-                        <span>预选赛阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">预选赛阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠预选赛阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
                         <div class="elevator-nav-item sub-item" data-target="preliminary-${round}">
@@ -408,8 +412,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 第一阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="phase-1">
-                        <span>第一阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">第一阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第一阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
                         <div class="elevator-nav-item sub-item" data-target="phase-1-${round}">
@@ -421,8 +427,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 第二阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="phase-2">
-                        <span>第二阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">第二阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第二阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
                         <div class="elevator-nav-item sub-item" data-target="phase-2-${round}">
@@ -434,8 +442,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 第三阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="phase-3">
-                        <span>第三阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">第三阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第三阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
                         <div class="elevator-nav-item sub-item" data-target="phase-3-${round}">
@@ -447,8 +457,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 第四阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="phase-4">
-                        <span>第四阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">第四阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠第四阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     ${Array.from({length: 6}, (_, i) => i + 1).map(round => `
                         <div class="elevator-nav-item sub-item" data-target="phase-4-${round}">
@@ -460,8 +472,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <!-- 淘汰赛阶段 -->
                 <div class="elevator-nav-group">
                     <div class="elevator-nav-item" data-target="knockout">
-                        <span>淘汰赛阶段</span>
-                        <i class="fas fa-chevron-down collapse-icon"></i>
+                        <span class="nav-label">淘汰赛阶段</span>
+                        <button class="collapse-toggle" type="button" aria-label="展开或折叠淘汰赛阶段">
+                            <i class="fas fa-chevron-down collapse-icon"></i>
+                        </button>
                     </div>
                     ${Array.from({length: 9}, (_, i) => i + 1).map(round => `
                         <div class="elevator-nav-item sub-item" data-target="knockout-${round}">
@@ -499,13 +513,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
         
         nav.addEventListener('click', (e) => {
-            const item = e.target.closest('.elevator-nav-item');
-            if (!item || !nav.contains(item)) return;
-
-            if (item.querySelector('.collapse-icon')) {
+            const toggle = e.target.closest('.collapse-toggle');
+            if (toggle && nav.contains(toggle)) {
+                e.preventDefault();
                 e.stopPropagation();
-                const group = item.closest('.elevator-nav-group');
-                const icon = item.querySelector('.collapse-icon');
+                const group = toggle.closest('.elevator-nav-group');
+                const icon = toggle.querySelector('.collapse-icon');
                 group.classList.toggle('collapsed');
                 icon.classList.toggle('fa-chevron-down');
                 icon.classList.toggle('fa-chevron-right');
@@ -517,7 +530,11 @@ document.addEventListener('DOMContentLoaded', async function() {
                         otherIcon?.classList.add('fa-chevron-right');
                     }
                 });
+                return;
             }
+
+            const item = e.target.closest('.elevator-nav-item');
+            if (!item || !nav.contains(item)) return;
 
             const targetId = item.dataset.target;
             const targetElement = document.querySelector(`[data-phase="${targetId}"]`);

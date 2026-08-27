@@ -719,15 +719,33 @@ html {
     color: #9370DB;
 }
 
+/* 折叠按钮 */
+.collapse-toggle {
+    width: 28px;
+    height: 28px;
+    margin: -6px -8px -6px 8px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #666;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collapse-toggle:hover,
+.collapse-toggle:focus-visible {
+    color: #888;
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+}
+
 /* 折叠图标 */
 .collapse-icon {
     font-size: 12px;
     transition: transform 0.3s ease;
-    color: #666;
-}
-
-.elevator-nav-item:hover .collapse-icon {
-    color: #888;
+    color: inherit;
 }
 
 .elevator-nav-group.collapsed .collapse-icon {
