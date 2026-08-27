@@ -143,6 +143,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     // 各页面精确匹配
                     page === 'schedule' && (
                         currentPath.includes('/schedule/') ||
+                        currentPath.includes('/schedule-grid/') ||
                         href.includes('schedule.html')
                     ),
                     page === 'events-data' && (
@@ -150,10 +151,17 @@ document.addEventListener('DOMContentLoaded', async function() {
                         currentPath.includes('/visualization/') ||
                         currentPath.includes('/tables/')
                     ),
-                    page === 'characters-data' && currentPath.includes('/characters-data/'),
+                    page === 'characters-data' && (
+                        currentPath.includes('/characters-data/') ||
+                        currentPath.includes('/characters-detail/')
+                    ),
                     page === 'gallery' && currentPath.includes('/gallery/'),
                     page === 'about' && currentPath.includes('/about/'),
-                    page === 'comparison' && currentPath.includes('/comparison/'),
+                    page === 'comparison' && (
+                        currentPath.includes('/comparison/') ||
+                        currentPath.includes('/character-comparison/') ||
+                        currentPath.includes('/event-comparison/')
+                    ),
                     page === 'statistics' && currentPath.includes('/statistics/')
                 ];
     
