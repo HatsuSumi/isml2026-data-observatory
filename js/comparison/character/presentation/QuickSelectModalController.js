@@ -76,7 +76,13 @@ export class QuickSelectModalController {
             sortedOptions.forEach(optionText => optionsContainer.append(this.createOption(optionText)));
 
             select.querySelector(this.selectors.quickSelectTrigger).addEventListener('click', () => {
-                select.classList.toggle(this.animationClasses.open);
+                const shouldOpen = !select.classList.contains(this.animationClasses.open);
+                quickSelectModal.querySelectorAll(this.selectors.quickSelectDropdown).forEach(dropdown => {
+                    dropdown.classList.remove(this.animationClasses.open);
+                });
+                if (shouldOpen) {
+                    select.classList.add(this.animationClasses.open);
+                }
             });
 
             optionsContainer.querySelectorAll(this.selectors.quickSelectOption).forEach(option => {
