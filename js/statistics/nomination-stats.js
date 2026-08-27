@@ -482,13 +482,13 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             switch(chartElement.id) {
                 case 'ipDistribution':
-                    window.location.href = 'pages/statistics/table/ip-distribution.html';
+                    window.location.href = 'pages/statistics/nomination-statistics/ip-distribution/ip-distribution.html';
                     break;
                 case 'cvDistribution':
-                    window.location.href = 'pages/statistics/table/cv-distribution.html';
+                    window.location.href = 'pages/statistics/nomination-statistics/cv-distribution/cv-distribution.html';
                     break;
                 case 'yearDistribution':
-                    window.location.href = 'pages/nomination-statistics/year-distribution/year-distribution.html';
+                    window.location.href = 'pages/statistics/nomination-statistics/year-distribution/year-distribution.html';
                     break;
             }
         });
