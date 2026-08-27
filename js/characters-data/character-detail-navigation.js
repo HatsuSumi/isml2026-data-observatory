@@ -59,7 +59,27 @@ function filterCharacters(filter, context) {
     return { characters, recentCharacters };
 }
 
-function renderCharacters(filter, context) {
+function scheduleListEntrance(list, selector, animationState) {
+    const renderVersion = ++animationState.renderVersion;
+    const items = Array.from(list.querySelectorAll(selector));
+
+    items.forEach(item => {
+        item.classList.add('is-entering');
+        item.classList.remove('visible');
+    });
+
+    requestAnimationFrame(() => {
+        if (renderVersion !== animationState.renderVersion) return;
+        requestAnimationFrame(() => {
+            if (renderVersion !== animationState.renderVersion) return;
+            items.forEach(item => {
+                if (item.isConnected) item.classList.add('visible');
+            });
+        });
+    });
+}
+
+function renderCharacters(filter, context, animationState) {
     const { list, templates } = context;
     const { characters, recentCharacters } = filterCharacters(filter, context);
     const emptyState = list.querySelector('.character-nav-empty');
@@ -68,10 +88,9 @@ function renderCharacters(filter, context) {
         list.querySelectorAll('.character-item').forEach(item => item.remove());
         const nextEmptyState = emptyState || templates.characterNavEmpty.content
             .cloneNode(true).querySelector('.character-nav-empty');
-        nextEmptyState.classList.add('is-entering');
         nextEmptyState.textContent = EMPTY_MESSAGES[filter] ?? '暂无可显示角色';
         if (!emptyState) list.appendChild(nextEmptyState);
-        requestAnimationFrame(() => nextEmptyState.classList.add('visible'));
+        scheduleListEntrance(list, '.character-nav-empty', animationState);
         return;
     }
 
@@ -82,7 +101,6 @@ function renderCharacters(filter, context) {
         create: () => templates.characterItem.content.cloneNode(true).querySelector('.character-item'),
         update: (item, [id, character]) => {
             item.dataset.characterId = id;
-            item.classList.add('visible');
             item.classList.toggle('recently-visited', recentCharacters.includes(id));
             const avatar = item.querySelector('.character-item-avatar');
             const name = item.querySelector('.name');
@@ -97,6 +115,7 @@ function renderCharacters(filter, context) {
             textContents[1].textContent = character.basic.cv;
         }
     });
+    scheduleListEntrance(list, '.character-item', animationState);
 }
 
 function recordVisit(id) {
@@ -107,6 +126,7 @@ function recordVisit(id) {
 }
 
 export function setupCharacterNavigation(context) {
+    const animationState = { renderVersion: 0 };
     const { filters, list } = context;
     filters.addEventListener('click', event => {
         const button = event.target.closest('.filter-btn');
@@ -114,7 +134,7 @@ export function setupCharacterNavigation(context) {
         filters.querySelectorAll('.filter-btn').forEach(item => {
             item.classList.toggle('active', item === button);
         });
-        renderCharacters(button.dataset.filter, context);
+        renderCharacters(button.dataset.filter, context, animationState);
     });
 
     list.addEventListener('click', event => {
@@ -126,7 +146,7 @@ export function setupCharacterNavigation(context) {
         context.onNavigate(id);
     });
 
-    renderCharacters('all', context);
+    renderCharacters('all', context, animationState);
 }
 
 export { filterCharacters, getRoundContext, matchesCharacterRound };
