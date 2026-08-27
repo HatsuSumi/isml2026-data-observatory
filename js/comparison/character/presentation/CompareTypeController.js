@@ -83,7 +83,7 @@ export class CompareTypeController {
             const value = option.dataset.value;
             if (value === this.comparisonTypes.about) {
                 setOpen(false);
-                window.open('pages/comparison/character-comparison-guide.html', '_blank');
+                window.open('pages/character-comparison-guide/character-comparison-guide.html', '_blank');
                 return;
             }
 

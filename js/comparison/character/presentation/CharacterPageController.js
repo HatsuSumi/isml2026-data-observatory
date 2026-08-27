@@ -265,7 +265,7 @@ export class CharacterPageController {
 
         if (targetMode === COMPARISON_TYPES.about) {
             compareTypeSelect.value = previousMode || COMPARISON_TYPES.oneToOne;
-            window.open('pages/comparison/character-comparison-guide.html', '_blank');
+            window.open('pages/character-comparison-guide/character-comparison-guide.html', '_blank');
             return;
         }
 
