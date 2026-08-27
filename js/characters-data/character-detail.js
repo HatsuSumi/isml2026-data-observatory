@@ -158,13 +158,6 @@ class CharacterDetail {
                 const targetRect = target.getBoundingClientRect();
                 const containerRect = this.containers.reports.getBoundingClientRect();
                 const targetTop = this.containers.reports.scrollTop + targetRect.top - containerRect.top;
-                console.debug('[CharacterDetailNav] navigation-click', {
-                    targetId,
-                    reportId: target.id,
-                    targetTop,
-                    currentScrollTop: this.containers.reports.scrollTop,
-                    maxScrollTop: this.containers.reports.scrollHeight - this.containers.reports.clientHeight
-                });
                 this.smoothScroll(targetTop, 500, targetId);
             }
         });
