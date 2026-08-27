@@ -1,11 +1,11 @@
-import { smoothScrollTo } from '../common/dom.js';
-import { calculateAverage, calculateBase, calculateOneToOne } from './character/calculation/CharacterComparisonCalculator.js';
+import { smoothScrollTo } from '../../common/dom.js';
+import { calculateAverage, calculateBase, calculateOneToOne } from '../character/calculation/CharacterComparisonCalculator.js';
 import {
     calculateGroupAverage,
     calculateGroupBaseAverage,
     calculateGroupBaseTotal,
     calculateGroupTotal
-} from './character/calculation/GroupComparisonCalculator.js';
+} from '../character/calculation/GroupComparisonCalculator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 初始化代码高亮

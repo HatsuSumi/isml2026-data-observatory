@@ -1,5 +1,5 @@
-import { CharacterManager } from './character/service/CharacterManager.js';
-import { CharacterPageController } from './character/presentation/CharacterPageController.js';
+import { CharacterManager } from '../character/service/CharacterManager.js';
+import { CharacterPageController } from '../character/presentation/CharacterPageController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     window.onkeydown = event => {
