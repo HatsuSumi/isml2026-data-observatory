@@ -6,7 +6,7 @@ export function debounce(fn, delay) {
     };
 }
 
-export function smoothScrollTo(targetPosition, duration = 500, container = window) {
+export function smoothScrollTo(targetPosition, duration = 500, container = window, onComplete) {
     const isWindow = container === window;
     const startPosition = isWindow ? window.scrollY : container.scrollTop;
     const adjustedDuration = typeof duration === 'number' && duration > 0 ? duration : 500;
@@ -27,7 +27,11 @@ export function smoothScrollTo(targetPosition, duration = 500, container = windo
         } else {
             container.scrollTop = nextPosition;
         }
-        if (progress < 1) frameId = requestAnimationFrame(animation);
+        if (progress < 1) {
+            frameId = requestAnimationFrame(animation);
+        } else {
+            onComplete?.();
+        }
     }
 
     frameId = requestAnimationFrame(animation);

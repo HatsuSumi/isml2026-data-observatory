@@ -6,6 +6,7 @@ export class CharacterDetailScrollController {
         this.nav = nav;
         this.cancelReportScroll = null;
         this.cancelNavScroll = null;
+        this.isProgrammaticReportScroll = false;
         this.scrollTimer = null;
     }
 
@@ -15,10 +16,15 @@ export class CharacterDetailScrollController {
             return;
         }
         if (this.cancelReportScroll) this.cancelReportScroll();
-        this.cancelReportScroll = smoothScrollTo(target, duration, this.reports);
+        this.isProgrammaticReportScroll = true;
+        this.cancelReportScroll = smoothScrollTo(target, duration, this.reports, () => {
+            this.isProgrammaticReportScroll = false;
+            this.handleScroll();
+        });
     }
 
     handleScroll() {
+        if (this.isProgrammaticReportScroll) return;
         if (this.scrollTimer) cancelAnimationFrame(this.scrollTimer);
         this.scrollTimer = requestAnimationFrame(() => {
             const reports = this.reports.querySelectorAll('.event-report');
