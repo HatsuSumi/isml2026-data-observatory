@@ -1,0 +1,133 @@
+/* 导航列表 */
+.elevator-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 导航组 */
+.elevator-nav-group {
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.elevator-nav-group:last-child {
+    border-bottom: none;
+}
+
+.elevator-nav-group.collapsed .sub-item {
+    height: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 导航项 */
+.elevator-nav-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #a6c1ee;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.elevator-nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.elevator-nav-item.active {
+    color: #9370DB;
+    background: rgba(147, 112, 219, 0.1);
+}
+
+/* 子项样式 */
+.elevator-nav-item.sub-item {
+    padding-left: 32px;
+    font-size: 0.9em;
+    height: 36px;
+    opacity: 1;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    color: #888;
+}
+
+.elevator-nav-item.sub-item:hover {
+    color: #a6c1ee;
+}
+
+.elevator-nav-item.sub-item.active {
+    color: #9370DB;
+}
+
+/* 折叠按钮 */
+.collapse-toggle {
+    width: 28px;
+    height: 28px;
+    margin: -6px -8px -6px 8px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #666;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collapse-toggle:hover,
+.collapse-toggle:focus-visible {
+    color: #888;
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+}
+
+/* 折叠图标 */
+.collapse-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+
+.elevator-nav-group.collapsed .collapse-icon {
+    transform: rotate(-90deg);
+}
+
+/* Webkit 滚动条样式 */
+.elevator-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.elevator-nav::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 3px;
+}
+
+.elevator-nav::-webkit-scrollbar-thumb {
+    background: rgba(147, 112, 219, 0.3);
+    border-radius: 3px;
+    border: 1px solid rgba(147, 112, 219, 0.1);
+    background-clip: padding-box;
+}
+
+.elevator-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 112, 219, 0.5);
+    border: 1px solid rgba(147, 112, 219, 0.2);
+}
+
+/* 滚动条轨道的两端 */
+.elevator-nav::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 4px;
+}
+
+.elevator-nav::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 4px;
+}
+

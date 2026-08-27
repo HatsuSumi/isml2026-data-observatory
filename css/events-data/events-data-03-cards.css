@@ -1,0 +1,135 @@
+}
+
+.date-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #9370DB, #4a90e2);
+    border-radius: 2px;
+}
+
+.events-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+.event-card {
+    background: linear-gradient(145deg, #222, #333);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #9370DB, #4a90e2);
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.event-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-title {
+    font-size: 18px;
+    color: #9370DB;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.event-status {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.event-status::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-completed {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.status-completed::before {
+    background-color: #4CAF50;
+    box-shadow: 0 0 8px #4CAF50;
+}
+
+.status-ongoing {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.status-ongoing::before {
+    background-color: #2196F3;
+    box-shadow: 0 0 8px #2196F3;
+    animation: pulse 2s infinite;
+}
+
+.status-upcoming {
+    background: rgba(255, 152, 0, 0.1);
+    color: #FF9800;
+}
+
+.status-upcoming::before {
+    background-color: #FF9800;
+    box-shadow: 0 0 8px #FF9800;
+}
+
+.status-notstarted {
+    background: rgba(158, 158, 158, 0.1);
+    color: #9E9E9E;
+}
+
+.status-notstarted::before {
+    background-color: #9E9E9E;
+    box-shadow: 0 0 8px #9E9E9E;
+}
+
+.status-postponed {
+    background: rgba(255, 99, 71, 0.1);
+    color: #ff6347;
+}
+
+.status-postponed::before {
+    background-color: #ff6347;
+    box-shadow: 0 0 8px #ff6347;
+}
+

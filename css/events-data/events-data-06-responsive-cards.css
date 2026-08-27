@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-card {
+        margin: 0 10px;
+    }
+    
+    .group-date {
+        white-space: normal;
+        word-break: break-all;
+    }
+}
+
+.phase-group {
+    margin: 20px 0;

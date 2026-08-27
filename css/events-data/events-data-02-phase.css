@@ -1,0 +1,43 @@
+
+.phase-section {
+    margin-bottom: 60px;
+}
+
+.phase-title {
+    font-size: 32px;
+    margin: 40px 0;
+    position: relative;
+    padding-left: 20px;
+    color: #9370DB;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.phase-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #9370DB, #4a90e2);
+    border-radius: 2px;
+}
+
+.date-section {
+    margin-bottom: 40px;
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+.date-header {
+    font-size: 20px;
+    color: #9370DB;
+    margin-bottom: 20px;
+    padding: 5px 0 5px 20px;
+    font-weight: bold;
+    position: relative;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
