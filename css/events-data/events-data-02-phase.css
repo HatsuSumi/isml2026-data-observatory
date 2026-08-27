@@ -41,3 +41,23 @@
     min-height: 30px;
     display: flex;
     align-items: center;
+}
+
+.date-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #9370DB, #4a90e2);
+    border-radius: 2px;
+}
+
+.events-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
