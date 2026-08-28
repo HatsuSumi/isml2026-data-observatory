@@ -254,7 +254,7 @@ function initializeSearch() {
     const searchInput = document.getElementById('searchInput');
 
     function performSearch() {
-        const keyword = searchInput.value.toLowerCase();
+        const keyword = searchInput.value.trim().toLowerCase();
         if (!keyword) return showAllCharacters();
         const searchConfig = {
             fields: ['name', 'ip', 'cv', 'status'],
@@ -372,6 +372,79 @@ function matchesSearch(character, keyword, fields) {
     }));
 }
 
+function getSearchScope() {
+    return {
+        stellar: {
+            enabled: document.querySelector('input[value="stellar"]').checked,
+            female: document.querySelector('input[value="stellar-female"]').checked,
+            male: document.querySelector('input[value="stellar-male"]').checked
+        },
+        nova: {
+            enabled: document.querySelector('input[value="nova"]').checked,
+            seasons: Object.fromEntries(['winter', 'spring', 'summer', 'autumn'].map(season => [
+                season,
+                {
+                    enabled: document.querySelector(`input[value="${season}"]`).checked,
+                    female: document.querySelector(`input[value="${season}-female"]`).checked,
+                    male: document.querySelector(`input[value="${season}-male"]`).checked
+                }
+            ]))
+        }
+    };
+}
+
+function updateBrowseScope() {
+    const scope = getSearchScope();
+    const stellar = document.querySelector('.division.stellar');
+    const nova = document.querySelector('.division.nova');
+    stellar.hidden = !scope.stellar.enabled;
+    nova.hidden = !scope.nova.enabled;
+
+    const updateGenderPanel = (panel, button, enabled) => {
+        panel.hidden = !enabled;
+        button.hidden = !enabled;
+        if (!enabled && button.classList.contains('active')) {
+            button.classList.remove('active');
+            const fallbackButton = Array.from(button.parentElement.querySelectorAll('.tab-btn'))
+                .find(item => !item.hidden);
+            if (fallbackButton) {
+                fallbackButton.classList.add('active');
+                updatePanels(button.closest('.tab-container').nextElementSibling, fallbackButton.dataset.season
+                    ? `nova-${fallbackButton.dataset.season}-${fallbackButton.dataset.gender}`
+                    : `stellar-${fallbackButton.dataset.gender}`);
+            }
+        }
+    };
+
+    const stellarButtons = stellar.querySelectorAll('.tab-btn');
+    updateGenderPanel(
+        document.getElementById('stellar-female'),
+        stellarButtons[0],
+        scope.stellar.female
+    );
+    updateGenderPanel(
+        document.getElementById('stellar-male'),
+        stellarButtons[1],
+        scope.stellar.male
+    );
+
+    Object.entries(scope.nova.seasons).forEach(([season, seasonScope]) => {
+        const seasonSection = nova.querySelector(`.season-section[data-season="${season}"]`);
+        seasonSection.hidden = !seasonScope.enabled;
+        const buttons = seasonSection.querySelectorAll('.tab-btn');
+        updateGenderPanel(
+            seasonSection.querySelector(`#nova-${season}-female`),
+            buttons[0],
+            seasonScope.female
+        );
+        updateGenderPanel(
+            seasonSection.querySelector(`#nova-${season}-male`),
+            buttons[1],
+            seasonScope.male
+        );
+    });
+}
+
 function showAllCharacters() {
     const container = document.querySelector('.search-results-container');
     const tournamentSection = document.querySelector('.tournament-section');
@@ -379,6 +452,7 @@ function showAllCharacters() {
     setTimeout(() => {
         container.style.display = 'none';
         tournamentSection.style.display = 'block';
+        updateBrowseScope();
         adjustCardLayout();
     }, 300);
 }
