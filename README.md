@@ -25,7 +25,7 @@
 - **页面模板**：通过 `template-loader.js` 加载和插入公共 Header、Footer 等模板
 - **外部依赖**：
   - [Font Awesome](https://fontawesome.com/)：页面图标
-  - [Highlight.js](https://highlightjs.org/)：对比指南中的代码高亮
+  - [Highlight.js](https://highlightjs.org/)：对比指南和开发规范页面中的代码高亮
 - **部署**：[GitHub Pages](https://pages.github.com/)
 
 ## 🏠 **开发环境**
