@@ -145,6 +145,13 @@ body {
     content: "";
 }
 
+.support-disclaimer {
+    margin: 10px 0 0;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
 .support-details[open] summary {
     margin-bottom: 20px;
 }
@@ -177,6 +184,42 @@ body {
     font-size: 14px;
     margin-top: 30px;
     font-style: italic;
+}
+
+.status-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.status-section h2 {
+    margin: 0 0 18px;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.status-image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-image-wrap img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 560px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.status-image-wrap img:hover {
+    transform: scale(1.05);
 }
 
 @keyframes borderGlow {
