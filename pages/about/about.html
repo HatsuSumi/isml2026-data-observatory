@@ -68,23 +68,46 @@
 
             <section class="info-section">
                 <h2>项目规模</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-value">274</span>
-                        <span class="stat-label">总文件数</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value">132,965</span>
-                        <span class="stat-label">代码总行数</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value">3,586,223</span>
-                        <span class="stat-label">字符总数</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value">5.08 MB</span>
-                        <span class="stat-label">资源文件总大小</span>
-                    </div>
+                <div class="scale-group">
+                    <h3>文件统计</h3>
+                    <ul class="info-list">
+                        <li><strong>总文件数：</strong>274 个</li>
+                        <li>JavaScript 文件：113 个</li>
+                        <li>CSS 文件：80 个</li>
+                        <li>JSON 文件：24 个</li>
+                        <li>HTML 文件：23 个</li>
+                        <li>其他文件：13 个</li>
+                        <li>Markdown 文档：2 个</li>
+                    </ul>
+                </div>
+                <div class="scale-group">
+                    <h3>代码规模</h3>
+                    <ul class="info-list">
+                        <li><strong>代码总行数：</strong>132,965 行（不含空行、注释）</li>
+                        <li>JSON：106,486 行（80.1%）</li>
+                        <li>JavaScript：11,881 行（8.9%）</li>
+                        <li>CSS：11,417 行（8.6%）</li>
+                        <li>HTML：3,181 行（2.4%）</li>
+                    </ul>
+                </div>
+                <div class="scale-group">
+                    <h3>字符总数</h3>
+                    <ul class="info-list">
+                        <li><strong>字符总数：</strong>3,586,221 字符（不含注释）</li>
+                        <li>JSON：2,706,423 字符（75.5%）</li>
+                        <li>JavaScript：491,863 字符（13.7%）</li>
+                        <li>CSS：246,814 字符（6.9%）</li>
+                        <li>HTML：141,121 字符（3.9%）</li>
+                    </ul>
+                </div>
+                <div class="scale-group">
+                    <h3>资源文件</h3>
+                    <ul class="info-list">
+                        <li><strong>资源文件总数：</strong>19 个</li>
+                        <li><strong>资源文件总大小：</strong>5.08 MB</li>
+                        <li>图片文件：7 个文件，4.81 MB</li>
+                        <li>Office 文档：12 个文件，274.68 KB</li>
+                    </ul>
                 </div>
                 <p class="info-note">以上数据来自 <code>scripts/project_stats.py</code> 的自动统计结果。</p>
             </section>
