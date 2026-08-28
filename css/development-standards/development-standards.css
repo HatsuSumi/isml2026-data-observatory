@@ -133,11 +133,14 @@ body {
 
 .standard-card pre {
     margin-top: 12px;
+    overflow-x: hidden;
 }
 
 .standard-card pre code.hljs {
     padding: 14px;
     font-size: 13px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 code:not(pre code) {
