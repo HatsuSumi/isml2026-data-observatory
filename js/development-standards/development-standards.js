@@ -1,3 +1,5 @@
+import { smoothScrollTo } from '../common/dom.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     if (window.hljs) {
         window.hljs.highlightAll();
@@ -14,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!section) return;
 
         event.preventDefault();
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const targetPosition = window.scrollY + section.getBoundingClientRect().top - 88;
+        smoothScrollTo(targetPosition, 500);
         history.pushState(null, '', link.getAttribute('href'));
     });
 
