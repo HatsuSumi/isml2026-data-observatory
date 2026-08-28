@@ -37,8 +37,27 @@
                 <h2>1. DOM 节点创建</h2>
                 <p>少用大段 <code>innerHTML</code>，固定结构优先写在 <code>&lt;template&gt;</code> 中，再通过 <code>cloneNode(true)</code> 克隆。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>拼接 HTML 字符串，或频繁使用 <code>document.createElement()</code> 在循环中逐个创建复杂 DOM。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>模板只解析一次，结构和样式分离，克隆后用 <code>textContent</code> 填入内容。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>拼接 HTML 字符串，或频繁使用 <code>document.createElement()</code> 在循环中逐个创建复杂 DOM。</p>
+                        <pre><code class="language-javascript">container.innerHTML = `&lt;div&gt;${user.name}&lt;/div&gt;`;
+
+items.forEach(item =&gt; {
+  const card = document.createElement('div');
+  const name = document.createElement('span');
+  name.textContent = item.name;
+  card.appendChild(name);
+  container.appendChild(card);
+});</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>模板只解析一次，结构和样式分离，克隆后用 <code>textContent</code> 填入内容。</p>
+                        <pre><code class="language-javascript">const template = document.getElementById('user-card');
+const fragment = template.content.cloneNode(true);
+fragment.querySelector('.name').textContent = user.name;
+container.appendChild(fragment);</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-html">&lt;template id="user-card"&gt;
   &lt;div class="card"&gt;
@@ -56,8 +75,22 @@ container.appendChild(clone);</code></pre>
                 <h2>2. 渲染函数返回值</h2>
                 <p><code>render</code> 函数尽量返回 Node 或 DocumentFragment，不返回 HTML 字符串。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>返回反引号拼接的 HTML 字符串，尤其不要把外部数据直接插进字符串。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>从模板克隆 DOM 节点，填充文本后返回 Node 或 DocumentFragment。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>返回反引号拼接的 HTML 字符串，尤其不要把外部数据直接插进字符串。</p>
+                        <pre><code class="language-javascript">export function renderCard(data) {
+  return `&lt;div&gt;&lt;p&gt;${data.name}&lt;/p&gt;&lt;/div&gt;`;
+}</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>从模板克隆 DOM 节点，填充文本后返回 Node 或 DocumentFragment。</p>
+                        <pre><code class="language-javascript">export function renderCard(data) {
+  const fragment = cardTemplate.content.cloneNode(true);
+  fragment.querySelector('.name').textContent = data.name;
+  return fragment;
+}</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">export function renderCard(data) {
   const template = document.getElementById('card-template');
@@ -71,8 +104,19 @@ container.appendChild(clone);</code></pre>
                 <h2>3. 样式修改</h2>
                 <p>状态切换优先使用 <code>classList</code>，动态数值使用 CSS 变量，减少直接写入多个 <code>style.xxx</code>。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>连续写入多个 <code>element.style.xxx</code>，导致样式权重过高且触发更多样式计算。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>状态变化用 <code>classList</code>，动态数值集中写入 CSS 变量。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>连续写入多个 <code>element.style.xxx</code>，导致样式权重过高且触发更多样式计算。</p>
+                        <pre><code class="language-javascript">panel.style.color = 'red';
+panel.style.fontSize = '16px';
+panel.style.backgroundColor = 'yellow';</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>状态变化用 <code>classList</code>，动态数值集中写入 CSS 变量。</p>
+                        <pre><code class="language-javascript">panel.classList.add('is-warning');
+document.documentElement.style.setProperty('--panel-size', '16px');</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-css">:root { --theme-color: blue; }
 .active { color: var(--theme-color); }
@@ -85,8 +129,21 @@ document.documentElement.style.setProperty('--offset', value + 'px');</code></pr
                 <h2>4. 批量插入 DOM</h2>
                 <p>大量节点插入时先进入 <code>DocumentFragment</code>，最后一次性挂到容器，避免循环中反复触发布局计算。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>在循环里反复 <code>appendChild</code> 到真实页面容器。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>先把节点放入 <code>DocumentFragment</code>，最后一次性插入页面。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>在循环里反复 <code>appendChild</code> 到真实页面容器。</p>
+                        <pre><code class="language-javascript">items.forEach(item =&gt; {
+  const node = renderItem(item);
+  list.appendChild(node);
+});</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>先把节点放入 <code>DocumentFragment</code>，最后一次性插入页面。</p>
+                        <pre><code class="language-javascript">const fragment = document.createDocumentFragment();
+items.forEach(item =&gt; fragment.appendChild(renderItem(item)));
+list.appendChild(fragment);</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">const fragment = document.createDocumentFragment();
 
@@ -103,8 +160,22 @@ list.appendChild(fragment);</code></pre>
                 <h2>5. 事件监听</h2>
                 <p>列表、菜单等重复元素优先使用事件委托，只在父容器绑定一次监听。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>给大量子元素逐个绑定监听，后续新增节点还要重复绑定。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>监听父容器，通过 <code>event.target.closest()</code> 精准定位触发元素。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>给大量子元素逐个绑定监听，后续新增节点还要重复绑定。</p>
+                        <pre><code class="language-javascript">document.querySelectorAll('.item').forEach(item =&gt; {
+  item.addEventListener('click', handleItemClick);
+});</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>监听父容器，通过 <code>event.target.closest()</code> 精准定位触发元素。</p>
+                        <pre><code class="language-javascript">list.addEventListener('click', (event) =&gt; {
+  const item = event.target.closest('.item');
+  if (!item) return;
+  handleItemClick(item);
+});</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">const list = document.getElementById('list');
 
@@ -119,8 +190,23 @@ list.addEventListener('click', (event) => {
                 <h2>6. 定时动画</h2>
                 <p>动画和高频视觉更新使用 <code>requestAnimationFrame</code>，不要用固定间隔模拟帧率。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>使用 <code>setInterval</code> 固定 16ms 执行动画，页面后台仍可能浪费资源。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>使用 <code>requestAnimationFrame</code> 跟随浏览器刷新节奏执行视觉更新。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>使用 <code>setInterval</code> 固定 16ms 执行动画，页面后台仍可能浪费资源。</p>
+                        <pre><code class="language-javascript">setInterval(() =&gt; {
+  moveElement();
+}, 16);</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>使用 <code>requestAnimationFrame</code> 跟随浏览器刷新节奏执行视觉更新。</p>
+                        <pre><code class="language-javascript">function animate() {
+  moveElement();
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">function animate() {
   moveElement();
@@ -134,8 +220,22 @@ requestAnimationFrame(animate);</code></pre>
                 <h2>7. 数据处理</h2>
                 <p>读取深层数据用可选链和空值合并；多分支业务优先用策略映射。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>写多层 <code>if</code> 防空，或用 <code>||</code> 把空字符串和 0 误判为默认值。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>用 <code>?.</code>、<code>??</code> 处理空值，多分支逻辑用对象映射表达。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>写多层 <code>if</code> 防空，或用 <code>||</code> 把空字符串和 0 误判为默认值。</p>
+                        <pre><code class="language-javascript">if (data && data.user && data.user.info) {
+  name = data.user.info.name;
+}
+
+const count = data.count || 10;</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>用 <code>?.</code>、<code>??</code> 处理空值，多分支逻辑用对象映射表达。</p>
+                        <pre><code class="language-javascript">const name = data?.user?.info?.name ?? '游客';
+const count = data?.count ?? 10;
+const handler = strategyMap[type] ?? strategyMap.default;</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">const name = data?.user?.info?.name ?? '游客';
 const count = data?.count ?? 0;
@@ -154,8 +254,23 @@ execute();</code></pre>
                 <h2>8. 数据请求</h2>
                 <p>缓存要按数据特性设计：静态数据会话复用，动态列表设置 TTL，实时数据不缓存。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>每次都重新请求，或把所有数据无限期缓存。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>静态数据会话缓存，动态数据设置过期时间，实时数据保持即时请求。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>每次都重新请求，或把所有数据无限期缓存。</p>
+                        <pre><code class="language-javascript">async function loadEvents() {
+  return fetch('data/events.json').then(res =&gt; res.json());
+}
+
+localStorage.setItem('events', JSON.stringify(events));</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>静态数据会话缓存，动态数据设置过期时间，实时数据保持即时请求。</p>
+                        <pre><code class="language-javascript">const cached = cache.get(key);
+if (cached && Date.now() - cached.time &lt; ttl) {
+  return Promise.resolve(cached.data);
+}</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">const cache = new Map();
 
@@ -176,8 +291,24 @@ function fetchWithCache(key, fetcher, ttl = 5 * 60 * 1000) {
                 <h2>9. 列表更新</h2>
                 <p>列表变化时基于 <code>data-id</code> 做精准更新，尽量不要整块清空重渲染。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>数据一变化就清空容器重建，导致滚动位置、焦点和局部状态丢失。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>用稳定 <code>data-id</code> 查找节点，只更新变化字段，新增或删除必要节点。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>数据一变化就清空容器重建，导致滚动位置、焦点和局部状态丢失。</p>
+                        <pre><code class="language-javascript">container.replaceChildren();
+items.forEach(item =&gt; {
+  container.appendChild(createNode(item));
+});</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>用稳定 <code>data-id</code> 查找节点，只更新变化字段，新增或删除必要节点。</p>
+                        <pre><code class="language-javascript">const node = container.querySelector(`[data-id="${item.id}"]`);
+if (node) {
+  updateExistingNode(node, item);
+} else {
+  container.appendChild(createNode(item));
+}</code></pre>
+                    </div>
                 </div>
                 <pre><code class="language-javascript">function updateList(container, items) {
   const nextIds = new Set(items.map(item => String(item.id)));
@@ -201,8 +332,18 @@ function fetchWithCache(key, fetcher, ttl = 5 * 60 * 1000) {
                 <h2>10. 交互反馈</h2>
                 <p>根据场景选择 Debounce、Throttle 或 RAF，避免一刀切处理高频交互。</p>
                 <div class="standard-grid">
-                    <div class="standard-card warning"><h3>不推荐</h3><p>所有高频事件都不限制，或全部加防抖造成输入和滚动反馈迟钝。</p></div>
-                    <div class="standard-card success"><h3>推荐</h3><p>搜索用 Debounce，滚动和 resize 用 Throttle，视觉动画用 RAF。</p></div>
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>所有高频事件都不限制，或全部加防抖造成输入和滚动反馈迟钝。</p>
+                        <pre><code class="language-javascript">input.addEventListener('input', renderResults);
+window.addEventListener('scroll', updateProgress);</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>搜索用 Debounce，滚动和 resize 用 Throttle，视觉动画用 RAF。</p>
+                        <pre><code class="language-javascript">input.addEventListener('input', debounce(renderResults, 300));
+window.addEventListener('scroll', throttle(updateProgress, 100));</code></pre>
+                    </div>
                 </div>
                 <table>
                     <thead><tr><th>场景</th><th>策略</th><th>时机</th></tr></thead>
