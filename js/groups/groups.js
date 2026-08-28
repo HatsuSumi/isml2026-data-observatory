@@ -1,3 +1,15 @@
+import { loadCharacterDatabase } from '../common/character-database.js';
+
+function buildCharactersByName(database) {
+    const charactersByName = {};
+    Object.values(database.records).forEach(character => {
+        if (!charactersByName[character.name]) {
+            charactersByName[character.name] = character;
+        }
+    });
+    return charactersByName;
+}
+
 class GroupRendererStrategy {
     static strategies = {
         preliminary: (groupConfig, charactersData, containers) => {
@@ -15,16 +27,14 @@ class GroupRendererStrategy {
                 charactersList.innerHTML = '';
                 
                 characters.forEach(characterName => {
-                    const characterKey = Object.keys(charactersData).find(
-                        key => charactersData[key].name === characterName
-                    );
+                    const characterData = charactersData[characterName];
         
                     const characterItem = characterTemplate.cloneNode(true);
                     const avatar = characterItem.querySelector('.character-avatar');
                     const nameSpan = characterItem.querySelector('.character-name');
                     
-                    if (characterKey && charactersData[characterKey].avatar) {
-                        avatar.src = charactersData[characterKey].avatar;
+                    if (characterData?.avatar) {
+                        avatar.src = characterData.avatar;
                         avatar.alt = characterName;
                     } else {
                         avatar.remove();
@@ -128,22 +138,17 @@ class Groups {
     }
 
     async loadCharacters() {
-        const [groupsResponse, charactersResponse] = await Promise.all([
-            fetch("data/groups/groups.json"),
-            fetch("data/characters/base/characters-data.json")
+        const [groupsResponse, database] = await Promise.all([
+            fetch('data/groups/groups.json'),
+            loadCharacterDatabase()
         ]);
 
-        if (!groupsResponse.ok || !charactersResponse.ok) {
+        if (!groupsResponse.ok) {
             throw new Error('数据加载失败');
         }
 
-        const [groupsData, charactersData] = await Promise.all([
-            groupsResponse.json(),
-            charactersResponse.json()
-        ]);
-
-        this.groupsData = groupsData;
-        this.charactersData = charactersData;
+        this.groupsData = await groupsResponse.json();
+        this.charactersData = buildCharactersByName(database);
     }
 
     renderGroups() {
