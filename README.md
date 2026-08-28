@@ -105,6 +105,8 @@ ISML2026/
 
 > 💡 **数据来源**：以上所有项目规模数据均基于 `scripts\project_stats.py` 脚本自动统计生成
 
+> 📊 **统计工具 GitHub 仓库链接**：[Omni-Project-Stats](https://github.com/HatsuSumi/Omni-Project-Stats) —— 90%项目通用，涵盖多个领域
+
 ---
 
 ## 🎯 **主要功能**
