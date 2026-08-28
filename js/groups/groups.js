@@ -1,13 +1,5 @@
-import { loadCharacterDatabase } from '../common/character-database.js';
-
-function buildCharactersByName(database) {
-    const charactersByName = {};
-    Object.values(database.records).forEach(character => {
-        if (!charactersByName[character.name]) {
-            charactersByName[character.name] = character;
-        }
-    });
-    return charactersByName;
+function buildCharactersByName(characters) {
+    return characters;
 }
 
 class GroupRendererStrategy {
@@ -16,37 +8,37 @@ class GroupRendererStrategy {
             const template = document.getElementById('preliminary-group-template');
             const groupListTemplate = document.getElementById('group-list-template');
             const groupContainer = groupListTemplate.content.cloneNode(true).querySelector('.group-list');
-        
+
             Object.entries(groupConfig.groups).forEach(([groupName, characters]) => {
                 const groupSection = template.content.cloneNode(true);
-                
+
                 groupSection.querySelector('.group-title').textContent = groupName;
                 const charactersList = groupSection.querySelector('.characters-list');
                 const characterTemplate = charactersList.querySelector('.character-item');
-                
+
                 charactersList.innerHTML = '';
-                
+
                 characters.forEach(characterName => {
                     const characterData = charactersData[characterName];
-        
+
                     const characterItem = characterTemplate.cloneNode(true);
                     const avatar = characterItem.querySelector('.character-avatar');
                     const nameSpan = characterItem.querySelector('.character-name');
-                    
+
                     if (characterData?.avatar) {
                         avatar.src = characterData.avatar;
                         avatar.alt = characterName;
                     } else {
                         avatar.remove();
                     }
-                    
+
                     nameSpan.textContent = characterName;
                     charactersList.appendChild(characterItem);
                 });
-        
+
                 groupContainer.appendChild(groupSection.querySelector('.group-section'));
             });
-        
+
             containers.content.innerHTML = '';
             containers.content.appendChild(groupContainer);
         },
@@ -54,50 +46,48 @@ class GroupRendererStrategy {
         seedGroup: (groupConfig, charactersData, containers) => {
             const template = document.getElementById('seed-group-template');
             const table = template.content.cloneNode(true);
-        
+
             const tbody = table.querySelector('tbody');
-            tbody.innerHTML = ''; 
-        
+            tbody.innerHTML = '';
+
             Object.entries(groupConfig.groups).forEach(([groupName, characters]) => {
                 const rowTemplate = template.content.querySelector('.seed-group-row');
                 const row = rowTemplate.cloneNode(true);
-        
+
                 row.querySelector('.seed-group-name').textContent = groupName;
-        
+
                 [1, 2, 3, 4].forEach(seedNumber => {
                     const cell = row.querySelector(`.seed-${seedNumber}`);
                     const characterDiv = cell.querySelector('.seed-group-character');
                     const avatar = characterDiv.querySelector('.seed-group-avatar');
                     const nameSpan = characterDiv.querySelector('.seed-group-name');
-        
+
                     const character = characters.find(c => c.seed === seedNumber);
-                    
+
                     if (character) {
-                        const characterKey = Object.keys(charactersData).find(
-                            key => charactersData[key].name === character.name
-                        );
-        
-                        if (characterKey && charactersData[characterKey].avatar) {
-                            avatar.src = charactersData[characterKey].avatar;
+                        const characterData = charactersData[character.name];
+
+                        if (characterData?.avatar) {
+                            avatar.src = characterData.avatar;
                             avatar.alt = character.name;
                         } else {
                             avatar.remove();
                         }
-                        
+
                         nameSpan.textContent = character.name;
                     } else {
                         characterDiv.remove();
                     }
                 });
-        
+
                 tbody.appendChild(row);
             });
-        
+
             const tableElement = document.createElement('table');
             tableElement.className = 'seed-group-table';
             tableElement.appendChild(table.querySelector('thead'));
             tableElement.appendChild(tbody);
-        
+
             containers.content.innerHTML = '';
             containers.content.appendChild(tableElement);
         }
@@ -138,17 +128,14 @@ class Groups {
     }
 
     async loadCharacters() {
-        const [groupsResponse, database] = await Promise.all([
-            fetch('data/groups/groups.json'),
-            loadCharacterDatabase()
-        ]);
-
-        if (!groupsResponse.ok) {
+        const response = await fetch('data/groups/groups-data.json');
+        if (!response.ok) {
             throw new Error('数据加载失败');
         }
 
-        this.groupsData = await groupsResponse.json();
-        this.charactersData = buildCharactersByName(database);
+        const data = await response.json();
+        this.groupsData = data.groups;
+        this.charactersData = buildCharactersByName(data.characters);
     }
 
     renderGroups() {

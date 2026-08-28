@@ -1,5 +1,4 @@
 import { smoothScrollTo } from '../common/dom.js';
-import { loadCharacterDatabase } from '../common/character-database.js';
 import { RETURN_FROM_KEY, SCROLL_POSITION_KEY, templates } from './events-data-config.js';
 import { findNextEventStartTime, getCurrentPhase } from './events-data-status.js';
 import {
@@ -13,15 +12,14 @@ import { createMonthSection } from './events-data-sections.js';
 import { getDocumentTop, restoreSavedPosition, scrollToHash, setupScrollTracking } from './events-data-scroll.js';
 
 async function loadEventsData() {
-    const [data, rankingData, database] = await Promise.all([
-        fetch('data/config/events.json').then(response => response.json()),
-        fetch('data/votes/top5-rankings.json').then(response => response.json()),
-        loadCharacterDatabase()
-    ]);
-    const charactersData = Object.fromEntries(
-        Array.from(database.recordsByLookupKey.entries()).map(([key, record]) => [key, record])
-    );
-    return { data, rankingData, charactersData };
+    const response = await fetch('data/config/events-data.json');
+    if (!response.ok) throw new Error(`赛事数据加载失败: ${response.status}`);
+    const data = await response.json();
+    return {
+        data: data.events,
+        rankingData: data.rankings,
+        charactersData: data.characters
+    };
 }
 
 function renderEventsPage(data, rankingData, charactersData) {

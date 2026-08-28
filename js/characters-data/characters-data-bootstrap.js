@@ -3,48 +3,14 @@ import { createCardContext, checkTooltips } from './characters-data-card.js';
 import { renderCharacters } from './characters-data-groups.js';
 import { createSearchController } from './characters-data-search.js';
 import { initElevatorNav } from './characters-data-navigation.js';
-import {
-    getDatabaseRecordByLegacyCharacter,
-    loadCharacterDatabase,
-    mergeCharacterRecord
-} from '../common/character-database.js';
-
 async function fetchJson(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`角色数据加载失败: ${response.status}`);
     return response.json();
 }
 
-function mergeDatabaseCharacter(character, database) {
-    const databaseRecord = getDatabaseRecordByLegacyCharacter(database, character);
-    return databaseRecord ? mergeCharacterRecord(character, databaseRecord) : character;
-}
-
-function mergeDatabaseCharacters(data, database) {
-    return {
-        stellar: Object.fromEntries(Object.entries(data.stellar).map(([gender, groups]) => [
-            gender,
-            groups.map(group => ({
-                ...group,
-                characters: group.characters.map(character => mergeDatabaseCharacter(character, database))
-            }))
-        ])),
-        nova: Object.fromEntries(Object.entries(data.nova).map(([gender, groups]) => [
-            gender,
-            groups.map(group => ({
-                ...group,
-                characters: group.characters.map(character => mergeDatabaseCharacter(character, database))
-            }))
-        ]))
-    };
-}
-
 async function loadCharactersData() {
-    const [roundsData, database] = await Promise.all([
-        fetchJson('data/characters/roundsData.json'),
-        loadCharacterDatabase()
-    ]);
-    return mergeDatabaseCharacters(roundsData, database);
+    return fetchJson('data/characters/stats/characters-data.json');
 }
 
 function getGroupContainers() {
