@@ -59,16 +59,7 @@ fragment.querySelector('.name').textContent = user.name;
 container.appendChild(fragment);</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-html">&lt;template id="user-card"&gt;
-  &lt;div class="card"&gt;
-    &lt;span class="name"&gt;&lt;/span&gt;
-    &lt;span class="desc"&gt;&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/template&gt;</code></pre>
-                <pre><code class="language-javascript">const template = document.getElementById('user-card');
-const clone = template.content.cloneNode(true);
-clone.querySelector('.name').textContent = '张三';
-container.appendChild(clone);</code></pre>
+
             </section>
 
             <section id="render-node" class="standard-section">
@@ -92,12 +83,7 @@ container.appendChild(clone);</code></pre>
 }</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">export function renderCard(data) {
-  const template = document.getElementById('card-template');
-  const fragment = template.content.cloneNode(true);
-  fragment.querySelector('.name').textContent = data.name;
-  return fragment;
-}</code></pre>
+
             </section>
 
             <section id="style-state" class="standard-section">
@@ -118,11 +104,7 @@ panel.style.backgroundColor = 'yellow';</code></pre>
 document.documentElement.style.setProperty('--panel-size', '16px');</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-css">:root { --theme-color: blue; }
-.active { color: var(--theme-color); }
-.highlight { background: yellow; }</code></pre>
-                <pre><code class="language-javascript">element.classList.toggle('active');
-document.documentElement.style.setProperty('--offset', value + 'px');</code></pre>
+
             </section>
 
             <section id="fragment" class="standard-section">
@@ -145,15 +127,7 @@ items.forEach(item =&gt; fragment.appendChild(renderItem(item)));
 list.appendChild(fragment);</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">const fragment = document.createDocumentFragment();
 
-items.forEach(item => {
-  const node = itemTemplate.content.cloneNode(true);
-  node.querySelector('.list-item').textContent = item.name;
-  fragment.appendChild(node);
-});
-
-list.appendChild(fragment);</code></pre>
             </section>
 
             <section id="delegation" class="standard-section">
@@ -177,13 +151,7 @@ list.appendChild(fragment);</code></pre>
 });</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">const list = document.getElementById('list');
 
-list.addEventListener('click', (event) => {
-  const item = event.target.closest('li');
-  if (!item) return;
-  console.log('点击了：', item.textContent);
-});</code></pre>
             </section>
 
             <section id="animation" class="standard-section">
@@ -208,12 +176,6 @@ list.addEventListener('click', (event) => {
 requestAnimationFrame(animate);</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">function animate() {
-  moveElement();
-  requestAnimationFrame(animate);
-}
-
-requestAnimationFrame(animate);</code></pre>
             </section>
 
             <section id="data-safe" class="standard-section">
@@ -237,17 +199,7 @@ const count = data?.count ?? 10;
 const handler = strategyMap[type] ?? strategyMap.default;</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">const name = data?.user?.info?.name ?? '游客';
-const count = data?.count ?? 0;
 
-const strategyMap = {
-  1: () => runFirstStrategy(),
-  2: () => runSecondStrategy(),
-  default: () => runDefaultStrategy()
-};
-
-const execute = strategyMap[type] ?? strategyMap.default;
-execute();</code></pre>
             </section>
 
             <section id="cache" class="standard-section">
@@ -272,19 +224,7 @@ if (cached && Date.now() - cached.time &lt; ttl) {
 }</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">const cache = new Map();
 
-function fetchWithCache(key, fetcher, ttl = 5 * 60 * 1000) {
-  const cached = cache.get(key);
-  if (cached && Date.now() - cached.time < ttl) {
-    return Promise.resolve(cached.data);
-  }
-
-  return fetcher().then(data => {
-    cache.set(key, { data, time: Date.now() });
-    return data;
-  });
-}</code></pre>
             </section>
 
             <section id="diff" class="standard-section">
@@ -310,22 +250,7 @@ if (node) {
 }</code></pre>
                     </div>
                 </div>
-                <pre><code class="language-javascript">function updateList(container, items) {
-  const nextIds = new Set(items.map(item => String(item.id)));
 
-  items.forEach(item => {
-    const node = container.querySelector(`[data-id="${item.id}"]`);
-    if (node) {
-      updateExistingNode(node, item);
-      return;
-    }
-    container.appendChild(createNode(item));
-  });
-
-  container.querySelectorAll('[data-id]').forEach(node => {
-    if (!nextIds.has(node.dataset.id)) node.remove();
-  });
-}</code></pre>
             </section>
 
             <section id="feedback" class="standard-section">
