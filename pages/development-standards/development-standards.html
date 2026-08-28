@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <link rel="stylesheet" href="css/development-standards/development-standards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <include src="templates/header.html"></include>
+    <main class="standards-page">
+        <aside class="standards-nav" aria-label="开发规范目录">
+            <h2>开发规范</h2>
+            <a href="#dom-template">DOM 节点创建</a>
+            <a href="#render-node">渲染函数返回值</a>
+            <a href="#style-state">样式修改</a>
+            <a href="#fragment">批量插入 DOM</a>
+            <a href="#delegation">事件监听</a>
+            <a href="#animation">定时动画</a>
+            <a href="#data-safe">数据处理</a>
+            <a href="#cache">数据请求</a>
+            <a href="#diff">列表更新</a>
+            <a href="#feedback">交互反馈</a>
+            <a href="#review">审查清单</a>
+        </aside>
+
+        <div class="standards-content">
+            <header class="standards-hero">
+                <p class="eyebrow">ISML 2026 前端开发基线</p>
+                <h1>项目前端开发规范</h1>
+                <p>核心思想：减少浏览器回流和重绘，防范 XSS 风险，提升代码可维护性与执行效率。</p>
+            </header>
+
+            <section id="dom-template" class="standard-section">
+                <h2>1. DOM 节点创建</h2>
+                <p>少用大段 <code>innerHTML</code>，固定结构优先写在 <code>&lt;template&gt;</code> 中，再通过 <code>cloneNode(true)</code> 克隆。</p>
+                <div class="standard-grid">
+                    <div class="standard-card warning"><h3>不推荐</h3><p>拼接 HTML 字符串，或在循环中逐个创建复杂 DOM。</p></div>
+                    <div class="standard-card success"><h3>推荐</h3><p>模板只解析一次，结构和样式分离，克隆后用 <code>textContent</code> 填入内容。</p></div>
+                </div>
+                <pre><code class="language-html">&lt;template id="user-card"&gt;
+  &lt;div class="card"&gt;
+    &lt;span class="name"&gt;&lt;/span&gt;
+    &lt;span class="desc"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+                <pre><code class="language-javascript">const template = document.getElementById('user-card');
+const clone = template.content.cloneNode(true);
+clone.querySelector('.name').textContent = '张三';
+container.appendChild(clone);</code></pre>
+            </section>
+
+            <section id="render-node" class="standard-section">
+                <h2>2. 渲染函数返回值</h2>
+                <p><code>render</code> 函数尽量返回 Node 或 DocumentFragment，不返回 HTML 字符串。</p>
+                <pre><code class="language-javascript">export function renderCard(data) {
+  const template = document.getElementById('card-template');
+  const fragment = template.content.cloneNode(true);
+  fragment.querySelector('.name').textContent = data.name;
+  return fragment;
+}</code></pre>
+            </section>
+
+            <section id="style-state" class="standard-section">
+                <h2>3. 样式修改</h2>
+                <p>状态切换优先使用 <code>classList</code>，动态数值使用 CSS 变量，减少直接写入多个 <code>style.xxx</code>。</p>
+                <pre><code class="language-css">:root { --theme-color: blue; }
+.active { color: var(--theme-color); }
+.highlight { background: yellow; }</code></pre>
+                <pre><code class="language-javascript">element.classList.toggle('active');
+document.documentElement.style.setProperty('--offset', value + 'px');</code></pre>
+            </section>
+
+            <section id="fragment" class="standard-section">
+                <h2>4. 批量插入 DOM</h2>
+                <p>大量节点插入时先进入 <code>DocumentFragment</code>，最后一次性挂到容器，避免循环中反复触发布局计算。</p>
+                <pre><code class="language-javascript">const fragment = document.createDocumentFragment();
+
+items.forEach(item => {
+  const node = itemTemplate.content.cloneNode(true);
+  node.querySelector('.list-item').textContent = item.name;
+  fragment.appendChild(node);
+});
+
+list.appendChild(fragment);</code></pre>
+            </section>
+
+            <section id="delegation" class="standard-section">
+                <h2>5. 事件监听</h2>
+                <p>列表、菜单等重复元素优先使用事件委托，只在父容器绑定一次监听。</p>
+                <pre><code class="language-javascript">const list = document.getElementById('list');
+
+list.addEventListener('click', (event) => {
+  const item = event.target.closest('li');
+  if (!item) return;
+  console.log('点击了：', item.textContent);
+});</code></pre>
+            </section>
+
+            <section id="animation" class="standard-section">
+                <h2>6. 定时动画</h2>
+                <p>动画和高频视觉更新使用 <code>requestAnimationFrame</code>，不要用固定间隔模拟帧率。</p>
+                <pre><code class="language-javascript">function animate() {
+  moveElement();
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);</code></pre>
+            </section>
+
+            <section id="data-safe" class="standard-section">
+                <h2>7. 数据处理</h2>
+                <p>读取深层数据用可选链和空值合并；多分支业务优先用策略映射。</p>
+                <pre><code class="language-javascript">const name = data?.user?.info?.name ?? '游客';
+const count = data?.count ?? 0;
+
+const strategyMap = {
+  1: () => runFirstStrategy(),
+  2: () => runSecondStrategy(),
+  default: () => runDefaultStrategy()
+};
+
+const execute = strategyMap[type] ?? strategyMap.default;
+execute();</code></pre>
+            </section>
+
+            <section id="cache" class="standard-section">
+                <h2>8. 数据请求</h2>
+                <p>缓存要按数据特性设计：静态数据会话复用，动态列表设置 TTL，实时数据不缓存。</p>
+                <pre><code class="language-javascript">const cache = new Map();
+
+function fetchWithCache(key, fetcher, ttl = 5 * 60 * 1000) {
+  const cached = cache.get(key);
+  if (cached && Date.now() - cached.time < ttl) {
+    return Promise.resolve(cached.data);
+  }
+
+  return fetcher().then(data => {
+    cache.set(key, { data, time: Date.now() });
+    return data;
+  });
+}</code></pre>
+            </section>
+
+            <section id="diff" class="standard-section">
+                <h2>9. 列表更新</h2>
+                <p>列表变化时基于 <code>data-id</code> 做精准更新，尽量不要整块清空重渲染。</p>
+                <pre><code class="language-javascript">function updateList(container, items) {
+  const nextIds = new Set(items.map(item => String(item.id)));
+
+  items.forEach(item => {
+    const node = container.querySelector(`[data-id="${item.id}"]`);
+    if (node) {
+      updateExistingNode(node, item);
+      return;
+    }
+    container.appendChild(createNode(item));
+  });
+
+  container.querySelectorAll('[data-id]').forEach(node => {
+    if (!nextIds.has(node.dataset.id)) node.remove();
+  });
+}</code></pre>
+            </section>
+
+            <section id="feedback" class="standard-section">
+                <h2>10. 交互反馈</h2>
+                <p>根据场景选择 Debounce、Throttle 或 RAF，避免一刀切处理高频交互。</p>
+                <table>
+                    <thead><tr><th>场景</th><th>策略</th><th>时机</th></tr></thead>
+                    <tbody>
+                        <tr><td>搜索框输入</td><td>Debounce</td><td>300ms</td></tr>
+                        <tr><td>滚动 / resize</td><td>Throttle</td><td>100ms</td></tr>
+                        <tr><td>拖拽 / 动画</td><td>requestAnimationFrame</td><td>跟随屏幕刷新率</td></tr>
+                        <tr><td>按钮连点</td><td>Debounce</td><td>500ms</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="review" class="standard-section checklist-section">
+                <h2>代码审查清单</h2>
+                <ul>
+                    <li>是否存在大段 <code>innerHTML</code> 赋值或模板字符串拼接用户数据？</li>
+                    <li><code>render</code> 开头的函数是否返回 Node / Fragment 而非 String？</li>
+                    <li>是否有超过 3 层以上的三元运算符或 <code>if/else</code> 嵌套？</li>
+                    <li>循环内是否直接操作 DOM？</li>
+                    <li>列表渲染是否使用事件委托？</li>
+                    <li>动画效果是否使用 <code>requestAnimationFrame</code>？</li>
+                    <li>数据请求是否设计了合适缓存策略？</li>
+                    <li>列表数据变化时是否基于 <code>data-id</code> 最小化更新？</li>
+                    <li>搜索、滚动、拖拽、按钮提交等高频交互是否使用了合适策略？</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <include src="templates/footer.html"></include>
+    <script type="module" src="js/common/template-loader.js"></script>
+    <script type="module" src="js/development-standards/development-standards.js"></script>
+</body>
+</html>

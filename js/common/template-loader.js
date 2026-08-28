@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     ),
                     page === 'gallery' && currentPath.includes('/gallery/'),
                     page === 'about' && currentPath.includes('/about/'),
+                    page === 'development-standards' && currentPath.includes('/development-standards/'),
                     page === 'comparison' && (
                         currentPath.includes('/comparison/') ||
                         currentPath.includes('/character-comparison/') ||
@@ -186,4 +187,4 @@ document.addEventListener('DOMContentLoaded', async function() {
     const emailScript = document.createElement('script');
     emailScript.src = "js/common/copy-email.js";
     document.body.appendChild(emailScript);
-}); 
+});
