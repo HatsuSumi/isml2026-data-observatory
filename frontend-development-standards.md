@@ -310,49 +310,55 @@ window.addEventListener('scroll', throttle(() => {
 
 ### ❌ 不推荐
 
-使用降级值、条件判断或可选链掩盖必需依赖缺失和配置错误：
+以下七种写法都会把关键错误隐藏起来：
+
+#### 1. 降级处理
 
 ```javascript
-const button = document.querySelector('.submit') || document.body;
-const timeout = config?.timeout ?? 3000;
+const button = findSubmitButton() || createFallbackButton();
+```
 
-if (button) {
-  button.addEventListener('click', submit);
+#### 2. 容错逻辑
+
+```javascript
+try {
+  startApplication();
+} catch (error) {
+  console.warn('启动失败，继续显示空页面', error);
 }
 ```
 
-### ✅ 推荐
-
-启动阶段立即校验关键依赖、DOM 和参数，失败时抛出包含上下文的明确错误：
+#### 3. `if` 语句块
 
 ```javascript
 const button = document.querySelector('.submit');
-if (!button) {
-  throw new Error('启动失败：缺少 .submit 按钮');
-}
-
-if (!Number.isFinite(config.timeout)) {
-  throw new Error('配置错误：timeout 必须是有效数字');
-}
-```
-
-
-
-## 特邀原则：Fail Fast 原则（Fail Fast Principle）
-
-关键条件不满足时立即抛出明确错误，禁止使用降级处理、容错逻辑、包裹在 `if` 语句块内、逻辑或运算符、三元运算符、可选链或空值合并运算符隐藏架构问题，让依赖缺失、DOM 结构错误、参数无效、配置错误等问题在开发阶段早期暴露，避免在生产环境中出现不可预测的行为。
-
-### ❌ 不推荐
-
-使用降级值、条件判断或可选链掩盖必需依赖缺失和配置错误：
-
-```javascript
-const button = document.querySelector('.submit') || document.body;
-const timeout = config?.timeout ?? 3000;
-
 if (button) {
   button.addEventListener('click', submit);
 }
+```
+
+#### 4. 逻辑或运算符
+
+```javascript
+const timeout = config.timeout || 3000;
+```
+
+#### 5. 三元运算符
+
+```javascript
+const url = config.apiUrl ? config.apiUrl : '/fallback-api';
+```
+
+#### 6. 可选链
+
+```javascript
+const modal = page?.components?.modal;
+```
+
+#### 7. 空值合并运算符
+
+```javascript
+const endpoint = config.endpoint ?? '/default-endpoint';
 ```
 
 ### ✅ 推荐
@@ -381,3 +387,4 @@ if (!Number.isFinite(config.timeout)) {
 - □ 是否针对数据类型设计了合适的缓存策略，而不是“一刀切全缓存”或“完全不缓存”？
 - □ 列表数据变化时，是否做到了基于 `data-id` 的最小化更新？
 - □ 搜索、滚动、拖拽、按钮提交等高频交互，是否使用了合适的 Debounce / Throttle / RAF？
+- □ 关键依赖、DOM、参数和配置不满足时，是否立即抛出明确错误，而不是使用降级或容错逻辑隐藏问题？

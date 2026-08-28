@@ -132,24 +132,34 @@ body {
     border-color: rgba(245, 108, 108, 0.35);
 }
 
-.standard-card.success {
-    border-color: rgba(62, 175, 124, 0.4);
+.featured-standard-section {
+    border-color: rgba(255, 215, 0, 0.45);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 255, 255, 0.055));
 }
 
-.standard-card p {
+.featured-standard-section h2 {
+    color: #ffd700;
+}
+
+.fail-fast-examples {
+    display: grid;
+    gap: 8px;
+}
+
+.fail-fast-example-title {
+    margin: 8px 0 0;
+    color: #ffd700;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fail-fast-examples pre {
     margin: 0;
 }
 
-.standard-card pre {
-    margin-top: 12px;
-    overflow-x: hidden;
-}
-
-.standard-card pre code.hljs {
-    padding: 14px;
+.fail-fast-examples pre code.hljs {
+    padding: 12px;
     font-size: 13px;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
 }
 
 code:not(pre code) {
@@ -195,6 +205,27 @@ th {
 
 tr:last-child td {
     border-bottom: 0;
+}
+
+.fail-fast-examples {
+    display: grid;
+    gap: 8px;
+}
+
+.fail-fast-example-title {
+    margin: 8px 0 0;
+    color: #ffd700;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fail-fast-examples pre {
+    margin: 0;
+}
+
+.fail-fast-examples pre code.hljs {
+    padding: 12px;
+    font-size: 13px;
 }
 
 .checklist-section ul {
