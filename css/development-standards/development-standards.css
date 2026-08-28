@@ -4,7 +4,7 @@ body {
 }
 
 .standards-page {
-    width: min(1320px, calc(100% - 48px));
+    width: min(1500px, calc(100% - 48px));
     margin: 96px auto 48px;
     display: grid;
     grid-template-columns: 240px minmax(0, 1fr);
@@ -130,36 +130,6 @@ body {
 
 .standard-card.warning {
     border-color: rgba(245, 108, 108, 0.35);
-}
-
-.featured-standard-section {
-    border-color: rgba(255, 215, 0, 0.45);
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 255, 255, 0.055));
-}
-
-.featured-standard-section h2 {
-    color: #ffd700;
-}
-
-.fail-fast-examples {
-    display: grid;
-    gap: 8px;
-}
-
-.fail-fast-example-title {
-    margin: 8px 0 0;
-    color: #ffd700;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.fail-fast-examples pre {
-    margin: 0;
-}
-
-.fail-fast-examples pre code.hljs {
-    padding: 12px;
-    font-size: 13px;
 }
 
 code:not(pre code) {
