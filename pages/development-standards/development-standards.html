@@ -23,6 +23,7 @@
             <a href="#cache">数据请求</a>
             <a href="#diff">列表更新</a>
             <a href="#feedback">交互反馈</a>
+            <a href="#fail-fast">特邀原则：Fail Fast</a>
             <a href="#review">审查清单</a>
         </aside>
 
@@ -279,6 +280,35 @@ window.addEventListener('scroll', throttle(updateProgress, 100));</code></pre>
                         <tr><td>按钮连点</td><td>Debounce</td><td>500ms</td></tr>
                     </tbody>
                 </table>
+            </section>
+
+            <section id="fail-fast" class="standard-section featured-standard-section">
+                <h2>特邀原则：Fail Fast 原则（Fail Fast Principle）</h2>
+                <p>关键条件不满足时立即抛出明确错误，禁止使用降级处理、容错逻辑、<code>if</code> 语句块、逻辑或运算符、三元运算符、可选链或空值合并运算符隐藏架构问题，让依赖缺失、DOM 结构错误、参数无效、配置错误等问题在开发阶段早期暴露，避免在生产环境中出现不可预测的行为。</p>
+                <div class="standard-grid">
+                    <div class="standard-card warning">
+                        <h3>不推荐</h3>
+                        <p>用降级值、条件判断或可选链掩盖必需依赖缺失和配置错误。</p>
+                        <pre><code class="language-javascript">const button = document.querySelector('.submit') || document.body;
+const timeout = config?.timeout ?? 3000;
+
+if (button) {
+  button.addEventListener('click', submit);
+}</code></pre>
+                    </div>
+                    <div class="standard-card success">
+                        <h3>推荐</h3>
+                        <p>启动阶段立即校验关键依赖、DOM 和参数，失败时抛出包含上下文的明确错误。</p>
+                        <pre><code class="language-javascript">const button = document.querySelector('.submit');
+if (!button) {
+  throw new Error('启动失败：缺少 .submit 按钮');
+}
+
+if (!Number.isFinite(config.timeout)) {
+  throw new Error('配置错误：timeout 必须是有效数字');
+}</code></pre>
+                    </div>
+                </div>
             </section>
 
             <section id="review" class="standard-section checklist-section">
