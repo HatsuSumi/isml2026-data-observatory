@@ -16,7 +16,7 @@ export const NOMINATION_TABLE_CONFIGS = {
         tableStyle: '01-stellar-nomination-table',
         visualizationId: '02-stellar-male-nomination',
         dataBasePath: 'data/nomination/stellar/male/02-male-nomination',
-        promotionThreshold: 11,
+        promotionThreshold: 17,
         storageKey: 'nomination-table-02-stellar-male'
     },
     '03-nova-winter-female-nomination': {
