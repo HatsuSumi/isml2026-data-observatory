@@ -15,6 +15,17 @@ const RENDER_CONFIG = {
     renderer: 'canvas'
 };
 
+function renderError(message) {
+    const chartContainer = document.getElementById('vote_chart');
+    if (!chartContainer) {
+        throw new Error('可视化页面缺少图表容器：#vote_chart');
+    }
+
+    chartContainer.replaceChildren();
+    chartContainer.textContent = message;
+    chartContainer.classList.add('is-error');
+}
+
 async function initVisualization() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -42,7 +53,8 @@ function normalizeMode(mode) {
 }
 
 async function getVisualizationConfig(visualizationId) {
-    const eventsConfig = await fetchJson('data/config/events.json');
+    const eventsDataConfig = await fetchJson('data/config/events-data.json');
+    const eventsConfig = eventsDataConfig.events || eventsDataConfig;
     for (const month of Object.values(eventsConfig.months || {})) {
         for (const event of month.events || []) {
             for (const match of event.matches || []) {
@@ -66,7 +78,7 @@ function extractVisualizationId(url = '') {
 }
 
 async function fetchJson(path) {
-    const response = await fetch(path);
+    const response = await fetch(path, { cache: 'no-store' });
     if (!response.ok) throw new Error(`数据加载失败：${path}`);
     return response.json();
 }

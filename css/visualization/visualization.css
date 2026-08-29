@@ -1,3 +1,9 @@
+:root {
+    --visualization-error-color: #ff7875;
+    --visualization-error-font-size: 16px;
+    --visualization-error-padding: 24px;
+}
+
 body {
     background-color: #1a1a1a;
 }
@@ -78,6 +84,16 @@ body {
     animation: fadeIn 0.3s ease-out forwards;
     position: relative;
     margin-bottom: 15px;
+}
+
+.chart-container.is-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--visualization-error-color, #ff7875);
+    font-size: var(--visualization-error-font-size, 16px);
+    text-align: center;
+    padding: var(--visualization-error-padding, 24px);
 }
 
 .title-container {

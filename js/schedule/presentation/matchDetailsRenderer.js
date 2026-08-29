@@ -107,7 +107,7 @@ function createCountValue(data) {
 }
 
 function createCountRow(label, data) {
-    return cloneDetailRow(label, createCountValue(data));
+    return data ? cloneDetailRow(label, createCountValue(data)) : null;
 }
 
 function createCountdownRow(label, countdownValue) {
@@ -119,10 +119,16 @@ function buildDetails(match, { includeQualified = false, includeCountdown = fals
     const fragment = document.createDocumentFragment();
 
     fragment.appendChild(createRequirementRow(match));
-    fragment.appendChild(createCountRow('被提名角色数：', match.details?.participants));
+    const participantsRow = createCountRow('被提名角色数：', match.details?.participants);
+    if (participantsRow) {
+        fragment.appendChild(participantsRow);
+    }
 
     if (includeQualified) {
-        fragment.appendChild(createCountRow('晋级角色数：', match.details?.qualified));
+        const qualifiedRow = createCountRow('晋级角色数：', match.details?.qualified);
+        if (qualifiedRow) {
+            fragment.appendChild(qualifiedRow);
+        }
     }
 
     if (includeCountdown) {

@@ -2,11 +2,11 @@ export const NOMINATION_TABLE_CONFIGS = {
     '01-stellar-female-nomination': {
         mode: 'stellar',
         title: '恒星组提名-女性组别',
-        subtitle: '总选票数：1357（有效：669）',
+        subtitle: '总选票数：1092（有效：784）',
         tableStyle: '01-stellar-nomination-table',
         visualizationId: '01-stellar-female-nomination',
         dataBasePath: 'data/nomination/stellar/female/01-female-nomination',
-        promotionThreshold: 29,
+        promotionThreshold: 46,
         storageKey: 'nomination-table-01-stellar-female'
     },
     '02-stellar-male-nomination': {
