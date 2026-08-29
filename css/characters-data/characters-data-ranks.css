@@ -25,6 +25,19 @@
     transition: opacity 0.3s ease;
 }
 
+.character-data-empty {
+    display: grid;
+    place-items: center;
+    min-height: 140px;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 1rem;
+    letter-spacing: 0;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
 /* 只有在非回车键切换时才添加过渡动画 */
 .rank-group[data-gender]:not(.enter-switch),
 .nova-group[data-gender]:not(.enter-switch) {

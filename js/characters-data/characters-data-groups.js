@@ -18,7 +18,18 @@ function setupGenderTabs(container, switchGender) {
     });
 }
 
+function cloneEmptyState(template) {
+    const emptyState = template.content.cloneNode(true).querySelector('.character-data-empty');
+    if (!emptyState) throw new Error('空状态模板缺少 .character-data-empty 节点');
+    return emptyState;
+}
+
 function renderStellarGender(groups, container, gender, templates, cardContext) {
+    if (groups.length === 0) {
+        container.appendChild(cloneEmptyState(templates.emptyState));
+        return;
+    }
+
     if (CONFIG.characters.showRounds) {
         groups.forEach(group => {
             const roundDiv = templates.rankRound.content.cloneNode(true).querySelector('.rank-round');
@@ -81,19 +92,10 @@ export function renderStellarGroups(data, container, templates, cardContext, ani
 }
 
 function renderNovaGender(groups, container, gender, templates, cardContext) {
-    if (!Array.isArray(groups)) {
-        console.error('Nova groups data format error:', groups);
-        return;
-    }
     const groupDiv = templates.novaGroup.content.cloneNode(true).querySelector('.nova-group');
     groupDiv.dataset.gender = gender;
     if (gender === 'female') groupDiv.classList.add('show');
     groups.forEach(seasonGroup => {
-        if (!seasonGroup.season || !Array.isArray(seasonGroup.characters)) {
-            console.error('Invalid season group data:', seasonGroup);
-            return;
-        }
-        if (seasonGroup.characters.length === 0) return;
         const seasonDiv = templates.seasonGroup.content.cloneNode(true).querySelector('.season-group');
         seasonDiv.dataset.season = seasonGroup.season;
         if (gender === 'female') seasonDiv.classList.add('show');
@@ -101,11 +103,15 @@ function renderNovaGender(groups, container, gender, templates, cardContext) {
             spring: '春季', summer: '夏季', autumn: '秋季', winter: '冬季'
         }[seasonGroup.season] || seasonGroup.season;
         const cardsDiv = seasonDiv.querySelector('.character-cards');
-        seasonGroup.characters.forEach(char => {
-            const card = createCharacterCard(char, gender, cardContext);
-            if (gender === 'female') card.classList.add('show');
-            cardsDiv.appendChild(card);
-        });
+        if (seasonGroup.characters.length > 0) {
+            seasonGroup.characters.forEach(char => {
+                const card = createCharacterCard(char, gender, cardContext);
+                if (gender === 'female') card.classList.add('show');
+                cardsDiv.appendChild(card);
+            });
+        } else {
+            cardsDiv.replaceWith(cloneEmptyState(templates.emptyState));
+        }
         groupDiv.appendChild(seasonDiv);
     });
     container.appendChild(groupDiv);

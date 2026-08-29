@@ -53,6 +53,7 @@ export function clearIpCache(context) {
 
 export function checkTooltips() {
     document.querySelectorAll('.character-ip').forEach(ip => {
+        if (!ip.offsetParent) return;
         const ipText = ip.querySelector('.ip-text');
         const tooltip = ip.querySelector('.custom-tooltip');
         if (ipText && tooltip && ipText.scrollWidth <= ipText.clientWidth) tooltip.remove();

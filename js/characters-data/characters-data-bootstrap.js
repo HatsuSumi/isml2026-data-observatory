@@ -9,8 +9,54 @@ async function fetchJson(url) {
     return response.json();
 }
 
+function assertCharactersData(data) {
+    if (!data || typeof data !== 'object') throw new Error('角色数据格式错误：根节点必须是对象');
+    if (!data.stellar || !Array.isArray(data.stellar.female) || !Array.isArray(data.stellar.male)) {
+        throw new Error('角色数据格式错误：恒星组缺少女性或男性分组');
+    }
+    for (const gender of ['female', 'male']) {
+        data.stellar[gender].forEach((group, index) => {
+            if (!group || typeof group.rankLabel !== 'string' || !Array.isArray(group.characters)) {
+                throw new Error(`角色数据格式错误：恒星组 ${gender} 第 ${index + 1} 项无效`);
+            }
+        });
+    }
+    if (!data.nova || typeof data.nova !== 'object') {
+        throw new Error('角色数据格式错误：缺少新星组');
+    }
+    for (const season of ['winter', 'spring', 'summer', 'autumn']) {
+        const seasonData = data.nova[season];
+        if (!seasonData || !Array.isArray(seasonData.female) || !Array.isArray(seasonData.male)) {
+            throw new Error(`角色数据格式错误：新星组缺少${season}数据`);
+        }
+        for (const gender of ['female', 'male']) {
+            seasonData[gender].forEach((character, index) => {
+                if (!character || typeof character !== 'object') {
+                    throw new Error(`角色数据格式错误：新星组${season}${gender}第 ${index + 1} 项无效`);
+                }
+            });
+        }
+    }
+}
+
 async function loadCharactersData() {
-    return fetchJson('data/characters/stats/characters-data.json');
+    const data = await fetchJson('data/characters/roundsData.json');
+    assertCharactersData(data);
+    const seasons = ['winter', 'spring', 'summer', 'autumn'];
+
+    return {
+        stellar: data.stellar,
+        nova: {
+            female: seasons.map(season => ({
+                season,
+                characters: data.nova[season]?.female || []
+            })),
+            male: seasons.map(season => ({
+                season,
+                characters: data.nova[season]?.male || []
+            }))
+        }
+    };
 }
 
 function getGroupContainers() {

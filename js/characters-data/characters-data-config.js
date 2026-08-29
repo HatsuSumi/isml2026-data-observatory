@@ -9,6 +9,7 @@ export function collectCharacterTemplates() {
         rankGroup: document.getElementById('rank-group-template'),
         rankRound: document.getElementById('rank-round-template'),
         characterCards: document.getElementById('character-cards-template'),
+        emptyState: document.getElementById('character-data-empty-template'),
         ipText: document.getElementById('ip-text-template'),
         customTooltip: document.getElementById('custom-tooltip-template'),
         novaGroup: document.getElementById('nova-group-template'),

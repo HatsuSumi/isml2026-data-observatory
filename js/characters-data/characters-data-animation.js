@@ -1,3 +1,5 @@
+import { checkTooltips } from './characters-data-card.js';
+
 function wait(duration) {
     return new Promise(resolve => setTimeout(resolve, duration));
 }
@@ -23,6 +25,7 @@ export function createGenderSwitchController({ getGroup, getChildGroups, isFastS
             showGroup.classList.add('show');
             getChildGroups(showGroup).forEach(child => child.classList.add('show'));
             showGroup.querySelectorAll('.character-card').forEach(card => card.classList.add('show'));
+            requestAnimationFrame(checkTooltips);
             return;
         }
 
@@ -40,6 +43,7 @@ export function createGenderSwitchController({ getGroup, getChildGroups, isFastS
         await nextFrame();
         if (version !== switchVersion) return;
         showGroup.classList.add('show');
+        requestAnimationFrame(checkTooltips);
         childGroups.forEach((child, childIndex) => {
             setTimeout(() => {
                 if (version !== switchVersion) return;
