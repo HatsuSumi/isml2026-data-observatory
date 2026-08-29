@@ -37,6 +37,18 @@ body {
     background: rgba(0, 0, 0, 0.3);
 }
 
+.character-panel-empty {
+    grid-column: 1 / -1;
+    width: min(100%, 520px);
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+    color: #aaa;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+}
+
 /* 为不同季节添加不同的边框颜色和按钮背景色 */
 /* 冬季 */
 .division.nova .season-section[data-season="winter"] {

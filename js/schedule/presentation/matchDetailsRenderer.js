@@ -1,4 +1,4 @@
-const REQUIREMENT_TOOLTIP = '符合主赛事资格的标准时长动画，是指单集时长不少于20分钟或累计时长不少于40分钟的，由注册动画公司以商业性质在日本媒体播出和发行的，除预告片和音乐短片以外的动画作品';
+const REQUIREMENT_TOOLTIP = '标准时长动画，是指放映集数不少于6集且累计放映时长不少于40分钟，或累计放映时长不少于60分钟的动画系列。';
 
 import { cloneScheduleTemplate } from '../utils/template.js';
 

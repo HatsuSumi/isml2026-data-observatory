@@ -146,6 +146,18 @@ function getCharacterKey(character) {
 
 function renderCharacterList(panel, characters) {
     if (!panel) return;
+    if (characters.length === 0) {
+        if (panel.id) {
+            panel.replaceChildren(Object.assign(document.createElement('div'), {
+                className: 'character-panel-empty',
+                textContent: '暂无数据'
+            }));
+        } else {
+            panel.replaceChildren();
+        }
+        return;
+    }
+
     reconcileKeyedList(panel, characters, {
         keyAttribute: 'characterKey',
         getKey: getCharacterKey,
@@ -216,6 +228,7 @@ function adjustCardLayout() {
         gap = '0.8rem';
     }
     activePanels.forEach(panel => {
+        if (panel.hidden || panel.offsetParent === null) return;
         const availableWidth = panel.offsetWidth;
         const cardWidth = parseInt(minCardWidth, 10);
         const gapWidth = parseFloat(gap) * 16;

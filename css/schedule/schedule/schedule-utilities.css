@@ -310,3 +310,47 @@
     border-color: rgba(255, 215, 0, 0.45);
     background-color: rgba(255, 255, 255, 0.12);
 }
+
+.reminder-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 34px;
+    margin-top: 10px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255, 215, 0, 0.55);
+    border-radius: 6px;
+    background: rgba(255, 215, 0, 0.08);
+    color: #ffd700;
+    font-size: 14px;
+    line-height: 1.2;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reminder-btn::before {
+    content: '\f274';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+.reminder-btn:hover {
+    border-color: #ffd700;
+    background: rgba(255, 215, 0, 0.18);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.16);
+    transform: translateY(-1px);
+}
+
+.reminder-btn:active {
+    background: rgba(255, 215, 0, 0.24);
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .reminder-btn {
+        width: 100%;
+    }
+}

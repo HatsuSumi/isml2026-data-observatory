@@ -14,6 +14,30 @@ const DATABASE_SOURCES = {
     ips: `${DATABASE_BASE_URL}ip-data.json`
 };
 
+const SERIES_ALIASES = {
+    '青春猪头少年': ['青春猪头少年系列'],
+    'GIRLS BAND CRY': ['少女乐队的呐喊'],
+    'Summer Pockets': ['夏日口袋']
+};
+
+function normalizeLookupValue(value) {
+    return String(value || '')
+        .normalize('NFKC')
+        .toLowerCase()
+        .replace(/[!！?？。．.、，,：:「」『』（）()\s_-]+/g, '');
+}
+
+function getSeriesNames(series) {
+    const canonical = Object.entries(SERIES_ALIASES).find(([, aliases]) =>
+        series && aliases.includes(series)
+    )?.[0] || series;
+    return [canonical, ...(SERIES_ALIASES[canonical] || [])];
+}
+
+function getSeriesMatchKeys(name, series) {
+    return getSeriesNames(series).map(alias => `${normalizeLookupValue(name)}@${normalizeLookupValue(alias)}`);
+}
+
 async function readJson(filePath) {
     return JSON.parse(await fs.readFile(filePath, 'utf8'));
 }
@@ -66,7 +90,7 @@ function createDatabaseIndex({ characters, lookup, ips }) {
         const record = createDatabaseRecord(character, ips);
         records[character.id] = record;
         if (record.name && record.ip) {
-            recordsByLookupKey.set(`${record.name}@${record.ip}`, record);
+            getSeriesMatchKeys(record.name, record.ip).forEach(key => recordsByLookupKey.set(key, record));
         }
     });
 
@@ -74,11 +98,13 @@ function createDatabaseIndex({ characters, lookup, ips }) {
 }
 
 function getDatabaseRecord(database, character) {
-    const lookupKey = character.name && character.ip
-        ? `${character.name}@${character.ip}`
-        : '';
-    const id = database.lookup[lookupKey];
-    return (id && database.records[id]) || database.recordsByLookupKey.get(lookupKey);
+    const lookupKeys = getSeriesMatchKeys(character.name, character.ip);
+    for (const lookupKey of lookupKeys) {
+        const id = database.lookup[lookupKey];
+        const record = (id && database.records[id]) || database.recordsByLookupKey.get(lookupKey);
+        if (record) return record;
+    }
+    return undefined;
 }
 
 function mergeCharacters(data, database, unmatched) {
