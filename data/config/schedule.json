@@ -1,4 +1,4 @@
-{
+﻿{
     "phases": {
         "mainNomination": {
             "title": "主赛事提名阶段",
@@ -211,6 +211,16 @@
                     },
                     "details": {
                         "format": "赞成投票制"
+                    },
+                    "links": {
+                        "completed": {
+                            "items": [
+                                {
+                                    "text": "查看女子组结果",
+                                    "url": "pages/visualization/visualization.html?id=preliminary-r01-stellar-female"
+                                }
+                            ]
+                        }
                     }
                 },
                 {

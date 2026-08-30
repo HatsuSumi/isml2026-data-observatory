@@ -17,46 +17,36 @@ function getCurrentContext() {
 
     if (currentPage === 'visualization' && currentId) {
         return {
-            isTablePage: false,
+            pageType: 'visualization',
             pageKey: currentId,
             currentFrom: params.get('from')
         };
     }
 
-    if (currentPage === 'nomination-table' && currentId) {
+    if ((currentPage === 'nomination-table' || currentPage === 'preliminaries-table') && currentId) {
         return {
-            isTablePage: true,
+            pageType: 'table',
             pageKey: `${currentId}-table`,
             currentFrom: params.get('from')
         };
     }
 
     return {
-        isTablePage: currentPage.includes('-table'),
-        pageKey: currentPage,
+        pageType: currentPage.includes('-table') ? 'table' : 'visualization',
+        pageKey: currentId || currentPage,
         currentFrom: params.get('from')
     };
 }
 
-function getTargetUrl(id, isTablePage, currentFrom) {
-    if (isTablePage) {
-        const params = new URLSearchParams({ id });
-        if (currentFrom) {
-            params.set('from', currentFrom);
-        }
-        return `pages/tables/nomination-table.html?${params.toString()}`;
-    }
-
-    const params = new URLSearchParams({ id });
-    if (currentFrom) {
-        params.set('from', currentFrom);
-    }
-    return `pages/visualization/visualization.html?${params.toString()}`;
+function getTargetUrl(link, currentFrom) {
+    const separator = link.url.includes('?') ? '&' : '?';
+    return currentFrom ? `${link.url}${separator}from=${encodeURIComponent(currentFrom)}` : link.url;
 }
 
 async function generateDropdownMenu() {
-    const { isTablePage, pageKey, currentFrom } = getCurrentContext();
-    const currentPhase = EVENT_LINKS[pageKey]?.phase;
+    const { pageType, pageKey, currentFrom } = getCurrentContext();
+    const currentLink = EVENT_LINKS[pageKey];
+    const currentPhase = currentLink?.phase;
 
     if (!currentPhase) {
         return;
@@ -73,28 +63,24 @@ async function generateDropdownMenu() {
     const content = document.createElement('div');
     content.className = 'events-dropdown-content';
 
-    const linkPromises = Object.entries(EVENT_LINKS)
-        .filter(([id, info]) => {
-            const isTargetTable = id.includes('-table');
-            return id !== pageKey && info.phase === currentPhase && isTargetTable === isTablePage;
-        })
-        .map(async ([id, info]) => {
-            const targetId = id.replace('-table', '');
-            const pageUrl = getTargetUrl(targetId, isTablePage, currentFrom);
+    const linkPromises = Object.values(EVENT_LINKS)
+        .filter((link) => link.phase === currentPhase && link.pageType === pageType && link.baseId !== currentLink.baseId)
+        .map(async (link) => {
+            const pageUrl = getTargetUrl(link, currentFrom);
             const exists = await checkPageExists(pageUrl);
-            return { info, exists, pageUrl };
+            return { link, exists, pageUrl };
         });
 
     const results = await Promise.all(linkPromises);
 
-    results.forEach(({ info, exists, pageUrl }) => {
+    results.forEach(({ link, exists, pageUrl }) => {
         if (!exists) {
             return;
         }
-        const link = document.createElement('a');
-        link.href = pageUrl;
-        link.textContent = info.name;
-        content.appendChild(link);
+        const anchor = document.createElement('a');
+        anchor.href = pageUrl;
+        anchor.textContent = link.name;
+        content.appendChild(anchor);
     });
 
     if (!content.children.length) {
@@ -103,7 +89,7 @@ async function generateDropdownMenu() {
 
     dropdown.appendChild(content);
 
-    if (isTablePage) {
+    if (pageType === 'table') {
         document.querySelector('.dropdown')?.after(dropdown);
         return;
     }

@@ -8,7 +8,7 @@ export const CONFIG = {
         hasWelcomeSent: false
     },
     characters: {
-        showRounds: false
+        showRounds: false,
     },
     danmaku: {
         storageKey: 'danmakuSettings',

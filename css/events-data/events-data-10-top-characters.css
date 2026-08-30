@@ -73,6 +73,10 @@
     transform: translateY(-50%);
 }
 
+.votes-diff.tie {
+    color: #FFD700;
+}
+
 .status-info {
     display: flex;
     flex-direction: column;

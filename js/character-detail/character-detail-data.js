@@ -1,5 +1,6 @@
+import { loadCharacterDetails } from '../common/data-loader.js';
+
 const DATA_SOURCES = {
-    characters: 'data/characters/stats/characters-detail-data.json',
     rules: 'data/rules/rules.json',
     groups: 'data/groups/groups.json'
 };
@@ -12,7 +13,7 @@ async function fetchJson(url) {
 
 export async function loadCharacterDetailData(characterId) {
     const [charactersData, rulesData, groupsData] = await Promise.all([
-        fetchJson(DATA_SOURCES.characters),
+        loadCharacterDetails(),
         fetchJson(DATA_SOURCES.rules),
         fetchJson(DATA_SOURCES.groups)
     ]);

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/tables/preliminaries-table.css">
+    <title>预选赛表格 - ISML 2026 数据观测</title>
+</head>
+<body class="preliminaries-page">
+    <include src="templates/header.html"></include>
+    <div class="container">
+        <h1 id="pageTitle">预选赛表格</h1>
+        <div class="subtitle">点击表头可对数据进行排序</div>
+        <div class="subtitle" id="pageSubtitle"></div>
+        <div class="filter-container">
+            <div class="select-wrapper">
+                <select id="groupFilter" aria-label="按组别筛选">
+                    <option value="all">全部组别</option>
+                </select>
+            </div>
+            <div class="select-wrapper">
+                <select id="statusFilter" aria-label="按状态筛选">
+                    <option value="all">全部状态</option>
+                    <option value="promoted">已晋级</option>
+                    <option value="not-promoted">未晋级</option>
+                </select>
+            </div>
+            <input type="search" id="searchInput" placeholder="搜索角色或 IP..." class="search-input" aria-label="搜索角色或 IP">
+            <div id="votesRange" class="votes-range">
+                <input type="number" id="minVotes" placeholder="最小票数" class="vote-input" aria-label="最小票数">
+                <span class="range-separator">-</span>
+                <input type="number" id="maxVotes" placeholder="最大票数" class="vote-input" aria-label="最大票数">
+            </div>
+            <button id="resetBtn" class="reset-btn" type="button">恢复初始状态</button>
+        </div>
+        <div class="button-container">
+            <a href="javascript:history.back()" class="home-btn">返回上一页</a>
+            <a id="visualizationLink" class="visualization-btn">数据可视化</a>
+            <button id="downloadCsv" class="download-btn" type="button">下载 CSV</button>
+            <button id="downloadJson" class="download-btn" type="button">下载 JSON</button>
+        </div>
+        <div class="preliminaries-summary" id="summary"></div>
+        <template id="group-option-template">
+            <option></option>
+        </template>
+        <template id="preliminary-row-template">
+            <tr>
+                <td class="group"></td>
+                <td class="rank"></td>
+                <td class="name"></td>
+                <td class="avatar"><img width="50" loading="lazy" alt=""></td>
+                <td class="ip"></td>
+                <td class="cv"></td>
+                <td class="votes"></td>
+                <td class="status"></td>
+            </tr>
+        </template>
+        <table>
+            <thead>
+                <tr>
+                    <th data-sort="group">组别</th>
+                    <th data-sort="rank">组内排名</th>
+                    <th data-sort="name">角色</th>
+                    <th>头像</th>
+                    <th data-sort="ip">IP</th>
+                    <th data-sort="cv">CV</th>
+                    <th data-sort="votes">得票数</th>
+                    <th data-sort="isPromoted">状态</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <button class="back-to-top" id="backToTop" type="button" aria-label="返回顶部">↑</button>
+    </div>
+    <include src="templates/footer.html"></include>
+    <script type="module" src="js/common/template-loader.js"></script>
+    <script type="module" src="js/common/event-links.js"></script>
+    <script type="module" src="js/table/preliminaries-table.js"></script>
+</body>
+</html>

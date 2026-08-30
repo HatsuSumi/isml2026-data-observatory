@@ -1,0 +1,656 @@
+{
+    "date": "2026-07-27 - 2026-07-28",
+    "event": "预选赛第一轮-恒星组男性组别",
+    "data": [
+        {
+            "group": "男子1组",
+            "rank": 1,
+            "name": "鲁迪乌斯·格雷拉特",
+            "ip": "无职转生",
+            "votes": 1766,
+            "is_advanced": true,
+            "cv": "内山夕实",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 2,
+            "name": "石上优",
+            "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+            "votes": 1658,
+            "is_advanced": false,
+            "cv": "铃木崚汰",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 3,
+            "name": "乙骨忧太",
+            "ip": "咒术回战",
+            "votes": 1314,
+            "is_advanced": false,
+            "cv": "绪方惠美",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 4,
+            "name": "伊藤诚",
+            "ip": "School Days",
+            "votes": 984,
+            "is_advanced": false,
+            "cv": "平川大辅",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 5,
+            "name": "天马司",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+            "votes": 973,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 6,
+            "name": "枣恭介",
+            "ip": "Little Busters!",
+            "votes": 750,
+            "is_advanced": false,
+            "cv": "绿川光",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 7,
+            "name": "依田绚斗",
+            "ip": "薰香花朵凛然绽放",
+            "votes": 733,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 8,
+            "name": "菲利克斯·阿克·里迪尔",
+            "ip": "Silent Witch 沉默魔女的秘密",
+            "votes": 684,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子1组",
+            "rank": 9,
+            "name": "基洛斯·格拉纳多",
+            "ip": "破烂千金被姐姐的原婚约者溺爱着",
+            "votes": 584,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 1,
+            "name": "富冈义勇",
+            "ip": "鬼灭之刃",
+            "votes": 1558,
+            "is_advanced": true,
+            "cv": "樱井孝宏",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 2,
+            "name": "水柿司",
+            "ip": "可塑性记忆",
+            "votes": 1444,
+            "is_advanced": false,
+            "cv": "内匠靖明",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 3,
+            "name": "音无结弦",
+            "ip": "Angel Beats!",
+            "votes": 1175,
+            "is_advanced": false,
+            "cv": "神谷浩史",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 4,
+            "name": "户冢彩加",
+            "ip": "我的青春恋爱物语果然有问题。",
+            "votes": 1152,
+            "is_advanced": false,
+            "cv": "小松未可子",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 5,
+            "name": "杰诺斯",
+            "ip": "一拳超人",
+            "votes": 1029,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 6,
+            "name": "野原广志",
+            "ip": "蜡笔小新",
+            "votes": 993,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 7,
+            "name": "一条乐",
+            "ip": "伪恋",
+            "votes": 900,
+            "is_advanced": false,
+            "cv": "内山昂辉",
+            "avatar": ""
+        },
+        {
+            "group": "男子2组",
+            "rank": 8,
+            "name": "米拉",
+            "ip": "魔法少女与邪恶曾经敌对。",
+            "votes": 661,
+            "is_advanced": false,
+            "cv": "小野友树",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 1,
+            "name": "温水和彦",
+            "ip": "败犬女主太多了！",
+            "votes": 1596,
+            "is_advanced": true,
+            "cv": "梅田修一朗",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 2,
+            "name": "吉尔伽美什",
+            "ip": "Fate系列",
+            "votes": 1409,
+            "is_advanced": false,
+            "cv": "关智一",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 3,
+            "name": "金木研",
+            "ip": "东京食尸鬼",
+            "votes": 1370,
+            "is_advanced": false,
+            "cv": "花江夏树",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 4,
+            "name": "福部里志",
+            "ip": "冰菓",
+            "votes": 1026,
+            "is_advanced": false,
+            "cv": "阪口大助",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 5,
+            "name": "名取周一",
+            "ip": "夏目友人帐",
+            "votes": 1009,
+            "is_advanced": false,
+            "cv": "石田彰",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 6,
+            "name": "鹰原羽依里",
+            "ip": "Summer Pockets",
+            "votes": 860,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 7,
+            "name": "内卷昴",
+            "ip": "这个美术社大有问题！",
+            "votes": 842,
+            "is_advanced": false,
+            "cv": "小林裕介",
+            "avatar": ""
+        },
+        {
+            "group": "男子3组",
+            "rank": 8,
+            "name": "千岁朔",
+            "ip": "弹珠汽水瓶里的千岁同学",
+            "votes": 762,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 1,
+            "name": "桐谷和人",
+            "ip": "刀剑神域",
+            "votes": 1591,
+            "is_advanced": true,
+            "cv": "松冈祯丞",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 2,
+            "name": "波风水门",
+            "ip": "火影忍者",
+            "votes": 1527,
+            "is_advanced": false,
+            "cv": "森川智之",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 3,
+            "name": "始皇帝",
+            "ip": "终末的女武神",
+            "votes": 1257,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 4,
+            "name": "浅村悠太",
+            "ip": "义妹生活",
+            "votes": 1245,
+            "is_advanced": false,
+            "cv": "天崎滉平",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 5,
+            "name": "安艺伦也",
+            "ip": "路人女主的养成方法",
+            "votes": 1075,
+            "is_advanced": false,
+            "cv": "松冈祯丞",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 6,
+            "name": "大卫·马丁内斯",
+            "ip": "赛博朋克 边缘行者",
+            "votes": 1015,
+            "is_advanced": false,
+            "cv": "KENN",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 7,
+            "name": "特斯卡特利波卡",
+            "ip": "Fate系列",
+            "votes": 798,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子4组",
+            "rank": 8,
+            "name": "来堂章太",
+            "ip": "测不准的阿波连同学",
+            "votes": 700,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 1,
+            "name": "灶门炭治郎",
+            "ip": "鬼灭之刃",
+            "votes": 1602,
+            "is_advanced": true,
+            "cv": "花江夏树",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 2,
+            "name": "空条承太郎",
+            "ip": "JoJo的奇妙冒险",
+            "votes": 1550,
+            "is_advanced": false,
+            "cv": "小野大辅",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 3,
+            "name": "宇智波斑",
+            "ip": "火影忍者",
+            "votes": 1370,
+            "is_advanced": false,
+            "cv": "内田直哉",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 4,
+            "name": "网代慎平",
+            "ip": "夏日重现",
+            "votes": 1340,
+            "is_advanced": false,
+            "cv": "花江夏树",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 5,
+            "name": "炼狱杏寿郎",
+            "ip": "鬼灭之刃",
+            "votes": 1245,
+            "is_advanced": false,
+            "cv": "日野聪",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 6,
+            "name": "夏泽朔",
+            "ip": "薰香花朵凛然绽放",
+            "votes": 941,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 7,
+            "name": "KING",
+            "ip": "一拳超人",
+            "votes": 869,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子5组",
+            "rank": 8,
+            "name": "的场静司",
+            "ip": "夏目友人帐",
+            "votes": 828,
+            "is_advanced": false,
+            "cv": "诹访部顺一",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 1,
+            "name": "乔瑟夫·乔斯达",
+            "ip": "JoJo的奇妙冒险",
+            "votes": 1316,
+            "is_advanced": true,
+            "cv": "杉田智和",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 2,
+            "name": "基尔伯特·布甘比利亚",
+            "ip": "紫罗兰永恒花园",
+            "votes": 1313,
+            "is_advanced": false,
+            "cv": "浪川大辅",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 3,
+            "name": "镜音连",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+            "votes": 1284,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 4,
+            "name": "冈崎朋也",
+            "ip": "CLANNAD",
+            "votes": 1258,
+            "is_advanced": false,
+            "cv": "中村悠一",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 5,
+            "name": "电次",
+            "ip": "电锯人",
+            "votes": 1219,
+            "is_advanced": false,
+            "cv": "户谷菊之介",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 6,
+            "name": "夏油杰",
+            "ip": "咒术回战",
+            "votes": 984,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 7,
+            "name": "樱满集",
+            "ip": "罪恶王冠",
+            "votes": 926,
+            "is_advanced": false,
+            "cv": "梶裕贵",
+            "avatar": ""
+        },
+        {
+            "group": "男子6组",
+            "rank": 8,
+            "name": "鲁邦三世",
+            "ip": "鲁邦三世",
+            "votes": 898,
+            "is_advanced": false,
+            "cv": "栗田贯一",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 1,
+            "name": "渚薰",
+            "ip": "新世纪福音战士",
+            "votes": 1537,
+            "is_advanced": true,
+            "cv": "石田彰",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 2,
+            "name": "太宰治",
+            "ip": "文豪野犬",
+            "votes": 1335,
+            "is_advanced": false,
+            "cv": "宫野真守",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 3,
+            "name": "大路饼藏",
+            "ip": "玉子市场",
+            "votes": 1254,
+            "is_advanced": false,
+            "cv": "田丸笃志",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 4,
+            "name": "五条新菜",
+            "ip": "更衣人偶坠入爱河",
+            "votes": 1156,
+            "is_advanced": false,
+            "cv": "石毛翔弥",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 5,
+            "name": "市川京太郎",
+            "ip": "我心里危险的东西",
+            "votes": 1038,
+            "is_advanced": false,
+            "cv": "堀江瞬",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 6,
+            "name": "北原伊织",
+            "ip": "碧蓝之海",
+            "votes": 936,
+            "is_advanced": false,
+            "cv": "内田雄马",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 7,
+            "name": "爱城恋太郎",
+            "ip": "超超超超超喜欢你的100个女朋友",
+            "votes": 921,
+            "is_advanced": false,
+            "cv": "加藤涉",
+            "avatar": ""
+        },
+        {
+            "group": "男子7组",
+            "rank": 8,
+            "name": "姚麟",
+            "ip": "钢之炼金术师",
+            "votes": 709,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 1,
+            "name": "夜神月",
+            "ip": "死亡笔记",
+            "votes": 1824,
+            "is_advanced": true,
+            "cv": "宫野真守",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 2,
+            "name": "L Lawliet",
+            "ip": "死亡笔记",
+            "votes": 1658,
+            "is_advanced": false,
+            "cv": "山口胜平",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 3,
+            "name": "蒙奇·D·路飞",
+            "ip": "海贼王",
+            "votes": 1556,
+            "is_advanced": false,
+            "cv": "田中真弓",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 4,
+            "name": "辛耶·诺赞",
+            "ip": "86 -不存在的战区-",
+            "votes": 1091,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 5,
+            "name": "明浦路司",
+            "ip": "金牌得主",
+            "votes": 972,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 6,
+            "name": "壬氏",
+            "ip": "药屋少女的呢喃",
+            "votes": 885,
+            "is_advanced": false,
+            "cv": "樱井孝宏",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 7,
+            "name": "安昙小太郎",
+            "ip": "月色真美",
+            "votes": 810,
+            "is_advanced": false,
+            "cv": "千叶翔也",
+            "avatar": ""
+        },
+        {
+            "group": "男子8组",
+            "rank": 8,
+            "name": "宇佐美翔平",
+            "ip": "薰香花朵凛然绽放",
+            "votes": 775,
+            "is_advanced": false,
+            "cv": "",
+            "avatar": ""
+        }
+    ]
+}

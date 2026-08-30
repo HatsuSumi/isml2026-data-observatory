@@ -1,5 +1,8 @@
-import { NOMINATION_TABLE_CONFIGS } from '../table/nomination-table-config.js';
-import { normalizeNominationVisualizationRows } from '../table/nomination-data.js';
+import { loadEventData } from '../common/data-loader.js';
+import { getVisualizationStrategy } from './visualization-strategies.js';
+import { getChartStrategy } from './visualization-chart-strategies.js';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     initVisualization().catch((error) => {
@@ -38,11 +41,13 @@ async function initVisualization() {
 
     updateTableLink(matchConfig);
     const rawData = await fetchJson(matchConfig.links.data);
-    const data = normalizeVisualizationData(rawData, mode, id);
+    const strategy = getVisualizationStrategy(id);
+    const data = strategy.normalize(rawData, mode);
+
 
     renderTitle(data, matchConfig, mode);
     updateLegendState(mode);
-    const chart = renderChart(data, mode);
+    const chart = renderChart(data, mode, getChartStrategy(matchConfig.chartType || matchConfig.visualization?.chartType));
     bindSizeControls(chart);
     bindButtonEffects();
     bindCustomLegend(id, mode);
@@ -53,7 +58,7 @@ function normalizeMode(mode) {
 }
 
 async function getVisualizationConfig(visualizationId) {
-    const eventsDataConfig = await fetchJson('data/config/events-data.json');
+    const eventsDataConfig = await loadEventData();
     const eventsConfig = eventsDataConfig.events || eventsDataConfig;
     for (const month of Object.values(eventsConfig.months || {})) {
         for (const event of month.events || []) {
@@ -81,38 +86,6 @@ async function fetchJson(path) {
     const response = await fetch(path, { cache: 'no-store' });
     if (!response.ok) throw new Error(`数据加载失败：${path}`);
     return response.json();
-}
-
-function normalizeVisualizationData(rawData, mode, visualizationId) {
-    const nominationConfig = NOMINATION_TABLE_CONFIGS[visualizationId];
-    const sourceRows = nominationConfig
-        ? normalizeNominationVisualizationRows(nominationConfig, rawData)
-        : (Array.isArray(rawData.data) ? rawData.data : [])
-            .map((item) => ({
-                ...item,
-                votes: Number(item.votes),
-                isPromoted: item.is_advanced === true
-            }))
-            .filter((item) => Number.isFinite(item.votes) && item.votes > 0)
-            .sort((a, b) => (a.rank !== b.rank ? a.rank - b.rank : b.votes - a.votes));
-    const rows = nominationConfig && mode !== 'main'
-        ? sourceRows.filter((item) => (mode === 'advance' ? item.isPromoted : !item.isPromoted))
-        : sourceRows;
-
-    return {
-        date: rawData.date || '',
-        event: rawData.event || '',
-        labels: rows.map((item) => `${item.name}（${item.ip}）`).reverse(),
-        ranks: rows.map((item) => String(item.rank)).reverse(),
-        advanceData: rows.map((item) => {
-            const isAdvanced = item.isPromoted;
-            return !isAdvanced || mode === 'eliminate' ? null : item.votes;
-        }).reverse(),
-        eliminateData: rows.map((item) => {
-            const isAdvanced = item.isPromoted;
-            return isAdvanced || mode === 'advance' ? null : item.votes;
-        }).reverse()
-    };
 }
 
 function appendQueryParam(url, key, value) {
@@ -208,13 +181,13 @@ function updateLegendState(mode) {
     }
 }
 
-function renderChart(data, mode) {
+function renderChart(data, mode, chartStrategy) {
     const chartElement = document.getElementById('vote_chart');
     applyChartSize(DEFAULT_SIZE);
 
     const chart = echarts.init(chartElement, RENDER_CONFIG.theme, { renderer: RENDER_CONFIG.renderer });
-    const option = buildChartOption(data, mode);
-    option.grid = RENDER_CONFIG.grid;
+    const option = chartStrategy.buildOption(data, mode);
+    if (chartStrategy === getChartStrategy('bar')) option.grid = RENDER_CONFIG.grid;
     chart.setOption(option);
     chart.resize(DEFAULT_SIZE);
     window.chart_vote_chart = chart;

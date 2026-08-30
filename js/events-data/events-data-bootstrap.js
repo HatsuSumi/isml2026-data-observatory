@@ -1,3 +1,4 @@
+import { loadEventData } from '../common/data-loader.js';
 import { smoothScrollTo } from '../common/dom.js';
 import { RETURN_FROM_KEY, SCROLL_POSITION_KEY, templates } from './events-data-config.js';
 import { findNextEventStartTime, getCurrentPhase } from './events-data-status.js';
@@ -12,9 +13,7 @@ import { createMonthSection } from './events-data-sections.js';
 import { getDocumentTop, restoreSavedPosition, scrollToHash, setupScrollTracking } from './events-data-scroll.js';
 
 async function loadEventsData() {
-    const response = await fetch('data/config/events-data.json');
-    if (!response.ok) throw new Error(`赛事数据加载失败: ${response.status}`);
-    const data = await response.json();
+    const data = await loadEventData();
     return {
         data: data.events,
         rankingData: data.rankings,

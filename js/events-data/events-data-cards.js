@@ -34,7 +34,9 @@ export function createTopCharacterItem(templates, item, index, topFiveData, char
     row.querySelector('.votes').textContent = `${item.votes}票`;
 
     if (index > 0) {
-        diff.textContent = `↓${topFiveData[index - 1].votes - item.votes}`;
+        const voteDiff = topFiveData[index - 1].votes - item.votes;
+        diff.textContent = voteDiff === 0 ? '=0' : `↓${voteDiff}`;
+        diff.classList.toggle('tie', voteDiff === 0);
     } else {
         diff.hidden = true;
     }

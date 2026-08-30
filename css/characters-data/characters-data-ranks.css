@@ -108,12 +108,16 @@
 .rank-title[data-rank="128"] { background: linear-gradient(45deg, #000031, #35004F); }
 .rank-title[data-rank="136"] { background: linear-gradient(45deg, #000021, #4F003F); }
 
-/* 144-176强 - 深紫到深红渐变 */
+/* 144-208强 - 深紫到深红渐变 */
 .rank-title[data-rank="144"] { background: linear-gradient(45deg, #000011, #69002F); }
 .rank-title[data-rank="152"] { background: linear-gradient(45deg, #000008, #83001F); }
 .rank-title[data-rank="160"] { background: linear-gradient(45deg, #000004, #9D000F); }
 .rank-title[data-rank="168"] { background: linear-gradient(45deg, #000002, #B70000); }
 .rank-title[data-rank="176"] { background: linear-gradient(45deg, #000000, #D10000); }
+.rank-title[data-rank="184"] { background: linear-gradient(45deg, #000000, #E00000); }
+.rank-title[data-rank="192"] { background: linear-gradient(45deg, #000000, #EF0000); }
+.rank-title[data-rank="200"] { background: linear-gradient(45deg, #000000, #FF0000); }
+.rank-title[data-rank="208"] { background: linear-gradient(45deg, #000000, #FF1A1A); }
 
 .character-cards {
     display: grid;

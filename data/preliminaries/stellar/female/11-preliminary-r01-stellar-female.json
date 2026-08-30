@@ -1,0 +1,646 @@
+{
+    "date": "2026-07-27 - 2026-07-28",
+    "event": "预选赛第一轮-恒星组女性组别",
+    "data": [
+        {
+            "group": "女子1组",
+            "rank": 1,
+            "name": "白",
+            "ip": "NO GAME NO LIFE 游戏人生",
+            "votes": 2393,
+            "is_advanced": true,
+            "cv": "茅野爱衣",
+            "avatar": "https://pic1.imgdb.cn/item/67396180d29ded1a8c468667.png"
+        },
+        {
+            "group": "女子1组",
+            "rank": 2,
+            "name": "星野爱",
+            "ip": "【我推的孩子】",
+            "votes": 1621,
+            "is_advanced": false,
+            "cv": "高桥李依",
+            "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png"
+        },
+        {
+            "group": "女子1组",
+            "rank": 3,
+            "name": "拉姆",
+            "ip": "Re:从零开始的异世界生活",
+            "votes": 1523,
+            "is_advanced": false,
+            "cv": "村川梨衣",
+            "avatar": ""
+        },
+        {
+            "group": "女子1组",
+            "rank": 4,
+            "name": "和栗薰子",
+            "ip": "薰香花朵凛然绽放",
+            "votes": 1514,
+            "is_advanced": false,
+            "cv": "井上穗乃花",
+            "avatar": ""
+        },
+        {
+            "group": "女子1组",
+            "rank": 5,
+            "name": "梓川枫",
+            "ip": "青春猪头少年系列",
+            "votes": 1170,
+            "is_advanced": false,
+            "cv": "久保由利香",
+            "avatar": "https://pic1.imgdb.cn/item/6785d8b2d0e0a243d4f411e0.png"
+        },
+        {
+            "group": "女子1组",
+            "rank": 6,
+            "name": "凸守早苗",
+            "ip": "中二病也要谈恋爱！",
+            "votes": 1145,
+            "is_advanced": false,
+            "cv": "上坂堇",
+            "avatar": ""
+        },
+        {
+            "group": "女子1组",
+            "rank": 7,
+            "name": "赛丽艾",
+            "ip": "葬送的芙莉莲",
+            "votes": 876,
+            "is_advanced": false,
+            "cv": "伊濑茉莉也",
+            "avatar": ""
+        },
+        {
+            "group": "女子1组",
+            "rank": 8,
+            "name": "白鸟爱罗",
+            "ip": "胆大党",
+            "votes": 738,
+            "is_advanced": false,
+            "cv": "佐仓绫音",
+            "avatar": ""
+        },
+        {
+            "group": "女子2组",
+            "rank": 1,
+            "name": "樱岛麻衣",
+            "ip": "青春猪头少年系列",
+            "votes": 2130,
+            "is_advanced": true,
+            "cv": "濑户麻沙美",
+            "avatar": "https://pic1.imgdb.cn/item/673967ddd29ded1a8c4ad8fb.png"
+        },
+        {
+            "group": "女子2组",
+            "rank": 2,
+            "name": "高町奈叶",
+            "ip": "魔法少女奈叶",
+            "votes": 1559,
+            "is_advanced": false,
+            "cv": "田村由香里",
+            "avatar": ""
+        },
+        {
+            "group": "女子2组",
+            "rank": 3,
+            "name": "平泽忧",
+            "ip": "轻音少女",
+            "votes": 1415,
+            "is_advanced": false,
+            "cv": "米泽圆",
+            "avatar": "https://pic1.imgdb.cn/item/69f329eef97149b1cf36fe1b.png"
+        },
+        {
+            "group": "女子2组",
+            "rank": 4,
+            "name": "牧濑红莉栖",
+            "ip": "命运石之门",
+            "votes": 1339,
+            "is_advanced": false,
+            "cv": "今井麻美",
+            "avatar": "https://pic1.imgdb.cn/item/67395e28d29ded1a8c43f6d9.png"
+        },
+        {
+            "group": "女子2组",
+            "rank": 5,
+            "name": "宵崎奏",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+            "votes": 1056,
+            "is_advanced": false,
+            "cv": "楠木灯",
+            "avatar": ""
+        },
+        {
+            "group": "女子2组",
+            "rank": 6,
+            "name": "烧盐柠檬",
+            "ip": "败犬女主太多了！",
+            "votes": 935,
+            "is_advanced": false,
+            "cv": "若山诗音",
+            "avatar": ""
+        },
+        {
+            "group": "女子2组",
+            "rank": 7,
+            "name": "尤贝尔",
+            "ip": "葬送的芙莉莲",
+            "votes": 934,
+            "is_advanced": false,
+            "cv": "长谷川育美",
+            "avatar": ""
+        },
+        {
+            "group": "女子2组",
+            "rank": 8,
+            "name": "斯嘉丽·艾尔·范迪米昂",
+            "ip": "最后可以再拜托您一件事吗？",
+            "votes": 634,
+            "is_advanced": false,
+            "cv": "濑户麻沙美",
+            "avatar": ""
+        },
+        {
+            "group": "女子3组",
+            "rank": 1,
+            "name": "长崎爽世",
+            "ip": "BanG Dream!",
+            "votes": 2325,
+            "is_advanced": true,
+            "cv": "小日向美香",
+            "avatar": "https://pic1.imgdb.cn/item/6785d850d0e0a243d4f411cc.png"
+        },
+        {
+            "group": "女子3组",
+            "rank": 2,
+            "name": "北白川玉子",
+            "ip": "玉子市场",
+            "votes": 1718,
+            "is_advanced": false,
+            "cv": "洲崎绫",
+            "avatar": "https://pic1.imgdb.cn/item/67396817d29ded1a8c4afe96.png"
+        },
+        {
+            "group": "女子3组",
+            "rank": 3,
+            "name": "中野二乃",
+            "ip": "五等分的新娘",
+            "votes": 1416,
+            "is_advanced": false,
+            "cv": "竹达彩奈",
+            "avatar": "https://pic1.imgdb.cn/item/6744343188c538a9b5bb9e21.png"
+        },
+        {
+            "group": "女子3组",
+            "rank": 4,
+            "name": "东海帝王",
+            "ip": "赛马娘 Pretty Derby",
+            "votes": 1388,
+            "is_advanced": false,
+            "cv": "Machico",
+            "avatar": "https://pic1.imgdb.cn/item/67419ca3d29ded1a8ce4ecc8.png"
+        },
+        {
+            "group": "女子3组",
+            "rank": 5,
+            "name": "柊舞缇娜",
+            "ip": "憧憬成为魔法少女",
+            "votes": 1234,
+            "is_advanced": false,
+            "cv": "和泉风花",
+            "avatar": ""
+        },
+        {
+            "group": "女子3组",
+            "rank": 6,
+            "name": "山田杏奈",
+            "ip": "我心里危险的东西",
+            "votes": 968,
+            "is_advanced": false,
+            "cv": "羊宫妃那",
+            "avatar": ""
+        },
+        {
+            "group": "女子3组",
+            "rank": 7,
+            "name": "纯田真奈",
+            "ip": "BanG Dream!",
+            "votes": 940,
+            "is_advanced": false,
+            "cv": "反田叶月",
+            "avatar": ""
+        },
+        {
+            "group": "女子3组",
+            "rank": 8,
+            "name": "艾莉西亚·格伦费尔",
+            "ip": "克雷瓦提斯-魔兽之王与婴儿与尸之勇者-",
+            "votes": 607,
+            "is_advanced": false,
+            "cv": "白石晴香",
+            "avatar": ""
+        },
+        {
+            "group": "女子4组",
+            "rank": 1,
+            "name": "友利奈绪",
+            "ip": "Charlotte",
+            "votes": 2799,
+            "is_advanced": true,
+            "cv": "佐仓绫音",
+            "avatar": "https://pic1.imgdb.cn/item/67396124d29ded1a8c46467d.png"
+        },
+        {
+            "group": "女子4组",
+            "rank": 2,
+            "name": "阿尼亚·福杰",
+            "ip": "间谍过家家",
+            "votes": 1670,
+            "is_advanced": false,
+            "cv": "种崎敦美",
+            "avatar": "https://pic1.imgdb.cn/item/677fba37d0e0a243d4f2c800.png"
+        },
+        {
+            "group": "女子4组",
+            "rank": 3,
+            "name": "五河琴里",
+            "ip": "约会大作战",
+            "votes": 1324,
+            "is_advanced": false,
+            "cv": "竹达彩奈",
+            "avatar": "https://pic1.imgdb.cn/item/673be110d29ded1a8c2750be.png"
+        },
+        {
+            "group": "女子4组",
+            "rank": 4,
+            "name": "中野五月",
+            "ip": "五等分的新娘",
+            "votes": 1313,
+            "is_advanced": false,
+            "cv": "水濑祈",
+            "avatar": "https://pic1.imgdb.cn/item/677fbcc8d0e0a243d4f2c900.png"
+        },
+        {
+            "group": "女子4组",
+            "rank": 5,
+            "name": "丹生谷森夏",
+            "ip": "中二病也要谈恋爱！",
+            "votes": 1169,
+            "is_advanced": false,
+            "cv": "赤崎千夏",
+            "avatar": ""
+        },
+        {
+            "group": "女子4组",
+            "rank": 6,
+            "name": "古贺朋绘",
+            "ip": "青春猪头少年系列",
+            "votes": 928,
+            "is_advanced": false,
+            "cv": "东山奈央",
+            "avatar": ""
+        },
+        {
+            "group": "女子4组",
+            "rank": 7,
+            "name": "七仓凛",
+            "ip": "疑似后宫",
+            "votes": 705,
+            "is_advanced": false,
+            "cv": "早见沙织",
+            "avatar": ""
+        },
+        {
+            "group": "女子4组",
+            "rank": 8,
+            "name": "广濑夏子",
+            "ip": "全修。",
+            "votes": 661,
+            "is_advanced": false,
+            "cv": "永濑安奈",
+            "avatar": ""
+        },
+        {
+            "group": "女子5组",
+            "rank": 1,
+            "name": "安和昴",
+            "ip": "少女乐队的呐喊",
+            "votes": 1666,
+            "is_advanced": true,
+            "cv": "美怜",
+            "avatar": "https://pic1.imgdb.cn/item/69f3294af97149b1cf36fc1d.png"
+        },
+        {
+            "group": "女子5组",
+            "rank": 2,
+            "name": "椎名真白",
+            "ip": "樱花庄的宠物女孩",
+            "votes": 1474,
+            "is_advanced": false,
+            "cv": "茅野爱衣",
+            "avatar": "https://pic1.imgdb.cn/item/67396804d29ded1a8c4af1d3.png"
+        },
+        {
+            "group": "女子5组",
+            "rank": 3,
+            "name": "托尔",
+            "ip": "小林家的龙女仆",
+            "votes": 1405,
+            "is_advanced": false,
+            "cv": "桑原由气",
+            "avatar": "https://pic1.imgdb.cn/item/6785dc2ed0e0a243d4f412fc.png"
+        },
+        {
+            "group": "女子5组",
+            "rank": 4,
+            "name": "逢坂大河",
+            "ip": "龙与虎",
+            "votes": 1370,
+            "is_advanced": false,
+            "cv": "钉宫理惠",
+            "avatar": "https://pic1.imgdb.cn/item/6742aa2888c538a9b5bb4148.png"
+        },
+        {
+            "group": "女子5组",
+            "rank": 5,
+            "name": "艾莉莎·米哈伊罗夫纳·九条",
+            "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
+            "votes": 1224,
+            "is_advanced": false,
+            "cv": "上坂堇",
+            "avatar": ""
+        },
+        {
+            "group": "女子5组",
+            "rank": 6,
+            "name": "恩奇都",
+            "ip": "Fate系列",
+            "votes": 1172,
+            "is_advanced": false,
+            "cv": "高桥伸也",
+            "avatar": ""
+        },
+        {
+            "group": "女子5组",
+            "rank": 7,
+            "name": "黑川茜",
+            "ip": "【我推的孩子】",
+            "votes": 1121,
+            "is_advanced": false,
+            "cv": "石见舞菜香",
+            "avatar": ""
+        },
+        {
+            "group": "女子5组",
+            "rank": 8,
+            "name": "希露菲叶特·格雷拉特",
+            "ip": "无职转生",
+            "votes": 1104,
+            "is_advanced": false,
+            "cv": "茅野爱衣",
+            "avatar": ""
+        },
+        {
+            "group": "女子6组",
+            "rank": 1,
+            "name": "小鸟游六花",
+            "ip": "中二病也要谈恋爱！",
+            "votes": 2516,
+            "is_advanced": true,
+            "cv": "内田真礼",
+            "avatar": "https://pic1.imgdb.cn/item/67357455d29ded1a8c343203.png"
+        },
+        {
+            "group": "女子6组",
+            "rank": 2,
+            "name": "七宫智音",
+            "ip": "中二病也要谈恋爱！",
+            "votes": 1264,
+            "is_advanced": false,
+            "cv": "长妻树里",
+            "avatar": ""
+        },
+        {
+            "group": "女子6组",
+            "rank": 3,
+            "name": "河原木桃香",
+            "ip": "少女乐队的呐喊",
+            "votes": 1261,
+            "is_advanced": false,
+            "cv": "夕莉",
+            "avatar": ""
+        },
+        {
+            "group": "女子6组",
+            "rank": 4,
+            "name": "艾莉丝·伯雷亚斯·格雷拉特",
+            "ip": "无职转生",
+            "votes": 1217,
+            "is_advanced": false,
+            "cv": "加隈亚衣",
+            "avatar": "https://pic1.imgdb.cn/item/67413890d29ded1a8c81b570.png"
+        },
+        {
+            "group": "女子6组",
+            "rank": 5,
+            "name": "唐可可",
+            "ip": "LoveLive!系列",
+            "votes": 1168,
+            "is_advanced": false,
+            "cv": "Liyuu",
+            "avatar": ""
+        },
+        {
+            "group": "女子6组",
+            "rank": 6,
+            "name": "玛利亚·米哈伊罗夫纳·九条",
+            "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
+            "votes": 1006,
+            "is_advanced": false,
+            "cv": "藤井幸代",
+            "avatar": ""
+        },
+        {
+            "group": "女子6组",
+            "rank": 7,
+            "name": "桃井爱莉",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+            "votes": 1005,
+            "is_advanced": false,
+            "cv": "降幡爱",
+            "avatar": ""
+        },
+        {
+            "group": "女子6组",
+            "rank": 8,
+            "name": "绫濑星子",
+            "ip": "胆大党",
+            "votes": 754,
+            "is_advanced": false,
+            "cv": "水树奈奈",
+            "avatar": ""
+        },
+        {
+            "group": "女子7组",
+            "rank": 1,
+            "name": "四宫辉夜",
+            "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+            "votes": 2361,
+            "is_advanced": true,
+            "cv": "古贺葵",
+            "avatar": "https://pic1.imgdb.cn/item/6739b53ed29ded1a8c8aae29.png"
+        },
+        {
+            "group": "女子7组",
+            "rank": 2,
+            "name": "泉此方",
+            "ip": "幸运☆星",
+            "votes": 1600,
+            "is_advanced": false,
+            "cv": "平野绫",
+            "avatar": "https://pic1.imgdb.cn/item/674138ded29ded1a8c82004e.png"
+        },
+        {
+            "group": "女子7组",
+            "rank": 3,
+            "name": "阿库娅",
+            "ip": "为美好的世界献上祝福！",
+            "votes": 1409,
+            "is_advanced": false,
+            "cv": "雨宫天",
+            "avatar": "https://pic1.imgdb.cn/item/674138f4d29ded1a8c82126e.png"
+        },
+        {
+            "group": "女子7组",
+            "rank": 4,
+            "name": "高木",
+            "ip": "擅长捉弄的高木同学",
+            "votes": 1375,
+            "is_advanced": false,
+            "cv": "高桥李依",
+            "avatar": "https://pic1.imgdb.cn/item/67411d35d29ded1a8c6a5568.png"
+        },
+        {
+            "group": "女子7组",
+            "rank": 5,
+            "name": "凉宫春日",
+            "ip": "凉宫春日的忧郁",
+            "votes": 1329,
+            "is_advanced": false,
+            "cv": "平野绫",
+            "avatar": "https://pic1.imgdb.cn/item/67418d25d29ded1a8cd84d64.png"
+        },
+        {
+            "group": "女子7组",
+            "rank": 6,
+            "name": "莫妮卡·艾瓦雷特",
+            "ip": "Silent Witch 沉默魔女的秘密",
+            "votes": 811,
+            "is_advanced": false,
+            "cv": "会泽纱弥",
+            "avatar": ""
+        },
+        {
+            "group": "女子7组",
+            "rank": 7,
+            "name": "蝶野雏",
+            "ip": "青之箱",
+            "votes": 748,
+            "is_advanced": false,
+            "cv": "鬼头明里",
+            "avatar": ""
+        },
+        {
+            "group": "女子7组",
+            "rank": 8,
+            "name": "紫云寺讴华",
+            "ip": "紫云寺家的兄弟姐妹",
+            "votes": 673,
+            "is_advanced": false,
+            "cv": "高桥李依",
+            "avatar": ""
+        },
+        {
+            "group": "女子8组",
+            "rank": 1,
+            "name": "山田凉",
+            "ip": "孤独摇滚！",
+            "votes": 2167,
+            "is_advanced": true,
+            "cv": "水野朔",
+            "avatar": "https://pic1.imgdb.cn/item/67396860d29ded1a8c4b2e6b.png"
+        },
+        {
+            "group": "女子8组",
+            "rank": 2,
+            "name": "艾拉",
+            "ip": "可塑性记忆",
+            "votes": 1859,
+            "is_advanced": false,
+            "cv": "雨宫天",
+            "avatar": "https://pic1.imgdb.cn/item/673961bad29ded1a8c46ac2a.png"
+        },
+        {
+            "group": "女子8组",
+            "rank": 3,
+            "name": "天野阳菜",
+            "ip": "天气之子",
+            "votes": 1337,
+            "is_advanced": false,
+            "cv": "森七菜",
+            "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png"
+        },
+        {
+            "group": "女子8组",
+            "rank": 4,
+            "name": "锦木千束",
+            "ip": "莉可丽丝",
+            "votes": 1281,
+            "is_advanced": false,
+            "cv": "安济知佳",
+            "avatar": "https://pic1.imgdb.cn/item/6742b0d888c538a9b5bb4231.png"
+        },
+        {
+            "group": "女子8组",
+            "rank": 5,
+            "name": "绫濑沙季",
+            "ip": "义妹生活",
+            "votes": 1232,
+            "is_advanced": false,
+            "cv": "中岛由贵",
+            "avatar": ""
+        },
+        {
+            "group": "女子8组",
+            "rank": 6,
+            "name": "菲特·泰斯塔罗沙·哈洛温",
+            "ip": "魔法少女奈叶",
+            "votes": 1204,
+            "is_advanced": false,
+            "cv": "水树奈奈",
+            "avatar": ""
+        },
+        {
+            "group": "女子8组",
+            "rank": 7,
+            "name": "夏目玲子",
+            "ip": "夏目友人帐",
+            "votes": 1048,
+            "is_advanced": false,
+            "cv": "小林沙苗",
+            "avatar": ""
+        },
+        {
+            "group": "女子8组",
+            "rank": 8,
+            "name": "优木雪菜",
+            "ip": "LoveLive!系列",
+            "votes": 1025,
+            "is_advanced": false,
+            "cv": "林鼓子",
+            "avatar": ""
+        }
+    ]
+}

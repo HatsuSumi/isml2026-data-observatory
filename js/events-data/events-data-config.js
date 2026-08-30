@@ -25,7 +25,7 @@ export const NAVIGATION_GROUPS = [
             { target: 'nova-nomination', label: '新星组提名' }
         ]
     },
-    { target: 'preliminary', label: '预选赛阶段', roundPrefix: 'preliminary-', roundLabel: '预选赛第', rounds: 6 },
+    { target: 'preliminary', label: '预选赛阶段', roundPrefix: 'preliminary-', roundLabel: '预选赛第', rounds: 8 },
     { target: 'phase-1', label: '第一阶段', roundPrefix: 'phase-1-', roundLabel: '第', rounds: 6 },
     { target: 'phase-2', label: '第二阶段', roundPrefix: 'phase-2-', roundLabel: '第', rounds: 6 },
     { target: 'phase-3', label: '第三阶段', roundPrefix: 'phase-3-', roundLabel: '第', rounds: 6 },

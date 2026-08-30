@@ -1,18 +1,18 @@
 {
     "months": {
         "2024-12": {
-            "title": "2024年12月",
+            "title": "2026年7月",
             "events": [
                 {
                     "dateRange": {
-                        "start": "2024-12-31 20:00:00",
-                        "end": "2025-01-07 19:59:59",
-                        "result": "2025-01-13"
+                        "start": "2026-07-12 20:00:00",
+                        "end": "2026-07-19 19:59:59",
+                        "result": "2026-07-25"
                     },
                     "stats": {
                         "votes": {
-                            "total": 1357,
-                            "valid": 669
+                            "total": 1092,
+                            "valid": 784
                         }
                     },
                     "matches": [
@@ -22,7 +22,7 @@
                             "phase": "主赛事提名阶段",
                             "details": {
                                 "qualified": {
-                                    "description": "前92名晋级至主赛事恒星组预选赛阶段"
+                                    "description": "前57名晋级至主赛事恒星组预选赛阶段"
                                 }
                             },
                             "links": {
@@ -37,7 +37,7 @@
                             "phase": "主赛事提名阶段",
                             "details": {
                                 "qualified": {
-                                    "description": "前99名晋级至主赛事恒星组预选赛阶段"
+                                    "description": "前65名晋级至主赛事恒星组预选赛阶段"
                                 }
                             },
 
@@ -45,6 +45,50 @@
                                 "visualization": "pages/visualization/visualization.html?id=02-stellar-male-nomination",
                                 "table": "pages/tables/nomination-table.html?id=02-stellar-male-nomination",
                                 "data": "data/nomination/stellar/male/02-male-nomination.json"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-07-27 20:00:00",
+                        "end": "2026-07-28 19:59:59"
+                    },
+                    "stats": {
+                        "votes": {
+                        "total": 11111,
+                        "valid": 784
+                        }
+                    },
+                    "matches": [
+                        {
+                            "title": "预选赛第一轮-女性组别",
+                            "id": "preliminaries/stellar/female",
+                            "phase": "预选赛第一轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组胜者晋级至小组赛，其余参赛者进入第2轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r01-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-female",
+                                "data": "data/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json"
+                            }
+                        },
+                        {
+                            "title": "预选赛第一轮-男性组别",
+                            "id": "preliminaries/stellar/male",
+                            "phase": "预选赛第一轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组胜者晋级至小组赛，其余参赛者进入第2轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r01-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-male",
+                                "data": "data/preliminaries/stellar/male/12-preliminary-r01-stellar-male.json"
                             }
                         }
                     ]

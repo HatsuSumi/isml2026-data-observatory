@@ -1,4 +1,4 @@
-import { closeCustomSelects, buildCustomSelect, syncCustomSelect } from './nomination-table-custom-select.js';
+import { closeCustomSelects, buildCustomSelect, syncCustomSelect } from './table-custom-select.js';
 import { applyFilters, updateSearchInput } from './nomination-table-filters.js';
 import { downloadCurrentTableView, downloadSourceFile } from './nomination-table-downloads.js';
 import { getSortState, setSortState, clearPersistedState, sortDefault } from './nomination-table-state.js';

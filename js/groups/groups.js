@@ -1,6 +1,4 @@
-function buildCharactersByName(characters) {
-    return characters;
-}
+import { loadGroupData } from '../common/data-loader.js';
 
 class GroupRendererStrategy {
     static strategies = {
@@ -128,14 +126,9 @@ class Groups {
     }
 
     async loadCharacters() {
-        const response = await fetch('data/groups/groups-data.json');
-        if (!response.ok) {
-            throw new Error('数据加载失败');
-        }
-
-        const data = await response.json();
+        const data = await loadGroupData();
         this.groupsData = data.groups;
-        this.charactersData = buildCharactersByName(data.characters);
+        this.charactersData = data.characters;
     }
 
     renderGroups() {

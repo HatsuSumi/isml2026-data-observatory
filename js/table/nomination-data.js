@@ -40,6 +40,23 @@ export function buildStellarDisplayRows(rows) {
   return [...autoRows, ...rankedRows];
 }
 
+export function parseNominationDataRow(config, item) {
+  if (config.mode === 'stellar') {
+    return withStellarPromotionState({
+      columns: [item.date || '', item.event || '', item.name || '', item.ip || '', item.cv || '', item.votes ?? '', item.name_en || '', item.auto_promoted ? 'True' : '', item.avatar || ''],
+      votes: parseVoteValue(item.votes)
+    }, config);
+  }
+
+  return {
+    columns: [item.date || '', item.event || '', item.name || '', item.ip || '', item.cv || '', item.votes ?? '', item.name_en || '', item.is_advanced ? 'True' : '', item.avatar || '', item.rank ?? ''],
+    votes: parseVoteValue(item.votes),
+    rank: parseVoteValue(item.rank),
+    isAutoPromoted: false,
+    isPromoted: item.is_advanced === true
+  };
+}
+
 export function parseNominationCsvRow(config, line) {
   const columns = line.split(',').map((col) => col.trim());
 
