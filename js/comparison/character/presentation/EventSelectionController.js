@@ -28,22 +28,22 @@ export class EventSelectionController {
     }
 
     async loadEvents() {
-        try {
-            await this.characterManager.loadEvents();
-            const optionsHtml = this.characterManager.getSelectableMatches()
-                .map(option => `<div class="option" data-value="${option.value}">${option.name}</div>`)
-                .join('');
-            document.querySelector(this.selectors.selectOptions).innerHTML = optionsHtml;
-        } catch (error) {
-            console.error('加载赛事失败:', error);
+        await this.characterManager.loadEvents();
+        const matches = this.characterManager.getSelectableMatches();
+        const optionsHtml = matches
+            .map(option => `<div class="option" data-value="${option.value}">${option.name}</div>`)
+            .join('');
+        const selectOptions = document.querySelector(this.selectors.selectOptions);
+        if (!selectOptions) {
+            throw new Error('角色对比初始化失败：找不到赛事下拉容器');
         }
+        selectOptions.innerHTML = optionsHtml;
     }
 
     initialize() {
         const eventSelect = document.getElementById(this.layoutClasses.eventSelect);
         if (!eventSelect) {
-            console.error('角色对比页面缺少赛事选择器');
-            return;
+            throw new Error('角色对比初始化失败：缺少赛事选择器');
         }
 
         eventSelect.addEventListener('click', async event => {
@@ -53,7 +53,14 @@ export class EventSelectionController {
             }
 
             const trigger = eventSelect.querySelector(this.selectors.selectTrigger);
-            trigger.querySelector(this.selectors.selectValue).textContent = option.textContent;
+            if (!trigger) {
+                throw new Error('角色对比初始化失败：缺少赛事选择器触发器');
+            }
+            const value = trigger.querySelector(this.selectors.selectValue);
+            if (!value) {
+                throw new Error('角色对比初始化失败：缺少赛事选择器文本容器');
+            }
+            value.textContent = option.textContent;
             eventSelect.querySelectorAll(this.selectors.selectOption)
                 .forEach(item => item.classList.remove(this.animationClasses.selected));
             option.classList.add(this.animationClasses.selected);
@@ -71,7 +78,10 @@ export class EventSelectionController {
         });
 
         const trigger = eventSelect.querySelector(this.selectors.selectTrigger);
-        trigger?.addEventListener('click', () => {
+        if (!trigger) {
+            throw new Error('角色对比初始化失败：缺少赛事选择器触发器');
+        }
+        trigger.addEventListener('click', () => {
             eventSelect.classList.toggle(this.animationClasses.open);
         });
 

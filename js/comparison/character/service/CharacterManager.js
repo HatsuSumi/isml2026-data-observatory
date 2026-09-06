@@ -17,8 +17,13 @@ export class CharacterManager {
     }
 
     async loadEvents() {
-        this.events = await this.eventService.loadEvents();
-        return this.events;
+        try {
+            this.events = await this.eventService.loadEvents();
+            return this.events;
+        } catch (error) {
+            console.error('[角色对比] loadEvents 失败:', error);
+            throw error;
+        }
     }
 
     getSelectableMatches() {
