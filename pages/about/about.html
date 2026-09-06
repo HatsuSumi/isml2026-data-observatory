@@ -13,15 +13,15 @@
         <div class="about-section">
             <h1>站长留言</h1>
             <p>1. 欢迎来到我个人开发的ISML 2026数据观测网站，负责2026赛季的数据统计，数据分析，数据对比，数据可视化。初衷是做出最详细的世萌数据统计。在此之前，我也尝试过多种展现数据的方式：有图文形式，有视频形式，有发帖形式，但总感觉还差点什么<span class="hover-reveal"><span class="hidden-text">（交互性：你直接点我名得了）</span></span>。最终，我决定以网页形式展现。</p>
-            <p>2. 本站所有数据均来自<a href="https://international.saimoe.website/" target="_blank"> ISML 官网 </a>，每场比赛结束后都会更新，因为是独立开发，所以不保证会第一时间更新。</p>
-            <p>4. 本项目是自2024赛季数据可视化项目停更以来的一个推翻重来的项目，也有可能因为时间精力成本和抑郁症的原因再次停更，但我还是想推翻重来，至少我踏出第一步了。</p>
-            <p>6. 目前网站部署在 GitHub Pages 上，开源地址:<a href="https://github.com/HatsuSumi/isml2026-data-observatory" target="_blank"> GitHub 仓库 </a>。</p>
-            <p>7. 因为缺少服务器，所以目前是静态网站，未来有计划将升级成动态网站，主要增加「萌战应援板块」，您随时可以通过下方赞助支持来帮助站长加速实现这个目标。</p>
-            <p>8. 如果大家有任何建议、意见、bug，可以通过<a href="#" onclick="copyEmail(this, event)" data-email="hatsusumi-moe@163.com"> hatsusumi-moe@163.com </a>联系我。</p>
-            <p>9. 建议使用电脑端谷歌浏览器打开，移动端和其他浏览器一定会有兼容性问题，因为一人开发，忙不过来，因此没有适配移动端布局。</p>
-            <p>10. 如果你喜欢本站，可以<a href="#" onclick="copyLink(); return false;"> 复制链接 </a>分享给更多人，也可以通过下方来支持我。</p>
-            <p>11. 个人网站，作品集：<a href="https://hatsusumi.github.io/FinalTestamentProofILived/" target="_blank">https://hatsusumi.github.io/FinalTestamentProofILived/</a> 。</p>
-            <p>12. 本项目遵循的开发规范：<a href="pages/development-standards/development-standards.html">pages/development-standards/development-standards.html</a>。</p>
+            <p>2. 本站所有数据均来自<a href="https://international.saimoe.website/" target="_blank"> ISML 官网 </a>。本站数据原则上会在赛事结束后陆续更新，但由于项目由个人独立维护，无法保证固定的更新时间，实际进度以站内数据为准。</p>
+            <p>3. 本项目是自2024赛季数据可视化项目停更以来的一个推翻重来的项目，也有可能因为时间精力成本和抑郁症的原因再次停更，但我还是想推翻重来，至少我踏出第一步了。</p>
+            <p>4. 目前网站部署在 GitHub Pages 上，开源地址:<a href="https://github.com/HatsuSumi/isml2026-data-observatory" target="_blank"> GitHub 仓库 </a>。</p>
+            <p>5. 因为缺少服务器，所以目前是静态网站，未来有计划将升级成动态网站，主要增加「萌战应援板块」，您随时可以通过下方赞助支持来帮助站长加速实现这个目标。</p>
+            <p>6. 如果大家有任何建议、意见、bug，可以通过<a href="#" onclick="copyEmail(this, event)" data-email="hatsusumi-moe@163.com"> hatsusumi-moe@163.com </a>联系我。</p>
+            <p>7. 建议使用电脑端谷歌浏览器打开，移动端和其他浏览器一定会有兼容性问题，因为一人开发，忙不过来，因此没有适配移动端布局。</p>
+            <p>8. 如果你喜欢本站，可以<a href="#" onclick="copyLink(); return false;"> 复制链接 </a>分享给更多人，也可以通过下方来支持我。</p>
+            <p>9. 个人网站，作品集：<a href="https://hatsusumi.github.io/FinalTestamentProofILived/" target="_blank">https://hatsusumi.github.io/FinalTestamentProofILived/</a> 。</p>
+            <p>10. 本项目遵循的开发规范：<a href="pages/development-standards/development-standards.html">pages/development-standards/development-standards.html</a>。</p>
             <details class="support-details">
                 <summary>支持站长</summary>
                 <p class="support-disclaimer">（完全自愿）</p>
@@ -110,6 +110,7 @@
                     </ul>
                 </div>
                 <p class="info-note">以上数据来自 <code>scripts/project_stats.py</code> 的自动统计结果。</p>
+                <p class="info-note">统计工具 GitHub 仓库链接：<a href="https://github.com/HatsuSumi/Omni-Project-Stats" target="_blank" rel="noopener noreferrer">https://github.com/HatsuSumi/Omni-Project-Stats</a> —— 90%项目通用，涵盖多个领域</p>
             </section>
         </div>
     </div>
@@ -118,8 +119,24 @@
     <script type="module" src="js/common/template-loader.js"></script>
     <script src="js/common/copy-email.js"></script>
     <script>
+    function requireElement(selector, root = document) {
+        const element = root.querySelector(selector);
+        if (!element) {
+            throw new Error(`关于页面初始化失败：缺少必要元素 ${selector}`);
+        }
+        return element;
+    }
+
+    function requireCanvasContext(canvas) {
+        const context = canvas.getContext('2d');
+        if (!context) {
+            throw new Error('关于页面初始化失败：无法获取 Canvas 2D 上下文');
+        }
+        return context;
+    }
+
         document.addEventListener('DOMContentLoaded', () => {
-        const details = document.querySelector('details.support-details');
+        const details = requireElement('details.support-details');
         const urlParams = new URLSearchParams(window.location.search);
             
         if (urlParams.get('from') === 'github') {
@@ -145,12 +162,12 @@
     });
 }
 
-    const supportSection = document.querySelector('.support-section');
+    const supportSection = requireElement('.support-section');
     supportSection.style.maxHeight = '0';
     supportSection.style.opacity = '0';
     supportSection.style.transform = 'translateY(-10px)';
 
-    document.querySelector('.support-details').addEventListener('click', function(e) {
+    requireElement('.support-details').addEventListener('click', function(e) {
         if (e.target.tagName.toLowerCase() === 'summary') {
             e.preventDefault();
             const details = this;
@@ -174,8 +191,8 @@
 
     class DigitalRain {
         constructor() {
-            this.canvas = document.getElementById('digitalRain');
-            this.ctx = this.canvas.getContext('2d');
+            this.canvas = requireElement('canvas#digitalRain');
+            this.ctx = requireCanvasContext(this.canvas);
             
             this.characters = '01';
             this.fontSize = 14;
