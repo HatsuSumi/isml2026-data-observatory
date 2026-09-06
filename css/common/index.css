@@ -256,10 +256,54 @@ body {
     animation: gradient-shift 6s ease infinite;
 }
 
+.preface-section {
+    width: min(92%, 980px);
+    margin: 1.5rem auto 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-left: 3px solid rgba(255, 215, 0, 0.7);
+    border-radius: 6px;
+    color: #d9d9d9;
+    box-sizing: border-box;
+    line-height: 1.8;
+}
+
+.preface-section h2 {
+    margin: 0 0 0.75rem;
+    color: #ffd700;
+    font-size: 1.25rem;
+    text-align: left;
+}
+
+.preface-section p {
+    margin: 0.6rem 0;
+    font-size: 0.95rem;
+}
+
+.preface-section p:first-of-type {
+    margin-top: 0;
+}
+
+.preface-section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.preface-section a {
+    color: #a6c1ee;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.preface-section a:hover {
+    color: #ffd700;
+}
+
+
 .main-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: #e8eaf6;  
+    color: #e8eaf6;
 }
 
 @keyframes gradient-shift {
