@@ -1,13 +1,20 @@
-﻿import { SERIES_ALIASES } from '../aliases/aliases.js';
+import { SERIES_ALIASES } from '../aliases/aliases.js';
 import { reconcileKeyedList } from './keyed-list.js';
 import { debounce } from './dom.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    void initializeHome().catch(error => {
+        console.error('首页初始化失败:', error);
+        throw error;
+    });
+});
+
+async function initializeHome() {
     initializeTabs();
-    loadCharacterData();
+    await loadCharacterData();
     initializeSearch();
     initStatusFilter();
-});
+}
 
 const TEMPLATES = {
     card: document.getElementById('home-character-card-template'),
@@ -15,6 +22,76 @@ const TEMPLATES = {
     resultsSection: document.getElementById('search-results-section-template'),
     resultsEmpty: document.getElementById('search-results-empty-template')
 };
+
+function requireElement(selector, root = document) {
+    const element = root.querySelector(selector);
+    if (!element) {
+        throw new Error(`首页初始化失败：缺少必要元素 ${selector}`);
+    }
+    return element;
+}
+
+function requireArray(value, path) {
+    if (!Array.isArray(value)) {
+        throw new Error(`首页数据结构错误：${path} 必须是数组`);
+    }
+    return value;
+}
+
+function validateHomeCharacterData(data) {
+    if (!data || typeof data !== 'object') {
+        throw new Error('首页数据结构错误：角色数据必须是对象');
+    }
+    if (!data.stellar || typeof data.stellar !== 'object') {
+        throw new Error('首页数据结构错误：缺少 stellar 分组');
+    }
+    if (!data.nova || typeof data.nova !== 'object') {
+        throw new Error('首页数据结构错误：缺少 nova 分组');
+    }
+
+    const validateGroup = (group, path) => {
+        requireArray(group, path).forEach((item, index) => {
+            if (!item || typeof item !== 'object') {
+                throw new Error(`首页数据结构错误：${path}[${index}] 必须是对象`);
+            }
+            if (typeof item.name !== 'string' || item.name.trim() === '') {
+                throw new Error(`首页数据结构错误：${path}[${index}].name 无效`);
+            }
+            if (typeof item.ip !== 'string' || item.ip.trim() === '') {
+                throw new Error(`首页数据结构错误：${path}[${index}].ip 无效`);
+            }
+            if (typeof item.status !== 'string') {
+                throw new Error(`首页数据结构错误：${path}[${index}].status 无效`);
+            }
+        });
+        return group;
+    };
+
+    return {
+        stellar: {
+            female: validateGroup(data.stellar.female, 'stellar.female'),
+            male: validateGroup(data.stellar.male, 'stellar.male')
+        },
+        nova: {
+            winter: {
+                female: validateGroup(data.nova.winter.female, 'nova.winter.female'),
+                male: validateGroup(data.nova.winter.male, 'nova.winter.male')
+            },
+            spring: {
+                female: validateGroup(data.nova.spring.female, 'nova.spring.female'),
+                male: validateGroup(data.nova.spring.male, 'nova.spring.male')
+            },
+            summer: {
+                female: validateGroup(data.nova.summer.female, 'nova.summer.female'),
+                male: validateGroup(data.nova.summer.male, 'nova.summer.male')
+            },
+            autumn: {
+                female: validateGroup(data.nova.autumn.female, 'nova.autumn.female'),
+                male: validateGroup(data.nova.autumn.male, 'nova.autumn.male')
+            }
+        }
+    };
+}
 
 let characterData = null;
 
@@ -63,7 +140,10 @@ async function loadCharacterData() {
     showLoading();
     try {
         const response = await fetch('data/characters/stats/ISML2026-characters.json');
-        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(`首页角色数据加载失败：${response.status}`);
+        }
+        const data = validateHomeCharacterData(await response.json());
         characterData = {
             stellar: {
                 female: data.stellar.female.filter(char => char.status !== '未晋级'),
@@ -145,7 +225,7 @@ function getCharacterKey(character) {
 }
 
 function renderCharacterList(panel, characters) {
-    if (!panel) return;
+    if (!panel) throw new Error('首页渲染失败：缺少角色面板容器');
     if (characters.length === 0) {
         if (panel.id) {
             panel.replaceChildren(Object.assign(document.createElement('div'), {
@@ -246,7 +326,7 @@ window.addEventListener('resize', debouncedAdjustLayout);
 
 function showLoading() {
     if (document.querySelector('.loading-container')) return;
-    const template = document.getElementById('loading-container-template');
+    const template = requireElement('#loading-container-template');
     document.body.appendChild(template.content.firstElementChild.cloneNode(true));
 }
 
@@ -335,7 +415,7 @@ function initializeSearch() {
         });
     });
     searchInput.addEventListener('input', debounce(performSearch, 300));
-    const groupOptions = document.querySelector('.group-options');
+    const groupOptions = requireElement('.group-options');
     groupOptions.addEventListener('change', event => {
         if (event.target.matches('input')) performSearch();
     });
@@ -408,8 +488,8 @@ function getSearchScope() {
 
 function updateBrowseScope() {
     const scope = getSearchScope();
-    const stellar = document.querySelector('.division.stellar');
-    const nova = document.querySelector('.division.nova');
+    const stellar = requireElement('.division.stellar');
+    const nova = requireElement('.division.nova');
     stellar.hidden = !scope.stellar.enabled;
     nova.hidden = !scope.nova.enabled;
 
