@@ -293,6 +293,7 @@ body {
     color: #a6c1ee;
     text-decoration: underline;
     text-underline-offset: 0.15em;
+    transition: color 0.25s ease, text-decoration-color 0.25s ease;
 }
 
 .preface-section a:hover {
