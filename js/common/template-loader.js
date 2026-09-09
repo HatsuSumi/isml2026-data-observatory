@@ -19,17 +19,15 @@ document.addEventListener('DOMContentLoaded', async function() {
                     .replace(/\{\{maxSpeed\}\}/g, CONFIG.danmaku.maxSpeed)
                     .replace(/\{\{defaultSpeed\}\}/g, CONFIG.danmaku.speed);
     
-                if (file.includes('navbar.html')) {
-                    if (!CONFIG.features.danmaku) {
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = text;
-                        const danmakuSettings = tempDiv.querySelector('.danmaku-settings-container');
-                        if (danmakuSettings) {
-                            danmakuSettings.remove();
-                        }
-                        text = tempDiv.innerHTML;
+                const isNavbar = file.includes('navbar.html');
+                if (isNavbar && !CONFIG.features.danmaku) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = text;
+                    const danmakuSettings = tempDiv.querySelector('.danmaku-settings-container');
+                    if (danmakuSettings) {
+                        danmakuSettings.remove();
                     }
-                    setActiveNavLink();
+                    text = tempDiv.innerHTML;
                 }
                 
                 // 使用正则表达式提取 head 内容
@@ -70,6 +68,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 
                 element.insertAdjacentHTML('afterend', contentToInsert);
                 element.remove();
+
+                if (isNavbar) {
+                    setActiveNavLink();
+                }
             } catch (error) {
                 console.error('include处理失败:', file, error);
             }
@@ -117,11 +119,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function setActiveNavLink() {
-        setTimeout(() => {
-            const currentPath = window.location.pathname;
-            const urlParams = new URLSearchParams(window.location.search);
-            const from = urlParams.get('from');
-            const navLinks = document.querySelectorAll('a[data-page]');
+
+        const currentPath = window.location.pathname;
+        const currentFile = currentPath.split('/').pop() || 'index.html';
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get('from');
+        const navLinks = document.querySelectorAll('a[data-page]');
     
             const matchLink = (link) => {
                 const page = link.dataset.page;
@@ -135,9 +138,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const matchConditions = [
                     // 首页匹配
                     page === 'home' && (
-                        currentPath === '/' || 
-                        currentPath === '/ISML-2026/' || 
-                        currentPath.includes('/index.html')
+                        currentFile === 'index.html' ||
+                        currentFile === ''
+
                     ),
                     
                     // 各页面精确匹配
@@ -178,7 +181,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             if (matchedLink) {
                 matchedLink.classList.add('active');
             }
-        }, 100);
     }
 
     await processIncludes();
