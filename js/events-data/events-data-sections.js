@@ -119,7 +119,7 @@ function createGroupSection(templates, groupTitle, groupData, nextEventStartTime
     const firstEvent = groupData[0].event;
     const status = getEventStatus(firstEvent, nextEventStartTime);
     statusInfo.replaceChildren(createStatusInfo(templates, status, firstEvent.stats));
-    cardsContainer.hidden = status !== 'completed';
+    cardsContainer.hidden = false;
     const cardsFragment = document.createDocumentFragment();
     groupData.forEach(({ event, match }) => cardsFragment.appendChild(createEventCard(
         templates, match, event, nextEventStartTime, rankingData, charactersData

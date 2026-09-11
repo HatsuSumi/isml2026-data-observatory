@@ -1,6 +1,6 @@
 {
     "months": {
-        "2024-12": {
+        "2026-07": {
             "title": "2026年7月",
             "events": [
                 {
@@ -40,7 +40,6 @@
                                     "description": "前65名晋级至主赛事恒星组预选赛阶段"
                                 }
                             },
-
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=02-stellar-male-nomination",
                                 "table": "pages/tables/nomination-table.html?id=02-stellar-male-nomination",
@@ -56,8 +55,8 @@
                     },
                     "stats": {
                         "votes": {
-                        "total": 11111,
-                        "valid": 784
+                            "total": 11111,
+                            "valid": 784
                         }
                     },
                     "matches": [
@@ -95,279 +94,97 @@
                 }
             ]
         },
-        "2025-01": {
-            "title": "2025年1月",
+        "2026-08": {
+            "title": "2026年8月",
             "events": [
                 {
                     "dateRange": {
-                        "start": "2025-01-07 20:00:00",
-                        "end": "2025-01-14 19:59:59",
-                        "result": "2025-01-16"
-                    },
-                    "stats": {
-                        "votes": {
-                            "total": 449,
-                            "valid": 51
-                        }
+                        "start": "2026-08-30 20:00:00",
+                        "end": "2026-09-05 19:59:59"
                     },
                     "matches": [
                         {
                             "title": "新星组冬季赛提名-女性组别",
-                            "id": "nomination/nova/winter/female",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共26名角色晋级至主赛事新星组冬季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination",
-                                "table": "pages/tables/nomination-table.html?id=03-nova-winter-female-nomination",
-                                "data": "data/nomination/nova/winter/female/03-nova-winter-female-nomination.json"
-                            }
+                            "id": "nomination/nova/2026/winter/female",
+                            "phase": "主赛事提名阶段"
                         },
                         {
                             "title": "新星组冬季赛提名-男性组别",
-                            "id": "nomination/nova/winter/male",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共24名角色晋级至主赛事新星组冬季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination",
-                                "table": "pages/tables/nomination-table.html?id=04-nova-winter-male-nomination",
-                                "data": "data/nomination/nova/winter/male/04-nova-winter-male-nomination.json"
-                            }
-
-                        }
-                    ]
-                },
-                {
-                    "dateRange": {
-                        "start": "2025-01-14 20:00:00",
-                        "end": "2025-01-21 19:59:59",
-                        "result": "2025-01-24"
-                    },
-                    "stats": {
-                        "votes": {
-                            "total": 402,
-                            "valid": 141
-                        }
-                    },
-                    "matches": [
-                        {
-                            "title": "新星组春季赛提名-女性组别",
-                            "id": "nomination/nova/spring/female",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共30名角色晋级至主赛事新星组春季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination",
-                                "table": "pages/tables/nomination-table.html?id=05-nova-spring-female-nomination",
-                                "data": "data/nomination/nova/spring/female/05-nova-spring-female-nomination.json"
-                            }
-
-                        },
-                        {
-                            "title": "新星组春季赛提名-男性组别",
-                            "id": "nomination/nova/spring/male",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共24名角色晋级至主赛事新星组春季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination",
-                                "table": "pages/tables/nomination-table.html?id=06-nova-spring-male-nomination",
-                                "data": "data/nomination/nova/spring/male/06-nova-spring-male-nomination.json"
-                            }
-                        }
-                    ]
-
-                },
-                {
-                    "dateRange": {
-                        "start": "2025-01-21 20:00:00",
-                        "end": "2025-01-28 19:59:59",
-                        "result": "2025-02-01"
-                    },
-                    "stats": {
-                        "votes": {
-                            "total": 804,
-                            "valid": 542
-                        }
-                    },
-                    "matches": [
-                        {
-                            "title": "新星组夏季赛提名-女性组别",
-                            "id": "nomination/nova/summer/female",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共26名角色晋级至主赛事新星组夏季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=07-nova-summer-female-nomination",
-                                "table": "pages/tables/nomination-table.html?id=07-nova-summer-female-nomination",
-                                "data": "data/nomination/nova/summer/female/07-nova-summer-female-nomination.json"
-                            }
-                        },
-                        {
-                            "title": "新星组夏季赛提名-男性组别",
-                            "id": "nomination/nova/summer/male",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共26名角色晋级至主赛事新星组夏季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=08-nova-summer-male-nomination",
-                                "table": "pages/tables/nomination-table.html?id=08-nova-summer-male-nomination",
-                                "data": "data/nomination/nova/summer/male/08-nova-summer-male-nomination.json"
-                            }
-                        }
-                    ]
-                },
-
-                {
-                    "dateRange": {
-                        "start": "2025-01-28 20:00:00",
-                        "end": "2025-02-03 19:59:59",
-                        "result": "2025-02-10"
-                    },
-                    "stats": {
-                        "votes": {
-                            "total": 252,
-                            "valid": 108
-                        }
-                    },
-                    "matches": [
-                        {
-                            "title": "新星组秋季赛提名-女性组别",
-                            "id": "nomination/nova/autumn/female",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共31名角色晋级至主赛事新星组秋季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=09-nova-autumn-female-nomination",
-                                "table": "pages/tables/nomination-table.html?id=09-nova-autumn-female-nomination",
-                                "data": "data/nomination/nova/autumn/female/09-nova-autumn-female-nomination.json"
-                            }
-                        },
-                        {
-                            "title": "新星组秋季赛提名-男性组别",
-                            "id": "nomination/nova/autumn/male",
-                            "phase": "主赛事提名阶段",
-                            "details": {
-                                "qualified": {
-                                    "description": "共36名角色晋级至主赛事新星组秋季赛预选赛阶段"
-                                }
-                            },
-                            "links": {
-                                "visualization": "pages/visualization/visualization.html?id=10-nova-autumn-male-nomination",
-                                "table": "pages/tables/nomination-table.html?id=10-nova-autumn-male-nomination",
-                                "data": "data/nomination/nova/autumn/male/10-nova-autumn-male-nomination.json"
-                            }
+                            "id": "nomination/nova/2026/winter/male",
+                            "phase": "主赛事提名阶段"
                         }
                     ]
                 }
             ]
         },
-        "2025-02": {
-            "title": "2025年2月",
+        "2026-10": {
+            "title": "2026年10月",
             "events": [
                 {
                     "dateRange": {
-                        "start": "2025-02-13 20:00:00",
-                        "end": "2025-02-14 19:59:59",
-                        "Restart": "2025-02-19 20:00:00",
-                        "Reend": "2025-02-20 19:59:59",
-                        "isRescheduled": true,
-                        "rescheduledReason": "因世萌服务器遭到攻击，工作人员讨论后决定重赛"
+                        "start": "2026-10-04 20:00:00",
+                        "end": "2026-10-10 19:59:59"
                     },
                     "matches": [
                         {
-                            "title": "预选赛第一轮",
-                            "phase": "预选赛阶段"
+                            "title": "新星组春季赛提名-女性组别",
+                            "id": "nomination/nova/2026/spring/female",
+                            "phase": "主赛事提名阶段"
+                        },
+                        {
+                            "title": "新星组春季赛提名-男性组别",
+                            "id": "nomination/nova/2026/spring/male",
+                            "phase": "主赛事提名阶段"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        "2026-11": {
+            "title": "2026年11月",
+            "events": [
                 {
                     "dateRange": {
-                        "start": "2025-02-14 20:00:00",
-                        "end": "2025-02-15 19:59:59",
-                        "Restart": "2025-02-21 20:00:00",
-                        "Reend": "2025-02-22 19:59:59",
-                        "isRescheduled": true,
-                        "rescheduledReason": "因世萌服务器遭到攻击，工作人员讨论后决定重赛"
+                        "start": "2026-11-01 20:00:00",
+                        "end": "2026-11-07 19:59:59"
                     },
                     "matches": [
                         {
-                            "title": "预选赛第二轮",
-                            "phase": "预选赛阶段"
+                            "title": "新星组夏季赛提名-女性组别",
+                            "id": "nomination/nova/2026/summer/female",
+                            "phase": "主赛事提名阶段"
+                        },
+                        {
+                            "title": "新星组夏季赛提名-男性组别",
+                            "id": "nomination/nova/2026/summer/male",
+                            "phase": "主赛事提名阶段"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        "2027-01": {
+            "title": "2027年1月",
+            "events": [
                 {
                     "dateRange": {
-                        "start": "2025-02-20 20:00:00",
-                        "end": "2025-02-21 19:59:59"
+                        "start": "2027-01-03 20:00:00",
+                        "end": "2027-01-09 19:59:59"
                     },
                     "matches": [
                         {
-                            "title": "预选赛第三轮",
-                            "phase": "预选赛阶段"
-                        }
-                    ]
-                },
-                {
-                    "dateRange": {
-                        "start": "2025-02-21 20:00:00",
-                        "end": "2025-02-22 19:59:59"
-                    },
-                    "matches": [
+                            "title": "新星组秋季赛提名-女性组别",
+                            "id": "nomination/nova/2026/autumn/female",
+                            "phase": "主赛事提名阶段"
+                        },
                         {
-                            "title": "预选赛第四轮",
-                            "phase": "预选赛阶段"
-                        }
-                    ]
-                },
-                {
-                    "dateRange": {
-                        "start": "2025-02-27 20:00:00",
-                        "end": "2025-02-28 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "预选赛第五轮",
-                            "phase": "预选赛阶段"
-                        }
-                    ]
-                },
-                {
-                    "dateRange": {
-                        "start": "2025-02-28 20:00:00",
-                        "end": "2025-03-01 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "预选赛第六轮",
-                            "phase": "预选赛阶段"
+                            "title": "新星组秋季赛提名-男性组别",
+                            "id": "nomination/nova/2026/autumn/male",
+                            "phase": "主赛事提名阶段"
                         }
                     ]
                 }
             ]
         }
     }
-} 
+}
