@@ -364,7 +364,12 @@
                         "ip": "Re:从零开始的异世界生活",
                         "cv": "",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "56强",
+                "characters": [
                     {
                         "id": "SF130",
                         "name": "由比滨结衣",
@@ -406,12 +411,7 @@
                         "ip": "埃罗芒阿老师",
                         "cv": "藤田茜",
                         "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "56强",
-                "characters": [
+                    },
                     {
                         "id": "SF049",
                         "name": "和栗薰子",
@@ -425,7 +425,12 @@
                         "ip": "世界计划 缤纷舞台！ feat. 初音未来",
                         "cv": "",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "64强",
+                "characters": [
                     {
                         "id": "SF051",
                         "name": "纯田真奈",
@@ -481,7 +486,12 @@
                         "ip": "天气之子",
                         "cv": "森七菜",
                         "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png"
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "72强",
+                "characters": [
                     {
                         "id": "SF138",
                         "name": "凉宫春日",
@@ -523,12 +533,7 @@
                         "ip": "命运石之门",
                         "cv": "今井麻美",
                         "avatar": "https://pic1.imgdb.cn/item/67395e28d29ded1a8c43f6d9.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "64强",
-                "characters": [
+                    },
                     {
                         "id": "SF057",
                         "name": "小栗帽",
@@ -542,7 +547,12 @@
                         "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
                         "cv": "",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "80强",
+                "characters": [
                     {
                         "id": "SF059",
                         "name": "空门苍",
@@ -591,19 +601,19 @@
                         "ip": "【我推的孩子】",
                         "cv": "高桥李依",
                         "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "72强",
-                "characters": [
+                    },
                     {
                         "id": "SF065",
                         "name": "西宫硝子",
                         "ip": "声之形",
                         "cv": "早见沙织",
                         "avatar": "https://pic1.imgdb.cn/item/673abe15d29ded1a8c439492.png"
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "88强",
+                "characters": [
                     {
                         "id": "SF066",
                         "name": "康娜卡姆依",
@@ -652,19 +662,19 @@
                         "ip": "间谍过家家",
                         "cv": "早见沙织",
                         "avatar": "https://pic1.imgdb.cn/item/677fbeb6d0e0a243d4f2c994.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "80强",
-                "characters": [
+                    },
                     {
                         "id": "SF073",
                         "name": "夏目玲子",
                         "ip": "夏目友人帐",
                         "cv": "小林沙苗",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "96强",
+                "characters": [
                     {
                         "id": "SF074",
                         "name": "蝶野雏",
@@ -713,19 +723,19 @@
                         "ip": "胆大党",
                         "cv": "佐仓绫音",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "88强",
-                "characters": [
+                    },
                     {
                         "id": "SF081",
                         "name": "赛丽艾",
                         "ip": "葬送的芙莉莲",
                         "cv": "",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "104强",
+                "characters": [
                     {
                         "id": "SF082",
                         "name": "斯嘉丽·艾尔·范迪米昂",
@@ -774,19 +784,19 @@
                         "ip": "孤独摇滚！",
                         "cv": "水野朔",
                         "avatar": "https://pic1.imgdb.cn/item/67396860d29ded1a8c4b2e6b.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "96强",
-                "characters": [
+                    },
                     {
                         "id": "SF089",
                         "name": "伊地知虹夏",
                         "ip": "孤独摇滚！",
                         "cv": "铃代纱弓",
                         "avatar": "https://pic1.imgdb.cn/item/673abde9d29ded1a8c437a20.png"
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "112强",
+                "characters": [
                     {
                         "id": "SF090",
                         "name": "喜多郁代",
@@ -835,19 +845,19 @@
                         "ip": "轻音少女",
                         "cv": "竹达彩奈",
                         "avatar": "https://pic1.imgdb.cn/item/67395e7cd29ded1a8c443a4c.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "104强",
-                "characters": [
+                    },
                     {
                         "id": "SF097",
                         "name": "一色伊吕波",
                         "ip": "我的青春恋爱物语果然有问题。",
                         "cv": "佐仓绫音",
                         "avatar": "https://pic1.imgdb.cn/item/6741390dd29ded1a8c822b9c.png"
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "120强",
+                "characters": [
                     {
                         "id": "SF098",
                         "name": "休比·多拉",
@@ -896,19 +906,19 @@
                         "ip": "CLANNAD",
                         "cv": "中原麻衣",
                         "avatar": "https://pic1.imgdb.cn/item/67419468d29ded1a8cddcff0.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "112强",
-                "characters": [
+                    },
                     {
                         "id": "SF105",
                         "name": "绫濑沙季",
                         "ip": "义妹生活",
                         "cv": "中岛由贵",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "128强",
+                "characters": [
                     {
                         "id": "SF106",
                         "name": "泉此方",
@@ -957,19 +967,19 @@
                         "ip": "青春猪头少年系列",
                         "cv": "久保由利香",
                         "avatar": "https://pic1.imgdb.cn/item/6785d8b2d0e0a243d4f411e0.png"
-                    }
-                ]
-            },
-            {
-                "rankLabel": "120强",
-                "characters": [
+                    },
                     {
                         "id": "SF113",
                         "name": "凸守早苗",
                         "ip": "中二病也要谈恋爱！",
                         "cv": "上坂堇",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "136强",
+                "characters": [
                     {
                         "id": "SF114",
                         "name": "高町奈叶",
@@ -1018,19 +1028,19 @@
                         "ip": "魔法少女奈叶",
                         "cv": "",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "128强",
-                "characters": [
+                    },
                     {
                         "id": "SF121",
                         "name": "双叶理央",
                         "ip": "青春猪头少年系列",
                         "cv": "种崎敦美",
                         "avatar": "https://pic1.imgdb.cn/item/6785d958d0e0a243d4f41226.png"
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "144强",
+                "characters": [
                     {
                         "id": "SF122",
                         "name": "中野四叶",
@@ -1079,12 +1089,7 @@
                         "ip": "魔法少女奈叶",
                         "cv": "",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "136强",
-                "characters": [
+                    },
                     {
                         "id": "SF129",
                         "name": "阿尔托莉雅·潘德拉贡",
@@ -1397,12 +1402,7 @@
                         "ip": "久保同学不放过我",
                         "cv": "花泽香菜",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "提名未晋级",
-                "characters": [
+                    },
                     {
                         "id": "ESF009",
                         "name": "井之上泷奈",
@@ -1451,12 +1451,7 @@
                         "ip": "【我推的孩子】",
                         "cv": "潘惠美",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "提名未晋级",
-                "characters": [
+                    },
                     {
                         "id": "ESF001",
                         "name": "神尾观铃",
@@ -1941,7 +1936,12 @@
                         "ip": "金牌得主",
                         "cv": "",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "64强",
+                "characters": [
                     {
                         "id": "SM130",
                         "name": "乔鲁诺·乔巴拿",
@@ -1990,19 +1990,19 @@
                         "ip": "暗杀教室",
                         "cv": "福山润",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "64强",
-                "characters": [
+                    },
                     {
                         "id": "SM057",
                         "name": "乙木守仁",
                         "ip": "魔女与使魔",
                         "cv": "",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "72强",
+                "characters": [
                     {
                         "id": "SM058",
                         "name": "比企谷八幡",
@@ -2058,7 +2058,12 @@
                         "ip": "月色真美",
                         "cv": "千叶翔也",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "80强",
+                "characters": [
                     {
                         "id": "SM138",
                         "name": "渚薰",
@@ -2107,19 +2112,19 @@
                         "ip": "Little Busters!",
                         "cv": "绿川光",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "72强",
-                "characters": [
+                    },
                     {
                         "id": "SM065",
                         "name": "高仓健",
                         "ip": "胆大党",
                         "cv": "花江夏树",
                         "avatar": ""
-                    },
+                    }
+                ]
+            },
+            {
+                "rankLabel": "88强",
+                "characters": [
                     {
                         "id": "SM066",
                         "name": "黑崎一护",
@@ -2179,7 +2184,7 @@
                 ]
             },
             {
-                "rankLabel": "80强",
+                "rankLabel": "96强",
                 "characters": [
                     {
                         "id": "SM073",
@@ -2240,7 +2245,7 @@
                 ]
             },
             {
-                "rankLabel": "88强",
+                "rankLabel": "104强",
                 "characters": [
                     {
                         "id": "SM081",
@@ -2301,7 +2306,7 @@
                 ]
             },
             {
-                "rankLabel": "96强",
+                "rankLabel": "112强",
                 "characters": [
                     {
                         "id": "SM089",
@@ -2362,7 +2367,7 @@
                 ]
             },
             {
-                "rankLabel": "104强",
+                "rankLabel": "120强",
                 "characters": [
                     {
                         "id": "SM097",
@@ -2423,7 +2428,7 @@
                 ]
             },
             {
-                "rankLabel": "112强",
+                "rankLabel": "128强",
                 "characters": [
                     {
                         "id": "SM105",
@@ -2484,7 +2489,7 @@
                 ]
             },
             {
-                "rankLabel": "120强",
+                "rankLabel": "136强",
                 "characters": [
                     {
                         "id": "SM113",
@@ -2545,7 +2550,7 @@
                 ]
             },
             {
-                "rankLabel": "128强",
+                "rankLabel": "144强",
                 "characters": [
                     {
                         "id": "SM121",
@@ -2606,7 +2611,7 @@
                 ]
             },
             {
-                "rankLabel": "136强",
+                "rankLabel": "152强",
                 "characters": [
                     {
                         "id": "SM129",
@@ -2878,12 +2883,7 @@
                         "ip": "JoJo的奇妙冒险",
                         "cv": "",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "提名未晋级",
-                "characters": [
+                    },
                     {
                         "id": "ESM001",
                         "name": "国崎往人",
