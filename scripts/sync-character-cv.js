@@ -8,7 +8,6 @@ const CHARACTER_PATH = path.join(ROOT, 'characters-data.json');
 const IP_PATH = path.join(ROOT, 'ip-data.json');
 const TARGETS = [
     'data/characters/stats/ISML2026-characters.json',
-    'data/characters/stats/characters-data.json',
     'data/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json'
 ];
 

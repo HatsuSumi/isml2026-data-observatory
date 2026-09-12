@@ -35,7 +35,7 @@ function addToIndex(index, character) {
 
 function buildCharacterIndex(stats, details) {
     const index = new Map();
-    for (const groups of [...Object.values(stats.stellar || {}), ...Object.values(stats.nova || {})]) {
+    for (const groups of Object.values(stats.stellar || {})) {
         for (const group of groups) {
             for (const character of group.characters || []) addToIndex(index, character);
         }
