@@ -74,9 +74,13 @@ function cloneVotingFormatWrapper(format) {
     return wrapper;
 }
 
+function hasValue(value) {
+    return value !== undefined && value !== null && value !== '' && value !== '-';
+}
+
 function createRequirementContent(match) {
     const requirements = match.details?.requirements;
-    if (!requirements) {
+    if (!hasValue(requirements)) {
         return cloneInlineText('', '');
     }
 
@@ -92,7 +96,7 @@ function createRequirementContent(match) {
 function createRequirementRow(match) {
     const requirements = match.details?.requirements;
     const row = cloneDetailRow('提名条件：', createRequirementContent(match));
-    if (!requirements) {
+    if (!hasValue(requirements)) {
         row.hidden = true;
     }
     return row;
@@ -107,7 +111,7 @@ function createCountValue(data) {
 }
 
 function createCountRow(label, data) {
-    return data ? cloneDetailRow(label, createCountValue(data)) : null;
+    return data && hasValue(data.total) ? cloneDetailRow(label, createCountValue(data)) : null;
 }
 
 function createCountdownRow(label, countdownValue) {
@@ -135,7 +139,7 @@ function buildDetails(match, { includeQualified = false, includeCountdown = fals
         fragment.appendChild(createCountdownRow(countdownLabel, countdownValue));
     }
 
-    if (includeResults && match.links?.completed?.items) {
+    if (includeResults && match.dateRange.result && match.dateRange.result !== '-' && match.links?.completed?.items) {
         const links = match.links.completed.items.map(link => {
             const separator = link.url.includes('?') ? '&' : '?';
             return {

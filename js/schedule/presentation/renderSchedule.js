@@ -45,9 +45,7 @@ function cloneVotingFormatWrapper(format) {
 function buildDateContent(match) {
     const fragment = document.createDocumentFragment();
 
-    if (match.title === '恒星组提名') {
-        appendTextNode(fragment, '2024-12-31 20:00:00 (周二) - 2025-01-07 19:59:59 (周二)');
-    } else {
+    {
         const startDate = match.dateRange.isRescheduled && match.dateRange.Restart
             ? new Date(match.dateRange.Restart)
             : new Date(match.dateRange.start);
@@ -88,7 +86,7 @@ function buildDateContent(match) {
         }
     }
 
-    if (match.dateRange.result) {
+    if (match.dateRange.result && match.dateRange.result !== '-') {
         appendTextNode(fragment, ` | 结果公布：${match.dateRange.result} (${getWeekday(new Date(match.dateRange.result))})`);
     }
 
