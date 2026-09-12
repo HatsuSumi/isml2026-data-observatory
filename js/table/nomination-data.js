@@ -8,11 +8,12 @@ function parseVoteValue(value) {
 
 function withStellarPromotionState(row, config) {
   const isAutoPromoted = row.votes === AUTO_PROMOTION_VOTE;
+  const characterName = row.name || row.columns?.[2] || '未知角色';
   if (isAutoPromoted && row.sourceRank !== null) {
-    throw new Error(`${row.columns[2]} 的自动晋级记录必须使用 rank: null`);
+    throw new Error(`${characterName} 的自动晋级记录必须使用 rank: null`);
   }
   if (!isAutoPromoted && (!Number.isInteger(row.sourceRank) || row.sourceRank < 1)) {
-    throw new Error(`${row.columns[2]} 的恒星组提名记录缺少合法 rank`);
+    throw new Error(`${characterName} 的恒星组提名记录缺少合法 rank`);
   }
   return {
     ...row,
@@ -52,7 +53,7 @@ export function parseNominationCsvRow(config, line) {
   const columns = line.split(',').map((col) => col.trim());
 
   if (config.mode === 'stellar') {
-    return withStellarPromotionState({ columns, votes: parseVoteValue(columns[5]) }, config);
+    return withStellarPromotionState({ columns, name: columns[2], votes: parseVoteValue(columns[5]), sourceRank: columns[6] === '' ? null : Number.parseInt(columns[6], 10) }, config);
   }
 
   return {
@@ -69,7 +70,7 @@ export function normalizeNominationVisualizationRows(config, rawData) {
 
   if (config.mode === 'stellar') {
     const rows = sourceRows
-      .map((item) => withStellarPromotionState({ ...item, votes: parseVoteValue(item.votes) }, config))
+      .map((item) => withStellarPromotionState({ ...item, votes: parseVoteValue(item.votes), sourceRank: item.rank ?? null }, config))
       .filter((item) => !item.isAutoPromoted && item.votes > 0)
       .sort((a, b) => b.votes - a.votes || a.name.localeCompare(b.name, 'zh-CN'));
 
