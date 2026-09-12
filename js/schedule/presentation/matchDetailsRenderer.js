@@ -158,7 +158,11 @@ function buildDetails(match, { includeQualified = false, includeCountdown = fals
 }
 
 export function renderMatchDetails(match, status) {
-    if (status === 'completed') {
+    const hasPublishedResults = hasValue(match.details?.qualified?.total)
+        || Boolean(match.links?.completed?.items?.length)
+        || (match.dateRange.result && match.dateRange.result !== '-');
+
+    if (hasPublishedResults || status === 'completed') {
         return buildDetails(match, {
             includeQualified: true,
             includeResults: true,

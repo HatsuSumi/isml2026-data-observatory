@@ -46,9 +46,39 @@ export function renderCharacterMatchStatus(match, result) {
     const statusEl = match.querySelector('.match-status');
     if (!statusEl) return;
 
-    const resultClass = getResultClass(result);
-    statusEl.textContent = result;
+    const resultClass = getResultClass(result.result);
+    statusEl.textContent = (result.result === '晋级' && result.title.includes('提名' ) && (result.votes === undefined || result.votes === '-'))
+        ? '自动晋级'
+        : result.result;
     statusEl.className = `match-status ${resultClass}`;
+}
+
+function renderCharacterMatchDetails(match, result) {
+    const details = match.querySelector('.match-details');
+    if (!details) return;
+
+    details.querySelectorAll('.character-match-detail').forEach(row => row.remove());
+
+    details.querySelectorAll('.character-match-detail').forEach(row => row.remove());
+
+    const rows = [];
+    if (result.group !== undefined) {
+        rows.push(['分组：', result.group]);
+        rows.push(['组内排名：', `第${result.rank}名`]);
+        rows.push(['全局排名：', `第${result.global_rank}名`]);
+    } else if (result.rank !== undefined) {
+        rows.push(['排名：', `第${result.rank}名`]);
+    }
+    if (result.votes !== undefined && result.votes !== '-') {
+        rows.push(['得票数：', `${result.votes}票`]);
+    }
+    const characterRows = rows.map(([label, value]) => {
+        const row = document.createElement('p');
+        row.className = 'character-match-detail';
+        row.innerHTML = `<span class="key">${label}</span><span class="value">${value}</span>`;
+        return row;
+    });
+    details.append(...characterRows);
 }
 
 export function clearCharacterSelection() {
@@ -105,7 +135,8 @@ export function filterTimelineByCharacter(character) {
 
                 const characterMatch = character.matches.find(item => item.title === matchTitle);
                 if (characterMatch) {
-                    renderCharacterMatchStatus(match, characterMatch.result);
+                    renderCharacterMatchStatus(match, characterMatch);
+                    renderCharacterMatchDetails(match, characterMatch);
                 }
             } else {
                 match.hidden = true;

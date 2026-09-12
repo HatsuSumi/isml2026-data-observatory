@@ -111,12 +111,19 @@
     color: #9E9E9E;
 }
 
-.match-status.win {
+.match-status.win,
+.timeline-item.pending .match-status.win {
     background: rgba(76, 175, 80, 0.1);
     color: #4CAF50;
 }
 
-.match-status.lose {
+.match-status.lose,
+.timeline-item.pending .match-status.lose {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.timeline-item.completed .match-status.lose {
     background: rgba(244, 67, 54, 0.1);
     color: #f44336;
 }
