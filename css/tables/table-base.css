@@ -27,7 +27,8 @@
     --table-start: #222;
     --table-end: #333;
     --dropdown-bg: #2a2a2a;
-    --rank: #ff7875
+    --rank: #ff7875;
+    --global-rank: #64d8cb
 }
 
 body {
@@ -387,7 +388,8 @@ tr:nth-child(even):hover {
     font: inherit;
     text-align: left;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .2)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    transition: background-color .3s ease, color .3s ease, box-shadow .3s ease;
 }
 
 .custom-select-trigger:focus {
@@ -439,7 +441,8 @@ tr:nth-child(even):hover {
     color: var(--input-text);
     font: inherit;
     text-align: left;
-    cursor: pointer
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, transform .2s ease
 }
 
 .custom-select-option:hover,
@@ -458,8 +461,14 @@ tr:nth-child(even):hover {
     color: var(--input-text);
     caret-color: var(--accent);
     font-size: 14px;
-    transition: opacity .3s, box-shadow .3s;
+    transition: opacity .3s, box-shadow .3s, transform .3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .2)
+}
+
+.search-input:hover,
+.vote-input:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(74, 144, 226, .24)
 }
 
 .search-input[style*="display: none"] {
@@ -497,7 +506,8 @@ tr:nth-child(even):hover {
     background: var(--input-bg);
     color: var(--input-text);
     font-size: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .2)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    transition: background-color .3s ease, color .3s ease, box-shadow .3s ease
 }
 
 .range-separator {

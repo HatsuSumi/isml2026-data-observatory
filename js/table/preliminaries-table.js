@@ -2,6 +2,8 @@ import { buildCustomSelect, closeCustomSelects, syncCustomSelect } from './table
 import { loadEventData } from '../common/data-loader.js';
 import { reconcileKeyedList } from '../common/keyed-list.js';
 
+const EXPORT_HEADERS = ['组别', '组内排名', '全局排名', '角色', '头像', 'IP', 'CV', '得票数', '状态'];
+
 const DEFAULT_SORT = { key: 'votes', direction: 'desc' };
 const state = {
     title: '预选赛表格',
@@ -36,22 +38,24 @@ async function getMatchConfig(id) {
 
 function normalizeRows(rawData) {
     if (!Array.isArray(rawData?.data)) throw new Error('预选赛数据格式错误：data 必须是数组');
-    return rawData.data
+    const rows = rawData.data
         .map((item) => ({
             ...item,
             group: String(item.group || '未分组'),
             rank: Number(item.rank),
+            globalRank: Number(item.global_rank),
             name: String(item.name || ''),
             ip: String(item.ip || ''),
             votes: Number(item.votes),
             isPromoted: item.is_advanced === true
         }))
-        .filter((item) => item.name && Number.isFinite(item.rank) && Number.isFinite(item.votes))
+        .filter((item) => item.name && Number.isFinite(item.rank) && Number.isFinite(item.globalRank) && Number.isFinite(item.votes))
         .sort((a, b) => a.votes - b.votes || a.rank - b.rank);
+    return rows;
 }
 
 function compareValues(a, b, key) {
-    if (key === 'votes' || key === 'rank') return a[key] - b[key];
+    if (key === 'votes' || key === 'rank' || key === 'globalRank') return a[key] - b[key];
     if (key === 'isPromoted') return Number(a[key]) - Number(b[key]);
     return String(a[key] || '').localeCompare(String(b[key] || ''), 'zh-CN');
 }
@@ -93,6 +97,7 @@ function updatePreliminaryRow(tr, row) {
     tr.dataset.promoted = String(row.isPromoted);
     tr.querySelector('.group').textContent = row.group;
     tr.querySelector('.rank').textContent = String(row.rank);
+    tr.querySelector('.global-rank').textContent = String(row.globalRank);
     tr.querySelector('.name').textContent = row.name;
     tr.querySelector('.ip').textContent = row.ip;
     tr.querySelector('.cv').textContent = row.cv || '-';
@@ -118,7 +123,7 @@ function renderRows() {
     });
     body.querySelectorAll('tr').forEach((row) => row.classList.add('fade-in'));
     const promoted = state.filteredRows.filter((row) => row.isPromoted).length;
-    document.getElementById('summary').textContent = `显示 ${state.filteredRows.length} 名角色，其中晋级 ${promoted} 名`;
+    document.getElementById('summary').textContent = `显示 ${state.filteredRows.length} 名角色，其中晋级 ${promoted} 名，未晋级角色进入第2轮`;
 }
 
 function populateGroupFilter() {
@@ -161,13 +166,14 @@ function bindControls() {
     [group, status].forEach((control) => control.addEventListener('change', update));
     [search, minVotes, maxVotes].forEach((control) => control.addEventListener('input', update));
     document.addEventListener('click', closeDropdownIfNeeded);
+    document.addEventListener('click', closeDownloadDropdown);
     document.querySelectorAll('th[data-sort]').forEach((header) => {
         header.dataset.sortable = 'true';
         header.addEventListener('click', () => {
         const key = header.dataset.sort;
         state.sort = state.sort.key === key
             ? { key, direction: state.sort.direction === 'asc' ? 'desc' : 'asc' }
-            : { key, direction: key === 'votes' || key === 'rank' ? 'desc' : 'asc' };
+            : { key, direction: key === 'votes' || key === 'rank' || key === 'globalRank' ? 'desc' : 'asc' };
         document.querySelectorAll('th[data-sort]').forEach((item) => item.classList.remove('sort-asc', 'sort-desc'));
         header.classList.add(state.sort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
         applyFilters();
@@ -186,23 +192,62 @@ function bindControls() {
         document.querySelector('th[data-sort="votes"]').classList.add('sort-desc');
         update();
     });
-    document.getElementById('downloadCsv').addEventListener('click', () => download('csv'));
-    document.getElementById('downloadJson').addEventListener('click', () => download('json'));
     document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.togglePreliminaryDownloadDropdown = () => document.getElementById('preliminaryDownloadDropdown')?.classList.toggle('show');
+    window.downloadPreliminaryFile = (format, event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        downloadSourceFile(format).catch((error) => console.error('预选赛原始文件下载失败:', error));
+    };
+    window.downloadCurrentPreliminaryTable = (format, event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        download(format, state.filteredRows, '当前视图');
+    };
 }
 
-function download(format) {
-    const headers = ['组别', '组内排名', '角色', '头像', 'IP', 'CV', '得票数', '状态'];
-    const values = state.filteredRows.map((row) => [row.group, row.rank, row.name, row.avatar, row.ip, row.cv, row.votes, row.isPromoted ? '晋级' : '未晋级']);
-    const content = format === 'json'
-        ? JSON.stringify(state.filteredRows, null, 2)
-        : [headers, ...values].map((line) => line.map((value) => `"${String(value).replaceAll('"', '""')}"`).join(',')).join('\n');
-    const blob = new Blob([format === 'csv' ? `\ufeff${content}` : content], { type: format === 'csv' ? 'text/csv;charset=utf-8' : 'application/json;charset=utf-8' });
+function triggerDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${state.title}-${format}.${format}`;
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
     link.click();
-    URL.revokeObjectURL(link.href);
+    link.remove();
+    URL.revokeObjectURL(url);
+}
+
+function closeDownloadDropdown(event) {
+    if (event.target.closest('.dropdown')) return;
+    document.querySelectorAll('.dropdown-content.show').forEach((dropdown) => dropdown.classList.remove('show'));
+}
+
+async function downloadSourceFile(format) {
+    const response = await fetch(`${state.dataPath.replace(/\.json$/, '')}.${format}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`下载失败: ${response.status}`);
+    const blob = await response.blob();
+    triggerDownload(blob, `${state.title}.${format}`);
+}
+
+function download(format, rows, suffix) {
+    const values = rows.map((row) => [row.group, row.rank, row.globalRank, row.name, row.avatar, row.ip, row.cv || '-', row.votes, row.isPromoted ? '晋级' : '未晋级']);
+    const csv = [EXPORT_HEADERS, ...values]
+        .map((line) => line.map((value) => `"${String(value).replaceAll('"', '""')}"`).join(','))
+        .join('\n');
+    const json = JSON.stringify(rows, null, 2);
+    const content = format === 'json' ? json : csv;
+    const type = format === 'json' ? 'application/json;charset=utf-8' : 'text/csv;charset=utf-8';
+    if (format === 'xlsx') {
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet(state.title);
+        worksheet.columns = EXPORT_HEADERS.map((header) => ({ header, width: 18 }));
+        worksheet.addRows(values);
+        workbook.xlsx.writeBuffer().then((buffer) => {
+            triggerDownload(new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), `${state.title}-${suffix}.xlsx`);
+        });
+        return;
+    }
+    triggerDownload(new Blob([format === 'csv' ? `\ufeff${content}` : content], { type }), `${state.title}-${suffix}.${format}`);
 }
 
 async function init() {

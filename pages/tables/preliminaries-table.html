@@ -38,8 +38,17 @@
         <div class="button-container">
             <a href="javascript:history.back()" class="home-btn">返回上一页</a>
             <a id="visualizationLink" class="visualization-btn">数据可视化</a>
-            <button id="downloadCsv" class="download-btn" type="button">下载 CSV</button>
-            <button id="downloadJson" class="download-btn" type="button">下载 JSON</button>
+            <div class="dropdown">
+                <button class="download-btn" type="button" onclick="togglePreliminaryDownloadDropdown()">下载表格</button>
+                <div id="preliminaryDownloadDropdown" class="dropdown-content">
+                    <a href="#" onclick="downloadPreliminaryFile('csv', event)">下载原始CSV</a>
+                    <a href="#" onclick="downloadPreliminaryFile('xlsx', event)">下载原始XLSX</a>
+                    <a href="#" onclick="downloadPreliminaryFile('json', event)">下载原始JSON</a>
+                    <a href="#" onclick="downloadCurrentPreliminaryTable('csv', event)">下载筛选后的CSV</a>
+                    <a href="#" onclick="downloadCurrentPreliminaryTable('xlsx', event)">下载筛选后的XLSX</a>
+                    <a href="#" onclick="downloadCurrentPreliminaryTable('json', event)">下载筛选后的JSON</a>
+                </div>
+            </div>
         </div>
         <div class="preliminaries-summary" id="summary"></div>
         <template id="group-option-template">
@@ -49,6 +58,7 @@
             <tr>
                 <td class="group"></td>
                 <td class="rank"></td>
+                <td class="global-rank"></td>
                 <td class="name"></td>
                 <td class="avatar"><img width="50" loading="lazy" alt=""></td>
                 <td class="ip"></td>
@@ -62,6 +72,7 @@
                 <tr>
                     <th data-sort="group">组别</th>
                     <th data-sort="rank">组内排名</th>
+                    <th data-sort="globalRank">全局排名</th>
                     <th data-sort="name">角色</th>
                     <th>头像</th>
                     <th data-sort="ip">IP</th>
@@ -75,6 +86,7 @@
         <button class="back-to-top" id="backToTop" type="button" aria-label="返回顶部">↑</button>
     </div>
     <include src="templates/footer.html"></include>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
     <script type="module" src="js/common/template-loader.js"></script>
     <script type="module" src="js/common/event-links.js"></script>
     <script type="module" src="js/table/preliminaries-table.js"></script>

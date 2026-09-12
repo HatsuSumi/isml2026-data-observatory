@@ -30,32 +30,37 @@
 
 .preliminaries-page th:nth-child(3),
 .preliminaries-page td:nth-child(3) {
-    width: 15%;
+    width: 8%;
 }
 
 .preliminaries-page th:nth-child(4),
 .preliminaries-page td:nth-child(4) {
-    width: 8%;
+    width: 15%;
 }
 
 .preliminaries-page th:nth-child(5),
 .preliminaries-page td:nth-child(5) {
-    width: 25%;
+    width: 8%;
 }
 
 .preliminaries-page th:nth-child(6),
 .preliminaries-page td:nth-child(6) {
-    width: 14%;
+    width: 23%;
 }
 
 .preliminaries-page th:nth-child(7),
 .preliminaries-page td:nth-child(7) {
-    width: 10%;
+    width: 12%;
 }
 
 .preliminaries-page th:nth-child(8),
 .preliminaries-page td:nth-child(8) {
     width: 10%;
+}
+
+.preliminaries-page th:nth-child(9),
+.preliminaries-page td:nth-child(9) {
+    width: 8%;
 }
 
 .preliminaries-page td.avatar {
@@ -73,6 +78,11 @@
     object-fit: contain;
 }
 
+
+.preliminaries-page .global-rank {
+    color: var(--global-rank);
+    font-weight: bold;
+}
 
 .preliminaries-page .status-promoted {
     color: #66d18f;
