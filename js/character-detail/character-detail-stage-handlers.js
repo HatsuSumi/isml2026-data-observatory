@@ -23,6 +23,7 @@ class NominationHandler extends StageHandler {
             '被提名角色数': round['名次'] !== '自动晋级' ? this.roundConfig?.['被提名角色数'] : null,
             '提名票': round['提名票'],
             '名次': round['名次'],
+            '结果': round['结果'],
             '上届世萌战绩': round['上届世萌战绩']
         };
     }
