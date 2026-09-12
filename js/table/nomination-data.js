@@ -8,43 +8,34 @@ function parseVoteValue(value) {
 
 function withStellarPromotionState(row, config) {
   const isAutoPromoted = row.votes === AUTO_PROMOTION_VOTE;
+  if (isAutoPromoted && row.sourceRank !== null) {
+    throw new Error(`${row.columns[2]} 的自动晋级记录必须使用 rank: null`);
+  }
+  if (!isAutoPromoted && (!Number.isInteger(row.sourceRank) || row.sourceRank < 1)) {
+    throw new Error(`${row.columns[2]} 的恒星组提名记录缺少合法 rank`);
+  }
   return {
     ...row,
-    rank: null,
+    rank: isAutoPromoted ? null : row.sourceRank,
     isAutoPromoted,
     isPromoted: isAutoPromoted || row.votes >= config.promotionThreshold
   };
 }
 
-export function rankStellarRows(rows) {
-  let currentRank = 1;
-  let previousVotes = null;
-  let skipCount = 0;
-
-  return rows.map((row) => {
-    if (previousVotes !== null && row.votes !== previousVotes) {
-      currentRank += skipCount + 1;
-      skipCount = 0;
-    } else if (previousVotes !== null) {
-      skipCount += 1;
-    }
-
-    previousVotes = row.votes;
-    return { ...row, rank: currentRank };
-  });
+export function rankStellarRows() {
+  throw new Error('恒星组排名必须由提名 JSON 提供');
 }
 
 export function buildStellarDisplayRows(rows) {
-  const autoRows = rows.filter((row) => row.isAutoPromoted).map((row) => ({ ...row, rank: null }));
-  const rankedRows = rankStellarRows(rows.filter((row) => !row.isAutoPromoted));
-  return [...autoRows, ...rankedRows];
+  return rows;
 }
 
 export function parseNominationDataRow(config, item) {
   if (config.mode === 'stellar') {
     return withStellarPromotionState({
       columns: [item.date || '', item.event || '', item.name || '', item.ip || '', item.cv || '', item.votes ?? '', item.name_en || '', item.auto_promoted ? 'True' : '', item.avatar || ''],
-      votes: parseVoteValue(item.votes)
+      votes: parseVoteValue(item.votes),
+      sourceRank: item.rank ?? null
     }, config);
   }
 
@@ -89,6 +80,7 @@ export function normalizeNominationVisualizationRows(config, rawData) {
     .map((item) => ({
       ...item,
       votes: parseVoteValue(item.votes),
+      sourceRank: item.rank ?? null,
       rank: parseVoteValue(item.rank),
       isAutoPromoted: false,
       isPromoted: item.is_advanced === true

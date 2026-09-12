@@ -15,9 +15,7 @@ export async function loadNominationRows(config) {
     const rows = attachNominationMeta(source.data.map((item) => parseNominationDataRow(config, item)), source);
 
     if (config.mode === 'stellar') {
-        const autoRows = rows.filter(row => row.isAutoPromoted);
-        const normalRows = rows.filter(row => !row.isAutoPromoted).sort((a, b) => b.votes - a.votes);
-        return buildStellarDisplayRows([...autoRows, ...normalRows]);
+        return buildStellarDisplayRows(rows);
     }
 
     return rows;
