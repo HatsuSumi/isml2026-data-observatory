@@ -364,6 +364,48 @@
                         "ip": "Re:从零开始的异世界生活",
                         "cv": "",
                         "avatar": ""
+                    },
+                    {
+                        "id": "SF130",
+                        "name": "由比滨结衣",
+                        "ip": "我的青春恋爱物语果然有问题。",
+                        "cv": "东山奈央",
+                        "avatar": "https://pic1.imgdb.cn/item/673a94bdd29ded1a8c251eee.png"
+                    },
+                    {
+                        "id": "SF131",
+                        "name": "晓美焰",
+                        "ip": "魔法少女小圆",
+                        "cv": "斋藤千和",
+                        "avatar": "https://pic1.imgdb.cn/item/674086b0d29ded1a8c07b0d0.png"
+                    },
+                    {
+                        "id": "SF132",
+                        "name": "绪山真寻",
+                        "ip": "别当欧尼酱了！",
+                        "cv": "高野麻里佳",
+                        "avatar": "https://pic1.imgdb.cn/item/6785d8f9d0e0a243d4f411f4.png"
+                    },
+                    {
+                        "id": "SF133",
+                        "name": "保科昴",
+                        "ip": "薰香花朵凛然绽放",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SF134",
+                        "name": "宫园薰",
+                        "ip": "四月是你的谎言",
+                        "cv": "种田梨沙",
+                        "avatar": "https://pic1.imgdb.cn/item/6742b49688c538a9b5bb432f.png"
+                    },
+                    {
+                        "id": "SF135",
+                        "name": "和泉纱雾",
+                        "ip": "埃罗芒阿老师",
+                        "cv": "藤田茜",
+                        "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png"
                     }
                 ]
             },
@@ -425,6 +467,62 @@
                         "ip": "LoveLive!系列",
                         "cv": "林鼓子",
                         "avatar": ""
+                    },
+                    {
+                        "id": "SF136",
+                        "name": "鹿目圆",
+                        "ip": "魔法少女小圆",
+                        "cv": "悠木碧",
+                        "avatar": "https://pic1.imgdb.cn/item/6735f305d29ded1a8cade1ab.png"
+                    },
+                    {
+                        "id": "SF137",
+                        "name": "天野阳菜",
+                        "ip": "天气之子",
+                        "cv": "森七菜",
+                        "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png"
+                    },
+                    {
+                        "id": "SF138",
+                        "name": "凉宫春日",
+                        "ip": "凉宫春日的忧郁",
+                        "cv": "平野绫",
+                        "avatar": "https://pic1.imgdb.cn/item/67418d25d29ded1a8cd84d64.png"
+                    },
+                    {
+                        "id": "SF139",
+                        "name": "河原木桃香",
+                        "ip": "少女乐队的呐喊",
+                        "cv": "夕莉",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SF140",
+                        "name": "逢坂大河",
+                        "ip": "龙与虎",
+                        "cv": "钉宫理惠",
+                        "avatar": "https://pic1.imgdb.cn/item/6742aa2888c538a9b5bb4148.png"
+                    },
+                    {
+                        "id": "SF141",
+                        "name": "五河琴里",
+                        "ip": "约会大作战",
+                        "cv": "竹达彩奈",
+                        "avatar": "https://pic1.imgdb.cn/item/673be110d29ded1a8c2750be.png"
+                    },
+                    {
+                        "id": "SF142",
+                        "name": "东海帝王",
+                        "ip": "赛马娘 Pretty Derby",
+                        "cv": "Machico",
+                        "avatar": "https://pic1.imgdb.cn/item/67419ca3d29ded1a8ce4ecc8.png"
+                    },
+                    {
+                        "id": "SF143",
+                        "name": "牧濑红莉栖",
+                        "ip": "命运石之门",
+                        "cv": "今井麻美",
+                        "avatar": "https://pic1.imgdb.cn/item/67395e28d29ded1a8c43f6d9.png"
                     }
                 ]
             },
@@ -486,6 +584,13 @@
                         "ip": "魔女与使魔",
                         "cv": "",
                         "avatar": ""
+                    },
+                    {
+                        "id": "SF144",
+                        "name": "星野爱",
+                        "ip": "【我推的孩子】",
+                        "cv": "高桥李依",
+                        "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png"
                     }
                 ]
             },
@@ -986,116 +1091,427 @@
                         "ip": "Fate系列",
                         "cv": "川澄绫子",
                         "avatar": "https://pic1.imgdb.cn/item/6739c600d29ded1a8c978285.png"
-                    },
-                    {
-                        "id": "ESF001",
-                        "name": "由比滨结衣",
-                        "ip": "我的青春恋爱物语果然有问题。",
-                        "cv": "东山奈央",
-                        "avatar": "https://pic1.imgdb.cn/item/673a94bdd29ded1a8c251eee.png"
-                    },
-                    {
-                        "id": "ESF002",
-                        "name": "晓美焰",
-                        "ip": "魔法少女小圆",
-                        "cv": "斋藤千和",
-                        "avatar": "https://pic1.imgdb.cn/item/674086b0d29ded1a8c07b0d0.png"
-                    },
-                    {
-                        "id": "ESF003",
-                        "name": "绪山真寻",
-                        "ip": "别当欧尼酱了！",
-                        "cv": "高野麻里佳",
-                        "avatar": "https://pic1.imgdb.cn/item/6785d8f9d0e0a243d4f411f4.png"
-                    },
-                    {
-                        "id": "ESF004",
-                        "name": "保科昴",
-                        "ip": "薰香花朵凛然绽放",
-                        "cv": "",
-                        "avatar": ""
-                    },
-                    {
-                        "id": "ESF005",
-                        "name": "宫园薰",
-                        "ip": "四月是你的谎言",
-                        "cv": "种田梨沙",
-                        "avatar": "https://pic1.imgdb.cn/item/6742b49688c538a9b5bb432f.png"
-                    },
-                    {
-                        "id": "ESF006",
-                        "name": "和泉纱雾",
-                        "ip": "埃罗芒阿老师",
-                        "cv": "藤田茜",
-                        "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png"
-                    },
-                    {
-                        "id": "ESF007",
-                        "name": "鹿目圆",
-                        "ip": "魔法少女小圆",
-                        "cv": "悠木碧",
-                        "avatar": "https://pic1.imgdb.cn/item/6735f305d29ded1a8cade1ab.png"
                     }
                 ]
             },
             {
-                "rankLabel": "144强",
+                "rankLabel": "提名未晋级",
                 "characters": [
                     {
-                        "id": "ESF008",
-                        "name": "天野阳菜",
-                        "ip": "天气之子",
-                        "cv": "森七菜",
-                        "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png"
+                        "id": "ESF016",
+                        "name": "久岛鸥",
+                        "ip": "Summer Pockets",
+                        "cv": "",
+                        "avatar": ""
                     },
                     {
+                        "id": "ESF017",
+                        "name": "星野瑠美衣",
+                        "ip": "【我推的孩子】",
+                        "cv": "伊驹百合绘",
+                        "avatar": "https://pic1.imgdb.cn/item/6785d9eed0e0a243d4f41239.png"
+                    },
+                    {
+                        "id": "ESF018",
+                        "name": "柊镜",
+                        "ip": "幸运☆星",
+                        "cv": "加藤英美里",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF019",
+                        "name": "志摩凛",
+                        "ip": "摇曳露营△",
+                        "cv": "东山奈央",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF020",
+                        "name": "海老冢智",
+                        "ip": "少女乐队的呐喊",
+                        "cv": "凪都",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF021",
+                        "name": "五更琉璃",
+                        "ip": "我的妹妹哪有这么可爱！",
+                        "cv": "花泽香菜",
+                        "avatar": "https://pic1.imgdb.cn/item/677fbd7dd0e0a243d4f2c934.png"
+                    },
+                    {
+                        "id": "ESF022",
+                        "name": "蝴蝶忍",
+                        "ip": "鬼灭之刃",
+                        "cv": "早见沙织",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF023",
+                        "name": "小野寺小咲",
+                        "ip": "伪恋",
+                        "cv": "花泽香菜",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF024",
+                        "name": "夏娜",
+                        "ip": "灼眼的夏娜",
+                        "cv": "钉宫理惠",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF025",
+                        "name": "古手川千纱",
+                        "ip": "碧蓝之海",
+                        "cv": "安济知佳",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF026",
+                        "name": "伞木希美",
+                        "ip": "吹响！上低音号",
+                        "cv": "东山奈央",
+                        "avatar": "https://pic1.imgdb.cn/item/6736023ed29ded1a8cbb10be.png"
+                    },
+                    {
+                        "id": "ESF027",
+                        "name": "鸢一折纸",
+                        "ip": "约会大作战",
+                        "cv": "富坚美铃",
+                        "avatar": "https://pic1.imgdb.cn/item/67408f5fd29ded1a8c0ef0c4.png"
+                    },
+                    {
+                        "id": "ESF028",
+                        "name": "铠冢霙",
+                        "ip": "吹响！上低音号",
+                        "cv": "种崎敦美",
+                        "avatar": "https://pic1.imgdb.cn/item/67408d6cd29ded1a8c0d1f24.png"
+                    },
+                    {
+                        "id": "ESF029",
+                        "name": "土间埋",
+                        "ip": "干物妹！小埋",
+                        "cv": "田中爱美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF030",
+                        "name": "碧翠丝",
+                        "ip": "Re:从零开始的异世界生活",
+                        "cv": "新井里美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF031",
+                        "name": "食蜂操祈",
+                        "ip": "魔法禁书目录",
+                        "cv": "浅仓杏美",
+                        "avatar": "https://pic1.imgdb.cn/item/69f2d8cbf97149b1cf360ac1.png"
+                    },
+                    {
+                        "id": "ESF032",
+                        "name": "椎名立希",
+                        "ip": "BanG Dream!",
+                        "cv": "林鼓子",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF033",
+                        "name": "楪祈",
+                        "ip": "罪恶王冠",
+                        "cv": "茅野爱衣",
+                        "avatar": "https://pic1.imgdb.cn/item/67409786d29ded1a8c162b2b.png"
+                    },
+                    {
+                        "id": "ESF034",
+                        "name": "桐崎千棘",
+                        "ip": "伪恋",
+                        "cv": "东山奈央",
+                        "avatar": "https://pic1.imgdb.cn/item/674139ebd29ded1a8c82ff0c.png"
+                    },
+                    {
+                        "id": "ESF035",
+                        "name": "七草荠",
+                        "ip": "彻夜之歌",
+                        "cv": "雨宫天",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF036",
+                        "name": "玛奇玛",
+                        "ip": "电锯人",
+                        "cv": "楠木灯",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF037",
+                        "name": "本间芽衣子",
+                        "ip": "我们仍未知道那天所看见的花的名字。",
+                        "cv": "茅野爱衣",
+                        "avatar": "https://pic1.imgdb.cn/item/677fbdafd0e0a243d4f2c954.png"
+                    },
+                    {
+                        "id": "ESF038",
+                        "name": "大道寺知世",
+                        "ip": "魔卡少女樱",
+                        "cv": "岩男润子",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF039",
+                        "name": "冈崎汐",
+                        "ip": "CLANNAD",
+                        "cv": "兴梠里美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF040",
+                        "name": "安达樱",
+                        "ip": "安达与岛村",
+                        "cv": "鬼头明里",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF041",
+                        "name": "䌷文德斯",
+                        "ip": "Summer Pockets",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF042",
+                        "name": "加藤羽未",
+                        "ip": "Summer Pockets",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF043",
+                        "name": "四糸乃",
+                        "ip": "约会大作战",
+                        "cv": "野水伊织",
+                        "avatar": "https://pic1.imgdb.cn/item/674126acd29ded1a8c70178e.png"
+                    },
+                    {
+                        "id": "ESF044",
+                        "name": "惣流·明日香·兰格雷",
+                        "ip": "新世纪福音战士",
+                        "cv": "宫村优子",
+                        "avatar": "https://pic1.imgdb.cn/item/673a9839d29ded1a8c27348b.png"
+                    },
+                    {
+                        "id": "ESF045",
+                        "name": "三笠·阿克曼",
+                        "ip": "进击的巨人",
+                        "cv": "石川由依",
+                        "avatar": "https://pic1.imgdb.cn/item/6740434dd29ded1a8ccc22c7.png"
+                    },
+                    {
+                        "id": "ESF046",
+                        "name": "珂朵莉·诺塔·瑟尼欧里斯",
+                        "ip": "末日时在做什么？有没有空？可以来拯救吗？",
+                        "cv": "田所梓",
+                        "avatar": "https://pic1.imgdb.cn/item/67413954d29ded1a8c8270bd.png"
+                    },
+                    {
+                        "id": "ESF047",
+                        "name": "阿米娅",
+                        "ip": "明日方舟",
+                        "cv": "黑泽朋世",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF048",
+                        "name": "濑名紫阳花",
+                        "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF049",
+                        "name": "小鸟游十花",
+                        "ip": "中二病也要谈恋爱！",
+                        "cv": "仙台惠理",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF050",
+                        "name": "战场原黑仪",
+                        "ip": "物语系列",
+                        "cv": "斋藤千和",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF051",
+                        "name": "茵蒂克丝",
+                        "ip": "魔法禁书目录",
+                        "cv": "井口裕香",
+                        "avatar": "https://pic1.imgdb.cn/item/6785da38d0e0a243d4f4124b.png"
+                    },
+                    {
+                        "id": "ESF052",
+                        "name": "各务原抚子",
+                        "ip": "摇曳露营△",
+                        "cv": "花守由美里",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF053",
+                        "name": "千斗五十铃",
+                        "ip": "甘城光辉游乐园",
+                        "cv": "加隈亚衣",
+                        "avatar": "https://pic1.imgdb.cn/item/6785da20d0e0a243d4f41244.png"
+                    },
+                    {
+                        "id": "ESF054",
+                        "name": "初春饰利",
+                        "ip": "魔法禁书目录",
+                        "cv": "丰崎爱生",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF055",
+                        "name": "空银子",
+                        "ip": "龙王的工作！",
+                        "cv": "金元寿子",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF056",
+                        "name": "小糸侑",
+                        "ip": "终将成为你",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF057",
+                        "name": "古见硝子",
+                        "ip": "古见同学有交流障碍症",
+                        "cv": "古贺葵",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF058",
+                        "name": "久保渚咲",
+                        "ip": "久保同学不放过我",
+                        "cv": "花泽香菜",
+                        "avatar": ""
+                    }
+                ]
+            },
+            {
+                "rankLabel": "提名未晋级",
+                "characters": [
+                    {
                         "id": "ESF009",
-                        "name": "凉宫春日",
-                        "ip": "凉宫春日的忧郁",
-                        "cv": "平野绫",
-                        "avatar": "https://pic1.imgdb.cn/item/67418d25d29ded1a8cd84d64.png"
+                        "name": "井之上泷奈",
+                        "ip": "莉可丽丝",
+                        "cv": "若山诗音",
+                        "avatar": "https://pic1.imgdb.cn/item/673abe6ed29ded1a8c43cd2d.png"
                     },
                     {
                         "id": "ESF010",
-                        "name": "河原木桃香",
-                        "ip": "少女乐队的呐喊",
-                        "cv": "夕莉",
+                        "name": "沙耶",
+                        "ip": "魔女之旅",
+                        "cv": "",
                         "avatar": ""
                     },
                     {
                         "id": "ESF011",
-                        "name": "逢坂大河",
-                        "ip": "龙与虎",
-                        "cv": "钉宫理惠",
-                        "avatar": "https://pic1.imgdb.cn/item/6742aa2888c538a9b5bb4148.png"
+                        "name": "长门有希",
+                        "ip": "凉宫春日的忧郁",
+                        "cv": "茅原实里",
+                        "avatar": "https://pic1.imgdb.cn/item/674138bbd29ded1a8c81e277.png"
                     },
                     {
                         "id": "ESF012",
-                        "name": "五河琴里",
+                        "name": "夜刀神十香",
                         "ip": "约会大作战",
-                        "cv": "竹达彩奈",
-                        "avatar": "https://pic1.imgdb.cn/item/673be110d29ded1a8c2750be.png"
+                        "cv": "井上麻里奈",
+                        "avatar": "https://pic1.imgdb.cn/item/67413926d29ded1a8c824556.png"
                     },
                     {
                         "id": "ESF013",
-                        "name": "东海帝王",
-                        "ip": "赛马娘 Pretty Derby",
-                        "cv": "Machico",
-                        "avatar": "https://pic1.imgdb.cn/item/67419ca3d29ded1a8ce4ecc8.png"
+                        "name": "香风智乃",
+                        "ip": "请问您今天要来点兔子吗？",
+                        "cv": "水濑祈",
+                        "avatar": ""
                     },
                     {
                         "id": "ESF014",
-                        "name": "牧濑红莉栖",
-                        "ip": "命运石之门",
-                        "cv": "今井麻美",
-                        "avatar": "https://pic1.imgdb.cn/item/67395e28d29ded1a8c43f6d9.png"
+                        "name": "02",
+                        "ip": "Darling in the FranXX",
+                        "cv": "户松遥",
+                        "avatar": "https://pic1.imgdb.cn/item/677fba15d0e0a243d4f2c7c3.png"
                     },
                     {
                         "id": "ESF015",
-                        "name": "星野爱",
+                        "name": "有马加奈",
                         "ip": "【我推的孩子】",
-                        "cv": "高桥李依",
-                        "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png"
+                        "cv": "潘惠美",
+                        "avatar": ""
+                    }
+                ]
+            },
+            {
+                "rankLabel": "提名未晋级",
+                "characters": [
+                    {
+                        "id": "ESF001",
+                        "name": "神尾观铃",
+                        "ip": "AIR",
+                        "cv": "真田麻美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF002",
+                        "name": "温水佳树",
+                        "ip": "败犬女主太多了！",
+                        "cv": "田中美海",
+                        "avatar": "https://pic1.imgdb.cn/item/69f3297cf97149b1cf36fd72.png"
+                    },
+                    {
+                        "id": "ESF003",
+                        "name": "木之本樱",
+                        "ip": "魔卡少女樱",
+                        "cv": "丹下樱",
+                        "avatar": "https://pic1.imgdb.cn/item/6785db17d0e0a243d4f412a1.png"
+                    },
+                    {
+                        "id": "ESF004",
+                        "name": "马剃天爱星",
+                        "ip": "败犬女主太多了！",
+                        "cv": "诸星堇",
+                        "avatar": "https://pic1.imgdb.cn/item/69f2d9f6f97149b1cf360bae.png"
+                    },
+                    {
+                        "id": "ESF005",
+                        "name": "绫波丽",
+                        "ip": "新世纪福音战士",
+                        "cv": "林原惠",
+                        "avatar": "https://pic1.imgdb.cn/item/67419547d29ded1a8cde6dfe.png"
+                    },
+                    {
+                        "id": "ESF006",
+                        "name": "佐天泪子",
+                        "ip": "魔法禁书目录",
+                        "cv": "伊藤加奈惠",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF007",
+                        "name": "户山香澄",
+                        "ip": "BanG Dream!",
+                        "cv": "爱美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESF008",
+                        "name": "灰原哀",
+                        "ip": "名侦探柯南",
+                        "cv": "林原惠",
+                        "avatar": "https://pic1.imgdb.cn/item/6741a7eed29ded1a8cf033ab.png"
                     }
                 ]
             }
@@ -1525,6 +1941,55 @@
                         "ip": "金牌得主",
                         "cv": "",
                         "avatar": ""
+                    },
+                    {
+                        "id": "SM130",
+                        "name": "乔鲁诺·乔巴拿",
+                        "ip": "JoJo的奇妙冒险",
+                        "cv": "小野贤章",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM131",
+                        "name": "我妻善逸",
+                        "ip": "鬼灭之刃",
+                        "cv": "下野纮",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM132",
+                        "name": "齐木楠雄",
+                        "ip": "齐木楠雄的灾难",
+                        "cv": "神谷浩史",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM133",
+                        "name": "东方仗助",
+                        "ip": "JoJo的奇妙冒险",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM134",
+                        "name": "和泉正宗",
+                        "ip": "埃罗芒阿老师",
+                        "cv": "松冈祯丞",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM135",
+                        "name": "黑羽快斗",
+                        "ip": "魔术快斗",
+                        "cv": "山口胜平",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM136",
+                        "name": "杀老师",
+                        "ip": "暗杀教室",
+                        "cv": "福山润",
+                        "avatar": ""
                     }
                 ]
             },
@@ -1586,6 +2051,62 @@
                         "ip": "地。-关于地球的运动-",
                         "cv": "坂本真绫",
                         "avatar": ""
+                    },
+                    {
+                        "id": "SM137",
+                        "name": "安昙小太郎",
+                        "ip": "月色真美",
+                        "cv": "千叶翔也",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM138",
+                        "name": "渚薰",
+                        "ip": "新世纪福音战士",
+                        "cv": "石田彰",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM139",
+                        "name": "樱满集",
+                        "ip": "罪恶王冠",
+                        "cv": "梶裕贵",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM140",
+                        "name": "炼狱杏寿郎",
+                        "ip": "鬼灭之刃",
+                        "cv": "日野聪",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM141",
+                        "name": "安艺伦也",
+                        "ip": "路人女主的养成方法",
+                        "cv": "松冈祯丞",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM142",
+                        "name": "内卷昴",
+                        "ip": "这个美术社大有问题！",
+                        "cv": "小林裕介",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM143",
+                        "name": "一条乐",
+                        "ip": "伪恋",
+                        "cv": "内山昂辉",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM144",
+                        "name": "枣恭介",
+                        "ip": "Little Busters!",
+                        "cv": "绿川光",
+                        "avatar": ""
                     }
                 ]
             },
@@ -1646,6 +2167,13 @@
                         "name": "维吉尔",
                         "ip": "鬼泣系列",
                         "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "SM145",
+                        "name": "伊藤诚",
+                        "ip": "School Days",
+                        "cv": "平川大辅",
                         "avatar": ""
                     }
                 ]
@@ -2086,127 +2614,386 @@
                         "ip": "咒术回战",
                         "cv": "",
                         "avatar": ""
+                    }
+                ]
+            },
+            {
+                "rankLabel": "提名未晋级",
+                "characters": [
+                    {
+                        "id": "ESM017",
+                        "name": "早川秋",
+                        "ip": "电锯人",
+                        "cv": "",
+                        "avatar": ""
                     },
                     {
-                        "id": "ESM001",
-                        "name": "乔鲁诺·乔巴拿",
+                        "id": "ESM018",
+                        "name": "贝吉塔",
+                        "ip": "龙珠",
+                        "cv": "堀川亮",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM019",
+                        "name": "成步堂龙一",
+                        "ip": "逆转裁判系列",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM020",
+                        "name": "吉良吉影",
                         "ip": "JoJo的奇妙冒险",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM021",
+                        "name": "影山茂夫",
+                        "ip": "路人超能100",
+                        "cv": "伊藤节生",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM022",
+                        "name": "冢本秀一",
+                        "ip": "吹响！上低音号",
+                        "cv": "石谷春贵",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM023",
+                        "name": "野原新之助",
+                        "ip": "蜡笔小新",
+                        "cv": "小林由美子",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM024",
+                        "name": "只野仁人",
+                        "ip": "古见同学有交流障碍症",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM025",
+                        "name": "夜守光",
+                        "ip": "彻夜之歌",
+                        "cv": "佐藤元",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM026",
+                        "name": "老师",
+                        "ip": "蔚蓝档案",
+                        "cv": "坂田将吾",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM027",
+                        "name": "绫崎飒",
+                        "ip": "旋风管家！",
+                        "cv": "白石凉子",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM028",
+                        "name": "夏尔·凡多姆海恩",
+                        "ip": "黑执事",
+                        "cv": "坂本真绫",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM029",
+                        "name": "百夜米迦尔",
+                        "ip": "终结的炽天使",
                         "cv": "小野贤章",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM002",
-                        "name": "我妻善逸",
-                        "ip": "鬼灭之刃",
-                        "cv": "下野纮",
+                        "id": "ESM030",
+                        "name": "九头龙八一",
+                        "ip": "龙王的工作！",
+                        "cv": "内田雄马",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM003",
-                        "name": "齐木楠雄",
-                        "ip": "齐木楠雄的灾难",
+                        "id": "ESM031",
+                        "name": "可儿江西也",
+                        "ip": "甘城光辉游乐园",
+                        "cv": "内山昂辉",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM032",
+                        "name": "狛枝凪斗",
+                        "ip": "弹丸论破",
+                        "cv": "绪方惠美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM033",
+                        "name": "爱德华·艾尔利克",
+                        "ip": "钢之炼金术师",
+                        "cv": "朴璐美",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM034",
+                        "name": "前原圭一",
+                        "ip": "寒蝉鸣泣之时",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM035",
+                        "name": "犬夜叉",
+                        "ip": "犬夜叉",
+                        "cv": "山口胜平",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM036",
+                        "name": "菲利克斯·阿盖尔",
+                        "ip": "Re:从零开始的异世界生活",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM037",
+                        "name": "天王寺瑚太朗",
+                        "ip": "Rewrite",
+                        "cv": "森田成一",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM038",
+                        "name": "坂本",
+                        "ip": "在下坂本，有何贵干？",
+                        "cv": "绿川光",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM039",
+                        "name": "武藤游戏",
+                        "ip": "游戏王系列",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM040",
+                        "name": "江户川乱步",
+                        "ip": "文豪野犬",
                         "cv": "神谷浩史",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM004",
-                        "name": "东方仗助",
+                        "id": "ESM041",
+                        "name": "布鲁诺·布加拉提",
                         "ip": "JoJo的奇妙冒险",
                         "cv": "",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM005",
-                        "name": "和泉正宗",
-                        "ip": "埃罗芒阿老师",
+                        "id": "ESM042",
+                        "name": "坂本太郎",
+                        "ip": "坂本日常",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM043",
+                        "name": "宿海仁太",
+                        "ip": "我们仍未知道那天所看见的花的名字。",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM044",
+                        "name": "潮田渚",
+                        "ip": "暗杀教室",
+                        "cv": "渊上舞",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM045",
+                        "name": "木之本桃矢",
+                        "ip": "魔卡少女樱",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM046",
+                        "name": "贝尔·克朗尼",
+                        "ip": "在地下城寻求邂逅是否搞错了什么",
                         "cv": "松冈祯丞",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM006",
-                        "name": "黑羽快斗",
-                        "ip": "魔术快斗",
-                        "cv": "山口胜平",
+                        "id": "ESM047",
+                        "name": "野崎梅太郎",
+                        "ip": "月刊少女野崎君",
+                        "cv": "中村悠一",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM007",
-                        "name": "杀老师",
-                        "ip": "暗杀教室",
+                        "id": "ESM048",
+                        "name": "埼玉",
+                        "ip": "一拳超人",
+                        "cv": "古川慎",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM049",
+                        "name": "雨宫莲",
+                        "ip": "女神异闻录5",
+                        "cv": "福山润",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM050",
+                        "name": "上杉风太郎",
+                        "ip": "五等分的新娘",
+                        "cv": "松冈祯丞",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM051",
+                        "name": "野比大雄",
+                        "ip": "哆啦A梦",
+                        "cv": "大原惠",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM052",
+                        "name": "时透无一郎",
+                        "ip": "鬼灭之刃",
+                        "cv": "河西健吾",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM053",
+                        "name": "岸边露伴",
+                        "ip": "JoJo的奇妙冒险",
                         "cv": "",
                         "avatar": ""
                     }
                 ]
             },
             {
-                "rankLabel": "144强",
+                "rankLabel": "提名未晋级",
                 "characters": [
                     {
-                        "id": "ESM008",
-                        "name": "安昙小太郎",
-                        "ip": "月色真美",
-                        "cv": "千叶翔也",
+                        "id": "ESM001",
+                        "name": "国崎往人",
+                        "ip": "AIR",
+                        "cv": "小野大辅",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM009",
-                        "name": "渚薰",
-                        "ip": "新世纪福音战士",
-                        "cv": "石田彰",
+                        "id": "ESM002",
+                        "name": "塔兹米",
+                        "ip": "斩·赤红之瞳！",
+                        "cv": "齐藤壮马",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM010",
-                        "name": "樱满集",
-                        "ip": "罪恶王冠",
-                        "cv": "梶裕贵",
+                        "id": "ESM003",
+                        "name": "海崎新太",
+                        "ip": "ReLIFE",
+                        "cv": "小野贤章",
                         "avatar": ""
                     },
                     {
-                        "id": "ESM011",
-                        "name": "炼狱杏寿郎",
-                        "ip": "鬼灭之刃",
+                        "id": "ESM004",
+                        "name": "平贺才人",
+                        "ip": "零之使魔",
                         "cv": "日野聪",
                         "avatar": ""
                     },
                     {
+                        "id": "ESM005",
+                        "name": "斑鸠夏生",
+                        "ip": "ATRI -My Dear Moments-",
+                        "cv": "小野贤章",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM006",
+                        "name": "奥托·苏文",
+                        "ip": "Re:从零开始的异世界生活",
+                        "cv": "天崎滉平",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM007",
+                        "name": "春原阳平",
+                        "ip": "CLANNAD",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM008",
+                        "name": "土间大平",
+                        "ip": "干物妹！小埋",
+                        "cv": "",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM009",
+                        "name": "高坂京介",
+                        "ip": "我的妹妹哪有这么可爱！",
+                        "cv": "中村悠一",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM010",
+                        "name": "广",
+                        "ip": "Darling in the FranXX",
+                        "cv": "上村祐翔",
+                        "avatar": ""
+                    },
+                    {
+                        "id": "ESM011",
+                        "name": "席德·卡盖诺",
+                        "ip": "想要成为影之实力者！",
+                        "cv": "山下诚一郎",
+                        "avatar": ""
+                    },
+                    {
                         "id": "ESM012",
-                        "name": "安艺伦也",
-                        "ip": "路人女主的养成方法",
-                        "cv": "松冈祯丞",
+                        "name": "久世政近",
+                        "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
+                        "cv": "天崎滉平",
                         "avatar": ""
                     },
                     {
                         "id": "ESM013",
-                        "name": "内卷昴",
-                        "ip": "这个美术社大有问题！",
-                        "cv": "小林裕介",
+                        "name": "苗木诚",
+                        "ip": "弹丸论破",
+                        "cv": "绪方惠美",
                         "avatar": ""
                     },
                     {
                         "id": "ESM014",
-                        "name": "一条乐",
-                        "ip": "伪恋",
-                        "cv": "内山昂辉",
+                        "name": "日向翔阳",
+                        "ip": "排球少年！！",
+                        "cv": "村濑步",
                         "avatar": ""
                     },
                     {
                         "id": "ESM015",
-                        "name": "枣恭介",
-                        "ip": "Little Busters!",
-                        "cv": "绿川光",
+                        "name": "柚木普",
+                        "ip": "地缚少年花子君",
+                        "cv": "绪方惠美",
                         "avatar": ""
-                    }
-                ]
-            },
-            {
-                "rankLabel": "152强",
-                "characters": [
+                    },
                     {
                         "id": "ESM016",
-                        "name": "伊藤诚",
-                        "ip": "School Days",
-                        "cv": "平川大辅",
+                        "name": "今村耕平",
+                        "ip": "碧蓝之海",
+                        "cv": "",
                         "avatar": ""
                     }
                 ]

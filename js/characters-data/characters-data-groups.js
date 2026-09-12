@@ -53,12 +53,11 @@ function renderStellarGender(groups, container, gender, templates, cardContext) 
     const cardsDiv = templates.characterCards.content.cloneNode(true).querySelector('.character-cards');
     cardsDiv.dataset.gender = gender;
     const sortedCharacters = groups.flatMap(group => group.characters).sort((a, b) => {
-        const idA = parseInt(a.id.replace('SF', ''), 10);
-        const idB = parseInt(b.id.replace('SF', ''), 10);
-        if (idA <= 37 && idB <= 37) return idA - idB;
-        if (idA <= 37) return -1;
-        if (idB <= 37) return 1;
-        return idB - idA;
+        const getIdOrder = id => {
+            const match = id.match(/^(?:E)?S[FM](\d+)$/);
+            return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+        };
+        return getIdOrder(a.id) - getIdOrder(b.id);
     });
     sortedCharacters.forEach(char => cardsDiv.appendChild(createCharacterCard(char, gender, cardContext)));
     groupDiv.appendChild(cardsDiv);
