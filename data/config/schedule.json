@@ -235,6 +235,20 @@
                     },
                     "details": {
                         "format": "赞成投票制"
+                    },
+                    "links": {
+                        "completed": {
+                            "items": [
+                                {
+                                    "text": "查看女子组结果",
+                                    "url": "pages/visualization/visualization.html?id=preliminary-r02-stellar-female"
+                                },
+                                {
+                                    "text": "查看男子组结果",
+                                    "url": "pages/visualization/visualization.html?id=preliminary-r02-stellar-male"
+                                }
+                            ]
+                        }
                     }
                 },
                 {

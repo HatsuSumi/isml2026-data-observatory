@@ -1,7 +1,9 @@
 import { CHINESE_ROUND_NUMBERS, NAVIGATION_GROUPS, PHASE_NAME_TARGETS, templates } from './events-data-config.js';
 
 export function getPhaseTargetId(phaseName) {
-    return PHASE_NAME_TARGETS[phaseName] ?? null;
+    if (PHASE_NAME_TARGETS[phaseName]) return PHASE_NAME_TARGETS[phaseName];
+    if (phaseName.startsWith('预选赛')) return 'preliminary';
+    throw new Error(`未定义的赛事阶段：${phaseName}`);
 }
 
 export function getRoundNumber(title) {
@@ -45,9 +47,36 @@ export function createElevatorNavigation() {
 }
 
 export function syncNavigationTargets(nav) {
-    nav.querySelectorAll('.elevator-nav-item[data-target]').forEach(item => {
-        item.hidden = !document.querySelector(`[data-phase="${item.dataset.target}"]`);
+    const navigationItems = nav.querySelectorAll('.elevator-nav-item[data-target]');
+    navigationItems.forEach(item => {
+        item.hidden = !getNavigationTarget(item.dataset.target);
     });
+    const visibleItems = [...navigationItems].filter(item => !item.hidden);
+    if (!visibleItems.length) {
+        throw new Error('赛事数据页未生成任何有效导航目标');
+    }
+}
+
+export function validateRenderedTargets(data) {
+    const expectedTargets = new Set();
+    for (const month of Object.values(data.months || {})) {
+        for (const event of month.events || []) {
+            for (const match of event.matches || []) {
+                const targetId = getMatchTargetId(match);
+                if (targetId) expectedTargets.add(targetId);
+                const phaseTargetId = getPhaseTargetId(match.phase);
+                if (phaseTargetId === 'preliminary') expectedTargets.add('preliminary');
+            }
+        }
+    }
+    const missingTargets = [...expectedTargets].filter(targetId => !getNavigationTarget(targetId));
+    if (missingTargets.length) {
+        throw new Error(`赛事数据页缺少导航目标：${missingTargets.join('、')}`);
+    }
+}
+
+function getNavigationTarget(targetId) {
+    return document.querySelector(`[data-phase="${targetId}"], [data-stage="${targetId}"]`);
 }
 
 export function updateNavActiveState(nav, activeId) {
@@ -96,9 +125,18 @@ export function bindNavigationEvents(nav, { getDocumentTop, scrollTo, onNavigate
         const item = event.target.closest('.elevator-nav-item');
         if (!item || !nav.contains(item)) return;
         const targetId = item.dataset.target;
-        const targetElement = document.querySelector(`[data-phase="${targetId}"]`);
-        if (!targetElement) return;
+        const targetElement = getNavigationTarget(targetId);
+    if (!targetElement) {
+            throw new Error(`导航目标不存在：${targetId}`);
+        }
         event.preventDefault();
+        const group = item.closest('.elevator-nav-group');
+        if (group?.classList.contains('collapsed')) {
+            group.classList.remove('collapsed');
+            const icon = group.querySelector('.collapse-icon');
+            icon?.classList.remove('fa-chevron-right');
+            icon?.classList.add('fa-chevron-down');
+        }
         scrollTo(getDocumentTop(targetElement) - 80);
         history.pushState(null, '', `./pages/events-data/events-data.html#${targetId}`);
         onNavigate(targetId);

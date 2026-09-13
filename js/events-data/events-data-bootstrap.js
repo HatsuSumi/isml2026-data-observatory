@@ -7,7 +7,8 @@ import {
     createElevatorNavigation,
     initializeNavigationState,
     syncNavigationTargets,
-    updateNavActiveState
+    updateNavActiveState,
+    validateRenderedTargets
 } from './events-data-navigation.js';
 import { createMonthSection } from './events-data-sections.js';
 import { getDocumentTop, restoreSavedPosition, scrollToHash, setupScrollTracking } from './events-data-scroll.js';
@@ -46,12 +47,22 @@ function initializePagePosition(nav) {
     scrollToHash(hash, updateActiveState);
 }
 
+function showInitializationError(error) {
+    const container = document.querySelector('.container');
+    if (!container) return;
+    const message = document.createElement('p');
+    message.className = 'error';
+    message.textContent = `赛事数据加载失败：${error.message}`;
+    container.replaceChildren(message);
+}
+
 export async function initializeEventsPage() {
     try {
         const { data, rankingData, charactersData } = await loadEventsData();
         const nav = createElevatorNavigation();
         initializeNavigationState(nav, getCurrentPhase(data));
         renderEventsPage(data, rankingData, charactersData);
+        validateRenderedTargets(data);
         document.body.appendChild(nav);
         syncNavigationTargets(nav);
         bindNavigationEvents(nav, {
@@ -61,6 +72,7 @@ export async function initializeEventsPage() {
         });
         initializePagePosition(nav);
     } catch (error) {
-        console.error('Error:', error);
+        console.error('赛事数据页初始化失败:', error);
+        showInitializationError(error);
     }
 }

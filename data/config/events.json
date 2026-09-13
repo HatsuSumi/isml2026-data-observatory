@@ -75,7 +75,7 @@
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-female",
                                 "data": "data/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
-                                "groups": "pages/groups/groups.html?id=preliminary.stellar.female"
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r01.female"
                             }
                         },
                         {
@@ -92,7 +92,7 @@
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-male",
                                 "data": "data/preliminaries/stellar/male/12-preliminary-r01-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
-                                "groups": "pages/groups/groups.html?id=preliminary.stellar.male"
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r01.male"
                             }
                         }
                     ]
@@ -102,6 +102,55 @@
         "2026-08": {
             "title": "2026年8月",
             "events": [
+                {
+                    "dateRange": {
+                        "start": "2026-07-31 20:00:00",
+                        "end": "2026-08-01 19:59:59"
+                    },
+                    "stats": {
+                        "votes": {
+                            "total": 5485
+                        }
+                    },
+                    "matches": [
+                        {
+                            "title": "预选赛第二轮-女性组别",
+                            "id": "preliminaries/stellar/female/r02",
+                            "phase": "预选赛第二轮",
+                            "details": {
+                                "format": "赞成投票制",
+                                "qualified": {
+                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第3轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r02-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r02-stellar-female",
+                                "data": "data/preliminaries/stellar/female/13-preliminary-r02-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r02.female"
+                            }
+                        },
+                        {
+                            "title": "预选赛第二轮-男性组别",
+                            "id": "preliminaries/stellar/male/r02",
+                            "phase": "预选赛第二轮",
+                            "details": {
+                                "format": "赞成投票制",
+                                "qualified": {
+                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第3轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r02-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r02-stellar-male",
+                                "data": "data/preliminaries/stellar/male/14-preliminary-r02-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r02.male"
+                            }
+                        }
+                    ]
+                },
                 {
                     "dateRange": {
                         "start": "2026-08-30 20:00:00",

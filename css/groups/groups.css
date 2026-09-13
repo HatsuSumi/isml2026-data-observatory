@@ -177,13 +177,13 @@ body {
 
 .characters-list .character-name {
     color: #f4f7fb;
-    font-size: 0.82rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
 .characters-list .character-ip {
-    color: #8fa4c0;
-    font-size: 0.68rem;
+    color: #a8bad2;
+    font-size: 0.82rem;
 }
 
 .loading-container {

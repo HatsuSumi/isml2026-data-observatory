@@ -47,9 +47,14 @@ class NominationHandler extends StageHandler {
 }
 
 class PreliminariesHandler extends StageHandler {
-    getFields() {
+    getFields(round) {
         return {
-            '赛事时间': this.roundConfig?.['赛事时间']
+            '赛事时间': this.roundConfig?.['赛事时间'],
+            '小组': round['小组'],
+            '组内名次': round['组内名次'],
+            '票数': round['票数'],
+            '结果': round['结果'],
+            '全局名次': round['全局名次']
         };
     }
 

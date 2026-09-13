@@ -1,7 +1,7 @@
 import { TITLE_MAPPING } from './events-data-config.js';
 import { getEventStatus, getEventStartDate } from './events-data-status.js';
 import { createDateContent, createEventCard, createStatusInfo } from './events-data-cards.js';
-import { getMatchTargetId, getPhaseTargetId } from './events-data-navigation.js';
+import { getMatchTargetId, getPhaseTargetId, getRoundNumber } from './events-data-navigation.js';
 
 export function groupEventsByStructure(events) {
     const structure = {};
@@ -79,7 +79,12 @@ function createPhaseSection(templates, phaseName, phase, nextEventStartTime, ran
     const header = section.querySelector('.phase-header');
     const content = section.querySelector('.phase-content');
     const phaseTargetId = getPhaseTargetId(phaseName);
-    if (phaseTargetId) section.dataset.phase = phaseTargetId;
+    if (phaseTargetId) {
+        const firstMatch = Object.values(phase.groups)[0]?.[0]?.match;
+        const round = firstMatch ? getRoundNumber(firstMatch.title) : null;
+        section.dataset.phase = round ? `${phaseTargetId}-${round}` : phaseTargetId;
+        if (phaseTargetId === 'preliminary') section.dataset.stage = phaseTargetId;
+    }
     section.id = phaseName;
     header.textContent = phaseName;
 

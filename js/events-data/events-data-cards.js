@@ -67,14 +67,15 @@ export function createStatusInfo(templates, status, stats) {
         statusNode.textContent = getStatusText(status);
         fragment.appendChild(statusNode);
     }
-    if (stats) {
+    if (stats?.votes && stats.votes.total !== undefined) {
         const statsContainer = document.createElement('div');
         statsContainer.className = 'event-stats';
         const item = document.createElement('span');
+        const hasValidVotes = stats.votes.valid !== undefined && stats.votes.valid !== null;
         item.className = 'stat-item';
-        item.textContent = stats.votes.valid === undefined
-            ? `总选票数: ${stats.votes.total}`
-            : `总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）`;
+        item.textContent = hasValidVotes
+            ? `总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）`
+            : `总选票数: ${stats.votes.total}`;
         statsContainer.appendChild(item);
         fragment.appendChild(statsContainer);
     }
@@ -122,6 +123,7 @@ export function createEventCard(templates, match, event, nextEventStartTime, ran
 
     if (topFiveData?.length) {
         const list = topCharacters.querySelector('.character-list');
+        topCharacters.hidden = false;
         topFiveData.forEach((item, index) => {
             list.appendChild(createTopCharacterItem(templates, item, index, topFiveData, charactersData));
         });
