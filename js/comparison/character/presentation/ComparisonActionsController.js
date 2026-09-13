@@ -74,7 +74,7 @@ export class ComparisonActionsController {
             this.showMessage(this.messages.minAvgCharacters);
             return;
         }
-        if (new Set(characters.map(character => character.name)).size !== characters.length) {
+        if (!this.hasUniqueCharacters(characters)) {
             this.showMessage(this.messages.duplicateCharacter);
             return;
         }
@@ -94,6 +94,11 @@ export class ComparisonActionsController {
         });
 
         this.renderResult(renderedResult);
+    }
+
+    hasUniqueCharacters(characters) {
+        const characterKeys = characters.map(character => `${character.name}@${character.ip}`);
+        return new Set(characterKeys).size === characterKeys.length;
     }
 
     validateGroups(input, groups, characters, isGroupComparison) {
@@ -141,8 +146,12 @@ export class ComparisonActionsController {
             return;
         }
 
-        document.querySelector(this.selectors.totalVotesValue).textContent = event.stats.votes.total;
-        document.querySelector(this.selectors.totalVotesValid).textContent = `（有效：${event.stats.votes.valid}）`;
+        const totalVotesValue = document.querySelector(this.selectors.totalVotesValue);
+        const totalVotesValid = document.querySelector(this.selectors.totalVotesValid);
+        totalVotesValue.textContent = event.stats.votes.total;
+        totalVotesValid.textContent = event.stats.votes.valid === undefined
+            ? ''
+            : `（有效：${event.stats.votes.valid}）`;
     }
 
     renderResult(renderedResult) {

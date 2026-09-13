@@ -72,7 +72,9 @@ export function createStatusInfo(templates, status, stats) {
         statsContainer.className = 'event-stats';
         const item = document.createElement('span');
         item.className = 'stat-item';
-        item.textContent = `总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）`;
+        item.textContent = stats.votes.valid === undefined
+            ? `总选票数: ${stats.votes.total}`
+            : `总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）`;
         statsContainer.appendChild(item);
         fragment.appendChild(statsContainer);
     }

@@ -139,7 +139,7 @@ function buildDetails(match, { includeQualified = false, includeCountdown = fals
         fragment.appendChild(createCountdownRow(countdownLabel, countdownValue));
     }
 
-    if (includeResults && match.dateRange.result && match.dateRange.result !== '-' && match.links?.completed?.items) {
+    if (includeResults && match.links?.completed?.items?.length) {
         const links = match.links.completed.items.map(link => {
             const separator = link.url.includes('?') ? '&' : '?';
             return {
@@ -158,11 +158,7 @@ function buildDetails(match, { includeQualified = false, includeCountdown = fals
 }
 
 export function renderMatchDetails(match, status) {
-    const hasPublishedResults = hasValue(match.details?.qualified?.total)
-        || Boolean(match.links?.completed?.items?.length)
-        || (match.dateRange.result && match.dateRange.result !== '-');
-
-    if (hasPublishedResults || status === 'completed') {
+    if (status === 'completed') {
         return buildDetails(match, {
             includeQualified: true,
             includeResults: true,

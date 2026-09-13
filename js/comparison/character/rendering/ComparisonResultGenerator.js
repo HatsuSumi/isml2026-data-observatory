@@ -1,4 +1,4 @@
-import { CONFIG, COMPARISON_TYPES } from '../../../common/config.js';
+import { COMPARISON_TYPES } from '../../../common/config.js';
 import { CharacterResultRenderer } from './CharacterResultRenderer.js';
 import { GroupResultRenderer } from './GroupResultRenderer.js';
 
@@ -9,13 +9,17 @@ export class ComparisonResultGenerator {
     }
 
     static generateBasicInfo(characters, groups, result, totalVotes, eventId, compareType, allCharacters) {
-        const stage = eventId.split('/')[0];
+        const strategy = this.getRenderStrategy(compareType, result, characters, totalVotes, allCharacters);
 
-        if (stage !== CONFIG.stages.nomination) {
-            return this.generateStageInfo(characters, totalVotes, compareType, result);
+        if (strategy) {
+            return strategy();
         }
 
-        const strategy = {
+        return this.generateStageInfo(characters, totalVotes, compareType, result);
+    }
+
+    static getRenderStrategy(compareType, result, characters, totalVotes, allCharacters) {
+        return {
             [COMPARISON_TYPES.baseCompare]: () => this.generateOneToManyHTML(
                 result.baseCharacter,
                 result.compareCharacters,
@@ -46,24 +50,16 @@ export class ComparisonResultGenerator {
             [COMPARISON_TYPES.groupAvgCompare]: () => this.generateGroupAvgHTML(
                 result.groups,
                 result.comparisons,
-                totalVotes,
-                result.allGroupsAverage
+                totalVotes
             ),
             [COMPARISON_TYPES.groupTotalCompare]: () => this.generateGroupTotalHTML(
                 result.groups,
                 result.comparisons,
-                totalVotes,
-                result.allGroupsTotal
+                totalVotes
             )
         }[compareType];
-
-        if (strategy) {
-            return strategy();
-        }
-
-        console.error(`未知的比较模式: ${compareType}`);
-        return '';
     }
+
 
 
 

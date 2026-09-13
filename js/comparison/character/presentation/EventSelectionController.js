@@ -4,9 +4,6 @@ export class EventSelectionController {
         selectors,
         layoutClasses,
         animationClasses,
-        comparisonTypes,
-        compareTypes,
-        config,
         alertBox,
         messages,
         resetExceptEvent,
@@ -17,9 +14,6 @@ export class EventSelectionController {
         this.selectors = selectors;
         this.layoutClasses = layoutClasses;
         this.animationClasses = animationClasses;
-        this.comparisonTypes = comparisonTypes;
-        this.compareTypes = compareTypes;
-        this.config = config;
         this.alertBox = alertBox;
         this.messages = messages;
         this.resetExceptEvent = resetExceptEvent;
@@ -115,7 +109,7 @@ export class EventSelectionController {
         try {
             this.resetExceptEvent();
             await this.characterManager.loadCharacters(eventId);
-            this.updateCompareTypeVisibility(eventId);
+            this.updateCompareTypeVisibility();
             this.updateTotalVotes(eventId);
         } catch (error) {
             this.alertBox.show(
@@ -126,25 +120,10 @@ export class EventSelectionController {
         }
     }
 
-    updateCompareTypeVisibility(eventId) {
-        const compareTypeSelect = document.getElementById(this.layoutClasses.compareType);
+    updateCompareTypeVisibility() {
         const compareTypeWrapper = document.querySelector(this.selectors.compareTypeWrapper);
-        const isNomination = eventId.split('/')[0] === this.config.stages.nomination;
-
-        this.compareTypes.forEach(type => {
-            const option = compareTypeSelect.querySelector(`option[value="${type}"]`);
-            if (option) {
-                option.style.display = isNomination ? 'block' : 'none';
-            }
-        });
-
-        if (isNomination) {
+        if (compareTypeWrapper) {
             compareTypeWrapper.classList.add(this.animationClasses.show);
-            return;
-        }
-
-        if (compareTypeSelect.value !== this.comparisonTypes.oneToOne) {
-            compareTypeSelect.value = this.comparisonTypes.oneToOne;
         }
     }
 
@@ -154,7 +133,11 @@ export class EventSelectionController {
             return;
         }
 
-        document.querySelector(this.selectors.totalVotesValue).textContent = event.stats.votes.total;
-        document.querySelector(this.selectors.totalVotesValid).textContent = `（有效：${event.stats.votes.valid}）`;
+        const totalVotesValue = document.querySelector(this.selectors.totalVotesValue);
+        const totalVotesValid = document.querySelector(this.selectors.totalVotesValid);
+        totalVotesValue.textContent = event.stats.votes.total;
+        totalVotesValid.textContent = event.stats.votes.valid === undefined
+            ? ''
+            : `（有效：${event.stats.votes.valid}）`;
     }
 }

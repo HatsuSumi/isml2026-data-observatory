@@ -95,15 +95,23 @@ export class CharacterSelectionController {
 
     getAvailableCharacters(targetGroup, characters) {
         const existingCharacters = new Set();
+        const targetCharacters = new Set();
         document.querySelectorAll(this.selectors.characterGroup).forEach(group => {
-            if (group === targetGroup) return;
             group.querySelectorAll(this.selectors.groupMember).forEach(member => {
                 const avatar = member.querySelector(this.selectors.characterAvatar);
                 const ip = avatar.title.split('@')[1];
-                existingCharacters.add(`${avatar.alt}@${ip}`);
+                const characterKey = `${avatar.alt}@${ip}`;
+                if (group === targetGroup) {
+                    targetCharacters.add(characterKey);
+                } else {
+                    existingCharacters.add(characterKey);
+                }
             });
         });
-        return characters.filter(char => !existingCharacters.has(`${char.name}@${char.ip}`));
+        return characters.filter(character => {
+            const characterKey = `${character.name}@${character.ip}`;
+            return targetCharacters.has(characterKey) || !existingCharacters.has(characterKey);
+        });
     }
 
     isSelected(selectedCharacters, char) {

@@ -123,7 +123,7 @@ function renderRows() {
     });
     body.querySelectorAll('tr').forEach((row) => row.classList.add('fade-in'));
     const promoted = state.filteredRows.filter((row) => row.isPromoted).length;
-    document.getElementById('summary').textContent = `显示 ${state.filteredRows.length} 名角色，其中晋级 ${promoted} 名，未晋级角色进入第2轮`;
+    document.getElementById('summary').textContent = `显示 ${state.filteredRows.length} 名角色，其中晋级 ${promoted} 名`;
 }
 
 function populateGroupFilter() {

@@ -23,9 +23,12 @@ export class QuickSelectModalController {
         closeQuickSelectBtn,
         quickSelectConfirmBtn,
         quickSelectCancelBtn,
+        getAvailableCharacters,
         onApplySelection,
     }) {
         let currentFilteredChars = [];
+
+        const getSelectableCharacters = () => getAvailableCharacters(this.characterManager.characters);
 
         quickSelectBtn.addEventListener('click', () => {
             quickSelectModal.classList.add(this.animationClasses.show);
@@ -63,7 +66,7 @@ export class QuickSelectModalController {
             const type = select.dataset.type;
             const optionsMap = new Map();
 
-            this.characterManager.characters.forEach(char => {
+            getSelectableCharacters().forEach(char => {
                 const value = type === 'cv' ? char.cv : char.ip;
                 if (value) optionsMap.set(value, (optionsMap.get(value) || 0) + 1);
             });
@@ -93,7 +96,7 @@ export class QuickSelectModalController {
                     const otherType = type === 'cv' ? 'ip' : 'cv';
                     const otherDropdown = quickSelectModal.querySelector(`${this.selectors.quickSelectDropdown}[data-type="${otherType}"]`);
                     otherDropdown.classList.toggle(this.animationClasses.disabled, Boolean(value));
-                    currentFilteredChars = this.characterManager.characters.filter(char => type === 'cv'
+                    currentFilteredChars = getSelectableCharacters().filter(char => type === 'cv'
                         ? char.cv === value.trim()
                         : char.ip === value.trim());
                     quickSelectConfirmBtn.disabled = false;

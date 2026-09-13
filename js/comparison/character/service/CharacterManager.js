@@ -50,7 +50,7 @@ export class CharacterManager {
 
     getTotalVotes(eventId) {
         const event = this.eventService.findStats(this.events, eventId);
-        return event?.stats?.votes?.valid ?? 0;
+        return event?.stats?.votes?.total ?? 0;
     }
 
     searchCharacters(keyword) {

@@ -58,6 +58,7 @@ export class CharacterModalController {
             closeQuickSelectBtn,
             quickSelectConfirmBtn,
             quickSelectCancelBtn,
+            getAvailableCharacters: characters => this.characterSelectionController.getAvailableCharacters(targetGroup, characters),
             onApplySelection: characters => {
                 characters.forEach(character => selectedCharacters.add(character));
                 renderCharacters(this.characterManager.characters);

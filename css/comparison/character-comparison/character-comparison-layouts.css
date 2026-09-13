@@ -116,16 +116,6 @@
     }
 }
 
-/* 默认隐藏高级对比选项 */
-.compare-type-wrapper select option[value="baseCompare"],
-.compare-type-wrapper select option[value="avgCompare"],
-.compare-type-wrapper select option[value="groupBaseAvgCompare"],
-.compare-type-wrapper select option[value="groupAvgCompare"],
-.compare-type-wrapper select option[value="groupTotalCompare"],
-.compare-type-wrapper select option[value="groupBaseTotalCompare"] {
-    display: none;
-}
-
 /* 组编辑态 */
 .character-group {
     border: transparent;
