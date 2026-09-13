@@ -28,7 +28,8 @@
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=01-stellar-female-nomination",
                                 "table": "pages/tables/nomination-table.html?id=01-stellar-female-nomination",
-                                "data": "data/nomination/stellar/female/01-female-nomination.json"
+                                "data": "data/nomination/stellar/female/01-female-nomination.json",
+                                "rules": "pages/rules/rules.html?id=nomination.stellar"
                             }
                         },
                         {
@@ -43,7 +44,8 @@
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=02-stellar-male-nomination",
                                 "table": "pages/tables/nomination-table.html?id=02-stellar-male-nomination",
-                                "data": "data/nomination/stellar/male/02-male-nomination.json"
+                                "data": "data/nomination/stellar/male/02-male-nomination.json",
+                                "rules": "pages/rules/rules.html?id=nomination.stellar"
                             }
                         }
                     ]
@@ -72,7 +74,9 @@
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r01-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-female",
-                                "data": "data/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json"
+                                "data": "data/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.female"
                             }
                         },
                         {
@@ -87,7 +91,9 @@
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r01-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-male",
-                                "data": "data/preliminaries/stellar/male/12-preliminary-r01-stellar-male.json"
+                                "data": "data/preliminaries/stellar/male/12-preliminary-r01-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.male"
                             }
                         }
                     ]
@@ -106,12 +112,18 @@
                         {
                             "title": "新星组冬季赛提名-女性组别",
                             "id": "nomination/nova/2026/winter/female",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.winter"
+                            }
                         },
                         {
                             "title": "新星组冬季赛提名-男性组别",
                             "id": "nomination/nova/2026/winter/male",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.winter"
+                            }
                         }
                     ]
                 }
@@ -129,12 +141,18 @@
                         {
                             "title": "新星组春季赛提名-女性组别",
                             "id": "nomination/nova/2026/spring/female",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.spring"
+                            }
                         },
                         {
                             "title": "新星组春季赛提名-男性组别",
                             "id": "nomination/nova/2026/spring/male",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.spring"
+                            }
                         }
                     ]
                 }
@@ -152,12 +170,18 @@
                         {
                             "title": "新星组夏季赛提名-女性组别",
                             "id": "nomination/nova/2026/summer/female",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.summer"
+                            }
                         },
                         {
                             "title": "新星组夏季赛提名-男性组别",
                             "id": "nomination/nova/2026/summer/male",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.summer"
+                            }
                         }
                     ]
                 }
@@ -175,12 +199,18 @@
                         {
                             "title": "新星组秋季赛提名-女性组别",
                             "id": "nomination/nova/2026/autumn/female",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.autumn"
+                            }
                         },
                         {
                             "title": "新星组秋季赛提名-男性组别",
                             "id": "nomination/nova/2026/autumn/male",
-                            "phase": "主赛事提名阶段"
+                            "phase": "主赛事提名阶段",
+                            "links": {
+                                "rules": "pages/rules/rules.html?id=nomination.nova.autumn"
+                            }
                         }
                     ]
                 }

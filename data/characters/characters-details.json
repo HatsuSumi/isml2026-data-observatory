@@ -8,13 +8,13 @@
                         "被提名角色数": 115,
                         "visualization": "pages/visualization/visualization.html?id=01-stellar-female-nomination",
                         "table": "pages/tables/nomination-table.html?id=01-stellar-female-nomination",
-                        "rules": ""
+                        "rules": "nomination.stellar"
                     },
                     "男性组别": {
                         "被提名角色数": 118,
                         "visualization": "pages/visualization/visualization.html?id=02-stellar-male-nomination",
                         "table": "pages/tables/nomination-table.html?id=02-stellar-male-nomination",
-                        "rules": ""
+                        "rules": "nomination.stellar"
                     }
                 },
                 "新星组": {
@@ -24,13 +24,13 @@
                             "被提名角色数": 37,
                             "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination",
                             "table": "pages/tables/nomination-table.html?id=03-nova-winter-female-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.winter"
                         },
                         "男性组别": {
                             "被提名角色数": 25,
                             "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination",
                             "table": "pages/tables/nomination-table.html?id=04-nova-winter-male-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.winter"
                         }
                     },
                     "春季赛": {
@@ -39,13 +39,13 @@
                             "被提名角色数": 32,
                             "visualization": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination",
                             "table": "pages/tables/nomination-table.html?id=05-nova-spring-female-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.spring"
                         },
                         "男性组别": {
                             "被提名角色数": 25,
                             "visualization": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination",
                             "table": "pages/tables/nomination-table.html?id=06-nova-spring-male-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.spring"
                         }
                     },
                     "夏季赛": {
@@ -54,13 +54,13 @@
                             "被提名角色数": 42,
                             "visualization": "pages/visualization/visualization.html?id=07-nova-summer-female-nomination",
                             "table": "pages/tables/nomination-table.html?id=07-nova-summer-female-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.summer"
                         },
                         "男性组别": {
                             "被提名角色数": 32,
                             "visualization": "pages/visualization/visualization.html?id=08-nova-summer-male-nomination",
                             "table": "pages/tables/nomination-table.html?id=08-nova-summer-male-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.summer"
                         }
                     },
                     "秋季赛": {
@@ -69,13 +69,13 @@
                             "被提名角色数": 34,
                             "visualization": "pages/visualization/visualization.html?id=09-nova-autumn-female-nomination",
                             "table": "pages/tables/nomination-table.html?id=09-nova-autumn-female-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.autumn"
                         },
                         "男性组别": {
                             "被提名角色数": 36,
                             "visualization": "pages/visualization/visualization.html?id=10-nova-autumn-male-nomination",
                             "table": "pages/tables/nomination-table.html?id=10-nova-autumn-male-nomination",
-                            "rules": ""
+                            "rules": "nomination.nova.autumn"
                         }
                     }
                 }
@@ -88,13 +88,13 @@
                             "groups": "preliminary.stellar.female",
                             "visualization": "pages/visualization/11-stellar-female-preliminary.html",
                             "table": "pages/tables/11-stellar-female-preliminary-table.html",
-                            "rules": ""
+                            "rules": "preliminary"
                         },
                         "男性组别": {
                             "groups": "preliminary.stellar.male",
                             "visualization": "pages/visualization/12-stellar-male-preliminary.html",
                             "table": "pages/tables/12-stellar-male-preliminary-table.html",
-                            "rules": ""
+                            "rules": "preliminary"
                         }
                     }
                 }

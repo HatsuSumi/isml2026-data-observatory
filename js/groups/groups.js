@@ -16,25 +16,30 @@ class GroupRendererStrategy {
 
                 charactersList.innerHTML = '';
 
-                characters.forEach(characterName => {
+                characters.forEach(character => {
+                    const characterName = typeof character === 'string' ? character : character.name;
+                    const characterIp = typeof character === 'string' ? '' : character.ip;
                     const characterData = charactersData[characterName];
 
                     const characterItem = characterTemplate.cloneNode(true);
                     const avatar = characterItem.querySelector('.character-avatar');
+                    const avatarWrap = characterItem.querySelector('.character-avatar-wrap');
                     const nameSpan = characterItem.querySelector('.character-name');
+                    const ipSpan = characterItem.querySelector('.character-ip');
 
                     if (characterData?.avatar) {
                         avatar.src = characterData.avatar;
                         avatar.alt = characterName;
                     } else {
-                        avatar.remove();
+                        avatarWrap.remove();
                     }
 
                     nameSpan.textContent = characterName;
+                    ipSpan.textContent = characterIp;
                     charactersList.appendChild(characterItem);
                 });
 
-                groupContainer.appendChild(groupSection.querySelector('.group-section'));
+                groupContainer.appendChild(groupSection);
             });
 
             containers.content.innerHTML = '';

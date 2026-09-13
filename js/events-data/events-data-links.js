@@ -7,9 +7,9 @@ export function savePosition(from) {
 
 export function withFromParam(url, from) {
     if (!url) return '#';
-    const [base, hash = ''] = url.split('#');
-    const separator = base.includes('?') ? '&' : '?';
-    return `${base}${separator}from=${encodeURIComponent(from)}${hash ? `#${hash}` : ''}`;
+    const target = new URL(url, document.baseURI);
+    target.searchParams.set('from', from);
+    return target.pathname + target.search + target.hash;
 }
 
 export function createEventLink(url, className, text, disabled = false) {
@@ -18,19 +18,34 @@ export function createEventLink(url, className, text, disabled = false) {
     element.textContent = text;
     if (!disabled) {
         element.href = withFromParam(url, 'events-data');
-        element.addEventListener('click', () => savePosition(className.includes('visualization') ? 'visualization' : 'table'));
+        element.addEventListener('click', () => savePosition(
+            className.includes('visualization') ? 'visualization' :
+                className.includes('table') ? 'table' : 'context'
+        ));
     }
     return element;
 }
 
 export function getEventLinks(match, status) {
     const fragment = document.createDocumentFragment();
-    if (match.links && status === 'completed') {
-        fragment.appendChild(createEventLink(match.links.visualization, 'visualization-link', '数据可视化'));
-        fragment.appendChild(createEventLink(match.links.table, 'table-link', '查看表格'));
-    } else {
-        fragment.appendChild(createEventLink('', 'visualization-link', '数据可视化', true));
-        fragment.appendChild(createEventLink('', 'table-link', '查看表格', true));
-    }
+    const resultLinks = [
+        ['visualization', 'visualization-link', '数据可视化'],
+        ['table', 'table-link', '查看表格']
+    ];
+    const contextLinks = [
+        ['groups', 'groups-link', '角色分组'],
+        ['rules', 'rules-link', '赛事规则']
+    ];
+
+    resultLinks.forEach(([key, className, text]) => {
+        const url = match.links?.[key];
+        fragment.appendChild(createEventLink(
+            status === 'completed' ? url : '', className, text, status !== 'completed' || !url
+        ));
+    });
+    contextLinks.forEach(([key, className, text]) => {
+        const url = match.links?.[key];
+        if (url) fragment.appendChild(createEventLink(url, className, text));
+    });
     return fragment;
 }
