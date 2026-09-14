@@ -15,28 +15,27 @@
 
 /* 容器包装器 */
 .rules-wrapper {
-    max-width: 800px;
+    box-sizing: border-box;
+    width: min(100%, 800px);
     margin: 0 auto;
     position: relative;
-    min-height: calc(100vh - 120px); 
+    min-height: calc(100vh - 120px);
+    padding: 6rem 1rem 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
+    align-items: stretch;
 }
 
 /* 规则区域 */
 .rules-section {
     position: relative;
-    padding-top: 3.5rem;
+    width: 100%;
 }
 
 /* 返回按钮样式 */
 .back-btn {
-    position: absolute;
-    top: -1rem;
-    left: 1rem;
+    position: static;
+    margin: 0 0 1rem 1rem;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     color: var(--text-color);

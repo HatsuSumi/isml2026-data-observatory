@@ -333,6 +333,17 @@
     scrollbar-color: #444 #1a1a1a;
 }
 
+.compare-type-custom.drop-up .select-options {
+    top: auto;
+    bottom: calc(100% + 5px);
+    transform: translateY(10px);
+}
+
+.compare-type-custom.drop-up.open .select-options {
+    transform: translateY(0);
+}
+
+
 .compare-type-custom .option {
     padding: 12px;
     cursor: pointer;

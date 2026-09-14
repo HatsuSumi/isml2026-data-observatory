@@ -65,9 +65,36 @@ export class CompareTypeController {
             syncCompareTypeCustom(value);
         });
 
+        let dropUpResetTimer;
         const setOpen = isOpen => {
-            compareTypeCustom.classList.toggle(this.animationClasses.open, isOpen);
+            clearTimeout(dropUpResetTimer);
+
+            if (isOpen) {
+                compareTypeCustom.classList.add(this.animationClasses.open);
+            } else {
+                compareTypeCustom.classList.remove(this.animationClasses.open);
+                dropUpResetTimer = setTimeout(() => {
+                    compareTypeCustom.classList.remove('drop-up');
+                }, 300);
+            }
+
             compareTypeTrigger.setAttribute('aria-expanded', String(isOpen));
+
+            if (!isOpen) {
+                return;
+            }
+
+            requestAnimationFrame(() => {
+                const triggerRect = compareTypeTrigger.getBoundingClientRect();
+                const availableBelow = window.innerHeight - triggerRect.bottom;
+                const availableAbove = triggerRect.top;
+                const optionsHeight = Math.min(compareTypeOptions.scrollHeight, 300);
+                const safetyMargin = 140;
+
+                if (availableBelow < optionsHeight + safetyMargin && availableAbove > availableBelow) {
+                    compareTypeCustom.classList.add('drop-up');
+                }
+            });
         };
 
         compareTypeTrigger.addEventListener('click', () => {

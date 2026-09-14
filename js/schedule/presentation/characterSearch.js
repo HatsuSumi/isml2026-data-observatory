@@ -59,8 +59,6 @@ function renderCharacterMatchDetails(match, result) {
 
     details.querySelectorAll('.character-match-detail').forEach(row => row.remove());
 
-    details.querySelectorAll('.character-match-detail').forEach(row => row.remove());
-
     const rows = [];
     if (result.group !== undefined) {
         rows.push(['分组：', result.group]);
@@ -79,6 +77,11 @@ function renderCharacterMatchDetails(match, result) {
         return row;
     });
     details.append(...characterRows);
+
+    const resultLinks = details.querySelector('.result-links-wrapper');
+    if (resultLinks) {
+        details.appendChild(resultLinks);
+    }
 }
 
 export function clearCharacterSelection() {
