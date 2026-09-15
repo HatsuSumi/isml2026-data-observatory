@@ -5,6 +5,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const DETAILS_PATH = path.join(ROOT, 'data', 'characters', 'characters-details.json');
+const MAP_PATH = path.join(ROOT, 'data', 'characters', 'participant-map.json');
 const DATABASE_URL = 'https://raw.githubusercontent.com/HatsuSumi/anime-character-database/main/characters-data.json';
 const MANUAL_MATCHES = new Map([
     ['ESF010', 'char_001330'],
@@ -157,6 +158,15 @@ async function main() {
     if (ambiguous.length || unmatched.length) {
         process.exitCode = 1;
         return;
+    }
+
+    if (process.argv.includes('--write-map')) {
+        const participantMap = Object.fromEntries(results.map(({ participant, result }) => [
+            participant.id,
+            result.match.id
+        ]));
+        await fs.writeFile(MAP_PATH, `${JSON.stringify(participantMap, null, 4)}\n`, 'utf8');
+        console.log(`\n已生成映射文件：${path.relative(ROOT, MAP_PATH)}`);
     }
 
     console.log('\n检查通过：所有本届赛事角色均有唯一数据库匹配。');
