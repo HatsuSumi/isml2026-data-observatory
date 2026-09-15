@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../../">
     <script type="module">
-        import { NOMINATION_TABLE_CONFIGS } from '/js/table/nomination-table-config.js';
+        import { NOMINATION_TABLE_CONFIGS } from './js/table/nomination-table-config.js';
 
         const headParams = new URLSearchParams(window.location.search);
         const headTableId = headParams.get('id');
@@ -108,8 +108,8 @@
     <script type="module" src="js/common/template-loader.js"></script>
     <script type="module" src="js/common/event-links.js"></script>
     <script type="module">
-        import { NOMINATION_TABLE_CONFIGS } from '/js/table/nomination-table-config.js';
-        import { initNominationTable } from '/js/table/nomination-table-core.js';
+        import { NOMINATION_TABLE_CONFIGS } from './js/table/nomination-table-config.js';
+        import { initNominationTable } from './js/table/nomination-table-core.js';
 
         const pageParams = new URLSearchParams(window.location.search);
         const pageTableId = pageParams.get('id');
