@@ -5,46 +5,33 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const DETAILS_PATH = path.join(ROOT, 'data', 'characters', 'characters-details.json');
-const NOMINATION_PATHS = [
-    { path: path.join(ROOT, 'data', 'nomination', 'stellar', 'female', '01-female-nomination.json'), gender: 'female' },
-    { path: path.join(ROOT, 'data', 'nomination', 'stellar', 'male', '02-male-nomination.json'), gender: 'male' }
-];
-const IP_ALIASES = new Map([
-    ['青春猪头少年', '青春猪头少年系列'],
-    ['旋风管家', '旋风管家！'],
-    ['干物妹小埋', '干物妹！小埋']
-]);
+const MAP_PATH = path.join(ROOT, 'data', 'characters', 'participant-map.json');
 
-function normalizeIp(ip) {
-    const value = String(ip).trim();
-    return IP_ALIASES.get(value) || value;
+function collectParticipants(participantMap) {
+    return Object.keys(participantMap).map(id => ({ id }));
 }
 
-function characterKey(character) {
-    return `${String(character.name).trim()}@${normalizeIp(character.ip)}`;
-}
-
-function collectParticipants(sources) {
-    return sources.flatMap(({ data, gender }) => data.map((character, index) => ({
-        id: `${gender === 'female' ? 'SF' : 'SM'}${String(index + 1).padStart(3, '0')}`,
-        name: String(character.name).trim(),
-        ip: String(character.ip).trim(),
-        gender
-    })));
+function detailKey(character) {
+    return character.id;
 }
 
 function collectDetails(detailsData) {
     return Object.entries(detailsData.characters).map(([id, character]) => ({
         id,
-        name: String(character.basic?.name || '').trim(),
-        ip: String(character.basic?.ip || '').trim()
+        characterId: String(character.characterId).trim(),
+        hasRounds: Array.isArray(character.rounds)
     }));
+}
+
+function duplicateStatus(hasDuplicates) {
+    if (hasDuplicates) return '有';
+    return '无';
 }
 
 function printList(title, characters) {
     console.log(`\n${title} (${characters.length})`);
     characters.forEach(character => {
-        console.log(`- ${character.id}: ${character.name} @ ${character.ip}`);
+        console.log(`- ${character.id}`);
     });
 }
 
@@ -53,26 +40,25 @@ async function readJson(filePath) {
 }
 
 async function main() {
-    const [detailsData, femaleSource, maleSource] = await Promise.all([
+    const [detailsData, participantMap] = await Promise.all([
         readJson(DETAILS_PATH),
-        readJson(NOMINATION_PATHS[0].path),
-        readJson(NOMINATION_PATHS[1].path)
+        readJson(MAP_PATH)
     ]);
-    const participants = collectParticipants([
-        { data: femaleSource.data, gender: NOMINATION_PATHS[0].gender },
-        { data: maleSource.data, gender: NOMINATION_PATHS[1].gender }
-    ]);
+    const participants = collectParticipants(participantMap);
     const details = collectDetails(detailsData);
-    const detailsByKey = new Map(details.map(character => [characterKey(character), character]));
-    const participantsByKey = new Map(participants.map(character => [characterKey(character), character]));
-    const missing = participants.filter(character => !detailsByKey.has(characterKey(character)));
-    const mismatched = [];
-    const extra = details.filter(character => !participantsByKey.has(characterKey(character)));
+    const detailsById = new Map(details.map(character => [detailKey(character), character]));
+    const participantsById = new Map(participants.map(character => [character.id, character]));
+    const missing = participants.filter(character => !detailsById.has(character.id));
+    const mismatched = details.filter(character => {
+        if (character.characterId.length === 0) return true;
+        return character.hasRounds === false;
+    });
+    const extra = details.filter(character => !participantsById.has(character.id));
     const duplicateIds = details.filter((character, index) => details.findIndex(item => item.id === character.id) !== index);
-    const duplicateKeys = new Set(details.map(characterKey)).size !== details.length;
+    const duplicateKeys = new Set(details.map(character => character.id)).size !== details.length;
     const idSummary = participants
-        .filter(character => detailsByKey.has(characterKey(character)))
-        .map(character => ({ ...character, detailId: detailsByKey.get(characterKey(character)).id }));
+        .filter(character => detailsById.has(character.id))
+        .map(character => ({ ...character, detailId: detailsById.get(character.id).id }));
 
     console.log(`2026 恒星组参赛角色: ${participants.length}`);
     console.log(`角色详情记录: ${details.length}`);
@@ -80,12 +66,15 @@ async function main() {
     console.log(`详情 ID 已匹配: ${idSummary.length}`);
     console.log(`多余详情记录（信息）: ${extra.length}`);
     console.log(`重复详情 ID: ${duplicateIds.length}`);
-    console.log(`重复姓名/IP: ${duplicateKeys ? '有' : '无'}`);
+    console.log(`重复参赛 ID: ${duplicateStatus(duplicateKeys)}`);
 
     if (missing.length) printList('缺少详情记录', missing);
     if (extra.length) printList('多余详情记录', extra);
 
-    if (missing.length || mismatched.length || duplicateIds.length || duplicateKeys) {
+    const hasBlockingIssues = [missing.length, mismatched.length, duplicateIds.length]
+        .some(count => count > 0);
+    const hasAnyBlockingIssue = hasBlockingIssues || duplicateKeys;
+    if (hasAnyBlockingIssue) {
         process.exitCode = 1;
         return;
     }

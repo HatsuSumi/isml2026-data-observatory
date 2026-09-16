@@ -1,11 +1,13 @@
 const CHARACTER_DATABASE_URL = 'https://raw.githubusercontent.com/HatsuSumi/anime-character-database/main/characters-data.json';
+const IP_DATABASE_URL = 'https://raw.githubusercontent.com/HatsuSumi/anime-character-database/main/ip-data.json';
 const PARTICIPANT_MAP_PATH = 'data/characters/participant-map.json';
 const CHARACTER_DETAILS_PATH = 'data/characters/characters-details.json';
+const DATA_ROOT = new URL('../../', import.meta.url);
 
 let resolverPromise;
 
 async function fetchJson(url) {
-    const response = await fetch(url);
+    const response = await fetch(new URL(url, DATA_ROOT));
     if (!response.ok) throw new Error(`数据加载失败: ${url} HTTP ${response.status}`);
     return response.json();
 }
@@ -56,7 +58,27 @@ function collectDatabaseCharacters(databaseData) {
     });
 }
 
-function createCharacterIndexes(databaseCharacters, detailsData, participantMap) {
+function collectIpRecords(ipData) {
+    const records = Array.isArray(ipData) ? ipData : Object.values(ipData || {});
+    return records.reduce((index, ip) => {
+        if (ip && ip.id) index.set(String(ip.id).trim(), ip);
+        return index;
+    }, new Map());
+}
+
+function getParticipantProfile(participantId, detailsData, databaseCharacter, ipRecords) {
+    const detail = detailsData.characters[participantId];
+    if (!detail || typeof detail !== 'object') {
+        throw new Error(`characters-details 缺少参赛记录：${participantId}`);
+    }
+    const ip = ipRecords.get(databaseCharacter.ipId);
+    if (!ip || !ip.name) {
+        throw new Error(`ip-data 缺少作品资料：${participantId} -> ${databaseCharacter.ipId}`);
+    }
+    return { detail, ip };
+}
+
+function createCharacterIndexes(databaseCharacters, ipRecords, detailsData, participantMap) {
     const byCharacterId = new Map();
     const byParticipantId = new Map();
     const byNameIp = new Map();
@@ -73,27 +95,23 @@ function createCharacterIndexes(databaseCharacters, detailsData, participantMap)
         if (!databaseCharacter) {
             throw new Error(`participant-map 指向不存在的角色库 ID：${participantId} -> ${characterId}`);
         }
-        const detail = detailsData.characters[participantId];
-        if (!detail || typeof detail !== 'object') {
-            throw new Error(`characters-details 缺少参赛记录：${participantId}`);
-        }
-        const basic = detail.basic;
-        if (!basic || typeof basic !== 'object' || !basic.name || !basic.ip) {
-            throw new Error(`characters-details ${participantId} 缺少 basic.name/basic.ip`);
-        }
+        const { detail, ip } = getParticipantProfile(participantId, detailsData, databaseCharacter, ipRecords);
         const resolved = {
             participantId,
             characterId,
-            name: firstNonEmpty(databaseCharacter.name, basic.name),
-            nameEn: firstNonEmpty(databaseCharacter.nameEn, basic.name_en),
-            ip: basic.ip,
+            name: databaseCharacter.name,
+            nameEn: databaseCharacter.nameEn,
+            ip: String(ip.name).trim(),
+            ipNameEn: String(ip.name_en ?? '').trim(),
             ipId: databaseCharacter.ipId,
-            cv: firstNonEmpty(databaseCharacter.cv, basic.cv),
-            avatar: firstNonEmpty(databaseCharacter.avatar, basic.avatar),
+            cv: databaseCharacter.cv,
+            avatar: databaseCharacter.avatar,
+            company: '',
+            birthday: '',
             rounds: Array.isArray(detail.rounds) ? detail.rounds : []
         };
         byParticipantId.set(participantId, resolved);
-        byNameIp.set(`${normalize(basic.name)}@${normalize(basic.ip)}`, resolved);
+        byNameIp.set(`${normalize(resolved.name)}@${normalize(resolved.ip)}`, resolved);
     });
 
     return { byCharacterId, byParticipantId, byNameIp };
@@ -153,13 +171,15 @@ export async function loadCharacterResolver() {
 
     resolverPromise = Promise.all([
         fetchJson(CHARACTER_DATABASE_URL),
+        fetchJson(IP_DATABASE_URL),
         fetchJson(PARTICIPANT_MAP_PATH),
         fetchJson(CHARACTER_DETAILS_PATH)
-    ]).then(([databaseData, participantMap, detailsData]) => {
+    ]).then(([databaseData, ipData, participantMap, detailsData]) => {
         assertObject(participantMap, 'participant-map');
         assertObject(detailsData.characters, 'characters-details.characters');
         const databaseCharacters = collectDatabaseCharacters(databaseData);
-        const indexes = createCharacterIndexes(databaseCharacters, detailsData, participantMap);
+        const ipRecords = collectIpRecords(ipData);
+        const indexes = createCharacterIndexes(databaseCharacters, ipRecords, detailsData, participantMap);
         return new CharacterResolver(indexes);
     }).catch(error => {
         resolverPromise = null;

@@ -5,8 +5,10 @@ const DATA_SOURCES = {
     groups: 'data/groups/groups.json'
 };
 
+const DATA_ROOT = new URL('../../', import.meta.url);
+
 async function fetchJson(url) {
-    const response = await fetch(url);
+    const response = await fetch(new URL(url, DATA_ROOT));
     if (!response.ok) throw new Error(`数据加载失败: ${response.status}`);
     return response.json();
 }
