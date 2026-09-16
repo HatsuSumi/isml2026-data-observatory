@@ -51,8 +51,8 @@ function getRoundCharacterIds(roundsData) {
         if (!value || typeof value !== 'object') return;
         if (Array.isArray(value.characters)) {
             value.characters.forEach(character => {
-                if (!character?.id) fail('roundsData.json 角色记录缺少 id');
-                ids.push(character.id);
+                if (!character?.participantId) fail('roundsData.json 角色记录缺少 participantId');
+                ids.push(character.participantId);
             });
         }
         Object.entries(value).forEach(([key, child]) => {
@@ -114,14 +114,8 @@ function collectTop5Characters(rankingsData) {
     return characters;
 }
 
-function createNameIpIndex(detailsData) {
-    const index = new Set();
-    for (const character of Object.values(detailsData.characters)) {
-        const basic = character.basic;
-        if (!basic?.name || !basic.ip) fail('characters-details.json 存在缺少 basic.name/basic.ip 的角色');
-        index.add(`${basic.name}@${basic.ip}`);
-    }
-    return index;
+function createParticipantIdIndex(detailsData) {
+    return new Set(Object.keys(detailsData.characters));
 }
 
 function validateParticipantMap(participantMap) {
@@ -139,12 +133,12 @@ function validateParticipantMap(participantMap) {
     return ids;
 }
 
-function validateNameIpReferences(label, records, nameIpIndex) {
-    const missing = records.filter(record => record.ip && !nameIpIndex.has(`${record.name}@${record.ip}`));
+function validateParticipantIdReferences(label, records, participantIds) {
+    const missing = records.filter(record => record.participantId && !participantIds.has(record.participantId));
     if (!missing.length) return null;
     return {
         label,
-        missing: missing.map(record => `${record.name}@${record.ip}`),
+        missing: missing.map(record => record.participantId),
         extra: []
     };
 }
@@ -172,9 +166,17 @@ async function main() {
         compareIdSets('participant-map ↔ character-matches', participantIds, matchIds)
     ].filter(Boolean);
 
-    const nameIpIndex = createNameIpIndex(detailsData);
-    const groupIssue = validateNameIpReferences('groups.json ↔ characters-details', collectGroupCharacters(groupsData), nameIpIndex);
-    const top5Issue = validateNameIpReferences('top5-rankings.json ↔ characters-details', collectTop5Characters(rankingsData), nameIpIndex);
+    const participantIdsSet = new Set(participantIds);
+    const groupIssue = validateParticipantIdReferences(
+        'groups.json ↔ participant-map',
+        collectGroupCharacters(groupsData),
+        participantIdsSet
+    );
+    const top5Issue = validateParticipantIdReferences(
+        'top5-rankings.json ↔ participant-map',
+        collectTop5Characters(rankingsData),
+        participantIdsSet
+    );
     [groupIssue, top5Issue].filter(Boolean).forEach(issue => issues.push(issue));
 
     console.log(`participant-map 参赛记录: ${participantIds.length}`);

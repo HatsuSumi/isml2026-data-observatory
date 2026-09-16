@@ -1,3 +1,4 @@
+import { loadCharacterResolver } from '../common/character-resolver.js';
 import { CONFIG, collectCharacterTemplates } from './characters-data-config.js';
 import { createCardContext, checkTooltips } from './characters-data-card.js';
 import { renderCharacters } from './characters-data-groups.js';
@@ -40,20 +41,36 @@ function assertCharactersData(data) {
 }
 
 async function loadCharactersData() {
-    const data = await fetchJson('data/characters/roundsData.json');
+    const [data, resolver] = await Promise.all([
+        fetchJson('data/characters/roundsData.json'),
+        loadCharacterResolver()
+    ]);
     assertCharactersData(data);
+    const resolveCharacter = record => ({
+        ...record,
+        ...resolver.getByParticipantId(record.participantId)
+    });
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
     return {
-        stellar: data.stellar,
+        stellar: {
+            female: data.stellar.female.map(group => ({
+                ...group,
+                characters: group.characters.map(resolveCharacter)
+            })),
+            male: data.stellar.male.map(group => ({
+                ...group,
+                characters: group.characters.map(resolveCharacter)
+            }))
+        },
         nova: {
             female: seasons.map(season => ({
                 season,
-                characters: data.nova[season]?.female || []
+                characters: data.nova[season].female.map(resolveCharacter)
             })),
             male: seasons.map(season => ({
                 season,
-                characters: data.nova[season]?.male || []
+                characters: data.nova[season].male.map(resolveCharacter)
             }))
         }
     };

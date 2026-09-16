@@ -1,3 +1,4 @@
+import { loadCharacterResolver } from '../common/character-resolver.js';
 import { SERIES_ALIASES } from '../aliases/aliases.js';
 import { reconcileKeyedList } from './keyed-list.js';
 import { debounce } from './dom.js';
@@ -139,11 +140,42 @@ function updatePanels(container, targetId) {
 async function loadCharacterData() {
     showLoading();
     try {
-        const response = await fetch('data/characters/stats/ISML2026-characters.json');
+        const [response, resolver] = await Promise.all([
+            fetch('data/characters/stats/ISML2026-characters.json'),
+            loadCharacterResolver()
+        ]);
         if (!response.ok) {
             throw new Error(`首页角色数据加载失败：${response.status}`);
         }
-        const data = validateHomeCharacterData(await response.json());
+        const rawData = await response.json();
+        const enrichRecords = records => records.map(record => ({
+            ...resolver.getByParticipantId(record.participantId),
+            ...record
+        }));
+        const data = validateHomeCharacterData({
+            stellar: {
+                female: enrichRecords(rawData.stellar.female),
+                male: enrichRecords(rawData.stellar.male)
+            },
+            nova: {
+                winter: {
+                    female: enrichRecords(rawData.nova.winter.female),
+                    male: enrichRecords(rawData.nova.winter.male)
+                },
+                spring: {
+                    female: enrichRecords(rawData.nova.spring.female),
+                    male: enrichRecords(rawData.nova.spring.male)
+                },
+                summer: {
+                    female: enrichRecords(rawData.nova.summer.female),
+                    male: enrichRecords(rawData.nova.summer.male)
+                },
+                autumn: {
+                    female: enrichRecords(rawData.nova.autumn.female),
+                    male: enrichRecords(rawData.nova.autumn.male)
+                }
+            }
+        });
         characterData = {
             stellar: {
                 female: data.stellar.female.filter(char => char.status !== '未晋级'),

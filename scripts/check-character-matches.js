@@ -4,213 +4,75 @@ const fs = require('fs/promises');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const NOMINATION_PATHS = [
-    { path: path.join(ROOT, 'data', 'nomination', 'stellar', 'female', '01-female-nomination.json'), gender: 'female' },
-    { path: path.join(ROOT, 'data', 'nomination', 'stellar', 'male', '02-male-nomination.json'), gender: 'male' }
-];
 const MATCHES_PATH = path.join(ROOT, 'data', 'matches', 'character-matches.json');
-const IP_ALIASES = new Map([
-    ['青春猪头少年', '青春猪头少年系列'],
-    ['旋风管家', '旋风管家！'],
-    ['干物妹小埋', '干物妹！小埋']
-]);
-
-function normalizeIp(ip) {
-    const value = String(ip).trim();
-    const alias = IP_ALIASES.get(value);
-    if (alias) return alias;
-    return value;
-}
-
-function characterKey(character) {
-    return `${String(character.name).trim()}@${normalizeIp(character.ip)}`;
-}
-
-function participantPrefix(gender) {
-    if (gender === 'female') return 'SF';
-    if (gender === 'male') return 'SM';
-    throw new Error(`未知性别：${gender}`);
-}
-
-function collectParticipants(nominationSources) {
-    return nominationSources.flatMap(({ data, gender }) => data.map((character, index) => ({
-        id: `${participantPrefix(gender)}${String(index + 1).padStart(3, '0')}`,
-        name: String(character.name).trim(),
-        ip: String(character.ip).trim(),
-        gender,
-        rank: index + 1
-    })));
-}
-
-function getDetailBasic(detailsData, id) {
-    const detail = detailsData.characters[id];
-    if (!detail) return {};
-    if (typeof detail !== 'object') return {};
-    const basic = detail.basic;
-    if (!basic) return {};
-    if (typeof basic !== 'object') return {};
-    return basic;
-}
-
-function firstValue(...values) {
-    for (const value of values) {
-        if (value !== undefined && value !== null) return value;
-    }
-    return '';
-}
-
-function collectMatchCharacters(matchesData, detailsData) {
-    return Object.entries(matchesData.matches).map(([id, character]) => {
-        const basic = getDetailBasic(detailsData, id);
-        const name = firstValue(character.name, basic.name);
-        const ip = firstValue(character.ip, basic.ip);
-        return {
-            ...character,
-            id,
-            name,
-            ip
-        };
-    });
-}
-
-function indexByKey(characters) {
-    const index = new Map();
-    for (const character of characters) {
-        const key = characterKey(character);
-        const entries = index.get(key);
-        if (entries) {
-            entries.push(character);
-            continue;
-        }
-        index.set(key, [character]);
-    }
-    return index;
-}
-
-function findMissingCharacters(participants, matchIndex) {
-    return participants.filter(character => !matchIndex.has(characterKey(character)));
-}
-
-function findMissingEventRecords(participants, matches, title) {
-    const matchByKey = new Map(matches.map(character => [characterKey(character), character]));
-    return participants.filter(participant => {
-        const character = matchByKey.get(characterKey(participant));
-        if (!character) return true;
-        if (!Array.isArray(character.matches)) return true;
-        return !character.matches.some(match => match.title === title);
-    });
-}
-
-function findExtraCharacters(matches, participantIndex) {
-    return matches.filter(character => !participantIndex.has(characterKey(character)));
-}
-
-function findDuplicates(index) {
-    return [...index.entries()]
-        .filter(([, characters]) => characters.length > 1)
-        .map(([key, characters]) => ({ key, characters }));
-}
-
-function formatGender(gender) {
-    if (!gender) return '';
-    return ` [${gender}]`;
-}
-
-function displayId(character) {
-    if (character.id) return character.id;
-    return '未分配 ID';
-}
-
-function printCharacterList(title, characters) {
-    console.log(`\n${title} (${characters.length})`);
-    characters.forEach(character => {
-        const gender = formatGender(character.gender);
-        console.log(`- ${displayId(character)}: ${character.name} @ ${character.ip}${gender}`);
-    });
-}
-
-function getMatches(character) {
-    if (Array.isArray(character.matches)) return character.matches;
-    return [];
-}
-
-function ensureNominationMatch(character, participant) {
-    const matches = getMatches(character);
-    const nomination = matches.find(match => match.title === '恒星组提名');
-    if (!nomination) matches.unshift({ title: '恒星组提名', result: '晋级' });
-    return { ...character, name: participant.name, ip: participant.ip, matches };
-}
-
-function getExistingCharacter(records) {
-    if (Array.isArray(records)) return records[0];
-    if (records) return records;
-    return { avatar: '', matches: [] };
-}
-
-function rebuildMatches(participants, matchesData) {
-    const existing = indexByKey(collectMatchCharacters(matchesData, { characters: {} }));
-    const matches = {};
-    participants.forEach((participant, index) => {
-        const key = characterKey(participant);
-        const existingRecords = existing.get(key);
-        const previous = getExistingCharacter(existingRecords);
-        const id = `${participantPrefix(participant.gender)}${String(index + 1).padStart(3, '0')}`;
-        matches[id] = ensureNominationMatch(previous, participant);
-    });
-    return { matches };
-}
+const PARTICIPANT_MAP_PATH = path.join(ROOT, 'data', 'characters', 'participant-map.json');
 
 async function readJson(filePath) {
     return JSON.parse(await fs.readFile(filePath, 'utf8'));
 }
 
-async function main() {
-    const [femaleSource, maleSource, matchesData, detailsData] = await Promise.all([
-        readJson(NOMINATION_PATHS[0].path),
-        readJson(NOMINATION_PATHS[1].path),
-        readJson(MATCHES_PATH),
-        readJson(path.join(ROOT, 'data', 'characters', 'characters-details.json'))
-    ]);
-    const participants = collectParticipants([
-        { data: femaleSource.data, gender: NOMINATION_PATHS[0].gender },
-        { data: maleSource.data, gender: NOMINATION_PATHS[1].gender }
-    ]);
-    const matches = collectMatchCharacters(matchesData, detailsData);
-    const participantIndex = indexByKey(participants);
-    const matchIndex = indexByKey(matches);
-    const missing = findMissingCharacters(participants, matchIndex);
-    const extra = findExtraCharacters(matches, participantIndex);
-    const duplicateParticipants = findDuplicates(participantIndex);
-    const duplicateMatches = findDuplicates(matchIndex);
-    const femaleParticipants = participants.filter(character => character.gender === 'female');
-    const maleParticipants = participants.filter(character => character.gender === 'male');
-    const missingNomination = findMissingEventRecords(participants, matches, '恒星组提名');
-    const missingPreliminary = findMissingEventRecords(participants, matches, '预选赛第一轮');
+function compareIds(participantMap, matchesData) {
+    const expected = Object.keys(participantMap);
+    const matches = matchesData.matches;
+    const actual = Object.keys(matches);
+    const actualSet = new Set(actual);
+    const expectedSet = new Set(expected);
+    return {
+        expected,
+        actual,
+        missing: expected.filter(id => !actualSet.has(id)),
+        extra: actual.filter(id => !expectedSet.has(id))
+    };
+}
 
-    console.log(`2026 恒星组参赛角色: ${participants.length}`);
-    console.log(`character-matches.json 角色: ${matches.length}`);
-    console.log(`已覆盖: ${participants.length - missing.length}`);
-    console.log(`缺失: ${missing.length}`);
-    console.log(`多余角色（信息）: ${extra.length}`);
-    console.log(`参赛名单重复: ${duplicateParticipants.length}`);
-    console.log(`女子提名名单: ${femaleParticipants.length}`);
-    console.log(`男子提名名单: ${maleParticipants.length}`);
+function collectInvalidRecords(matchesData) {
+    const matches = matchesData.matches;
+    return Object.entries(matches)
+        .filter(([, record]) => {
+            if (!record) return true;
+            return Array.isArray(record.matches) === false;
+        })
+        .map(([id]) => id);
+}
+
+function collectMissingEvents(matchesData, title) {
+    const matches = matchesData.matches;
+    return Object.entries(matches)
+        .filter(([, record]) => !record.matches.some(match => match.title === title))
+        .map(([id]) => id);
+}
+
+async function main() {
+    const [participantMap, matchesData] = await Promise.all([
+        readJson(PARTICIPANT_MAP_PATH),
+        readJson(MATCHES_PATH)
+    ]);
+    const ids = compareIds(participantMap, matchesData);
+    const invalidRecords = collectInvalidRecords(matchesData);
+    const missingNomination = collectMissingEvents(matchesData, '恒星组提名');
+    const missingPreliminary = collectMissingEvents(matchesData, '预选赛第一轮');
+
+    console.log(`participant-map 参赛角色: ${ids.expected.length}`);
+    console.log(`character-matches.json 角色: ${ids.actual.length}`);
+    console.log(`已覆盖: ${ids.expected.length - ids.missing.length}`);
+    console.log(`缺失: ${ids.missing.length}`);
+    console.log(`多余角色: ${ids.extra.length}`);
+    console.log(`记录格式错误: ${invalidRecords.length}`);
     console.log(`缺少恒星组提名记录: ${missingNomination.length}`);
     console.log(`缺少预选赛第一轮记录: ${missingPreliminary.length}`);
 
-    printCharacterList('缺失角色', missing);
-    printCharacterList('多余角色', extra);
-    printCharacterList('缺少恒星组提名记录', missingNomination);
-    printCharacterList('缺少预选赛第一轮记录', missingPreliminary);
+    if (ids.missing.length) console.log(`缺失角色: ${ids.missing.join(', ')}`);
+    if (ids.extra.length) console.log(`多余角色: ${ids.extra.join(', ')}`);
+    if (invalidRecords.length) console.log(`格式错误记录: ${invalidRecords.join(', ')}`);
 
-    const hasBlockingIssues = [missing.length, duplicateParticipants.length, duplicateMatches.length]
+    const hasBlockingIssues = [ids.missing.length, ids.extra.length, invalidRecords.length]
         .some(count => count > 0);
     if (hasBlockingIssues) {
         process.exitCode = 1;
         return;
     }
 
-    console.log('\n检查通过：character-matches.json 包含全部 2026 恒星组参赛角色。');
+    console.log('\n检查通过：character-matches.json 与 participant-map.json ID 集合一致。');
 }
 
 main().catch(error => {

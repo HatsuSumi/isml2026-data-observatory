@@ -2,2318 +2,1162 @@
     "stellar": {
         "female": [
             {
-                "id": "SF001",
-                "name": "后藤独",
-                "ip": "孤独摇滚！",
-                "avatar": "https://pic1.imgdb.cn/item/67395de7d29ded1a8c43c21e.png",
-                "status": "已晋级至预选赛",
-                "cv": "青山吉能"
-            },
-            {
-                "id": "SF002",
-                "name": "时崎狂三",
-                "ip": "约会大作战",
-                "avatar": "https://pic1.imgdb.cn/item/67395e40d29ded1a8c440b34.png",
-                "status": "已晋级至预选赛",
-                "cv": "真田麻美"
-            },
-            {
-                "id": "SF003",
-                "name": "八奈见杏菜",
-                "ip": "败犬女主太多了！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "远野光"
-            },
-            {
-                "id": "SF004",
-                "name": "芙莉莲",
-                "ip": "葬送的芙莉莲",
-                "avatar": "https://pic1.imgdb.cn/item/6785d898d0e0a243d4f411de.png",
-                "status": "已晋级至预选赛",
-                "cv": "种崎敦美"
-            },
-            {
-                "id": "SF005",
-                "name": "丰川祥子",
-                "ip": "BanG Dream!",
-                "avatar": "https://pic1.imgdb.cn/item/6785d881d0e0a243d4f411d8.png",
-                "status": "已晋级至预选赛",
-                "cv": "高尾奏音"
-            },
-            {
-                "id": "SF006",
-                "name": "远坂凛",
-                "ip": "Fate系列",
-                "avatar": "https://pic1.imgdb.cn/item/673961a9d29ded1a8c46a1f0.png",
-                "status": "已晋级至预选赛",
-                "cv": "植田佳奈"
-            },
-            {
-                "id": "SF007",
-                "name": "猫猫",
-                "ip": "药屋少女的呢喃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "悠木碧"
-            },
-            {
-                "id": "SF008",
-                "name": "赫萝",
-                "ip": "狼与香辛料",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小清水亚美"
-            },
-            {
-                "id": "SF009",
-                "name": "伊莉雅丝菲尔·冯·爱因兹贝伦",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "门胁舞以"
-            },
-            {
-                "id": "SF010",
-                "name": "鸣濑白羽",
-                "ip": "Summer Pockets",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小原好美"
-            },
-            {
-                "id": "SF011",
-                "name": "牧之原翔子",
-                "ip": "青春猪头少年系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "水濑祈"
-            },
-            {
-                "id": "SF012",
-                "name": "忍野忍",
-                "ip": "物语系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "坂本真绫"
-            },
-            {
-                "id": "SF013",
-                "name": "玛露西尔",
-                "ip": "迷宫饭",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "千本木彩花"
+                "participantId": "SF001",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF014",
-                "name": "绫濑桃",
-                "ip": "胆大党",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "若山诗音"
+                "participantId": "SF002",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF015",
-                "name": "楼兰妃",
-                "ip": "药屋少女的呢喃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF003",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF016",
-                "name": "阿莉娜·克洛瓦",
-                "ip": "虽然是公会柜台小姐，但是因为讨厌加班所以要去单挑BOSS",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF004",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF017",
-                "name": "白",
-                "ip": "NO GAME NO LIFE 游戏人生",
-                "avatar": "https://pic1.imgdb.cn/item/67396180d29ded1a8c468667.png",
-                "status": "已晋级至预选赛",
-                "cv": "茅野爱衣"
+                "participantId": "SF005",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF018",
-                "name": "樱岛麻衣",
-                "ip": "青春猪头少年系列",
-                "avatar": "https://pic1.imgdb.cn/item/673967ddd29ded1a8c4ad8fb.png",
-                "status": "已晋级至预选赛",
-                "cv": "濑户麻沙美"
+                "participantId": "SF006",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF019",
-                "name": "长崎爽世",
-                "ip": "BanG Dream!",
-                "avatar": "https://pic1.imgdb.cn/item/6785d850d0e0a243d4f411cc.png",
-                "status": "已晋级至预选赛",
-                "cv": "小日向美香"
+                "participantId": "SF007",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF020",
-                "name": "友利奈绪",
-                "ip": "Charlotte",
-                "avatar": "https://pic1.imgdb.cn/item/67396124d29ded1a8c46467d.png",
-                "status": "已晋级至预选赛",
-                "cv": "佐仓绫音"
+                "participantId": "SF008",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF021",
-                "name": "安和昴",
-                "ip": "少女乐队的呐喊",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "美怜"
+                "participantId": "SF009",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF022",
-                "name": "小鸟游六花",
-                "ip": "中二病也要谈恋爱！",
-                "avatar": "https://pic1.imgdb.cn/item/67357455d29ded1a8c343203.png",
-                "status": "已晋级至预选赛",
-                "cv": "内田真礼"
+                "participantId": "SF010",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF023",
-                "name": "四宫辉夜",
-                "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
-                "avatar": "https://pic1.imgdb.cn/item/6739b53ed29ded1a8c8aae29.png",
-                "status": "已晋级至预选赛",
-                "cv": "古贺葵"
+                "participantId": "SF011",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF024",
-                "name": "艾拉",
-                "ip": "可塑性记忆",
-                "avatar": "https://pic1.imgdb.cn/item/673961bad29ded1a8c46ac2a.png",
-                "status": "已晋级至预选赛",
-                "cv": "雨宫天"
+                "participantId": "SF012",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF025",
-                "name": "亚托莉",
-                "ip": "ATRI -My Dear Moments-",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "赤尾光"
+                "participantId": "SF013",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF026",
-                "name": "立华奏",
-                "ip": "Angel Beats!",
-                "avatar": "https://pic1.imgdb.cn/item/673abe88d29ded1a8c43e672.png",
-                "status": "已晋级至预选赛",
-                "cv": "花泽香菜"
+                "participantId": "SF014",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF027",
-                "name": "白井黑子",
-                "ip": "魔法禁书目录",
-                "avatar": "https://pic1.imgdb.cn/item/6736eaa2d29ded1a8c5a7413.png",
-                "status": "已晋级至预选赛",
-                "cv": "新井里美"
+                "participantId": "SF015",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF028",
-                "name": "若叶睦",
-                "ip": "BanG Dream!",
-                "avatar": "https://pic1.imgdb.cn/item/6785dafad0e0a243d4f41299.png",
-                "status": "已晋级至预选赛",
-                "cv": "渡濑结月"
+                "participantId": "SF016",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF029",
-                "name": "高松灯",
-                "ip": "BanG Dream!",
-                "avatar": "https://pic1.imgdb.cn/item/6785d914d0e0a243d4f41202.png",
-                "status": "已晋级至预选赛",
-                "cv": "羊宫妃那"
+                "participantId": "SF017",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF030",
-                "name": "结城明日奈",
-                "ip": "刀剑神域",
-                "avatar": "https://pic1.imgdb.cn/item/6739616cd29ded1a8c4679d2.png",
-                "status": "已晋级至预选赛",
-                "cv": "户松遥"
+                "participantId": "SF018",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF031",
-                "name": "喜多川海梦",
-                "ip": "更衣人偶坠入爱河",
-                "avatar": "https://pic1.imgdb.cn/item/67418e3fd29ded1a8cd920fd.png",
-                "status": "已晋级至预选赛",
-                "cv": "直田姬奈"
+                "participantId": "SF019",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF032",
-                "name": "要乐奈",
-                "ip": "BanG Dream!",
-                "avatar": "https://pic1.imgdb.cn/item/6785dc5bd0e0a243d4f41319.png",
-                "status": "已晋级至预选赛",
-                "cv": "青木阳菜"
+                "participantId": "SF020",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF033",
-                "name": "井芹仁菜",
-                "ip": "少女乐队的呐喊",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "理名"
+                "participantId": "SF021",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF034",
-                "name": "爱蜜莉雅",
-                "ip": "Re:从零开始的异世界生活",
-                "avatar": "https://pic1.imgdb.cn/item/67396195d29ded1a8c469653.png",
-                "status": "已晋级至预选赛",
-                "cv": "高桥李依"
+                "participantId": "SF022",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF035",
-                "name": "三角初华",
-                "ip": "BanG Dream!",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "佐佐木李子"
+                "participantId": "SF023",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF036",
-                "name": "小鞠知花",
-                "ip": "败犬女主太多了！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "寺泽百花"
+                "participantId": "SF024",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF037",
-                "name": "藤原千花",
-                "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
-                "avatar": "https://pic1.imgdb.cn/item/677fbc90d0e0a243d4f2c8eb.png",
-                "status": "已晋级至预选赛",
-                "cv": "小原好美"
+                "participantId": "SF025",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF038",
-                "name": "菲伦",
-                "ip": "葬送的芙莉莲",
-                "avatar": "https://pic1.imgdb.cn/item/6785d861d0e0a243d4f411ce.png",
-                "status": "已晋级至预选赛",
-                "cv": "市之濑加那"
+                "participantId": "SF026",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF039",
-                "name": "周防有希",
-                "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "丸冈和佳奈"
+                "participantId": "SF027",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF040",
-                "name": "惠惠",
-                "ip": "为美好的世界献上祝福！",
-                "avatar": "https://pic1.imgdb.cn/item/67404a34d29ded1a8cd26270.png",
-                "status": "已晋级至预选赛",
-                "cv": "高桥李依"
+                "participantId": "SF028",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF041",
-                "name": "锦木千束",
-                "ip": "莉可丽丝",
-                "avatar": "https://pic1.imgdb.cn/item/6742b0d888c538a9b5bb4231.png",
-                "status": "已晋级至预选赛",
-                "cv": "安济知佳"
+                "participantId": "SF029",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF042",
-                "name": "阿库娅",
-                "ip": "为美好的世界献上祝福！",
-                "avatar": "https://pic1.imgdb.cn/item/674138f4d29ded1a8c82126e.png",
-                "status": "已晋级至预选赛",
-                "cv": "雨宫天"
+                "participantId": "SF030",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF043",
-                "name": "唐可可",
-                "ip": "LoveLive!系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "Liyuu"
+                "participantId": "SF031",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF044",
-                "name": "艾莉莎·米哈伊罗夫纳·九条",
-                "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "上坂堇"
+                "participantId": "SF032",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF045",
-                "name": "阿尼亚·福杰",
-                "ip": "间谍过家家",
-                "avatar": "https://pic1.imgdb.cn/item/677fba37d0e0a243d4f2c800.png",
-                "status": "已晋级至预选赛",
-                "cv": "种崎敦美"
+                "participantId": "SF033",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF046",
-                "name": "柊舞缇娜",
-                "ip": "憧憬成为魔法少女",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "和泉风花"
+                "participantId": "SF034",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF047",
-                "name": "尤贝尔",
-                "ip": "葬送的芙莉莲",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "长谷川育美"
+                "participantId": "SF035",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF048",
-                "name": "拉姆",
-                "ip": "Re:从零开始的异世界生活",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "村川梨衣"
+                "participantId": "SF036",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF049",
-                "name": "和栗薰子",
-                "ip": "薰香花朵凛然绽放",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "井上穗乃花"
+                "participantId": "SF037",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF050",
-                "name": "宵崎奏",
-                "ip": "世界计划 缤纷舞台！ feat. 初音未来",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "楠木灯"
+                "participantId": "SF038",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF051",
-                "name": "纯田真奈",
-                "ip": "BanG Dream!",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "反田叶月"
+                "participantId": "SF039",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF052",
-                "name": "古贺朋绘",
-                "ip": "青春猪头少年系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "东山奈央"
+                "participantId": "SF040",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF053",
-                "name": "托尔",
-                "ip": "小林家的龙女仆",
-                "avatar": "https://pic1.imgdb.cn/item/6785dc2ed0e0a243d4f412fc.png",
-                "status": "已晋级至预选赛",
-                "cv": "桑原由气"
+                "participantId": "SF041",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF054",
-                "name": "桃井爱莉",
-                "ip": "世界计划 缤纷舞台！ feat. 初音未来",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "降幡爱"
+                "participantId": "SF042",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF055",
-                "name": "莫妮卡·艾瓦雷特",
-                "ip": "Silent Witch 沉默魔女的秘密",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "会泽纱弥"
+                "participantId": "SF043",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF056",
-                "name": "优木雪菜",
-                "ip": "LoveLive!系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "林鼓子"
+                "participantId": "SF044",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF057",
-                "name": "小栗帽",
-                "ip": "赛马娘 Pretty Derby",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "高柳知叶"
+                "participantId": "SF045",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF058",
-                "name": "甘织遥奈",
-                "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF046",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF059",
-                "name": "空门苍",
-                "ip": "Summer Pockets",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF047",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF060",
-                "name": "结束祈",
-                "ip": "金牌得主",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF048",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF061",
-                "name": "柊夕湖",
-                "ip": "弹珠汽水瓶里的千岁同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF049",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF062",
-                "name": "甘织玲奈子",
-                "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF050",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF063",
-                "name": "蕾塞",
-                "ip": "电锯人",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF051",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF064",
-                "name": "若月妮可",
-                "ip": "魔女与使魔",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF052",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF065",
-                "name": "西宫硝子",
-                "ip": "声之形",
-                "avatar": "https://pic1.imgdb.cn/item/673abe15d29ded1a8c439492.png",
-                "status": "已晋级至预选赛",
-                "cv": "早见沙织"
+                "participantId": "SF053",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF066",
-                "name": "康娜卡姆依",
-                "ip": "小林家的龙女仆",
-                "avatar": "https://pic1.imgdb.cn/item/677fbec3d0e0a243d4f2c997.png",
-                "status": "已晋级至预选赛",
-                "cv": "长绳麻理亚"
+                "participantId": "SF054",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF067",
-                "name": "加藤惠",
-                "ip": "路人女主的养成方法",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "安野希世乃"
+                "participantId": "SF055",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF068",
-                "name": "间桐樱",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "下屋则子"
+                "participantId": "SF056",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF069",
-                "name": "芙拉蒂蕾娜·米利杰",
-                "ip": "86 -不存在的战区-",
-                "avatar": "https://pic1.imgdb.cn/item/67396158d29ded1a8c466c38.png",
-                "status": "已晋级至预选赛",
-                "cv": "长谷川育美"
+                "participantId": "SF057",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF070",
-                "name": "堀京子",
-                "ip": "堀与宫村",
-                "avatar": "https://pic1.imgdb.cn/item/677fbcd5d0e0a243d4f2c905.png",
-                "status": "已晋级至预选赛",
-                "cv": "户松遥"
+                "participantId": "SF058",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF071",
-                "name": "鹿野千夏",
-                "ip": "青之箱",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "上田丽奈"
+                "participantId": "SF059",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF072",
-                "name": "约尔·福杰",
-                "ip": "间谍过家家",
-                "avatar": "https://pic1.imgdb.cn/item/677fbeb6d0e0a243d4f2c994.png",
-                "status": "已晋级至预选赛",
-                "cv": "早见沙织"
+                "participantId": "SF060",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF073",
-                "name": "夏目玲子",
-                "ip": "夏目友人帐",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小林沙苗"
+                "participantId": "SF061",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF074",
-                "name": "蝶野雏",
-                "ip": "青之箱",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "鬼头明里"
+                "participantId": "SF062",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF075",
-                "name": "玛利亚·米哈伊罗夫纳·九条",
-                "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "藤井幸代"
+                "participantId": "SF063",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF076",
-                "name": "黑川茜",
-                "ip": "【我推的孩子】",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "石见舞菜香"
+                "participantId": "SF064",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF077",
-                "name": "七仓凛",
-                "ip": "疑似后宫",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "早见沙织"
+                "participantId": "SF065",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF078",
-                "name": "山田杏奈",
-                "ip": "我心里危险的东西",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "羊宫妃那"
+                "participantId": "SF066",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF079",
-                "name": "烧盐柠檬",
-                "ip": "败犬女主太多了！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "若山诗音"
+                "participantId": "SF067",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF080",
-                "name": "白鸟爱罗",
-                "ip": "胆大党",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "佐仓绫音"
+                "participantId": "SF068",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF081",
-                "name": "赛丽艾",
-                "ip": "葬送的芙莉莲",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "伊濑茉莉也"
+                "participantId": "SF069",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF082",
-                "name": "斯嘉丽·艾尔·范迪米昂",
-                "ip": "最后可以再拜托您一件事吗？",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "濑户麻沙美"
+                "participantId": "SF070",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF083",
-                "name": "艾莉西亚·格伦费尔",
-                "ip": "克雷瓦提斯-魔兽之王与婴儿与尸之勇者-",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "白石晴香"
+                "participantId": "SF071",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF084",
-                "name": "广濑夏子",
-                "ip": "全修。",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "永濑安奈"
+                "participantId": "SF072",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF085",
-                "name": "恩奇都",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "高桥伸也"
+                "participantId": "SF073",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF086",
-                "name": "绫濑星子",
-                "ip": "胆大党",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "水树奈奈"
+                "participantId": "SF074",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF087",
-                "name": "紫云寺讴华",
-                "ip": "紫云寺家的兄弟姐妹",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "高桥李依"
+                "participantId": "SF075",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF088",
-                "name": "山田凉",
-                "ip": "孤独摇滚！",
-                "avatar": "https://pic1.imgdb.cn/item/67396860d29ded1a8c4b2e6b.png",
-                "status": "已晋级至预选赛",
-                "cv": "水野朔"
+                "participantId": "SF076",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF089",
-                "name": "伊地知虹夏",
-                "ip": "孤独摇滚！",
-                "avatar": "https://pic1.imgdb.cn/item/673abde9d29ded1a8c437a20.png",
-                "status": "已晋级至预选赛",
-                "cv": "铃代纱弓"
+                "participantId": "SF077",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF090",
-                "name": "喜多郁代",
-                "ip": "孤独摇滚！",
-                "avatar": "https://pic1.imgdb.cn/item/6739682ad29ded1a8c4b0962.png",
-                "status": "已晋级至预选赛",
-                "cv": "长谷川育美"
+                "participantId": "SF078",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF091",
-                "name": "平泽唯",
-                "ip": "轻音少女",
-                "avatar": "https://pic1.imgdb.cn/item/67395e01d29ded1a8c43d7cf.png",
-                "status": "已晋级至预选赛",
-                "cv": "丰崎爱生"
+                "participantId": "SF079",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF092",
-                "name": "千反田爱瑠",
-                "ip": "冰菓",
-                "avatar": "https://pic1.imgdb.cn/item/678b5cd0d0e0a243d4f5699f.png",
-                "status": "已晋级至预选赛",
-                "cv": "佐藤聪美"
+                "participantId": "SF080",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF093",
-                "name": "雷姆",
-                "ip": "Re:从零开始的异世界生活",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "水濑祈"
+                "participantId": "SF081",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF094",
-                "name": "洛琪希·米格路迪亚",
-                "ip": "无职转生",
-                "avatar": "https://pic1.imgdb.cn/item/673be698d29ded1a8c2b0709.png",
-                "status": "已晋级至预选赛",
-                "cv": "小原好美"
+                "participantId": "SF082",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF095",
-                "name": "秋山澪",
-                "ip": "轻音少女",
-                "avatar": "https://pic1.imgdb.cn/item/673967f2d29ded1a8c4ae5a2.png",
-                "status": "已晋级至预选赛",
-                "cv": "日笠阳子"
+                "participantId": "SF083",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF096",
-                "name": "中野梓",
-                "ip": "轻音少女",
-                "avatar": "https://pic1.imgdb.cn/item/67395e7cd29ded1a8c443a4c.png",
-                "status": "已晋级至预选赛",
-                "cv": "竹达彩奈"
+                "participantId": "SF084",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF097",
-                "name": "一色伊吕波",
-                "ip": "我的青春恋爱物语果然有问题。",
-                "avatar": "https://pic1.imgdb.cn/item/6741390dd29ded1a8c822b9c.png",
-                "status": "已晋级至预选赛",
-                "cv": "佐仓绫音"
+                "participantId": "SF085",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF098",
-                "name": "休比·多拉",
-                "ip": "NO GAME NO LIFE 游戏人生",
-                "avatar": "https://pic1.imgdb.cn/item/677fbc71d0e0a243d4f2c8d3.png",
-                "status": "已晋级至预选赛",
-                "cv": "茅野爱衣"
+                "participantId": "SF086",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF099",
-                "name": "宫水三叶",
-                "ip": "你的名字。",
-                "avatar": "https://pic1.imgdb.cn/item/67395e68d29ded1a8c4429ed.png",
-                "status": "已晋级至预选赛",
-                "cv": "上白石萌音"
+                "participantId": "SF087",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF100",
-                "name": "琴吹䌷",
-                "ip": "轻音少女",
-                "avatar": "https://pic1.imgdb.cn/item/6739b369d29ded1a8c895375.png",
-                "status": "已晋级至预选赛",
-                "cv": "寿美菜子"
+                "participantId": "SF088",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF101",
-                "name": "中野三玖",
-                "ip": "五等分的新娘",
-                "avatar": "https://pic1.imgdb.cn/item/6739613ed29ded1a8c465c2c.png",
-                "status": "已晋级至预选赛",
-                "cv": "伊藤美来"
+                "participantId": "SF089",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF102",
-                "name": "田井中律",
-                "ip": "轻音少女",
-                "avatar": "https://pic1.imgdb.cn/item/673b3c52d29ded1a8cb70e5b.png",
-                "status": "已晋级至预选赛",
-                "cv": "佐藤聪美"
+                "participantId": "SF090",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF103",
-                "name": "伊原摩耶花",
-                "ip": "冰菓",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "茅野爱衣"
+                "participantId": "SF091",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF104",
-                "name": "古河渚",
-                "ip": "CLANNAD",
-                "avatar": "https://pic1.imgdb.cn/item/67419468d29ded1a8cddcff0.png",
-                "status": "已晋级至预选赛",
-                "cv": "中原麻衣"
+                "participantId": "SF092",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF105",
-                "name": "绫濑沙季",
-                "ip": "义妹生活",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "中岛由贵"
+                "participantId": "SF093",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF106",
-                "name": "泉此方",
-                "ip": "幸运☆星",
-                "avatar": "https://pic1.imgdb.cn/item/674138ded29ded1a8c82004e.png",
-                "status": "已晋级至预选赛",
-                "cv": "平野绫"
+                "participantId": "SF094",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF107",
-                "name": "艾莉丝·伯雷亚斯·格雷拉特",
-                "ip": "无职转生",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "加隈亚衣"
+                "participantId": "SF095",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF108",
-                "name": "希露菲叶特·格雷拉特",
-                "ip": "无职转生",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "茅野爱衣"
+                "participantId": "SF096",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF109",
-                "name": "丹生谷森夏",
-                "ip": "中二病也要谈恋爱！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "赤崎千夏"
+                "participantId": "SF097",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF110",
-                "name": "中野二乃",
-                "ip": "五等分的新娘",
-                "avatar": "https://pic1.imgdb.cn/item/6744343188c538a9b5bb9e21.png",
-                "status": "已晋级至预选赛",
-                "cv": "竹达彩奈"
+                "participantId": "SF098",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF111",
-                "name": "平泽忧",
-                "ip": "轻音少女",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "米泽圆"
+                "participantId": "SF099",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF112",
-                "name": "梓川枫",
-                "ip": "青春猪头少年系列",
-                "avatar": "https://pic1.imgdb.cn/item/6785d8b2d0e0a243d4f411e0.png",
-                "status": "已晋级至预选赛",
-                "cv": "久保由利香"
+                "participantId": "SF100",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF113",
-                "name": "凸守早苗",
-                "ip": "中二病也要谈恋爱！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "上坂堇"
+                "participantId": "SF101",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF114",
-                "name": "高町奈叶",
-                "ip": "魔法少女奈叶",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "田村由香里"
+                "participantId": "SF102",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF115",
-                "name": "北白川玉子",
-                "ip": "玉子市场",
-                "avatar": "https://pic1.imgdb.cn/item/67396817d29ded1a8c4afe96.png",
-                "status": "已晋级至预选赛",
-                "cv": "洲崎绫"
+                "participantId": "SF103",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF116",
-                "name": "中野五月",
-                "ip": "五等分的新娘",
-                "avatar": "https://pic1.imgdb.cn/item/677fbcc8d0e0a243d4f2c900.png",
-                "status": "已晋级至预选赛",
-                "cv": "水濑祈"
+                "participantId": "SF104",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF117",
-                "name": "椎名真白",
-                "ip": "樱花庄的宠物女孩",
-                "avatar": "https://pic1.imgdb.cn/item/67396804d29ded1a8c4af1d3.png",
-                "status": "已晋级至预选赛",
-                "cv": "茅野爱衣"
+                "participantId": "SF105",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF118",
-                "name": "七宫智音",
-                "ip": "中二病也要谈恋爱！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "长妻树里"
+                "participantId": "SF106",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF119",
-                "name": "高木",
-                "ip": "擅长捉弄的高木同学",
-                "avatar": "https://pic1.imgdb.cn/item/67411d35d29ded1a8c6a5568.png",
-                "status": "已晋级至预选赛",
-                "cv": "高桥李依"
+                "participantId": "SF107",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF120",
-                "name": "菲特·泰斯塔罗沙·哈洛温",
-                "ip": "魔法少女奈叶",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "水树奈奈"
+                "participantId": "SF108",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF121",
-                "name": "双叶理央",
-                "ip": "青春猪头少年系列",
-                "avatar": "https://pic1.imgdb.cn/item/6785d958d0e0a243d4f41226.png",
-                "status": "已晋级至预选赛",
-                "cv": "种崎敦美"
+                "participantId": "SF109",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF122",
-                "name": "中野四叶",
-                "ip": "五等分的新娘",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "佐仓绫音"
+                "participantId": "SF110",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF123",
-                "name": "伊地知星歌",
-                "ip": "孤独摇滚！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内田真礼"
+                "participantId": "SF111",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF124",
-                "name": "春日野穹",
-                "ip": "缘之空",
-                "avatar": "https://pic1.imgdb.cn/item/673aa700d29ded1a8c30cdf0.png",
-                "status": "已晋级至预选赛",
-                "cv": "田口宏子"
+                "participantId": "SF112",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF125",
-                "name": "由崎司",
-                "ip": "总之就是非常可爱",
-                "avatar": "https://pic1.imgdb.cn/item/6741ad7bd29ded1a8cf60d88.png",
-                "status": "已晋级至预选赛",
-                "cv": "鬼头明里"
+                "participantId": "SF113",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF126",
-                "name": "椎名真昼",
-                "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "石见舞菜香"
+                "participantId": "SF114",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF127",
-                "name": "芳冈由依",
-                "ip": "Angel Beats!",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF115",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF128",
-                "name": "八神疾风",
-                "ip": "魔法少女奈叶",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SF116",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF129",
-                "name": "阿尔托莉雅·潘德拉贡",
-                "ip": "Fate系列",
-                "avatar": "https://pic1.imgdb.cn/item/6739c600d29ded1a8c978285.png",
-                "status": "已晋级至预选赛",
-                "cv": "川澄绫子"
+                "participantId": "SF117",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF130",
-                "name": "由比滨结衣",
-                "ip": "我的青春恋爱物语果然有问题。",
-                "avatar": "https://pic1.imgdb.cn/item/673a94bdd29ded1a8c251eee.png",
-                "status": "已晋级至预选赛",
-                "cv": "东山奈央"
+                "participantId": "SF118",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF131",
-                "name": "晓美焰",
-                "ip": "魔法少女小圆",
-                "avatar": "https://pic1.imgdb.cn/item/674086b0d29ded1a8c07b0d0.png",
-                "status": "已晋级至预选赛",
-                "cv": "斋藤千和"
+                "participantId": "SF119",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SF132",
-                "name": "绪山真寻",
-                "ip": "别当欧尼酱了！",
-                "avatar": "https://pic1.imgdb.cn/item/6785d8f9d0e0a243d4f411f4.png",
-                "status": "已晋级至预选赛",
-                "cv": "高野麻里佳"
-            },
-            {
-                "id": "SF133",
-                "name": "保科昴",
-                "ip": "薰香花朵凛然绽放",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
-            },
-            {
-                "id": "SF134",
-                "name": "宫园薰",
-                "ip": "四月是你的谎言",
-                "avatar": "https://pic1.imgdb.cn/item/6742b49688c538a9b5bb432f.png",
-                "status": "已晋级至预选赛",
-                "cv": "种田梨沙"
-            },
-            {
-                "id": "SF135",
-                "name": "和泉纱雾",
-                "ip": "埃罗芒阿老师",
-                "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png",
-                "status": "已晋级至预选赛",
-                "cv": "藤田茜"
-            },
-            {
-                "id": "SF136",
-                "name": "鹿目圆",
-                "ip": "魔法少女小圆",
-                "avatar": "https://pic1.imgdb.cn/item/6735f305d29ded1a8cade1ab.png",
-                "status": "已晋级至预选赛",
-                "cv": "悠木碧"
-            },
-            {
-                "id": "SF137",
-                "name": "天野阳菜",
-                "ip": "天气之子",
-                "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png",
-                "status": "已晋级至预选赛",
-                "cv": "森七菜"
-            },
-            {
-                "id": "SF138",
-                "name": "凉宫春日",
-                "ip": "凉宫春日的忧郁",
-                "avatar": "https://pic1.imgdb.cn/item/67418d25d29ded1a8cd84d64.png",
-                "status": "已晋级至预选赛",
-                "cv": "平野绫"
-            },
-            {
-                "id": "SF139",
-                "name": "河原木桃香",
-                "ip": "少女乐队的呐喊",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "夕莉"
-            },
-            {
-                "id": "SF140",
-                "name": "逢坂大河",
-                "ip": "龙与虎",
-                "avatar": "https://pic1.imgdb.cn/item/6742aa2888c538a9b5bb4148.png",
-                "status": "已晋级至预选赛",
-                "cv": "钉宫理惠"
-            },
-            {
-                "id": "SF141",
-                "name": "五河琴里",
-                "ip": "约会大作战",
-                "avatar": "https://pic1.imgdb.cn/item/673be110d29ded1a8c2750be.png",
-                "status": "已晋级至预选赛",
-                "cv": "竹达彩奈"
-            },
-            {
-                "id": "SF142",
-                "name": "东海帝王",
-                "ip": "赛马娘 Pretty Derby",
-                "avatar": "https://pic1.imgdb.cn/item/67419ca3d29ded1a8ce4ecc8.png",
-                "status": "已晋级至预选赛",
-                "cv": "Machico"
-            },
-            {
-                "id": "SF143",
-                "name": "牧濑红莉栖",
-                "ip": "命运石之门",
-                "avatar": "https://pic1.imgdb.cn/item/67395e28d29ded1a8c43f6d9.png",
-                "status": "已晋级至预选赛",
-                "cv": "今井麻美"
-            },
-            {
-                "id": "SF144",
-                "name": "星野爱",
-                "ip": "【我推的孩子】",
-                "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png",
-                "status": "已晋级至预选赛",
-                "cv": "高桥李依"
+                "participantId": "SF120",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF121",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF122",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF123",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF124",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF125",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF126",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF127",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF128",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF129",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF130",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF131",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF132",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF133",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF134",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF135",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF136",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF137",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF138",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF139",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF140",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF141",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF142",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF143",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SF144",
+                "status": "已晋级至预选赛"
             }
         ],
         "male": [
             {
-                "id": "SM001",
-                "name": "空",
-                "ip": "NO GAME NO LIFE 游戏人生",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松冈祯丞"
-            },
-            {
-                "id": "SM002",
-                "name": "立花泷",
-                "ip": "你的名字。",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神木隆之介"
-            },
-            {
-                "id": "SM003",
-                "name": "里克·多拉",
-                "ip": "NO GAME NO LIFE 游戏人生",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松冈祯丞"
-            },
-            {
-                "id": "SM004",
-                "name": "乙坂有宇",
-                "ip": "Charlotte",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内山昂辉"
-            },
-            {
-                "id": "SM005",
-                "name": "利威尔·阿克曼",
-                "ip": "进击的巨人",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神谷浩史"
-            },
-            {
-                "id": "SM006",
-                "name": "五条悟",
-                "ip": "咒术回战",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "中村悠一"
-            },
-            {
-                "id": "SM007",
-                "name": "莱欧斯",
-                "ip": "迷宫饭",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "熊谷健太郎"
-            },
-            {
-                "id": "SM008",
-                "name": "晓山瑞希",
-                "ip": "世界计划 缤纷舞台！ feat. 初音未来",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
-            },
-            {
-                "id": "SM009",
-                "name": "莱因哈鲁特·范·阿斯特雷亚",
-                "ip": "Re:从零开始的异世界生活",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
-            },
-            {
-                "id": "SM010",
-                "name": "法夫纳",
-                "ip": "小林家的龙女仆",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
-            },
-            {
-                "id": "SM011",
-                "name": "䌷凛太郎",
-                "ip": "薰香花朵凛然绽放",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
-            },
-            {
-                "id": "SM012",
-                "name": "水篠旬",
-                "ip": "我独自升级",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "坂泰斗"
-            },
-            {
-                "id": "SM013",
-                "name": "灵幻新隆",
-                "ip": "路人超能100",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "樱井孝宏"
+                "participantId": "SM001",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM014",
-                "name": "洁世一",
-                "ip": "蓝色监狱",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "浦和希"
+                "participantId": "SM002",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM015",
-                "name": "奥斯卡",
-                "ip": "Unnamed Memory",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "中岛良树"
+                "participantId": "SM003",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM016",
-                "name": "奥斯瓦尔德·帕纳科塔",
-                "ip": "圣女因太过完美不够可爱而被废除婚约并卖到邻国",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM004",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM017",
-                "name": "石上优",
-                "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "铃木崚汰"
+                "participantId": "SM005",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM018",
-                "name": "水柿司",
-                "ip": "可塑性记忆",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内匠靖明"
+                "participantId": "SM006",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM019",
-                "name": "温水和彦",
-                "ip": "败犬女主太多了！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "梅田修一朗"
+                "participantId": "SM007",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM020",
-                "name": "桐谷和人",
-                "ip": "刀剑神域",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松冈祯丞"
+                "participantId": "SM008",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM021",
-                "name": "空条承太郎",
-                "ip": "JoJo的奇妙冒险",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小野大辅"
+                "participantId": "SM009",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM022",
-                "name": "基尔伯特·布甘比利亚",
-                "ip": "紫罗兰永恒花园",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "浪川大辅"
+                "participantId": "SM010",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM023",
-                "name": "大路饼藏",
-                "ip": "玉子市场",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "田丸笃志"
+                "participantId": "SM011",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM024",
-                "name": "夜神月",
-                "ip": "死亡笔记",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "宫野真守"
+                "participantId": "SM012",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM025",
-                "name": "一方通行",
-                "ip": "魔法禁书目录",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "冈本信彦"
+                "participantId": "SM013",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM026",
-                "name": "休塔尔克",
-                "ip": "葬送的芙莉莲",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小林千晃"
+                "participantId": "SM014",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM027",
-                "name": "上条当麻",
-                "ip": "魔法禁书目录",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "阿部敦"
+                "participantId": "SM015",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM028",
-                "name": "菜月昴",
-                "ip": "Re:从零开始的异世界生活",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小林裕介"
+                "participantId": "SM016",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM029",
-                "name": "卫宫",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "诹访部顺一"
+                "participantId": "SM017",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM030",
-                "name": "佐藤和真",
-                "ip": "为美好的世界献上祝福！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "福岛润"
+                "participantId": "SM018",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM031",
-                "name": "宫村伊澄",
-                "ip": "堀与宫村",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内山昂辉"
+                "participantId": "SM019",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM032",
-                "name": "坂田银时",
-                "ip": "银魂",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "杉田智和"
+                "participantId": "SM020",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM033",
-                "name": "藤宫周",
-                "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "坂泰斗"
+                "participantId": "SM021",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM034",
-                "name": "劳埃德·福杰",
-                "ip": "间谍过家家",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "江口拓也"
+                "participantId": "SM022",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM035",
-                "name": "旗木卡卡西",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "井上和彦"
+                "participantId": "SM023",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM036",
-                "name": "艾伦·耶格尔",
-                "ip": "进击的巨人",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "梶裕贵"
+                "participantId": "SM024",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM037",
-                "name": "漩涡鸣人",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "竹内顺子"
+                "participantId": "SM025",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM038",
-                "name": "高须龙儿",
-                "ip": "龙与虎",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "间岛淳司"
+                "participantId": "SM026",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM039",
-                "name": "星野爱久爱海",
-                "ip": "【我推的孩子】",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "大冢刚央"
+                "participantId": "SM027",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM040",
-                "name": "库·丘林",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神奈延年"
+                "participantId": "SM028",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM041",
-                "name": "蒙奇·D·路飞",
-                "ip": "海贼王",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "田中真弓"
+                "participantId": "SM029",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM042",
-                "name": "太宰治",
-                "ip": "文豪野犬",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "宫野真守"
+                "participantId": "SM030",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM043",
-                "name": "镜音连",
-                "ip": "世界计划 缤纷舞台！ feat. 初音未来",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM031",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM044",
-                "name": "夏泽朔",
-                "ip": "薰香花朵凛然绽放",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM032",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM045",
-                "name": "始皇帝",
-                "ip": "终末的女武神",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM033",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM046",
-                "name": "鹰原羽依里",
-                "ip": "Summer Pockets",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM034",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM047",
-                "name": "野原广志",
-                "ip": "蜡笔小新",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM035",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM048",
-                "name": "天马司",
-                "ip": "世界计划 缤纷舞台！ feat. 初音未来",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM036",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM049",
-                "name": "菲利克斯·阿克·里迪尔",
-                "ip": "Silent Witch 沉默魔女的秘密",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM037",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM050",
-                "name": "杰诺斯",
-                "ip": "一拳超人",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM038",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM051",
-                "name": "千岁朔",
-                "ip": "弹珠汽水瓶里的千岁同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM039",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM052",
-                "name": "来堂章太",
-                "ip": "测不准的阿波连同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM040",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM053",
-                "name": "KING",
-                "ip": "一拳超人",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM041",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM054",
-                "name": "鲁邦三世",
-                "ip": "鲁邦三世",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "栗田贯一"
+                "participantId": "SM042",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM055",
-                "name": "爱城恋太郎",
-                "ip": "超超超超超喜欢你的100个女朋友",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "加藤涉"
+                "participantId": "SM043",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM056",
-                "name": "明浦路司",
-                "ip": "金牌得主",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM044",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM057",
-                "name": "乙木守仁",
-                "ip": "魔女与使魔",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM045",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM058",
-                "name": "比企谷八幡",
-                "ip": "我的青春恋爱物语果然有问题。",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "江口拓也"
+                "participantId": "SM046",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM059",
-                "name": "阿良良木历",
-                "ip": "物语系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神谷浩史"
+                "participantId": "SM047",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM060",
-                "name": "克拉福·罗伦斯",
-                "ip": "狼与香辛料",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "福山润"
+                "participantId": "SM048",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM061",
-                "name": "奇犽·揍敌客",
-                "ip": "HUNTER×HUNTER",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "伊濑茉莉也"
+                "participantId": "SM049",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM062",
-                "name": "虎杖悠仁",
-                "ip": "咒术回战",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "榎木淳弥"
+                "participantId": "SM050",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM063",
-                "name": "韦伯·维尔维特",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM051",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM064",
-                "name": "拉法尔",
-                "ip": "地。-关于地球的运动-",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "坂本真绫"
+                "participantId": "SM052",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM065",
-                "name": "高仓健",
-                "ip": "胆大党",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "花江夏树"
+                "participantId": "SM053",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM066",
-                "name": "黑崎一护",
-                "ip": "BLEACH",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "森田成一"
+                "participantId": "SM054",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM067",
-                "name": "中原中也",
-                "ip": "文豪野犬",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "谷山纪章"
+                "participantId": "SM055",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM068",
-                "name": "夏亚·阿兹纳布尔",
-                "ip": "机动战士高达",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM056",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM069",
-                "name": "绯村剑心",
-                "ip": "浪客剑心",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "齐藤壮马"
+                "participantId": "SM057",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM070",
-                "name": "樱木花道",
-                "ip": "灌篮高手",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM058",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM071",
-                "name": "石神千空",
-                "ip": "Dr.STONE 石纪元",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小林裕介"
+                "participantId": "SM059",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM072",
-                "name": "维吉尔",
-                "ip": "鬼泣系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM060",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM073",
-                "name": "壬氏",
-                "ip": "药屋少女的呢喃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "樱井孝宏"
+                "participantId": "SM061",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM074",
-                "name": "姚麟",
-                "ip": "钢之炼金术师",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM062",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM075",
-                "name": "夏油杰",
-                "ip": "咒术回战",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM063",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM076",
-                "name": "的场静司",
-                "ip": "夏目友人帐",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "诹访部顺一"
+                "participantId": "SM064",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM077",
-                "name": "特斯卡特利波卡",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM065",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM078",
-                "name": "名取周一",
-                "ip": "夏目友人帐",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "石田彰"
+                "participantId": "SM066",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM079",
-                "name": "米拉",
-                "ip": "魔法少女与邪恶曾经敌对。",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小野友树"
+                "participantId": "SM067",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM080",
-                "name": "基洛斯·格拉纳多",
-                "ip": "破烂千金被姐姐的原婚约者溺爱着",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM068",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM081",
-                "name": "鲁迪乌斯·格雷拉特",
-                "ip": "无职转生",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内山夕实"
+                "participantId": "SM069",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM082",
-                "name": "音无结弦",
-                "ip": "Angel Beats!",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神谷浩史"
+                "participantId": "SM070",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM083",
-                "name": "福部里志",
-                "ip": "冰菓",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "阪口大助"
+                "participantId": "SM071",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM084",
-                "name": "浅村悠太",
-                "ip": "义妹生活",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "天崎滉平"
+                "participantId": "SM072",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM085",
-                "name": "网代慎平",
-                "ip": "夏日重现",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "花江夏树"
+                "participantId": "SM073",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM086",
-                "name": "冈崎朋也",
-                "ip": "CLANNAD",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "中村悠一"
+                "participantId": "SM074",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM087",
-                "name": "五条新菜",
-                "ip": "更衣人偶坠入爱河",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "石毛翔弥"
+                "participantId": "SM075",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM088",
-                "name": "L Lawliet",
-                "ip": "死亡笔记",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "山口胜平"
+                "participantId": "SM076",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM089",
-                "name": "五河士道",
-                "ip": "约会大作战",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "岛崎信长"
+                "participantId": "SM077",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM090",
-                "name": "宇智波佐助",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "杉山纪彰"
+                "participantId": "SM078",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM091",
-                "name": "冈部伦太郎",
-                "ip": "命运石之门",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "宫野真守"
+                "participantId": "SM079",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM092",
-                "name": "春日野悠",
-                "ip": "缘之空",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "下野纮"
+                "participantId": "SM080",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM093",
-                "name": "由崎星空",
-                "ip": "总之就是非常可爱",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "榎木淳弥"
+                "participantId": "SM081",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM094",
-                "name": "鲁路修·兰佩洛基",
-                "ip": "Code Geass",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "福山润"
+                "participantId": "SM082",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM095",
-                "name": "迪奥·布兰度",
-                "ip": "JoJo的奇妙冒险",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "子安武人"
+                "participantId": "SM083",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM096",
-                "name": "西片",
-                "ip": "擅长捉弄的高木同学",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "梶裕贵"
+                "participantId": "SM084",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM097",
-                "name": "绫小路清隆",
-                "ip": "欢迎来到实力至上主义的教室",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "千叶翔也"
+                "participantId": "SM085",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM098",
-                "name": "卫宫士郎",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "杉山纪彰"
+                "participantId": "SM086",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM099",
-                "name": "碇真嗣",
-                "ip": "新世纪福音战士",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "绪方惠美"
+                "participantId": "SM087",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM100",
-                "name": "宇智波鼬",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "石川英郎"
+                "participantId": "SM088",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM101",
-                "name": "森岛帆高",
-                "ip": "天气之子",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "醍醐虎汰朗"
+                "participantId": "SM089",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM102",
-                "name": "有马公生",
-                "ip": "四月是你的谎言",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "花江夏树"
+                "participantId": "SM090",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM103",
-                "name": "阿虚",
-                "ip": "凉宫春日的忧郁",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "杉田智和"
+                "participantId": "SM091",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM104",
-                "name": "小智",
-                "ip": "宝可梦",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松本梨香"
+                "participantId": "SM092",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM105",
-                "name": "宇佐美翔平",
-                "ip": "薰香花朵凛然绽放",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM093",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM106",
-                "name": "市川京太郎",
-                "ip": "我心里危险的东西",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "堀江瞬"
+                "participantId": "SM094",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM107",
-                "name": "乔瑟夫·乔斯达",
-                "ip": "JoJo的奇妙冒险",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "杉田智和"
+                "participantId": "SM095",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM108",
-                "name": "宇智波斑",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内田直哉"
+                "participantId": "SM096",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM109",
-                "name": "波风水门",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "森川智之"
+                "participantId": "SM097",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM110",
-                "name": "吉尔伽美什",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "关智一"
+                "participantId": "SM098",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM111",
-                "name": "富冈义勇",
-                "ip": "鬼灭之刃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "樱井孝宏"
+                "participantId": "SM099",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM112",
-                "name": "乙骨忧太",
-                "ip": "咒术回战",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "绪方惠美"
+                "participantId": "SM100",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM113",
-                "name": "依田绚斗",
-                "ip": "薰香花朵凛然绽放",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
+                "participantId": "SM101",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM114",
-                "name": "户冢彩加",
-                "ip": "我的青春恋爱物语果然有问题。",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小松未可子"
+                "participantId": "SM102",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM115",
-                "name": "金木研",
-                "ip": "东京食尸鬼",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "花江夏树"
+                "participantId": "SM103",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM116",
-                "name": "大卫·马丁内斯",
-                "ip": "赛博朋克 边缘行者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "KENN"
+                "participantId": "SM104",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM117",
-                "name": "灶门炭治郎",
-                "ip": "鬼灭之刃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "花江夏树"
+                "participantId": "SM105",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM118",
-                "name": "电次",
-                "ip": "电锯人",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "户谷菊之介"
+                "participantId": "SM106",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM119",
-                "name": "北原伊织",
-                "ip": "碧蓝之海",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内田雄马"
+                "participantId": "SM107",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM120",
-                "name": "辛耶·诺赞",
-                "ip": "86 -不存在的战区-",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "千叶翔也"
+                "participantId": "SM108",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM121",
-                "name": "卫宫切嗣",
-                "ip": "Fate系列",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小山力也"
+                "participantId": "SM109",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM122",
-                "name": "神田空太",
-                "ip": "樱花庄的宠物女孩",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松冈祯丞"
+                "participantId": "SM110",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM123",
-                "name": "夜斗",
-                "ip": "野良神",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神谷浩史"
+                "participantId": "SM111",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM124",
-                "name": "孙悟空",
-                "ip": "龙珠",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "野泽雅子"
+                "participantId": "SM112",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM125",
-                "name": "宇智波带土",
-                "ip": "火影忍者",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "潘惠美"
+                "participantId": "SM113",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM126",
-                "name": "江户川柯南",
-                "ip": "名侦探柯南",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "高山南"
+                "participantId": "SM114",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM127",
-                "name": "木下秀吉",
-                "ip": "笨蛋、测验、召唤兽",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "加藤英美里"
+                "participantId": "SM115",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM128",
-                "name": "李小狼",
-                "ip": "魔卡少女樱",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "熊井统子"
+                "participantId": "SM116",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM129",
-                "name": "伏黑惠",
-                "ip": "咒术回战",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内田雄马"
+                "participantId": "SM117",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM130",
-                "name": "乔鲁诺·乔巴拿",
-                "ip": "JoJo的奇妙冒险",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小野贤章"
+                "participantId": "SM118",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM131",
-                "name": "我妻善逸",
-                "ip": "鬼灭之刃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "下野纮"
+                "participantId": "SM119",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM132",
-                "name": "齐木楠雄",
-                "ip": "齐木楠雄的灾难",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "神谷浩史"
+                "participantId": "SM120",
+                "status": "已晋级至预选赛"
             },
             {
-                "id": "SM133",
-                "name": "东方仗助",
-                "ip": "JoJo的奇妙冒险",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": ""
-            },
-            {
-                "id": "SM134",
-                "name": "和泉正宗",
-                "ip": "埃罗芒阿老师",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松冈祯丞"
-            },
-            {
-                "id": "SM135",
-                "name": "黑羽快斗",
-                "ip": "魔术快斗",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "山口胜平"
-            },
-            {
-                "id": "SM136",
-                "name": "杀老师",
-                "ip": "暗杀教室",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "福山润"
-            },
-            {
-                "id": "SM137",
-                "name": "安昙小太郎",
-                "ip": "月色真美",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "千叶翔也"
-            },
-            {
-                "id": "SM138",
-                "name": "渚薰",
-                "ip": "新世纪福音战士",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "石田彰"
-            },
-            {
-                "id": "SM139",
-                "name": "樱满集",
-                "ip": "罪恶王冠",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "梶裕贵"
-            },
-            {
-                "id": "SM140",
-                "name": "炼狱杏寿郎",
-                "ip": "鬼灭之刃",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "日野聪"
-            },
-            {
-                "id": "SM141",
-                "name": "安艺伦也",
-                "ip": "路人女主的养成方法",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "松冈祯丞"
-            },
-            {
-                "id": "SM142",
-                "name": "内卷昴",
-                "ip": "这个美术社大有问题！",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "小林裕介"
-            },
-            {
-                "id": "SM143",
-                "name": "一条乐",
-                "ip": "伪恋",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "内山昂辉"
-            },
-            {
-                "id": "SM144",
-                "name": "枣恭介",
-                "ip": "Little Busters!",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "绿川光"
-            },
-            {
-                "id": "SM145",
-                "name": "伊藤诚",
-                "ip": "School Days",
-                "avatar": "",
-                "status": "已晋级至预选赛",
-                "cv": "平川大辅"
+                "participantId": "SM121",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM122",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM123",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM124",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM125",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM126",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM127",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM128",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM129",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM130",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM131",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM132",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM133",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM134",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM135",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM136",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM137",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM138",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM139",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM140",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM141",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM142",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM143",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM144",
+                "status": "已晋级至预选赛"
+            },
+            {
+                "participantId": "SM145",
+                "status": "已晋级至预选赛"
             }
         ]
     },
