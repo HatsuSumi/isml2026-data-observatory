@@ -1,6 +1,6 @@
 import { getScheduleData, getScheduleFilterControls, setScheduleFiltersEnabledState } from '../state/scheduleState.js';
 import { debounce } from '../utils/dom.js';
-import { loadJson } from '../utils/loadJson.js';
+import { loadCharacterMatches } from '../../common/data-loader.js';
 import { clearCharacterSelection, filterTimelineByCharacter, showAllMatches, showCharacterSelection } from './characterSearch.js';
 import { setScheduleFiltersEnabled } from './elevatorNav.js';
 
@@ -24,13 +24,8 @@ export function bindCharacterSearch() {
 
         clearCharacterSelection();
 
-        const data = await loadJson('data/matches/character-matches.json', 'Error fetching character data:');
+        const data = await loadCharacterMatches();
         if (requestId !== searchRequestId) return;
-        if (!data) {
-            noCharacterEl.hidden = true;
-            timelineEl.hidden = false;
-            return;
-        }
 
         const matchedCharacters = Object.entries(data.matches).filter(([, char]) =>
             char.name.toLowerCase().includes(searchValue.toLowerCase())

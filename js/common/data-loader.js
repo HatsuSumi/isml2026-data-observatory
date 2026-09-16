@@ -1,3 +1,7 @@
+import { loadCharacterResolver } from './character-resolver.js';
+
+const CHARACTER_MATCHES_PATH = 'data/matches/character-matches.json';
+
 async function fetchJson(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`数据加载失败: ${response.status}`);
@@ -16,6 +20,45 @@ function getBasicCharacterIndex(data) {
 
 export async function loadCharacterDetails() {
     return fetchJson('data/characters/characters-details.json');
+}
+
+export async function loadResolvedCharacters() {
+    const resolver = await loadCharacterResolver();
+    return resolver;
+}
+
+function normalizeCharacterMatchRecord(participantId, record, resolver) {
+    if (!record || typeof record !== 'object' || !Array.isArray(record.matches)) {
+        throw new Error(`character-matches.json ${participantId} 记录格式错误`);
+    }
+    const character = resolver.getByParticipantId(participantId);
+    return {
+        ...character,
+        ...record,
+        participantId,
+        characterId: character.characterId,
+        name: character.name,
+        nameEn: character.nameEn,
+        ip: character.ip,
+        cv: character.cv,
+        avatar: character.avatar,
+        matches: record.matches
+    };
+}
+
+export async function loadCharacterMatches() {
+    const [rawData, resolver] = await Promise.all([
+        fetchJson(CHARACTER_MATCHES_PATH),
+        loadCharacterResolver()
+    ]);
+    if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData) || !rawData.matches) {
+        throw new Error('character-matches.json 缺少 matches 对象');
+    }
+    const matches = Object.fromEntries(Object.entries(rawData.matches).map(([participantId, record]) => [
+        participantId,
+        normalizeCharacterMatchRecord(participantId, record, resolver)
+    ]));
+    return { matches };
 }
 
 export async function loadEventData() {

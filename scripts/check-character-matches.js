@@ -17,16 +17,24 @@ const IP_ALIASES = new Map([
 
 function normalizeIp(ip) {
     const value = String(ip).trim();
-    return IP_ALIASES.get(value) || value;
+    const alias = IP_ALIASES.get(value);
+    if (alias) return alias;
+    return value;
 }
 
 function characterKey(character) {
     return `${String(character.name).trim()}@${normalizeIp(character.ip)}`;
 }
 
+function participantPrefix(gender) {
+    if (gender === 'female') return 'SF';
+    if (gender === 'male') return 'SM';
+    throw new Error(`未知性别：${gender}`);
+}
+
 function collectParticipants(nominationSources) {
     return nominationSources.flatMap(({ data, gender }) => data.map((character, index) => ({
-        id: `${gender === 'female' ? 'SF' : 'SM'}${String(index + 1).padStart(3, '0')}`,
+        id: `${participantPrefix(gender)}${String(index + 1).padStart(3, '0')}`,
         name: String(character.name).trim(),
         ip: String(character.ip).trim(),
         gender,
@@ -34,20 +42,47 @@ function collectParticipants(nominationSources) {
     })));
 }
 
-function collectMatchCharacters(matchesData) {
-    return Object.entries(matchesData.matches).map(([id, character]) => ({
-        ...character,
-        id
-    }));
+function getDetailBasic(detailsData, id) {
+    const detail = detailsData.characters[id];
+    if (!detail) return {};
+    if (typeof detail !== 'object') return {};
+    const basic = detail.basic;
+    if (!basic) return {};
+    if (typeof basic !== 'object') return {};
+    return basic;
+}
+
+function firstValue(...values) {
+    for (const value of values) {
+        if (value !== undefined && value !== null) return value;
+    }
+    return '';
+}
+
+function collectMatchCharacters(matchesData, detailsData) {
+    return Object.entries(matchesData.matches).map(([id, character]) => {
+        const basic = getDetailBasic(detailsData, id);
+        const name = firstValue(character.name, basic.name);
+        const ip = firstValue(character.ip, basic.ip);
+        return {
+            ...character,
+            id,
+            name,
+            ip
+        };
+    });
 }
 
 function indexByKey(characters) {
     const index = new Map();
     for (const character of characters) {
         const key = characterKey(character);
-        const entries = index.get(key) || [];
-        entries.push(character);
-        index.set(key, entries);
+        const entries = index.get(key);
+        if (entries) {
+            entries.push(character);
+            continue;
+        }
+        index.set(key, [character]);
     }
     return index;
 }
@@ -60,7 +95,9 @@ function findMissingEventRecords(participants, matches, title) {
     const matchByKey = new Map(matches.map(character => [characterKey(character), character]));
     return participants.filter(participant => {
         const character = matchByKey.get(characterKey(participant));
-        return !character?.matches?.some(match => match.title === title);
+        if (!character) return true;
+        if (!Array.isArray(character.matches)) return true;
+        return !character.matches.some(match => match.title === title);
     });
 }
 
@@ -74,29 +111,51 @@ function findDuplicates(index) {
         .map(([key, characters]) => ({ key, characters }));
 }
 
+function formatGender(gender) {
+    if (!gender) return '';
+    return ` [${gender}]`;
+}
+
+function displayId(character) {
+    if (character.id) return character.id;
+    return '未分配 ID';
+}
+
 function printCharacterList(title, characters) {
     console.log(`\n${title} (${characters.length})`);
     characters.forEach(character => {
-        const gender = character.gender ? ` [${character.gender}]` : '';
-        console.log(`- ${character.id || '未分配 ID'}: ${character.name} @ ${character.ip}${gender}`);
+        const gender = formatGender(character.gender);
+        console.log(`- ${displayId(character)}: ${character.name} @ ${character.ip}${gender}`);
     });
 }
 
+function getMatches(character) {
+    if (Array.isArray(character.matches)) return character.matches;
+    return [];
+}
+
 function ensureNominationMatch(character, participant) {
-    const matches = Array.isArray(character.matches) ? character.matches : [];
+    const matches = getMatches(character);
     const nomination = matches.find(match => match.title === '恒星组提名');
     if (!nomination) matches.unshift({ title: '恒星组提名', result: '晋级' });
     return { ...character, name: participant.name, ip: participant.ip, matches };
 }
 
+function getExistingCharacter(records) {
+    if (Array.isArray(records)) return records[0];
+    if (records) return records;
+    return { avatar: '', matches: [] };
+}
+
 function rebuildMatches(participants, matchesData) {
-    const existing = indexByKey(collectMatchCharacters(matchesData));
+    const existing = indexByKey(collectMatchCharacters(matchesData, { characters: {} }));
     const matches = {};
     participants.forEach((participant, index) => {
         const key = characterKey(participant);
-        const previous = existing.get(key)?.[0];
-        const id = `${participant.gender === 'female' ? 'SF' : 'SM'}${String(index + 1).padStart(3, '0')}`;
-        matches[id] = ensureNominationMatch(previous || { avatar: '', matches: [] }, participant);
+        const existingRecords = existing.get(key);
+        const previous = getExistingCharacter(existingRecords);
+        const id = `${participantPrefix(participant.gender)}${String(index + 1).padStart(3, '0')}`;
+        matches[id] = ensureNominationMatch(previous, participant);
     });
     return { matches };
 }
@@ -106,16 +165,17 @@ async function readJson(filePath) {
 }
 
 async function main() {
-    const [femaleSource, maleSource, matchesData] = await Promise.all([
+    const [femaleSource, maleSource, matchesData, detailsData] = await Promise.all([
         readJson(NOMINATION_PATHS[0].path),
         readJson(NOMINATION_PATHS[1].path),
-        readJson(MATCHES_PATH)
+        readJson(MATCHES_PATH),
+        readJson(path.join(ROOT, 'data', 'characters', 'characters-details.json'))
     ]);
     const participants = collectParticipants([
         { data: femaleSource.data, gender: NOMINATION_PATHS[0].gender },
         { data: maleSource.data, gender: NOMINATION_PATHS[1].gender }
     ]);
-    const matches = collectMatchCharacters(matchesData);
+    const matches = collectMatchCharacters(matchesData, detailsData);
     const participantIndex = indexByKey(participants);
     const matchIndex = indexByKey(matches);
     const missing = findMissingCharacters(participants, matchIndex);
@@ -143,7 +203,9 @@ async function main() {
     printCharacterList('缺少恒星组提名记录', missingNomination);
     printCharacterList('缺少预选赛第一轮记录', missingPreliminary);
 
-    if (missing.length || duplicateParticipants.length || duplicateMatches.length) {
+    const hasBlockingIssues = [missing.length, duplicateParticipants.length, duplicateMatches.length]
+        .some(count => count > 0);
+    if (hasBlockingIssues) {
         process.exitCode = 1;
         return;
     }
