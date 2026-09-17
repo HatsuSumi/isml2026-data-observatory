@@ -13,7 +13,7 @@ async function fetchJson(url) {
     return response.json();
 }
 
-export async function loadCharacterDetailData(characterId) {
+export async function loadCharacterDetailData(participantId) {
     const [charactersData, rulesData, groupsData] = await Promise.all([
         loadCharacterDetails(),
         fetchJson(DATA_SOURCES.rules),
@@ -21,11 +21,11 @@ export async function loadCharacterDetailData(characterId) {
     ]);
 
     const allCharacters = charactersData.characters;
-    const characterData = allCharacters?.[characterId];
+    const characterData = allCharacters?.[participantId];
     if (!characterData) throw new Error('角色数据不存在');
 
     return {
-        characterId,
+        participantId,
         characterData,
         allCharacters,
         configData: charactersData.config,

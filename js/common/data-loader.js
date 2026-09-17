@@ -27,9 +27,9 @@ export async function loadCharacterDetails() {
     ]);
     const characters = Object.fromEntries(Object.entries(rawData.characters || {}).map(([participantId, detail]) => {
         const character = resolver.getByParticipantId(participantId);
-        return [character.characterId, {
+        return [participantId, {
             basic: {
-                id: participantId,
+                participantId,
                 characterId: character.characterId,
                 name: character.name,
                 name_en: character.nameEn,
@@ -120,8 +120,8 @@ export async function loadGroupData() {
         const basic = character.basic;
         if (!index[basic.name]) {
             index[basic.name] = {
-                id: character.id,
-                database_id: basic.database_id,
+                participantId: basic.participantId,
+                characterId: basic.characterId,
                 name: basic.name,
                 ip: basic.ip,
                 cv: basic.cv,

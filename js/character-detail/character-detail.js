@@ -9,7 +9,7 @@ import { setupCharacterNavigation } from './character-detail-navigation.js';
 class CharacterDetail {
     constructor() {
         const params = new URLSearchParams(window.location.search);
-        this.characterId = params.get('id');
+        this.participantId = params.get('id');
         this.fromNav = params.get('from') === 'characters-data';
         
         this.characterData = null;
@@ -86,7 +86,7 @@ class CharacterDetail {
     
     async loadData() {
         try {
-            const data = await loadCharacterDetailData(this.characterId);
+            const data = await loadCharacterDetailData(this.participantId);
             Object.assign(this, data);
         } catch (error) {
             console.error('加载数据失败:', error);

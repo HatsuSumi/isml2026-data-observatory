@@ -49,7 +49,7 @@ async function loadCharactersData() {
     const resolveCharacter = record => ({
         ...record,
         ...resolver.getByParticipantId(record.participantId),
-        id: resolver.getByParticipantId(record.participantId).characterId
+        id: record.participantId
     });
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
