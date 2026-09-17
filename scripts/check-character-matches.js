@@ -50,7 +50,7 @@ async function main() {
     const ids = compareIds(participantMap, matchesData);
     const invalidRecords = collectInvalidRecords(matchesData);
     const missingNomination = collectMissingEvents(matchesData, '恒星组提名');
-    const missingPreliminary = collectMissingEvents(matchesData, '预选赛第一轮');
+    const nonParticipantsPreliminary = collectMissingEvents(matchesData, '预选赛第一轮');
 
     console.log(`participant-map 参赛角色: ${ids.expected.length}`);
     console.log(`character-matches.json 角色: ${ids.actual.length}`);
@@ -59,7 +59,7 @@ async function main() {
     console.log(`多余角色: ${ids.extra.length}`);
     console.log(`记录格式错误: ${invalidRecords.length}`);
     console.log(`缺少恒星组提名记录: ${missingNomination.length}`);
-    console.log(`缺少预选赛第一轮记录: ${missingPreliminary.length}`);
+    console.log(`未参加预选赛第一轮: ${nonParticipantsPreliminary.length}`);
 
     if (ids.missing.length) console.log(`缺失角色: ${ids.missing.join(', ')}`);
     if (ids.extra.length) console.log(`多余角色: ${ids.extra.join(', ')}`);
