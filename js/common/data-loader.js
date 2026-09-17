@@ -27,7 +27,7 @@ export async function loadCharacterDetails() {
     ]);
     const characters = Object.fromEntries(Object.entries(rawData.characters || {}).map(([participantId, detail]) => {
         const character = resolver.getByParticipantId(participantId);
-        return [participantId, {
+        return [character.characterId, {
             basic: {
                 id: participantId,
                 characterId: character.characterId,

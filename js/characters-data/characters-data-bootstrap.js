@@ -48,7 +48,8 @@ async function loadCharactersData() {
     assertCharactersData(data);
     const resolveCharacter = record => ({
         ...record,
-        ...resolver.getByParticipantId(record.participantId)
+        ...resolver.getByParticipantId(record.participantId),
+        id: resolver.getByParticipantId(record.participantId).characterId
     });
     const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
