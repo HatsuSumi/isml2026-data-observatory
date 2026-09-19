@@ -90,13 +90,28 @@ function collectGroupCharacters(groupsData) {
         assertObject(groupConfig.groups, `groups.json ${groupId}.groups`);
         for (const [groupName, groupCharacters] of Object.entries(groupConfig.groups)) {
             if (!Array.isArray(groupCharacters)) fail(`groups.json ${groupId}.${groupName} 必须是数组`);
-            groupCharacters.forEach(character => {
-                if (typeof character === 'string') {
-                    characters.push({ groupId, groupName, name: character, ip: '' });
-                    return;
+            groupCharacters.forEach((character, index) => {
+                if (!character || typeof character !== 'object' || Array.isArray(character)) {
+                    fail(`groups.json ${groupId}.${groupName}[${index}] 必须是对象`);
                 }
-                if (!character.name) fail(`groups.json ${groupId}.${groupName} 存在缺少 name 的角色`);
-                characters.push({ groupId, groupName, name: character.name, ip: character.ip || '' });
+                if (character.name || character.ip || character.avatar || character.cv) {
+                    fail(`groups.json ${groupId}.${groupName}[${index}] 仍包含角色展示字段`);
+                }
+                const hasParticipantId = typeof character.participantId === 'string' && character.participantId.trim();
+                const hasCharacterId = typeof character.characterId === 'string' && character.characterId.trim();
+                if (!hasParticipantId && !hasCharacterId) {
+                    fail(`groups.json ${groupId}.${groupName}[${index}] 缺少 participantId 或 characterId`);
+                }
+                if (hasParticipantId) assertParticipantId(character.participantId, `groups.json ${groupId}.${groupName}`);
+                if (hasCharacterId && !/^char_\d{6}$/.test(character.characterId)) {
+                    fail(`groups.json ${groupId}.${groupName}[${index}] 包含非法角色库 ID：${character.characterId}`);
+                }
+                characters.push({
+                    groupId,
+                    groupName,
+                    participantId: hasParticipantId ? character.participantId : '',
+                    characterId: hasCharacterId ? character.characterId : ''
+                });
             });
         }
     }
@@ -217,9 +232,10 @@ async function main() {
 
     const participantIdsSet = new Set(participantIds);
     const nominationRecords = collectNominationStatsRecords(nominationStats);
+    const groupRecords = collectGroupCharacters(groupsData);
     const groupIssue = validateParticipantIdReferences(
         'groups.json ↔ participant-map',
-        collectGroupCharacters(groupsData),
+        groupRecords,
         participantIdsSet
     );
     const top5Issue = validateParticipantIdReferences(
@@ -238,7 +254,9 @@ async function main() {
     console.log(`characters-details 参赛记录: ${detailIds.length}`);
     console.log(`roundsData 参赛记录: ${roundIds.length}`);
     console.log(`character-matches 参赛记录: ${matchIds.length}`);
-    console.log(`groups.json 角色引用: ${collectGroupCharacters(groupsData).length}`);
+    console.log(`groups.json 角色引用: ${groupRecords.length}`);
+    console.log(`groups.json participantId: ${groupRecords.filter(record => record.participantId).length}`);
+    console.log(`groups.json characterId: ${groupRecords.filter(record => record.characterId && !record.participantId).length}`);
     console.log(`top5-rankings.json 角色引用: ${collectTop5Characters(rankingsData).length}`);
     console.log(`nomination-stats.json 记录: ${nominationRecords.length}`);
     console.log(`nomination-stats.json participantId: ${nominationRecords.filter(record => record.participantId).length}`);

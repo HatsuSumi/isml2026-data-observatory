@@ -1,5 +1,20 @@
 import { loadGroupData } from '../common/data-loader.js';
 
+function resolveGroupCharacter(character, charactersData) {
+    if (typeof character === 'string') {
+        return charactersData[character] || { name: character, ip: '', avatar: '' };
+    }
+    const lookupKey = character.participantId || character.characterId || character.name;
+    const fallback = lookupKey ? charactersData[lookupKey] : null;
+    return {
+        ...fallback,
+        ...character,
+        name: character.name || fallback?.name || '',
+        ip: character.ip || fallback?.ip || '',
+        avatar: character.avatar || fallback?.avatar || ''
+    };
+}
+
 class GroupRendererStrategy {
     static strategies = {
         preliminary: (groupConfig, charactersData, containers) => {
@@ -17,25 +32,22 @@ class GroupRendererStrategy {
                 charactersList.innerHTML = '';
 
                 characters.forEach(character => {
-                    const characterName = typeof character === 'string' ? character : character.name;
-                    const characterIp = typeof character === 'string' ? '' : character.ip;
-                    const characterData = charactersData[characterName];
-
+                    const resolved = resolveGroupCharacter(character, charactersData);
                     const characterItem = characterTemplate.cloneNode(true);
                     const avatar = characterItem.querySelector('.character-avatar');
                     const avatarWrap = characterItem.querySelector('.character-avatar-wrap');
                     const nameSpan = characterItem.querySelector('.character-name');
                     const ipSpan = characterItem.querySelector('.character-ip');
 
-                    if (characterData?.avatar) {
-                        avatar.src = characterData.avatar;
-                        avatar.alt = characterName;
+                    if (resolved.avatar) {
+                        avatar.src = resolved.avatar;
+                        avatar.alt = resolved.name;
                     } else {
                         avatarWrap.remove();
                     }
 
-                    nameSpan.textContent = characterName;
-                    ipSpan.textContent = characterIp;
+                    nameSpan.textContent = resolved.name;
+                    ipSpan.textContent = resolved.ip;
                     charactersList.appendChild(characterItem);
                 });
 
@@ -68,16 +80,16 @@ class GroupRendererStrategy {
                     const character = characters.find(c => c.seed === seedNumber);
 
                     if (character) {
-                        const characterData = charactersData[character.name];
+                        const resolved = resolveGroupCharacter(character, charactersData);
 
-                        if (characterData?.avatar) {
-                            avatar.src = characterData.avatar;
-                            avatar.alt = character.name;
+                        if (resolved.avatar) {
+                            avatar.src = resolved.avatar;
+                            avatar.alt = resolved.name;
                         } else {
                             avatar.remove();
                         }
 
-                        nameSpan.textContent = character.name;
+                        nameSpan.textContent = resolved.name;
                     } else {
                         characterDiv.remove();
                     }

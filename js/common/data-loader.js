@@ -99,23 +99,57 @@ export async function loadEventData() {
     return { events, rankings: rankingData };
 }
 
+function extraGroupFields(record) {
+    const extra = {};
+    if (Number.isInteger(record?.seed)) extra.seed = record.seed;
+    return extra;
+}
+
+function enrichGroupMember(record, resolver, path) {
+    if (typeof record === 'string') {
+        return { name: record, ip: '', avatar: '' };
+    }
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+        throw new Error(`groups.json ${path} 必须是对象`);
+    }
+    const extra = extraGroupFields(record);
+    if (typeof record.participantId === 'string' && record.participantId.trim()) {
+        const character = resolver.getByParticipantId(record.participantId);
+        return { ...character, ...extra, participantId: record.participantId };
+    }
+    if (typeof record.characterId === 'string' && record.characterId.trim()) {
+        const character = resolver.getByCharacterId(record.characterId);
+        return { ...character, ...extra, characterId: record.characterId };
+    }
+    if (record.name && record.ip) {
+        return { ...resolver.enrichLegacyRow(record), ...extra };
+    }
+    throw new Error(`groups.json ${path} 缺少 participantId、characterId 或 name/ip`);
+}
+
 export async function loadGroupData() {
-    const [groups, characterData] = await Promise.all([
+    const [rawGroups, resolver] = await Promise.all([
         fetchJson('data/groups/groups.json'),
-        loadCharacterDetails()
+        loadCharacterResolver()
     ]);
-    const characters = Object.values(characterData.characters).reduce((index, character) => {
-        const basic = character.basic;
-        if (!index[basic.name]) {
-            index[basic.name] = {
-                participantId: basic.participantId,
-                characterId: basic.characterId,
-                name: basic.name,
-                ip: basic.ip,
-                cv: basic.cv,
-                avatar: basic.avatar
-            };
-        }
+    const groups = Object.fromEntries(Object.entries(rawGroups).map(([eventId, eventConfig]) => {
+        const eventGroups = Object.fromEntries(Object.entries(eventConfig.groups || {}).map(([groupName, members]) => [
+            groupName,
+            (members || []).map((member, index) => enrichGroupMember(member, resolver, `${eventId}.${groupName}[${index}]`))
+        ]));
+        return [eventId, { ...eventConfig, groups: eventGroups }];
+    }));
+    const characters = Object.values(groups).reduce((index, eventConfig) => {
+        Object.values(eventConfig.groups || {}).forEach(members => {
+            members.forEach(character => {
+                if (character.participantId && !index[character.participantId]) {
+                    index[character.participantId] = character;
+                }
+                if (character.name && !index[character.name]) {
+                    index[character.name] = character;
+                }
+            });
+        });
         return index;
     }, {});
     return { groups, characters };
