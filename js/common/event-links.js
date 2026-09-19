@@ -1,12 +1,62 @@
-import { EVENT_LINKS } from '../aliases/aliases.js';
+import { loadEventsConfig } from './data-loader.js';
 
-async function checkPageExists(url) {
-    try {
-        const response = await fetch(url, { method: 'HEAD' });
-        return response.ok;
-    } catch {
-        return false;
-    }
+function extractPageId(url = '') {
+    if (!url || !url.includes('?')) return '';
+    return new URLSearchParams(url.split('?')[1] || '').get('id') || '';
+}
+
+function getNavigationPhase(phase = '') {
+    const value = String(phase);
+    if (value.includes('提名')) return 'nomination';
+    if (value.includes('预选')) return 'preliminary';
+    if (value.includes('第一阶段')) return 'phase-1';
+    if (value.includes('第二阶段')) return 'phase-2';
+    if (value.includes('第三阶段')) return 'phase-3';
+    if (value.includes('第四阶段')) return 'phase-4';
+    if (value.includes('淘汰')) return 'knockout';
+    return value;
+}
+
+function collectMatches(eventsData) {
+    const events = eventsData?.events || eventsData;
+    const matches = [];
+    Object.values(events?.months || {}).forEach((month) => {
+        (month.events || []).forEach((event) => {
+            (event.matches || []).forEach((match) => matches.push(match));
+        });
+    });
+    return matches;
+}
+
+function collectEventLinks(eventsData) {
+    return collectMatches(eventsData).flatMap((match) => {
+        const visualizationId = extractPageId(match.links?.visualization);
+        const tableId = extractPageId(match.links?.table);
+        const baseId = visualizationId || tableId;
+        if (!baseId) return [];
+        const phase = getNavigationPhase(match.phase);
+        const name = match.title || baseId;
+        const links = [];
+        if (visualizationId && match.links.visualization) {
+            links.push({
+                name,
+                phase,
+                pageType: 'visualization',
+                url: match.links.visualization,
+                baseId
+            });
+        }
+        if (tableId && match.links.table) {
+            links.push({
+                name,
+                phase,
+                pageType: 'table',
+                url: match.links.table,
+                baseId
+            });
+        }
+        return links;
+    });
 }
 
 function getCurrentContext() {
@@ -18,7 +68,7 @@ function getCurrentContext() {
     if (currentPage === 'visualization' && currentId) {
         return {
             pageType: 'visualization',
-            pageKey: currentId,
+            currentId,
             currentFrom: params.get('from')
         };
     }
@@ -26,14 +76,14 @@ function getCurrentContext() {
     if ((currentPage === 'nomination-table' || currentPage === 'preliminaries-table') && currentId) {
         return {
             pageType: 'table',
-            pageKey: `${currentId}-table`,
+            currentId,
             currentFrom: params.get('from')
         };
     }
 
     return {
         pageType: currentPage.includes('-table') ? 'table' : 'visualization',
-        pageKey: currentId || currentPage,
+        currentId,
         currentFrom: params.get('from')
     };
 }
@@ -44,13 +94,20 @@ function getTargetUrl(link, currentFrom) {
 }
 
 async function generateDropdownMenu() {
-    const { pageType, pageKey, currentFrom } = getCurrentContext();
-    const currentLink = EVENT_LINKS[pageKey];
-    const currentPhase = currentLink?.phase;
+    const { pageType, currentId, currentFrom } = getCurrentContext();
+    if (!currentId) return;
 
-    if (!currentPhase) {
-        return;
-    }
+    const eventsData = await loadEventsConfig();
+    const eventLinks = collectEventLinks(eventsData);
+    const currentLink = eventLinks.find((link) => link.pageType === pageType && link.baseId === currentId);
+    if (!currentLink?.phase) return;
+
+    const siblings = eventLinks.filter((link) => (
+        link.phase === currentLink.phase
+        && link.pageType === pageType
+        && link.baseId !== currentLink.baseId
+    ));
+    if (!siblings.length) return;
 
     const dropdown = document.createElement('div');
     dropdown.className = 'events-dropdown';
@@ -62,31 +119,12 @@ async function generateDropdownMenu() {
 
     const content = document.createElement('div');
     content.className = 'events-dropdown-content';
-
-    const linkPromises = Object.values(EVENT_LINKS)
-        .filter((link) => link.phase === currentPhase && link.pageType === pageType && link.baseId !== currentLink.baseId)
-        .map(async (link) => {
-            const pageUrl = getTargetUrl(link, currentFrom);
-            const exists = await checkPageExists(pageUrl);
-            return { link, exists, pageUrl };
-        });
-
-    const results = await Promise.all(linkPromises);
-
-    results.forEach(({ link, exists, pageUrl }) => {
-        if (!exists) {
-            return;
-        }
+    siblings.forEach((link) => {
         const anchor = document.createElement('a');
-        anchor.href = pageUrl;
+        anchor.href = getTargetUrl(link, currentFrom);
         anchor.textContent = link.name;
         content.appendChild(anchor);
     });
-
-    if (!content.children.length) {
-        return;
-    }
-
     dropdown.appendChild(content);
 
     if (pageType === 'table') {
@@ -97,4 +135,8 @@ async function generateDropdownMenu() {
     document.querySelector('.size-controls')?.after(dropdown);
 }
 
-document.addEventListener('DOMContentLoaded', generateDropdownMenu);
+document.addEventListener('DOMContentLoaded', () => {
+    generateDropdownMenu().catch((error) => {
+        console.error('同阶段赛事菜单生成失败:', error);
+    });
+});

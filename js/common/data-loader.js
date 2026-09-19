@@ -75,9 +75,13 @@ export async function loadCharacterMatches() {
     return { matches };
 }
 
+export async function loadEventsConfig() {
+    return fetchJson('data/config/events.json');
+}
+
 export async function loadEventData() {
     const [events, rankings, resolver] = await Promise.all([
-        fetchJson('data/config/events.json'),
+        loadEventsConfig(),
         fetchJson('data/votes/top5-rankings.json'),
         loadCharacterResolver()
     ]);
