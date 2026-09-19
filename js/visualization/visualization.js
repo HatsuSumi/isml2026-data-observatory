@@ -1,4 +1,4 @@
-import { loadEventData } from '../common/data-loader.js';
+import { loadEventData, loadPreliminariesData } from '../common/data-loader.js';
 import { getVisualizationStrategy } from './visualization-strategies.js';
 import { getChartStrategy } from './visualization-chart-strategies.js';
 
@@ -40,7 +40,7 @@ async function initVisualization() {
     if (!matchConfig) throw new Error(`未找到可视化配置：${id}`);
 
     updateTableLink(matchConfig);
-    const rawData = await fetchJson(matchConfig.links.data);
+    const rawData = await loadVisualizationData(matchConfig);
     const strategy = getVisualizationStrategy(id);
     const data = strategy.normalize(rawData, mode);
 
@@ -86,6 +86,17 @@ async function fetchJson(path) {
     const response = await fetch(path, { cache: 'no-store' });
     if (!response.ok) throw new Error(`数据加载失败：${path}`);
     return response.json();
+}
+
+function isPreliminarySnapshotPath(path) {
+    return String(path || '').includes('data/preliminaries/');
+}
+
+async function loadVisualizationData(matchConfig) {
+    if (isPreliminarySnapshotPath(matchConfig.links?.data)) {
+        return loadPreliminariesData(matchConfig.links.data);
+    }
+    return fetchJson(matchConfig.links.data);
 }
 
 function appendQueryParam(url, key, value) {

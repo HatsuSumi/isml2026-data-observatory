@@ -198,6 +198,59 @@ function enrichNominationList(list, resolver, path) {
     ));
 }
 
+function toInternalPreliminaryPath(snapshotPath) {
+    const value = String(snapshotPath || '').replace(/\\/g, '/');
+    if (!value.includes('data/preliminaries/')) {
+        throw new Error(`预选赛快照路径无效：${snapshotPath}`);
+    }
+    return value.replace('data/preliminaries/', 'data/internal/preliminaries/');
+}
+
+function enrichPreliminaryRecord(record, resolver, path) {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+        throw new Error(`预选赛数据 ${path} 必须是对象`);
+    }
+    const eventFields = {
+        group: String(record.group || ''),
+        rank: record.rank,
+        global_rank: record.global_rank,
+        votes: record.votes,
+        is_advanced: record.is_advanced === true
+    };
+    if (typeof record.participantId === 'string' && record.participantId.trim()) {
+        const character = resolver.getByParticipantId(record.participantId);
+        return { ...character, ...eventFields, participantId: record.participantId };
+    }
+    if (typeof record.characterId === 'string' && record.characterId.trim()) {
+        const character = resolver.getByCharacterId(record.characterId);
+        return { ...character, ...eventFields, characterId: record.characterId };
+    }
+    if (record.name && record.ip) {
+        return { ...resolver.enrichLegacyRow(record), ...eventFields };
+    }
+    throw new Error(`预选赛数据 ${path} 缺少 participantId、characterId 或 name/ip`);
+}
+
+export function getPreliminarySnapshotPath(snapshotPath) {
+    return String(snapshotPath || '');
+}
+
+export async function loadPreliminariesData(snapshotPath) {
+    const [rawData, resolver] = await Promise.all([
+        fetchJson(toInternalPreliminaryPath(snapshotPath)),
+        loadCharacterResolver()
+    ]);
+    if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
+        throw new Error('内部预选赛数据格式错误：data 必须是数组');
+    }
+    return {
+        date: rawData.date || '',
+        event: rawData.event || '',
+        snapshotPath: getPreliminarySnapshotPath(snapshotPath),
+        data: rawData.data.map((record, index) => enrichPreliminaryRecord(record, resolver, `[${index}]`))
+    };
+}
+
 export async function loadNominationStats() {
     const [rawData, resolver] = await Promise.all([
         fetchJson(NOMINATION_STATS_PATH),

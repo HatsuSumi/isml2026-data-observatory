@@ -11,7 +11,8 @@ const PATHS = {
     characterMatches: path.join(ROOT, 'data', 'matches', 'character-matches.json'),
     groups: path.join(ROOT, 'data', 'groups', 'groups.json'),
     top5Rankings: path.join(ROOT, 'data', 'votes', 'top5-rankings.json'),
-    nominationStats: path.join(ROOT, 'data', 'statistics', 'nomination-stats.json')
+    nominationStats: path.join(ROOT, 'data', 'statistics', 'nomination-stats.json'),
+    internalPreliminaries: path.join(ROOT, 'data', 'internal', 'preliminaries')
 };
 
 const PARTICIPANT_ID_PATTERN = /^(?:E?SF|E?SM)\d{3}$/;
@@ -147,6 +148,55 @@ function visitNominationLists(statsData, visit) {
     });
 }
 
+async function listJsonFiles(dir) {
+    try {
+        const entries = await fs.readdir(dir, { withFileTypes: true });
+        const nested = await Promise.all(entries.map(entry => {
+            const fullPath = path.join(dir, entry.name);
+            if (entry.isDirectory()) return listJsonFiles(fullPath);
+            return entry.name.endsWith('.json') ? [fullPath] : [];
+        }));
+        return nested.flat();
+    } catch (error) {
+        if (error.code === 'ENOENT') fail(`缺少内部预选赛目录：${path.relative(ROOT, dir)}`);
+        throw error;
+    }
+}
+
+async function collectPreliminaryRecords() {
+    const files = await listJsonFiles(PATHS.internalPreliminaries);
+    if (files.length === 0) fail('内部预选赛目录为空');
+    const records = [];
+    for (const filePath of files) {
+        const relative = path.relative(ROOT, filePath);
+        const data = await readJson(filePath);
+        if (!Array.isArray(data.data)) fail(`${relative} data 必须是数组`);
+        data.data.forEach((record, index) => {
+            if (!record || typeof record !== 'object' || Array.isArray(record)) {
+                fail(`${relative}[${index}] 必须是对象`);
+            }
+            if (record.name || record.ip || record.cv || record.avatar) {
+                fail(`${relative}[${index}] 仍包含角色展示字段`);
+            }
+            const hasParticipantId = typeof record.participantId === 'string' && record.participantId.trim();
+            const hasCharacterId = typeof record.characterId === 'string' && record.characterId.trim();
+            if (!hasParticipantId && !hasCharacterId) {
+                fail(`${relative}[${index}] 缺少 participantId 或 characterId`);
+            }
+            if (hasParticipantId) assertParticipantId(record.participantId, relative);
+            if (hasCharacterId && !/^char_\d{6}$/.test(record.characterId)) {
+                fail(`${relative}[${index}] 包含非法角色库 ID：${record.characterId}`);
+            }
+            records.push({
+                path: `${relative}[${index}]`,
+                participantId: hasParticipantId ? record.participantId : '',
+                characterId: hasCharacterId ? record.characterId : ''
+            });
+        });
+    }
+    return records;
+}
+
 function collectNominationStatsRecords(statsData) {
     const records = [];
     visitNominationLists(statsData, (list, pathLabel) => {
@@ -207,14 +257,15 @@ function validateParticipantIdReferences(label, records, participantIds) {
 }
 
 async function main() {
-    const [participantMap, detailsData, roundsData, matchesData, groupsData, rankingsData, nominationStats] = await Promise.all([
+    const [participantMap, detailsData, roundsData, matchesData, groupsData, rankingsData, nominationStats, preliminaryRecords] = await Promise.all([
         readJson(PATHS.participantMap),
         readJson(PATHS.characterDetails),
         readJson(PATHS.roundsData),
         readJson(PATHS.characterMatches),
         readJson(PATHS.groups),
         readJson(PATHS.top5Rankings),
-        readJson(PATHS.nominationStats)
+        readJson(PATHS.nominationStats),
+        collectPreliminaryRecords()
     ]);
 
     const participantIds = validateParticipantMap(participantMap);
@@ -248,7 +299,12 @@ async function main() {
         nominationRecords,
         participantIdsSet
     );
-    [groupIssue, top5Issue, nominationIssue].filter(Boolean).forEach(issue => issues.push(issue));
+    const preliminaryIssue = validateParticipantIdReferences(
+        'internal preliminaries ↔ participant-map',
+        preliminaryRecords,
+        participantIdsSet
+    );
+    [groupIssue, top5Issue, nominationIssue, preliminaryIssue].filter(Boolean).forEach(issue => issues.push(issue));
 
     console.log(`participant-map 参赛记录: ${participantIds.length}`);
     console.log(`characters-details 参赛记录: ${detailIds.length}`);
@@ -261,6 +317,9 @@ async function main() {
     console.log(`nomination-stats.json 记录: ${nominationRecords.length}`);
     console.log(`nomination-stats.json participantId: ${nominationRecords.filter(record => record.participantId).length}`);
     console.log(`nomination-stats.json characterId: ${nominationRecords.filter(record => record.characterId && !record.participantId).length}`);
+    console.log(`internal preliminaries 记录: ${preliminaryRecords.length}`);
+    console.log(`internal preliminaries participantId: ${preliminaryRecords.filter(record => record.participantId).length}`);
+    console.log(`internal preliminaries characterId: ${preliminaryRecords.filter(record => record.characterId && !record.participantId).length}`);
 
     if (issues.length) {
         console.log('\n发现数据引用问题：');

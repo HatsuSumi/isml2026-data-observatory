@@ -1,5 +1,5 @@
 import { buildCustomSelect, closeCustomSelects, syncCustomSelect } from './table-custom-select.js';
-import { loadEventData } from '../common/data-loader.js';
+import { loadEventData, loadPreliminariesData } from '../common/data-loader.js';
 import { reconcileKeyedList } from '../common/keyed-list.js';
 
 const EXPORT_HEADERS = ['组别', '组内排名', '全局排名', '角色', '头像', 'IP', 'CV', '得票数', '状态'];
@@ -257,9 +257,7 @@ async function init() {
     state.title = config.title || '预选赛表格';
     state.visualizationId = new URLSearchParams((config.links.visualization || '').split('?')[1] || '').get('id') || id;
     state.dataPath = config.links.data;
-    const response = await fetch(state.dataPath, { cache: 'no-store' });
-    if (!response.ok) throw new Error(`预选赛数据加载失败：${response.status}`);
-    const rawData = await response.json();
+    const rawData = await loadPreliminariesData(state.dataPath);
     state.rows = normalizeRows(rawData);
     document.title = `${state.title} - ISML 2026 数据观测`;
     document.getElementById('pageTitle').textContent = state.title;
