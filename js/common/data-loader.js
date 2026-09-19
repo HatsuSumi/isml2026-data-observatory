@@ -1,4 +1,5 @@
 import { loadCharacterResolver } from './character-resolver.js';
+import { buildScheduleView } from './schedule-view.js';
 
 const CHARACTER_MATCHES_PATH = 'data/matches/character-matches.json';
 const CHARACTER_DETAILS_PATH = 'data/characters/characters-details.json';
@@ -77,6 +78,18 @@ export async function loadCharacterMatches() {
 
 export async function loadEventsConfig() {
     return fetchJson('data/config/events.json');
+}
+
+export async function loadUpcomingSchedule() {
+    return fetchJson('data/config/schedule.json');
+}
+
+export async function loadScheduleView() {
+    const [events, upcoming] = await Promise.all([
+        loadEventsConfig(),
+        loadUpcomingSchedule()
+    ]);
+    return buildScheduleView(events, upcoming);
 }
 
 export async function loadEventData() {

@@ -63,8 +63,7 @@ async function getVisualizationConfig(visualizationId) {
     for (const month of Object.values(eventsConfig.months || {})) {
         for (const event of month.events || []) {
             for (const match of event.matches || []) {
-                if (!match.links?.data) continue;
-                const matchId = extractVisualizationId(match.links.visualization) || match.id;
+                const matchId = extractVisualizationId(match.links?.visualization) || match.id;
                 if (matchId === visualizationId || match.id === visualizationId) {
                     return { ...match, dateRange: event.dateRange, stats: event.stats || null };
                 }

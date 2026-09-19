@@ -48,7 +48,20 @@
                                 "rules": "pages/rules/rules.html?id=nomination.stellar"
                             }
                         }
-                    ]
+                    ],
+                    "details": {
+                        "requirements": "2026年1月1日以前在符合主赛事资格的标准时长动画中登场的角色",
+                        "participants": {
+                            "total": 400,
+                            "female": 202,
+                            "male": 198
+                        },
+                        "qualified": {
+                            "total": 289,
+                            "female": 144,
+                            "male": 145
+                        }
+                    }
                 },
                 {
                     "dateRange": {
@@ -95,7 +108,10 @@
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r01.male"
                             }
                         }
-                    ]
+                    ],
+                    "details": {
+                        "format": "赞成投票制"
+                    }
                 }
             ]
         },
@@ -118,7 +134,6 @@
                             "id": "preliminaries/stellar/female/r02",
                             "phase": "预选赛第二轮",
                             "details": {
-                                "format": "赞成投票制",
                                 "qualified": {
                                     "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第3轮"
                                 }
@@ -136,7 +151,6 @@
                             "id": "preliminaries/stellar/male/r02",
                             "phase": "预选赛第二轮",
                             "details": {
-                                "format": "赞成投票制",
                                 "qualified": {
                                     "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第3轮"
                                 }
@@ -149,7 +163,10 @@
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r02.male"
                             }
                         }
-                    ]
+                    ],
+                    "details": {
+                        "format": "赞成投票制"
+                    }
                 },
                 {
                     "dateRange": {
@@ -162,7 +179,8 @@
                             "id": "nomination/nova/2026/winter/female",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.winter"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.winter",
+                                "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination"
                             }
                         },
                         {
@@ -170,7 +188,8 @@
                             "id": "nomination/nova/2026/winter/male",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.winter"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.winter",
+                                "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination"
                             }
                         }
                     ]
@@ -191,7 +210,8 @@
                             "id": "nomination/nova/2026/spring/female",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.spring"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.spring",
+                                "visualization": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination"
                             }
                         },
                         {
@@ -199,7 +219,8 @@
                             "id": "nomination/nova/2026/spring/male",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.spring"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.spring",
+                                "visualization": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination"
                             }
                         }
                     ]
@@ -220,7 +241,8 @@
                             "id": "nomination/nova/2026/summer/female",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.summer"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.summer",
+                                "visualization": "pages/visualization/visualization.html?id=07-nova-summer-female-nomination"
                             }
                         },
                         {
@@ -228,7 +250,8 @@
                             "id": "nomination/nova/2026/summer/male",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.summer"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.summer",
+                                "visualization": "pages/visualization/visualization.html?id=08-nova-summer-male-nomination"
                             }
                         }
                     ]
@@ -249,7 +272,8 @@
                             "id": "nomination/nova/2026/autumn/female",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.autumn"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.autumn",
+                                "visualization": "pages/visualization/visualization.html?id=09-nova-autumn-female-nomination"
                             }
                         },
                         {
@@ -257,7 +281,8 @@
                             "id": "nomination/nova/2026/autumn/male",
                             "phase": "主赛事提名阶段",
                             "links": {
-                                "rules": "pages/rules/rules.html?id=nomination.nova.autumn"
+                                "rules": "pages/rules/rules.html?id=nomination.nova.autumn",
+                                "visualization": "pages/visualization/visualization.html?id=10-nova-autumn-male-nomination"
                             }
                         }
                     ]
