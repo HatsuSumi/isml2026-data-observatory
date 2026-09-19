@@ -1,3 +1,5 @@
+import { loadNominationStats } from '../../statisticsData.js';
+
 document.addEventListener('DOMContentLoaded', async function() {
 
     const ipChart = echarts.init(document.getElementById('ipDistribution'));
@@ -7,24 +9,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     const studioChart = echarts.init(document.getElementById('studioChart'));
     const sourceChart = echarts.init(document.getElementById('sourceChart'));
     const moeMeterChart = echarts.init(document.getElementById('moeMeterChart'));
-    let statsDataPromise = null;
-
-    function loadStatsData() {
-        statsDataPromise ??= fetch('data/statistics/nomination-stats.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`统计数据加载失败：${response.status}`);
-                }
-                return response.json();
-            })
-            .catch(error => {
-                statsDataPromise = null;
-                throw error;
-            });
-
-        return statsDataPromise;
-    }
-    
     const darkTheme = {
         backgroundColor: '#2a2a2a',
         textStyle: { color: '#fff' },
@@ -114,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     async function updateCharts() {
         try {
-            const data = await loadStatsData();
+            const data = await loadNominationStats();
 
             const filters = getFilters();
 

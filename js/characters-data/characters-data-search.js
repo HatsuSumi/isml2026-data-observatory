@@ -1,4 +1,4 @@
-import { CONFIG, SERIES_ALIASES, normalizeSeriesName } from './characters-data-config.js';
+import { CONFIG, getSeriesNames } from './characters-data-config.js';
 import { smoothScrollTo } from '../common/dom.js';
 
 export function isValidRegex(pattern) {
@@ -11,20 +11,15 @@ export function isValidRegex(pattern) {
 }
 
 function matchSeriesAlias(series, keyword, useRegex, exactMatch) {
-    const normalizedSeries = normalizeSeriesName(series);
-    const aliases = SERIES_ALIASES[normalizedSeries];
+    const names = getSeriesNames(series);
     if (useRegex) {
         const regex = new RegExp(keyword, 'i');
-        return regex.test(normalizedSeries) || Boolean(aliases?.some(alias => regex.test(alias)));
-    }
-    if (exactMatch) {
-        const normalizedKeyword = keyword.toLowerCase();
-        return normalizedSeries.toLowerCase() === normalizedKeyword
-            || Boolean(aliases?.some(alias => alias.toLowerCase() === normalizedKeyword));
+        return names.some(name => regex.test(name));
     }
     const normalizedKeyword = keyword.toLowerCase();
-    return normalizedSeries.toLowerCase().includes(normalizedKeyword)
-        || Boolean(aliases?.some(alias => alias.toLowerCase().includes(normalizedKeyword)));
+    return names.some(name => exactMatch
+        ? name.toLowerCase() === normalizedKeyword
+        : name.toLowerCase().includes(normalizedKeyword));
 }
 
 function showRegexError(templates, searchInput) {
@@ -146,8 +141,10 @@ export function createSearchController({ templates, getSwitchController, getVisi
         currentResultIndex = nextIndex;
         if (targetGender !== currentGender) {
             animationContext.fastSwitching = true;
-            const tabToSwitch = targetGroup.querySelector(`.tab-btn[data-gender="${targetGender}"]`);
-            tabToSwitch?.click();
+            targetGroup.querySelectorAll('.gender-tabs .tab-btn').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.gender === targetGender);
+            });
+            void getSwitchController(targetGroup)?.switchGender(targetGender);
             setTimeout(() => {
                 animationContext.fastSwitching = false;
             }, 350);
@@ -178,7 +175,7 @@ export function createSearchController({ templates, getSwitchController, getVisi
         });
         document.querySelectorAll('.gender-tabs .tab-btn').forEach(tab => {
             tab.addEventListener('click', () => {
-        if (searchInput.value.trim() && !animationContext.fastSwitching) setTimeout(handleSearch, 350);
+                if (searchInput.value.trim() && !animationContext.fastSwitching) setTimeout(handleSearch, 350);
             });
         });
         searchInput.addEventListener('input', () => {

@@ -2,28 +2,23 @@
     "恒星组提名-女性组别": {
         "top5": [
             {
-                "name": "山田凉",
-                "ip": "孤独摇滚！",
+                "participantId": "SF088",
                 "votes": 244
             },
             {
-                "name": "伊地知虹夏",
-                "ip": "孤独摇滚！",
+                "participantId": "SF089",
                 "votes": 222
             },
             {
-                "name": "喜多郁代",
-                "ip": "孤独摇滚！",
+                "participantId": "SF090",
                 "votes": 209
             },
             {
-                "name": "平泽唯",
-                "ip": "轻音少女",
+                "participantId": "SF091",
                 "votes": 187
             },
             {
-                "name": "千反田爱瑠",
-                "ip": "冰菓",
+                "participantId": "SF092",
                 "votes": 165
             }
         ]
@@ -31,28 +26,23 @@
     "恒星组提名-男性组别": {
         "top5": [
             {
-                "name": "鲁迪乌斯·格雷拉特",
-                "ip": "无职转生",
+                "participantId": "SM081",
                 "votes": 156
             },
             {
-                "name": "音无结弦",
-                "ip": "Angel Beats!",
+                "participantId": "SM082",
                 "votes": 117
             },
             {
-                "name": "福部里志",
-                "ip": "冰菓",
+                "participantId": "SM083",
                 "votes": 111
             },
             {
-                "name": "浅村悠太",
-                "ip": "义妹生活",
+                "participantId": "SM084",
                 "votes": 99
             },
             {
-                "name": "网代慎平",
-                "ip": "夏日重现",
+                "participantId": "SM085",
                 "votes": 86
             }
         ]
@@ -60,28 +50,23 @@
     "预选赛第一轮-女性组别": {
         "top5": [
             {
-                "name": "友利奈绪",
-                "ip": "Charlotte",
+                "participantId": "SF020",
                 "votes": 2799
             },
             {
-                "name": "小鸟游六花",
-                "ip": "中二病也要谈恋爱！",
+                "participantId": "SF022",
                 "votes": 2516
             },
             {
-                "name": "白",
-                "ip": "NO GAME NO LIFE 游戏人生",
+                "participantId": "SF017",
                 "votes": 2393
             },
             {
-                "name": "四宫辉夜",
-                "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+                "participantId": "SF023",
                 "votes": 2361
             },
             {
-                "name": "长崎爽世",
-                "ip": "BanG Dream!",
+                "participantId": "SF019",
                 "votes": 2325
             }
         ]
@@ -89,28 +74,23 @@
     "预选赛第一轮-男性组别": {
         "top5": [
             {
-                "name": "夜神月",
-                "ip": "死亡笔记",
+                "participantId": "SM024",
                 "votes": 1824
             },
             {
-                "name": "鲁迪乌斯·格雷拉特",
-                "ip": "无职转生",
+                "participantId": "SM081",
                 "votes": 1766
             },
             {
-                "name": "石上优",
-                "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+                "participantId": "SM017",
                 "votes": 1658
             },
             {
-                "name": "L Lawliet",
-                "ip": "死亡笔记",
+                "participantId": "SM088",
                 "votes": 1658
             },
             {
-                "name": "灶门炭治郎",
-                "ip": "鬼灭之刃",
+                "participantId": "SM117",
                 "votes": 1602
             }
         ]
@@ -118,28 +98,23 @@
     "预选赛第二轮-女性组别": {
         "top5": [
             {
-                "name": "雷姆",
-                "ip": "Re:从零开始的异世界生活",
+                "participantId": "SF093",
                 "votes": 2758
             },
             {
-                "name": "加藤惠",
-                "ip": "路人女主的养成方法",
+                "participantId": "SF067",
                 "votes": 2188
             },
             {
-                "name": "爱蜜莉雅",
-                "ip": "Re:从零开始的异世界生活",
+                "participantId": "SF034",
                 "votes": 2186
             },
             {
-                "name": "喜多郁代",
-                "ip": "孤独摇滚！",
+                "participantId": "SF090",
                 "votes": 1747
             },
             {
-                "name": "伊地知虹夏",
-                "ip": "孤独摇滚！",
+                "participantId": "SF089",
                 "votes": 1729
             }
         ]
@@ -147,28 +122,23 @@
     "预选赛第二轮-男性组别": {
         "top5": [
             {
-                "name": "菜月昴",
-                "ip": "Re:从零开始的异世界生活",
+                "participantId": "SM028",
                 "votes": 2139
             },
             {
-                "name": "比企谷八幡",
-                "ip": "我的青春恋爱物语果然有问题。",
+                "participantId": "SM058",
                 "votes": 1537
             },
             {
-                "name": "坂田银时",
-                "ip": "银魂",
+                "participantId": "SM032",
                 "votes": 1492
             },
             {
-                "name": "虎杖悠仁",
-                "ip": "咒术回战",
+                "participantId": "SM062",
                 "votes": 1491
             },
             {
-                "name": "漩涡鸣人",
-                "ip": "火影忍者",
+                "participantId": "SM037",
                 "votes": 1405
             }
         ]

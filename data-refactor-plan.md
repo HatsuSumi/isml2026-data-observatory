@@ -230,6 +230,8 @@ resolver.enrichLegacyRow(row);
     ip: '孤独摇滚！',
     cv: '青山吉能',
     avatar: 'https://...',
+    ip_year: 2022,
+    ip_season: 10,
     event: {}
 }
 ```
@@ -471,14 +473,14 @@ data/votes/top5-rankings.json
                 "participantId": "SF001",
                 "votes": 244,
                 "rank": 1,
-                "status": "晋级",
-                "ip_year": 2022,
-                "ip_season": 10
+                "status": "晋级"
             }
         ]
     }
 }
 ```
+
+作品年份和季节由远端 IP 库通过 resolver 补齐，统计文件不再重复保存 `ip_year` / `ip_season`。IP 库未填写时值为 `0`，年份分布页跳过这些记录。
 
 `top5-rankings.json` 目标结构：
 

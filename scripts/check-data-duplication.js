@@ -10,7 +10,8 @@ const PATHS = {
     roundsData: path.join(ROOT, 'data', 'characters', 'roundsData.json'),
     characterMatches: path.join(ROOT, 'data', 'matches', 'character-matches.json'),
     groups: path.join(ROOT, 'data', 'groups', 'groups.json'),
-    top5Rankings: path.join(ROOT, 'data', 'votes', 'top5-rankings.json')
+    top5Rankings: path.join(ROOT, 'data', 'votes', 'top5-rankings.json'),
+    nominationStats: path.join(ROOT, 'data', 'statistics', 'nomination-stats.json')
 };
 
 const PARTICIPANT_ID_PATTERN = /^(?:E?SF|E?SM)\d{3}$/;
@@ -106,12 +107,59 @@ function collectTop5Characters(rankingsData) {
     const characters = [];
     for (const [eventTitle, ranking] of Object.entries(rankingsData)) {
         if (!Array.isArray(ranking.top5)) fail(`top5-rankings.json ${eventTitle}.top5 必须是数组`);
-        ranking.top5.forEach(character => {
-            if (!character.name || !character.ip) fail(`top5-rankings.json ${eventTitle} 存在缺少 name/ip 的记录`);
-            characters.push({ eventTitle, name: character.name, ip: character.ip });
+        ranking.top5.forEach((character, index) => {
+            if (character.name || character.ip || character.avatar) {
+                fail(`top5-rankings.json ${eventTitle}[${index}] 仍包含角色展示字段`);
+            }
+            if (!character.participantId) fail(`top5-rankings.json ${eventTitle}[${index}] 缺少 participantId`);
+            assertParticipantId(character.participantId, `top5-rankings.json ${eventTitle}`);
+            characters.push({ eventTitle, participantId: character.participantId });
         });
     }
     return characters;
+}
+
+function visitNominationLists(statsData, visit) {
+    assertObject(statsData, 'nomination-stats.json');
+    assertObject(statsData.stellar, 'nomination-stats.json stellar');
+    assertObject(statsData.nova, 'nomination-stats.json nova');
+    visit(statsData.stellar.female, 'stellar.female');
+    visit(statsData.stellar.male, 'stellar.male');
+    ['winter', 'spring', 'summer', 'autumn'].forEach(season => {
+        assertObject(statsData.nova[season], `nomination-stats.json nova.${season}`);
+        visit(statsData.nova[season].female, `nova.${season}.female`);
+        visit(statsData.nova[season].male, `nova.${season}.male`);
+    });
+}
+
+function collectNominationStatsRecords(statsData) {
+    const records = [];
+    visitNominationLists(statsData, (list, pathLabel) => {
+        if (!Array.isArray(list)) fail(`nomination-stats.json ${pathLabel} 必须是数组`);
+        list.forEach((record, index) => {
+            if (!record || typeof record !== 'object' || Array.isArray(record)) {
+                fail(`nomination-stats.json ${pathLabel}[${index}] 必须是对象`);
+            }
+            if (record.name || record.ip || record.cv || record.avatar) {
+                fail(`nomination-stats.json ${pathLabel}[${index}] 仍包含角色展示字段`);
+            }
+            const hasParticipantId = typeof record.participantId === 'string' && record.participantId.trim();
+            const hasCharacterId = typeof record.characterId === 'string' && record.characterId.trim();
+            if (!hasParticipantId && !hasCharacterId) {
+                fail(`nomination-stats.json ${pathLabel}[${index}] 缺少 participantId 或 characterId`);
+            }
+            if (hasParticipantId) assertParticipantId(record.participantId, `nomination-stats.json ${pathLabel}`);
+            if (hasCharacterId && !/^char_\d{6}$/.test(record.characterId)) {
+                fail(`nomination-stats.json ${pathLabel}[${index}] 包含非法角色库 ID：${record.characterId}`);
+            }
+            records.push({
+                path: `${pathLabel}[${index}]`,
+                participantId: hasParticipantId ? record.participantId : '',
+                characterId: hasCharacterId ? record.characterId : ''
+            });
+        });
+    });
+    return records;
 }
 
 function createParticipantIdIndex(detailsData) {
@@ -144,13 +192,14 @@ function validateParticipantIdReferences(label, records, participantIds) {
 }
 
 async function main() {
-    const [participantMap, detailsData, roundsData, matchesData, groupsData, rankingsData] = await Promise.all([
+    const [participantMap, detailsData, roundsData, matchesData, groupsData, rankingsData, nominationStats] = await Promise.all([
         readJson(PATHS.participantMap),
         readJson(PATHS.characterDetails),
         readJson(PATHS.roundsData),
         readJson(PATHS.characterMatches),
         readJson(PATHS.groups),
-        readJson(PATHS.top5Rankings)
+        readJson(PATHS.top5Rankings),
+        readJson(PATHS.nominationStats)
     ]);
 
     const participantIds = validateParticipantMap(participantMap);
@@ -167,6 +216,7 @@ async function main() {
     ].filter(Boolean);
 
     const participantIdsSet = new Set(participantIds);
+    const nominationRecords = collectNominationStatsRecords(nominationStats);
     const groupIssue = validateParticipantIdReferences(
         'groups.json ↔ participant-map',
         collectGroupCharacters(groupsData),
@@ -177,7 +227,12 @@ async function main() {
         collectTop5Characters(rankingsData),
         participantIdsSet
     );
-    [groupIssue, top5Issue].filter(Boolean).forEach(issue => issues.push(issue));
+    const nominationIssue = validateParticipantIdReferences(
+        'nomination-stats.json ↔ participant-map',
+        nominationRecords,
+        participantIdsSet
+    );
+    [groupIssue, top5Issue, nominationIssue].filter(Boolean).forEach(issue => issues.push(issue));
 
     console.log(`participant-map 参赛记录: ${participantIds.length}`);
     console.log(`characters-details 参赛记录: ${detailIds.length}`);
@@ -185,6 +240,9 @@ async function main() {
     console.log(`character-matches 参赛记录: ${matchIds.length}`);
     console.log(`groups.json 角色引用: ${collectGroupCharacters(groupsData).length}`);
     console.log(`top5-rankings.json 角色引用: ${collectTop5Characters(rankingsData).length}`);
+    console.log(`nomination-stats.json 记录: ${nominationRecords.length}`);
+    console.log(`nomination-stats.json participantId: ${nominationRecords.filter(record => record.participantId).length}`);
+    console.log(`nomination-stats.json characterId: ${nominationRecords.filter(record => record.characterId && !record.participantId).length}`);
 
     if (issues.length) {
         console.log('\n发现数据引用问题：');

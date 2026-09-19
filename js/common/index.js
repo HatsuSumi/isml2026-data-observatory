@@ -1,5 +1,5 @@
 import { loadCharacterResolver } from '../common/character-resolver.js';
-import { SERIES_ALIASES } from '../aliases/aliases.js';
+import { getSeriesNames } from '../aliases/aliases.js';
 import { reconcileKeyedList } from './keyed-list.js';
 import { debounce } from './dom.js';
 
@@ -486,9 +486,7 @@ function matchesSearch(character, keyword, fields) {
     const exactMatch = document.getElementById('exactMatch').checked;
     return keywords.some(kw => fields.some(field => {
         const value = (character[field] || '').toLowerCase();
-        const aliases = field === 'ip'
-            ? [value, ...(Object.entries(SERIES_ALIASES).find(([original]) => original === value)?.[1] || [])]
-            : [value];
+        const aliases = field === 'ip' ? getSeriesNames(character.ip) : [value];
         const simpleAliases = aliases.map(a => a.toLowerCase().replace(/[!！?？.。,，\s]+/g, ''));
         const simpleKeyword = kw.replace(/[!！?？.。,，\s]+/g, '');
         return exactMatch

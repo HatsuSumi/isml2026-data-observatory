@@ -6,6 +6,7 @@
     <base href="../../../../">
     <include src="templates/header.html"></include>
     <link rel="stylesheet" href="css/statistics/nomination-statistics/year-distribution/year-distribution.css">
+    <link rel="stylesheet" href="css/statistics/nomination-statistics/distribution-search.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -53,7 +54,7 @@
                 <div class="search-input-wrapper">
                     <input type="text" id="searchInput" placeholder="搜索年份或角色名...">
                     <i class="fas fa-search search-icon"></i>
-                    <span class="search-count" style="display: none;"></span>
+                    <span class="search-count"></span>
                 </div>
                 <button id="searchBtn">搜索</button>
             </div>
@@ -94,6 +95,16 @@
             <div class="year-modal-content">
                 <span class="year-close-btn">&times;</span>
                 <h2 id="modalTitle"></h2>
+                <div class="status-legend">
+                    <div class="legend-item">
+                        <span class="legend-color promoted"></span>
+                        <span class="legend-text">晋级</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color eliminated"></span>
+                        <span class="legend-text">未晋级</span>
+                    </div>
+                </div>
                 <div class="year-character-lists">
                     <div class="year-character-group">
                         <h3>该季度角色列表</h3>

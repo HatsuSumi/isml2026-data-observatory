@@ -1,4 +1,6 @@
-const STORAGE_KEY = 'isml2026:statistics:nomination-stats';
+import { loadNominationStats as loadNominationStatsFromFiles } from '../common/data-loader.js';
+
+const STORAGE_KEY = 'isml2026:statistics:nomination-stats:v3';
 
 let dataPromise = null;
 
@@ -24,13 +26,7 @@ export function loadNominationStats() {
         return dataPromise;
     }
 
-    dataPromise = fetch('data/statistics/nomination-stats.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`统计数据加载失败：${response.status}`);
-            }
-            return response.json();
-        })
+    dataPromise = loadNominationStatsFromFiles()
         .then(data => {
             try {
                 sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));

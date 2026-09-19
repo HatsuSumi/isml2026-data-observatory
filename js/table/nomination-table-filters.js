@@ -1,11 +1,11 @@
-import { SERIES_ALIASES } from '../aliases/aliases.js';
+import { getSeriesNames } from '../aliases/aliases.js';
 
 function matchesTextSearch(row, searchType, terms) {
     const cellIndex = searchType === 'character' ? 4 : searchType === 'anime' ? 5 : searchType === 'cv' ? 6 : -1;
     if (cellIndex === -1) return true;
     if (searchType === 'anime') {
-        const animeName = row.cells[cellIndex].textContent;
-        return terms.some(term => animeName.toLowerCase().includes(term) || (SERIES_ALIASES[animeName] && SERIES_ALIASES[animeName].some(alias => alias.toLowerCase().includes(term))));
+        const seriesNames = getSeriesNames(row.cells[cellIndex].textContent);
+        return terms.some(term => seriesNames.some(name => name.toLowerCase().includes(term)));
     }
     const text = row.cells[cellIndex].textContent.toLowerCase().replace(/[!！?？.。,，]/g, '');
     return terms.some(term => text.includes(term));

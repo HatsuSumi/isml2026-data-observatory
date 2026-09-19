@@ -2,22 +2,13 @@ import { loadCharacterResolver } from './character-resolver.js';
 
 const CHARACTER_MATCHES_PATH = 'data/matches/character-matches.json';
 const CHARACTER_DETAILS_PATH = 'data/characters/characters-details.json';
+const NOMINATION_STATS_PATH = 'data/statistics/nomination-stats.json';
 const DATA_ROOT = new URL('../../', import.meta.url);
 
 async function fetchJson(url) {
     const response = await fetch(new URL(url, DATA_ROOT));
     if (!response.ok) throw new Error(`数据加载失败: ${response.status}`);
     return response.json();
-}
-
-function getBasicCharacterIndex(data) {
-    return Object.values(data.characters || {}).reduce((index, character) => {
-        const basic = character.basic;
-        if (basic?.name && basic.ip) {
-            index[`${basic.name}@${basic.ip}`] = basic;
-        }
-        return index;
-    }, {});
 }
 
 export async function loadCharacterDetails() {
@@ -85,30 +76,27 @@ export async function loadCharacterMatches() {
 }
 
 export async function loadEventData() {
-    const [events, rankings, characterData] = await Promise.all([
+    const [events, rankings, resolver] = await Promise.all([
         fetchJson('data/config/events.json'),
         fetchJson('data/votes/top5-rankings.json'),
-        loadCharacterDetails()
+        loadCharacterResolver()
     ]);
-    const characters = Object.fromEntries(Object.entries(getBasicCharacterIndex(characterData)).map(([key, basic]) => [
-        key,
-        {
-            name: basic.name,
-            ip: basic.ip,
-            avatar: basic.avatar || ''
-        }
-    ]));
     const rankingData = Object.fromEntries(Object.entries(rankings).map(([title, ranking]) => [
         title,
         {
             ...ranking,
-            top5: ranking.top5.map(item => ({
-                ...item,
-                avatar: characters[`${item.name}@${item.ip}`]?.avatar || ''
-            }))
+            top5: ranking.top5.map(item => {
+                const character = resolver.getByParticipantId(item.participantId);
+                return {
+                    name: character.name,
+                    ip: character.ip,
+                    avatar: character.avatar || '',
+                    votes: item.votes
+                };
+            })
         }
     ]));
-    return { events, rankings: rankingData, characters };
+    return { events, rankings: rankingData };
 }
 
 export async function loadGroupData() {
@@ -131,4 +119,81 @@ export async function loadGroupData() {
         return index;
     }, {});
     return { groups, characters };
+}
+
+function requireStatsList(value, path) {
+    if (!Array.isArray(value)) {
+        throw new Error(`nomination-stats.json ${path} 必须是数组`);
+    }
+    return value;
+}
+
+function enrichNominationRecord(record, resolver, path) {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+        throw new Error(`nomination-stats.json ${path} 必须是对象`);
+    }
+    const eventFields = {
+        status: record.status ?? '',
+        votes: record.votes
+    };
+    if (typeof record.participantId === 'string' && record.participantId.trim()) {
+        const character = resolver.getByParticipantId(record.participantId);
+        return {
+            ...character,
+            ...eventFields,
+            participantId: record.participantId
+        };
+    }
+    if (typeof record.characterId === 'string' && record.characterId.trim()) {
+        const character = resolver.getByCharacterId(record.characterId);
+        return {
+            ...character,
+            ...eventFields,
+            characterId: record.characterId
+        };
+    }
+    if (record.name && record.ip) {
+        return resolver.enrichLegacyRow(record);
+    }
+    throw new Error(`nomination-stats.json ${path} 缺少 participantId、characterId 或 name/ip`);
+}
+
+function enrichNominationList(list, resolver, path) {
+    return requireStatsList(list, path).map((record, index) => (
+        enrichNominationRecord(record, resolver, `${path}[${index}]`)
+    ));
+}
+
+export async function loadNominationStats() {
+    const [rawData, resolver] = await Promise.all([
+        fetchJson(NOMINATION_STATS_PATH),
+        loadCharacterResolver()
+    ]);
+    if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData)) {
+        throw new Error('nomination-stats.json 必须是对象');
+    }
+    return {
+        stellar: {
+            female: enrichNominationList(rawData.stellar?.female, resolver, 'stellar.female'),
+            male: enrichNominationList(rawData.stellar?.male, resolver, 'stellar.male')
+        },
+        nova: {
+            winter: {
+                female: enrichNominationList(rawData.nova?.winter?.female, resolver, 'nova.winter.female'),
+                male: enrichNominationList(rawData.nova?.winter?.male, resolver, 'nova.winter.male')
+            },
+            spring: {
+                female: enrichNominationList(rawData.nova?.spring?.female, resolver, 'nova.spring.female'),
+                male: enrichNominationList(rawData.nova?.spring?.male, resolver, 'nova.spring.male')
+            },
+            summer: {
+                female: enrichNominationList(rawData.nova?.summer?.female, resolver, 'nova.summer.female'),
+                male: enrichNominationList(rawData.nova?.summer?.male, resolver, 'nova.summer.male')
+            },
+            autumn: {
+                female: enrichNominationList(rawData.nova?.autumn?.female, resolver, 'nova.autumn.female'),
+                male: enrichNominationList(rawData.nova?.autumn?.male, resolver, 'nova.autumn.male')
+            }
+        }
+    };
 }

@@ -9,17 +9,15 @@ export function createInfoRow(templates, wrapperClass, keyText, valueText) {
     return wrapper;
 }
 
-export function createTopCharacterItem(templates, item, index, topFiveData, charactersData) {
-    const characterKey = `${item.name}@${item.ip}`;
-    const characterData = charactersData[characterKey];
+export function createTopCharacterItem(templates, item, index, topFiveData) {
     const row = templates.topCharacterItem.content.cloneNode(true).firstElementChild;
     const avatar = row.querySelector('.character-avatar');
     const image = row.querySelector('img');
     const name = row.querySelector('.name');
     const diff = row.querySelector('.votes-diff');
 
-    if (characterData?.avatar) {
-        image.src = characterData.avatar;
+    if (item.avatar) {
+        image.src = item.avatar;
         image.alt = item.name;
     } else {
         avatar.hidden = true;
@@ -29,7 +27,7 @@ export function createTopCharacterItem(templates, item, index, topFiveData, char
     name.textContent = item.name;
     const ip = document.createElement('span');
     ip.className = 'ip';
-    ip.textContent = `@${characterData?.ip || item.ip}`;
+    ip.textContent = `@${item.ip}`;
     name.appendChild(ip);
     row.querySelector('.votes').textContent = `${item.votes}票`;
 
@@ -102,7 +100,7 @@ export function createDateContent(event) {
     return fragment;
 }
 
-export function createEventCard(templates, match, event, nextEventStartTime, rankingData, charactersData) {
+export function createEventCard(templates, match, event, nextEventStartTime, rankingData) {
     const card = templates.eventCard.content.cloneNode(true).querySelector('.event-card');
     const status = getEventStatus(event, nextEventStartTime);
     const topFiveData = rankingData?.[match.title]?.top5;
@@ -125,7 +123,7 @@ export function createEventCard(templates, match, event, nextEventStartTime, ran
         const list = topCharacters.querySelector('.character-list');
         topCharacters.hidden = false;
         topFiveData.forEach((item, index) => {
-            list.appendChild(createTopCharacterItem(templates, item, index, topFiveData, charactersData));
+            list.appendChild(createTopCharacterItem(templates, item, index, topFiveData));
         });
     } else {
         topCharacters.hidden = true;

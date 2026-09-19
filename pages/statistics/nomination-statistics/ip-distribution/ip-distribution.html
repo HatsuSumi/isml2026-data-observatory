@@ -6,6 +6,7 @@
     <base href="../../../../">
     <include src="templates/header.html"></include>
     <link rel="stylesheet" href="css/statistics/nomination-statistics/ip-distribution/ip-distribution.css">
+    <link rel="stylesheet" href="css/statistics/nomination-statistics/distribution-search.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -89,6 +90,16 @@
             <div class="ip-modal-content">
                 <span class="ip-close-btn">&times;</span>
                 <h2 id="modalTitle"></h2>
+                <div class="status-legend">
+                    <div class="legend-item">
+                        <span class="legend-color promoted"></span>
+                        <span class="legend-text">晋级</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color eliminated"></span>
+                        <span class="legend-text">未晋级</span>
+                    </div>
+                </div>
                 <div class="ip-character-lists">
                     <div class="ip-character-group">
                         <h3>女性角色</h3>

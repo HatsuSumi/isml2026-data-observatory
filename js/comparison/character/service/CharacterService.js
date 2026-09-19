@@ -1,4 +1,4 @@
-import { SERIES_ALIASES } from '../../../aliases/aliases.js';
+import { getSeriesNames } from '../../../aliases/aliases.js';
 
 export class CharacterService {
     search(characters, keyword) {
@@ -8,8 +8,7 @@ export class CharacterService {
         return characters.filter(character => [
             character.name,
             character.cv,
-            character.ip,
-            ...(SERIES_ALIASES[character.ip] ?? [])
+            ...getSeriesNames(character.ip)
         ].filter(Boolean).some(value => value.toLowerCase().includes(term)));
     }
 }

@@ -17,12 +17,11 @@ async function loadEventsData() {
     const data = await loadEventData();
     return {
         data: data.events,
-        rankingData: data.rankings,
-        charactersData: data.characters
+        rankingData: data.rankings
     };
 }
 
-function renderEventsPage(data, rankingData, charactersData) {
+function renderEventsPage(data, rankingData) {
     const container = document.querySelector('.container');
     const pageContent = templates.eventsPage.content.cloneNode(true).firstElementChild;
     container.replaceChildren(pageContent);
@@ -32,7 +31,7 @@ function renderEventsPage(data, rankingData, charactersData) {
 
     for (const month of Object.values(data.months)) {
         monthFragment.appendChild(createMonthSection(
-            templates, month, nextEventStartTime, rankingData, charactersData
+            templates, month, nextEventStartTime, rankingData
         ));
     }
     eventsContainer.appendChild(monthFragment);
@@ -58,10 +57,10 @@ function showInitializationError(error) {
 
 export async function initializeEventsPage() {
     try {
-        const { data, rankingData, charactersData } = await loadEventsData();
+        const { data, rankingData } = await loadEventsData();
         const nav = createElevatorNavigation();
         initializeNavigationState(nav, getCurrentPhase(data));
-        renderEventsPage(data, rankingData, charactersData);
+        renderEventsPage(data, rankingData);
         validateRenderedTargets(data);
         document.body.appendChild(nav);
         syncNavigationTargets(nav);

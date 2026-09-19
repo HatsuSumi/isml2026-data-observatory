@@ -47,7 +47,7 @@ export function groupEventsByStructure(events) {
     return structure;
 }
 
-export function createMonthSection(templates, month, nextEventStartTime, rankingData, charactersData) {
+export function createMonthSection(templates, month, nextEventStartTime, rankingData) {
     const section = templates.monthSection.content.cloneNode(true).querySelector('.month-section');
     section.querySelector('.month-title').textContent = month.title;
     const grid = section.querySelector('.events-grid');
@@ -55,26 +55,26 @@ export function createMonthSection(templates, month, nextEventStartTime, ranking
     const dateFragment = document.createDocumentFragment();
     Object.keys(eventsByDate).sort((a, b) => new Date(eventsByDate[a].date) - new Date(eventsByDate[b].date))
         .forEach(dateKey => dateFragment.appendChild(createDateSection(
-            templates, dateKey, eventsByDate[dateKey], nextEventStartTime, rankingData, charactersData
+            templates, dateKey, eventsByDate[dateKey], nextEventStartTime, rankingData
         )));
     grid.appendChild(dateFragment);
     return section;
 }
 
-function createDateSection(templates, date, dateGroup, nextEventStartTime, rankingData, charactersData) {
+function createDateSection(templates, date, dateGroup, nextEventStartTime, rankingData) {
     const section = templates.dateSection.content.cloneNode(true).querySelector('.date-section');
     section.querySelector('.date-header').textContent = date;
     const phaseFragment = document.createDocumentFragment();
     Object.entries(dateGroup.phases).forEach(([phaseName, phase]) => {
         phaseFragment.appendChild(createPhaseSection(
-            templates, phaseName, phase, nextEventStartTime, rankingData, charactersData
+            templates, phaseName, phase, nextEventStartTime, rankingData
         ));
     });
     section.appendChild(phaseFragment);
     return section;
 }
 
-function createPhaseSection(templates, phaseName, phase, nextEventStartTime, rankingData, charactersData) {
+function createPhaseSection(templates, phaseName, phase, nextEventStartTime, rankingData) {
     const section = templates.phaseSection.content.cloneNode(true).querySelector('.phase-group');
     const header = section.querySelector('.phase-header');
     const content = section.querySelector('.phase-content');
@@ -105,7 +105,7 @@ function createPhaseSection(templates, phaseName, phase, nextEventStartTime, ran
         });
         groupFragment.appendChild(createGroupSection(
             templates, TITLE_MAPPING[groupName]?.groupTitle || groupName,
-            modifiedMatches, nextEventStartTime, rankingData, charactersData
+            modifiedMatches, nextEventStartTime, rankingData
         ));
     });
     content.appendChild(groupFragment);
@@ -113,7 +113,7 @@ function createPhaseSection(templates, phaseName, phase, nextEventStartTime, ran
     return section;
 }
 
-function createGroupSection(templates, groupTitle, groupData, nextEventStartTime, rankingData, charactersData) {
+function createGroupSection(templates, groupTitle, groupData, nextEventStartTime, rankingData) {
     const section = templates.groupSection.content.cloneNode(true).querySelector('.group-section');
     const phaseId = groupData.find(item => item.phaseId)?.phaseId;
     if (phaseId) section.dataset.phase = phaseId;
@@ -127,7 +127,7 @@ function createGroupSection(templates, groupTitle, groupData, nextEventStartTime
     cardsContainer.hidden = false;
     const cardsFragment = document.createDocumentFragment();
     groupData.forEach(({ event, match }) => cardsFragment.appendChild(createEventCard(
-        templates, match, event, nextEventStartTime, rankingData, charactersData
+        templates, match, event, nextEventStartTime, rankingData
     )));
     cardsContainer.appendChild(cardsFragment);
     return section;

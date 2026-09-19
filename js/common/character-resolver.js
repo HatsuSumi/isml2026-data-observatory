@@ -24,7 +24,8 @@ function normalize(value) {
         .trim()
         .toLocaleLowerCase()
         .replace(/[\s\u3000]/g, '')
-        .replace(/[·・•]/g, '');
+        .replace(/[·・•]/g, '')
+        .replace(/[！!？?。.～~]/g, '');
 }
 
 function firstNonEmpty(...values) {
@@ -66,16 +67,45 @@ function collectIpRecords(ipData) {
     }, new Map());
 }
 
+function getIpRecord(ipRecords, ipId, label) {
+    const ip = ipRecords.get(ipId);
+    if (!ip || !ip.name) {
+        throw new Error(`ip-data 缺少作品资料：${label} -> ${ipId}`);
+    }
+    return ip;
+}
+
+function toIpNumber(value) {
+    const number = Number(value);
+    return Number.isInteger(number) ? number : 0;
+}
+
+function toCharacterDisplay(databaseCharacter, ipRecords, extra = {}) {
+    const ip = getIpRecord(ipRecords, databaseCharacter.ipId, extra.participantId || databaseCharacter.id);
+    return {
+        characterId: databaseCharacter.id,
+        name: databaseCharacter.name,
+        nameEn: databaseCharacter.nameEn,
+        ip: String(ip.name).trim(),
+        ipNameEn: String(ip.name_en ?? '').trim(),
+        ipId: databaseCharacter.ipId,
+        cv: databaseCharacter.cv,
+        avatar: databaseCharacter.avatar,
+        company: '',
+        birthday: '',
+        ...extra,
+        ip_year: toIpNumber(ip.year),
+        ip_season: toIpNumber(ip.season)
+    };
+}
+
 function getParticipantProfile(participantId, detailsData, databaseCharacter, ipRecords) {
     const detail = detailsData.characters[participantId];
     if (!detail || typeof detail !== 'object') {
         throw new Error(`characters-details 缺少参赛记录：${participantId}`);
     }
-    const ip = ipRecords.get(databaseCharacter.ipId);
-    if (!ip || !ip.name) {
-        throw new Error(`ip-data 缺少作品资料：${participantId} -> ${databaseCharacter.ipId}`);
-    }
-    return { detail, ip };
+    getIpRecord(ipRecords, databaseCharacter.ipId, participantId);
+    return { detail };
 }
 
 function createCharacterIndexes(databaseCharacters, ipRecords, detailsData, participantMap) {
@@ -95,26 +125,16 @@ function createCharacterIndexes(databaseCharacters, ipRecords, detailsData, part
         if (!databaseCharacter) {
             throw new Error(`participant-map 指向不存在的角色库 ID：${participantId} -> ${characterId}`);
         }
-        const { detail, ip } = getParticipantProfile(participantId, detailsData, databaseCharacter, ipRecords);
-        const resolved = {
+        const { detail } = getParticipantProfile(participantId, detailsData, databaseCharacter, ipRecords);
+        const resolved = toCharacterDisplay(databaseCharacter, ipRecords, {
             participantId,
-            characterId,
-            name: databaseCharacter.name,
-            nameEn: databaseCharacter.nameEn,
-            ip: String(ip.name).trim(),
-            ipNameEn: String(ip.name_en ?? '').trim(),
-            ipId: databaseCharacter.ipId,
-            cv: databaseCharacter.cv,
-            avatar: databaseCharacter.avatar,
-            company: '',
-            birthday: '',
             rounds: Array.isArray(detail.rounds) ? detail.rounds : []
-        };
+        });
         byParticipantId.set(participantId, resolved);
         byNameIp.set(`${normalize(resolved.name)}@${normalize(resolved.ip)}`, resolved);
     });
 
-    return { byCharacterId, byParticipantId, byNameIp };
+    return { byCharacterId, byParticipantId, byNameIp, ipRecords };
 }
 
 class CharacterResolver {
@@ -122,6 +142,7 @@ class CharacterResolver {
         this.byCharacterId = indexes.byCharacterId;
         this.byParticipantId = indexes.byParticipantId;
         this.byNameIp = indexes.byNameIp;
+        this.ipRecords = indexes.ipRecords;
     }
 
     getByParticipantId(participantId) {
@@ -133,7 +154,7 @@ class CharacterResolver {
     getByCharacterId(characterId) {
         const character = this.byCharacterId.get(characterId);
         if (!character) throw new Error(`找不到角色库记录：${characterId}`);
-        return character;
+        return toCharacterDisplay(character, this.ipRecords);
     }
 
     findByNameIp(name, ip) {
@@ -141,9 +162,12 @@ class CharacterResolver {
     }
 
     enrichParticipant(participantId, eventFields = {}) {
+        const character = this.getByParticipantId(participantId);
         return {
-            ...this.getByParticipantId(participantId),
-            ...eventFields
+            ...character,
+            ...eventFields,
+            ip_year: character.ip_year,
+            ip_season: character.ip_season
         };
     }
 
@@ -161,7 +185,9 @@ class CharacterResolver {
             nameEn: firstNonEmpty(row.name_en, row.nameEn, resolved.nameEn),
             ip: firstNonEmpty(row.ip, resolved.ip),
             cv: firstNonEmpty(row.cv, resolved.cv),
-            avatar: firstNonEmpty(row.avatar, resolved.avatar)
+            avatar: firstNonEmpty(row.avatar, resolved.avatar),
+            ip_year: resolved.ip_year,
+            ip_season: resolved.ip_season
         };
     }
 }

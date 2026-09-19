@@ -1,7 +1,7 @@
 import { CONFIG } from '../common/config.js';
-import { SERIES_ALIASES } from '../aliases/aliases.js';
+import { SERIES_ALIASES, canonicalSeriesName, getSeriesNames } from '../aliases/aliases.js';
 
-export { CONFIG, SERIES_ALIASES };
+export { CONFIG, SERIES_ALIASES, canonicalSeriesName, getSeriesNames };
 
 export function collectCharacterTemplates() {
     return {
@@ -19,8 +19,5 @@ export function collectCharacterTemplates() {
 }
 
 export function normalizeSeriesName(name) {
-    for (const [originalName, aliases] of Object.entries(SERIES_ALIASES)) {
-        if (aliases.includes(name)) return originalName;
-    }
-    return name;
+    return canonicalSeriesName(name);
 }
