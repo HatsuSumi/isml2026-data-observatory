@@ -43,7 +43,7 @@ class CharacterDetail {
     }
     
     async init() {
-        if (!this.characterId) {
+        if (!this.participantId) {
             console.error('未指定角色ID');
             return;
         }
@@ -110,7 +110,7 @@ class CharacterDetail {
             rulesData: this.rulesData,
             stageContext: {
                 stages: this.configData.stages,
-                characterId: this.characterId,
+                participantId: this.participantId,
                 charactersData: this.allCharacters
             },
             stageHandlerFactory: (round, context) => StageHandlerFactory.getHandler(round, context),
@@ -183,7 +183,7 @@ class CharacterDetail {
             filters: document.querySelector('.nav-filters'),
             list: document.querySelector('.characters-list'),
             templates: this.templates,
-            characterId: this.characterId,
+            participantId: this.participantId,
             characterData: this.characterData,
             eventData: this.eventData,
             allCharacters: this.allCharacters,

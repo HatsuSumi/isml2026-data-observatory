@@ -42,7 +42,7 @@ function filterCharacters(filter, context) {
     const recentCharacters = readRecentCharacters();
     const currentContext = getRoundContext(context.eventData[0]?.round);
     const characters = Object.entries(context.allCharacters).filter(([id, character]) => {
-        if (id === context.characterId) return false;
+        if (id === context.participantId) return false;
         const characterRound = character.rounds[0]?.round || '';
         return matchesCharacterRound(characterRound, currentContext)
             && matchesCharacterFilter(character, context.characterData, filter);
@@ -97,10 +97,10 @@ function renderCharacters(filter, context, animationState) {
     emptyState?.remove();
     reconcileKeyedList(list, characters, {
         getKey: ([id]) => id,
-        keyAttribute: 'characterId',
+        keyAttribute: 'participantId',
         create: () => templates.characterItem.content.cloneNode(true).querySelector('.character-item'),
         update: (item, [id, character]) => {
-            item.dataset.characterId = id;
+            item.dataset.participantId = id;
             item.classList.toggle('recently-visited', recentCharacters.includes(id));
             const avatar = item.querySelector('.character-item-avatar');
             const name = item.querySelector('.name');
@@ -120,7 +120,7 @@ function renderCharacters(filter, context, animationState) {
 
 function recordVisit(id) {
     const recentCharacters = readRecentCharacters();
-    const updated = [id, ...recentCharacters.filter(characterId => characterId !== id)]
+    const updated = [id, ...recentCharacters.filter(participantId => participantId !== id)]
         .slice(0, MAX_RECENT_CHARS);
     localStorage.setItem(RECENT_CHARS_KEY, JSON.stringify(updated));
 }
@@ -140,7 +140,7 @@ export function setupCharacterNavigation(context) {
     list.addEventListener('click', event => {
         const item = event.target.closest('.character-item');
         if (!item || !list.contains(item)) return;
-        const id = item.dataset.characterId;
+        const id = item.dataset.participantId;
         if (!id) return;
         recordVisit(id);
         context.onNavigate(id);

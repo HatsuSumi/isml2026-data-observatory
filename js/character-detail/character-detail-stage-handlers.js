@@ -1,6 +1,6 @@
 class StageHandler {
-    constructor({ characterId, charactersData, config = {} } = {}) {
-        this.characterId = characterId;
+    constructor({ participantId, charactersData, config = {} } = {}) {
+        this.participantId = participantId;
         this.charactersData = charactersData;
         this.config = config;
         this.roundConfig = config.roundConfig;
@@ -59,9 +59,9 @@ class PreliminariesHandler extends StageHandler {
     }
 
     getConfig(round, stages) {
-        const characterData = this.charactersData?.[this.characterId];
+        const characterData = this.charactersData?.[this.participantId];
         if (!characterData?.rounds?.length) {
-            console.error('无法获取角色数据:', { characterId: this.characterId });
+            console.error('无法获取角色数据:', { participantId: this.participantId });
             return { roundConfig: null, stageConfig: null };
         }
 
@@ -102,13 +102,13 @@ export class StageHandlerFactory {
         { pattern: /预选赛第[一二三四五六]轮/, handler: PreliminariesHandler }
     ];
 
-    static getHandler(round, { stages, characterId, charactersData }) {
+    static getHandler(round, { stages, participantId, charactersData }) {
         const match = this.patterns.find(({ pattern }) => pattern.test(round.round));
         if (!match) {
             throw new Error(`未找到对应的处理器: ${round.round}`);
         }
 
-        const baseConfig = { characterId, charactersData };
+        const baseConfig = { participantId, charactersData };
         const initialHandler = new match.handler(baseConfig);
         const config = initialHandler.getConfig(round, stages);
         return new match.handler({ ...baseConfig, config });
