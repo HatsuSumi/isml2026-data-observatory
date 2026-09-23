@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,46 @@
 </head>
 <body>
     <include src="templates/header.html"></include>
-    <div class="container">
-        <div class="empty-message">图库正在建设中，敬请期待 ❤️</div>
-    </div>
-
+    <main class="gallery-page">
+        <header class="gallery-header">
+            <div><p class="gallery-kicker">ISML 2026 ARCHIVE</p><h1>赛季图库</h1></div>
+            <p class="gallery-summary"><span id="galleryCount">0</span> 件展品</p>
+        </header>
+        <nav class="gallery-filters" aria-label="图库分类">
+            <button class="gallery-filter is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="gallery-filter" type="button" data-filter="match" aria-pressed="false">对阵图</button>
+            <button class="gallery-filter" type="button" data-filter="honor" aria-pressed="false">荣誉海报</button>
+            <button class="gallery-filter" type="button" data-filter="milestone" aria-pressed="false">里程碑海报</button>
+        </nav>
+        <section class="gallery-exhibition" aria-live="polite" aria-busy="true">
+            <div class="gallery-loading"><span class="gallery-loading-mark" aria-hidden="true"></span><span>正在绘制星图</span></div>
+            <div class="gallery-map-shell" id="galleryMapShell">
+                <canvas class="gallery-background" id="galleryBackground" aria-hidden="true"></canvas>
+                <div class="gallery-map-viewport" id="galleryViewport">
+                    <div class="gallery-map" id="galleryMap">
+                        <svg class="gallery-connections" id="galleryConnections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+                        <ul class="gallery-nodes" id="galleryNodes"></ul>
+                    </div>
+                </div>
+                <div class="gallery-map-controls" aria-label="星图控制">
+                    <button type="button" class="gallery-icon-button" data-map-action="zoom-out" title="缩小星图" aria-label="缩小星图"><i class="fas fa-minus" aria-hidden="true"></i></button>
+                    <button type="button" class="gallery-icon-button" data-map-action="reset" title="重置星图视图" aria-label="重置星图视图"><i class="fas fa-crosshairs" aria-hidden="true"></i></button>
+                    <button type="button" class="gallery-icon-button" data-map-action="zoom-in" title="放大星图" aria-label="放大星图"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                </div>
+                <p class="gallery-map-scale" id="galleryMapScale">100%</p>
+            </div>
+        </section>
+        <template id="gallery-item-template"><li class="gallery-node"><button class="gallery-star" type="button" data-action="preview"><span class="gallery-star-image-frame"><img class="gallery-star-image" alt="" loading="eager" decoding="async"><span class="gallery-star-error">图片加载失败</span></span><span class="gallery-star-label"><span class="gallery-type"></span><strong class="gallery-title"></strong></span></button></li></template>
+        <template id="gallery-empty-template"><div class="gallery-empty"><i class="fas fa-stars" aria-hidden="true"></i><p>当前分类暂无星体</p></div></template>
+        <template id="gallery-error-template"><div class="gallery-load-error" role="alert"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i><p></p></div></template>
+    </main>
+    <section class="gallery-viewer" id="galleryViewer" aria-labelledby="galleryViewerTitle" aria-modal="true" role="dialog" aria-hidden="true" tabindex="-1">
+        <div class="gallery-viewer-toolbar"><p class="gallery-viewer-position" id="galleryViewerPosition"></p><div class="gallery-viewer-actions"><button type="button" class="gallery-icon-button" data-action="download" title="下载原图" aria-label="下载原图"><i class="fas fa-download" aria-hidden="true"></i></button><button type="button" class="gallery-icon-button" data-action="close" title="关闭预览" aria-label="关闭预览"><i class="fas fa-xmark" aria-hidden="true"></i></button></div></div>
+        <div class="gallery-viewer-stage"><button type="button" class="gallery-viewer-nav gallery-viewer-prev" data-action="previous" title="上一张" aria-label="上一张"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><figure class="gallery-viewer-figure"><img class="gallery-viewer-image" alt=""><figcaption><span class="gallery-viewer-type"></span><strong id="galleryViewerTitle" class="gallery-viewer-title"></strong></figcaption></figure><button type="button" class="gallery-viewer-nav gallery-viewer-next" data-action="next" title="下一张" aria-label="下一张"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div>
+        <p class="gallery-viewer-message" role="status" aria-live="polite"></p>
+    </section>
     <include src="templates/footer.html"></include>
     <script type="module" src="js/common/template-loader.js"></script>
-    <script src="js/gallery/gallery.js"></script>
+    <script type="module" src="js/gallery/gallery.js"></script>
 </body>
 </html>
-
