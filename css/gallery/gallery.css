@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --gallery-bg: #050914;
     --gallery-surface: rgba(7, 14, 28, .88);
     --gallery-text: #edf5ff;
@@ -79,6 +79,7 @@ body:has(.gallery-viewer[open]) {
     font: inherit;
     font-size: 14px;
     cursor: pointer;
+    transition: color 180ms ease, background-color 180ms ease;
 }
 
 .gallery-filter::after {
@@ -98,6 +99,12 @@ body:has(.gallery-viewer[open]) {
 .gallery-filter:focus-visible,
 .gallery-filter.is-active {
     color: var(--gallery-text);
+}
+
+.gallery-filter:hover::after,
+.gallery-filter:focus-visible::after {
+    opacity: .5;
+    transform: scaleX(.72);
 }
 
 .gallery-filter.is-active::after {
@@ -771,4 +778,10 @@ body.gallery-viewer-open {
 .gallery-viewer-actions .gallery-icon-button i {
     display: block;
     line-height: 1;
+}
+
+.gallery-viewer { display: grid; grid-template-rows: 64px minmax(0, 1fr) 42px; opacity: 0; visibility: hidden; pointer-events: none; transform: scale(.94); transform-origin: center; transition: opacity 220ms ease, transform 220ms cubic-bezier(.22, .8, .24, 1), visibility 0s linear 220ms; }
+.gallery-viewer.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: scale(1); transition-delay: 0s; }
+@media (prefers-reduced-motion: reduce) {
+    .gallery-viewer { opacity: 1; transform: none; transition: visibility 0s linear 0s; }
 }
