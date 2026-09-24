@@ -167,6 +167,9 @@ body:has(.gallery-viewer[open]) {
 }
 
 .gallery-map-viewport {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -351,9 +354,12 @@ body:has(.gallery-viewer[open]) {
 
 .gallery-map-controls {
     position: absolute;
+    top: 18px;
     right: 18px;
-    bottom: 68px;
+    z-index: 3;
     display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
     gap: 7px;
 }
 
@@ -585,7 +591,10 @@ body:has(.gallery-viewer[open]) {
     position: absolute;
     inset: 0;
     z-index: 1;
-    touch-action: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: grab;
 }
 
 .gallery-map {
@@ -785,3 +794,29 @@ body.gallery-viewer-open {
 @media (prefers-reduced-motion: reduce) {
     .gallery-viewer { opacity: 1; transform: none; transition: visibility 0s linear 0s; }
 }
+
+.gallery-map-controls {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 3;
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 7px;
+}
+@media (max-height: 820px) and (min-width: 701px) {
+    .gallery-map-controls {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 3;
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 7px;
+}
+}
+
+.gallery-map-viewport { position: absolute; inset: 0; z-index: 1; }
+.gallery-map-controls { top: 18px; right: 18px; bottom: auto; z-index: 3; display: flex; flex-wrap: nowrap; width: max-content; }
