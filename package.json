@@ -1,0 +1,8 @@
+{
+  "name": "isml2026-data-observatory",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}

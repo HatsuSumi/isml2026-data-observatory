@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         chart.setOption({
             ...darkTheme,
             title: {
-                text: '动画公司分布（待补充）',
+                text: '动画公司分布（敬请期待）',
                 textStyle: {
                     color: '#fff',
                     fontSize: 16
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         chart.setOption({
             ...darkTheme,
             title: {
-                text: '原作类型分布（待补充）',
+                text: '原作类型分布（敬请期待）',
                 textStyle: {
                     color: '#fff',
                     fontSize: 16
@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         chart.setOption({
             ...darkTheme,
             title: {
-                text: '萌属性分布（待补充）',
+                text: '萌属性分布（敬请期待）',
                 textStyle: {
                     color: '#fff',
                     fontSize: 16

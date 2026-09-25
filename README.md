@@ -22,7 +22,7 @@
 - **样式**：原生 CSS3，按页面和功能拆分样式文件
 - **交互逻辑**：原生 JavaScript，使用 ES Modules 组织代码
 - **数据加载**：浏览器 Fetch API，读取项目内 JSON 数据文件
-- **页面模板**：通过 `template-loader.js` 加载和插入公共 Header、Footer 等模板
+- **页面模板**：通过 Node.js 构建脚本在部署前注入公共 Header、Footer，输出纯静态 HTML
 - **外部依赖**：
   - [Font Awesome](https://fontawesome.com/)：页面图标
   - [Highlight.js](https://highlightjs.org/)：对比指南和开发规范页面中的代码高亮
@@ -36,36 +36,70 @@
 
 ```text
 ISML2026/
-├── index.html              # 首页
-├── pages/                  # 各功能页面
-│   ├── comparison/         # 数据对比页面
-│   ├── schedule/           # 赛事日程页面
-│   ├── statistics/         # 数据统计页面
-│   ├── characters-data/    # 角色数据页面
-│   ├── characters-detail/  # 角色详情页面
-│   ├── events-data/        # 赛事数据页面
-│   ├── tables/             # 数据表格页面
-│   ├── visualization/      # 数据可视化页面
-│   ├── gallery/            # 图库页面
-│   ├── groups/             # 分组页面
-│   ├── rules/              # 规则页面
-│   └── about/              # 关于页面
-├── css/                    # 样式文件
-│   ├── common/             # 公共样式
-│   ├── comparison/         # 对比页面样式
-│   ├── schedule/           # 日程页面样式
-│   └── ...                 # 其他功能页面样式
-├── js/                     # JavaScript 模块
-│   ├── common/             # 公共模块和模板加载器
-│   ├── comparison/         # 对比功能模块
-│   ├── schedule/           # 日程功能模块
-│   ├── statistics/         # 统计功能模块
-│   └── ...                 # 其他功能模块
-├── data/                   # JSON 数据文件
-├── images/                 # 图片资源
-├── templates/              # Header、Footer、Navbar 等公共模板
-├── scripts/                # 项目辅助脚本
-└── README.md               # 项目说明文档
+├── index.html                         首页
+├── pages/                             各业务页面
+│   ├── about/                         关于
+│   ├── characters-data/               角色数据
+│   ├── characters-detail/             角色详情
+│   ├── comparison/                    数据对比
+│   │   ├── character-comparison/      角色对比
+│   │   ├── character-comparison-guide/对比功能说明
+│   │   └── event-comparison/          赛事对比
+│   ├── development-standards/         开发规范
+│   ├── events-data/                    赛事数据
+│   ├── gallery/                        图库
+│   ├── groups/                         分组数据
+│   ├── rules/                          赛事规则
+│   ├── schedule/                       赛事日程
+│   │   ├── schedule/                  可交互时间线
+│   │   └── schedule-grid/             静态赛程图
+│   ├── statistics/                     数据统计
+│   │   └── nomination-statistics/      提名阶段统计
+│   ├── tables/                         数据表格
+│   └── visualization/                 数据可视化
+├── css/                                样式文件
+│   ├── common/                         公共样式
+│   ├── character-detail/               角色详情样式
+│   ├── characters-data/               角色数据样式
+│   ├── comparison/                    对比页面样式
+│   ├── events-data/                   赛事数据样式
+│   ├── schedule/                      日程样式
+│   ├── statistics/                    统计样式
+│   ├── tables/                        表格样式
+│   └── visualization/                可视化样式
+├── js/                                 JavaScript 模块
+│   ├── common/                         公共基础模块
+│   ├── character-detail/               角色详情逻辑
+│   ├── characters-data/               角色数据逻辑
+│   ├── comparison/                    对比功能
+│   ├── events-data/                   赛事数据逻辑
+│   ├── gallery/                       图库逻辑
+│   ├── groups/                        分组逻辑
+│   ├── rules/                         规则逻辑
+│   ├── schedule/                      赛程逻辑
+│   ├── statistics/                    数据统计逻辑
+│   ├── table/                         表格逻辑
+│   └── visualization/                图表与可视化逻辑
+├── data/                               业务数据
+│   ├── characters/                     角色基础资料与参赛资料
+│   ├── config/                        赛事配置与赛程配置
+│   ├── groups/                        分组数据
+│   ├── internal/                      内部数据快照
+│   ├── matches/                       角色比赛数据
+│   ├── nomination/                    提名阶段原始数据
+│   ├── preliminaries/                 预选赛数据
+│   ├── rules/                         规则数据
+│   ├── statistics/                    统计数据
+│   └── votes/                         投票排名数据
+├── images/                             图片资源
+├── templates/                          公共 HTML 模板
+│   ├── header.html
+│   ├── navbar.html
+│   └── footer.html
+├── scripts/                            数据维护与检查脚本
+├── .vscode/                            编辑器配置
+├── frontend-development-standards.md  前端开发规范
+└── README.md                           项目说明
 ```
 
 ---

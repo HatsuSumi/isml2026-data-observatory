@@ -1,4 +1,4 @@
-import { CONFIG } from '/ISML-2026/js/common/config.js';
+import { CONFIG } from './config.js';
 
 export class Danmaku {
     constructor(text, type, track, container) {

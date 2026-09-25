@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -60,7 +60,7 @@
                     <li><strong>样式：</strong>原生 CSS3，按页面和功能拆分样式文件</li>
                     <li><strong>交互逻辑：</strong>原生 JavaScript，使用 ES Modules 组织代码</li>
                     <li><strong>数据加载：</strong>浏览器 Fetch API，读取项目内 JSON 数据文件</li>
-                    <li><strong>页面模板：</strong>通过 <code>template-loader.js</code> 加载和插入公共 Header、Footer 等模板</li>
+                    <li><strong>页面模板：</strong>通过 Node.js 构建脚本在部署前注入公共 Header、Footer，输出纯静态 HTML</li>
                     <li><strong>外部依赖：</strong>Font Awesome、Highlight.js</li>
                     <li><strong>部署：</strong>GitHub Pages</li>
                 </ul>
@@ -116,7 +116,6 @@
     </div>
 
     <include src="templates/footer.html"></include>
-    <script type="module" src="js/common/template-loader.js"></script>
     <script src="js/common/copy-email.js"></script>
     <script>
     function requireElement(selector, root = document) {

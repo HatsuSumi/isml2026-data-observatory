@@ -33,10 +33,11 @@
 }
 
 .contact-email {
-    color: #7e57c2;
+    color: #4a90e2;
     margin: 0 4px;
     cursor: pointer;
     position: relative;
+    transition: color 0.3s ease;
 }
 
 .contact-email:hover {

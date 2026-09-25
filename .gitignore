@@ -1,3 +1,6 @@
 .specstory/
 .cache/
+dist/
+node_modules/
+npm-debug.log*
 frontend-development-standards.md
