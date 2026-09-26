@@ -82,8 +82,8 @@ export function createStatusInfo(templates, status, stats) {
         const hasValidVotes = stats.votes.valid !== undefined && stats.votes.valid !== null;
         item.className = 'stat-item';
         item.textContent = hasValidVotes
-            ? `总选票数: ${stats.votes.total}（有效：${stats.votes.valid}）`
-            : `总选票数: ${stats.votes.total}`;
+            ? `投票者总数: ${stats.votes.total}（有效：${stats.votes.valid}）`
+            : `投票者总数: ${stats.votes.total}`;
         statsContainer.appendChild(item);
         fragment.appendChild(statsContainer);
     }

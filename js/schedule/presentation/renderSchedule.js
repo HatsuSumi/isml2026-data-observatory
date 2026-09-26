@@ -119,7 +119,7 @@ function buildStatsContent(votes) {
     }
 
     const statsItem = cloneScheduleTemplate('schedule-stats-item-template', '.stats-item');
-    statsItem.textContent = `总选票数：${votes.total}（有效：${votes.valid}）`;
+    statsItem.textContent = `投票者总数：${votes.total}（有效：${votes.valid}）`;
     fragment.appendChild(statsItem);
     return fragment;
 }
