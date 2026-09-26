@@ -1889,5 +1889,311 @@
                 }
             ]
         }
+    },
+    "preliminary.stellar.r06.female": {
+        "title": "恒星组预选赛第六轮-女性组别",
+        "groups": {
+            "女子3组": [
+                {
+                    "participantId": "SF029"
+                },
+                {
+                    "participantId": "SF102"
+                },
+                {
+                    "participantId": "SF128"
+                },
+                {
+                    "participantId": "SF144"
+                },
+                {
+                    "participantId": "SF114"
+                },
+                {
+                    "participantId": "SF037"
+                },
+                {
+                    "participantId": "SF040"
+                },
+                {
+                    "participantId": "SF105"
+                },
+                {
+                    "participantId": "SF041"
+                },
+                {
+                    "participantId": "SF134"
+                },
+                {
+                    "participantId": "SF140"
+                },
+                {
+                    "participantId": "SF141"
+                },
+                {
+                    "participantId": "SF125"
+                },
+                {
+                    "participantId": "SF065"
+                },
+                {
+                    "participantId": "SF112"
+                },
+                {
+                    "participantId": "SF059"
+                },
+                {
+                    "participantId": "SF133"
+                },
+                {
+                    "participantId": "SF047"
+                },
+                {
+                    "participantId": "SF121"
+                },
+                {
+                    "participantId": "SF075"
+                },
+                {
+                    "participantId": "SF103"
+                },
+                {
+                    "participantId": "SF077"
+                },
+                {
+                    "participantId": "SF084"
+                },
+                {
+                    "participantId": "SF083"
+                }
+            ],
+            "女子4组": [
+                {
+                    "participantId": "SF094"
+                },
+                {
+                    "participantId": "SF100"
+                },
+                {
+                    "participantId": "SF106"
+                },
+                {
+                    "participantId": "SF035"
+                },
+                {
+                    "participantId": "SF120"
+                },
+                {
+                    "participantId": "SF111"
+                },
+                {
+                    "participantId": "SF048"
+                },
+                {
+                    "participantId": "SF130"
+                },
+                {
+                    "participantId": "SF104"
+                },
+                {
+                    "participantId": "SF072"
+                },
+                {
+                    "participantId": "SF066"
+                },
+                {
+                    "participantId": "SF042"
+                },
+                {
+                    "participantId": "SF063"
+                },
+                {
+                    "participantId": "SF132"
+                },
+                {
+                    "participantId": "SF069"
+                },
+                {
+                    "participantId": "SF051"
+                },
+                {
+                    "participantId": "SF068"
+                },
+                {
+                    "participantId": "SF118"
+                },
+                {
+                    "participantId": "SF076"
+                },
+                {
+                    "participantId": "SF054"
+                },
+                {
+                    "participantId": "SF055"
+                },
+                {
+                    "participantId": "SF127"
+                },
+                {
+                    "participantId": "SF064"
+                },
+                {
+                    "participantId": "SF082"
+                }
+            ]
+        }
+    },
+    "preliminary.stellar.r06.male": {
+        "title": "恒星组预选赛第六轮-男性组别",
+        "groups": {
+            "男子3组": [
+                {
+                    "participantId": "SM108"
+                },
+                {
+                    "participantId": "SM132"
+                },
+                {
+                    "participantId": "SM085"
+                },
+                {
+                    "participantId": "SM095"
+                },
+                {
+                    "participantId": "SM099"
+                },
+                {
+                    "participantId": "SM110"
+                },
+                {
+                    "participantId": "SM133"
+                },
+                {
+                    "participantId": "SM071"
+                },
+                {
+                    "participantId": "SM096"
+                },
+                {
+                    "participantId": "SM093"
+                },
+                {
+                    "participantId": "SM129"
+                },
+                {
+                    "participantId": "SM119"
+                },
+                {
+                    "participantId": "SM059"
+                },
+                {
+                    "participantId": "SM106"
+                },
+                {
+                    "participantId": "SM075"
+                },
+                {
+                    "participantId": "SM050"
+                },
+                {
+                    "participantId": "SM134"
+                },
+                {
+                    "participantId": "SM056"
+                },
+                {
+                    "participantId": "SM063"
+                },
+                {
+                    "participantId": "SM137"
+                },
+                {
+                    "participantId": "SM054"
+                },
+                {
+                    "participantId": "SM113"
+                },
+                {
+                    "participantId": "SM064"
+                },
+                {
+                    "participantId": "SM049"
+                }
+            ],
+            "男子4组": [
+                {
+                    "participantId": "SM094"
+                },
+                {
+                    "participantId": "SM130"
+                },
+                {
+                    "participantId": "SM029"
+                },
+                {
+                    "participantId": "SM112"
+                },
+                {
+                    "participantId": "SM086"
+                },
+                {
+                    "participantId": "SM034"
+                },
+                {
+                    "participantId": "SM091"
+                },
+                {
+                    "participantId": "SM087"
+                },
+                {
+                    "participantId": "SM124"
+                },
+                {
+                    "participantId": "SM101"
+                },
+                {
+                    "participantId": "SM116"
+                },
+                {
+                    "participantId": "SM121"
+                },
+                {
+                    "participantId": "SM141"
+                },
+                {
+                    "participantId": "SM070"
+                },
+                {
+                    "participantId": "SM067"
+                },
+                {
+                    "participantId": "SM103"
+                },
+                {
+                    "participantId": "SM040"
+                },
+                {
+                    "participantId": "SM072"
+                },
+                {
+                    "participantId": "SM055"
+                },
+                {
+                    "participantId": "SM139"
+                },
+                {
+                    "participantId": "SM142"
+                },
+                {
+                    "participantId": "SM068"
+                },
+                {
+                    "participantId": "SM077"
+                },
+                {
+                    "participantId": "SM079"
+                }
+            ]
+        }
     }
 }

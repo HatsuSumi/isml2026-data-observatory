@@ -352,10 +352,45 @@
                         "start": "2026-08-14 20:00:00",
                         "end": "2026-08-15 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 3539
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "预选赛第六轮",
-                            "phase": "预选赛阶段"
+                            "title": "预选赛第六轮-女性组别",
+                            "id": "preliminaries/stellar/female/r06",
+                            "phase": "预选赛第六轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前4名参赛者晋级至小组赛 其余参赛者进入第4轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r06-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r06-stellar-female",
+                                "data": "data/preliminaries/stellar/female/20-preliminary-r06-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r06.female"
+                            }
+                        },
+                        {
+                            "title": "预选赛第六轮-男性组别",
+                            "id": "preliminaries/stellar/male/r06",
+                            "phase": "预选赛第六轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前4名参赛者晋级至小组赛 其余参赛者进入第4轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r06-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r06-stellar-male",
+                                "data": "data/preliminaries/stellar/male/20-preliminary-r06-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r06.male"
+                            }
                         }
                     ],
                     "details": {

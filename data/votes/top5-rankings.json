@@ -290,5 +290,53 @@
                 "votes": 365
             }
         ]
+    },
+    "预选赛第六轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF094",
+                "votes": 769
+            },
+            {
+                "participantId": "SF029",
+                "votes": 690
+            },
+            {
+                "participantId": "SF102",
+                "votes": 672
+            },
+            {
+                "participantId": "SF128",
+                "votes": 592
+            },
+            {
+                "participantId": "SF144",
+                "votes": 574
+            }
+        ]
+    },
+    "预选赛第六轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM108",
+                "votes": 563
+            },
+            {
+                "participantId": "SM094",
+                "votes": 540
+            },
+            {
+                "participantId": "SM130",
+                "votes": 539
+            },
+            {
+                "participantId": "SM132",
+                "votes": 537
+            },
+            {
+                "participantId": "SM085",
+                "votes": 512
+            }
+        ]
     }
 }

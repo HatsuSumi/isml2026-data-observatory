@@ -1,0 +1,390 @@
+{
+    "date": "2026-08-14 - 2026-08-15",
+    "event": "预选赛第六轮-恒星组男性组别",
+    "data": [
+        {
+            "participantId": "SM108",
+            "group": "男子3组",
+            "rank": 1,
+            "global_rank": 1,
+            "votes": 563,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM132",
+            "group": "男子3组",
+            "rank": 2,
+            "global_rank": 4,
+            "votes": 537,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM085",
+            "group": "男子3组",
+            "rank": 3,
+            "global_rank": 5,
+            "votes": 512,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM095",
+            "group": "男子3组",
+            "rank": 4,
+            "global_rank": 8,
+            "votes": 488,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM099",
+            "group": "男子3组",
+            "rank": 5,
+            "global_rank": 9,
+            "votes": 488,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM110",
+            "group": "男子3组",
+            "rank": 6,
+            "global_rank": 10,
+            "votes": 482,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM133",
+            "group": "男子3组",
+            "rank": 7,
+            "global_rank": 13,
+            "votes": 439,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM071",
+            "group": "男子3组",
+            "rank": 8,
+            "global_rank": 15,
+            "votes": 406,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM096",
+            "group": "男子3组",
+            "rank": 9,
+            "global_rank": 17,
+            "votes": 399,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM093",
+            "group": "男子3组",
+            "rank": 10,
+            "global_rank": 19,
+            "votes": 330,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM129",
+            "group": "男子3组",
+            "rank": 11,
+            "global_rank": 23,
+            "votes": 295,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM119",
+            "group": "男子3组",
+            "rank": 12,
+            "global_rank": 24,
+            "votes": 270,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM059",
+            "group": "男子3组",
+            "rank": 13,
+            "global_rank": 25,
+            "votes": 250,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM106",
+            "group": "男子3组",
+            "rank": 14,
+            "global_rank": 27,
+            "votes": 246,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM075",
+            "group": "男子3组",
+            "rank": 15,
+            "global_rank": 29,
+            "votes": 243,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM050",
+            "group": "男子3组",
+            "rank": 16,
+            "global_rank": 30,
+            "votes": 238,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM134",
+            "group": "男子3组",
+            "rank": 17,
+            "global_rank": 33,
+            "votes": 230,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM056",
+            "group": "男子3组",
+            "rank": 18,
+            "global_rank": 34,
+            "votes": 227,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM063",
+            "group": "男子3组",
+            "rank": 19,
+            "global_rank": 39,
+            "votes": 169,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM137",
+            "group": "男子3组",
+            "rank": 20,
+            "global_rank": 40,
+            "votes": 161,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM054",
+            "group": "男子3组",
+            "rank": 21,
+            "global_rank": 41,
+            "votes": 149,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM113",
+            "group": "男子3组",
+            "rank": 22,
+            "global_rank": 43,
+            "votes": 108,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM064",
+            "group": "男子3组",
+            "rank": 23,
+            "global_rank": 46,
+            "votes": 96,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM049",
+            "group": "男子3组",
+            "rank": 24,
+            "global_rank": 47,
+            "votes": 80,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM094",
+            "group": "男子4组",
+            "rank": 1,
+            "global_rank": 2,
+            "votes": 540,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM130",
+            "group": "男子4组",
+            "rank": 2,
+            "global_rank": 3,
+            "votes": 539,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM029",
+            "group": "男子4组",
+            "rank": 3,
+            "global_rank": 6,
+            "votes": 499,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM112",
+            "group": "男子4组",
+            "rank": 4,
+            "global_rank": 7,
+            "votes": 489,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SM086",
+            "group": "男子4组",
+            "rank": 5,
+            "global_rank": 11,
+            "votes": 467,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM034",
+            "group": "男子4组",
+            "rank": 6,
+            "global_rank": 12,
+            "votes": 450,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM091",
+            "group": "男子4组",
+            "rank": 7,
+            "global_rank": 14,
+            "votes": 428,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM087",
+            "group": "男子4组",
+            "rank": 8,
+            "global_rank": 16,
+            "votes": 399,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM124",
+            "group": "男子4组",
+            "rank": 9,
+            "global_rank": 18,
+            "votes": 390,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM101",
+            "group": "男子4组",
+            "rank": 10,
+            "global_rank": 20,
+            "votes": 316,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM116",
+            "group": "男子4组",
+            "rank": 11,
+            "global_rank": 21,
+            "votes": 311,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM121",
+            "group": "男子4组",
+            "rank": 12,
+            "global_rank": 22,
+            "votes": 306,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM141",
+            "group": "男子4组",
+            "rank": 13,
+            "global_rank": 26,
+            "votes": 250,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM070",
+            "group": "男子4组",
+            "rank": 14,
+            "global_rank": 28,
+            "votes": 244,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM067",
+            "group": "男子4组",
+            "rank": 15,
+            "global_rank": 31,
+            "votes": 235,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM103",
+            "group": "男子4组",
+            "rank": 16,
+            "global_rank": 32,
+            "votes": 232,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM040",
+            "group": "男子4组",
+            "rank": 17,
+            "global_rank": 35,
+            "votes": 213,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM072",
+            "group": "男子4组",
+            "rank": 18,
+            "global_rank": 36,
+            "votes": 207,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM055",
+            "group": "男子4组",
+            "rank": 19,
+            "global_rank": 37,
+            "votes": 197,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM139",
+            "group": "男子4组",
+            "rank": 20,
+            "global_rank": 38,
+            "votes": 195,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM142",
+            "group": "男子4组",
+            "rank": 21,
+            "global_rank": 42,
+            "votes": 146,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM068",
+            "group": "男子4组",
+            "rank": 22,
+            "global_rank": 44,
+            "votes": 104,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM077",
+            "group": "男子4组",
+            "rank": 23,
+            "global_rank": 45,
+            "votes": 102,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SM079",
+            "group": "男子4组",
+            "rank": 24,
+            "global_rank": 48,
+            "votes": 73,
+            "is_advanced": false
+        }
+    ]
+}
