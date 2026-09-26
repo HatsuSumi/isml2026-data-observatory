@@ -242,5 +242,53 @@
                 "votes": 535
             }
         ]
+    },
+    "预选赛第五轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF049",
+                "votes": 729
+            },
+            {
+                "participantId": "SF036",
+                "votes": 706
+            },
+            {
+                "participantId": "SF116",
+                "votes": 694
+            },
+            {
+                "participantId": "SF122",
+                "votes": 653
+            },
+            {
+                "participantId": "SF115",
+                "votes": 542
+            }
+        ]
+    },
+    "预选赛第五轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM035",
+                "votes": 441
+            },
+            {
+                "participantId": "SM023",
+                "votes": 429
+            },
+            {
+                "participantId": "SM100",
+                "votes": 426
+            },
+            {
+                "participantId": "SM042",
+                "votes": 368
+            },
+            {
+                "participantId": "SM114",
+                "votes": 365
+            }
+        ]
     }
 }

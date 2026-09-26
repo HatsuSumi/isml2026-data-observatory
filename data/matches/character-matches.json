@@ -357,6 +357,14 @@
                     "votes": 609,
                     "group": "女子4组",
                     "global_rank": 11
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 6,
+                    "votes": 466,
+                    "global_rank": 10
                 }
             ]
         },
@@ -429,6 +437,14 @@
                     "votes": 516,
                     "group": "女子6组",
                     "global_rank": 25
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 10,
+                    "votes": 334,
+                    "global_rank": 18
                 }
             ]
         },
@@ -477,6 +493,14 @@
                     "votes": 435,
                     "group": "女子2组",
                     "global_rank": 30
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 6,
+                    "votes": 413,
+                    "global_rank": 12
                 }
             ]
         },
@@ -501,6 +525,14 @@
                     "votes": 563,
                     "group": "女子8组",
                     "global_rank": 19
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 5,
+                    "votes": 424,
+                    "global_rank": 11
                 }
             ]
         },
@@ -569,6 +601,14 @@
                     "votes": 705,
                     "group": "女子4组",
                     "global_rank": 7
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子1组",
+                    "rank": 1,
+                    "votes": 706,
+                    "global_rank": 2
                 }
             ]
         },
@@ -645,6 +685,14 @@
                     "votes": 508,
                     "group": "女子3组",
                     "global_rank": 18
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 8,
+                    "votes": 369,
+                    "global_rank": 15
                 }
             ]
         },
@@ -745,6 +793,14 @@
                     "votes": 248,
                     "group": "女子2组",
                     "global_rank": 46
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 11,
+                    "votes": 325,
+                    "global_rank": 20
                 }
             ]
         },
@@ -773,6 +829,14 @@
                     "votes": 476,
                     "group": "女子5组",
                     "global_rank": 29
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 15,
+                    "votes": 286,
+                    "global_rank": 26
                 }
             ]
         },
@@ -797,6 +861,14 @@
                     "votes": 606,
                     "group": "女子8组",
                     "global_rank": 16
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 14,
+                    "votes": 294,
+                    "global_rank": 25
                 }
             ]
         },
@@ -825,6 +897,14 @@
                     "votes": 346,
                     "group": "女子3组",
                     "global_rank": 39
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 17,
+                    "votes": 218,
+                    "global_rank": 35
                 }
             ]
         },
@@ -901,6 +981,14 @@
                     "votes": 597,
                     "group": "女子1组",
                     "global_rank": 13
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子2组",
+                    "rank": 1,
+                    "votes": 729,
+                    "global_rank": 1
                 }
             ]
         },
@@ -925,6 +1013,14 @@
                     "votes": 314,
                     "group": "女子8组",
                     "global_rank": 40
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 15,
+                    "votes": 229,
+                    "global_rank": 32
                 }
             ]
         },
@@ -973,6 +1069,14 @@
                     "votes": 350,
                     "group": "女子7组",
                     "global_rank": 38
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 18,
+                    "votes": 217,
+                    "global_rank": 36
                 }
             ]
         },
@@ -997,6 +1101,14 @@
                     "votes": 406,
                     "group": "女子6组",
                     "global_rank": 36
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 12,
+                    "votes": 250,
+                    "global_rank": 28
                 }
             ]
         },
@@ -1069,6 +1181,14 @@
                     "votes": 226,
                     "group": "女子4组",
                     "global_rank": 47
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 16,
+                    "votes": 251,
+                    "global_rank": 27
                 }
             ]
         },
@@ -1093,6 +1213,14 @@
                     "votes": 306,
                     "group": "女子3组",
                     "global_rank": 42
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 19,
+                    "votes": 188,
+                    "global_rank": 38
                 }
             ]
         },
@@ -1117,6 +1245,14 @@
                     "votes": 293,
                     "group": "女子8组",
                     "global_rank": 44
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 19,
+                    "votes": 198,
+                    "global_rank": 37
                 }
             ]
         },
@@ -1165,6 +1301,14 @@
                     "votes": 411,
                     "group": "女子3组",
                     "global_rank": 34
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 13,
+                    "votes": 250,
+                    "global_rank": 29
                 }
             ]
         },
@@ -1189,6 +1333,14 @@
                     "votes": 104,
                     "group": "女子1组",
                     "global_rank": 53
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 22,
+                    "votes": 87,
+                    "global_rank": 42
                 }
             ]
         },
@@ -1213,6 +1365,14 @@
                     "votes": 331,
                     "group": "女子4组",
                     "global_rank": 40
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 14,
+                    "votes": 247,
+                    "global_rank": 30
                 }
             ]
         },
@@ -1397,6 +1557,14 @@
                     "votes": 424,
                     "group": "女子5组",
                     "global_rank": 34
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 16,
+                    "votes": 228,
+                    "global_rank": 33
                 }
             ]
         },
@@ -1425,6 +1593,14 @@
                     "votes": 105,
                     "group": "女子2组",
                     "global_rank": 52
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 22,
+                    "votes": 65,
+                    "global_rank": 44
                 }
             ]
         },
@@ -1477,6 +1653,14 @@
                     "votes": 167,
                     "group": "女子7组",
                     "global_rank": 51
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 21,
+                    "votes": 73,
+                    "global_rank": 43
                 }
             ]
         },
@@ -1505,6 +1689,14 @@
                     "votes": 113,
                     "group": "女子2组",
                     "global_rank": 51
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 24,
+                    "votes": 60,
+                    "global_rank": 46
                 }
             ]
         },
@@ -1609,6 +1801,14 @@
                     "votes": 273,
                     "group": "女子5组",
                     "global_rank": 47
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 20,
+                    "votes": 174,
+                    "global_rank": 39
                 }
             ]
         },
@@ -1637,6 +1837,14 @@
                     "votes": 290,
                     "group": "女子8组",
                     "global_rank": 45
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 18,
+                    "votes": 226,
+                    "global_rank": 34
                 }
             ]
         },
@@ -1665,6 +1873,14 @@
                     "votes": 98,
                     "group": "女子3组",
                     "global_rank": 56
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 23,
+                    "votes": 59,
+                    "global_rank": 47
                 }
             ]
         },
@@ -1689,6 +1905,14 @@
                     "votes": 204,
                     "group": "女子4组",
                     "global_rank": 48
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 21,
+                    "votes": 130,
+                    "global_rank": 41
                 }
             ]
         },
@@ -1785,6 +2009,14 @@
                     "votes": 280,
                     "group": "女子5组",
                     "global_rank": 46
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 20,
+                    "votes": 149,
+                    "global_rank": 40
                 }
             ]
         },
@@ -1809,6 +2041,14 @@
                     "votes": 98,
                     "group": "女子1组",
                     "global_rank": 55
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 24,
+                    "votes": 42,
+                    "global_rank": 48
                 }
             ]
         },
@@ -1833,6 +2073,14 @@
                     "votes": 122,
                     "group": "女子6组",
                     "global_rank": 53
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 23,
+                    "votes": 63,
+                    "global_rank": 45
                 }
             ]
         },
@@ -2303,6 +2551,14 @@
                     "votes": 549,
                     "group": "女子7组",
                     "global_rank": 21
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子1组",
+                    "rank": 4,
+                    "votes": 530,
+                    "global_rank": 6
                 }
             ]
         },
@@ -2327,6 +2583,14 @@
                     "votes": 435,
                     "group": "女子5组",
                     "global_rank": 33
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子2组",
+                    "rank": 3,
+                    "votes": 492,
+                    "global_rank": 8
                 }
             ]
         },
@@ -2353,6 +2617,14 @@
                     "votes": 422,
                     "group": "女子3组",
                     "global_rank": 32
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 11,
+                    "votes": 299,
+                    "global_rank": 24
                 }
             ]
         },
@@ -2455,6 +2727,14 @@
                     "votes": 371,
                     "group": "女子1组",
                     "global_rank": 37
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 17,
+                    "votes": 237,
+                    "global_rank": 31
                 }
             ]
         },
@@ -2505,6 +2785,14 @@
                     "votes": 687,
                     "group": "女子6组",
                     "global_rank": 8
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子1组",
+                    "rank": 3,
+                    "votes": 542,
+                    "global_rank": 5
                 }
             ]
         },
@@ -2531,6 +2819,14 @@
                     "votes": 656,
                     "group": "女子7组",
                     "global_rank": 11
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子2组",
+                    "rank": 2,
+                    "votes": 694,
+                    "global_rank": 3
                 }
             ]
         },
@@ -2609,6 +2905,14 @@
                     "votes": 533,
                     "group": "女子3组",
                     "global_rank": 17
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 7,
+                    "votes": 370,
+                    "global_rank": 14
                 }
             ]
         },
@@ -2683,6 +2987,14 @@
                     "votes": 562,
                     "group": "女子1组",
                     "global_rank": 15
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子1组",
+                    "rank": 2,
+                    "votes": 653,
+                    "global_rank": 4
                 }
             ]
         },
@@ -2709,6 +3021,14 @@
                     "votes": 553,
                     "group": "女子1组",
                     "global_rank": 16
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "女子2组",
+                    "rank": 4,
+                    "votes": 472,
+                    "global_rank": 9
                 }
             ]
         },
@@ -2735,6 +3055,14 @@
                     "votes": 639,
                     "group": "女子8组",
                     "global_rank": 12
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 5,
+                    "votes": 501,
+                    "global_rank": 7
                 }
             ]
         },
@@ -2905,6 +3233,14 @@
                     "votes": 529,
                     "group": "女子6组",
                     "global_rank": 23
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 7,
+                    "votes": 413,
+                    "global_rank": 13
                 }
             ]
         },
@@ -3007,6 +3343,14 @@
                     "votes": 554,
                     "group": "女子6组",
                     "global_rank": 20
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 9,
+                    "votes": 361,
+                    "global_rank": 16
                 }
             ]
         },
@@ -3059,6 +3403,14 @@
                     "votes": 471,
                     "group": "女子3组",
                     "global_rank": 25
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 13,
+                    "votes": 311,
+                    "global_rank": 23
                 }
             ]
         },
@@ -3085,6 +3437,14 @@
                     "votes": 435,
                     "group": "女子4组",
                     "global_rank": 31
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子2组",
+                    "rank": 12,
+                    "votes": 322,
+                    "global_rank": 21
                 }
             ]
         },
@@ -3109,6 +3469,14 @@
                     "votes": 394,
                     "group": "女子1组",
                     "global_rank": 36
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 10,
+                    "votes": 311,
+                    "global_rank": 22
                 }
             ]
         },
@@ -3187,6 +3555,14 @@
                     "votes": 436,
                     "group": "女子4组",
                     "global_rank": 29
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 9,
+                    "votes": 333,
+                    "global_rank": 19
                 }
             ]
         },
@@ -3213,6 +3589,14 @@
                     "votes": 450,
                     "group": "女子2组",
                     "global_rank": 27
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "女子1组",
+                    "rank": 8,
+                    "votes": 359,
+                    "global_rank": 17
                 }
             ]
         },
@@ -4093,6 +4477,14 @@
                     "votes": 470,
                     "group": "男子5组",
                     "global_rank": 14
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子2组",
+                    "rank": 1,
+                    "votes": 429,
+                    "global_rank": 2
                 }
             ]
         },
@@ -4157,6 +4549,14 @@
                     "votes": 419,
                     "group": "男子2组",
                     "global_rank": 10
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子1组",
+                    "rank": 3,
+                    "votes": 363,
+                    "global_rank": 6
                 }
             ]
         },
@@ -4261,6 +4661,14 @@
                     "votes": 472,
                     "group": "男子8组",
                     "global_rank": 13
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 5,
+                    "votes": 345,
+                    "global_rank": 9
                 }
             ]
         },
@@ -4349,6 +4757,14 @@
                     "votes": 486,
                     "group": "男子6组",
                     "global_rank": 9
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子1组",
+                    "rank": 1,
+                    "votes": 441,
+                    "global_rank": 1
                 }
             ]
         },
@@ -4413,6 +4829,14 @@
                     "votes": 352,
                     "group": "男子6组",
                     "global_rank": 27
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 11,
+                    "votes": 272,
+                    "global_rank": 23
                 }
             ]
         },
@@ -4437,6 +4861,14 @@
                     "votes": 281,
                     "group": "男子1组",
                     "global_rank": 30
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 12,
+                    "votes": 281,
+                    "global_rank": 19
                 }
             ]
         },
@@ -4485,6 +4917,14 @@
                     "votes": 335,
                     "group": "男子4组",
                     "global_rank": 25
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 7,
+                    "votes": 302,
+                    "global_rank": 13
                 }
             ]
         },
@@ -4509,6 +4949,14 @@
                     "votes": 418,
                     "group": "男子1组",
                     "global_rank": 11
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子1组",
+                    "rank": 2,
+                    "votes": 368,
+                    "global_rank": 4
                 }
             ]
         },
@@ -4533,6 +4981,14 @@
                     "votes": 345,
                     "group": "男子6组",
                     "global_rank": 29
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 8,
+                    "votes": 278,
+                    "global_rank": 20
                 }
             ]
         },
@@ -4557,6 +5013,14 @@
                     "votes": 342,
                     "group": "男子8组",
                     "global_rank": 30
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 12,
+                    "votes": 272,
+                    "global_rank": 24
                 }
             ]
         },
@@ -4581,6 +5045,14 @@
                     "votes": 400,
                     "group": "男子6组",
                     "global_rank": 22
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 5,
+                    "votes": 339,
+                    "global_rank": 10
                 }
             ]
         },
@@ -4629,6 +5101,14 @@
                     "votes": 222,
                     "group": "男子1组",
                     "global_rank": 40
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 15,
+                    "votes": 222,
+                    "global_rank": 27
                 }
             ]
         },
@@ -4653,6 +5133,14 @@
                     "votes": 155,
                     "group": "男子4组",
                     "global_rank": 48
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 19,
+                    "votes": 151,
+                    "global_rank": 37
                 }
             ]
         },
@@ -4725,6 +5213,14 @@
                     "votes": 149,
                     "group": "男子2组",
                     "global_rank": 50
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 20,
+                    "votes": 137,
+                    "global_rank": 40
                 }
             ]
         },
@@ -4749,6 +5245,14 @@
                     "votes": 106,
                     "group": "男子6组",
                     "global_rank": 51
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 22,
+                    "votes": 100,
+                    "global_rank": 43
                 }
             ]
         },
@@ -4773,6 +5277,14 @@
                     "votes": 182,
                     "group": "男子1组",
                     "global_rank": 45
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 16,
+                    "votes": 198,
+                    "global_rank": 31
                 }
             ]
         },
@@ -4869,6 +5381,14 @@
                     "votes": 67,
                     "group": "男子1组",
                     "global_rank": 57
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 24,
+                    "votes": 66,
+                    "global_rank": 47
                 }
             ]
         },
@@ -4937,6 +5457,14 @@
                     "votes": 94,
                     "group": "男子1组",
                     "global_rank": 56
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 22,
+                    "votes": 84,
+                    "global_rank": 44
                 }
             ]
         },
@@ -4960,6 +5488,14 @@
                     "rank": 10,
                     "votes": 289,
                     "group": "男子6组",
+                    "global_rank": 35
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 17,
+                    "votes": 167,
                     "global_rank": 35
                 }
             ]
@@ -5057,6 +5593,14 @@
                     "votes": 157,
                     "group": "男子8组",
                     "global_rank": 49
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 21,
+                    "votes": 128,
+                    "global_rank": 41
                 }
             ]
         },
@@ -5081,6 +5625,14 @@
                     "votes": 228,
                     "group": "男子1组",
                     "global_rank": 39
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 14,
+                    "votes": 217,
+                    "global_rank": 29
                 }
             ]
         },
@@ -5153,6 +5705,14 @@
                     "votes": 187,
                     "group": "男子2组",
                     "global_rank": 44
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 18,
+                    "votes": 162,
+                    "global_rank": 36
                 }
             ]
         },
@@ -5249,6 +5809,14 @@
                     "votes": 172,
                     "group": "男子1组",
                     "global_rank": 46
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 20,
+                    "votes": 142,
+                    "global_rank": 39
                 }
             ]
         },
@@ -5273,6 +5841,14 @@
                     "votes": 88,
                     "group": "男子5组",
                     "global_rank": 54
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 24,
+                    "votes": 56,
+                    "global_rank": 48
                 }
             ]
         },
@@ -5321,6 +5897,14 @@
                     "votes": 124,
                     "group": "男子8组",
                     "global_rank": 50
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 23,
+                    "votes": 71,
+                    "global_rank": 46
                 }
             ]
         },
@@ -5369,6 +5953,14 @@
                     "votes": 193,
                     "group": "男子3组",
                     "global_rank": 43
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 21,
+                    "votes": 103,
+                    "global_rank": 42
                 }
             ]
         },
@@ -5421,6 +6013,14 @@
                     "votes": 23,
                     "group": "男子5组",
                     "global_rank": 56
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 25,
+                    "votes": 32,
+                    "global_rank": 49
                 }
             ]
         },
@@ -5491,6 +6091,14 @@
                     "votes": 314,
                     "group": "男子8组",
                     "global_rank": 33
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 11,
+                    "votes": 282,
+                    "global_rank": 18
                 }
             ]
         },
@@ -5857,6 +6465,14 @@
                     "votes": 359,
                     "group": "男子3组",
                     "global_rank": 19
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 6,
+                    "votes": 310,
+                    "global_rank": 12
                 }
             ]
         },
@@ -5927,6 +6543,14 @@
                     "votes": 477,
                     "group": "男子5组",
                     "global_rank": 11
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子2组",
+                    "rank": 2,
+                    "votes": 426,
+                    "global_rank": 3
                 }
             ]
         },
@@ -5979,6 +6603,14 @@
                     "votes": 405,
                     "group": "男子4组",
                     "global_rank": 13
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子1组",
+                    "rank": 4,
+                    "votes": 353,
+                    "global_rank": 8
                 }
             ]
         },
@@ -6049,6 +6681,14 @@
                     "votes": 152,
                     "group": "男子4组",
                     "global_rank": 49
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 13,
+                    "votes": 221,
+                    "global_rank": 28
                 }
             ]
         },
@@ -6263,6 +6903,14 @@
                     "votes": 427,
                     "group": "男子8组",
                     "global_rank": 18
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子2组",
+                    "rank": 3,
+                    "votes": 365,
+                    "global_rank": 5
                 }
             ]
         },
@@ -6289,6 +6937,14 @@
                     "votes": 345,
                     "group": "男子4组",
                     "global_rank": 20
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 8,
+                    "votes": 298,
+                    "global_rank": 15
                 }
             ]
         },
@@ -6357,6 +7013,14 @@
                     "votes": 305,
                     "group": "男子1组",
                     "global_rank": 26
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 13,
+                    "votes": 258,
+                    "global_rank": 25
                 }
             ]
         },
@@ -6409,6 +7073,14 @@
                     "votes": 360,
                     "group": "男子5组",
                     "global_rank": 26
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 6,
+                    "votes": 319,
+                    "global_rank": 11
                 }
             ]
         },
@@ -6461,6 +7133,14 @@
                     "votes": 335,
                     "group": "男子6组",
                     "global_rank": 31
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 7,
+                    "votes": 300,
+                    "global_rank": 14
                 }
             ]
         },
@@ -6487,6 +7167,14 @@
                     "votes": 252,
                     "group": "男子1组",
                     "global_rank": 36
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 17,
+                    "votes": 185,
+                    "global_rank": 33
                 }
             ]
         },
@@ -6539,6 +7227,14 @@
                     "votes": 288,
                     "group": "男子6组",
                     "global_rank": 36
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 9,
+                    "votes": 275,
+                    "global_rank": 21
                 }
             ]
         },
@@ -6565,6 +7261,14 @@
                     "votes": 366,
                     "group": "男子2组",
                     "global_rank": 18
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 9,
+                    "votes": 293,
+                    "global_rank": 16
                 }
             ]
         },
@@ -6591,6 +7295,14 @@
                     "votes": 256,
                     "group": "男子4组",
                     "global_rank": 34
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 14,
+                    "votes": 227,
+                    "global_rank": 26
                 }
             ]
         },
@@ -6617,6 +7329,14 @@
                     "votes": 269,
                     "group": "男子5组",
                     "global_rank": 38
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 18,
+                    "votes": 168,
+                    "global_rank": 34
                 }
             ]
         },
@@ -6693,6 +7413,14 @@
                     "votes": 287,
                     "group": "男子4组",
                     "global_rank": 28
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 16,
+                    "votes": 190,
+                    "global_rank": 32
                 }
             ]
         },
@@ -6795,6 +7523,14 @@
                     "votes": 341,
                     "group": "男子2组",
                     "global_rank": 22
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 10,
+                    "votes": 285,
+                    "global_rank": 17
                 }
             ]
         },
@@ -6819,6 +7555,14 @@
                     "votes": 409,
                     "group": "男子3组",
                     "global_rank": 12
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "晋级",
+                    "group": "男子2组",
+                    "rank": 4,
+                    "votes": 361,
+                    "global_rank": 7
                 }
             ]
         },
@@ -6915,6 +7659,14 @@
                     "votes": 335,
                     "group": "男子3组",
                     "global_rank": 24
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 10,
+                    "votes": 275,
+                    "global_rank": 22
                 }
             ]
         },
@@ -6993,6 +7745,14 @@
                     "votes": 194,
                     "group": "男子3组",
                     "global_rank": 42
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子2组",
+                    "rank": 19,
+                    "votes": 143,
+                    "global_rank": 38
                 }
             ]
         },
@@ -7019,6 +7779,14 @@
                     "votes": 97,
                     "group": "男子1组",
                     "global_rank": 54
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 23,
+                    "votes": 82,
+                    "global_rank": 45
                 }
             ]
         },
@@ -7045,6 +7813,14 @@
                     "votes": 232,
                     "group": "男子3组",
                     "global_rank": 38
+                },
+                {
+                    "title": "预选赛第五轮",
+                    "result": "淘汰",
+                    "group": "男子1组",
+                    "rank": 15,
+                    "votes": 213,
+                    "global_rank": 30
                 }
             ]
         },

@@ -135,7 +135,7 @@
                             "phase": "预选赛第二轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第3轮"
+                                    "description": "各小组胜者晋级至小组赛，其余参赛者进入第3轮"
                                 }
                             },
                             "links": {
@@ -152,7 +152,7 @@
                             "phase": "预选赛第二轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第3轮"
+                                    "description": "各小组胜者晋级至小组赛，其余参赛者进入第3轮"
                                 }
                             },
                             "links": {
@@ -185,7 +185,7 @@
                             "phase": "预选赛第三轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前4名参赛者晋级至小组赛，其余参赛者进入第4轮"
+                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第4轮"
                                 }
                             },
                             "links": {
@@ -202,7 +202,7 @@
                             "phase": "预选赛第三轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前4名参赛者晋级至小组赛，其余参赛者进入第4轮"
+                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第4轮"
                                 }
                             },
                             "links": {
@@ -235,7 +235,7 @@
                             "phase": "预选赛第四轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前8名参赛者晋级至小组赛，其余参赛者进入第5轮"
+                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第5轮"
                                 }
                             },
                             "links": {
@@ -252,7 +252,7 @@
                             "phase": "预选赛第四轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前8名参赛者晋级至小组赛，其余参赛者进入第5轮"
+                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第5轮"
                                 }
                             },
                             "links": {
@@ -297,16 +297,55 @@
                 {
                     "dateRange": {
                         "start": "2026-08-10 20:00:00",
-                        "end": "2026-08-11 19:59:59"
+                        "end": "2026-08-11 19:59:59",
+                        "result": "2026-08-12"
+                    },
+                    "stats": {
+                        "votes": {
+                            "total": 26505
+                        }
                     },
                     "matches": [
                         {
-                            "title": "预选赛第五轮",
-                            "phase": "预选赛阶段"
+                            "title": "预选赛第五轮-女性组别",
+                            "id": "preliminaries/stellar/female/r05",
+                            "phase": "预选赛第五轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前4名参赛者晋级至小组赛，其余参赛者淘汰"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r05-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r05-stellar-female",
+                                "data": "data/preliminaries/stellar/female/19-preliminary-r05-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r05.female"
+                            }
+                        },
+                        {
+                            "title": "预选赛第五轮-男性组别",
+                            "id": "preliminaries/stellar/male/r05",
+                            "phase": "预选赛第五轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前4名参赛者晋级至小组赛，其余参赛者淘汰"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r05-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r05-stellar-male",
+                                "data": "data/preliminaries/stellar/male/19-preliminary-r05-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r05.male"
+                            }
                         }
                     ],
                     "details": {
-                        "format": "赞成投票制"
+                        "format": "有限投票制(各组可投票上限: 4)",
+                        "qualified": {
+                            "description": "各小组前4名参赛者晋级至小组赛，其余参赛者淘汰"
+                        }
                     }
                 },
                 {

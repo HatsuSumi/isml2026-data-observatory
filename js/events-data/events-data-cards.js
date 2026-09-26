@@ -131,6 +131,9 @@ export function createEventCard(templates, match, event, nextEventStartTime, ran
 
     if (topFiveData?.length) {
         const list = topCharacters.querySelector('.character-list');
+        topCharacters.querySelector('.top-title').textContent = topFiveData.length > 5
+            ? '得票数 Top5（含并列）'
+            : '得票数 Top5';
         topCharacters.hidden = false;
         topFiveData.forEach((item, index) => {
             list.appendChild(createTopCharacterItem(templates, item, index, topFiveData));
