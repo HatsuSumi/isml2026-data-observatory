@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
-const fs = require('fs/promises');
-const path = require('path');
-const { pathToFileURL } = require('url');
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
-const PATHS = {
-    events: path.join(ROOT, 'data', 'config', 'events.json'),
-    schedule: path.join(ROOT, 'data', 'config', 'schedule.json')
-};
+const EVENTS_PATH = path.join(ROOT, 'data', 'config', 'events.json');
 
 async function readJson(filePath) {
     const content = await fs.readFile(filePath, 'utf8');
@@ -18,53 +17,58 @@ async function readJson(filePath) {
     return JSON.parse(content);
 }
 
-function collectScheduleTitles(schedule) {
+function requireDateRange(event, label) {
+    if (!event.dateRange?.start || !event.dateRange?.end) {
+        throw new Error(`${label} 缺少 dateRange.start/end`);
+    }
+}
+
+function collectEventTitles(events) {
     const titles = [];
-    Object.entries(schedule.phases || {}).forEach(([phaseId, phase]) => {
-        (phase.matches || []).forEach((match, index) => {
-            if (!match?.title) {
-                throw new Error(`schedule.json ${phaseId}.matches[${index}] 缺少 title`);
+    Object.entries(events.months || {}).forEach(([monthKey, month]) => {
+        (month.events || []).forEach((event, eventIndex) => {
+            const label = `events.json ${monthKey}.events[${eventIndex}]`;
+            requireDateRange(event, label);
+            if (!Array.isArray(event.matches) || event.matches.length === 0) {
+                throw new Error(`${label} 缺少 matches`);
             }
-            if (!match.dateRange?.start || !match.dateRange?.end) {
-                throw new Error(`schedule.json ${match.title} 缺少 dateRange.start/end`);
-            }
-            titles.push({ phaseId, title: match.title, start: match.dateRange.start, end: match.dateRange.end });
+            event.matches.forEach((match, matchIndex) => {
+                if (!match?.title) {
+                    throw new Error(`${label}.matches[${matchIndex}] 缺少 title`);
+                }
+                if (!match.phase) {
+                    throw new Error(`${label}.matches[${matchIndex}] 缺少 phase`);
+                }
+                titles.push(match.title);
+            });
         });
     });
     return titles;
 }
 
 async function main() {
-    const [{ collectEventWindows, buildScheduleView }, events, schedule] = await Promise.all([
+    const [{ collectEventWindows, buildScheduleView }, events] = await Promise.all([
         import(pathToFileURL(path.join(ROOT, 'js', 'common', 'schedule-view.js')).href),
-        readJson(PATHS.events),
-        readJson(PATHS.schedule)
+        readJson(EVENTS_PATH)
     ]);
 
+    const titles = collectEventTitles(events);
+    const duplicateTitles = titles.filter((title, index, list) => list.indexOf(title) !== index);
+    if (duplicateTitles.length) {
+        throw new Error(`events.json 存在重复赛事：${[...new Set(duplicateTitles)].join('、')}`);
+    }
+
     const windows = collectEventWindows(events);
-    const occupied = new Set(windows.map(window => window.groupTitle));
-    const upcoming = collectScheduleTitles(schedule);
-    const overlap = upcoming.filter(item => occupied.has(item.title));
-    if (overlap.length) {
-        throw new Error(`schedule.json 仍在维护已发生赛事：${overlap.map(item => item.title).join('、')}`);
-    }
-
-    const duplicateUpcoming = upcoming
-        .map(item => item.title)
-        .filter((title, index, list) => list.indexOf(title) !== index);
-    if (duplicateUpcoming.length) {
-        throw new Error(`schedule.json 存在重复赛事：${[...new Set(duplicateUpcoming)].join('、')}`);
-    }
-
-    const view = buildScheduleView(events, schedule);
+    const view = buildScheduleView(events);
     const derivedCount = Object.values(view.phases).reduce((count, phase) => count + phase.matches.length, 0);
+
     console.log(`events.json 时间窗口: ${windows.length}`);
-    console.log(`schedule.json 未开赛轮次: ${upcoming.length}`);
+    console.log(`events.json 赛事项: ${titles.length}`);
     console.log(`合成日程赛事: ${derivedCount}`);
     Object.entries(view.phases).forEach(([phaseId, phase]) => {
         console.log(`- ${phase.title} (${phaseId}): ${phase.matches.length}`);
     });
-    console.log('\n检查通过：赛事配置与未开赛日程无重复字段。');
+    console.log('\n检查通过：events.json 可独立生成完整赛事日程。');
 }
 
 main().catch(error => {

@@ -113,7 +113,7 @@ export function buildScheduleMatchFromWindow(window) {
     return match;
 }
 
-export function buildScheduleView(eventsConfig, upcomingSchedule) {
+export function buildScheduleView(eventsConfig) {
     const phases = Object.fromEntries(SCHEDULE_PHASES.map((phase) => [
         phase.id,
         { title: phase.title, matches: [] }
@@ -129,24 +129,6 @@ export function buildScheduleView(eventsConfig, upcomingSchedule) {
         }
         occupied.add(window.groupTitle);
         phases[window.phaseId].matches.push(buildScheduleMatchFromWindow(window));
-    });
-
-    Object.entries(upcomingSchedule?.phases || {}).forEach(([phaseId, phase]) => {
-        if (!phases[phaseId]) {
-            phases[phaseId] = {
-                title: phase.title || phaseId,
-                matches: []
-            };
-        }
-        (phase.matches || []).forEach((match) => {
-            if (!match?.title) {
-                throw new Error(`schedule.json ${phaseId} 存在缺少标题的赛事`);
-            }
-            if (occupied.has(match.title)) {
-                throw new Error(`schedule.json 重复维护已发生赛事：${match.title}`);
-            }
-            phases[phaseId].matches.push(cloneJson(match));
-        });
     });
 
     Object.values(phases).forEach((phase) => {

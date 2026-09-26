@@ -80,16 +80,9 @@ export async function loadEventsConfig() {
     return fetchJson('data/config/events.json');
 }
 
-export async function loadUpcomingSchedule() {
-    return fetchJson('data/config/schedule.json');
-}
-
 export async function loadScheduleView() {
-    const [events, upcoming] = await Promise.all([
-        loadEventsConfig(),
-        loadUpcomingSchedule()
-    ]);
-    return buildScheduleView(events, upcoming);
+    const events = await loadEventsConfig();
+    return buildScheduleView(events);
 }
 
 export async function loadEventData() {
