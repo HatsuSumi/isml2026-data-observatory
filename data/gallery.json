@@ -23,8 +23,10 @@
             }
         },
         {
-            "id": "placeholder-01",
-            "type": "placeholder",
+            "id": "milestone-03",
+            "type": "milestone",
+            "title": "后藤独-全赛事第100场（第239位）（预选赛第三轮达成）",
+            "src": "https://pic.imgdd.cc/i/034VIsES10LmcvpxMq5ako.png",
             "order": 30,
             "position": {
                 "x": 41,
@@ -156,10 +158,10 @@
         },
         {
             "from": "milestone-02",
-            "to": "placeholder-01"
+            "to": "milestone-03"
         },
         {
-            "from": "placeholder-01",
+            "from": "milestone-03",
             "to": "placeholder-02"
         },
         {
@@ -175,7 +177,7 @@
             "to": "placeholder-05"
         },
         {
-            "from": "placeholder-01",
+            "from": "milestone-03",
             "to": "placeholder-06"
         },
         {

@@ -853,5 +853,370 @@
                 }
             ]
         }
+    },
+    "preliminary.stellar.r03.female": {
+        "title": "恒星组预选赛第三轮-女性组别",
+        "groups": {
+            "女子1组": [
+                {
+                    "participantId": "SF026"
+                },
+                {
+                    "participantId": "SF098"
+                },
+                {
+                    "participantId": "SF102"
+                },
+                {
+                    "participantId": "SF128"
+                },
+                {
+                    "participantId": "SF049"
+                },
+                {
+                    "participantId": "SF037"
+                },
+                {
+                    "participantId": "SF122"
+                },
+                {
+                    "participantId": "SF123"
+                },
+                {
+                    "participantId": "SF139"
+                },
+                {
+                    "participantId": "SF113"
+                },
+                {
+                    "participantId": "SF068"
+                },
+                {
+                    "participantId": "SF054"
+                },
+                {
+                    "participantId": "SF061"
+                },
+                {
+                    "participantId": "SF086"
+                }
+            ],
+            "女子2组": [
+                {
+                    "participantId": "SF136"
+                },
+                {
+                    "participantId": "SF117"
+                },
+                {
+                    "participantId": "SF048"
+                },
+                {
+                    "participantId": "SF104"
+                },
+                {
+                    "participantId": "SF132"
+                },
+                {
+                    "participantId": "SF066"
+                },
+                {
+                    "participantId": "SF143"
+                },
+                {
+                    "participantId": "SF140"
+                },
+                {
+                    "participantId": "SF032"
+                },
+                {
+                    "participantId": "SF075"
+                },
+                {
+                    "participantId": "SF043"
+                },
+                {
+                    "participantId": "SF055"
+                },
+                {
+                    "participantId": "SF074"
+                },
+                {
+                    "participantId": "SF071"
+                }
+            ],
+            "女子3组": [
+                {
+                    "participantId": "SF024"
+                },
+                {
+                    "participantId": "SF031"
+                },
+                {
+                    "participantId": "SF119"
+                },
+                {
+                    "participantId": "SF039"
+                },
+                {
+                    "participantId": "SF137"
+                },
+                {
+                    "participantId": "SF109"
+                },
+                {
+                    "participantId": "SF060"
+                },
+                {
+                    "participantId": "SF118"
+                },
+                {
+                    "participantId": "SF065"
+                },
+                {
+                    "participantId": "SF046"
+                },
+                {
+                    "participantId": "SF076"
+                },
+                {
+                    "participantId": "SF057"
+                },
+                {
+                    "participantId": "SF064"
+                },
+                {
+                    "participantId": "SF080"
+                }
+            ],
+            "女子4组": [
+                {
+                    "participantId": "SF028"
+                },
+                {
+                    "participantId": "SF101"
+                },
+                {
+                    "participantId": "SF036"
+                },
+                {
+                    "participantId": "SF027"
+                },
+                {
+                    "participantId": "SF040"
+                },
+                {
+                    "participantId": "SF105"
+                },
+                {
+                    "participantId": "SF130"
+                },
+                {
+                    "participantId": "SF142"
+                },
+                {
+                    "participantId": "SF138"
+                },
+                {
+                    "participantId": "SF112"
+                },
+                {
+                    "participantId": "SF062"
+                },
+                {
+                    "participantId": "SF133"
+                },
+                {
+                    "participantId": "SF056"
+                },
+                {
+                    "participantId": "SF081"
+                }
+            ]
+        }
+    },
+    "preliminary.stellar.r03.male": {
+        "title": "恒星组预选赛第三轮-男性组别",
+        "groups": {
+            "男子1组": [
+                {
+                    "participantId": "SM025"
+                },
+                {
+                    "participantId": "SM037"
+                },
+                {
+                    "participantId": "SM042"
+                },
+                {
+                    "participantId": "SM034"
+                },
+                {
+                    "participantId": "SM091"
+                },
+                {
+                    "participantId": "SM118"
+                },
+                {
+                    "participantId": "SM039"
+                },
+                {
+                    "participantId": "SM123"
+                },
+                {
+                    "participantId": "SM066"
+                },
+                {
+                    "participantId": "SM047"
+                },
+                {
+                    "participantId": "SM053"
+                },
+                {
+                    "participantId": "SM073"
+                },
+                {
+                    "participantId": "SM144"
+                },
+                {
+                    "participantId": "SM060"
+                },
+                {
+                    "participantId": "SM057"
+                }
+            ],
+            "男子2组": [
+                {
+                    "participantId": "SM017"
+                },
+                {
+                    "participantId": "SM046"
+                },
+                {
+                    "participantId": "SM029"
+                },
+                {
+                    "participantId": "SM026"
+                },
+                {
+                    "participantId": "SM095"
+                },
+                {
+                    "participantId": "SM085"
+                },
+                {
+                    "participantId": "SM126"
+                },
+                {
+                    "participantId": "SM135"
+                },
+                {
+                    "participantId": "SM132"
+                },
+                {
+                    "participantId": "SM075"
+                },
+                {
+                    "participantId": "SM069"
+                },
+                {
+                    "participantId": "SM054"
+                },
+                {
+                    "participantId": "SM051"
+                },
+                {
+                    "participantId": "SM064"
+                }
+            ],
+            "男子3组": [
+                {
+                    "participantId": "SM088"
+                },
+                {
+                    "participantId": "SM033"
+                },
+                {
+                    "participantId": "SM136"
+                },
+                {
+                    "participantId": "SM097"
+                },
+                {
+                    "participantId": "SM140"
+                },
+                {
+                    "participantId": "SM112"
+                },
+                {
+                    "participantId": "SM040"
+                },
+                {
+                    "participantId": "SM141"
+                },
+                {
+                    "participantId": "SM059"
+                },
+                {
+                    "participantId": "SM145"
+                },
+                {
+                    "participantId": "SM143"
+                },
+                {
+                    "participantId": "SM078"
+                },
+                {
+                    "participantId": "SM113"
+                },
+                {
+                    "participantId": "SM068"
+                }
+            ],
+            "男子4组": [
+                {
+                    "participantId": "SM022"
+                },
+                {
+                    "participantId": "SM084"
+                },
+                {
+                    "participantId": "SM102"
+                },
+                {
+                    "participantId": "SM115"
+                },
+                {
+                    "participantId": "SM121"
+                },
+                {
+                    "participantId": "SM041"
+                },
+                {
+                    "participantId": "SM116"
+                },
+                {
+                    "participantId": "SM131"
+                },
+                {
+                    "participantId": "SM071"
+                },
+                {
+                    "participantId": "SM103"
+                },
+                {
+                    "participantId": "SM127"
+                },
+                {
+                    "participantId": "SM048"
+                },
+                {
+                    "participantId": "SM105"
+                },
+                {
+                    "participantId": "SM067"
+                }
+            ]
+        }
     }
 }

@@ -9,6 +9,14 @@ export function createInfoRow(templates, wrapperClass, keyText, valueText) {
     return wrapper;
 }
 
+export function getTopCharacters(items) {
+    if (!Array.isArray(items) || items.length <= 5) return items || [];
+
+    const sortedItems = [...items].sort((left, right) => right.votes - left.votes);
+    const cutoffVotes = sortedItems[4].votes;
+    return sortedItems.filter(item => item.votes >= cutoffVotes);
+}
+
 export function createTopCharacterItem(templates, item, index, topFiveData) {
     const row = templates.topCharacterItem.content.cloneNode(true).firstElementChild;
     const avatar = row.querySelector('.character-avatar');
@@ -23,7 +31,8 @@ export function createTopCharacterItem(templates, item, index, topFiveData) {
         avatar.hidden = true;
     }
 
-    row.querySelector('.rank').textContent = String(index + 1);
+    const rank = topFiveData.findIndex(previous => previous.votes === item.votes) + 1;
+    row.querySelector('.rank').textContent = String(rank);
     name.textContent = item.name;
     const ip = document.createElement('span');
     ip.className = 'ip';
@@ -32,7 +41,8 @@ export function createTopCharacterItem(templates, item, index, topFiveData) {
     row.querySelector('.votes').textContent = `${item.votes}票`;
 
     if (index > 0) {
-        const voteDiff = topFiveData[index - 1].votes - item.votes;
+        const previousVotes = topFiveData[index - 1].votes;
+        const voteDiff = previousVotes - item.votes;
         diff.textContent = voteDiff === 0 ? '=0' : `↓${voteDiff}`;
         diff.classList.toggle('tie', voteDiff === 0);
     } else {
@@ -103,7 +113,7 @@ export function createDateContent(event) {
 export function createEventCard(templates, match, event, nextEventStartTime, rankingData) {
     const card = templates.eventCard.content.cloneNode(true).querySelector('.event-card');
     const status = getEventStatus(event, nextEventStartTime);
-    const topFiveData = rankingData?.[match.title]?.top5;
+    const topFiveData = getTopCharacters(rankingData?.[match.title]?.top5);
     const body = templates.eventCardBody.content.cloneNode(true).firstElementChild;
     const header = body.querySelector('.event-header');
     const info = body.querySelector('.event-info');

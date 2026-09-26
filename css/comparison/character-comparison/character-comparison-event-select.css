@@ -63,7 +63,8 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-    max-height: 300px;
+    max-height: 360px;
+    overflow-y: auto;
 }
 
 .option {

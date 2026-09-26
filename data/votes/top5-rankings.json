@@ -142,5 +142,57 @@
                 "votes": 1405
             }
         ]
+    },
+    "预选赛第三轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF028",
+                "votes": 892
+            },
+            {
+                "participantId": "SF026",
+                "votes": 856
+            },
+            {
+                "participantId": "SF024",
+                "votes": 835
+            },
+            {
+                "participantId": "SF101",
+                "votes": 757
+            },
+            {
+                "participantId": "SF098",
+                "votes": 751
+            },
+            {
+                "participantId": "SF031",
+                "votes": 751
+            }
+        ]
+    },
+    "预选赛第三轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM022",
+                "votes": 859
+            },
+            {
+                "participantId": "SM017",
+                "votes": 702
+            },
+            {
+                "participantId": "SM088",
+                "votes": 658
+            },
+            {
+                "participantId": "SM084",
+                "votes": 517
+            },
+            {
+                "participantId": "SM025",
+                "votes": 493
+            }
+        ]
     }
 }
