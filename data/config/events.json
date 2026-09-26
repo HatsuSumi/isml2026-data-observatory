@@ -220,6 +220,56 @@
                 },
                 {
                     "dateRange": {
+                        "start": "2026-08-07 20:00:00",
+                        "end": "2026-08-08 19:59:59"
+                    },
+                    "stats": {
+                        "votes": {
+                            "total": 45630
+                        }
+                    },
+                    "matches": [
+                        {
+                            "title": "预选赛第四轮-女性组别",
+                            "id": "preliminaries/stellar/female/r04",
+                            "phase": "预选赛第四轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前8名参赛者晋级至小组赛，其余参赛者进入第5轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r04-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r04-stellar-female",
+                                "data": "data/preliminaries/stellar/female/17-preliminary-r04-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r04.female"
+                            }
+                        },
+                        {
+                            "title": "预选赛第四轮-男性组别",
+                            "id": "preliminaries/stellar/male/r04",
+                            "phase": "预选赛第四轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前8名参赛者晋级至小组赛，其余参赛者进入第5轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r04-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r04-stellar-male",
+                                "data": "data/preliminaries/stellar/male/18-preliminary-r04-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r04.male"
+                            }
+                        }
+                    ],
+                    "details": {
+                        "format": "有限投票制(各组可投票上限: 8)"
+                    }
+                },
+                {
+                    "dateRange": {
                         "start": "2026-08-30 20:00:00",
                         "end": "2026-09-05 19:59:59"
                     },

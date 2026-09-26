@@ -194,5 +194,53 @@
                 "votes": 493
             }
         ]
+    },
+    "预选赛第四轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF097",
+                "votes": 1089
+            },
+            {
+                "participantId": "SF095",
+                "votes": 926
+            },
+            {
+                "participantId": "SF025",
+                "votes": 894
+            },
+            {
+                "participantId": "SF096",
+                "votes": 836
+            },
+            {
+                "participantId": "SF126",
+                "votes": 821
+            }
+        ]
+    },
+    "预选赛第四轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM018",
+                "votes": 677
+            },
+            {
+                "participantId": "SM021",
+                "votes": 611
+            },
+            {
+                "participantId": "SM090",
+                "votes": 576
+            },
+            {
+                "participantId": "SM082",
+                "votes": 555
+            },
+            {
+                "participantId": "SM092",
+                "votes": 535
+            }
+        ]
     }
 }
