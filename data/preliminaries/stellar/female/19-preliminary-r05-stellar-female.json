@@ -3,388 +3,532 @@
     "event": "预选赛第五轮-恒星组女性组别",
     "data": [
         {
-            "participantId": "SF036",
             "group": "女子1组",
             "rank": 1,
-            "global_rank": 2,
+            "name": "小鞠知花",
+            "ip": "败犬女主太多了！",
             "votes": 706,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "寺泽百花",
+            "avatar": "https://pic1.imgdb.cn/item/69f329bff97149b1cf36fde7.png",
+            "global_rank": 2
         },
         {
-            "participantId": "SF122",
             "group": "女子1组",
             "rank": 2,
-            "global_rank": 4,
+            "name": "中野四叶",
+            "ip": "五等分的新娘",
             "votes": 653,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "佐仓绫音",
+            "avatar": "",
+            "global_rank": 4
         },
         {
-            "participantId": "SF115",
             "group": "女子1组",
             "rank": 3,
-            "global_rank": 5,
+            "name": "北白川玉子",
+            "ip": "玉子市场",
             "votes": 542,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "洲崎绫",
+            "avatar": "https://pic1.imgdb.cn/item/67396817d29ded1a8c4afe96.png",
+            "global_rank": 5
         },
         {
-            "participantId": "SF107",
             "group": "女子1组",
             "rank": 4,
-            "global_rank": 6,
+            "name": "艾莉丝·伯雷亚斯·格雷拉特",
+            "ip": "无职转生",
             "votes": 530,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "加隈亚衣",
+            "avatar": "https://pic1.imgdb.cn/item/67413890d29ded1a8c81b570.png",
+            "global_rank": 6
         },
         {
-            "participantId": "SF124",
             "group": "女子1组",
             "rank": 5,
-            "global_rank": 7,
+            "name": "春日野穹",
+            "ip": "缘之空",
             "votes": 501,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "田口宏子",
+            "avatar": "https://pic1.imgdb.cn/item/673aa700d29ded1a8c30cdf0.png",
+            "global_rank": 7
         },
         {
-            "participantId": "SF027",
             "group": "女子1组",
             "rank": 6,
-            "global_rank": 10,
+            "name": "白井黑子",
+            "ip": "魔法禁书目录",
             "votes": 466,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "新井里美",
+            "avatar": "https://pic1.imgdb.cn/item/6736eaa2d29ded1a8c5a7413.png",
+            "global_rank": 10
         },
         {
-            "participantId": "SF119",
             "group": "女子1组",
             "rank": 7,
-            "global_rank": 14,
+            "name": "高木",
+            "ip": "擅长捉弄的高木同学",
             "votes": 370,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "高桥李依",
+            "avatar": "https://pic1.imgdb.cn/item/67411d35d29ded1a8c6a5568.png",
+            "global_rank": 14
         },
         {
-            "participantId": "SF143",
             "group": "女子1组",
             "rank": 8,
-            "global_rank": 17,
+            "name": "牧濑红莉栖",
+            "ip": "命运石之门",
             "votes": 359,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "今井麻美",
+            "avatar": "https://pic1.imgdb.cn/item/67395e28d29ded1a8c43f6d9.png",
+            "global_rank": 17
         },
         {
-            "participantId": "SF142",
             "group": "女子1组",
             "rank": 9,
-            "global_rank": 19,
+            "name": "东海帝王",
+            "ip": "赛马娘 Pretty Derby",
             "votes": 333,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "Machico",
+            "avatar": "https://pic1.imgdb.cn/item/67419ca3d29ded1a8ce4ecc8.png",
+            "global_rank": 19
         },
         {
-            "participantId": "SF139",
             "group": "女子1组",
             "rank": 10,
-            "global_rank": 22,
+            "name": "河原木桃香",
+            "ip": "少女乐队的呐喊",
             "votes": 311,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "夕莉",
+            "avatar": "",
+            "global_rank": 22
         },
         {
-            "participantId": "SF109",
             "group": "女子1组",
             "rank": 11,
-            "global_rank": 24,
+            "name": "丹生谷森夏",
+            "ip": "中二病也要谈恋爱",
             "votes": 299,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "赤崎千夏",
+            "avatar": "https://pic1.imgdb.cn/item/69f2d8ebf97149b1cf360ad4.png",
+            "global_rank": 24
         },
         {
-            "participantId": "SF053",
             "group": "女子1组",
             "rank": 12,
-            "global_rank": 28,
+            "name": "托尔",
+            "ip": "小林家的龙女仆",
             "votes": 250,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "桑原由气",
+            "avatar": "https://pic1.imgdb.cn/item/6785dc2ed0e0a243d4f412fc.png",
+            "global_rank": 28
         },
         {
-            "participantId": "SF060",
             "group": "女子1组",
             "rank": 13,
-            "global_rank": 29,
+            "name": "结束祈",
+            "ip": "金牌得主",
             "votes": 250,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 29
         },
         {
-            "participantId": "SF062",
             "group": "女子1组",
             "rank": 14,
-            "global_rank": 30,
+            "name": "甘织玲奈子",
+            "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
             "votes": 247,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 30
         },
         {
-            "participantId": "SF050",
             "group": "女子1组",
             "rank": 15,
-            "global_rank": 32,
+            "name": "宵崎奏",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
             "votes": 229,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "楠木灯",
+            "avatar": "",
+            "global_rank": 32
         },
         {
-            "participantId": "SF070",
             "group": "女子1组",
             "rank": 16,
-            "global_rank": 33,
+            "name": "堀京子",
+            "ip": "堀与宫村",
             "votes": 228,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "户松遥",
+            "avatar": "https://pic1.imgdb.cn/item/677fbcd5d0e0a243d4f2c905.png",
+            "global_rank": 33
         },
         {
-            "participantId": "SF046",
             "group": "女子1组",
             "rank": 17,
-            "global_rank": 35,
+            "name": "柊舞缇娜",
+            "ip": "憧憬成为魔法少女",
             "votes": 218,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "和泉风花",
+            "avatar": "",
+            "global_rank": 35
         },
         {
-            "participantId": "SF052",
             "group": "女子1组",
             "rank": 18,
-            "global_rank": 36,
+            "name": "古贺朋绘",
+            "ip": "青春猪头少年系列",
             "votes": 217,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "东山奈央",
+            "avatar": "",
+            "global_rank": 36
         },
         {
-            "participantId": "SF057",
             "group": "女子1组",
             "rank": 19,
-            "global_rank": 38,
+            "name": "小栗帽",
+            "ip": "赛马娘 Pretty Derby",
             "votes": 188,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "高柳知叶",
+            "avatar": "",
+            "global_rank": 38
         },
         {
-            "participantId": "SF078",
             "group": "女子1组",
             "rank": 20,
-            "global_rank": 39,
+            "name": "山田杏奈",
+            "ip": "我心里危险的东西",
             "votes": 174,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "羊宫妃那",
+            "avatar": "",
+            "global_rank": 39
         },
         {
-            "participantId": "SF081",
             "group": "女子1组",
             "rank": 21,
-            "global_rank": 41,
+            "name": "赛丽艾",
+            "ip": "葬送的芙莉莲",
             "votes": 130,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "伊濑茉莉也",
+            "avatar": "",
+            "global_rank": 41
         },
         {
-            "participantId": "SF061",
             "group": "女子1组",
             "rank": 22,
-            "global_rank": 42,
+            "name": "柊夕湖",
+            "ip": "弹珠汽水瓶里的千岁同学",
             "votes": 87,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 42
         },
         {
-            "participantId": "SF080",
             "group": "女子1组",
             "rank": 23,
-            "global_rank": 47,
+            "name": "白鸟爱罗",
+            "ip": "胆大党",
             "votes": 59,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "佐仓绫音",
+            "avatar": "",
+            "global_rank": 47
         },
         {
-            "participantId": "SF086",
             "group": "女子1组",
             "rank": 24,
-            "global_rank": 48,
+            "name": "绫濑星子",
+            "ip": "胆大党",
             "votes": 42,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "水树奈奈",
+            "avatar": "",
+            "global_rank": 48
         },
         {
-            "participantId": "SF049",
             "group": "女子2组",
             "rank": 1,
-            "global_rank": 1,
+            "name": "和栗薰子",
+            "ip": "薰香花朵凛然绽放",
             "votes": 729,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "井上穗乃花",
+            "avatar": "",
+            "global_rank": 1
         },
         {
-            "participantId": "SF116",
             "group": "女子2组",
             "rank": 2,
-            "global_rank": 3,
+            "name": "中野五月",
+            "ip": "五等分的新娘",
             "votes": 694,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "水濑祈",
+            "avatar": "https://pic1.imgdb.cn/item/677fbcc8d0e0a243d4f2c900.png",
+            "global_rank": 3
         },
         {
-            "participantId": "SF108",
             "group": "女子2组",
             "rank": 3,
-            "global_rank": 8,
+            "name": "希露菲叶特·格雷拉特",
+            "ip": "无职转生",
             "votes": 492,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "茅野爱衣",
+            "avatar": "",
+            "global_rank": 8
         },
         {
-            "participantId": "SF123",
             "group": "女子2组",
             "rank": 4,
-            "global_rank": 9,
+            "name": "伊地知星歌",
+            "ip": "孤独摇滚！",
             "votes": 472,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "内田真礼",
+            "avatar": "",
+            "global_rank": 9
         },
         {
-            "participantId": "SF033",
             "group": "女子2组",
             "rank": 5,
-            "global_rank": 11,
+            "name": "井芹仁菜",
+            "ip": "少女乐队的呐喊",
             "votes": 424,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "理名",
+            "avatar": "",
+            "global_rank": 11
         },
         {
-            "participantId": "SF032",
             "group": "女子2组",
             "rank": 6,
-            "global_rank": 12,
+            "name": "要乐奈",
+            "ip": "BanG Dream!",
             "votes": 413,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "青木阳菜",
+            "avatar": "https://pic1.imgdb.cn/item/6785dc5bd0e0a243d4f41319.png",
+            "global_rank": 12
         },
         {
-            "participantId": "SF131",
             "group": "女子2组",
             "rank": 7,
-            "global_rank": 13,
+            "name": "晓美焰",
+            "ip": "魔法少女小圆",
             "votes": 413,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "斋藤千和",
+            "avatar": "https://pic1.imgdb.cn/item/674086b0d29ded1a8c07b0d0.png",
+            "global_rank": 13
         },
         {
-            "participantId": "SF039",
             "group": "女子2组",
             "rank": 8,
-            "global_rank": 15,
+            "name": "周防有希",
+            "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
             "votes": 369,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "丸冈和佳奈",
+            "avatar": "",
+            "global_rank": 15
         },
         {
-            "participantId": "SF135",
             "group": "女子2组",
             "rank": 9,
-            "global_rank": 16,
+            "name": "和泉纱雾",
+            "ip": "埃罗芒阿老师",
             "votes": 361,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "藤田茜",
+            "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png",
+            "global_rank": 16
         },
         {
-            "participantId": "SF030",
             "group": "女子2组",
             "rank": 10,
-            "global_rank": 18,
+            "name": "结城明日奈",
+            "ip": "刀剑神域",
             "votes": 334,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "户松遥",
+            "avatar": "https://pic1.imgdb.cn/item/6739616cd29ded1a8c4679d2.png",
+            "global_rank": 18
         },
         {
-            "participantId": "SF043",
             "group": "女子2组",
             "rank": 11,
-            "global_rank": 20,
+            "name": "唐可可",
+            "ip": "LoveLive!系列",
             "votes": 325,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "Liyuu",
+            "avatar": "",
+            "global_rank": 20
         },
         {
-            "participantId": "SF138",
             "group": "女子2组",
             "rank": 12,
-            "global_rank": 21,
+            "name": "凉宫春日",
+            "ip": "凉宫春日的忧郁",
             "votes": 322,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "平野绫",
+            "avatar": "https://pic1.imgdb.cn/item/67418d25d29ded1a8cd84d64.png",
+            "global_rank": 21
         },
         {
-            "participantId": "SF137",
             "group": "女子2组",
             "rank": 13,
-            "global_rank": 23,
+            "name": "天野阳菜",
+            "ip": "天气之子",
             "votes": 311,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "森七菜",
+            "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png",
+            "global_rank": 23
         },
         {
-            "participantId": "SF045",
             "group": "女子2组",
             "rank": 14,
-            "global_rank": 25,
+            "name": "阿尼亚·福杰",
+            "ip": "间谍过家家",
             "votes": 294,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "种崎敦美",
+            "avatar": "https://pic1.imgdb.cn/item/677fba37d0e0a243d4f2c800.png",
+            "global_rank": 25
         },
         {
-            "participantId": "SF044",
             "group": "女子2组",
             "rank": 15,
-            "global_rank": 26,
+            "name": "艾莉莎·米哈伊罗夫纳·九条",
+            "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
             "votes": 286,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "上坂堇",
+            "avatar": "",
+            "global_rank": 26
         },
         {
-            "participantId": "SF056",
             "group": "女子2组",
             "rank": 16,
-            "global_rank": 27,
+            "name": "优木雪菜",
+            "ip": "LoveLive!系列",
             "votes": 251,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "林鼓子",
+            "avatar": "",
+            "global_rank": 27
         },
         {
-            "participantId": "SF113",
             "group": "女子2组",
             "rank": 17,
-            "global_rank": 31,
+            "name": "凸守早苗",
+            "ip": "中二病也要谈恋爱",
             "votes": 237,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "上坂堇",
+            "avatar": "https://pic1.imgdb.cn/item/69f2d93af97149b1cf360b0d.png",
+            "global_rank": 31
         },
         {
-            "participantId": "SF079",
             "group": "女子2组",
             "rank": 18,
-            "global_rank": 34,
+            "name": "烧盐柠檬",
+            "ip": "败犬女主太多了！",
             "votes": 226,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "若山诗音",
+            "avatar": "",
+            "global_rank": 34
         },
         {
-            "participantId": "SF058",
             "group": "女子2组",
             "rank": 19,
-            "global_rank": 37,
+            "name": "甘织遥奈",
+            "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
             "votes": 198,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 37
         },
         {
-            "participantId": "SF085",
             "group": "女子2组",
             "rank": 20,
-            "global_rank": 40,
+            "name": "恩奇都",
+            "ip": "Fate系列",
             "votes": 149,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "高桥伸也",
+            "avatar": "",
+            "global_rank": 40
         },
         {
-            "participantId": "SF073",
             "group": "女子2组",
             "rank": 21,
-            "global_rank": 43,
+            "name": "夏目玲子",
+            "ip": "夏目友人帐",
             "votes": 73,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "小林沙苗",
+            "avatar": "",
+            "global_rank": 43
         },
         {
-            "participantId": "SF071",
             "group": "女子2组",
             "rank": 22,
-            "global_rank": 44,
+            "name": "鹿野千夏",
+            "ip": "青之箱",
             "votes": 65,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "上田丽奈",
+            "avatar": "",
+            "global_rank": 44
         },
         {
-            "participantId": "SF087",
             "group": "女子2组",
             "rank": 23,
-            "global_rank": 45,
+            "name": "紫云寺讴华",
+            "ip": "紫云寺家的兄弟姐妹",
             "votes": 63,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "高桥李依",
+            "avatar": "",
+            "global_rank": 45
         },
         {
-            "participantId": "SF074",
             "group": "女子2组",
             "rank": 24,
-            "global_rank": 46,
+            "name": "蝶野雏",
+            "ip": "青之箱",
             "votes": 60,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "鬼头明里",
+            "avatar": "",
+            "global_rank": 46
         }
     ]
 }

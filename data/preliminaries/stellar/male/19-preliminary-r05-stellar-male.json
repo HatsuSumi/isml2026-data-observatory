@@ -3,396 +3,543 @@
     "event": "预选赛第五轮-恒星组男性组别",
     "data": [
         {
-            "participantId": "SM035",
             "group": "男子1组",
             "rank": 1,
-            "global_rank": 1,
+            "name": "旗木卡卡西",
+            "ip": "火影忍者",
             "votes": 441,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "井上和彦",
+            "avatar": "",
+            "global_rank": 1
         },
         {
-            "participantId": "SM042",
             "group": "男子1组",
             "rank": 2,
-            "global_rank": 4,
+            "name": "太宰治",
+            "ip": "文豪野犬",
             "votes": 368,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "宫野真守",
+            "avatar": "",
+            "global_rank": 4
         },
         {
-            "participantId": "SM026",
             "group": "男子1组",
             "rank": 3,
-            "global_rank": 6,
+            "name": "休塔尔克",
+            "ip": "葬送的芙莉莲",
             "votes": 363,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "小林千晃",
+            "avatar": "",
+            "global_rank": 6
         },
         {
-            "participantId": "SM102",
             "group": "男子1组",
             "rank": 4,
-            "global_rank": 8,
+            "name": "有马公生",
+            "ip": "四月是你的谎言",
             "votes": 353,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "花江夏树",
+            "avatar": "",
+            "global_rank": 8
         },
         {
-            "participantId": "SM045",
             "group": "男子1组",
             "rank": 5,
-            "global_rank": 10,
+            "name": "始皇帝",
+            "ip": "终末的女武神",
             "votes": 339,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 10
         },
         {
-            "participantId": "SM120",
             "group": "男子1组",
             "rank": 6,
-            "global_rank": 11,
+            "name": "辛耶·诺赞",
+            "ip": "86-不存在的战区-",
             "votes": 319,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 11
         },
         {
-            "participantId": "SM041",
             "group": "男子1组",
             "rank": 7,
-            "global_rank": 13,
+            "name": "蒙奇·D·路飞",
+            "ip": "海贼王",
             "votes": 302,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "田中真弓",
+            "avatar": "",
+            "global_rank": 13
         },
         {
-            "participantId": "SM115",
             "group": "男子1组",
             "rank": 8,
-            "global_rank": 15,
+            "name": "金木研",
+            "ip": "东京食尸鬼",
             "votes": 298,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "花江夏树",
+            "avatar": "",
+            "global_rank": 15
         },
         {
-            "participantId": "SM126",
             "group": "男子1组",
             "rank": 9,
-            "global_rank": 16,
+            "name": "江户川柯南",
+            "ip": "名侦探柯南",
             "votes": 293,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "高山南",
+            "avatar": "",
+            "global_rank": 16
         },
         {
-            "participantId": "SM135",
             "group": "男子1组",
             "rank": 10,
-            "global_rank": 17,
+            "name": "黑羽快斗",
+            "ip": "魔术快斗",
             "votes": 285,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "山口胜平",
+            "avatar": "",
+            "global_rank": 17
         },
         {
-            "participantId": "SM083",
             "group": "男子1组",
             "rank": 11,
-            "global_rank": 18,
+            "name": "福部里志",
+            "ip": "冰菓",
             "votes": 282,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "阪口大助",
+            "avatar": "",
+            "global_rank": 18
         },
         {
-            "participantId": "SM039",
             "group": "男子1组",
             "rank": 12,
-            "global_rank": 19,
+            "name": "星野爱久爱海",
+            "ip": "【我推的孩子】",
             "votes": 281,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "大冢刚央",
+            "avatar": "",
+            "global_rank": 19
         },
         {
-            "participantId": "SM105",
             "group": "男子1组",
             "rank": 13,
-            "global_rank": 28,
+            "name": "宇佐美翔平",
+            "ip": "薰香花朵凛然绽放",
             "votes": 221,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 28
         },
         {
-            "participantId": "SM066",
             "group": "男子1组",
             "rank": 14,
-            "global_rank": 29,
+            "name": "黑崎一护",
+            "ip": "BLEACH",
             "votes": 217,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "森田成一",
+            "avatar": "",
+            "global_rank": 29
         },
         {
-            "participantId": "SM145",
             "group": "男子1组",
             "rank": 15,
-            "global_rank": 30,
+            "name": "伊藤诚",
+            "ip": "School Days",
             "votes": 213,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "平川大辅",
+            "avatar": "",
+            "global_rank": 30
         },
         {
-            "participantId": "SM053",
             "group": "男子1组",
             "rank": 16,
-            "global_rank": 31,
+            "name": "KING",
+            "ip": "一拳超人",
             "votes": 198,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 31
         },
         {
-            "participantId": "SM123",
             "group": "男子1组",
             "rank": 17,
-            "global_rank": 33,
+            "name": "夜斗",
+            "ip": "野良神",
             "votes": 185,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "神谷浩史",
+            "avatar": "",
+            "global_rank": 33
         },
         {
-            "participantId": "SM128",
             "group": "男子1组",
             "rank": 18,
-            "global_rank": 34,
+            "name": "李小狼",
+            "ip": "魔卡少女樱",
             "votes": 168,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "熊井统子",
+            "avatar": "",
+            "global_rank": 34
         },
         {
-            "participantId": "SM048",
             "group": "男子1组",
             "rank": 19,
-            "global_rank": 37,
+            "name": "天马司",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
             "votes": 151,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 37
         },
         {
-            "participantId": "SM051",
             "group": "男子1组",
             "rank": 20,
-            "global_rank": 40,
+            "name": "千岁朔",
+            "ip": "弹珠汽水瓶里的千岁同学",
             "votes": 137,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 40
         },
         {
-            "participantId": "SM078",
             "group": "男子1组",
             "rank": 21,
-            "global_rank": 42,
+            "name": "名取周一",
+            "ip": "夏目友人帐",
             "votes": 103,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "石田彰",
+            "avatar": "",
+            "global_rank": 42
         },
         {
-            "participantId": "SM052",
             "group": "男子1组",
             "rank": 22,
-            "global_rank": 43,
+            "name": "来堂章太",
+            "ip": "测不准的阿波连同学",
             "votes": 100,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 43
         },
         {
-            "participantId": "SM144",
             "group": "男子1组",
             "rank": 23,
-            "global_rank": 45,
+            "name": "枣恭介",
+            "ip": "Little Busters!",
             "votes": 82,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "绿川光",
+            "avatar": "",
+            "global_rank": 45
         },
         {
-            "participantId": "SM057",
             "group": "男子1组",
             "rank": 24,
-            "global_rank": 47,
+            "name": "乙木守仁",
+            "ip": "魔女与使魔",
             "votes": 66,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 47
         },
         {
-            "participantId": "SM080",
             "group": "男子1组",
             "rank": 25,
-            "global_rank": 49,
+            "name": "基洛斯·格拉纳多",
+            "ip": "破烂千金被姐姐的原婚约者溺爱着",
             "votes": 32,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 49
         },
         {
-            "participantId": "SM023",
             "group": "男子2组",
             "rank": 1,
-            "global_rank": 2,
+            "name": "大路饼藏",
+            "ip": "玉子市场",
             "votes": 429,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "田丸笃志",
+            "avatar": "",
+            "global_rank": 2
         },
         {
-            "participantId": "SM100",
             "group": "男子2组",
             "rank": 2,
-            "global_rank": 3,
+            "name": "宇智波鼬",
+            "ip": "火影忍者",
             "votes": 426,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "石川英郎",
+            "avatar": "",
+            "global_rank": 3
         },
         {
-            "participantId": "SM114",
             "group": "男子2组",
             "rank": 3,
-            "global_rank": 5,
+            "name": "户冢彩加",
+            "ip": "我的青春恋爱物语果然有问题。",
             "votes": 365,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "小松未可子",
+            "avatar": "",
+            "global_rank": 5
         },
         {
-            "participantId": "SM136",
             "group": "男子2组",
             "rank": 4,
-            "global_rank": 7,
+            "name": "杀老师",
+            "ip": "暗杀教室",
             "votes": 361,
-            "is_advanced": true
+            "is_advanced": true,
+            "cv": "福山润",
+            "avatar": "",
+            "global_rank": 7
         },
         {
-            "participantId": "SM031",
             "group": "男子2组",
             "rank": 5,
-            "global_rank": 9,
+            "name": "宫村伊澄",
+            "ip": "堀与宫村",
             "votes": 345,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "内山昂辉",
+            "avatar": "",
+            "global_rank": 9
         },
         {
-            "participantId": "SM097",
             "group": "男子2组",
             "rank": 6,
-            "global_rank": 12,
+            "name": "绫小路清隆",
+            "ip": "欢迎来到实力至上主义的教室",
             "votes": 310,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "千叶翔也",
+            "avatar": "",
+            "global_rank": 12
         },
         {
-            "participantId": "SM122",
             "group": "男子2组",
             "rank": 7,
-            "global_rank": 14,
+            "name": "神田空太",
+            "ip": "樱花庄的宠物女孩",
             "votes": 300,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "松冈祯丞",
+            "avatar": "",
+            "global_rank": 14
         },
         {
-            "participantId": "SM043",
             "group": "男子2组",
             "rank": 8,
-            "global_rank": 20,
+            "name": "镜音连",
+            "ip": "世界计划 缤纷舞台！ feat. 初音未来",
             "votes": 278,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 20
         },
         {
-            "participantId": "SM125",
             "group": "男子2组",
             "rank": 9,
-            "global_rank": 21,
+            "name": "宇智波带土",
+            "ip": "火影忍者",
             "votes": 275,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "潘惠美",
+            "avatar": "",
+            "global_rank": 21
         },
         {
-            "participantId": "SM140",
             "group": "男子2组",
             "rank": 10,
-            "global_rank": 22,
+            "name": "炼狱杏寿郎",
+            "ip": "鬼灭之刃",
             "votes": 275,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "日野聪",
+            "avatar": "",
+            "global_rank": 22
         },
         {
-            "participantId": "SM038",
             "group": "男子2组",
             "rank": 11,
-            "global_rank": 23,
+            "name": "高须龙儿",
+            "ip": "龙与虎",
             "votes": 272,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "间岛淳司",
+            "avatar": "",
+            "global_rank": 23
         },
         {
-            "participantId": "SM044",
             "group": "男子2组",
             "rank": 12,
-            "global_rank": 24,
+            "name": "夏泽朔",
+            "ip": "薰香花朵凛然绽放",
             "votes": 272,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 24
         },
         {
-            "participantId": "SM118",
             "group": "男子2组",
             "rank": 13,
-            "global_rank": 25,
+            "name": "电次",
+            "ip": "电锯人",
             "votes": 258,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "户谷菊之介",
+            "avatar": "",
+            "global_rank": 25
         },
         {
-            "participantId": "SM127",
             "group": "男子2组",
             "rank": 14,
-            "global_rank": 26,
+            "name": "木下秀吉",
+            "ip": "笨蛋、测验、召唤兽",
             "votes": 227,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "加藤英美里",
+            "avatar": "",
+            "global_rank": 26
         },
         {
-            "participantId": "SM047",
             "group": "男子2组",
             "rank": 15,
-            "global_rank": 27,
+            "name": "野原广志",
+            "ip": "蜡笔小新",
             "votes": 222,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "",
+            "avatar": "",
+            "global_rank": 27
         },
         {
-            "participantId": "SM131",
             "group": "男子2组",
             "rank": 16,
-            "global_rank": 32,
+            "name": "我妻善逸",
+            "ip": "鬼灭之刃",
             "votes": 190,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "下野纮",
+            "avatar": "",
+            "global_rank": 32
         },
         {
-            "participantId": "SM061",
             "group": "男子2组",
             "rank": 17,
-            "global_rank": 35,
+            "name": "奇犽·揍敌客",
+            "ip": "HUNTER×HUNTER",
             "votes": 167,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "伊濑茉莉也",
+            "avatar": "",
+            "global_rank": 35
         },
         {
-            "participantId": "SM069",
             "group": "男子2组",
             "rank": 18,
-            "global_rank": 36,
+            "name": "绯村剑心",
+            "ip": "浪客剑心",
             "votes": 162,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "齐藤壮马",
+            "avatar": "",
+            "global_rank": 36
         },
         {
-            "participantId": "SM143",
             "group": "男子2组",
             "rank": 19,
-            "global_rank": 38,
+            "name": "一条乐",
+            "ip": "伪恋",
             "votes": 143,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "内山昂辉",
+            "avatar": "",
+            "global_rank": 38
         },
         {
-            "participantId": "SM073",
             "group": "男子2组",
             "rank": 20,
-            "global_rank": 39,
+            "name": "壬氏",
+            "ip": "药屋少女的呢喃",
             "votes": 142,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "樱井孝宏",
+            "avatar": "",
+            "global_rank": 39
         },
         {
-            "participantId": "SM065",
             "group": "男子2组",
             "rank": 21,
-            "global_rank": 41,
+            "name": "高仓健",
+            "ip": "胆大党",
             "votes": 128,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "花江夏树",
+            "avatar": "",
+            "global_rank": 41
         },
         {
-            "participantId": "SM060",
             "group": "男子2组",
             "rank": 22,
-            "global_rank": 44,
+            "name": "克拉福·罗伦斯",
+            "ip": "狼与香辛料",
             "votes": 84,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "福山润",
+            "avatar": "",
+            "global_rank": 44
         },
         {
-            "participantId": "SM076",
             "group": "男子2组",
             "rank": 23,
-            "global_rank": 46,
+            "name": "的场静司",
+            "ip": "夏目友人帐",
             "votes": 71,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "诹访部顺一",
+            "avatar": "",
+            "global_rank": 46
         },
         {
-            "participantId": "SM074",
             "group": "男子2组",
             "rank": 24,
-            "global_rank": 48,
+            "name": "姚麟",
+            "ip": "钢之炼金术师",
             "votes": 56,
-            "is_advanced": false
+            "is_advanced": false,
+            "cv": "宫野真守",
+            "avatar": "",
+            "global_rank": 48
         }
     ]
 }
