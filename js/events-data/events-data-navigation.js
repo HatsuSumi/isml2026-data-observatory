@@ -7,7 +7,7 @@ export function getPhaseTargetId(phaseName) {
 }
 
 export function getRoundNumber(title) {
-    const round = title.match(/第([一二三四五六七八九])轮/)?.[1];
+    const round = title.match(/第([一二三四五六七八九十])轮/)?.[1];
     return round ? CHINESE_ROUND_NUMBERS[round] : null;
 }
 
@@ -144,5 +144,6 @@ export function bindNavigationEvents(nav, { getDocumentTop, scrollTo, onNavigate
 }
 
 function toChineseNumber(num) {
-    return ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'][num];
+    if (num === 10) return '十';
+    return ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'][num];
 }

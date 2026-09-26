@@ -30,7 +30,10 @@ export const NAVIGATION_GROUPS = [
     { target: 'phase-2', label: '第二阶段', roundPrefix: 'phase-2-', roundLabel: '第', rounds: 6 },
     { target: 'phase-3', label: '第三阶段', roundPrefix: 'phase-3-', roundLabel: '第', rounds: 6 },
     { target: 'phase-4', label: '第四阶段', roundPrefix: 'phase-4-', roundLabel: '第', rounds: 6 },
-    { target: 'knockout', label: '淘汰赛阶段', roundPrefix: 'knockout-', roundLabel: '第', rounds: 9 }
+    { target: 'phase-5', label: '第五阶段', roundPrefix: 'phase-5-', roundLabel: '第', rounds: 6 },
+    { target: 'phase-6', label: '第六阶段', roundPrefix: 'phase-6-', roundLabel: '第', rounds: 6 },
+    { target: 'phase-7', label: '第七阶段', roundPrefix: 'phase-7-', roundLabel: '第', rounds: 6 },
+    { target: 'knockout', label: '淘汰赛阶段', roundPrefix: 'knockout-', roundLabel: '第', rounds: 10 }
 ];
 
 export const TITLE_MAPPING = {
@@ -51,10 +54,13 @@ export const PHASE_NAME_TARGETS = {
     '第二阶段': 'phase-2',
     '第三阶段': 'phase-3',
     '第四阶段': 'phase-4',
+    '第五阶段': 'phase-5',
+    '第六阶段': 'phase-6',
+    '第七阶段': 'phase-7',
     '淘汰赛阶段': 'knockout'
 };
 
 export const CHINESE_ROUND_NUMBERS = {
     '一': 1, '二': 2, '三': 3, '四': 4, '五': 5,
-    '六': 6, '七': 7, '八': 8, '九': 9
+    '六': 6, '七': 7, '八': 8, '九': 9, '十': 10
 };
