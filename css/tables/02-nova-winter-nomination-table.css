@@ -1,4 +1,5 @@
-:root {
+html[data-table-id^="03-"],
+html[data-table-id^="04-"] {
     --accent: #A7C7E7;
     --accent-hover: #4a90e2;
     --accent-soft: rgba(167, 199, 231, .1);

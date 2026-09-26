@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../../">
+    <script>
+        const tableId = new URLSearchParams(window.location.search).get('id') || '';
+        document.documentElement.dataset.tableId = tableId;
+    </script>
+    <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/tables/01-stellar-nomination-table.css">
+    <link rel="stylesheet" href="css/tables/02-nova-winter-nomination-table.css">
+    <link rel="stylesheet" href="css/tables/03-nova-spring-nomination-table.css">
+    <link rel="stylesheet" href="css/tables/04-nova-summer-nomination-table.css">
+    <link rel="stylesheet" href="css/tables/05-nova-autumn-nomination-table.css">
     <script type="module">
         import { NOMINATION_TABLE_CONFIGS } from './js/table/nomination-table-config.js';
 
@@ -11,20 +21,20 @@
         const headTableId = headParams.get('id');
         const headTableConfig = headTableId ? NOMINATION_TABLE_CONFIGS[headTableId] : null;
 
-        const baseStyleLink = document.createElement('link');
-        baseStyleLink.rel = 'stylesheet';
-        baseStyleLink.href = 'css/tables/table-base.css';
-        document.head.appendChild(baseStyleLink);
+
+
+
+
 
         if (!headTableConfig) {
             document.title = '提名表格 - ISML 2026 数据观测';
         } else {
             document.title = `${headTableConfig.title} - ISML 2026 数据观测`;
 
-            const styleLink = document.createElement('link');
-            styleLink.rel = 'stylesheet';
-            styleLink.href = `css/tables/${headTableConfig.tableStyle}.css`;
-            document.head.appendChild(styleLink);
+
+
+
+
         }
     </script>
 </head>

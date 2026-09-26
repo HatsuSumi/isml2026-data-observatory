@@ -1,1 +1,21 @@
-:root{--accent:#48cae4;--accent-hover:#90e0ef;--accent-soft:rgba(72,202,228,.1);--accent-row:rgba(72,202,228,.05);--accent-border:rgba(72,202,228,.5);--vote:#caf0f8;--button-light:#caf0f8;--button-dark:#0096c7;--reset-text:#333;--title-start:#48cae4;--title-middle:#90e0ef;--title-end:#caf0f8;--table-start:#222;--table-end:#333;--dropdown-bg:#2a2a2a;--rank:#48cae4;--input-bg:#2a2a2a;--input-text:#fff;}
+html[data-table-id^="07-"],
+html[data-table-id^="08-"] {
+    --accent: #48cae4;
+    --accent-hover: #90e0ef;
+    --accent-soft: rgba(72, 202, 228, .1);
+    --accent-row: rgba(72, 202, 228, .05);
+    --accent-border: rgba(72, 202, 228, .5);
+    --vote: #caf0f8;
+    --button-light: #caf0f8;
+    --button-dark: #0096c7;
+    --reset-text: #333;
+    --title-start: #48cae4;
+    --title-middle: #90e0ef;
+    --title-end: #caf0f8;
+    --table-start: #222;
+    --table-end: #333;
+    --dropdown-bg: #2a2a2a;
+    --rank: #48cae4;
+    --input-bg: #2a2a2a;
+    --input-text: #fff;
+}

@@ -1,4 +1,5 @@
-:root {
+html[data-table-id^="09-"],
+html[data-table-id^="10-"] {
     --page-bg: #1a1a1a;
     --surface: #4d2b1a;
     --surface-deep: #3d2314;

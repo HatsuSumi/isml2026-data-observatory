@@ -128,7 +128,7 @@ async function generateDropdownMenu() {
     dropdown.appendChild(content);
 
     if (pageType === 'table') {
-        document.querySelector('.dropdown')?.after(dropdown);
+        document.querySelector('.button-container')?.append(dropdown);
         return;
     }
 
