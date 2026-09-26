@@ -1,4 +1,3 @@
-import { TITLE_MAPPING } from './events-data-config.js';
 import { getEventStatus, getEventStartDate } from './events-data-status.js';
 import { createDateContent, createEventCard, createStatusInfo } from './events-data-cards.js';
 import { getMatchTargetId, getPhaseTargetId, getRoundNumber } from './events-data-navigation.js';
@@ -90,22 +89,8 @@ function createPhaseSection(templates, phaseName, phase, nextEventStartTime, ran
 
     const groupFragment = document.createDocumentFragment();
     Object.entries(phase.groups).forEach(([groupName, matches]) => {
-        const modifiedMatches = matches.flatMap(eventMatch => {
-            const mapping = TITLE_MAPPING[eventMatch.match.title];
-            if (!mapping) return [eventMatch];
-            return mapping.map(item => ({
-                ...eventMatch,
-                match: {
-                    ...eventMatch.match,
-                    title: item.title,
-                    format: item.format,
-                    details: { ...eventMatch.match.details, qualified: { description: item.description } }
-                }
-            }));
-        });
         groupFragment.appendChild(createGroupSection(
-            templates, TITLE_MAPPING[groupName]?.groupTitle || groupName,
-            modifiedMatches, nextEventStartTime, rankingData
+            templates, groupName, matches, nextEventStartTime, rankingData
         ));
     });
     content.appendChild(groupFragment);

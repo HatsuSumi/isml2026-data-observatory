@@ -36,17 +36,6 @@ export const NAVIGATION_GROUPS = [
     { target: 'knockout', label: '淘汰赛阶段', roundPrefix: 'knockout-', roundLabel: '第', rounds: 10 }
 ];
 
-export const TITLE_MAPPING = {
-    '预选赛第一轮': [
-        { title: '恒星女子组', format: '赞成投票制', description: 'A组' },
-        { title: '恒星男子组', format: '赞成投票制', description: 'A组' }
-    ],
-    '预选赛第二轮': [
-        { title: '恒星女子组', format: '赞成投票制', description: 'B组' },
-        { title: '恒星男子组', format: '赞成投票制', description: 'B组' }
-    ]
-};
-
 export const PHASE_NAME_TARGETS = {
     '主赛事提名阶段': 'nomination',
     '预选赛阶段': 'preliminary',
