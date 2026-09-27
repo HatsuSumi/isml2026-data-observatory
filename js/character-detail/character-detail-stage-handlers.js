@@ -66,7 +66,7 @@ class PreliminariesHandler extends StageHandler {
         }
 
         const gender = characterData.rounds[0].round.includes('女性组别') ? '女性组别' : '男性组别';
-        const roundMatch = round.round.match(/第([一二三四五六])轮/);
+        const roundMatch = round.round.match(/第([一二三四五六七])轮/);
         if (!roundMatch) {
             console.error('无法解析轮次:', round.round);
             return { roundConfig: null, stageConfig: null };
@@ -99,7 +99,7 @@ export class StageHandlerFactory {
     static patterns = [
         { pattern: /恒星组提名/, handler: NominationHandler },
         { pattern: /新星组.*?[春夏秋冬]季赛提名/, handler: NominationHandler },
-        { pattern: /预选赛第[一二三四五六]轮/, handler: PreliminariesHandler }
+        { pattern: /预选赛第[一二三四五六七]轮/, handler: PreliminariesHandler }
     ];
 
     static getHandler(round, { stages, participantId, charactersData }) {
