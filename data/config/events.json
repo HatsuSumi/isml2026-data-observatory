@@ -334,7 +334,7 @@
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r05-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r05-stellar-male",
-                                "data": "data/preliminaries/stellar/male/19-preliminary-r05-stellar-male.json",
+                                "data": "data/preliminaries/stellar/male/20-preliminary-r05-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r05.male"
                             }
