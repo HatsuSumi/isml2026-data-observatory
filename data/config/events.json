@@ -402,14 +402,52 @@
                         "start": "2026-08-17 20:00:00",
                         "end": "2026-08-18 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 1954
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "预选赛第七轮",
-                            "phase": "预选赛阶段"
+                            "title": "预选赛第七轮-女性组别",
+                            "id": "preliminaries/stellar/female/r07",
+                            "phase": "预选赛第七轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前8名参赛者晋级至小组赛 其余参赛者进入第5轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r07-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r07-stellar-female",
+                                "data": "data/preliminaries/stellar/female/23-preliminary-r07-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r07.female"
+                            }
+                        },
+                        {
+                            "title": "预选赛第七轮-男性组别",
+                            "id": "preliminaries/stellar/male/r07",
+                            "phase": "预选赛第七轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "各小组前8名参赛者晋级至小组赛 其余参赛者进入第5轮"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r07-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r07-stellar-male",
+                                "data": "data/preliminaries/stellar/male/24-preliminary-r07-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r07.male"
+                            }
                         }
                     ],
                     "details": {
-                        "format": "赞成投票制"
+                        "format": "有限投票制(各组可投票上限: 8)",
+                        "qualified": {
+                            "description": "各小组前8名参赛者晋级至小组赛 其余参赛者进入第5轮"
+                        }
                     }
                 },
                 {

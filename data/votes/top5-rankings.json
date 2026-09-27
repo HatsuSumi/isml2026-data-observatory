@@ -338,5 +338,53 @@
                 "votes": 512
             }
         ]
+    },
+    "预选赛第七轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF030",
+                "votes": 552
+            },
+            {
+                "participantId": "SF111",
+                "votes": 528
+            },
+            {
+                "participantId": "SF120",
+                "votes": 502
+            },
+            {
+                "participantId": "SF114",
+                "votes": 491
+            },
+            {
+                "participantId": "SF124",
+                "votes": 465
+            }
+        ]
+    },
+    "预选赛第七轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM086",
+                "votes": 418
+            },
+            {
+                "participantId": "SM087",
+                "votes": 384
+            },
+            {
+                "participantId": "SM091",
+                "votes": 346
+            },
+            {
+                "participantId": "SM099",
+                "votes": 342
+            },
+            {
+                "participantId": "SM133",
+                "votes": 303
+            }
+        ]
     }
 }

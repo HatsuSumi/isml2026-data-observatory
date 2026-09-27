@@ -1,0 +1,646 @@
+{
+    "date": "2026-08-17 - 2026-08-18",
+    "event": "预选赛第七轮-恒星组女性组别",
+    "data": [
+        {
+            "participantId": "SF120",
+            "group": "女子1组",
+            "rank": 1,
+            "global_rank": 3,
+            "votes": 502,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF124",
+            "group": "女子1组",
+            "rank": 2,
+            "global_rank": 5,
+            "votes": 465,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF033",
+            "group": "女子1组",
+            "rank": 3,
+            "global_rank": 7,
+            "votes": 428,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF119",
+            "group": "女子1组",
+            "rank": 4,
+            "global_rank": 10,
+            "votes": 383,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF104",
+            "group": "女子1组",
+            "rank": 5,
+            "global_rank": 12,
+            "votes": 366,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF131",
+            "group": "女子1组",
+            "rank": 6,
+            "global_rank": 13,
+            "votes": 358,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF040",
+            "group": "女子1组",
+            "rank": 7,
+            "global_rank": 15,
+            "votes": 349,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF112",
+            "group": "女子1组",
+            "rank": 8,
+            "global_rank": 17,
+            "votes": 347,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF130",
+            "group": "女子1组",
+            "rank": 9,
+            "global_rank": 19,
+            "votes": 345,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF039",
+            "group": "女子1组",
+            "rank": 10,
+            "global_rank": 22,
+            "votes": 330,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF125",
+            "group": "女子1组",
+            "rank": 11,
+            "global_rank": 23,
+            "votes": 327,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF141",
+            "group": "女子1组",
+            "rank": 12,
+            "global_rank": 24,
+            "votes": 325,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF142",
+            "group": "女子1组",
+            "rank": 13,
+            "global_rank": 27,
+            "votes": 314,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF132",
+            "group": "女子1组",
+            "rank": 14,
+            "global_rank": 28,
+            "votes": 312,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF138",
+            "group": "女子1组",
+            "rank": 15,
+            "global_rank": 31,
+            "votes": 299,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF066",
+            "group": "女子1组",
+            "rank": 16,
+            "global_rank": 33,
+            "votes": 282,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF041",
+            "group": "女子1组",
+            "rank": 17,
+            "global_rank": 34,
+            "votes": 281,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF045",
+            "group": "女子1组",
+            "rank": 18,
+            "global_rank": 36,
+            "votes": 277,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF139",
+            "group": "女子1组",
+            "rank": 19,
+            "global_rank": 37,
+            "votes": 275,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF069",
+            "group": "女子1组",
+            "rank": 20,
+            "global_rank": 38,
+            "votes": 264,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF072",
+            "group": "女子1组",
+            "rank": 21,
+            "global_rank": 43,
+            "votes": 242,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF053",
+            "group": "女子1组",
+            "rank": 22,
+            "global_rank": 44,
+            "votes": 241,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF070",
+            "group": "女子1组",
+            "rank": 23,
+            "global_rank": 47,
+            "votes": 220,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF068",
+            "group": "女子1组",
+            "rank": 24,
+            "global_rank": 50,
+            "votes": 197,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF062",
+            "group": "女子1组",
+            "rank": 25,
+            "global_rank": 52,
+            "votes": 189,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF057",
+            "group": "女子1组",
+            "rank": 26,
+            "global_rank": 53,
+            "votes": 183,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF076",
+            "group": "女子1组",
+            "rank": 27,
+            "global_rank": 54,
+            "votes": 183,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF050",
+            "group": "女子1组",
+            "rank": 28,
+            "global_rank": 57,
+            "votes": 168,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF051",
+            "group": "女子1组",
+            "rank": 29,
+            "global_rank": 58,
+            "votes": 167,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF079",
+            "group": "女子1组",
+            "rank": 30,
+            "global_rank": 60,
+            "votes": 155,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF127",
+            "group": "女子1组",
+            "rank": 31,
+            "global_rank": 61,
+            "votes": 155,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF078",
+            "group": "女子1组",
+            "rank": 32,
+            "global_rank": 62,
+            "votes": 148,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF055",
+            "group": "女子1组",
+            "rank": 33,
+            "global_rank": 66,
+            "votes": 108,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF054",
+            "group": "女子1组",
+            "rank": 34,
+            "global_rank": 67,
+            "votes": 107,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF081",
+            "group": "女子1组",
+            "rank": 35,
+            "global_rank": 68,
+            "votes": 107,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF080",
+            "group": "女子1组",
+            "rank": 36,
+            "global_rank": 71,
+            "votes": 65,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF064",
+            "group": "女子1组",
+            "rank": 37,
+            "global_rank": 74,
+            "votes": 54,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF082",
+            "group": "女子1组",
+            "rank": 38,
+            "global_rank": 77,
+            "votes": 35,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF087",
+            "group": "女子1组",
+            "rank": 39,
+            "global_rank": 78,
+            "votes": 33,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF083",
+            "group": "女子1组",
+            "rank": 40,
+            "global_rank": 80,
+            "votes": 18,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF030",
+            "group": "女子2组",
+            "rank": 1,
+            "global_rank": 1,
+            "votes": 552,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF111",
+            "group": "女子2组",
+            "rank": 2,
+            "global_rank": 2,
+            "votes": 528,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF114",
+            "group": "女子2组",
+            "rank": 3,
+            "global_rank": 4,
+            "votes": 491,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF037",
+            "group": "女子2组",
+            "rank": 4,
+            "global_rank": 6,
+            "votes": 432,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF027",
+            "group": "女子2组",
+            "rank": 5,
+            "global_rank": 8,
+            "votes": 405,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF048",
+            "group": "女子2组",
+            "rank": 6,
+            "global_rank": 9,
+            "votes": 396,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF135",
+            "group": "女子2组",
+            "rank": 7,
+            "global_rank": 11,
+            "votes": 383,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF137",
+            "group": "女子2组",
+            "rank": 8,
+            "global_rank": 14,
+            "votes": 355,
+            "is_advanced": true
+        },
+        {
+            "participantId": "SF059",
+            "group": "女子2组",
+            "rank": 9,
+            "global_rank": 16,
+            "votes": 348,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF143",
+            "group": "女子2组",
+            "rank": 10,
+            "global_rank": 18,
+            "votes": 347,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF042",
+            "group": "女子2组",
+            "rank": 11,
+            "global_rank": 20,
+            "votes": 344,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF032",
+            "group": "女子2组",
+            "rank": 12,
+            "global_rank": 21,
+            "votes": 336,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF134",
+            "group": "女子2组",
+            "rank": 13,
+            "global_rank": 25,
+            "votes": 317,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF109",
+            "group": "女子2组",
+            "rank": 14,
+            "global_rank": 26,
+            "votes": 316,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF105",
+            "group": "女子2组",
+            "rank": 15,
+            "global_rank": 29,
+            "votes": 312,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF140",
+            "group": "女子2组",
+            "rank": 16,
+            "global_rank": 30,
+            "votes": 310,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF044",
+            "group": "女子2组",
+            "rank": 17,
+            "global_rank": 32,
+            "votes": 284,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF063",
+            "group": "女子2组",
+            "rank": 18,
+            "global_rank": 35,
+            "votes": 280,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF052",
+            "group": "女子2组",
+            "rank": 19,
+            "global_rank": 39,
+            "votes": 261,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF060",
+            "group": "女子2组",
+            "rank": 20,
+            "global_rank": 40,
+            "votes": 253,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF118",
+            "group": "女子2组",
+            "rank": 21,
+            "global_rank": 41,
+            "votes": 247,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF121",
+            "group": "女子2组",
+            "rank": 22,
+            "global_rank": 42,
+            "votes": 244,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF046",
+            "group": "女子2组",
+            "rank": 23,
+            "global_rank": 45,
+            "votes": 232,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF056",
+            "group": "女子2组",
+            "rank": 24,
+            "global_rank": 46,
+            "votes": 221,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF065",
+            "group": "女子2组",
+            "rank": 25,
+            "global_rank": 48,
+            "votes": 220,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF113",
+            "group": "女子2组",
+            "rank": 26,
+            "global_rank": 49,
+            "votes": 217,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF043",
+            "group": "女子2组",
+            "rank": 27,
+            "global_rank": 51,
+            "votes": 197,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF075",
+            "group": "女子2组",
+            "rank": 28,
+            "global_rank": 55,
+            "votes": 179,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF103",
+            "group": "女子2组",
+            "rank": 29,
+            "global_rank": 56,
+            "votes": 178,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF058",
+            "group": "女子2组",
+            "rank": 30,
+            "global_rank": 59,
+            "votes": 157,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF133",
+            "group": "女子2组",
+            "rank": 31,
+            "global_rank": 63,
+            "votes": 141,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF085",
+            "group": "女子2组",
+            "rank": 32,
+            "global_rank": 64,
+            "votes": 130,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF047",
+            "group": "女子2组",
+            "rank": 33,
+            "global_rank": 65,
+            "votes": 128,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF073",
+            "group": "女子2组",
+            "rank": 34,
+            "global_rank": 69,
+            "votes": 86,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF077",
+            "group": "女子2组",
+            "rank": 35,
+            "global_rank": 70,
+            "votes": 69,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF071",
+            "group": "女子2组",
+            "rank": 36,
+            "global_rank": 72,
+            "votes": 65,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF074",
+            "group": "女子2组",
+            "rank": 37,
+            "global_rank": 73,
+            "votes": 62,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF061",
+            "group": "女子2组",
+            "rank": 38,
+            "global_rank": 75,
+            "votes": 50,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF086",
+            "group": "女子2组",
+            "rank": 39,
+            "global_rank": 76,
+            "votes": 37,
+            "is_advanced": false
+        },
+        {
+            "participantId": "SF084",
+            "group": "女子2组",
+            "rank": 40,
+            "global_rank": 79,
+            "votes": 26,
+            "is_advanced": false
+        }
+    ]
+}
