@@ -7,21 +7,24 @@ export function getDocumentTop(element) {
 
 export function setupScrollTracking(updateActiveState) {
     let scrollTimeout;
+    const updateCurrentPhase = () => {
+        let currentPhase = null;
+        let minDistance = Infinity;
+        document.querySelectorAll('[data-phase]').forEach(phase => {
+            const distance = Math.abs(phase.getBoundingClientRect().top - 100);
+            if (distance < minDistance) {
+                minDistance = distance;
+                currentPhase = phase.dataset.phase;
+            }
+        });
+        if (currentPhase) updateActiveState(currentPhase);
+    };
+
     window.addEventListener('scroll', () => {
         clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            let currentPhase = null;
-            let minDistance = Infinity;
-            document.querySelectorAll('[data-phase]').forEach(phase => {
-                const distance = Math.abs(phase.getBoundingClientRect().top - 100);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    currentPhase = phase.dataset.phase;
-                }
-            });
-            if (currentPhase) updateActiveState(currentPhase);
-        }, 100);
+        scrollTimeout = setTimeout(updateCurrentPhase, 100);
     });
+    updateCurrentPhase();
 }
 
 export function restoreSavedPosition() {
