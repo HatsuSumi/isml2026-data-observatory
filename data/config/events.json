@@ -387,7 +387,7 @@
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r06-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r06-stellar-male",
-                                "data": "data/preliminaries/stellar/male/20-preliminary-r06-stellar-male.json",
+                                "data": "data/preliminaries/stellar/male/21-preliminary-r06-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r06.male"
                             }
