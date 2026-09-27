@@ -235,7 +235,7 @@
                             "phase": "预选赛第四轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第5轮"
+                                    "description": "各小组前2名参赛者晋级至小组赛 其余参赛者进入第3轮"
                                 }
                             },
                             "links": {
@@ -252,7 +252,7 @@
                             "phase": "预选赛第四轮",
                             "details": {
                                 "qualified": {
-                                    "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第5轮"
+                                    "description": "各小组前2名参赛者晋级至小组赛 其余参赛者进入第3轮"
                                 }
                             },
                             "links": {
@@ -265,7 +265,10 @@
                         }
                     ],
                     "details": {
-                        "format": "赞成投票制"
+                        "format": "赞成投票制",
+                        "qualified": {
+                            "description": "各小组前2名参赛者晋级至小组赛 其余参赛者进入第3轮"
+                        }
                     }
                 },
                 {

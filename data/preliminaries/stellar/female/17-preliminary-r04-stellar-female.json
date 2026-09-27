@@ -11,7 +11,8 @@
             "is_advanced": true,
             "cv": "赤尾光",
             "avatar": "https://pic1.imgdb.cn/item/69f32934f97149b1cf36fb71.png",
-            "global_rank": 3
+            "global_rank": 3,
+            "result": "晋级"
         },
         {
             "group": "女子5组",
@@ -22,7 +23,8 @@
             "is_advanced": true,
             "cv": "市之濑加那",
             "avatar": "https://pic1.imgdb.cn/item/6785d861d0e0a243d4f411ce.png",
-            "global_rank": 15
+            "global_rank": 15,
+            "result": "晋级"
         },
         {
             "group": "女子5组",
@@ -30,10 +32,11 @@
             "name": "五河琴里",
             "ip": "约会大作战",
             "votes": 529,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "竹达彩奈",
             "avatar": "https://pic1.imgdb.cn/item/673be110d29ded1a8c2750be.png",
-            "global_rank": 22
+            "global_rank": 22,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -41,10 +44,11 @@
             "name": "三角初华",
             "ip": "BanG Dream!",
             "votes": 520,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "佐佐木李子",
             "avatar": "",
-            "global_rank": 24
+            "global_rank": 24,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -52,10 +56,11 @@
             "name": "锦木千束",
             "ip": "莉可丽丝",
             "votes": 493,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "安济知佳",
             "avatar": "https://pic1.imgdb.cn/item/6742b0d888c538a9b5bb4231.png",
-            "global_rank": 27
+            "global_rank": 27,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -63,10 +68,11 @@
             "name": "艾莉莎·米哈伊罗夫纳·九条",
             "ip": "不时轻声地以俄语遮羞的邻座艾莉同学",
             "votes": 476,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "上坂堇",
             "avatar": "",
-            "global_rank": 29
+            "global_rank": 29,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -74,10 +80,11 @@
             "name": "希露菲叶特·格雷拉特",
             "ip": "无职转生",
             "votes": 435,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "茅野爱衣",
             "avatar": "",
-            "global_rank": 33
+            "global_rank": 33,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -85,10 +92,11 @@
             "name": "堀京子",
             "ip": "堀与宫村",
             "votes": 424,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "户松遥",
             "avatar": "https://pic1.imgdb.cn/item/677fbcd5d0e0a243d4f2c905.png",
-            "global_rank": 34
+            "global_rank": 34,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -99,7 +107,8 @@
             "is_advanced": false,
             "cv": "种崎敦美",
             "avatar": "https://pic1.imgdb.cn/item/6785d958d0e0a243d4f41226.png",
-            "global_rank": 39
+            "global_rank": 39,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -110,7 +119,8 @@
             "is_advanced": false,
             "cv": "茅野爱衣",
             "avatar": "",
-            "global_rank": 42
+            "global_rank": 42,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -121,7 +131,8 @@
             "is_advanced": false,
             "cv": "田村由香里",
             "avatar": "",
-            "global_rank": 43
+            "global_rank": 43,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -132,7 +143,8 @@
             "is_advanced": false,
             "cv": "高桥伸也",
             "avatar": "",
-            "global_rank": 46
+            "global_rank": 46,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -143,7 +155,8 @@
             "is_advanced": false,
             "cv": "羊宫妃那",
             "avatar": "",
-            "global_rank": 47
+            "global_rank": 47,
+            "result": "未晋级"
         },
         {
             "group": "女子5组",
@@ -154,7 +167,8 @@
             "is_advanced": false,
             "cv": "早见沙织",
             "avatar": "",
-            "global_rank": 52
+            "global_rank": 52,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -165,7 +179,8 @@
             "is_advanced": true,
             "cv": "竹达彩奈",
             "avatar": "https://pic1.imgdb.cn/item/67395e7cd29ded1a8c443a4c.png",
-            "global_rank": 4
+            "global_rank": 4,
+            "result": "晋级"
         },
         {
             "group": "女子6组",
@@ -176,7 +191,8 @@
             "is_advanced": true,
             "cv": "上白石萌音",
             "avatar": "https://pic1.imgdb.cn/item/67395e68d29ded1a8c4429ed.png",
-            "global_rank": 6
+            "global_rank": 6,
+            "result": "晋级"
         },
         {
             "group": "女子6组",
@@ -184,10 +200,11 @@
             "name": "北白川玉子",
             "ip": "玉子市场",
             "votes": 687,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "洲崎绫",
             "avatar": "https://pic1.imgdb.cn/item/67396817d29ded1a8c4afe96.png",
-            "global_rank": 8
+            "global_rank": 8,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -195,10 +212,11 @@
             "name": "洛琪希·米格路迪亚",
             "ip": "无职转生",
             "votes": 624,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "小原好美",
             "avatar": "https://pic1.imgdb.cn/item/673be698d29ded1a8c2b0709.png",
-            "global_rank": 13
+            "global_rank": 13,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -206,10 +224,11 @@
             "name": "高松灯",
             "ip": "BanG Dream!",
             "votes": 622,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "羊宫妃那",
             "avatar": "https://pic1.imgdb.cn/item/6785d914d0e0a243d4f41202.png",
-            "global_rank": 14
+            "global_rank": 14,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -217,10 +236,11 @@
             "name": "泉此方",
             "ip": "幸运☆星",
             "votes": 591,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "平野绫",
             "avatar": "https://pic1.imgdb.cn/item/674138ded29ded1a8c82004e.png",
-            "global_rank": 17
+            "global_rank": 17,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -228,10 +248,11 @@
             "name": "和泉纱雾",
             "ip": "埃罗芒阿老师",
             "votes": 554,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "藤田茜",
             "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png",
-            "global_rank": 20
+            "global_rank": 20,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -239,10 +260,11 @@
             "name": "晓美焰",
             "ip": "魔法少女小圆",
             "votes": 529,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "斋藤千和",
             "avatar": "https://pic1.imgdb.cn/item/674086b0d29ded1a8c07b0d0.png",
-            "global_rank": 23
+            "global_rank": 23,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -253,7 +275,8 @@
             "is_advanced": false,
             "cv": "户松遥",
             "avatar": "https://pic1.imgdb.cn/item/6739616cd29ded1a8c4679d2.png",
-            "global_rank": 25
+            "global_rank": 25,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -264,7 +287,8 @@
             "is_advanced": false,
             "cv": "鬼头明里",
             "avatar": "https://pic1.imgdb.cn/item/6741ad7bd29ded1a8cf60d88.png",
-            "global_rank": 31
+            "global_rank": 31,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -275,7 +299,8 @@
             "is_advanced": false,
             "cv": "长谷川育美",
             "avatar": "https://pic1.imgdb.cn/item/67396158d29ded1a8c466c38.png",
-            "global_rank": 35
+            "global_rank": 35,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -286,7 +311,8 @@
             "is_advanced": false,
             "cv": "桑原由气",
             "avatar": "https://pic1.imgdb.cn/item/6785dc2ed0e0a243d4f412fc.png",
-            "global_rank": 36
+            "global_rank": 36,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -297,7 +323,8 @@
             "is_advanced": false,
             "cv": "高桥李依",
             "avatar": "",
-            "global_rank": 53
+            "global_rank": 53,
+            "result": "未晋级"
         },
         {
             "group": "女子6组",
@@ -308,7 +335,8 @@
             "is_advanced": false,
             "cv": "白石晴香",
             "avatar": "",
-            "global_rank": 56
+            "global_rank": 56,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -319,7 +347,8 @@
             "is_advanced": true,
             "cv": "佐仓绫音",
             "avatar": "https://pic1.imgdb.cn/item/6741390dd29ded1a8c822b9c.png",
-            "global_rank": 1
+            "global_rank": 1,
+            "result": "晋级"
         },
         {
             "group": "女子7组",
@@ -330,7 +359,8 @@
             "is_advanced": true,
             "cv": "竹达彩奈",
             "avatar": "https://pic1.imgdb.cn/item/6744343188c538a9b5bb9e21.png",
-            "global_rank": 10
+            "global_rank": 10,
+            "result": "晋级"
         },
         {
             "group": "女子7组",
@@ -338,10 +368,11 @@
             "name": "中野五月",
             "ip": "五等分的新娘",
             "votes": 656,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "水濑祈",
             "avatar": "https://pic1.imgdb.cn/item/677fbcc8d0e0a243d4f2c900.png",
-            "global_rank": 11
+            "global_rank": 11,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -349,10 +380,11 @@
             "name": "星野爱",
             "ip": "【我推的孩子】",
             "votes": 574,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "高桥李依",
             "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png",
-            "global_rank": 18
+            "global_rank": 18,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -360,10 +392,11 @@
             "name": "艾莉丝·伯雷亚斯·格雷拉特",
             "ip": "无职转生",
             "votes": 549,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "加隈亚衣",
             "avatar": "https://pic1.imgdb.cn/item/67413890d29ded1a8c81b570.png",
-            "global_rank": 21
+            "global_rank": 21,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -371,10 +404,11 @@
             "name": "阿库娅",
             "ip": "为美好的世界献上祝福！",
             "votes": 506,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "雨宫天",
             "avatar": "https://pic1.imgdb.cn/item/674138f4d29ded1a8c82126e.png",
-            "global_rank": 26
+            "global_rank": 26,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -382,10 +416,11 @@
             "name": "约尔·福杰",
             "ip": "间谍过家家",
             "votes": 486,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "早见沙织",
             "avatar": "https://pic1.imgdb.cn/item/677fbeb6d0e0a243d4f2c994.png",
-            "global_rank": 28
+            "global_rank": 28,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -393,10 +428,11 @@
             "name": "宫园薰",
             "ip": "四月是你的谎言",
             "votes": 466,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "种田梨沙",
             "avatar": "https://pic1.imgdb.cn/item/6742b49688c538a9b5bb432f.png",
-            "global_rank": 30
+            "global_rank": 30,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -407,7 +443,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 32
+            "global_rank": 32,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -418,7 +455,8 @@
             "is_advanced": false,
             "cv": "东山奈央",
             "avatar": "",
-            "global_rank": 38
+            "global_rank": 38,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -429,7 +467,8 @@
             "is_advanced": false,
             "cv": "反田叶月",
             "avatar": "",
-            "global_rank": 41
+            "global_rank": 41,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -440,7 +479,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 49
+            "global_rank": 49,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -451,7 +491,8 @@
             "is_advanced": false,
             "cv": "小林沙苗",
             "avatar": "",
-            "global_rank": 51
+            "global_rank": 51,
+            "result": "未晋级"
         },
         {
             "group": "女子7组",
@@ -462,7 +503,8 @@
             "is_advanced": false,
             "cv": "濑户麻沙美",
             "avatar": "",
-            "global_rank": 54
+            "global_rank": 54,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -473,7 +515,8 @@
             "is_advanced": true,
             "cv": "日笠阳子",
             "avatar": "https://pic1.imgdb.cn/item/673967f2d29ded1a8c4ae5a2.png",
-            "global_rank": 2
+            "global_rank": 2,
+            "result": "晋级"
         },
         {
             "group": "女子8组",
@@ -484,7 +527,8 @@
             "is_advanced": true,
             "cv": "石见舞菜香",
             "avatar": "https://pic1.imgdb.cn/item/6785d8d6d0e0a243d4f411eb.png",
-            "global_rank": 5
+            "global_rank": 5,
+            "result": "晋级"
         },
         {
             "group": "女子8组",
@@ -492,10 +536,11 @@
             "name": "琴吹䌷",
             "ip": "轻音少女",
             "votes": 697,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "寿美菜子",
             "avatar": "https://pic1.imgdb.cn/item/6739b369d29ded1a8c895375.png",
-            "global_rank": 7
+            "global_rank": 7,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -503,10 +548,11 @@
             "name": "平泽忧",
             "ip": "轻音少女",
             "votes": 679,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "米泽圆",
             "avatar": "https://pic1.imgdb.cn/item/69f329eef97149b1cf36fe1b.png",
-            "global_rank": 9
+            "global_rank": 9,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -514,10 +560,11 @@
             "name": "春日野穹",
             "ip": "缘之空",
             "votes": 639,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "田口宏子",
             "avatar": "https://pic1.imgdb.cn/item/673aa700d29ded1a8c30cdf0.png",
-            "global_rank": 12
+            "global_rank": 12,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -525,10 +572,11 @@
             "name": "阿尼亚·福杰",
             "ip": "间谍过家家",
             "votes": 606,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "种崎敦美",
             "avatar": "https://pic1.imgdb.cn/item/677fba37d0e0a243d4f2c800.png",
-            "global_rank": 16
+            "global_rank": 16,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -536,10 +584,11 @@
             "name": "井芹仁菜",
             "ip": "少女乐队的呐喊",
             "votes": 563,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "理名",
             "avatar": "",
-            "global_rank": 19
+            "global_rank": 19,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -547,10 +596,11 @@
             "name": "蕾塞",
             "ip": "电锯人",
             "votes": 403,
-            "is_advanced": true,
+            "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 37
+            "global_rank": 37,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -561,7 +611,8 @@
             "is_advanced": false,
             "cv": "楠木灯",
             "avatar": "",
-            "global_rank": 40
+            "global_rank": 40,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -572,7 +623,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 44
+            "global_rank": 44,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -583,7 +635,8 @@
             "is_advanced": false,
             "cv": "若山诗音",
             "avatar": "",
-            "global_rank": 45
+            "global_rank": 45,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -594,7 +647,8 @@
             "is_advanced": false,
             "cv": "长谷川育美",
             "avatar": "",
-            "global_rank": 48
+            "global_rank": 48,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -605,7 +659,8 @@
             "is_advanced": false,
             "cv": "水树奈奈",
             "avatar": "",
-            "global_rank": 50
+            "global_rank": 50,
+            "result": "未晋级"
         },
         {
             "group": "女子8组",
@@ -616,7 +671,8 @@
             "is_advanced": false,
             "cv": "永濑安奈",
             "avatar": "",
-            "global_rank": 55
+            "global_rank": 55,
+            "result": "未晋级"
         }
     ]
 }

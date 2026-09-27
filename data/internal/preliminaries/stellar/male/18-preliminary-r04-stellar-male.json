@@ -8,7 +8,8 @@
             "rank": 1,
             "global_rank": 2,
             "votes": 611,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM082",
@@ -16,7 +17,8 @@
             "rank": 2,
             "global_rank": 4,
             "votes": 555,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM100",
@@ -24,7 +26,8 @@
             "rank": 3,
             "global_rank": 11,
             "votes": 477,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM023",
@@ -32,7 +35,8 @@
             "rank": 4,
             "global_rank": 14,
             "votes": 470,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM108",
@@ -40,7 +44,8 @@
             "rank": 5,
             "global_rank": 21,
             "votes": 402,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM120",
@@ -48,7 +53,8 @@
             "rank": 6,
             "global_rank": 26,
             "votes": 360,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM134",
@@ -56,7 +62,8 @@
             "rank": 7,
             "global_rank": 28,
             "votes": 351,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM106",
@@ -64,7 +71,8 @@
             "rank": 8,
             "global_rank": 34,
             "votes": 299,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM128",
@@ -72,7 +80,8 @@
             "rank": 9,
             "global_rank": 38,
             "votes": 269,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM055",
@@ -80,7 +89,8 @@
             "rank": 10,
             "global_rank": 40,
             "votes": 248,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM056",
@@ -88,7 +98,8 @@
             "rank": 11,
             "global_rank": 45,
             "votes": 193,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM142",
@@ -96,7 +107,8 @@
             "rank": 12,
             "global_rank": 46,
             "votes": 188,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM074",
@@ -104,7 +116,8 @@
             "rank": 13,
             "global_rank": 54,
             "votes": 88,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM080",
@@ -112,7 +125,8 @@
             "rank": 14,
             "global_rank": 56,
             "votes": 23,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM092",
@@ -120,7 +134,8 @@
             "rank": 1,
             "global_rank": 5,
             "votes": 535,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM109",
@@ -128,7 +143,8 @@
             "rank": 2,
             "global_rank": 8,
             "votes": 489,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM035",
@@ -136,7 +152,8 @@
             "rank": 3,
             "global_rank": 9,
             "votes": 486,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM096",
@@ -144,7 +161,8 @@
             "rank": 4,
             "global_rank": 19,
             "votes": 422,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM045",
@@ -152,7 +170,8 @@
             "rank": 5,
             "global_rank": 22,
             "votes": 400,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM133",
@@ -160,7 +179,8 @@
             "rank": 6,
             "global_rank": 23,
             "votes": 400,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM038",
@@ -168,7 +188,8 @@
             "rank": 7,
             "global_rank": 27,
             "votes": 352,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM043",
@@ -176,7 +197,8 @@
             "rank": 8,
             "global_rank": 29,
             "votes": 345,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM122",
@@ -184,7 +206,8 @@
             "rank": 9,
             "global_rank": 31,
             "votes": 335,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM061",
@@ -192,7 +215,8 @@
             "rank": 10,
             "global_rank": 35,
             "votes": 289,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM125",
@@ -200,7 +224,8 @@
             "rank": 11,
             "global_rank": 36,
             "votes": 288,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM139",
@@ -208,7 +233,8 @@
             "rank": 12,
             "global_rank": 44,
             "votes": 210,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM052",
@@ -216,7 +242,8 @@
             "rank": 13,
             "global_rank": 51,
             "votes": 106,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM077",
@@ -224,7 +251,8 @@
             "rank": 14,
             "global_rank": 52,
             "votes": 106,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM090",
@@ -232,7 +260,8 @@
             "rank": 1,
             "global_rank": 3,
             "votes": 576,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM089",
@@ -240,7 +269,8 @@
             "rank": 2,
             "global_rank": 7,
             "votes": 511,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM086",
@@ -248,7 +278,8 @@
             "rank": 3,
             "global_rank": 10,
             "votes": 486,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM094",
@@ -256,7 +287,8 @@
             "rank": 4,
             "global_rank": 16,
             "votes": 435,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM110",
@@ -264,7 +296,8 @@
             "rank": 5,
             "global_rank": 17,
             "votes": 432,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM087",
@@ -272,7 +305,8 @@
             "rank": 6,
             "global_rank": 20,
             "votes": 422,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM124",
@@ -280,7 +314,8 @@
             "rank": 7,
             "global_rank": 25,
             "votes": 378,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM101",
@@ -288,7 +323,8 @@
             "rank": 8,
             "global_rank": 32,
             "votes": 334,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM070",
@@ -296,7 +332,8 @@
             "rank": 9,
             "global_rank": 39,
             "votes": 262,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM129",
@@ -304,7 +341,8 @@
             "rank": 10,
             "global_rank": 41,
             "votes": 248,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM119",
@@ -312,7 +350,8 @@
             "rank": 11,
             "global_rank": 42,
             "votes": 239,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM063",
@@ -320,7 +359,8 @@
             "rank": 12,
             "global_rank": 47,
             "votes": 188,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM137",
@@ -328,7 +368,8 @@
             "rank": 13,
             "global_rank": 48,
             "votes": 166,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM049",
@@ -336,7 +377,8 @@
             "rank": 14,
             "global_rank": 53,
             "votes": 96,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM018",
@@ -344,7 +386,8 @@
             "rank": 1,
             "global_rank": 1,
             "votes": 677,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM030",
@@ -352,7 +395,8 @@
             "rank": 2,
             "global_rank": 6,
             "votes": 531,
-            "is_advanced": true
+            "is_advanced": true,
+            "result": "晋级"
         },
         {
             "participantId": "SM130",
@@ -360,7 +404,8 @@
             "rank": 3,
             "global_rank": 12,
             "votes": 475,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM031",
@@ -368,7 +413,8 @@
             "rank": 4,
             "global_rank": 13,
             "votes": 472,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM099",
@@ -376,7 +422,8 @@
             "rank": 5,
             "global_rank": 15,
             "votes": 466,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM114",
@@ -384,7 +431,8 @@
             "rank": 6,
             "global_rank": 18,
             "votes": 427,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM093",
@@ -392,7 +440,8 @@
             "rank": 7,
             "global_rank": 24,
             "votes": 393,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM044",
@@ -400,7 +449,8 @@
             "rank": 8,
             "global_rank": 30,
             "votes": 342,
-            "is_advanced": true
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM083",
@@ -408,7 +458,8 @@
             "rank": 9,
             "global_rank": 33,
             "votes": 314,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM050",
@@ -416,7 +467,8 @@
             "rank": 10,
             "global_rank": 37,
             "votes": 277,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM072",
@@ -424,7 +476,8 @@
             "rank": 11,
             "global_rank": 43,
             "votes": 229,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM065",
@@ -432,7 +485,8 @@
             "rank": 12,
             "global_rank": 49,
             "votes": 157,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM076",
@@ -440,7 +494,8 @@
             "rank": 13,
             "global_rank": 50,
             "votes": 124,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         },
         {
             "participantId": "SM079",
@@ -448,7 +503,8 @@
             "rank": 14,
             "global_rank": 55,
             "votes": 84,
-            "is_advanced": false
+            "is_advanced": false,
+            "result": "未晋级"
         }
     ]
 }
