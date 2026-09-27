@@ -1,4 +1,4 @@
-import { loadEventsConfig } from './data-loader.js';
+﻿import { loadEventsConfig } from './data-loader.js';
 
 function extractPageId(url = '') {
     if (!url || !url.includes('?')) return '';
@@ -93,6 +93,23 @@ function getTargetUrl(link, currentFrom) {
     return currentFrom ? `${link.url}${separator}from=${encodeURIComponent(currentFrom)}` : link.url;
 }
 
+function positionDropdownContent(button, content) {
+    const rect = button.getBoundingClientRect();
+    const gap = 10;
+    const padding = 12;
+    const below = window.innerHeight - rect.bottom - gap - padding;
+    const above = rect.top - gap - padding;
+    const openBelow = below >= above;
+    const maxHeight = Math.max(120, Math.min(520, openBelow ? below : above));
+    const right = Math.max(padding, window.innerWidth - rect.right);
+
+    content.style.width = `${Math.min(280, window.innerWidth - padding * 2)}px`;
+    content.style.maxHeight = `${maxHeight}px`;
+    content.style.right = `${right}px`;
+    content.style.left = 'auto';
+    content.style.top = openBelow ? `${rect.bottom + gap}px` : 'auto';
+    content.style.bottom = openBelow ? 'auto' : `${window.innerHeight - rect.top + gap}px`;
+}
 async function generateDropdownMenu() {
     const { pageType, currentId, currentFrom } = getCurrentContext();
     if (!currentId) return;
@@ -126,6 +143,8 @@ async function generateDropdownMenu() {
         content.appendChild(anchor);
     });
     dropdown.appendChild(content);
+    setTimeout(() => positionDropdownContent(button, content), 0);
+    window.addEventListener('resize', () => positionDropdownContent(button, content));
 
     if (pageType === 'table') {
         document.querySelector('.button-container')?.append(dropdown);

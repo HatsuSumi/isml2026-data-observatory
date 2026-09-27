@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --visualization-error-color: #ff7875;
     --visualization-error-font-size: 16px;
     --visualization-error-padding: 24px;
@@ -238,6 +238,8 @@ body {
 .events-dropdown {
     position: relative;
     display: inline-block;
+    width: min(120px, calc(100vw - 24px));
+    max-width: 100%;
 }
 
 .other-events-btn {
@@ -260,17 +262,37 @@ body {
     top: 100%;
     margin-top: 10px;
     display: block;
-    position: absolute;
+    position: fixed;
+    width: 280px;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+    box-sizing: border-box;
     background-color: #1a1a1a;
-    min-width: 250px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 102;
     border-radius: 5px;
     border: 1px solid #333;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.events-dropdown .other-events-btn {
+    width: 100%;
+}
+
+.events-dropdown-content {
+    width: min(280px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    max-height: min(60vh, 520px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.events-dropdown-content a {
+    overflow-wrap: anywhere;
 }
 
 .events-dropdown-content::before {

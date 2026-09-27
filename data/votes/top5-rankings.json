@@ -386,5 +386,53 @@
                 "votes": 303
             }
         ]
+    },
+    "预选赛第八轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF059",
+                "votes": 826
+            },
+            {
+                "participantId": "SF105",
+                "votes": 745
+            },
+            {
+                "participantId": "SF045",
+                "votes": 685
+            },
+            {
+                "participantId": "SF043",
+                "votes": 668
+            },
+            {
+                "participantId": "SF042",
+                "votes": 616
+            }
+        ]
+    },
+    "预选赛第八轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM115",
+                "votes": 620
+            },
+            {
+                "participantId": "SM120",
+                "votes": 556
+            },
+            {
+                "participantId": "SM034",
+                "votes": 535
+            },
+            {
+                "participantId": "SM071",
+                "votes": 436
+            },
+            {
+                "participantId": "SM093",
+                "votes": 436
+            }
+        ]
     }
 }

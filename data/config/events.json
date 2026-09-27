@@ -458,14 +458,52 @@
                         "start": "2026-08-21 20:00:00",
                         "end": "2026-08-22 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 3281
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "预选赛第八轮",
-                            "phase": "预选赛阶段"
+                            "title": "预选赛第八轮-女性组别",
+                            "id": "preliminaries/stellar/female/r08",
+                            "phase": "预选赛第八轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "前16名参赛者晋级至小组赛 其余参赛者淘汰"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r08-stellar-female",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r08-stellar-female",
+                                "data": "data/preliminaries/stellar/female/25-preliminary-r08-stellar-female.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r08.female"
+                            }
+                        },
+                        {
+                            "title": "预选赛第八轮-男性组别",
+                            "id": "preliminaries/stellar/male/r08",
+                            "phase": "预选赛第八轮",
+                            "details": {
+                                "qualified": {
+                                    "description": "前16名参赛者晋级至小组赛 其余参赛者淘汰"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=preliminary-r08-stellar-male",
+                                "table": "pages/tables/preliminaries-table.html?id=preliminary-r08-stellar-male",
+                                "data": "data/preliminaries/stellar/male/26-preliminary-r08-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=preliminary",
+                                "groups": "pages/groups/groups.html?id=preliminary.stellar.r08.male"
+                            }
                         }
                     ],
                     "details": {
-                        "format": "赞成投票制"
+                        "format": "有限投票制(各组可投票上限: 16)",
+                        "qualified": {
+                            "description": "前16名参赛者晋级至小组赛 其余参赛者淘汰"
+                        }
                     }
                 }
             ]
