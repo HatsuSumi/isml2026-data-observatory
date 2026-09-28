@@ -1,0 +1,137 @@
+.phase1-page .dropdown-content[hidden] {
+    display: none !important;
+}
+
+.phase1-page .dropdown-content:not([hidden]) {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.phase1-page .filter-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.phase1-page .filter-container select,
+.phase1-page .filter-container input {
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--input-bg);
+    color: var(--input-text);
+}
+
+.phase1-page .filter-container .search-input {
+    min-width: 220px;
+}
+
+.phase1-page .phase1-summary {
+    margin: 18px 0 8px;
+    color: var(--accent);
+    text-align: left;
+    font-size: 15px;
+}
+
+.phase1-page .table-scroll {
+    overflow-x: auto;
+}
+
+.phase1-page table {
+    min-width: 1180px;
+    table-layout: fixed;
+}
+
+.phase1-page th:nth-child(1),
+.phase1-page td:nth-child(1) {
+    width: 10%;
+}
+
+.phase1-page th:nth-child(2),
+.phase1-page td:nth-child(2) {
+    width: 8%;
+}
+
+.phase1-page th:nth-child(3),
+.phase1-page td:nth-child(3) {
+    width: 10%;
+}
+
+.phase1-page th:nth-child(4),
+.phase1-page td:nth-child(4) {
+    width: 9%;
+}
+
+.phase1-page th:nth-child(5),
+.phase1-page td:nth-child(5) {
+    width: 16%;
+}
+
+.phase1-page th:nth-child(6),
+.phase1-page td:nth-child(6) {
+    width: 8%;
+    text-align: center;
+}
+
+.phase1-page th:nth-child(7),
+.phase1-page td:nth-child(7) {
+    width: 23%;
+}
+
+.phase1-page th:nth-child(8),
+.phase1-page td:nth-child(8) {
+    width: 9%;
+}
+
+.phase1-page th:nth-child(9),
+.phase1-page td:nth-child(9) {
+    width: 7%;
+}
+
+.phase1-page td:nth-child(2),
+.phase1-page td:nth-child(4) {
+    color: var(--global-rank);
+    font-weight: bold;
+}
+
+.phase1-page td:nth-child(6) {
+    padding: 6px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.phase1-page td img {
+    display: block;
+    width: 50px;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.phase1-page .status-win {
+    color: #66d18f;
+    font-weight: bold;
+}
+
+.phase1-page .status-loss {
+    color: #ff8585;
+}
+
+@media (max-width: 900px) {
+    .phase1-page .button-container {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .phase1-page .button-container>* {
+        width: auto;
+        min-width: 120px;
+    }
+}

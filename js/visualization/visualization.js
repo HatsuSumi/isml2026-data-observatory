@@ -1,4 +1,4 @@
-import { loadEventData, loadPreliminariesData } from '../common/data-loader.js';
+import { loadEventData, loadPreliminariesData, loadPhase1Data } from '../common/data-loader.js';
 import { getVisualizationStrategy } from './visualization-strategies.js';
 import { getChartStrategy } from './visualization-chart-strategies.js';
 
@@ -11,7 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+const SUPPORTED_CHART_TYPES = new Set(['bar', 'line', 'pie']);
+const DEFAULT_CHART_TYPE = 'bar';
 const DEFAULT_SIZE = { width: 1800, height: 2200 };
+const PIE_SIZE = { width: 1400, height: 1500 };
+
+let visualizationState;
+
 const RENDER_CONFIG = {
     grid: { left: '15%', right: '15%', top: '2%', bottom: '5%', containLabel: true },
     theme: 'dark',
@@ -33,6 +39,7 @@ async function initVisualization() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const mode = normalizeMode(params.get('mode'));
+    const chartType = params.get('chart');
 
     if (!id) throw new Error('缺少可视化 id 参数');
 
@@ -43,18 +50,63 @@ async function initVisualization() {
     const rawData = await loadVisualizationData(matchConfig);
     const strategy = getVisualizationStrategy(id);
     const data = strategy.normalize(rawData, mode);
+    visualizationState = {
+        id,
+        mode,
+        matchConfig,
+        data,
+        chartType: SUPPORTED_CHART_TYPES.has(chartType) ? chartType : getVisualizationChartType(matchConfig),
+        chart: null,
+        sizeControlsBound: false
+    };
 
+    initializeSizeControls();
+    renderVisualization();
+}
 
-    renderTitle(data, matchConfig, mode);
-    updateLegendState(mode);
-    const chart = renderChart(data, mode, getChartStrategy(matchConfig.chartType || matchConfig.visualization?.chartType));
-    bindSizeControls(chart);
-    bindButtonEffects();
-    bindCustomLegend(id, mode);
+function renderVisualization() {
+    const { data, matchConfig, mode, chartType } = visualizationState;
+    renderTitle(data, matchConfig, mode, chartType);
+    updateLegendState(mode, data.statusLabels);
+    const chartSize = chartType === 'pie' ? PIE_SIZE : DEFAULT_SIZE;
+    visualizationState.chart?.dispose();
+    if (visualizationState.resizeHandler) {
+        window.removeEventListener('resize', visualizationState.resizeHandler);
+        visualizationState.resizeHandler = null;
+    }
+    visualizationState.chart = renderChart(data, mode, getChartStrategy(chartType), chartType, chartSize);
+    const sizeControls = document.querySelector('.size-controls');
+    if (sizeControls) sizeControls.hidden = chartType === 'pie';
+    syncSizeControls(chartSize);
+    updateChartToggleButton(chartType);
+    bindCustomLegend(visualizationState.id, mode, chartType);
+}
+
+function updateChartToggleButton(chartType) {
+    const button = document.querySelector('.chart-toggle-btn');
+    if (!button) return;
+    const canToggle = visualizationState.id.startsWith('phase1-');
+    button.hidden = !canToggle;
+    button.textContent = chartType === 'pie' ? '切换为柱状图' : '切换为饼图';
+    button.setAttribute('aria-label', button.textContent);
+    button.setAttribute('aria-pressed', String(chartType === 'bar'));
+    button.onclick = () => {
+        visualizationState.chartType = visualizationState.chartType === 'pie' ? 'bar' : 'pie';
+        renderVisualization();
+    };
 }
 
 function normalizeMode(mode) {
     return ['advance', 'eliminate'].includes(mode) ? mode : 'main';
+}
+
+function getVisualizationChartType(matchConfig) {
+    const configuredType = matchConfig.chartType || matchConfig.visualization?.chartType;
+    if (!configuredType) return DEFAULT_CHART_TYPE;
+    if (!SUPPORTED_CHART_TYPES.has(configuredType)) {
+        throw new Error(`可视化配置错误：不支持图表类型「${configuredType}」`);
+    }
+    return configuredType;
 }
 
 async function getVisualizationConfig(visualizationId) {
@@ -95,11 +147,14 @@ async function loadVisualizationData(matchConfig) {
     if (isPreliminarySnapshotPath(matchConfig.links?.data)) {
         return loadPreliminariesData(matchConfig.links.data);
     }
+    if (String(matchConfig.links?.data || '').includes('data/phase1/')) {
+        return loadPhase1Data(matchConfig.links.data);
+    }
     return fetchJson(matchConfig.links.data);
 }
 
 function appendQueryParam(url, key, value) {
-    if (!value) return url;
+    if (!url || !value) return url;
     const [base, hash = ''] = url.split('#');
     const separator = base.includes('?') ? '&' : '?';
     return `${base}${separator}${key}=${encodeURIComponent(value)}${hash ? `#${hash}` : ''}`;
@@ -108,11 +163,19 @@ function appendQueryParam(url, key, value) {
 function updateTableLink(matchConfig) {
     const tableButton = document.querySelector('.table-btn');
     if (!tableButton) return;
+
+    const tableUrl = matchConfig.links?.table;
+    if (!tableUrl) {
+        tableButton.hidden = true;
+        return;
+    }
+
     const currentFrom = new URLSearchParams(window.location.search).get('from');
-    tableButton.href = appendQueryParam(matchConfig.links.table, 'from', currentFrom);
+    tableButton.hidden = false;
+    tableButton.href = appendQueryParam(tableUrl, 'from', currentFrom);
 }
 
-function renderTitle(data, matchConfig, mode) {
+function renderTitle(data, matchConfig, mode, chartType) {
     const chartWrapper = document.querySelector('.chart-wrapper');
     const chartContainer = document.getElementById('vote_chart');
     if (!chartWrapper || !chartContainer) return;
@@ -147,7 +210,7 @@ function renderTitle(data, matchConfig, mode) {
 
     appendSvgText(svg, `${data.date} - ${data.event}`, 25, { 'font-weight': 'bold', fill: 'url(#titleGradient)' }, '24px');
     appendSvgText(svg, getSubtitle(matchConfig, mode), 50, { fill: '#9370DB' }, '14px');
-    appendSvgText(svg, mode === 'main' ? '点击图例可切换到单独视图' : '点击图例可返回完整视图', 70, { fill: '#9370DB' }, '14px');
+    appendSvgText(svg, getChartHint(matchConfig, mode, chartType), 70, { fill: '#9370DB' }, '14px');
 
     titleContainer.appendChild(svg);
     chartWrapper.insertBefore(titleContainer, chartContainer);
@@ -171,11 +234,20 @@ function getSubtitle(matchConfig, mode) {
     return base;
 }
 
-function updateLegendState(mode) {
+function getChartHint(matchConfig, mode, chartType) {
+    if (chartType === 'pie') return '各擂台饼图展示组内得票占比';
+    if (mode !== 'main') return '点击图例可切换到单独视图';
+    const isPhase1 = matchConfig.id?.startsWith('phase1-') || String(matchConfig.links?.data || '').includes('data/phase1/');
+    return isPhase1 ? '柱状图展示全局票数排名' : '点击图例可切换到单独视图';
+}
+
+function updateLegendState(mode, statusLabels) {
     const items = {
         advance: document.querySelector('.legend-item[data-series="advance"]'),
         eliminate: document.querySelector('.legend-item[data-series="eliminate"]')
     };
+    items.advance?.querySelector('.legend-text').replaceChildren(document.createTextNode(statusLabels.advance));
+    items.eliminate?.querySelector('.legend-text').replaceChildren(document.createTextNode(statusLabels.eliminate));
     Object.values(items).forEach((item) => {
         if (!item) return;
         item.classList.remove('inactive');
@@ -191,17 +263,19 @@ function updateLegendState(mode) {
     }
 }
 
-function renderChart(data, mode, chartStrategy) {
+function renderChart(data, mode, chartStrategy, chartType, chartSize) {
     const chartElement = document.getElementById('vote_chart');
-    applyChartSize(DEFAULT_SIZE);
+    applyChartSize(chartSize);
+    document.querySelector('.custom-legend')?.classList.toggle('is-hidden', chartType === 'pie');
 
     const chart = echarts.init(chartElement, RENDER_CONFIG.theme, { renderer: RENDER_CONFIG.renderer });
     const option = chartStrategy.buildOption(data, mode);
-    if (chartStrategy === getChartStrategy('bar')) option.grid = RENDER_CONFIG.grid;
+    if (chartType === 'bar') option.grid = RENDER_CONFIG.grid;
     chart.setOption(option);
-    chart.resize(DEFAULT_SIZE);
+    chart.resize(chartSize);
     window.chart_vote_chart = chart;
-    window.addEventListener('resize', () => chart.resize());
+    visualizationState.resizeHandler = () => chart.resize();
+    window.addEventListener('resize', visualizationState.resizeHandler);
     return chart;
 }
 
@@ -316,33 +390,46 @@ function applyChartSize({ width, height }, chart = null) {
     chart?.resize({ width, height });
 }
 
-function bindSizeControls(chart) {
+function initializeSizeControls() {
     const { widthSlider, heightSlider, resetBtn } = getChartSizeElements();
     if (!widthSlider || !heightSlider || !resetBtn) {
         throw new Error('可视化页面缺少尺寸控制元素');
     }
+    if (visualizationState.sizeControlsBound) return;
 
     const updateSize = () => {
         applyChartSize({
             width: clampSliderValue(widthSlider),
             height: clampSliderValue(heightSlider)
-        }, chart);
+        }, visualizationState.chart);
     };
 
     resetBtn.addEventListener('click', () => {
-        widthSlider.value = String(DEFAULT_SIZE.width);
-        heightSlider.value = String(DEFAULT_SIZE.height);
+        const defaultSize = visualizationState.chartType === 'pie' ? PIE_SIZE : DEFAULT_SIZE;
+        widthSlider.value = String(defaultSize.width);
+        heightSlider.value = String(defaultSize.height);
         updateSize();
     });
     widthSlider.addEventListener('input', updateSize);
     heightSlider.addEventListener('input', updateSize);
-    updateSize();
+    visualizationState.sizeControlsBound = true;
 }
 
-function bindCustomLegend(id, mode) {
+function syncSizeControls(defaultSize) {
+    const { widthSlider, heightSlider } = getChartSizeElements();
+    if (!widthSlider || !heightSlider) return;
+    widthSlider.value = String(defaultSize.width);
+    heightSlider.value = String(defaultSize.height);
+    applyChartSize(defaultSize, visualizationState.chart);
+}
+
+function bindCustomLegend(id, mode, chartType) {
+    if (chartType === 'pie') return;
     document.querySelectorAll('.legend-item').forEach((item) => {
-        item.classList.add('is-clickable');
-        item.addEventListener('click', () => navigateToVisualization(id, getNextMode(item.dataset.series, mode)));
+        item.classList.toggle('is-clickable', chartType !== 'pie');
+        item.onclick = chartType === 'pie'
+            ? null
+            : () => navigateToVisualization(id, getNextMode(item.dataset.series, mode));
     });
 }
 
@@ -355,6 +442,7 @@ function getNextMode(series, mode) {
 function navigateToVisualization(id, mode) {
     const params = new URLSearchParams({ id });
     if (mode !== 'main') params.set('mode', mode);
+    if (visualizationState?.chartType) params.set('chart', visualizationState.chartType);
     const currentFrom = new URLSearchParams(window.location.search).get('from');
     if (currentFrom) params.set('from', currentFrom);
     window.location.href = `pages/visualization/visualization.html?${params.toString()}`;

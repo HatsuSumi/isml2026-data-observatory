@@ -46,6 +46,48 @@ class NominationHandler extends StageHandler {
     }
 }
 
+class Phase1Handler extends StageHandler {
+    getFields(round) {
+        return {
+            '赛事时间': this.roundConfig?.['赛事时间'],
+            '小组': round['小组'],
+            '种子': round['种子'],
+            '组内名次': round['组内名次'],
+            '票数': round['票数'],
+            '全局名次': round['全局名次']
+        };
+    }
+
+    getConfig(round, stages) {
+        const characterData = this.charactersData?.[this.participantId];
+        const gender = round.round.includes('女性')
+            ? '女性组别'
+            : round.round.includes('男性')
+                ? '男性组别'
+                : characterData?.rounds?.find((item) => item.round.includes('女性组别') || item.round.includes('男性组别'))?.round.includes('女性组别')
+                    ? '女性组别'
+                    : '男性组别';
+        const roundMatch = round.round.match(/第一阶段第([一二三四五六])轮/);
+        if (!roundMatch) {
+            console.error('无法解析第一阶段轮次:', round.round);
+            return { roundConfig: null, stageConfig: null };
+        }
+        const roundKey = `第${roundMatch[1]}轮`;
+        const stage = stages['第一阶段']?.[roundKey];
+        if (!stage) {
+            console.error(`未找到配置: 第一阶段 -> ${roundKey}`);
+            return { roundConfig: null, stageConfig: null };
+        }
+        return {
+            roundConfig: {
+                ...stage['恒星组']?.[gender],
+                '赛事时间': stage['赛事时间']
+            },
+            stageConfig: stage
+        };
+    }
+}
+
 class PreliminariesHandler extends StageHandler {
     getFields(round) {
         return {
@@ -99,6 +141,7 @@ export class StageHandlerFactory {
     static patterns = [
         { pattern: /恒星组提名/, handler: NominationHandler },
         { pattern: /新星组.*?[春夏秋冬]季赛提名/, handler: NominationHandler },
+        { pattern: /第一阶段第[一二三四五六]轮(?:-(?:女性|男性)组别)?/, handler: Phase1Handler },
         { pattern: /预选赛第[一二三四五六七八]轮/, handler: PreliminariesHandler }
     ];
 

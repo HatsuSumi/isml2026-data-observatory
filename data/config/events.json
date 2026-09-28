@@ -508,6 +508,131 @@
                 }
             ]
         },
+        "2026-09": {
+            "title": "2026年9月",
+            "events": [
+                {
+                    "dateRange": {
+                        "start": "2026-09-01 20:00:00",
+                        "end": "2026-09-02 19:59:59"
+                    },
+                    "stats": {
+                        "votes": {
+                            "total": 2260
+                        }
+                    },
+                    "matches": [
+                        {
+                            "title": "第一阶段第一轮-女性组别",
+                            "id": "phase1-r01-stellar-female",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r01-stellar-female",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r01-stellar-female",
+                                "data": "data/phase1/stellar/female/27-phase1-r01-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r01.female",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
+                        },
+                        {
+                            "title": "第一阶段第一轮-男性组别",
+                            "id": "phase1-r01-stellar-male",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r01-stellar-male",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r01-stellar-male",
+                                "data": "data/phase1/stellar/male/28-phase1-r01-stellar-male.json",
+                                "rules": "pages/rules/rules.html?id=phase1",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r01.male"
+                            }
+                        }
+                    ],
+                    "details": {
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-09-05 20:00:00",
+                        "end": "2026-09-06 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第一阶段第二轮",
+                            "phase": "第一阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-09-08 20:00:00",
+                        "end": "2026-09-09 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第一阶段第三轮",
+                            "phase": "第一阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-09-12 20:00:00",
+                        "end": "2026-09-13 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第一阶段第四轮",
+                            "phase": "第一阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-09-15 20:00:00",
+                        "end": "2026-09-16 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第一阶段第五轮",
+                            "phase": "第一阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-09-19 20:00:00",
+                        "end": "2026-09-20 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第一阶段第六轮",
+                            "phase": "第一阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                }
+            ]
+        },
         "2026-10": {
             "title": "2026年10月",
             "events": [
@@ -765,6 +890,86 @@
                 }
             ]
         },
+        "2026-12": {
+            "title": "2026年12月",
+            "events": [
+                {
+                    "dateRange": {
+                        "start": "2026-12-04 20:00:00",
+                        "end": "2026-12-05 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第四阶段第二轮",
+                            "phase": "第四阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-12-07 20:00:00",
+                        "end": "2026-12-08 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第四阶段第三轮",
+                            "phase": "第四阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-12-11 20:00:00",
+                        "end": "2026-12-12 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第四阶段第四轮",
+                            "phase": "第四阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-12-14 20:00:00",
+                        "end": "2026-12-15 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第四阶段第五轮",
+                            "phase": "第四阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                },
+                {
+                    "dateRange": {
+                        "start": "2026-12-18 20:00:00",
+                        "end": "2026-12-19 19:59:59"
+                    },
+                    "matches": [
+                        {
+                            "title": "第四阶段第六轮",
+                            "phase": "第四阶段"
+                        }
+                    ],
+                    "details": {
+                        "format": ""
+                    }
+                }
+            ]
+        },
         "2027-01": {
             "title": "2027年1月",
             "events": [
@@ -878,181 +1083,6 @@
                         {
                             "title": "第五阶段第六轮",
                             "phase": "第五阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                }
-            ]
-        },
-        "2026-09": {
-            "title": "2026年9月",
-            "events": [
-                {
-                    "dateRange": {
-                        "start": "2026-09-01 20:00:00",
-                        "end": "2026-09-02 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第一阶段第一轮",
-                            "phase": "第一阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-09-05 20:00:00",
-                        "end": "2026-09-06 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第一阶段第二轮",
-                            "phase": "第一阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-09-08 20:00:00",
-                        "end": "2026-09-09 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第一阶段第三轮",
-                            "phase": "第一阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-09-12 20:00:00",
-                        "end": "2026-09-13 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第一阶段第四轮",
-                            "phase": "第一阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-09-15 20:00:00",
-                        "end": "2026-09-16 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第一阶段第五轮",
-                            "phase": "第一阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-09-19 20:00:00",
-                        "end": "2026-09-20 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第一阶段第六轮",
-                            "phase": "第一阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                }
-            ]
-        },
-        "2026-12": {
-            "title": "2026年12月",
-            "events": [
-                {
-                    "dateRange": {
-                        "start": "2026-12-04 20:00:00",
-                        "end": "2026-12-05 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第四阶段第二轮",
-                            "phase": "第四阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-12-07 20:00:00",
-                        "end": "2026-12-08 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第四阶段第三轮",
-                            "phase": "第四阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-12-11 20:00:00",
-                        "end": "2026-12-12 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第四阶段第四轮",
-                            "phase": "第四阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-12-14 20:00:00",
-                        "end": "2026-12-15 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第四阶段第五轮",
-                            "phase": "第四阶段"
-                        }
-                    ],
-                    "details": {
-                        "format": ""
-                    }
-                },
-                {
-                    "dateRange": {
-                        "start": "2026-12-18 20:00:00",
-                        "end": "2026-12-19 19:59:59"
-                    },
-                    "matches": [
-                        {
-                            "title": "第四阶段第六轮",
-                            "phase": "第四阶段"
                         }
                     ],
                     "details": {

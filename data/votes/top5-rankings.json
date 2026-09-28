@@ -434,5 +434,53 @@
                 "votes": 436
             }
         ]
+    },
+    "第一阶段第一轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF001",
+                "votes": 1456
+            },
+            {
+                "participantId": "SF002",
+                "votes": 1401
+            },
+            {
+                "participantId": "SF093",
+                "votes": 1369
+            },
+            {
+                "participantId": "SF067",
+                "votes": 1290
+            },
+            {
+                "participantId": "SF003",
+                "votes": 1221
+            }
+        ]
+    },
+    "第一阶段第一轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM028",
+                "votes": 1082
+            },
+            {
+                "participantId": "SM001",
+                "votes": 1067
+            },
+            {
+                "participantId": "SM002",
+                "votes": 939
+            },
+            {
+                "participantId": "SM017",
+                "votes": 912
+            },
+            {
+                "participantId": "SM003",
+                "votes": 898
+            }
+        ]
     }
 }

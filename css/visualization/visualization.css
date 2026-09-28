@@ -20,8 +20,9 @@ body {
 }
 
 .home-btn,
-.table-btn {
-    width: 120px;
+.table-btn,
+.chart-toggle-btn {
+    width: 140px;
     box-sizing: border-box;
     color: white;
     border: none;
@@ -43,8 +44,13 @@ body {
     background: linear-gradient(145deg, #4a90e2, #6aa8e7);
 }
 
+.chart-toggle-btn {
+    background: linear-gradient(145deg, #3d7644, #3e9d65);
+}
+
 .home-btn:hover,
 .table-btn:hover,
+.chart-toggle-btn:hover,
 .other-events-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
@@ -199,6 +205,10 @@ body {
     padding: 10px;
 }
 
+.custom-legend.is-hidden {
+    display: none;
+}
+
 .legend-item {
     display: flex;
     align-items: center;
@@ -238,7 +248,7 @@ body {
 .events-dropdown {
     position: relative;
     display: inline-block;
-    width: min(120px, calc(100vw - 24px));
+    width: min(140px, calc(100vw - 24px));
     max-width: 100%;
 }
 
@@ -340,6 +350,35 @@ body {
     transform: translateY(0);
 }
 
+@media (max-width: 720px) {
+    .button-container {
+        position: static;
+        width: min(100% - 24px, 320px);
+        margin: 16px auto 0;
+    }
+
+    .content-scroll {
+        margin-top: 24px;
+        overflow-x: auto;
+    }
+
+    .title-container {
+        position: static;
+        transform: none;
+        width: min(100% - 24px, var(--chart-width, 1800px));
+        margin: 0 auto;
+    }
+
+    .title-container svg {
+        height: 96px !important;
+    }
+
+    .custom-legend {
+        position: static;
+        transform: none;
+        width: auto;
+    }
+}
 @keyframes fadeInUp {
     from {
         opacity: 0;

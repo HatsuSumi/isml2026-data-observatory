@@ -3097,5 +3097,1039 @@
                 }
             ]
         }
+    },
+    "phase1.stellar.r01.female": {
+        "title": "第一阶段第一轮-恒星组女性组别",
+        "groups": {
+            "第01组": [
+                {
+                    "participantId": "SF005",
+                    "seed": 1,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF012",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF117",
+                    "seed": 3,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF049",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF124",
+                    "seed": 5,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF130",
+                    "seed": 6,
+                    "rank": 4
+                }
+            ],
+            "第02组": [
+                {
+                    "participantId": "SF092",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF091",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF025",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF123",
+                    "seed": 4,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF131",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF141",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ],
+            "第03组": [
+                {
+                    "participantId": "SF004",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF013",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF024",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF108",
+                    "seed": 4,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF104",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF105",
+                    "seed": 6,
+                    "rank": 3
+                }
+            ],
+            "第04组": [
+                {
+                    "participantId": "SF017",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF020",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF038",
+                    "seed": 3,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF107",
+                    "seed": 4,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF135",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF043",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第05组": [
+                {
+                    "participantId": "SF011",
+                    "seed": 1,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF089",
+                    "seed": 2,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF099",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF144",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF040",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF066",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ],
+            "第06组": [
+                {
+                    "participantId": "SF067",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF014",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF136",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF128",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF137",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF059",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ],
+            "第07组": [
+                {
+                    "participantId": "SF019",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF034",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF031",
+                    "seed": 3,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF106",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF119",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF143",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第08组": [
+                {
+                    "participantId": "SF010",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF009",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF101",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF036",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF030",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF142",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ],
+            "第09组": [
+                {
+                    "participantId": "SF006",
+                    "seed": 1,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF008",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF126",
+                    "seed": 3,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF035",
+                    "seed": 4,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF048",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF132",
+                    "seed": 6,
+                    "rank": 4
+                }
+            ],
+            "第10组": [
+                {
+                    "participantId": "SF090",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF088",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF098",
+                    "seed": 3,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF122",
+                    "seed": 4,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF114",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF138",
+                    "seed": 6,
+                    "rank": 4
+                }
+            ],
+            "第11组": [
+                {
+                    "participantId": "SF023",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF015",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF095",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF029",
+                    "seed": 4,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF027",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF042",
+                    "seed": 6,
+                    "rank": 4
+                }
+            ],
+            "第12组": [
+                {
+                    "participantId": "SF022",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF021",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF096",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF116",
+                    "seed": 4,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF037",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF056",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第13组": [
+                {
+                    "participantId": "SF001",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF007",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF026",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF115",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF033",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF032",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ],
+            "第14组": [
+                {
+                    "participantId": "SF093",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF018",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF097",
+                    "seed": 3,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF100",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF112",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SF072",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第15组": [
+                {
+                    "participantId": "SF003",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF016",
+                    "seed": 2,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF028",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF094",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF111",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF052",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ],
+            "第16组": [
+                {
+                    "participantId": "SF002",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SF129",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SF110",
+                    "seed": 3,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SF102",
+                    "seed": 4,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SF120",
+                    "seed": 5,
+                    "rank": 6
+                },
+                {
+                    "participantId": "SF045",
+                    "seed": 6,
+                    "rank": 5
+                }
+            ]
+        }
+    },
+    "phase1.stellar.r01.male": {
+        "title": "第一阶段第一轮-恒星组男性组别",
+        "groups": {
+            "第01组": [
+                {
+                    "participantId": "SM081",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM090",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM110",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM112",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM131",
+                    "seed": 6,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM016",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第02组": [
+                {
+                    "participantId": "SM005",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM082",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM104",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM101",
+                    "seed": 6,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM132",
+                    "seed": 4,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM043",
+                    "seed": 5,
+                    "rank": 6
+                }
+            ],
+            "第03组": [
+                {
+                    "participantId": "SM018",
+                    "seed": 3,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM098",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM029",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM115",
+                    "seed": 6,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM062",
+                    "seed": 1,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM133",
+                    "seed": 5,
+                    "rank": 6
+                }
+            ],
+            "第04组": [
+                {
+                    "participantId": "SM035",
+                    "seed": 4,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM033",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM117",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM135",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM011",
+                    "seed": 1,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM120",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第05组": [
+                {
+                    "participantId": "SM001",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM030",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM026",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM126",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM111",
+                    "seed": 2,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM116",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第06组": [
+                {
+                    "participantId": "SM002",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM092",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM023",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM107",
+                    "seed": 2,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM140",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM044",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第07组": [
+                {
+                    "participantId": "SM004",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM086",
+                    "seed": 5,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM085",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM089",
+                    "seed": 3,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM093",
+                    "seed": 6,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM007",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第08组": [
+                {
+                    "participantId": "SM028",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM025",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM042",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM034",
+                    "seed": 6,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM087",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM013",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第09组": [
+                {
+                    "participantId": "SM017",
+                    "seed": 3,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM008",
+                    "seed": 1,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM138",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM130",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM096",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM039",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第10组": [
+                {
+                    "participantId": "SM006",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM021",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM031",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM108",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM122",
+                    "seed": 6,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM015",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第11组": [
+                {
+                    "participantId": "SM058",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM009",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM041",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM102",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM084",
+                    "seed": 3,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM118",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第12组": [
+                {
+                    "participantId": "SM019",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM088",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM099",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM114",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM124",
+                    "seed": 6,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM014",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第13组": [
+                {
+                    "participantId": "SM024",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM094",
+                    "seed": 4,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM109",
+                    "seed": 3,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM071",
+                    "seed": 6,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM045",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM010",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第14组": [
+                {
+                    "participantId": "SM020",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM022",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM036",
+                    "seed": 2,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM095",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM038",
+                    "seed": 5,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM125",
+                    "seed": 6,
+                    "rank": 6
+                }
+            ],
+            "第15组": [
+                {
+                    "participantId": "SM003",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM037",
+                    "seed": 3,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM136",
+                    "seed": 4,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM121",
+                    "seed": 5,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM123",
+                    "seed": 6,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM012",
+                    "seed": 2,
+                    "rank": 6
+                }
+            ],
+            "第16组": [
+                {
+                    "participantId": "SM032",
+                    "seed": 1,
+                    "rank": 1
+                },
+                {
+                    "participantId": "SM027",
+                    "seed": 2,
+                    "rank": 2
+                },
+                {
+                    "participantId": "SM091",
+                    "seed": 5,
+                    "rank": 3
+                },
+                {
+                    "participantId": "SM100",
+                    "seed": 4,
+                    "rank": 4
+                },
+                {
+                    "participantId": "SM097",
+                    "seed": 6,
+                    "rank": 5
+                },
+                {
+                    "participantId": "SM046",
+                    "seed": 3,
+                    "rank": 6
+                }
+            ]
+        }
     }
 }

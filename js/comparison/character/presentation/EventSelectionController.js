@@ -129,15 +129,16 @@ export class EventSelectionController {
 
     updateTotalVotes(eventId) {
         const event = this.characterManager.getEventStats(eventId);
-        if (!event?.stats?.votes) {
+        const votes = event?.stats?.votes;
+        if (!votes) {
             return;
         }
 
         const totalVotesValue = document.querySelector(this.selectors.totalVotesValue);
         const totalVotesValid = document.querySelector(this.selectors.totalVotesValid);
-        totalVotesValue.textContent = event.stats.votes.total;
-        totalVotesValid.textContent = event.stats.votes.valid === undefined
+        totalVotesValue.textContent = votes.total ?? 0;
+        totalVotesValid.textContent = votes.valid === undefined || votes.valid === null
             ? ''
-            : `（有效：${event.stats.votes.valid}）`;
+            : `（有效：${votes.valid}）`;
     }
 }

@@ -112,13 +112,11 @@ export async function loadEventData() {
 function extraGroupFields(record) {
     const extra = {};
     if (Number.isInteger(record?.seed)) extra.seed = record.seed;
+    if (Number.isInteger(record?.rank)) extra.rank = record.rank;
     return extra;
 }
 
 function enrichGroupMember(record, resolver, path) {
-    if (typeof record === 'string') {
-        return { name: record, ip: '', avatar: '' };
-    }
     if (!record || typeof record !== 'object' || Array.isArray(record)) {
         throw new Error(`groups.json ${path} 必须是对象`);
     }
@@ -131,10 +129,7 @@ function enrichGroupMember(record, resolver, path) {
         const character = resolver.getByCharacterId(record.characterId);
         return { ...character, ...extra, characterId: record.characterId };
     }
-    if (record.name && record.ip) {
-        return { ...resolver.enrichLegacyRow(record), ...extra };
-    }
-    throw new Error(`groups.json ${path} 缺少 participantId、characterId 或 name/ip`);
+    throw new Error(`groups.json ${path} 缺少 participantId 或 characterId`);
 }
 
 export async function loadGroupData() {
@@ -196,10 +191,7 @@ function enrichNominationRecord(record, resolver, path) {
             characterId: record.characterId
         };
     }
-    if (record.name && record.ip) {
-        return resolver.enrichLegacyRow(record);
-    }
-    throw new Error(`nomination-stats.json ${path} 缺少 participantId、characterId 或 name/ip`);
+    throw new Error(`nomination-stats.json ${path} 缺少 participantId 或 characterId`);
 }
 
 function enrichNominationList(list, resolver, path) {
@@ -208,12 +200,15 @@ function enrichNominationList(list, resolver, path) {
     ));
 }
 
-function toInternalPreliminaryPath(snapshotPath) {
+export function getInternalSnapshotPath(snapshotPath, category) {
     const value = String(snapshotPath || '').replace(/\\/g, '/');
-    if (!value.includes('data/preliminaries/')) {
-        throw new Error(`预选赛快照路径无效：${snapshotPath}`);
-    }
-    return value.replace('data/preliminaries/', 'data/internal/preliminaries/');
+    const prefix = `data/${category}/`;
+    if (!value.includes(prefix)) throw new Error(`内部快照路径无效：${snapshotPath}`);
+    return value.replace(prefix, `data/internal/${category}/`);
+}
+
+function toInternalPreliminaryPath(snapshotPath) {
+    return getInternalSnapshotPath(snapshotPath, 'preliminaries');
 }
 
 function enrichPreliminaryRecord(record, resolver, path) {
@@ -235,14 +230,43 @@ function enrichPreliminaryRecord(record, resolver, path) {
         const character = resolver.getByCharacterId(record.characterId);
         return { ...character, ...eventFields, characterId: record.characterId };
     }
-    if (record.name && record.ip) {
-        return { ...resolver.enrichLegacyRow(record), ...eventFields };
-    }
-    throw new Error(`预选赛数据 ${path} 缺少 participantId、characterId 或 name/ip`);
+    throw new Error(`预选赛数据 ${path} 缺少 participantId 或 characterId`);
 }
 
 export function getPreliminarySnapshotPath(snapshotPath) {
     return String(snapshotPath || '');
+}
+
+export async function loadPhase1Data(snapshotPath) {
+    const [rawData, resolver] = await Promise.all([
+        fetchJson(getInternalSnapshotPath(snapshotPath, 'phase1')),
+        loadCharacterResolver()
+    ]);
+    if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
+        throw new Error('内部第一阶段数据格式错误：data 必须是数组');
+    }
+    return {
+        ...rawData,
+        data: rawData.data.map((match, matchIndex) => {
+            if (!match || !Array.isArray(match.contestants)) {
+                throw new Error(`内部第一阶段数据 [${matchIndex}] 格式错误`);
+            }
+            return {
+                ...match,
+                contestants: match.contestants.map((contestant, contestantIndex) => {
+                    if (!contestant?.participantId) {
+                        throw new Error(`内部第一阶段数据 [${matchIndex}][${contestantIndex}] 缺少 participantId`);
+                    }
+                    return {
+                        ...resolver.getByParticipantId(contestant.participantId),
+                        votes: contestant.votes,
+                        result: contestant.result,
+                        participantId: contestant.participantId
+                    };
+                })
+            };
+        })
+    };
 }
 
 export async function loadPreliminariesData(snapshotPath) {

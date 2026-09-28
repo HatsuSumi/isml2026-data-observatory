@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../">
+    <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/tables/phase1-table.css">
+    <title>第一阶段表格 - ISML 2026 数据观测</title>
+</head>
+<body class="phase1-page">
+    <include src="templates/header.html"></include>
+    <main class="container">
+        <h1 id="pageTitle">第一阶段表格</h1>
+        <div class="subtitle">点击表头可对数据进行排序</div>
+        <div class="subtitle" id="pageSubtitle"></div>
+        <div class="filter-container">
+            <div class="select-wrapper">
+                <select id="statusFilter" aria-label="按结果筛选">
+                    <option value="all">全部选手</option>
+                    <option value="win">胜者</option>
+                    <option value="loss">败者</option>
+                </select>
+            </div>
+            <div class="select-wrapper">
+                <select id="matchFilter" aria-label="按擂台筛选">
+                    <option value="all">全部擂台</option>
+                </select>
+            </div>
+            <input id="searchInput" class="search-input" type="search" placeholder="搜索角色或 IP..." aria-label="搜索角色或 IP">
+            <input id="minVotes" class="vote-input" type="number" min="0" placeholder="最小票数" aria-label="最小票数">
+            <input id="maxVotes" class="vote-input" type="number" min="0" placeholder="最大票数" aria-label="最大票数">
+            <button id="resetBtn" class="reset-btn" type="button">恢复初始状态</button>
+        </div>
+        <div class="button-container">
+            <a href="javascript:history.back()" class="home-btn">返回上一页</a>
+            <a id="visualizationLink" class="visualization-btn">数据可视化</a>
+            <div class="dropdown">
+                <button class="download-btn" type="button" aria-expanded="false" aria-controls="phase1DownloadDropdown">下载表格</button>
+                <div id="phase1DownloadDropdown" class="dropdown-content" hidden>
+                    <a href="#" data-download="source-csv">下载原始CSV</a>
+                    <a href="#" data-download="source-xlsx">下载原始XLSX</a>
+                    <a href="#" data-download="source-json">下载原始JSON</a>
+                    <a href="#" data-download="filtered-csv">下载筛选后的CSV</a>
+                    <a href="#" data-download="filtered-xlsx">下载筛选后的XLSX</a>
+                    <a href="#" data-download="filtered-json">下载筛选后的JSON</a>
+                </div>
+            </div>
+        </div>
+        <div id="summary" class="phase1-summary"></div>
+        <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th data-sort="group">分组</th><th data-sort="seed">种子</th><th data-sort="match">擂台</th><th data-sort="globalRank">全局排名</th>
+                    <th data-sort="name">角色</th><th>头像</th><th data-sort="ip">IP</th><th data-sort="votes">得票数</th><th data-sort="result">结果</th>
+                </tr></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+        <button class="back-to-top" id="backToTop" type="button" aria-label="返回顶部">↑</button>
+    </main>
+    <include src="templates/footer.html"></include>
+    <script type="module" src="js/table/phase1-table.js"></script>
+</body>
+</html>

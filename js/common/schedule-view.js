@@ -38,8 +38,8 @@ export function getSchedulePhaseId(phaseTitle) {
 
 export function collectEventWindows(eventsConfig) {
     const windows = [];
-    Object.values(eventsConfig?.months || {}).forEach((month) => {
-        (month.events || []).forEach((event) => {
+    Object.entries(eventsConfig?.months || {}).forEach(([monthKey, month]) => {
+        (month.events || []).forEach((event, eventIndex) => {
             const matches = event.matches || [];
             if (!matches.length) return;
             const groupTitle = getScheduleGroupTitle(matches[0].title);
@@ -82,7 +82,7 @@ function compactDetails(details) {
 
 function eventVotesForSchedule(event) {
     const votes = event.stats?.votes;
-    if (!votes || votes.valid === undefined || votes.valid === null || votes.valid === '') {
+    if (!votes || votes.total === undefined || votes.total === null || votes.total === '') {
         return undefined;
     }
     return votes;
@@ -120,7 +120,9 @@ export function buildScheduleView(eventsConfig) {
     ]));
     const occupied = new Set();
 
-    collectEventWindows(eventsConfig).forEach((window) => {
+    const windows = collectEventWindows(eventsConfig);
+
+    windows.forEach((window) => {
         if (!window.phaseId || !phases[window.phaseId]) {
             throw new Error(`无法映射赛事阶段：${window.matches[0]?.phase || window.groupTitle}`);
         }

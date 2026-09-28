@@ -125,15 +125,18 @@ export function filterTimelineByCharacter(character) {
     document.getElementById('characterSearch').value = `${character.name}（${character.ip}）`;
 
     const participatedMatches = new Set(character.matches.map(match => match.title));
-
     sections.forEach(section => {
         const matches = section.querySelectorAll('.timeline-item');
+        const isNumberedPhase = /^第[一二三四五六七]阶段$/.test(section.querySelector('.timeline-header h2')?.textContent.trim() || '');
         let hasVisibleMatch = false;
 
         matches.forEach(match => {
             const matchTitle = match.querySelector('.match-title').textContent;
             if (participatedMatches.has(matchTitle)) {
                 match.hidden = false;
+                const matchStatus = match.querySelector('.match-status');
+                const isSixthRound = matchTitle.includes('第六轮');
+                matchStatus?.toggleAttribute('hidden', isNumberedPhase && !isSixthRound);
                 hasVisibleMatch = true;
 
                 const characterMatch = character.matches.find(item => item.title === matchTitle);
@@ -175,6 +178,7 @@ export function showAllMatches() {
 
     allMatches.forEach(match => {
         match.hidden = false;
+        match.querySelector('.match-status')?.removeAttribute('hidden');
         const matchTitle = match.querySelector('.match-title').textContent;
         const matchData = getMatchDetails(getScheduleData(), matchTitle);
 

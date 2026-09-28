@@ -57,9 +57,11 @@ function buildBaseOption() {
 }
 
 function buildBarOption(data, mode) {
+    const advanceLabel = data.statusLabels?.advance || '晋级';
+    const eliminateLabel = data.statusLabels?.eliminate || '未晋级';
     const series = [];
-    if (mode !== 'eliminate') series.push(buildSeries('晋级', data.advanceData, data.labels, '#3d7644', '#3e9d65'));
-    if (mode !== 'advance') series.push(buildSeries('未晋级', data.eliminateData, data.labels, '#744444', '#a65d5d'));
+    if (mode !== 'eliminate') series.push(buildSeries(advanceLabel, data.advanceData, data.labels, '#3d7644', '#3e9d65'));
+    if (mode !== 'advance') series.push(buildSeries(eliminateLabel, data.eliminateData, data.labels, '#744444', '#a65d5d'));
 
     return {
         ...buildBaseOption(),
@@ -100,25 +102,57 @@ function buildLineOption(data, mode) {
 }
 
 function buildPieOption(data, mode) {
-    const slices = [];
-    if (mode !== 'eliminate') {
-        slices.push({ name: '晋级', value: data.advanceData.filter(hasVoteValue).reduce((sum, value) => sum + value, 0) });
-    }
-    if (mode !== 'advance') {
-        slices.push({ name: '未晋级', value: data.eliminateData.filter(hasVoteValue).reduce((sum, value) => sum + value, 0) });
-    }
+    const groups = data.groups.map((group) => ({
+        ...group,
+        rows: group.rows.filter((row) => {
+            if (mode === 'advance') return row.isPromoted;
+            if (mode === 'eliminate') return !row.isPromoted;
+            return true;
+        })
+    })).filter((group) => group.rows.length > 0);
+    const columns = Math.max(1, Math.ceil(Math.sqrt(groups.length)));
+    const rows = Math.max(1, Math.ceil(groups.length / columns));
+    const series = groups.map((group, index) => {
+        const column = index % columns;
+        const row = Math.floor(index / columns);
+        const centerX = `${((column + 0.5) / columns) * 100}%`;
+        const centerY = `${((row + 0.5) / rows) * 100}%`;
+        return {
+            name: group.name,
+            type: 'pie',
+            radius: '11%',
+            center: [centerX, centerY],
+            data: group.rows.map((item) => ({
+                name: item.label,
+                value: item.votes,
+                rank: item.displayRank,
+                globalRank: item.globalRank,
+                isPromoted: item.isPromoted,
+                itemStyle: {
+                    color: item.isPromoted ? '#3e9d65' : '#a65d5d'
+                }
+            })),
+            label: {
+                color: '#dbe7f5',
+                fontSize: 12,
+                formatter: '{b}\n{c}票（{d}%）'
+            },
+            labelLine: { lineStyle: { color: '#718096' } },
+            itemStyle: { borderColor: '#1a1a1a', borderWidth: 2 }
+        };
+    });
 
     return {
         ...buildBaseOption(),
-        tooltip: { ...buildBaseOption().tooltip, trigger: 'item', formatter: '{b}<br/>得票数：{c}票（{d}%）' },
-        series: [{
-            type: 'pie',
-            radius: ['35%', '65%'],
-            center: ['50%', '50%'],
-            data: slices,
-            label: { color: '#a6c1ee', formatter: '{b}\n{c}票（{d}%）' },
-            itemStyle: { borderColor: '#1a1a1a', borderWidth: 2 }
-        }]
+        tooltip: {
+            ...buildBaseOption().tooltip,
+            trigger: 'item',
+            formatter(params) {
+                const rank = params.data?.globalRank ? `<br/>全局排名：第${params.data.globalRank}名` : '';
+                return `${params.seriesName}<br/>${params.name}<br/>得票数：${params.value}票（${params.percent}%）${rank}`;
+            }
+        },
+        series
     };
 }
 

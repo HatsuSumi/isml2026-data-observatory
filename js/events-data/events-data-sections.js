@@ -29,9 +29,11 @@ export function groupEventsByStructure(events) {
             const phase = match.phase;
             if (!structure[dateKey].phases[phase]) structure[dateKey].phases[phase] = { groups: {} };
             let mainGroup;
+            const roundMatch = match.title.match(/第([一二三四五六七八九十]+)轮/);
             if (match.title.includes('预选赛')) {
-                const roundMatch = match.title.match(/第([一二三四五六])轮/);
                 mainGroup = roundMatch ? `预选赛${roundMatch[0]}` : match.title;
+            } else if (match.title.includes('第一阶段')) {
+                mainGroup = roundMatch ? `第一阶段${roundMatch[0]}` : '第一阶段';
             } else {
                 mainGroup = match.title.includes('恒星组')
                     ? '恒星组提名'
@@ -82,7 +84,7 @@ function createPhaseSection(templates, phaseName, phase, nextEventStartTime, ran
         const firstMatch = Object.values(phase.groups)[0]?.[0]?.match;
         const round = firstMatch ? getRoundNumber(firstMatch.title) : null;
         section.dataset.phase = round ? `${phaseTargetId}-${round}` : phaseTargetId;
-        if (phaseTargetId === 'preliminary') section.dataset.stage = phaseTargetId;
+        section.dataset.stage = phaseTargetId;
     }
     section.id = phaseName;
     header.textContent = phaseName;

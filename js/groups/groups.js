@@ -121,7 +121,7 @@ class GroupRendererStrategy {
 class Groups {
     constructor() {
         const urlParams = new URLSearchParams(window.location.search);
-        this.groupId = urlParams.get('id');
+        this.groupId = (urlParams.get('id') || '').trim();
         this.containers = {
             content: document.querySelector('.groups-content'),
             title: document.querySelector('.groups-title')
@@ -151,6 +151,7 @@ class Groups {
     renderGroups() {
         const groupConfig = this.groupsData[this.groupId];
         if (!groupConfig) {
+            console.warn('未找到对应的分组信息:', this.groupId, Object.keys(this.groupsData || {}).filter((key) => key.includes('phase1')));
             this.showError('未找到对应的分组信息');
             return;
         }
@@ -162,10 +163,10 @@ class Groups {
     }
 
     getGroupType() {
-        const cleanGroupId = this.groupId.split('&')[0];
-        if (cleanGroupId.includes('preliminary')) return 'preliminary';
+        const cleanGroupId = String(this.groupId || '').split('&')[0].trim();
+        if (cleanGroupId.startsWith('preliminary.') || cleanGroupId.startsWith('phase1.')) return 'preliminary';
         if (cleanGroupId.includes('group_stage')) return 'seedGroup';
-        throw new Error('未知的分组类型');
+        throw new Error(`未知的分组类型: ${cleanGroupId}`);
     }
 
     showError(message) {

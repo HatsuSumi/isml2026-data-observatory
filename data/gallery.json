@@ -3,7 +3,7 @@
         {
             "id": "milestone-01",
             "type": "milestone",
-            "title": "藤原千花-全赛事第150场（第162位）（预选赛第一轮达成）",
+            "title": "藤原千花-全赛事第150场（第162位）（预选赛第1轮达成）",
             "src": "https://pic.imgdd.cc/i/034S7KTsLZNNnV3zv0YVoc.png",
             "order": 10,
             "position": {
@@ -14,7 +14,7 @@
         {
             "id": "milestone-02",
             "type": "milestone",
-            "title": "拉姆-全赛事第100场（第238位）（预选赛第二轮达成）",
+            "title": "拉姆-全赛事第100场（第238位）（预选赛第2达成）",
             "src": "https://pic.imgdd.cc/i/034TF9gRXwlzEBABMiDnyE.png",
             "order": 20,
             "position": {
@@ -25,7 +25,7 @@
         {
             "id": "milestone-03",
             "type": "milestone",
-            "title": "后藤独-全赛事第100场（第239位）（预选赛第三轮达成）",
+            "title": "后藤独-全赛事第100场（第239位）（预选赛第3轮达成）",
             "src": "https://pic.imgdd.cc/i/034VIsES10LmcvpxMq5ako.png",
             "order": 30,
             "position": {
@@ -34,8 +34,10 @@
             }
         },
         {
-            "id": "placeholder-02",
-            "type": "placeholder",
+            "id": "milestone-04",
+            "type": "milestone",
+            "title": "户冢彩加 - 一对一第100胜（第95位，100胜85负）（预选赛第3轮达成）",
+            "src": "https://pic.imgdd.cc/i/034W0UEPez7ksIohlvROb6.png",
             "order": 40,
             "position": {
                 "x": 55,
@@ -43,8 +45,10 @@
             }
         },
         {
-            "id": "placeholder-03",
-            "type": "placeholder",
+            "id": "milestone-05",
+            "type": "milestone",
+            "title": "雪之下雪乃 - 全赛事第350场（第32位）（预选赛第4轮达成）",
+            "src": "https://pic.imgdd.cc/i/034W5fQRjiYkKAASkBBcu3.png",
             "order": 50,
             "position": {
                 "x": 69,
@@ -52,8 +56,10 @@
             }
         },
         {
-            "id": "placeholder-04",
-            "type": "placeholder",
+            "id": "milestone-06",
+            "type": "milestone",
+            "title": "菜月昴 - 一对一第150胜（第57位，150胜85负）（预选赛第4轮达成）",
+            "src": "https://pic.imgdd.cc/i/034W5lKun9wLOrADGfKt4J.png",
             "order": 60,
             "position": {
                 "x": 84,
@@ -61,8 +67,10 @@
             }
         },
         {
-            "id": "placeholder-05",
-            "type": "placeholder",
+            "id": "milestone-07",
+            "type": "milestone",
+            "title": "夜斗 - 全赛事第250场（第79位）（预选赛第5轮达成）",
+            "src": "https://pic.imgdd.cc/i/034W5oPKPYBu3gpYoRSG6f.png",
             "order": 70,
             "position": {
                 "x": 21,
@@ -70,8 +78,10 @@
             }
         },
         {
-            "id": "placeholder-06",
-            "type": "placeholder",
+            "id": "milestone-08",
+            "type": "milestone",
+            "title": "西宫硝子 - 全赛事第200场（第111位）（预选赛第6轮达成）",
+            "src": "https://pic.imgdd.cc/i/034W5tN9SP6bbuVGU1Zi1a.png",
             "order": 80,
             "position": {
                 "x": 35,
@@ -79,8 +89,10 @@
             }
         },
         {
-            "id": "placeholder-07",
-            "type": "placeholder",
+            "id": "milestone-09",
+            "type": "milestone",
+            "title": "间桐樱 - 全赛事第150场（第164位）（预选赛第8轮达成）",
+            "src": "https://pic.imgdd.cc/i/034W5zE8ahdCVFkSmAhaFv.png",
             "order": 90,
             "position": {
                 "x": 49,
@@ -162,46 +174,46 @@
         },
         {
             "from": "milestone-03",
-            "to": "placeholder-02"
+            "to": "milestone-04"
         },
         {
-            "from": "placeholder-02",
-            "to": "placeholder-03"
+            "from": "milestone-04",
+            "to": "milestone-05"
         },
         {
-            "from": "placeholder-03",
-            "to": "placeholder-04"
+            "from": "milestone-05",
+            "to": "milestone-06"
         },
         {
             "from": "milestone-01",
-            "to": "placeholder-05"
+            "to": "milestone-07"
         },
         {
             "from": "milestone-03",
-            "to": "placeholder-06"
+            "to": "milestone-08"
         },
         {
-            "from": "placeholder-02",
-            "to": "placeholder-07"
+            "from": "milestone-04",
+            "to": "milestone-09"
         },
         {
-            "from": "placeholder-03",
+            "from": "milestone-05",
             "to": "placeholder-08"
         },
         {
-            "from": "placeholder-04",
+            "from": "milestone-06",
             "to": "placeholder-09"
         },
         {
-            "from": "placeholder-05",
-            "to": "placeholder-06"
+            "from": "milestone-07",
+            "to": "milestone-08"
         },
         {
-            "from": "placeholder-06",
-            "to": "placeholder-07"
+            "from": "milestone-08",
+            "to": "milestone-09"
         },
         {
-            "from": "placeholder-07",
+            "from": "milestone-09",
             "to": "placeholder-08"
         },
         {
@@ -213,15 +225,15 @@
             "to": "placeholder-10"
         },
         {
-            "from": "placeholder-05",
+            "from": "milestone-07",
             "to": "placeholder-11"
         },
         {
-            "from": "placeholder-06",
+            "from": "milestone-08",
             "to": "placeholder-12"
         },
         {
-            "from": "placeholder-07",
+            "from": "milestone-09",
             "to": "placeholder-13"
         },
         {

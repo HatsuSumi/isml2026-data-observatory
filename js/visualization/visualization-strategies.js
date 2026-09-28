@@ -16,13 +16,33 @@ function filterRowsByMode(rows, mode) {
 }
 
 function buildChartData(rawData, rows) {
+    const displayRows = rows.map((item) => ({
+        ...item,
+        label: `${item.name}（${item.ip}）`,
+        group: item.group ?? '全部参赛者'
+    }));
+    const groups = displayRows.reduce((groupMap, item) => {
+        const groupRows = groupMap.get(item.group) || [];
+        groupRows.push(item);
+        groupMap.set(item.group, groupRows);
+        return groupMap;
+    }, new Map());
+
     return {
         date: rawData.date || '',
         event: rawData.event || '',
-        labels: rows.map((item) => `${item.name}（${item.ip}）`).reverse(),
-        ranks: rows.map((item) => item.displayRank).reverse(),
-        advanceData: rows.map((item) => item.isPromoted ? item.votes : null).reverse(),
-        eliminateData: rows.map((item) => item.isPromoted ? null : item.votes).reverse()
+        labels: displayRows.map((item) => item.label).reverse(),
+        ranks: displayRows.map((item) => item.displayRank).reverse(),
+        advanceData: displayRows.map((item) => item.isPromoted ? item.votes : null).reverse(),
+        eliminateData: displayRows.map((item) => item.isPromoted ? null : item.votes).reverse(),
+        groups: [...groups.entries()].map(([name, groupRows]) => ({
+            name,
+            rows: groupRows
+        })),
+        statusLabels: {
+            advance: '晋级',
+            eliminate: '未晋级'
+        }
     };
 }
 
@@ -60,9 +80,36 @@ const preliminaryStrategy = {
     }
 };
 
+const phase1Strategy = {
+    normalize(rawData, mode) {
+        const rows = filterRowsByMode(rawData.data.flatMap(match => match.contestants.map(contestant => ({
+            ...contestant,
+            label: `${contestant.name}（${contestant.ip}）`,
+            group: `擂台${match.match}`,
+            votes: Number(contestant.votes),
+            isPromoted: contestant.result === 'win'
+        }))), mode)
+            .sort((a, b) => b.votes - a.votes || a.name.localeCompare(b.name, 'zh-CN'))
+            .map((item, index) => ({
+                ...item,
+                rank: index + 1,
+                globalRank: index + 1,
+                displayRank: `第${index + 1}名`
+            }));
+        return {
+            ...buildChartData(rawData, rows),
+            statusLabels: {
+                advance: '胜者',
+                eliminate: '败者'
+            }
+        };
+    }
+};
+
 export function getVisualizationStrategy(visualizationId) {
     const nominationConfig = NOMINATION_TABLE_CONFIGS[visualizationId];
     if (nominationConfig) return createNominationStrategy(nominationConfig);
     if (visualizationId.startsWith('preliminary-') || visualizationId.endsWith('-preliminaries')) return preliminaryStrategy;
+    if (visualizationId.startsWith('phase1-')) return phase1Strategy;
     throw new Error(`未找到可视化策略：${visualizationId}`);
 }

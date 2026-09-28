@@ -18,21 +18,6 @@ function assertObject(value, label) {
     }
 }
 
-function normalize(value) {
-    return String(value ?? '')
-        .normalize('NFKC')
-        .trim()
-        .toLocaleLowerCase()
-        .replace(/[\s\u3000]/g, '')
-        .replace(/[·・•]/g, '')
-        .replace(/[！!？?。.～~]/g, '');
-}
-
-function firstNonEmpty(...values) {
-    const value = values.find(item => String(item ?? '').trim() !== '');
-    return String(value ?? '').trim();
-}
-
 function toDisplayCv(value) {
     if (Array.isArray(value)) return value.filter(Boolean).join('、');
     if (value && typeof value === 'object') return Object.values(value).flat().filter(Boolean).join('、');
@@ -111,7 +96,6 @@ function getParticipantProfile(participantId, detailsData, databaseCharacter, ip
 function createCharacterIndexes(databaseCharacters, ipRecords, detailsData, participantMap) {
     const byCharacterId = new Map();
     const byParticipantId = new Map();
-    const byNameIp = new Map();
 
     databaseCharacters.forEach(character => {
         if (!/^char_\d{6}$/.test(character.id)) {
@@ -131,17 +115,15 @@ function createCharacterIndexes(databaseCharacters, ipRecords, detailsData, part
             rounds: Array.isArray(detail.rounds) ? detail.rounds : []
         });
         byParticipantId.set(participantId, resolved);
-        byNameIp.set(`${normalize(resolved.name)}@${normalize(resolved.ip)}`, resolved);
     });
 
-    return { byCharacterId, byParticipantId, byNameIp, ipRecords };
+    return { byCharacterId, byParticipantId, ipRecords };
 }
 
 class CharacterResolver {
     constructor(indexes) {
         this.byCharacterId = indexes.byCharacterId;
         this.byParticipantId = indexes.byParticipantId;
-        this.byNameIp = indexes.byNameIp;
         this.ipRecords = indexes.ipRecords;
     }
 
@@ -157,10 +139,6 @@ class CharacterResolver {
         return toCharacterDisplay(character, this.ipRecords);
     }
 
-    findByNameIp(name, ip) {
-        return this.byNameIp.get(`${normalize(name)}@${normalize(ip)}`) ?? null;
-    }
-
     enrichParticipant(participantId, eventFields = {}) {
         const character = this.getByParticipantId(participantId);
         return {
@@ -168,26 +146,6 @@ class CharacterResolver {
             ...eventFields,
             ip_year: character.ip_year,
             ip_season: character.ip_season
-        };
-    }
-
-    enrichLegacyRow(row) {
-        if (!row || !row.name || !row.ip) {
-            throw new Error('enrichLegacyRow 需要 name 和 ip 字段');
-        }
-        const resolved = this.findByNameIp(row.name, row.ip);
-        if (!resolved) return { ...row };
-        return {
-            ...row,
-            participantId: resolved.participantId,
-            characterId: resolved.characterId,
-            name: firstNonEmpty(row.name, resolved.name),
-            nameEn: firstNonEmpty(row.name_en, row.nameEn, resolved.nameEn),
-            ip: firstNonEmpty(row.ip, resolved.ip),
-            cv: firstNonEmpty(row.cv, resolved.cv),
-            avatar: firstNonEmpty(row.avatar, resolved.avatar),
-            ip_year: resolved.ip_year,
-            ip_season: resolved.ip_season
         };
     }
 }

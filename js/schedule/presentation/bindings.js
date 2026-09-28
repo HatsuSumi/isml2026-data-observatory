@@ -30,6 +30,12 @@ export function bindCharacterSearch() {
         const matchedCharacters = Object.entries(data.matches).filter(([, char]) =>
             char.name.toLowerCase().includes(searchValue.toLowerCase())
         );
+        console.info('[schedule-debug] 角色搜索匹配完成', {
+            searchValue,
+            matchedCharacterCount: matchedCharacters.length,
+            firstCharacter: matchedCharacters[0]?.[1]?.name,
+            firstCharacterMatchTitles: matchedCharacters[0]?.[1]?.matches.map(match => match.title)
+        });
 
         if (matchedCharacters.length > 0) {
             setScheduleFiltersEnabledState(false);

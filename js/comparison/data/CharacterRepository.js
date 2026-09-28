@@ -1,3 +1,5 @@
+import { loadCharacterResolver } from '../../common/character-resolver.js';
+
 export class CharacterRepository {
     constructor({ fetchImpl = globalThis.fetch.bind(globalThis) } = {}) {
         this.fetchImpl = fetchImpl;
@@ -25,7 +27,16 @@ export class CharacterRepository {
             }
 
             const data = await response.json();
-            return data.data;
+            if (!Array.isArray(data.data)) return data.data;
+            if (!data.data.some(item => Array.isArray(item?.contestants))) return data.data;
+
+            const resolver = await loadCharacterResolver();
+            return data.data.flatMap(match => match.contestants.map(contestant => ({
+                ...resolver.getByParticipantId(contestant.participantId),
+                match: match.match,
+                votes: contestant.votes,
+                result: contestant.result
+            })));
         } catch (error) {
             this.charactersByPath.delete(dataPath);
             throw error;
