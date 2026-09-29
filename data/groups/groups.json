@@ -4167,5 +4167,17 @@
         "groups": {
             "$ref": "phase1.stellar.r01.male"
         }
+    },
+    "phase1.stellar.r05.female": {
+        "title": "第一阶段第五轮-恒星组女性组别",
+        "groups": {
+            "$ref": "phase1.stellar.r01.female"
+        }
+    },
+    "phase1.stellar.r05.male": {
+        "title": "第一阶段第五轮-恒星组男性组别",
+        "groups": {
+            "$ref": "phase1.stellar.r01.male"
+        }
     }
 }
