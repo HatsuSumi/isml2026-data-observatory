@@ -31,6 +31,26 @@ function getGroupKey(id) {
     return `phase1.${match[2]}.${match[1]}.${match[3]}`;
 }
 
+function resolveGroupReference(rawGroups, groupKey, stack = []) {
+    const config = rawGroups[groupKey];
+    if (!config) return null;
+    const reference = config.groups?.$ref;
+    if (!reference) return config;
+    if (stack.includes(groupKey)) throw new Error(`分组引用循环: ${[...stack, groupKey].join(' -> ')}`);
+    const source = resolveGroupReference(rawGroups, reference, [...stack, groupKey]);
+    return source ? { ...source, ...config, groups: source.groups } : null;
+}
+
+async function getGroupConfig(allGroups, groupKey) {
+    if (allGroups.groups[groupKey]) return allGroups.groups[groupKey];
+    const response = await fetch('data/groups/groups.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`分组数据加载失败: ${response.status}`);
+    const rawGroups = await response.json();
+    const rawConfig = resolveGroupReference(rawGroups, groupKey);
+    if (!rawConfig) return null;
+    return allGroups.groups[groupKey] || rawConfig;
+}
+
 function getGroupMembers(groupConfig) {
     return Object.entries(groupConfig.groups).flatMap(([group, members]) => members.map((member) => ({ ...member, group })));
 }
@@ -275,8 +295,9 @@ async function init() {
     if (!state.config?.links?.data) throw new Error('缺少或无效的第一阶段表格 id 参数');
     const rawData = await loadPhase1Data(state.config.links.data);
     const allGroups = await loadGroupData();
-    const groupConfig = allGroups.groups[getGroupKey(id)];
-    if (!groupConfig) throw new Error(`未找到第一阶段分组数据: ${getGroupKey(id)}`);
+    const groupKey = getGroupKey(id);
+    const groupConfig = await getGroupConfig(allGroups, groupKey);
+    if (!groupConfig) throw new Error(`未找到第一阶段分组数据: ${groupKey}`);
     state.rows = normalizeRows(rawData, getGroupMembers(groupConfig));
     document.title = `${state.config.title} - ISML 2026 数据观测`;
     document.getElementById('pageTitle').textContent = state.config.title;

@@ -122,10 +122,11 @@ export function createEventCard(templates, match, event, nextEventStartTime, ran
     const topCharacters = body.querySelector('.top-characters');
     const footer = body.querySelector('.event-footer');
 
+    const eventDetails = event.details ?? {};
     title.textContent = match.title;
-    description.hidden = !match.details?.qualified?.description;
-    if (!description.hidden) description.textContent = match.details.qualified.description;
-    if (match.format) info.appendChild(createInfoRow(templates, 'voting-format-wrapper', '投票制度：', match.format));
+    description.hidden = !eventDetails.qualified?.description;
+    if (!description.hidden) description.textContent = eventDetails.qualified.description;
+    if (eventDetails.format) info.appendChild(createInfoRow(templates, 'voting-format-wrapper', '投票制度：', eventDetails.format));
     if (match.resultDate) info.appendChild(createInfoRow(templates, 'result-date-wrapper', '出结果日：', formatDateTime(match.resultDate)));
     if (status === 'postponed') header.appendChild(templates.postponeHint.content.cloneNode(true));
 

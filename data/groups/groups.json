@@ -3615,6 +3615,12 @@
             ]
         }
     },
+    "phase1.stellar.r02.female": {
+        "title": "第一阶段第二轮-恒星组女性组别",
+        "groups": {
+            "$ref": "phase1.stellar.r01.female"
+        }
+    },
     "phase1.stellar.r01.male": {
         "title": "第一阶段第一轮-恒星组男性组别",
         "groups": {
@@ -4130,6 +4136,12 @@
                     "rank": 6
                 }
             ]
+        }
+    },
+    "phase1.stellar.r02.male": {
+        "title": "第一阶段第二轮-恒星组男性组别",
+        "groups": {
+            "$ref": "phase1.stellar.r01.male"
         }
     }
 }

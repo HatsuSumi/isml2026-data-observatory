@@ -132,13 +132,35 @@ function enrichGroupMember(record, resolver, path) {
     throw new Error(`groups.json ${path} 缺少 participantId 或 characterId`);
 }
 
+function resolveGroupConfig(rawGroups, eventId, stack = []) {
+    const eventConfig = rawGroups[eventId];
+    if (!eventConfig || typeof eventConfig !== 'object' || Array.isArray(eventConfig)) {
+        throw new Error(`groups.json 缺少分组配置: ${eventId}`);
+    }
+    const groups = eventConfig.groups;
+    if (!groups || typeof groups !== 'object' || Array.isArray(groups)) {
+        throw new Error(`groups.json ${eventId}.groups 格式错误`);
+    }
+    const reference = groups.$ref;
+    if (reference === undefined) return eventConfig;
+    if (typeof reference !== 'string' || !reference.trim()) {
+        throw new Error(`groups.json ${eventId}.groups.$ref 必须是非空字符串`);
+    }
+    if (stack.includes(eventId)) {
+        throw new Error(`groups.json 分组引用循环: ${[...stack, eventId].join(' -> ')}`);
+    }
+    const source = resolveGroupConfig(rawGroups, reference, [...stack, eventId]);
+    return { ...source, ...eventConfig, groups: source.groups };
+}
+
 export async function loadGroupData() {
     const [rawGroups, resolver] = await Promise.all([
         fetchJson('data/groups/groups.json'),
         loadCharacterResolver()
     ]);
-    const groups = Object.fromEntries(Object.entries(rawGroups).map(([eventId, eventConfig]) => {
-        const eventGroups = Object.fromEntries(Object.entries(eventConfig.groups || {}).map(([groupName, members]) => [
+    const groups = Object.fromEntries(Object.keys(rawGroups).map(eventId => {
+        const eventConfig = resolveGroupConfig(rawGroups, eventId);
+        const eventGroups = Object.fromEntries(Object.entries(eventConfig.groups).map(([groupName, members]) => [
             groupName,
             (members || []).map((member, index) => enrichGroupMember(member, resolver, `${eventId}.${groupName}[${index}]`))
         ]));

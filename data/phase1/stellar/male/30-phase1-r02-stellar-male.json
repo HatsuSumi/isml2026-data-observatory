@@ -1,0 +1,726 @@
+{
+    "date": "2026-09-05 - 2026-09-06",
+    "event": "第一阶段第二轮-恒星组男性组别",
+    "data": [
+        {
+            "match": 1,
+            "contestants": [
+                {
+                    "participantId": "SM081",
+                    "votes": 964,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM090",
+                    "votes": 785,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 2,
+            "contestants": [
+                {
+                    "participantId": "SM112",
+                    "votes": 711,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM131",
+                    "votes": 559,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 3,
+            "contestants": [
+                {
+                    "participantId": "SM016",
+                    "votes": 279,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM110",
+                    "votes": 908,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 4,
+            "contestants": [
+                {
+                    "participantId": "SM005",
+                    "votes": 790,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM082",
+                    "votes": 700,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 5,
+            "contestants": [
+                {
+                    "participantId": "SM132",
+                    "votes": 669,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM101",
+                    "votes": 683,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 6,
+            "contestants": [
+                {
+                    "participantId": "SM104",
+                    "votes": 717,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM043",
+                    "votes": 583,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 7,
+            "contestants": [
+                {
+                    "participantId": "SM062",
+                    "votes": 653,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM018",
+                    "votes": 1087,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 8,
+            "contestants": [
+                {
+                    "participantId": "SM029",
+                    "votes": 759,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM115",
+                    "votes": 589,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 9,
+            "contestants": [
+                {
+                    "participantId": "SM098",
+                    "votes": 821,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM133",
+                    "votes": 534,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 10,
+            "contestants": [
+                {
+                    "participantId": "SM011",
+                    "votes": 608,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM033",
+                    "votes": 774,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 11,
+            "contestants": [
+                {
+                    "participantId": "SM035",
+                    "votes": 783,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM120",
+                    "votes": 602,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 12,
+            "contestants": [
+                {
+                    "participantId": "SM117",
+                    "votes": 721,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM135",
+                    "votes": 669,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 13,
+            "contestants": [
+                {
+                    "participantId": "SM001",
+                    "votes": 1241,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM030",
+                    "votes": 639,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 14,
+            "contestants": [
+                {
+                    "participantId": "SM026",
+                    "votes": 764,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM116",
+                    "votes": 599,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 15,
+            "contestants": [
+                {
+                    "participantId": "SM111",
+                    "votes": 687,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM126",
+                    "votes": 698,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 16,
+            "contestants": [
+                {
+                    "participantId": "SM002",
+                    "votes": 1072,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM092",
+                    "votes": 583,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 17,
+            "contestants": [
+                {
+                    "participantId": "SM023",
+                    "votes": 777,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM044",
+                    "votes": 447,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 18,
+            "contestants": [
+                {
+                    "participantId": "SM107",
+                    "votes": 764,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM140",
+                    "votes": 582,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 19,
+            "contestants": [
+                {
+                    "participantId": "SM004",
+                    "votes": 1040,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM089",
+                    "votes": 606,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 20,
+            "contestants": [
+                {
+                    "participantId": "SM085",
+                    "votes": 791,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM093",
+                    "votes": 637,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 21,
+            "contestants": [
+                {
+                    "participantId": "SM007",
+                    "votes": 398,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM086",
+                    "votes": 903,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 22,
+            "contestants": [
+                {
+                    "participantId": "SM028",
+                    "votes": 1139,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM025",
+                    "votes": 600,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 23,
+            "contestants": [
+                {
+                    "participantId": "SM042",
+                    "votes": 784,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM034",
+                    "votes": 744,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 24,
+            "contestants": [
+                {
+                    "participantId": "SM013",
+                    "votes": 464,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM087",
+                    "votes": 804,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 25,
+            "contestants": [
+                {
+                    "participantId": "SM008",
+                    "votes": 1034,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM017",
+                    "votes": 1164,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 26,
+            "contestants": [
+                {
+                    "participantId": "SM130",
+                    "votes": 735,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM039",
+                    "votes": 552,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 27,
+            "contestants": [
+                {
+                    "participantId": "SM138",
+                    "votes": 687,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM096",
+                    "votes": 660,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 28,
+            "contestants": [
+                {
+                    "participantId": "SM006",
+                    "votes": 862,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM021",
+                    "votes": 712,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 29,
+            "contestants": [
+                {
+                    "participantId": "SM108",
+                    "votes": 695,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM122",
+                    "votes": 668,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 30,
+            "contestants": [
+                {
+                    "participantId": "SM015",
+                    "votes": 248,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM031",
+                    "votes": 932,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 31,
+            "contestants": [
+                {
+                    "participantId": "SM058",
+                    "votes": 1017,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM084",
+                    "votes": 400,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 32,
+            "contestants": [
+                {
+                    "participantId": "SM102",
+                    "votes": 778,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM118",
+                    "votes": 559,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 33,
+            "contestants": [
+                {
+                    "participantId": "SM009",
+                    "votes": 843,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM041",
+                    "votes": 705,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 34,
+            "contestants": [
+                {
+                    "participantId": "SM019",
+                    "votes": 866,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM088",
+                    "votes": 777,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 35,
+            "contestants": [
+                {
+                    "participantId": "SM114",
+                    "votes": 710,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM124",
+                    "votes": 623,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 36,
+            "contestants": [
+                {
+                    "participantId": "SM014",
+                    "votes": 339,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM099",
+                    "votes": 888,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 37,
+            "contestants": [
+                {
+                    "participantId": "SM024",
+                    "votes": 911,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM109",
+                    "votes": 583,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 38,
+            "contestants": [
+                {
+                    "participantId": "SM094",
+                    "votes": 810,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM071",
+                    "votes": 477,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 39,
+            "contestants": [
+                {
+                    "participantId": "SM010",
+                    "votes": 556,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM045",
+                    "votes": 698,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 40,
+            "contestants": [
+                {
+                    "participantId": "SM020",
+                    "votes": 856,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM022",
+                    "votes": 798,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 41,
+            "contestants": [
+                {
+                    "participantId": "SM095",
+                    "votes": 751,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM125",
+                    "votes": 550,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 42,
+            "contestants": [
+                {
+                    "participantId": "SM036",
+                    "votes": 772,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM038",
+                    "votes": 552,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 43,
+            "contestants": [
+                {
+                    "participantId": "SM003",
+                    "votes": 965,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM037",
+                    "votes": 695,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 44,
+            "contestants": [
+                {
+                    "participantId": "SM136",
+                    "votes": 746,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM123",
+                    "votes": 558,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 45,
+            "contestants": [
+                {
+                    "participantId": "SM012",
+                    "votes": 400,
+                    "result": "loss"
+                },
+                {
+                    "participantId": "SM121",
+                    "votes": 799,
+                    "result": "win"
+                }
+            ]
+        },
+        {
+            "match": 46,
+            "contestants": [
+                {
+                    "participantId": "SM032",
+                    "votes": 906,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM046",
+                    "votes": 530,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 47,
+            "contestants": [
+                {
+                    "participantId": "SM100",
+                    "votes": 733,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM097",
+                    "votes": 655,
+                    "result": "loss"
+                }
+            ]
+        },
+        {
+            "match": 48,
+            "contestants": [
+                {
+                    "participantId": "SM027",
+                    "votes": 752,
+                    "result": "win"
+                },
+                {
+                    "participantId": "SM091",
+                    "votes": 620,
+                    "result": "loss"
+                }
+            ]
+        }
+    ]
+}

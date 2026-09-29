@@ -561,14 +561,44 @@
                         "start": "2026-09-05 20:00:00",
                         "end": "2026-09-06 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 3216
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第一阶段第二轮",
-                            "phase": "第一阶段"
+                            "title": "第一阶段第二轮-女性组别",
+                            "id": "phase1-r02-stellar-female",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r02-stellar-female",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r02-stellar-female",
+                                "data": "data/phase1/stellar/female/29-phase1-r02-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r02.female",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
+                        },
+                        {
+                            "title": "第一阶段第二轮-男性组别",
+                            "id": "phase1-r02-stellar-male",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r02-stellar-male",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r02-stellar-male",
+                                "data": "data/phase1/stellar/male/30-phase1-r02-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r02.male",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
                     }
                 },
                 {
