@@ -1,0 +1,998 @@
+{
+    "date": "07.12-07.19",
+    "event": "恒星组提名-男性组别",
+    "data": [
+        {
+            "participantId": "SM001",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM002",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM003",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM004",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM005",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM006",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM007",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM008",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM009",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM010",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM011",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM012",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM013",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM014",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM015",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM016",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM017",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM018",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM019",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM020",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM021",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM022",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM023",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM024",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM025",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM026",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM027",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM028",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM029",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM030",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM031",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM032",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM033",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM034",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM035",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM036",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM037",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM038",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM039",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM040",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM041",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM042",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM043",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM044",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM045",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM046",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM047",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM048",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM049",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM050",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM051",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM052",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM053",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM054",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM055",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM056",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM057",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM058",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM059",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM060",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM061",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM062",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM063",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM064",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM065",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM066",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM067",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM068",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM069",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM070",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM071",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM072",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM073",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM074",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM075",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM076",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM077",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM078",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM079",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM080",
+            "votes": "-",
+            "rank": null
+        },
+        {
+            "participantId": "SM081",
+            "votes": "156",
+            "rank": 1
+        },
+        {
+            "participantId": "SM082",
+            "votes": "117",
+            "rank": 2
+        },
+        {
+            "participantId": "SM083",
+            "votes": "111",
+            "rank": 3
+        },
+        {
+            "participantId": "SM084",
+            "votes": "99",
+            "rank": 4
+        },
+        {
+            "participantId": "SM085",
+            "votes": "86",
+            "rank": 5
+        },
+        {
+            "participantId": "SM086",
+            "votes": "81",
+            "rank": 6
+        },
+        {
+            "participantId": "SM087",
+            "votes": "81",
+            "rank": 6
+        },
+        {
+            "participantId": "SM088",
+            "votes": "77",
+            "rank": 8
+        },
+        {
+            "participantId": "SM089",
+            "votes": "70",
+            "rank": 9
+        },
+        {
+            "participantId": "SM090",
+            "votes": "59",
+            "rank": 10
+        },
+        {
+            "participantId": "SM091",
+            "votes": "57",
+            "rank": 11
+        },
+        {
+            "participantId": "SM092",
+            "votes": "52",
+            "rank": 12
+        },
+        {
+            "participantId": "SM093",
+            "votes": "52",
+            "rank": 12
+        },
+        {
+            "participantId": "SM094",
+            "votes": "51",
+            "rank": 14
+        },
+        {
+            "participantId": "SM095",
+            "votes": "47",
+            "rank": 15
+        },
+        {
+            "participantId": "SM096",
+            "votes": "45",
+            "rank": 16
+        },
+        {
+            "participantId": "SM097",
+            "votes": "45",
+            "rank": 16
+        },
+        {
+            "participantId": "SM098",
+            "votes": "44",
+            "rank": 18
+        },
+        {
+            "participantId": "SM099",
+            "votes": "44",
+            "rank": 18
+        },
+        {
+            "participantId": "SM100",
+            "votes": "44",
+            "rank": 18
+        },
+        {
+            "participantId": "SM101",
+            "votes": "44",
+            "rank": 18
+        },
+        {
+            "participantId": "SM102",
+            "votes": "43",
+            "rank": 22
+        },
+        {
+            "participantId": "SM103",
+            "votes": "37",
+            "rank": 23
+        },
+        {
+            "participantId": "SM104",
+            "votes": "35",
+            "rank": 24
+        },
+        {
+            "participantId": "SM105",
+            "votes": "34",
+            "rank": 25
+        },
+        {
+            "participantId": "SM106",
+            "votes": "33",
+            "rank": 26
+        },
+        {
+            "participantId": "SM107",
+            "votes": "32",
+            "rank": 27
+        },
+        {
+            "participantId": "SM108",
+            "votes": "32",
+            "rank": 27
+        },
+        {
+            "participantId": "SM109",
+            "votes": "31",
+            "rank": 29
+        },
+        {
+            "participantId": "SM110",
+            "votes": "31",
+            "rank": 29
+        },
+        {
+            "participantId": "SM111",
+            "votes": "30",
+            "rank": 31
+        },
+        {
+            "participantId": "SM112",
+            "votes": "30",
+            "rank": 31
+        },
+        {
+            "participantId": "SM113",
+            "votes": "30",
+            "rank": 31
+        },
+        {
+            "participantId": "SM114",
+            "votes": "29",
+            "rank": 34
+        },
+        {
+            "participantId": "SM115",
+            "votes": "29",
+            "rank": 34
+        },
+        {
+            "participantId": "SM116",
+            "votes": "29",
+            "rank": 34
+        },
+        {
+            "participantId": "SM117",
+            "votes": "28",
+            "rank": 37
+        },
+        {
+            "participantId": "SM118",
+            "votes": "27",
+            "rank": 38
+        },
+        {
+            "participantId": "SM119",
+            "votes": "27",
+            "rank": 38
+        },
+        {
+            "unresolved": true,
+            "sourceIndex": 119,
+            "votes": "26",
+            "rank": 40
+        },
+        {
+            "participantId": "SM121",
+            "votes": "26",
+            "rank": 40
+        },
+        {
+            "participantId": "SM122",
+            "votes": "26",
+            "rank": 40
+        },
+        {
+            "participantId": "SM123",
+            "votes": "25",
+            "rank": 43
+        },
+        {
+            "participantId": "SM124",
+            "votes": "25",
+            "rank": 43
+        },
+        {
+            "participantId": "SM125",
+            "votes": "24",
+            "rank": 45
+        },
+        {
+            "participantId": "SM126",
+            "votes": "23",
+            "rank": 46
+        },
+        {
+            "participantId": "SM127",
+            "votes": "23",
+            "rank": 46
+        },
+        {
+            "participantId": "SM128",
+            "votes": "23",
+            "rank": 46
+        },
+        {
+            "participantId": "SM129",
+            "votes": "23",
+            "rank": 46
+        },
+        {
+            "participantId": "SM130",
+            "votes": "21",
+            "rank": 50
+        },
+        {
+            "participantId": "SM131",
+            "votes": "21",
+            "rank": 50
+        },
+        {
+            "participantId": "SM132",
+            "votes": "21",
+            "rank": 50
+        },
+        {
+            "participantId": "SM133",
+            "votes": "20",
+            "rank": 53
+        },
+        {
+            "participantId": "SM134",
+            "votes": "19",
+            "rank": 54
+        },
+        {
+            "participantId": "SM135",
+            "votes": "19",
+            "rank": 54
+        },
+        {
+            "participantId": "SM136",
+            "votes": "19",
+            "rank": 54
+        },
+        {
+            "participantId": "SM137",
+            "votes": "19",
+            "rank": 54
+        },
+        {
+            "participantId": "SM138",
+            "votes": "18",
+            "rank": 58
+        },
+        {
+            "participantId": "SM139",
+            "votes": "18",
+            "rank": 58
+        },
+        {
+            "participantId": "SM140",
+            "votes": "18",
+            "rank": 58
+        },
+        {
+            "participantId": "SM141",
+            "votes": "18",
+            "rank": 58
+        },
+        {
+            "participantId": "SM142",
+            "votes": "18",
+            "rank": 58
+        },
+        {
+            "participantId": "SM143",
+            "votes": "17",
+            "rank": 63
+        },
+        {
+            "participantId": "SM144",
+            "votes": "17",
+            "rank": 63
+        },
+        {
+            "participantId": "SM145",
+            "votes": "17",
+            "rank": 63
+        },
+        {
+            "participantId": "ESM001",
+            "votes": "16",
+            "rank": 66
+        },
+        {
+            "participantId": "ESM002",
+            "votes": "16",
+            "rank": 66
+        },
+        {
+            "participantId": "ESM003",
+            "votes": "16",
+            "rank": 66
+        },
+        {
+            "participantId": "ESM004",
+            "votes": "16",
+            "rank": 66
+        },
+        {
+            "participantId": "ESM005",
+            "votes": "16",
+            "rank": 66
+        },
+        {
+            "participantId": "ESM006",
+            "votes": "16",
+            "rank": 66
+        },
+        {
+            "participantId": "ESM007",
+            "votes": "15",
+            "rank": 72
+        },
+        {
+            "participantId": "ESM008",
+            "votes": "15",
+            "rank": 72
+        },
+        {
+            "participantId": "ESM009",
+            "votes": "15",
+            "rank": 72
+        },
+        {
+            "participantId": "ESM010",
+            "votes": "15",
+            "rank": 72
+        },
+        {
+            "participantId": "ESM011",
+            "votes": "15",
+            "rank": 72
+        },
+        {
+            "participantId": "ESM012",
+            "votes": "15",
+            "rank": 72
+        },
+        {
+            "participantId": "ESM013",
+            "votes": "14",
+            "rank": 78
+        },
+        {
+            "participantId": "ESM014",
+            "votes": "14",
+            "rank": 78
+        },
+        {
+            "participantId": "ESM015",
+            "votes": "14",
+            "rank": 78
+        },
+        {
+            "participantId": "ESM016",
+            "votes": "14",
+            "rank": 78
+        },
+        {
+            "participantId": "ESM017",
+            "votes": "14",
+            "rank": 78
+        },
+        {
+            "participantId": "ESM018",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "unresolved": true,
+            "sourceIndex": 163,
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM020",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM021",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM022",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM023",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM024",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM025",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM026",
+            "votes": "13",
+            "rank": 83
+        },
+        {
+            "participantId": "ESM027",
+            "votes": "12",
+            "rank": 92
+        },
+        {
+            "participantId": "ESM028",
+            "votes": "12",
+            "rank": 92
+        },
+        {
+            "participantId": "ESM029",
+            "votes": "12",
+            "rank": 92
+        },
+        {
+            "participantId": "ESM030",
+            "votes": "12",
+            "rank": 92
+        },
+        {
+            "participantId": "ESM031",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM032",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM033",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM034",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM035",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM036",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM037",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM038",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM039",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM040",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM041",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM042",
+            "votes": "11",
+            "rank": 96
+        },
+        {
+            "participantId": "ESM043",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM044",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM045",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM046",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM047",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM048",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM049",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM050",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM051",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM052",
+            "votes": "10",
+            "rank": 108
+        },
+        {
+            "participantId": "ESM053",
+            "votes": "10",
+            "rank": 108
+        }
+    ]
+}

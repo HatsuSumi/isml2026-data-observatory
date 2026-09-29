@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import csv
 import json
-import shutil
 import sys
 from pathlib import Path
 
@@ -22,35 +21,54 @@ def load_catalogs() -> tuple[dict[str, str], dict[str, dict], dict[str, dict]]:
     return participant_map, characters, ips
 
 
-def load_rows(json_path: Path) -> list[list[object]]:
+def load_public_payload(json_path: Path) -> dict:
     participant_map, characters, ips = load_catalogs()
     payload = json.loads(json_path.read_text(encoding="utf-8"))
+    public_data = []
+    for match in payload.get("data", []):
+        contestants = []
+        for contestant in match.get("contestants", []):
+            participant_id = contestant["participantId"]
+            character = characters[participant_map[participant_id]]
+            ip = ips[str(character["ip_id"])]
+            cv = character.get("cv", "")
+            if isinstance(cv, list):
+                cv = " / ".join(filter(None, cv))
+            contestants.append({
+                **contestant,
+                "name": character.get("name", ""),
+                "ip": ip.get("name", ""),
+                "cv": cv,
+                "avatar": character.get("avatar", "") or "",
+            })
+        public_data.append({**match, "contestants": contestants})
+    return {**payload, "data": public_data}
+
+
+def load_rows(payload: dict) -> list[list[object]]:
     rows = []
     for match in payload.get("data", []):
         for contestant in match.get("contestants", []):
-            participant_id = contestant["participantId"]
-            character_id = participant_map[participant_id]
-            character = characters[character_id]
-            ip = ips[str(character["ip_id"])]
             rows.append([
                 f"擂台{match['match']}",
-                character.get("name", ""),
-                ip.get("name", ""),
+                contestant.get("name", ""),
+                contestant.get("ip", ""),
                 contestant.get("votes", ""),
                 "胜者" if contestant.get("result") == "win" else "败者",
-                character.get("avatar", "") or "",
+                contestant.get("avatar", "") or "",
             ])
     return rows
 
 
 def write_exports(json_path: Path, export_root: Path | None = None) -> None:
-    rows = load_rows(json_path)
+    public_payload = load_public_payload(json_path)
+    rows = load_rows(public_payload)
     output_base = (export_root / "stellar" / json_path.parent.name / json_path.stem) if export_root else json_path.with_suffix("")
     output_base.parent.mkdir(parents=True, exist_ok=True)
     csv_path = output_base.with_suffix(".csv")
     xlsx_path = output_base.with_suffix(".xlsx")
     json_output_path = output_base.with_suffix(".json")
-    shutil.copyfile(json_path, json_output_path)
+    json_output_path.write_text(json.dumps(public_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)

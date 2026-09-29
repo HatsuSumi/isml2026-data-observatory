@@ -11,7 +11,8 @@
             "is_advanced": true,
             "cv": "冈本信彦",
             "avatar": "",
-            "global_rank": 5
+            "global_rank": 5,
+            "participantId": "SM025"
         },
         {
             "group": "男子1组",
@@ -22,7 +23,8 @@
             "is_advanced": true,
             "cv": "竹内顺子",
             "avatar": "",
-            "global_rank": 6
+            "global_rank": 6,
+            "participantId": "SM037"
         },
         {
             "group": "男子1组",
@@ -33,7 +35,8 @@
             "is_advanced": false,
             "cv": "宫野真守",
             "avatar": "",
-            "global_rank": 11
+            "global_rank": 11,
+            "participantId": "SM042"
         },
         {
             "group": "男子1组",
@@ -44,7 +47,8 @@
             "is_advanced": false,
             "cv": "江口拓也",
             "avatar": "",
-            "global_rank": 16
+            "global_rank": 16,
+            "participantId": "SM034"
         },
         {
             "group": "男子1组",
@@ -55,7 +59,8 @@
             "is_advanced": false,
             "cv": "宫野真守",
             "avatar": "",
-            "global_rank": 17
+            "global_rank": 17,
+            "participantId": "SM091"
         },
         {
             "group": "男子1组",
@@ -66,7 +71,8 @@
             "is_advanced": false,
             "cv": "户谷菊之介",
             "avatar": "",
-            "global_rank": 26
+            "global_rank": 26,
+            "participantId": "SM118"
         },
         {
             "group": "男子1组",
@@ -77,7 +83,8 @@
             "is_advanced": false,
             "cv": "大冢刚央",
             "avatar": "",
-            "global_rank": 30
+            "global_rank": 30,
+            "participantId": "SM039"
         },
         {
             "group": "男子1组",
@@ -88,7 +95,8 @@
             "is_advanced": false,
             "cv": "神谷浩史",
             "avatar": "",
-            "global_rank": 36
+            "global_rank": 36,
+            "participantId": "SM123"
         },
         {
             "group": "男子1组",
@@ -99,7 +107,8 @@
             "is_advanced": false,
             "cv": "森田成一",
             "avatar": "",
-            "global_rank": 39
+            "global_rank": 39,
+            "participantId": "SM066"
         },
         {
             "group": "男子1组",
@@ -110,7 +119,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 40
+            "global_rank": 40,
+            "participantId": "SM047"
         },
         {
             "group": "男子1组",
@@ -121,7 +131,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 45
+            "global_rank": 45,
+            "participantId": "SM053"
         },
         {
             "group": "男子1组",
@@ -132,7 +143,8 @@
             "is_advanced": false,
             "cv": "樱井孝宏",
             "avatar": "",
-            "global_rank": 46
+            "global_rank": 46,
+            "participantId": "SM073"
         },
         {
             "group": "男子1组",
@@ -143,7 +155,8 @@
             "is_advanced": false,
             "cv": "绿川光",
             "avatar": "",
-            "global_rank": 54
+            "global_rank": 54,
+            "participantId": "SM144"
         },
         {
             "group": "男子1组",
@@ -154,7 +167,8 @@
             "is_advanced": false,
             "cv": "福山润",
             "avatar": "",
-            "global_rank": 56
+            "global_rank": 56,
+            "participantId": "SM060"
         },
         {
             "group": "男子1组",
@@ -165,7 +179,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 57
+            "global_rank": 57,
+            "participantId": "SM057"
         },
         {
             "group": "男子2组",
@@ -176,7 +191,8 @@
             "is_advanced": true,
             "cv": "铃木崚汰",
             "avatar": "",
-            "global_rank": 2
+            "global_rank": 2,
+            "participantId": "SM017"
         },
         {
             "group": "男子2组",
@@ -187,7 +203,8 @@
             "is_advanced": true,
             "cv": "",
             "avatar": "",
-            "global_rank": 7
+            "global_rank": 7,
+            "participantId": "SM046"
         },
         {
             "group": "男子2组",
@@ -198,7 +215,8 @@
             "is_advanced": false,
             "cv": "诹访部顺一",
             "avatar": "",
-            "global_rank": 9
+            "global_rank": 9,
+            "participantId": "SM029"
         },
         {
             "group": "男子2组",
@@ -209,7 +227,8 @@
             "is_advanced": false,
             "cv": "小林千晃",
             "avatar": "",
-            "global_rank": 10
+            "global_rank": 10,
+            "participantId": "SM026"
         },
         {
             "group": "男子2组",
@@ -220,7 +239,8 @@
             "is_advanced": false,
             "cv": "子安武人",
             "avatar": "",
-            "global_rank": 14
+            "global_rank": 14,
+            "participantId": "SM095"
         },
         {
             "group": "男子2组",
@@ -231,7 +251,8 @@
             "is_advanced": false,
             "cv": "花江夏树",
             "avatar": "",
-            "global_rank": 15
+            "global_rank": 15,
+            "participantId": "SM085"
         },
         {
             "group": "男子2组",
@@ -242,7 +263,8 @@
             "is_advanced": false,
             "cv": "高山南",
             "avatar": "",
-            "global_rank": 18
+            "global_rank": 18,
+            "participantId": "SM126"
         },
         {
             "group": "男子2组",
@@ -253,7 +275,8 @@
             "is_advanced": false,
             "cv": "山口胜平",
             "avatar": "",
-            "global_rank": 22
+            "global_rank": 22,
+            "participantId": "SM135"
         },
         {
             "group": "男子2组",
@@ -264,7 +287,8 @@
             "is_advanced": false,
             "cv": "神谷浩史",
             "avatar": "",
-            "global_rank": 23
+            "global_rank": 23,
+            "participantId": "SM132"
         },
         {
             "group": "男子2组",
@@ -275,7 +299,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 41
+            "global_rank": 41,
+            "participantId": "SM075"
         },
         {
             "group": "男子2组",
@@ -286,7 +311,8 @@
             "is_advanced": false,
             "cv": "齐藤壮马",
             "avatar": "",
-            "global_rank": 44
+            "global_rank": 44,
+            "participantId": "SM069"
         },
         {
             "group": "男子2组",
@@ -297,7 +323,8 @@
             "is_advanced": false,
             "cv": "栗田贯一",
             "avatar": "",
-            "global_rank": 47
+            "global_rank": 47,
+            "participantId": "SM054"
         },
         {
             "group": "男子2组",
@@ -308,7 +335,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 50
+            "global_rank": 50,
+            "participantId": "SM051"
         },
         {
             "group": "男子2组",
@@ -319,7 +347,8 @@
             "is_advanced": false,
             "cv": "坂本真绫",
             "avatar": "",
-            "global_rank": 55
+            "global_rank": 55,
+            "participantId": "SM064"
         },
         {
             "group": "男子3组",
@@ -330,7 +359,8 @@
             "is_advanced": true,
             "cv": "山口胜平",
             "avatar": "",
-            "global_rank": 3
+            "global_rank": 3,
+            "participantId": "SM088"
         },
         {
             "group": "男子3组",
@@ -341,7 +371,8 @@
             "is_advanced": true,
             "cv": "坂泰斗",
             "avatar": "",
-            "global_rank": 8
+            "global_rank": 8,
+            "participantId": "SM033"
         },
         {
             "group": "男子3组",
@@ -352,7 +383,8 @@
             "is_advanced": false,
             "cv": "福山润",
             "avatar": "",
-            "global_rank": 12
+            "global_rank": 12,
+            "participantId": "SM136"
         },
         {
             "group": "男子3组",
@@ -363,7 +395,8 @@
             "is_advanced": false,
             "cv": "千叶翔也",
             "avatar": "",
-            "global_rank": 19
+            "global_rank": 19,
+            "participantId": "SM097"
         },
         {
             "group": "男子3组",
@@ -374,7 +407,8 @@
             "is_advanced": false,
             "cv": "日野聪",
             "avatar": "",
-            "global_rank": 24
+            "global_rank": 24,
+            "participantId": "SM140"
         },
         {
             "group": "男子3组",
@@ -385,7 +419,8 @@
             "is_advanced": false,
             "cv": "绪方惠美",
             "avatar": "",
-            "global_rank": 29
+            "global_rank": 29,
+            "participantId": "SM112"
         },
         {
             "group": "男子3组",
@@ -396,7 +431,8 @@
             "is_advanced": false,
             "cv": "神奈延年",
             "avatar": "",
-            "global_rank": 32
+            "global_rank": 32,
+            "participantId": "SM040"
         },
         {
             "group": "男子3组",
@@ -407,7 +443,8 @@
             "is_advanced": false,
             "cv": "松冈祯丞",
             "avatar": "",
-            "global_rank": 35
+            "global_rank": 35,
+            "participantId": "SM141"
         },
         {
             "group": "男子3组",
@@ -418,7 +455,8 @@
             "is_advanced": false,
             "cv": "神谷浩史",
             "avatar": "",
-            "global_rank": 37
+            "global_rank": 37,
+            "participantId": "SM059"
         },
         {
             "group": "男子3组",
@@ -429,7 +467,8 @@
             "is_advanced": false,
             "cv": "平川大辅",
             "avatar": "",
-            "global_rank": 38
+            "global_rank": 38,
+            "participantId": "SM145"
         },
         {
             "group": "男子3组",
@@ -440,7 +479,8 @@
             "is_advanced": false,
             "cv": "内山昂辉",
             "avatar": "",
-            "global_rank": 42
+            "global_rank": 42,
+            "participantId": "SM143"
         },
         {
             "group": "男子3组",
@@ -451,7 +491,8 @@
             "is_advanced": false,
             "cv": "石田彰",
             "avatar": "",
-            "global_rank": 43
+            "global_rank": 43,
+            "participantId": "SM078"
         },
         {
             "group": "男子3组",
@@ -462,7 +503,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 52
+            "global_rank": 52,
+            "participantId": "SM113"
         },
         {
             "group": "男子3组",
@@ -473,7 +515,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 53
+            "global_rank": 53,
+            "participantId": "SM068"
         },
         {
             "group": "男子4组",
@@ -484,7 +527,8 @@
             "is_advanced": true,
             "cv": "浪川大辅",
             "avatar": "",
-            "global_rank": 1
+            "global_rank": 1,
+            "participantId": "SM022"
         },
         {
             "group": "男子4组",
@@ -495,7 +539,8 @@
             "is_advanced": true,
             "cv": "天崎滉平",
             "avatar": "",
-            "global_rank": 4
+            "global_rank": 4,
+            "participantId": "SM084"
         },
         {
             "group": "男子4组",
@@ -506,7 +551,8 @@
             "is_advanced": false,
             "cv": "花江夏树",
             "avatar": "",
-            "global_rank": 13
+            "global_rank": 13,
+            "participantId": "SM102"
         },
         {
             "group": "男子4组",
@@ -517,7 +563,8 @@
             "is_advanced": false,
             "cv": "花江夏树",
             "avatar": "",
-            "global_rank": 20
+            "global_rank": 20,
+            "participantId": "SM115"
         },
         {
             "group": "男子4组",
@@ -528,7 +575,8 @@
             "is_advanced": false,
             "cv": "小山力也",
             "avatar": "",
-            "global_rank": 21
+            "global_rank": 21,
+            "participantId": "SM121"
         },
         {
             "group": "男子4组",
@@ -539,7 +587,8 @@
             "is_advanced": false,
             "cv": "田中真弓",
             "avatar": "",
-            "global_rank": 25
+            "global_rank": 25,
+            "participantId": "SM041"
         },
         {
             "group": "男子4组",
@@ -550,7 +599,8 @@
             "is_advanced": false,
             "cv": "KENN",
             "avatar": "",
-            "global_rank": 27
+            "global_rank": 27,
+            "participantId": "SM116"
         },
         {
             "group": "男子4组",
@@ -561,7 +611,8 @@
             "is_advanced": false,
             "cv": "下野纮",
             "avatar": "",
-            "global_rank": 28
+            "global_rank": 28,
+            "participantId": "SM131"
         },
         {
             "group": "男子4组",
@@ -572,7 +623,8 @@
             "is_advanced": false,
             "cv": "小林裕介",
             "avatar": "",
-            "global_rank": 31
+            "global_rank": 31,
+            "participantId": "SM071"
         },
         {
             "group": "男子4组",
@@ -583,7 +635,8 @@
             "is_advanced": false,
             "cv": "杉田智和",
             "avatar": "",
-            "global_rank": 33
+            "global_rank": 33,
+            "participantId": "SM103"
         },
         {
             "group": "男子4组",
@@ -594,7 +647,8 @@
             "is_advanced": false,
             "cv": "加藤英美里",
             "avatar": "",
-            "global_rank": 34
+            "global_rank": 34,
+            "participantId": "SM127"
         },
         {
             "group": "男子4组",
@@ -605,7 +659,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 48
+            "global_rank": 48,
+            "participantId": "SM048"
         },
         {
             "group": "男子4组",
@@ -616,7 +671,8 @@
             "is_advanced": false,
             "cv": "",
             "avatar": "",
-            "global_rank": 49
+            "global_rank": 49,
+            "participantId": "SM105"
         },
         {
             "group": "男子4组",
@@ -627,7 +683,8 @@
             "is_advanced": false,
             "cv": "谷山纪章",
             "avatar": "",
-            "global_rank": 51
+            "global_rank": 51,
+            "participantId": "SM067"
         }
     ]
 }

@@ -16,6 +16,7 @@ const OUTPUT_PATH = path.join(
 const CHARACTER_DATA_PATH = path.join(ROOT, 'characters-data.json');
 const IP_DATA_PATH = path.join(ROOT, 'ip-data.json');
 const LEGACY_CHARACTER_DATA_PATH = path.join(ROOT, 'data', 'characters', 'characters-details.json');
+const GROUPS_PATH = path.join(ROOT, 'data', 'groups', 'groups.json');
 
 function setCharacter(index, character, key) {
     const previous = index.get(key) || {};
@@ -46,16 +47,19 @@ function getCv(character) {
     return Array.isArray(character?.cv) ? character.cv.filter(Boolean).join(' / ') : character?.cv || '';
 }
 
-function mergeCharacterData(rows, characterIndex) {
+function mergeCharacterData(rows, characterIndex, groups) {
     return rows.map(row => {
         const character = characterIndex.get(`${row.name}@${row.ip}`);
+        const participantId = groups[row.group]?.[row.rank - 1]?.participantId;
         return {
+            participantId,
             ...row,
             cv: getCv(character),
             avatar: row.avatar || character?.avatar || ''
         };
     });
 }
+
 function parseInput(text) {
     const groups = [];
     let currentGroup = null;
@@ -117,7 +121,9 @@ async function main() {
     const characterData = JSON.parse(await fs.readFile(CHARACTER_DATA_PATH, 'utf8'));
     const ipData = JSON.parse(await fs.readFile(IP_DATA_PATH, 'utf8'));
     const legacyData = JSON.parse(await fs.readFile(LEGACY_CHARACTER_DATA_PATH, 'utf8'));
-    const data = mergeCharacterData(parseInput(input), buildCharacterIndex(characterData, ipData, legacyData));
+    const groupsData = JSON.parse(await fs.readFile(GROUPS_PATH, 'utf8'));
+    const groups = groupsData['preliminary.stellar.r01.female'].groups;
+    const data = mergeCharacterData(parseInput(input), buildCharacterIndex(characterData, ipData, legacyData), groups);
     const output = {
         date: '2026-07-27 - 2026-07-28',
         event: '预选赛第一轮-恒星组女性组别',

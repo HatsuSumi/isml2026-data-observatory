@@ -1,726 +1,1110 @@
 {
-    "date": "2026-09-05 - 2026-09-06",
-    "event": "第一阶段第二轮-恒星组男性组别",
-    "data": [
+  "date": "2026-09-05 - 2026-09-06",
+  "event": "第一阶段第二轮-恒星组男性组别",
+  "data": [
+    {
+      "match": 1,
+      "contestants": [
         {
-            "match": 1,
-            "contestants": [
-                {
-                    "participantId": "SM081",
-                    "votes": 964,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM090",
-                    "votes": 785,
-                    "result": "loss"
-                }
-            ]
+          "participantId": "SM081",
+          "votes": 964,
+          "result": "win",
+          "name": "鲁迪乌斯·格雷拉特",
+          "ip": "无职转生",
+          "cv": "内山夕实",
+          "avatar": ""
         },
         {
-            "match": 2,
-            "contestants": [
-                {
-                    "participantId": "SM112",
-                    "votes": 711,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM131",
-                    "votes": 559,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 3,
-            "contestants": [
-                {
-                    "participantId": "SM016",
-                    "votes": 279,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM110",
-                    "votes": 908,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 4,
-            "contestants": [
-                {
-                    "participantId": "SM005",
-                    "votes": 790,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM082",
-                    "votes": 700,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 5,
-            "contestants": [
-                {
-                    "participantId": "SM132",
-                    "votes": 669,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM101",
-                    "votes": 683,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 6,
-            "contestants": [
-                {
-                    "participantId": "SM104",
-                    "votes": 717,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM043",
-                    "votes": 583,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 7,
-            "contestants": [
-                {
-                    "participantId": "SM062",
-                    "votes": 653,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM018",
-                    "votes": 1087,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 8,
-            "contestants": [
-                {
-                    "participantId": "SM029",
-                    "votes": 759,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM115",
-                    "votes": 589,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 9,
-            "contestants": [
-                {
-                    "participantId": "SM098",
-                    "votes": 821,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM133",
-                    "votes": 534,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 10,
-            "contestants": [
-                {
-                    "participantId": "SM011",
-                    "votes": 608,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM033",
-                    "votes": 774,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 11,
-            "contestants": [
-                {
-                    "participantId": "SM035",
-                    "votes": 783,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM120",
-                    "votes": 602,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 12,
-            "contestants": [
-                {
-                    "participantId": "SM117",
-                    "votes": 721,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM135",
-                    "votes": 669,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 13,
-            "contestants": [
-                {
-                    "participantId": "SM001",
-                    "votes": 1241,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM030",
-                    "votes": 639,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 14,
-            "contestants": [
-                {
-                    "participantId": "SM026",
-                    "votes": 764,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM116",
-                    "votes": 599,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 15,
-            "contestants": [
-                {
-                    "participantId": "SM111",
-                    "votes": 687,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM126",
-                    "votes": 698,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 16,
-            "contestants": [
-                {
-                    "participantId": "SM002",
-                    "votes": 1072,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM092",
-                    "votes": 583,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 17,
-            "contestants": [
-                {
-                    "participantId": "SM023",
-                    "votes": 777,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM044",
-                    "votes": 447,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 18,
-            "contestants": [
-                {
-                    "participantId": "SM107",
-                    "votes": 764,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM140",
-                    "votes": 582,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 19,
-            "contestants": [
-                {
-                    "participantId": "SM004",
-                    "votes": 1040,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM089",
-                    "votes": 606,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 20,
-            "contestants": [
-                {
-                    "participantId": "SM085",
-                    "votes": 791,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM093",
-                    "votes": 637,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 21,
-            "contestants": [
-                {
-                    "participantId": "SM007",
-                    "votes": 398,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM086",
-                    "votes": 903,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 22,
-            "contestants": [
-                {
-                    "participantId": "SM028",
-                    "votes": 1139,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM025",
-                    "votes": 600,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 23,
-            "contestants": [
-                {
-                    "participantId": "SM042",
-                    "votes": 784,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM034",
-                    "votes": 744,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 24,
-            "contestants": [
-                {
-                    "participantId": "SM013",
-                    "votes": 464,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM087",
-                    "votes": 804,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 25,
-            "contestants": [
-                {
-                    "participantId": "SM008",
-                    "votes": 1034,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM017",
-                    "votes": 1164,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 26,
-            "contestants": [
-                {
-                    "participantId": "SM130",
-                    "votes": 735,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM039",
-                    "votes": 552,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 27,
-            "contestants": [
-                {
-                    "participantId": "SM138",
-                    "votes": 687,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM096",
-                    "votes": 660,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 28,
-            "contestants": [
-                {
-                    "participantId": "SM006",
-                    "votes": 862,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM021",
-                    "votes": 712,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 29,
-            "contestants": [
-                {
-                    "participantId": "SM108",
-                    "votes": 695,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM122",
-                    "votes": 668,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 30,
-            "contestants": [
-                {
-                    "participantId": "SM015",
-                    "votes": 248,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM031",
-                    "votes": 932,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 31,
-            "contestants": [
-                {
-                    "participantId": "SM058",
-                    "votes": 1017,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM084",
-                    "votes": 400,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 32,
-            "contestants": [
-                {
-                    "participantId": "SM102",
-                    "votes": 778,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM118",
-                    "votes": 559,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 33,
-            "contestants": [
-                {
-                    "participantId": "SM009",
-                    "votes": 843,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM041",
-                    "votes": 705,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 34,
-            "contestants": [
-                {
-                    "participantId": "SM019",
-                    "votes": 866,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM088",
-                    "votes": 777,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 35,
-            "contestants": [
-                {
-                    "participantId": "SM114",
-                    "votes": 710,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM124",
-                    "votes": 623,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 36,
-            "contestants": [
-                {
-                    "participantId": "SM014",
-                    "votes": 339,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM099",
-                    "votes": 888,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 37,
-            "contestants": [
-                {
-                    "participantId": "SM024",
-                    "votes": 911,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM109",
-                    "votes": 583,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 38,
-            "contestants": [
-                {
-                    "participantId": "SM094",
-                    "votes": 810,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM071",
-                    "votes": 477,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 39,
-            "contestants": [
-                {
-                    "participantId": "SM010",
-                    "votes": 556,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM045",
-                    "votes": 698,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 40,
-            "contestants": [
-                {
-                    "participantId": "SM020",
-                    "votes": 856,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM022",
-                    "votes": 798,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 41,
-            "contestants": [
-                {
-                    "participantId": "SM095",
-                    "votes": 751,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM125",
-                    "votes": 550,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 42,
-            "contestants": [
-                {
-                    "participantId": "SM036",
-                    "votes": 772,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM038",
-                    "votes": 552,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 43,
-            "contestants": [
-                {
-                    "participantId": "SM003",
-                    "votes": 965,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM037",
-                    "votes": 695,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 44,
-            "contestants": [
-                {
-                    "participantId": "SM136",
-                    "votes": 746,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM123",
-                    "votes": 558,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 45,
-            "contestants": [
-                {
-                    "participantId": "SM012",
-                    "votes": 400,
-                    "result": "loss"
-                },
-                {
-                    "participantId": "SM121",
-                    "votes": 799,
-                    "result": "win"
-                }
-            ]
-        },
-        {
-            "match": 46,
-            "contestants": [
-                {
-                    "participantId": "SM032",
-                    "votes": 906,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM046",
-                    "votes": 530,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 47,
-            "contestants": [
-                {
-                    "participantId": "SM100",
-                    "votes": 733,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM097",
-                    "votes": 655,
-                    "result": "loss"
-                }
-            ]
-        },
-        {
-            "match": 48,
-            "contestants": [
-                {
-                    "participantId": "SM027",
-                    "votes": 752,
-                    "result": "win"
-                },
-                {
-                    "participantId": "SM091",
-                    "votes": 620,
-                    "result": "loss"
-                }
-            ]
+          "participantId": "SM090",
+          "votes": 785,
+          "result": "loss",
+          "name": "宇智波佐助",
+          "ip": "火影忍者",
+          "cv": "杉山纪彰",
+          "avatar": ""
         }
-    ]
+      ]
+    },
+    {
+      "match": 2,
+      "contestants": [
+        {
+          "participantId": "SM112",
+          "votes": 711,
+          "result": "win",
+          "name": "乙骨忧太",
+          "ip": "咒术回战",
+          "cv": "绪方惠美",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM131",
+          "votes": 559,
+          "result": "loss",
+          "name": "我妻善逸",
+          "ip": "鬼灭之刃",
+          "cv": "下野纮",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 3,
+      "contestants": [
+        {
+          "participantId": "SM016",
+          "votes": 279,
+          "result": "loss",
+          "name": "奥斯瓦尔德·帕纳科塔",
+          "ip": "圣女因太过完美不够可爱而被废除婚约并卖到邻国",
+          "cv": "佐藤拓也",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM110",
+          "votes": 908,
+          "result": "win",
+          "name": "吉尔伽美什",
+          "ip": "Fate系列",
+          "cv": "关智一",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 4,
+      "contestants": [
+        {
+          "participantId": "SM005",
+          "votes": 790,
+          "result": "win",
+          "name": "利威尔·阿克曼",
+          "ip": "进击的巨人",
+          "cv": "",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM082",
+          "votes": 700,
+          "result": "loss",
+          "name": "音无结弦",
+          "ip": "Angel Beats!",
+          "cv": "神谷浩史",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 5,
+      "contestants": [
+        {
+          "participantId": "SM132",
+          "votes": 669,
+          "result": "loss",
+          "name": "齐木楠雄",
+          "ip": "齐木楠雄的灾难",
+          "cv": "神谷浩史",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM101",
+          "votes": 683,
+          "result": "win",
+          "name": "森岛帆高",
+          "ip": "天气之子",
+          "cv": "醍醐虎汰朗",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 6,
+      "contestants": [
+        {
+          "participantId": "SM104",
+          "votes": 717,
+          "result": "win",
+          "name": "小智",
+          "ip": "宝可梦",
+          "cv": "松本梨香",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM043",
+          "votes": 583,
+          "result": "loss",
+          "name": "镜音连",
+          "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+          "cv": "",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 7,
+      "contestants": [
+        {
+          "participantId": "SM062",
+          "votes": 653,
+          "result": "loss",
+          "name": "虎杖悠仁",
+          "ip": "咒术回战",
+          "cv": "榎木淳弥",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM018",
+          "votes": 1087,
+          "result": "win",
+          "name": "水柿司",
+          "ip": "可塑性记忆",
+          "cv": "内匠靖明",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 8,
+      "contestants": [
+        {
+          "participantId": "SM029",
+          "votes": 759,
+          "result": "win",
+          "name": "卫宫",
+          "ip": "Fate系列",
+          "cv": "诹访部顺一",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM115",
+          "votes": 589,
+          "result": "loss",
+          "name": "金木研",
+          "ip": "东京食尸鬼",
+          "cv": "花江夏树",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 9,
+      "contestants": [
+        {
+          "participantId": "SM098",
+          "votes": 821,
+          "result": "win",
+          "name": "卫宫士郎",
+          "ip": "Fate系列",
+          "cv": "杉山纪彰",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM133",
+          "votes": 534,
+          "result": "loss",
+          "name": "东方仗助",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 10,
+      "contestants": [
+        {
+          "participantId": "SM011",
+          "votes": 608,
+          "result": "loss",
+          "name": "䌷凛太郎",
+          "ip": "薰香花朵凛然绽放",
+          "cv": "",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM033",
+          "votes": 774,
+          "result": "win",
+          "name": "藤宫周",
+          "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
+          "cv": "坂泰斗",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 11,
+      "contestants": [
+        {
+          "participantId": "SM035",
+          "votes": 783,
+          "result": "win",
+          "name": "旗木卡卡西",
+          "ip": "火影忍者",
+          "cv": "井上和彦",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM120",
+          "votes": 602,
+          "result": "loss",
+          "name": "辛耶·诺赞",
+          "ip": "86-不存在的战区-",
+          "cv": "",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 12,
+      "contestants": [
+        {
+          "participantId": "SM117",
+          "votes": 721,
+          "result": "win",
+          "name": "灶门炭治郎",
+          "ip": "鬼灭之刃",
+          "cv": "花江夏树",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM135",
+          "votes": 669,
+          "result": "loss",
+          "name": "黑羽快斗",
+          "ip": "魔术快斗",
+          "cv": "山口胜平",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 13,
+      "contestants": [
+        {
+          "participantId": "SM001",
+          "votes": 1241,
+          "result": "win",
+          "name": "空",
+          "ip": "NO GAME NO LIFE 游戏人生",
+          "cv": "松冈祯丞",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM030",
+          "votes": 639,
+          "result": "loss",
+          "name": "佐藤和真",
+          "ip": "为美好的世界献上祝福！",
+          "cv": "福岛润",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 14,
+      "contestants": [
+        {
+          "participantId": "SM026",
+          "votes": 764,
+          "result": "win",
+          "name": "休塔尔克",
+          "ip": "葬送的芙莉莲",
+          "cv": "小林千晃",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM116",
+          "votes": 599,
+          "result": "loss",
+          "name": "大卫·马丁内斯",
+          "ip": "赛博朋克 边缘行者",
+          "cv": "KENN",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 15,
+      "contestants": [
+        {
+          "participantId": "SM111",
+          "votes": 687,
+          "result": "loss",
+          "name": "富冈义勇",
+          "ip": "鬼灭之刃",
+          "cv": "樱井孝宏",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM126",
+          "votes": 698,
+          "result": "win",
+          "name": "江户川柯南",
+          "ip": "名侦探柯南",
+          "cv": "高山南",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 16,
+      "contestants": [
+        {
+          "participantId": "SM002",
+          "votes": 1072,
+          "result": "win",
+          "name": "立花泷",
+          "ip": "你的名字。",
+          "cv": "神木隆之介",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM092",
+          "votes": 583,
+          "result": "loss",
+          "name": "春日野悠",
+          "ip": "缘之空",
+          "cv": "下野纮",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 17,
+      "contestants": [
+        {
+          "participantId": "SM023",
+          "votes": 777,
+          "result": "win",
+          "name": "大路饼藏",
+          "ip": "玉子市场",
+          "cv": "田丸笃志",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM044",
+          "votes": 447,
+          "result": "loss",
+          "name": "夏泽朔",
+          "ip": "薰香花朵凛然绽放",
+          "cv": "",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 18,
+      "contestants": [
+        {
+          "participantId": "SM107",
+          "votes": 764,
+          "result": "win",
+          "name": "乔瑟夫·乔斯达",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "杉田智和",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM140",
+          "votes": 582,
+          "result": "loss",
+          "name": "炼狱杏寿郎",
+          "ip": "鬼灭之刃",
+          "cv": "日野聪",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 19,
+      "contestants": [
+        {
+          "participantId": "SM004",
+          "votes": 1040,
+          "result": "win",
+          "name": "乙坂有宇",
+          "ip": "Charlotte",
+          "cv": "内山昂辉",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM089",
+          "votes": 606,
+          "result": "loss",
+          "name": "五河士道",
+          "ip": "约会大作战",
+          "cv": "岛崎信长",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 20,
+      "contestants": [
+        {
+          "participantId": "SM085",
+          "votes": 791,
+          "result": "win",
+          "name": "网代慎平",
+          "ip": "夏日重现",
+          "cv": "花江夏树",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM093",
+          "votes": 637,
+          "result": "loss",
+          "name": "由崎星空",
+          "ip": "总之就是非常可爱",
+          "cv": "榎木淳弥",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 21,
+      "contestants": [
+        {
+          "participantId": "SM007",
+          "votes": 398,
+          "result": "loss",
+          "name": "莱欧斯",
+          "ip": "迷宫饭",
+          "cv": "熊谷健太郎",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM086",
+          "votes": 903,
+          "result": "win",
+          "name": "冈崎朋也",
+          "ip": "CLANNAD",
+          "cv": "中村悠一",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 22,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 1139,
+          "result": "win",
+          "name": "菜月昴",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "小林裕介",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM025",
+          "votes": 600,
+          "result": "loss",
+          "name": "一方通行",
+          "ip": "魔法禁书目录",
+          "cv": "冈本信彦",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 23,
+      "contestants": [
+        {
+          "participantId": "SM042",
+          "votes": 784,
+          "result": "win",
+          "name": "太宰治",
+          "ip": "文豪野犬",
+          "cv": "宫野真守",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM034",
+          "votes": 744,
+          "result": "loss",
+          "name": "劳埃德·福杰",
+          "ip": "间谍过家家",
+          "cv": "江口拓也",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 24,
+      "contestants": [
+        {
+          "participantId": "SM013",
+          "votes": 464,
+          "result": "loss",
+          "name": "灵幻新隆",
+          "ip": "路人超能100",
+          "cv": "樱井孝宏",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM087",
+          "votes": 804,
+          "result": "win",
+          "name": "五条新菜",
+          "ip": "更衣人偶坠入爱河",
+          "cv": "石毛翔弥",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 25,
+      "contestants": [
+        {
+          "participantId": "SM008",
+          "votes": 1034,
+          "result": "loss",
+          "name": "晓山瑞希",
+          "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+          "cv": "",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM017",
+          "votes": 1164,
+          "result": "win",
+          "name": "石上优",
+          "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+          "cv": "铃木崚汰",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 26,
+      "contestants": [
+        {
+          "participantId": "SM130",
+          "votes": 735,
+          "result": "win",
+          "name": "乔鲁诺·乔巴拿",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "小野贤章",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM039",
+          "votes": 552,
+          "result": "loss",
+          "name": "星野爱久爱海",
+          "ip": "【我推的孩子】",
+          "cv": "大冢刚央",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 27,
+      "contestants": [
+        {
+          "participantId": "SM138",
+          "votes": 687,
+          "result": "win",
+          "name": "渚薰",
+          "ip": "新世纪福音战士",
+          "cv": "石田彰",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM096",
+          "votes": 660,
+          "result": "loss",
+          "name": "西片",
+          "ip": "擅长捉弄的高木同学",
+          "cv": "梶裕贵",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 28,
+      "contestants": [
+        {
+          "participantId": "SM006",
+          "votes": 862,
+          "result": "win",
+          "name": "五条悟",
+          "ip": "咒术回战",
+          "cv": "中村悠一",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM021",
+          "votes": 712,
+          "result": "loss",
+          "name": "空条承太郎",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "小野大辅",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 29,
+      "contestants": [
+        {
+          "participantId": "SM108",
+          "votes": 695,
+          "result": "win",
+          "name": "宇智波斑",
+          "ip": "火影忍者",
+          "cv": "内田直哉",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM122",
+          "votes": 668,
+          "result": "loss",
+          "name": "神田空太",
+          "ip": "樱花庄的宠物女孩",
+          "cv": "松冈祯丞",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 30,
+      "contestants": [
+        {
+          "participantId": "SM015",
+          "votes": 248,
+          "result": "loss",
+          "name": "奥斯卡",
+          "ip": "Unnamed Memory",
+          "cv": "中岛良树",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM031",
+          "votes": 932,
+          "result": "win",
+          "name": "宫村伊澄",
+          "ip": "堀与宫村",
+          "cv": "内山昂辉",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 31,
+      "contestants": [
+        {
+          "participantId": "SM058",
+          "votes": 1017,
+          "result": "win",
+          "name": "比企谷八幡",
+          "ip": "我的青春恋爱物语果然有问题。",
+          "cv": "江口拓也",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM084",
+          "votes": 400,
+          "result": "loss",
+          "name": "浅村悠太",
+          "ip": "义妹生活",
+          "cv": "天崎滉平",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 32,
+      "contestants": [
+        {
+          "participantId": "SM102",
+          "votes": 778,
+          "result": "win",
+          "name": "有马公生",
+          "ip": "四月是你的谎言",
+          "cv": "花江夏树",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM118",
+          "votes": 559,
+          "result": "loss",
+          "name": "电次",
+          "ip": "电锯人",
+          "cv": "户谷菊之介",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 33,
+      "contestants": [
+        {
+          "participantId": "SM009",
+          "votes": 843,
+          "result": "win",
+          "name": "莱因哈鲁特·范·阿斯特雷亚",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM041",
+          "votes": 705,
+          "result": "loss",
+          "name": "蒙奇·D·路飞",
+          "ip": "海贼王",
+          "cv": "田中真弓",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 34,
+      "contestants": [
+        {
+          "participantId": "SM019",
+          "votes": 866,
+          "result": "win",
+          "name": "温水和彦",
+          "ip": "败犬女主太多了！",
+          "cv": "梅田修一朗",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM088",
+          "votes": 777,
+          "result": "loss",
+          "name": "L Lawliet",
+          "ip": "死亡笔记",
+          "cv": "山口胜平",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 35,
+      "contestants": [
+        {
+          "participantId": "SM114",
+          "votes": 710,
+          "result": "win",
+          "name": "户冢彩加",
+          "ip": "我的青春恋爱物语果然有问题。",
+          "cv": "小松未可子",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM124",
+          "votes": 623,
+          "result": "loss",
+          "name": "孙悟空",
+          "ip": "龙珠",
+          "cv": "野泽雅子",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 36,
+      "contestants": [
+        {
+          "participantId": "SM014",
+          "votes": 339,
+          "result": "loss",
+          "name": "洁世一",
+          "ip": "蓝色监狱",
+          "cv": "浦和希",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM099",
+          "votes": 888,
+          "result": "win",
+          "name": "碇真嗣",
+          "ip": "新世纪福音战士",
+          "cv": "绪方惠美",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 37,
+      "contestants": [
+        {
+          "participantId": "SM024",
+          "votes": 911,
+          "result": "win",
+          "name": "夜神月",
+          "ip": "死亡笔记",
+          "cv": "宫野真守",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM109",
+          "votes": 583,
+          "result": "loss",
+          "name": "波风水门",
+          "ip": "火影忍者",
+          "cv": "森川智之",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 38,
+      "contestants": [
+        {
+          "participantId": "SM094",
+          "votes": 810,
+          "result": "win",
+          "name": "鲁路修·兰佩洛基",
+          "ip": "反叛的鲁路修",
+          "cv": "福山润",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM071",
+          "votes": 477,
+          "result": "loss",
+          "name": "石神千空",
+          "ip": "Dr.STONE 石纪元",
+          "cv": "小林裕介",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 39,
+      "contestants": [
+        {
+          "participantId": "SM010",
+          "votes": 556,
+          "result": "loss",
+          "name": "法夫纳",
+          "ip": "小林家的龙女仆",
+          "cv": "",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM045",
+          "votes": 698,
+          "result": "win",
+          "name": "始皇帝",
+          "ip": "终末的女武神",
+          "cv": "",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 40,
+      "contestants": [
+        {
+          "participantId": "SM020",
+          "votes": 856,
+          "result": "win",
+          "name": "桐谷和人",
+          "ip": "刀剑神域",
+          "cv": "松冈祯丞",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM022",
+          "votes": 798,
+          "result": "loss",
+          "name": "基尔伯特·布甘比利亚",
+          "ip": "紫罗兰永恒花园",
+          "cv": "浪川大辅",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 41,
+      "contestants": [
+        {
+          "participantId": "SM095",
+          "votes": 751,
+          "result": "win",
+          "name": "迪奥·布兰度",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "子安武人",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM125",
+          "votes": 550,
+          "result": "loss",
+          "name": "宇智波带土",
+          "ip": "火影忍者",
+          "cv": "潘惠美",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 42,
+      "contestants": [
+        {
+          "participantId": "SM036",
+          "votes": 772,
+          "result": "win",
+          "name": "艾伦·耶格尔",
+          "ip": "进击的巨人",
+          "cv": "梶裕贵",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM038",
+          "votes": 552,
+          "result": "loss",
+          "name": "高须龙儿",
+          "ip": "龙与虎",
+          "cv": "间岛淳司",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 43,
+      "contestants": [
+        {
+          "participantId": "SM003",
+          "votes": 965,
+          "result": "win",
+          "name": "里克·多拉",
+          "ip": "NO GAME NO LIFE 游戏人生",
+          "cv": "松冈祯丞",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM037",
+          "votes": 695,
+          "result": "loss",
+          "name": "漩涡鸣人",
+          "ip": "火影忍者",
+          "cv": "竹内顺子",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 44,
+      "contestants": [
+        {
+          "participantId": "SM136",
+          "votes": 746,
+          "result": "win",
+          "name": "杀老师",
+          "ip": "暗杀教室",
+          "cv": "福山润",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM123",
+          "votes": 558,
+          "result": "loss",
+          "name": "夜斗",
+          "ip": "野良神",
+          "cv": "神谷浩史",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 45,
+      "contestants": [
+        {
+          "participantId": "SM012",
+          "votes": 400,
+          "result": "loss",
+          "name": "水篠旬",
+          "ip": "我独自升级",
+          "cv": "坂泰斗",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM121",
+          "votes": 799,
+          "result": "win",
+          "name": "卫宫切嗣",
+          "ip": "Fate系列",
+          "cv": "小山力也",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 46,
+      "contestants": [
+        {
+          "participantId": "SM032",
+          "votes": 906,
+          "result": "win",
+          "name": "坂田银时",
+          "ip": "银魂",
+          "cv": "杉田智和",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM046",
+          "votes": 530,
+          "result": "loss",
+          "name": "鹰原羽依里",
+          "ip": "Summer Pockets",
+          "cv": "",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 47,
+      "contestants": [
+        {
+          "participantId": "SM100",
+          "votes": 733,
+          "result": "win",
+          "name": "宇智波鼬",
+          "ip": "火影忍者",
+          "cv": "石川英郎",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM097",
+          "votes": 655,
+          "result": "loss",
+          "name": "绫小路清隆",
+          "ip": "欢迎来到实力至上主义的教室",
+          "cv": "千叶翔也",
+          "avatar": ""
+        }
+      ]
+    },
+    {
+      "match": 48,
+      "contestants": [
+        {
+          "participantId": "SM027",
+          "votes": 752,
+          "result": "win",
+          "name": "上条当麻",
+          "ip": "魔法禁书目录",
+          "cv": "阿部敦",
+          "avatar": ""
+        },
+        {
+          "participantId": "SM091",
+          "votes": 620,
+          "result": "loss",
+          "name": "冈部伦太郎",
+          "ip": "命运石之门",
+          "cv": "宫野真守",
+          "avatar": ""
+        }
+      ]
+    }
+  ]
 }

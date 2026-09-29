@@ -606,14 +606,44 @@
                         "start": "2026-09-08 20:00:00",
                         "end": "2026-09-09 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 2105
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第一阶段第三轮",
-                            "phase": "第一阶段"
+                            "title": "第一阶段第三轮-女性组别",
+                            "id": "phase1-r03-stellar-female",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r03-stellar-female",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r03-stellar-female",
+                                "data": "data/phase1/stellar/female/31-phase1-r03-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r03.female",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
+                        },
+                        {
+                            "title": "第一阶段第三轮-男性组别",
+                            "id": "phase1-r03-stellar-male",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r03-stellar-male",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r03-stellar-male",
+                                "data": "data/phase1/stellar/male/32-phase1-r03-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r03.male",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
                     }
                 },
                 {
@@ -621,14 +651,44 @@
                         "start": "2026-09-12 20:00:00",
                         "end": "2026-09-13 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 2294
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第一阶段第四轮",
-                            "phase": "第一阶段"
+                            "title": "第一阶段第四轮-女性组别",
+                            "id": "phase1-r04-stellar-female",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r04-stellar-female",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r04-stellar-female",
+                                "data": "data/phase1/stellar/female/33-phase1-r04-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r04.female",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
+                        },
+                        {
+                            "title": "第一阶段第四轮-男性组别",
+                            "id": "phase1-r03-stellar-male",
+                            "phase": "第一阶段",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r04-stellar-male",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r04-stellar-male",
+                                "data": "data/phase1/stellar/male/34-phase1-r04-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.r04.male",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
                     }
                 },
                 {

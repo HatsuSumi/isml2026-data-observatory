@@ -530,5 +530,101 @@
                 "votes": 1072
             }
         ]
+    },
+    "第一阶段第三轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF001",
+                "votes": 1351
+            },
+            {
+                "participantId": "SF093",
+                "votes": 1300
+            },
+            {
+                "participantId": "SF067",
+                "votes": 1248
+            },
+            {
+                "participantId": "SF002",
+                "votes": 1198
+            },
+            {
+                "participantId": "SF003",
+                "votes": 1172
+            }
+        ]
+    },
+    "第一阶段第三轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM028",
+                "votes": 1020
+            },
+            {
+                "participantId": "SM004",
+                "votes": 998
+            },
+            {
+                "participantId": "SM001",
+                "votes": 973
+            },
+            {
+                "participantId": "SM002",
+                "votes": 950
+            },
+            {
+                "participantId": "SM003",
+                "votes": 892
+            }
+        ]
+    },
+    "第一阶段第四轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF093",
+                "votes": 1275
+            },
+            {
+                "participantId": "SF001",
+                "votes": 1252
+            },
+            {
+                "participantId": "SF017",
+                "votes": 1229
+            },
+            {
+                "participantId": "SF022",
+                "votes": 1226
+            },
+            {
+                "participantId": "SF067",
+                "votes": 1196
+            }
+        ]
+    },
+    "第一阶段第四轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM001",
+                "votes": 1133
+            },
+            {
+                "participantId": "SM028",
+                "votes": 1089
+            },
+            {
+                "participantId": "SM003",
+                "votes": 977
+            },
+            {
+                "participantId": "SM004",
+                "votes": 915
+            },
+            {
+                "participantId": "SM002",
+                "votes": 858
+            }
+        ]
     }
 }

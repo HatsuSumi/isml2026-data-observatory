@@ -1,0 +1,198 @@
+{
+    "date": "01.21-01.28",
+    "event": "新星组夏季赛提名-男性组别",
+    "data": [
+        {
+            "participantId": "SM019",
+            "votes": 436,
+            "is_advanced": true,
+            "rank": 1
+        },
+        {
+            "participantId": "SM084",
+            "votes": 429,
+            "is_advanced": true,
+            "rank": 2
+        },
+        {
+            "participantId": "ESM005",
+            "votes": 349,
+            "is_advanced": true,
+            "rank": 3
+        },
+        {
+            "characterId": "char_000198",
+            "votes": 104,
+            "is_advanced": true,
+            "rank": 4
+        },
+        {
+            "participantId": "ESM012",
+            "votes": 55,
+            "is_advanced": true,
+            "rank": 5
+        },
+        {
+            "characterId": "char_000653",
+            "votes": 33,
+            "is_advanced": true,
+            "rank": 6
+        },
+        {
+            "characterId": "char_001702",
+            "votes": 26,
+            "is_advanced": true,
+            "rank": 7
+        },
+        {
+            "characterId": "char_000192",
+            "votes": 20,
+            "is_advanced": true,
+            "rank": 8
+        },
+        {
+            "characterId": "char_000355",
+            "votes": 20,
+            "is_advanced": true,
+            "rank": 9
+        },
+        {
+            "characterId": "char_001285",
+            "votes": 17,
+            "is_advanced": true,
+            "rank": 10
+        },
+        {
+            "participantId": "SM079",
+            "votes": 15,
+            "is_advanced": true,
+            "rank": 11
+        },
+        {
+            "characterId": "char_000111",
+            "votes": 14,
+            "is_advanced": true,
+            "rank": 12
+        },
+        {
+            "characterId": "char_001579",
+            "votes": 12,
+            "is_advanced": true,
+            "rank": 13
+        },
+        {
+            "characterId": "char_000315",
+            "votes": 11,
+            "is_advanced": true,
+            "rank": 14
+        },
+        {
+            "characterId": "char_001089",
+            "votes": 8,
+            "is_advanced": true,
+            "rank": 15
+        },
+        {
+            "characterId": "char_000462",
+            "votes": 6,
+            "is_advanced": true,
+            "rank": 16
+        },
+        {
+            "characterId": "char_000814",
+            "votes": 4,
+            "is_advanced": true,
+            "rank": 17
+        },
+        {
+            "characterId": "char_000890",
+            "votes": 4,
+            "is_advanced": true,
+            "rank": 18
+        },
+        {
+            "characterId": "char_001694",
+            "votes": 4,
+            "is_advanced": true,
+            "rank": 19
+        },
+        {
+            "characterId": "char_000688",
+            "votes": 4,
+            "is_advanced": true,
+            "rank": 20
+        },
+        {
+            "characterId": "char_000144",
+            "votes": 3,
+            "is_advanced": true,
+            "rank": 21
+        },
+        {
+            "characterId": "char_000700",
+            "votes": 3,
+            "is_advanced": true,
+            "rank": 22
+        },
+        {
+            "characterId": "char_001719",
+            "votes": 2,
+            "is_advanced": true,
+            "rank": 23
+        },
+        {
+            "characterId": "char_000358",
+            "votes": 2,
+            "is_advanced": true,
+            "rank": 24
+        },
+        {
+            "characterId": "char_000877",
+            "votes": 2,
+            "is_advanced": true,
+            "rank": 25
+        },
+        {
+            "characterId": "char_000381",
+            "votes": 2,
+            "is_advanced": true,
+            "rank": 26
+        },
+        {
+            "characterId": "char_000851",
+            "votes": 2,
+            "is_advanced": true,
+            "rank": 27
+        },
+        {
+            "characterId": "char_001112",
+            "votes": 2,
+            "is_advanced": true,
+            "rank": 28
+        },
+        {
+            "characterId": "char_001046",
+            "votes": 3,
+            "is_advanced": true,
+            "rank": 29
+        },
+        {
+            "characterId": "char_002175",
+            "votes": 3,
+            "is_advanced": true,
+            "rank": 30
+        },
+        {
+            "characterId": "char_001081",
+            "votes": 3,
+            "is_advanced": true,
+            "rank": 31
+        },
+        {
+            "characterId": "char_000246",
+            "votes": 2,
+            "is_advanced": false,
+            "rank": 32
+        }
+    ]
+}
