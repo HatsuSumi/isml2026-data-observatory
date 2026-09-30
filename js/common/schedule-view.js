@@ -24,7 +24,7 @@ const PHASE_NUMBER_IDS = {
 export function getScheduleGroupTitle(matchTitle) {
     return String(matchTitle || '')
         .replace(/-(?:女性|男性)组别$/, '')
-        .replace(/-(?:女子项链赛|男子垂饰赛)$/, '');
+        .replace(/-(?:女子|男子)(?:海蓝宝石)?(?:项链|垂饰|外卡)赛$/, '');
 }
 
 export function getSchedulePhaseId(phaseTitle) {

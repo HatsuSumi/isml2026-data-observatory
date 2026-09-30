@@ -299,6 +299,32 @@ export async function loadPhase1Data(snapshotPath) {
     if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
         throw new Error('内部第一阶段数据格式错误：data 必须是数组');
     }
+
+    const participantIds = rawData.data.flatMap(match => (
+        Array.isArray(match?.contestants) ? match.contestants.map(contestant => contestant?.participantId) : []
+    ));
+    const wildcardIds = participantIds.filter(participantId => /^(WF|WM)\d+$/.test(participantId || ''));
+    let wildcardProfiles = new Map();
+    if (wildcardIds.length) {
+        const publicData = await fetchJson(snapshotPath);
+        if (!publicData || !Array.isArray(publicData.data)) {
+            throw new Error(`外卡赛公开数据格式错误：${snapshotPath}`);
+        }
+        wildcardProfiles = new Map(publicData.data.map(profile => [profile.participantId, {
+            participantId: profile.participantId,
+            characterId: profile.participantId,
+            name: profile.name,
+            nameEn: '',
+            ip: profile.ip,
+            ipNameEn: '',
+            avatar: profile.avatar || '',
+            cv: '',
+            company: '',
+            birthday: '',
+            rounds: []
+        }]));
+    }
+
     return {
         ...rawData,
         data: rawData.data.map((match, matchIndex) => {
@@ -311,8 +337,10 @@ export async function loadPhase1Data(snapshotPath) {
                     if (!contestant?.participantId) {
                         throw new Error(`内部第一阶段数据 [${matchIndex}][${contestantIndex}] 缺少 participantId`);
                     }
+                    const character = wildcardProfiles.get(contestant.participantId)
+                        || resolver.getByParticipantId(contestant.participantId);
                     return {
-                        ...resolver.getByParticipantId(contestant.participantId),
+                        ...character,
                         votes: contestant.votes,
                         result: contestant.result,
                         participantId: contestant.participantId

@@ -119,6 +119,34 @@ const necklaceStrategy = {
     }
 };
 
+const wildcardStrategy = {
+    normalize(rawData, mode) {
+        const rows = filterRowsByMode(
+            rawData.data.flatMap(match => match.contestants.map(contestant => ({
+                ...contestant,
+                votes: Number(contestant.votes),
+                isPromoted: contestant.result === 'win',
+                group: `擂台${match.match}`
+            })))
+                .filter(item => Number.isFinite(item.votes))
+                .sort((a, b) => b.votes - a.votes || a.name.localeCompare(b.name, 'zh-CN'))
+                .map((item, index) => ({
+                    ...item,
+                    rank: index + 1,
+                    displayRank: `第${index + 1}名`
+                })),
+            mode
+        );
+        return {
+            ...buildChartData(rawData, rows),
+            statusLabels: {
+                advance: '胜者',
+                eliminate: '淘汰'
+            }
+        };
+    }
+};
+
 const phase1Strategy = {
     normalize(rawData, mode) {
         const rows = filterRowsByMode(rawData.data.flatMap(match => match.contestants.map(contestant => ({
@@ -149,6 +177,7 @@ export function getVisualizationStrategy(visualizationId) {
     const nominationConfig = NOMINATION_TABLE_CONFIGS[visualizationId];
     if (nominationConfig) return createNominationStrategy(nominationConfig);
     if (visualizationId.startsWith('preliminary-') || visualizationId.endsWith('-preliminaries')) return preliminaryStrategy;
+    if (visualizationId.startsWith('phase1-r06-wildcard-')) return wildcardStrategy;
     if (visualizationId.startsWith('phase1-r06-necklace-')) return necklaceStrategy;
     if (visualizationId.startsWith('phase1-')) return phase1Strategy;
     throw new Error(`未找到可视化策略：${visualizationId}`);

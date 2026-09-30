@@ -8,6 +8,7 @@ from pathlib import Path
 from openpyxl import Workbook
 
 HEADERS = ["擂台", "角色", "IP", "得票数", "结果", "头像"]
+WILDCARD_HEADERS = ["排名", "角色", "IP", "得票数", "结果", "头像"]
 ROOT = Path(__file__).resolve().parents[1]
 PARTICIPANT_MAP_PATH = ROOT / "data" / "characters" / "participant-map.json"
 CHARACTERS_CACHE_PATH = ROOT / ".cache" / "characters-data.json"
@@ -22,8 +23,28 @@ def load_catalogs() -> tuple[dict[str, str], dict[str, dict], dict[str, dict]]:
 
 
 def load_public_payload(json_path: Path) -> dict:
-    participant_map, characters, ips = load_catalogs()
     payload = json.loads(json_path.read_text(encoding="utf-8"))
+    participant_map, characters, ips = load_catalogs()
+
+    if "wildcard" in json_path.stem:
+        public_data = []
+        rank = 1
+        for match in payload.get("data", []):
+            for contestant in match.get("contestants", []):
+                participant_id = contestant["participantId"]
+                character = characters[participant_map[participant_id]]
+                ip = ips[str(character["ip_id"])]
+                public_data.append({
+                    **contestant,
+                    "name": character.get("name", ""),
+                    "ip": ip.get("name", ""),
+                    "avatar": character.get("avatar", "") or "",
+                    "rank": rank,
+                    "finalResult": "晋级" if contestant.get("result") == "win" else "淘汰",
+                })
+                rank += 1
+        return {**payload, "data": public_data}
+
     public_data = []
     for match in payload.get("data", []):
         contestants = []
@@ -46,6 +67,19 @@ def load_public_payload(json_path: Path) -> dict:
 
 
 def load_rows(payload: dict) -> list[list[object]]:
+    if payload.get("data") and "rank" in payload["data"][0]:
+        return [
+            [
+                contestant.get("rank", ""),
+                contestant.get("name", ""),
+                contestant.get("ip", ""),
+                contestant.get("votes", ""),
+                "晋级" if contestant.get("result") == "win" else "淘汰",
+                contestant.get("avatar", "") or "",
+            ]
+            for contestant in payload.get("data", [])
+        ]
+
     rows = []
     for match in payload.get("data", []):
         for contestant in match.get("contestants", []):
@@ -70,15 +104,16 @@ def write_exports(json_path: Path, export_root: Path | None = None) -> None:
     json_output_path = output_base.with_suffix(".json")
     json_output_path.write_text(json.dumps(public_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    headers = WILDCARD_HEADERS if "wildcard" in json_path.stem else HEADERS
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)
-        writer.writerow(HEADERS)
+        writer.writerow(headers)
         writer.writerows(rows)
 
     workbook = Workbook()
     sheet = workbook.active
     sheet.title = "第一阶段"
-    sheet.append(HEADERS)
+    sheet.append(headers)
     for row in rows:
         sheet.append(row)
     workbook.save(xlsx_path)

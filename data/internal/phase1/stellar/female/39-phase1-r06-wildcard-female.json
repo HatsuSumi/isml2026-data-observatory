@@ -1,0 +1,31 @@
+{
+    "date": "2026-09-25 - 2026-09-26",
+    "event": "第一阶段外卡赛",
+    "data": [
+        {
+            "match": 1,
+            "contestants": [
+                {"participantId": "SF005", "votes": 964, "result": "win"},
+                {"participantId": "SF144", "votes": 947, "result": "win"},
+                {"participantId": "SF131", "votes": 934, "result": "win"},
+                {"participantId": "SF038", "votes": 919, "result": "win"},
+                {"participantId": "SF100", "votes": 916, "result": "win"},
+                {"participantId": "SF066", "votes": 877, "result": "win"},
+                {"participantId": "SF106", "votes": 873, "result": "win"},
+                {"participantId": "SF119", "votes": 835, "result": "win"},
+                {"participantId": "SF110", "votes": 825, "result": "win"},
+                {"participantId": "SF029", "votes": 825, "result": "win"},
+                {"participantId": "SF116", "votes": 824, "result": "loss"},
+                {"participantId": "SF033", "votes": 798, "result": "loss"},
+                {"participantId": "SF107", "votes": 790, "result": "loss"},
+                {"participantId": "SF138", "votes": 788, "result": "loss"},
+                {"participantId": "SF141", "votes": 782, "result": "loss"},
+                {"participantId": "SF142", "votes": 778, "result": "loss"},
+                {"participantId": "SF132", "votes": 766, "result": "loss"},
+                {"participantId": "SF035", "votes": 734, "result": "loss"},
+                {"participantId": "SF059", "votes": 731, "result": "loss"},
+                {"participantId": "SF128", "votes": 519, "result": "loss"}
+            ]
+        }
+    ]
+}

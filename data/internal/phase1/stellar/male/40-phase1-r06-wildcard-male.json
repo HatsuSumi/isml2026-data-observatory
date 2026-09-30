@@ -1,0 +1,31 @@
+{
+    "date": "2026-09-25 - 2026-09-26",
+    "event": "第一阶段外卡赛",
+    "data": [
+        {
+            "match": 1,
+            "contestants": [
+                {"participantId": "SM034", "votes": 790, "result": "win"},
+                {"participantId": "SM102", "votes": 748, "result": "win"},
+                {"participantId": "SM126", "votes": 746, "result": "win"},
+                {"participantId": "SM130", "votes": 717, "result": "win"},
+                {"participantId": "SM097", "votes": 705, "result": "win"},
+                {"participantId": "SM011", "votes": 698, "result": "win"},
+                {"participantId": "SM096", "votes": 697, "result": "win"},
+                {"participantId": "SM108", "votes": 696, "result": "win"},
+                {"participantId": "SM140", "votes": 694, "result": "win"},
+                {"participantId": "SM095", "votes": 693, "result": "win"},
+                {"participantId": "SM132", "votes": 691, "result": "loss"},
+                {"participantId": "SM087", "votes": 673, "result": "loss"},
+                {"participantId": "SM071", "votes": 656, "result": "loss"},
+                {"participantId": "SM121", "votes": 646, "result": "loss"},
+                {"participantId": "SM115", "votes": 641, "result": "loss"},
+                {"participantId": "SM122", "votes": 633, "result": "loss"},
+                {"participantId": "SM124", "votes": 614, "result": "loss"},
+                {"participantId": "SM101", "votes": 614, "result": "loss"},
+                {"participantId": "SM038", "votes": 590, "result": "loss"},
+                {"participantId": "SM131", "votes": 576, "result": "loss"}
+            ]
+        }
+    ]
+}

@@ -86,7 +86,9 @@ function renderVisualization() {
 function updateChartToggleButton(chartType) {
     const button = document.querySelector('.chart-toggle-btn');
     if (!button) return;
-    const canToggle = visualizationState.id.startsWith('phase1-') && !visualizationState.id.startsWith('phase1-r06-necklace-');
+    const canToggle = visualizationState.id.startsWith('phase1-')
+        && !visualizationState.id.startsWith('phase1-r06-necklace-')
+        && !visualizationState.id.startsWith('phase1-r06-wildcard-');
     button.hidden = !canToggle;
     button.textContent = chartType === 'pie' ? '切换为柱状图' : '切换为饼图';
     button.setAttribute('aria-label', button.textContent);

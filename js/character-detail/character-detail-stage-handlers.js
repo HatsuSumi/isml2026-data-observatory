@@ -48,6 +48,27 @@ class NominationHandler extends StageHandler {
 
 class Phase1Handler extends StageHandler {
     getFields(round) {
+        const event = String(round['赛事'] || '');
+        if (event.includes('项链赛') || event.includes('垂饰赛')) {
+            return {
+                '赛事时间': this.roundConfig?.['赛事时间'],
+                '赛制': round['赛制'],
+                '赛事': round['赛事'],
+                ...Object.fromEntries(round['轮次'].map(item => [`第${item.round}轮票数`, item.votes])),
+                '最终排名': round['最终排名'],
+                '最终结果': round['最终结果']
+            };
+        }
+        if (event.includes('外卡赛')) {
+            return {
+                '赛事时间': this.roundConfig?.['赛事时间'],
+                '赛制': round['赛制'],
+                '赛事': round['赛事'],
+                '得票数': round['轮次'][0]?.votes,
+                '最终排名': round['最终排名'],
+                '最终结果': round['最终结果']
+            };
+        }
         return {
             '赛事时间': this.roundConfig?.['赛事时间'],
             '小组': round['小组'],
@@ -73,6 +94,8 @@ class Phase1Handler extends StageHandler {
             return { roundConfig: null, stageConfig: null };
         }
         const roundKey = `第${roundMatch[1]}轮`;
+        const event = String(round['赛事'] || '');
+        const eventGroup = event.includes('项链赛') || event.includes('垂饰赛') ? '项链赛' : event.includes('外卡赛') ? '外卡赛' : '恒星组';
         const stage = stages['第一阶段']?.[roundKey];
         if (!stage) {
             console.error(`未找到配置: 第一阶段 -> ${roundKey}`);
@@ -80,7 +103,7 @@ class Phase1Handler extends StageHandler {
         }
         return {
             roundConfig: {
-                ...stage['恒星组']?.[gender],
+                ...stage[eventGroup]?.[gender],
                 '赛事时间': stage['赛事时间']
             },
             stageConfig: stage

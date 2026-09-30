@@ -550,7 +550,7 @@
                         }
                     ],
                     "details": {
-                        "format": "单选单票制",
+                        "format": "有限投票制（可投票上限：10）",
                         "qualified": {
                             "description": "小组单循环赛"
                         }
@@ -752,6 +752,12 @@
                             "id": "phase1-r06-necklace-female",
                             "phase": "第一阶段",
                             "chartType": "line",
+                            "details": {
+                                "format": "排序复选制",
+                                "qualified": {
+                                    "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
+                                }
+                            },
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r06-necklace-female",
                                 "table": "pages/tables/phase1-table.html?id=phase1-r06-necklace-female",
@@ -764,20 +770,56 @@
                             "id": "phase1-r06-necklace-male",
                             "phase": "第一阶段",
                             "chartType": "line",
+                            "details": {
+                                "format": "排序复选制",
+                                "qualified": {
+                                    "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
+                                }
+                            },
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r06-necklace-male",
                                 "table": "pages/tables/phase1-table.html?id=phase1-r06-necklace-male",
                                 "data": "data/phase1/stellar/male/38-phase1-r06-necklace-male.json",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
+                        },
+                        {
+                            "title": "第一阶段第六轮-女子外卡赛",
+                            "id": "phase1-r06-wildcard-female",
+                            "phase": "第一阶段",
+                            "chartType": "bar",
+                            "details": {
+                                "format": "有限投票制（可投票上限：10）",
+                                "qualified": {
+                                    "description": "前10名晋级，其余角色淘汰"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r06-wildcard-female",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r06-wildcard-female",
+                                "data": "data/phase1/stellar/female/39-phase1-r06-wildcard-female.json",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
+                        },
+                        {
+                            "title": "第一阶段第六轮-男子外卡赛",
+                            "id": "phase1-r06-wildcard-male",
+                            "phase": "第一阶段",
+                            "chartType": "bar",
+                            "details": {
+                                "format": "有限投票制（可投票上限：10）",
+                                "qualified": {
+                                    "description": "前10名晋级，其余角色淘汰"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r06-wildcard-male",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r06-wildcard-male",
+                                "data": "data/phase1/stellar/male/40-phase1-r06-wildcard-male.json",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
                         }
-                    ],
-                    "details": {
-                        "format": "排序复选制",
-                        "qualified": {
-                            "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
-                        }
-                    }
+                    ]
                 }
             ]
         },

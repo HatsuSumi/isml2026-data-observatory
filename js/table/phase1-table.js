@@ -7,7 +7,8 @@ const state = {
     rows: [],
     filtered: [],
     sort: { key: 'votes', direction: 'desc' },
-    necklace: false
+    necklace: false,
+    wildcard: false
 };
 
 function getId() { return new URLSearchParams(window.location.search).get('id') || ''; }
@@ -28,6 +29,46 @@ async function getConfig(id) {
 
 function isNecklaceId(id) {
     return String(id).startsWith('phase1-r06-necklace-');
+}
+
+function isWildcardId(id) {
+    return String(id).startsWith('phase1-r06-wildcard-');
+}
+
+function getWildcardRows(raw) {
+    return raw.data.flatMap((match) => match.contestants.map((item) => ({
+        ...item,
+        group: '',
+        seed: null,
+        match: '',
+        matchNumber: Number(match.match) || 0,
+        result: item.result === 'win' ? 'win' : 'loss',
+        votes: Number(item.votes)
+    }))).sort((a, b) => b.votes - a.votes || a.name.localeCompare(b.name, 'zh-CN'))
+        .map((item, index) => ({ ...item, globalRank: index + 1 }));
+}
+
+function getWildcardHeaders() {
+    return [
+        ['globalRank', '排名'],
+        ['name', '角色'],
+        ['avatar', '头像'],
+        ['ip', 'IP'],
+        ['votes', '得票数'],
+        ['result', '结果']
+    ];
+}
+
+function setupWildcardTable() {
+    document.body.classList.add('wildcard-table-page');
+    document.getElementById('pageTitle').textContent = '第一阶段第六轮外卡赛表格';
+    document.getElementById('matchFilterWrapper')?.remove();
+    document.getElementById('eliminationFilterWrapper')?.remove();
+    document.getElementById('tableHead').innerHTML = `<tr>${getWildcardHeaders().map(([key, label]) => `<th data-sort="${key}">${label}</th>`).join('')}</tr>`;
+    const statusFilter = document.getElementById('statusFilter');
+    if (statusFilter) {
+        statusFilter.querySelector('option[value="loss"]').textContent = '淘汰';
+    }
 }
 
 function getNecklaceRows(raw) {
@@ -84,7 +125,7 @@ function setupNecklaceTable() {
     document.querySelector('.subtitle:not(#pageSubtitle)')?.remove();
     document.querySelector('.filter-container')?.remove();
     document.querySelector('[data-download-group="filtered"]')?.remove();
-    document.getElementById('tableHead').innerHTML = `<tr>${getNecklaceHeaders().map(([, label]) => `<th>${label}</th>`).join('')}</tr>`;
+    document.getElementById('tableHead').innerHTML = `<tr>${getNecklaceHeaders().map(([key, label]) => `<th data-sort="${key}">${label}</th>`).join('')}</tr>`;
 }
 
 function getGroupKey(id) {
@@ -153,7 +194,8 @@ function applyFilters() {
         return;
     }
     const status = document.getElementById('statusFilter').value;
-    const match = document.getElementById('matchFilter').value;
+    const matchControl = document.getElementById('matchFilter');
+    const match = matchControl?.value || 'all';
     const search = document.getElementById('searchInput').value.trim().toLowerCase();
     const min = Number(document.getElementById('minVotes').value || -Infinity);
     const max = Number(document.getElementById('maxVotes').value || Infinity);
@@ -173,7 +215,9 @@ function renderRows() {
         const tr = document.createElement('tr');
         const values = state.necklace
             ? [row.globalRank, row.name, row.avatar, row.ip, ...row.roundVotes, row.eliminationRound, row.result === 'win' ? '胜者' : '淘汰']
-            : [row.group, row.seed ?? '-', row.match, row.globalRank, row.name, row.ip, `${row.votes}票`, row.result === 'win' ? '胜者' : '败者'];
+            : state.wildcard
+                ? [row.globalRank, row.name, row.avatar, row.ip, `${row.votes}票`, row.result === 'win' ? '胜者' : '淘汰']
+                : [row.group, row.seed ?? '-', row.match, row.globalRank, row.name, row.ip, `${row.votes}票`, row.result === 'win' ? '胜者' : '败者'];
         values.forEach((value, index) => {
             const td = document.createElement('td');
             if (state.necklace && index === 2 && row.avatar) {
@@ -182,13 +226,19 @@ function renderRows() {
                 img.alt = `${row.name}头像`;
                 img.loading = 'lazy';
                 td.appendChild(img);
-            } else if (!state.necklace || index !== 2) {
+            } else if (state.wildcard && index === 2 && row.avatar) {
+                const img = document.createElement('img');
+                img.src = row.avatar;
+                img.alt = `${row.name}头像`;
+                img.loading = 'lazy';
+                td.appendChild(img);
+            } else if ((!state.necklace || index !== 2) && (!state.wildcard || index !== 2)) {
                 td.textContent = value === null || value === undefined ? '-' : value;
             }
-            if ((!state.necklace && index === 5) || (state.necklace && index === 3)) td.className = 'ip';
+            if ((!state.necklace && !state.wildcard && index === 5) || (state.necklace && index === 3) || (state.wildcard && index === 3)) td.className = 'ip';
             tr.appendChild(td);
         });
-        if (!state.necklace) {
+        if (!state.necklace && !state.wildcard) {
             const avatar = document.createElement('td');
             if (row.avatar) { const img = document.createElement('img'); img.src = row.avatar; img.alt = `${row.name}头像`; img.loading = 'lazy'; avatar.appendChild(img); }
             tr.insertBefore(avatar, tr.children[5]);
@@ -199,11 +249,12 @@ function renderRows() {
         return tr;
     }));
     const wins = state.filtered.filter((row) => row.result === 'win').length;
-    document.getElementById('summary').textContent = `显示 ${state.filtered.length} 名角色，其中${state.necklace ? '胜者' : '胜者'} ${wins} 名，${state.necklace ? '淘汰' : '败者'} ${state.filtered.length - wins} 名`;
+    const eliminatedLabel = state.necklace || state.wildcard ? '淘汰' : '败者';
+    document.getElementById('summary').textContent = `显示 ${state.filtered.length} 名角色，其中胜者 ${wins} 名，${eliminatedLabel} ${state.filtered.length - wins} 名`;
 }
 
 function populateMatches() {
-    if (state.necklace) return;
+    if (state.necklace || state.wildcard) return;
     const select = document.getElementById('matchFilter');
     [...new Set(state.rows.map((row) => row.match))].sort((a, b) => Number(a.slice(2)) - Number(b.slice(2))).forEach((match) => {
         const option = document.createElement('option'); option.value = match; option.textContent = match; select.appendChild(option);
@@ -212,12 +263,28 @@ function populateMatches() {
     syncCustomSelect(select);
 }
 
+function getDefaultSortKey() {
+    return state.necklace ? 'round7' : 'votes';
+}
+
+function setSortIndicator() {
+    document.querySelectorAll('th[data-sort]').forEach((header) => {
+        header.dataset.sortable = 'true';
+        header.classList.remove('sort-asc', 'sort-desc');
+    });
+    const header = document.querySelector(`th[data-sort="${state.sort.key}"]`);
+    header?.classList.add(state.sort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+}
+
 function bindControls() {
     if (!state.necklace) {
         const statusSelect = document.getElementById('statusFilter');
         buildCustomSelect(statusSelect);
         syncCustomSelect(statusSelect);
-        ['statusFilter', 'matchFilter', 'searchInput', 'minVotes', 'maxVotes'].forEach((id) => {
+        const controlIds = state.wildcard
+            ? ['statusFilter', 'searchInput', 'minVotes', 'maxVotes']
+            : ['statusFilter', 'matchFilter', 'searchInput', 'minVotes', 'maxVotes'];
+        controlIds.forEach((id) => {
             const control = document.getElementById(id);
             if (control) control.addEventListener(id.includes('Filter') ? 'change' : 'input', applyFilters);
         });
@@ -230,17 +297,22 @@ function bindControls() {
                 }
             });
             ['searchInput', 'minVotes', 'maxVotes'].forEach((id) => { const control = document.getElementById(id); if (control) control.value = ''; });
-            state.sort = { key: 'votes', direction: 'desc' };
+            state.sort = { key: getDefaultSortKey(), direction: 'desc' };
+            setSortIndicator();
             applyFilters();
         });
     }
-    document.querySelectorAll('th[data-sort]').forEach((header) => header.addEventListener('click', () => {
+    document.querySelectorAll('th[data-sort]').forEach((header) => {
+        header.dataset.sortable = 'true';
+        header.addEventListener('click', () => {
         const key = header.dataset.sort;
         state.sort = state.sort.key === key
             ? { key, direction: state.sort.direction === 'asc' ? 'desc' : 'asc' }
             : { key, direction: ['votes', 'globalRank', 'groupRank', 'seed'].includes(key) ? 'desc' : 'asc' };
+        setSortIndicator();
         applyFilters();
-    }));
+        });
+    });
     const downloadMenu = document.getElementById('phase1DownloadDropdown');
     const dropdown = downloadMenu?.closest('.dropdown');
     const downloadButton = dropdown?.querySelector('.download-btn');
@@ -285,6 +357,12 @@ function toExportRows(rows) {
         return [
             ['最终排名', '角色', 'IP', ...Array.from({ length: 7 }, (_, index) => `第${index + 1}轮票数`), '淘汰轮次', '最终结果', '头像'],
             ...rows.map((row) => [row.globalRank, row.name, row.ip, ...row.roundVotes, row.eliminationRound, row.result === 'win' ? '胜者' : '淘汰', row.avatar || ''])
+        ];
+    }
+    if (state.wildcard) {
+        return [
+            ['排名', '角色', 'IP', '得票数', '结果', '头像'],
+            ...rows.map((row) => [row.globalRank, row.name, row.ip, row.votes, row.result === 'win' ? '胜者' : '淘汰', row.avatar || ''])
         ];
     }
     return [['分组', '种子', '擂台', '全局排名', '角色', 'IP', '得票数', '结果'], ...rows.map((row) => [row.group, row.seed ?? '', row.match, row.globalRank, row.name, row.ip, row.votes, row.result === 'win' ? '胜者' : '败者'])];
@@ -375,6 +453,8 @@ async function handleDownload(type) {
 async function init() {
     const id = getId();
     state.necklace = isNecklaceId(id);
+    state.wildcard = isWildcardId(id);
+    state.sort = { key: state.necklace ? 'round7' : 'votes', direction: 'desc' };
     state.config = await getConfig(id);
     if (!state.config?.links?.data) throw new Error('缺少或无效的第一阶段表格 id 参数');
     const rawData = state.necklace
@@ -383,6 +463,9 @@ async function init() {
     if (state.necklace) {
         setupNecklaceTable();
         state.rows = getNecklaceRows(rawData);
+    } else if (state.wildcard) {
+        setupWildcardTable();
+        state.rows = getWildcardRows(rawData);
     } else {
         const allGroups = await loadGroupData();
         const groupKey = getGroupKey(id);
@@ -399,6 +482,7 @@ async function init() {
     document.getElementById('visualizationLink').href = state.config.links.visualization;
     populateMatches();
     bindControls();
+    setSortIndicator();
     applyFilters();
 }
 

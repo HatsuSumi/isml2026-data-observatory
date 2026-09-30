@@ -674,5 +674,53 @@
                 "votes": 1008
             }
         ]
+    },
+    "第一阶段第六轮-女子外卡赛": {
+        "top5": [
+            {
+                "participantId": "SF005",
+                "votes": 964
+            },
+            {
+                "participantId": "SF144",
+                "votes": 947
+            },
+            {
+                "participantId": "SF131",
+                "votes": 934
+            },
+            {
+                "participantId": "SF038",
+                "votes": 919
+            },
+            {
+                "participantId": "SF100",
+                "votes": 916
+            }
+        ]
+    },
+    "第一阶段第六轮-男子外卡赛": {
+        "top5": [
+            {
+                "participantId": "SM034",
+                "votes": 790
+            },
+            {
+                "participantId": "SM102",
+                "votes": 748
+            },
+            {
+                "participantId": "SM126",
+                "votes": 746
+            },
+            {
+                "participantId": "SM130",
+                "votes": 717
+            },
+            {
+                "participantId": "SM097",
+                "votes": 705
+            }
+        ]
     }
 }

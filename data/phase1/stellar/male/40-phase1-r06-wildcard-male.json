@@ -1,0 +1,206 @@
+{
+  "date": "2026-09-25 - 2026-09-26",
+  "event": "第一阶段外卡赛",
+  "data": [
+    {
+      "participantId": "SM034",
+      "votes": 790,
+      "result": "win",
+      "name": "劳埃德·福杰",
+      "ip": "间谍过家家",
+      "avatar": "",
+      "rank": 1,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM102",
+      "votes": 748,
+      "result": "win",
+      "name": "有马公生",
+      "ip": "四月是你的谎言",
+      "avatar": "",
+      "rank": 2,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM126",
+      "votes": 746,
+      "result": "win",
+      "name": "江户川柯南",
+      "ip": "名侦探柯南",
+      "avatar": "",
+      "rank": 3,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM130",
+      "votes": 717,
+      "result": "win",
+      "name": "乔鲁诺·乔巴拿",
+      "ip": "JoJo的奇妙冒险",
+      "avatar": "",
+      "rank": 4,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM097",
+      "votes": 705,
+      "result": "win",
+      "name": "绫小路清隆",
+      "ip": "欢迎来到实力至上主义的教室",
+      "avatar": "",
+      "rank": 5,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM011",
+      "votes": 698,
+      "result": "win",
+      "name": "䌷凛太郎",
+      "ip": "薰香花朵凛然绽放",
+      "avatar": "",
+      "rank": 6,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM096",
+      "votes": 697,
+      "result": "win",
+      "name": "西片",
+      "ip": "擅长捉弄的高木同学",
+      "avatar": "",
+      "rank": 7,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM108",
+      "votes": 696,
+      "result": "win",
+      "name": "宇智波斑",
+      "ip": "火影忍者",
+      "avatar": "",
+      "rank": 8,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM140",
+      "votes": 694,
+      "result": "win",
+      "name": "炼狱杏寿郎",
+      "ip": "鬼灭之刃",
+      "avatar": "",
+      "rank": 9,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM095",
+      "votes": 693,
+      "result": "win",
+      "name": "迪奥·布兰度",
+      "ip": "JoJo的奇妙冒险",
+      "avatar": "",
+      "rank": 10,
+      "finalResult": "晋级"
+    },
+    {
+      "participantId": "SM132",
+      "votes": 691,
+      "result": "loss",
+      "name": "齐木楠雄",
+      "ip": "齐木楠雄的灾难",
+      "avatar": "",
+      "rank": 11,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM087",
+      "votes": 673,
+      "result": "loss",
+      "name": "五条新菜",
+      "ip": "更衣人偶坠入爱河",
+      "avatar": "",
+      "rank": 12,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM071",
+      "votes": 656,
+      "result": "loss",
+      "name": "石神千空",
+      "ip": "Dr.STONE 石纪元",
+      "avatar": "",
+      "rank": 13,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM121",
+      "votes": 646,
+      "result": "loss",
+      "name": "卫宫切嗣",
+      "ip": "Fate系列",
+      "avatar": "",
+      "rank": 14,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM115",
+      "votes": 641,
+      "result": "loss",
+      "name": "金木研",
+      "ip": "东京食尸鬼",
+      "avatar": "",
+      "rank": 15,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM122",
+      "votes": 633,
+      "result": "loss",
+      "name": "神田空太",
+      "ip": "樱花庄的宠物女孩",
+      "avatar": "",
+      "rank": 16,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM124",
+      "votes": 614,
+      "result": "loss",
+      "name": "孙悟空",
+      "ip": "龙珠",
+      "avatar": "",
+      "rank": 17,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM101",
+      "votes": 614,
+      "result": "loss",
+      "name": "森岛帆高",
+      "ip": "天气之子",
+      "avatar": "",
+      "rank": 18,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM038",
+      "votes": 590,
+      "result": "loss",
+      "name": "高须龙儿",
+      "ip": "龙与虎",
+      "avatar": "",
+      "rank": 19,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM131",
+      "votes": 576,
+      "result": "loss",
+      "name": "我妻善逸",
+      "ip": "鬼灭之刃",
+      "avatar": "",
+      "rank": 20,
+      "finalResult": "淘汰"
+    }
+  ]
+}
