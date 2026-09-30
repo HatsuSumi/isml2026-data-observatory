@@ -47,10 +47,10 @@ function validate(data) {
         if (
             !Number.isFinite(item.order) ||
             !item.position ||
-            item.position.x < 5 ||
-            item.position.x > 95 ||
-            item.position.y < 5 ||
-            item.position.y > 95
+            item.position.x < 0 ||
+            item.position.x > 100 ||
+            item.position.y < 0 ||
+            item.position.y > 100
         ) {
             throw new Error(`图库数据格式错误：items[${index}] 坐标无效`);
         }

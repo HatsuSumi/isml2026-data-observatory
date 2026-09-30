@@ -179,7 +179,7 @@ body:has(.gallery-viewer[open]) {
 
 .gallery-map {
     position: relative;
-    width: 1600px;
+    width: 100%;
     height: 1350px;
     transform-origin: 0 0;
     background-image: radial-gradient(circle, rgba(244, 241, 234, .22) 0 1px, transparent 1px);
