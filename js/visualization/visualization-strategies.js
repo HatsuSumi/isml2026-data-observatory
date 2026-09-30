@@ -80,6 +80,45 @@ const preliminaryStrategy = {
     }
 };
 
+function buildNecklaceChartData(rawData, rows) {
+    const rounds = rawData.data.map((round) => `第${round.round}轮`);
+    const byId = new Map();
+    rows.forEach((item) => {
+        if (!byId.has(item.participantId)) byId.set(item.participantId, { ...item, label: `${item.name}（${item.ip}）`, values: Array(rounds.length).fill(null), statuses: Array(rounds.length).fill(null) });
+        const entry = byId.get(item.participantId);
+        entry.values[item.round - 1] = item.votes;
+        entry.statuses[item.round - 1] = item.status;
+    });
+    const contestants = [...byId.values()].sort((a, b) => a.finalRank - b.finalRank);
+    return {
+        date: rawData.date || '',
+        event: rawData.event || '',
+        labels: rounds,
+        rounds,
+        contestants,
+        statusLabels: { advance: '仍在比赛', eliminate: '已淘汰' }
+    };
+}
+
+const necklaceStrategy = {
+    normalize(rawData) {
+        const rows = rawData.data.flatMap((round) => round.contestants.map((contestant) => ({
+            ...contestant,
+            round: Number(round.round),
+            finalRank: contestant.finalRank || 0
+        })));
+        const finalRanks = new Map();
+        rawData.data.flatMap((round) => round.contestants).forEach((contestant) => {
+            if (contestant.status === 'winner') finalRanks.set(contestant.participantId, 1);
+        });
+        rows.forEach((item) => {
+            if (!finalRanks.has(item.participantId)) finalRanks.set(item.participantId, 9 - item.round);
+        });
+        rows.forEach((item) => { item.finalRank = finalRanks.get(item.participantId); });
+        return buildNecklaceChartData(rawData, rows);
+    }
+};
+
 const phase1Strategy = {
     normalize(rawData, mode) {
         const rows = filterRowsByMode(rawData.data.flatMap(match => match.contestants.map(contestant => ({
@@ -110,6 +149,7 @@ export function getVisualizationStrategy(visualizationId) {
     const nominationConfig = NOMINATION_TABLE_CONFIGS[visualizationId];
     if (nominationConfig) return createNominationStrategy(nominationConfig);
     if (visualizationId.startsWith('preliminary-') || visualizationId.endsWith('-preliminaries')) return preliminaryStrategy;
+    if (visualizationId.startsWith('phase1-r06-necklace-')) return necklaceStrategy;
     if (visualizationId.startsWith('phase1-')) return phase1Strategy;
     throw new Error(`未找到可视化策略：${visualizationId}`);
 }

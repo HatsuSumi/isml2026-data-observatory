@@ -259,6 +259,38 @@ export function getPreliminarySnapshotPath(snapshotPath) {
     return String(snapshotPath || '');
 }
 
+export async function loadNecklaceData(snapshotPath) {
+    const [rawData, resolver] = await Promise.all([
+        fetchJson(getInternalSnapshotPath(snapshotPath, 'phase1')),
+        loadCharacterResolver()
+    ]);
+    if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
+        throw new Error('内部项链赛数据格式错误：data 必须是数组');
+    }
+    return {
+        ...rawData,
+        data: rawData.data.map((round, roundIndex) => {
+            if (!round || !Array.isArray(round.contestants)) {
+                throw new Error(`内部项链赛数据第 ${roundIndex + 1} 轮格式错误`);
+            }
+            return {
+                ...round,
+                contestants: round.contestants.map((contestant, contestantIndex) => {
+                    if (!contestant?.participantId) {
+                        throw new Error(`内部项链赛数据第 ${roundIndex + 1} 轮第 ${contestantIndex + 1} 项缺少 participantId`);
+                    }
+                    return {
+                        ...resolver.getByParticipantId(contestant.participantId),
+                        participantId: contestant.participantId,
+                        votes: Number(contestant.votes),
+                        status: contestant.status
+                    };
+                })
+            };
+        })
+    };
+}
+
 export async function loadPhase1Data(snapshotPath) {
     const [rawData, resolver] = await Promise.all([
         fetchJson(getInternalSnapshotPath(snapshotPath, 'phase1')),

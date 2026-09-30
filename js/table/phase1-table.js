@@ -1,12 +1,13 @@
 import { buildCustomSelect, closeCustomSelects, syncCustomSelect } from './table-custom-select.js';
-import { loadEventData, loadGroupData, loadPhase1Data } from '../common/data-loader.js';
+import { loadEventData, loadGroupData, loadNecklaceData, loadPhase1Data } from '../common/data-loader.js';
 
 
 const state = {
     config: null,
     rows: [],
     filtered: [],
-    sort: { key: 'votes', direction: 'desc' }
+    sort: { key: 'votes', direction: 'desc' },
+    necklace: false
 };
 
 function getId() { return new URLSearchParams(window.location.search).get('id') || ''; }
@@ -23,6 +24,67 @@ async function getConfig(id) {
         }
     }
     return null;
+}
+
+function isNecklaceId(id) {
+    return String(id).startsWith('phase1-r06-necklace-');
+}
+
+function getNecklaceRows(raw) {
+    const byParticipant = new Map();
+    raw.data.forEach((round) => {
+        round.contestants.forEach((item) => {
+            const current = byParticipant.get(item.participantId) || {
+                ...item,
+                roundVotes: Array(raw.data.length).fill(null),
+                eliminationRound: null,
+                finalRank: null
+            };
+            current.roundVotes[round.round - 1] = item.votes;
+            if (item.status === 'winner') {
+                current.finalRank = 1;
+                current.eliminationRound = null;
+            } else if (item.status === 'eliminated') {
+                current.eliminationRound = round.round;
+                current.finalRank = 9 - round.round;
+            }
+            byParticipant.set(item.participantId, current);
+        });
+    });
+    return [...byParticipant.values()]
+        .map((item) => ({
+            ...item,
+            group: '',
+            seed: null,
+            match: `淘汰第${item.eliminationRound}轮`,
+            matchNumber: item.eliminationRound,
+            globalRank: item.finalRank,
+            result: item.finalRank === 1 ? 'win' : 'loss',
+            votes: item.roundVotes.findLast((value) => Number.isFinite(value)) ?? 0,
+            eliminationRound: item.eliminationRound
+        }))
+        .sort((a, b) => a.globalRank - b.globalRank);
+}
+
+function getNecklaceHeaders() {
+    return [
+        ['globalRank', '最终排名'],
+        ['name', '角色'],
+        ['avatar', '头像'],
+        ['ip', 'IP'],
+        ...Array.from({ length: 7 }, (_, index) => [`round${index + 1}`, `第${index + 1}轮票数`]),
+        ['eliminationRound', '淘汰轮次'],
+        ['result', '结果']
+    ];
+}
+
+function setupNecklaceTable() {
+    document.body.classList.add('necklace-table-page');
+    document.getElementById('pageTitle').textContent = '第一阶段第六轮项链赛表格';
+    document.querySelector('.subtitle:not(#pageSubtitle)')?.remove();
+    document.querySelector('.filter-container')?.remove();
+    document.querySelector('[data-download-group="filtered"]')?.remove();
+    document.getElementById('tableHead').innerHTML = `<tr>${getNecklaceHeaders().map(([, label]) => `<th>${label}</th>`).join('')}</tr>`;
 }
 
 function getGroupKey(id) {
@@ -75,18 +137,33 @@ function normalizeRows(raw, groupMembers) {
 }
 
 function compare(a, b, key) {
-    if (['votes', 'globalRank', 'groupRank', 'seed', 'matchNumber'].includes(key)) return (a[key] || 0) - (b[key] || 0);
+    if (key.startsWith('round')) {
+        const index = Number(key.slice(5)) - 1;
+        return (a.roundVotes[index] ?? -Infinity) - (b.roundVotes[index] ?? -Infinity);
+    }
+    if (['votes', 'globalRank', 'groupRank', 'seed', 'matchNumber', 'eliminationRound'].includes(key)) return (a[key] || 0) - (b[key] || 0);
     return String(a[key] || '').localeCompare(String(b[key] || ''), 'zh-CN');
 }
 
 function applyFilters() {
+    const factor = state.sort.direction === 'asc' ? 1 : -1;
+    if (state.necklace) {
+        state.filtered = [...state.rows].sort((a, b) => compare(a, b, state.sort.key) * factor || a.globalRank - b.globalRank);
+        renderRows();
+        return;
+    }
     const status = document.getElementById('statusFilter').value;
     const match = document.getElementById('matchFilter').value;
     const search = document.getElementById('searchInput').value.trim().toLowerCase();
     const min = Number(document.getElementById('minVotes').value || -Infinity);
     const max = Number(document.getElementById('maxVotes').value || Infinity);
-    const factor = state.sort.direction === 'asc' ? 1 : -1;
-    state.filtered = state.rows.filter((row) => (status === 'all' || row.result === status) && (match === 'all' || row.match === match) && row.votes >= min && row.votes <= max && (!search || `${row.name} ${row.ip}`.toLowerCase().includes(search))).sort((a, b) => compare(a, b, state.sort.key) * factor || b.votes - a.votes);
+    state.filtered = state.rows.filter((row) => (
+        (status === 'all' || row.result === status)
+        && (match === 'all' || row.match === match)
+        && row.votes >= min
+        && row.votes <= max
+        && (!search || `${row.name} ${row.ip}`.toLowerCase().includes(search))
+    )).sort((a, b) => compare(a, b, state.sort.key) * factor || b.votes - a.votes);
     renderRows();
 }
 
@@ -94,24 +171,39 @@ function renderRows() {
     const body = document.getElementById('tableBody');
     body.replaceChildren(...state.filtered.map((row) => {
         const tr = document.createElement('tr');
-        const values = [row.group, row.seed ?? '-', row.match, row.globalRank, row.name, row.ip, `${row.votes}票`, row.result === 'win' ? '胜者' : '败者'];
+        const values = state.necklace
+            ? [row.globalRank, row.name, row.avatar, row.ip, ...row.roundVotes, row.eliminationRound, row.result === 'win' ? '胜者' : '淘汰']
+            : [row.group, row.seed ?? '-', row.match, row.globalRank, row.name, row.ip, `${row.votes}票`, row.result === 'win' ? '胜者' : '败者'];
         values.forEach((value, index) => {
             const td = document.createElement('td');
-            if (index === 5) td.className = 'ip';
-            td.textContent = value;
+            if (state.necklace && index === 2 && row.avatar) {
+                const img = document.createElement('img');
+                img.src = row.avatar;
+                img.alt = `${row.name}头像`;
+                img.loading = 'lazy';
+                td.appendChild(img);
+            } else if (!state.necklace || index !== 2) {
+                td.textContent = value === null || value === undefined ? '-' : value;
+            }
+            if ((!state.necklace && index === 5) || (state.necklace && index === 3)) td.className = 'ip';
             tr.appendChild(td);
         });
-        const avatar = document.createElement('td');
-        if (row.avatar) { const img = document.createElement('img'); img.src = row.avatar; img.alt = `${row.name}头像`; img.loading = 'lazy'; avatar.appendChild(img); }
-        tr.insertBefore(avatar, tr.children[5]);
-        tr.lastChild.className = row.result === 'win' ? 'status-win' : 'status-loss';
+        if (!state.necklace) {
+            const avatar = document.createElement('td');
+            if (row.avatar) { const img = document.createElement('img'); img.src = row.avatar; img.alt = `${row.name}头像`; img.loading = 'lazy'; avatar.appendChild(img); }
+            tr.insertBefore(avatar, tr.children[5]);
+            tr.lastChild.className = row.result === 'win' ? 'status-win' : 'status-loss';
+        } else {
+            tr.lastChild.className = row.result === 'win' ? 'status-win' : 'status-loss';
+        }
         return tr;
     }));
     const wins = state.filtered.filter((row) => row.result === 'win').length;
-    document.getElementById('summary').textContent = `显示 ${state.filtered.length} 名角色，其中胜者 ${wins} 名，败者 ${state.filtered.length - wins} 名`;
+    document.getElementById('summary').textContent = `显示 ${state.filtered.length} 名角色，其中${state.necklace ? '胜者' : '胜者'} ${wins} 名，${state.necklace ? '淘汰' : '败者'} ${state.filtered.length - wins} 名`;
 }
 
 function populateMatches() {
+    if (state.necklace) return;
     const select = document.getElementById('matchFilter');
     [...new Set(state.rows.map((row) => row.match))].sort((a, b) => Number(a.slice(2)) - Number(b.slice(2))).forEach((match) => {
         const option = document.createElement('option'); option.value = match; option.textContent = match; select.appendChild(option);
@@ -121,25 +213,27 @@ function populateMatches() {
 }
 
 function bindControls() {
-    const statusSelect = document.getElementById('statusFilter');
-    buildCustomSelect(statusSelect);
-    syncCustomSelect(statusSelect);
-    ['statusFilter', 'matchFilter', 'searchInput', 'minVotes', 'maxVotes'].forEach((id) => {
-        const control = document.getElementById(id);
-        if (control) control.addEventListener(id.includes('Filter') ? 'change' : 'input', applyFilters);
-    });
-    document.getElementById('resetBtn')?.addEventListener('click', () => {
-        ['statusFilter', 'matchFilter'].forEach((id) => {
+    if (!state.necklace) {
+        const statusSelect = document.getElementById('statusFilter');
+        buildCustomSelect(statusSelect);
+        syncCustomSelect(statusSelect);
+        ['statusFilter', 'matchFilter', 'searchInput', 'minVotes', 'maxVotes'].forEach((id) => {
             const control = document.getElementById(id);
-            if (control) {
-                control.value = 'all';
-                syncCustomSelect(control);
-            }
+            if (control) control.addEventListener(id.includes('Filter') ? 'change' : 'input', applyFilters);
         });
-        ['searchInput', 'minVotes', 'maxVotes'].forEach((id) => { const control = document.getElementById(id); if (control) control.value = ''; });
-        state.sort = { key: 'votes', direction: 'desc' };
-        applyFilters();
-    });
+        document.getElementById('resetBtn')?.addEventListener('click', () => {
+            ['statusFilter', 'matchFilter'].forEach((id) => {
+                const control = document.getElementById(id);
+                if (control) {
+                    control.value = 'all';
+                    syncCustomSelect(control);
+                }
+            });
+            ['searchInput', 'minVotes', 'maxVotes'].forEach((id) => { const control = document.getElementById(id); if (control) control.value = ''; });
+            state.sort = { key: 'votes', direction: 'desc' };
+            applyFilters();
+        });
+    }
     document.querySelectorAll('th[data-sort]').forEach((header) => header.addEventListener('click', () => {
         const key = header.dataset.sort;
         state.sort = state.sort.key === key
@@ -156,20 +250,8 @@ function bindControls() {
         if (!downloadMenu) {
             return;
         }
-        const isOpen = downloadMenu.hasAttribute('hidden');
-        downloadMenu.toggleAttribute('hidden', !isOpen);
-        if (isOpen) {
-            downloadMenu.style.setProperty('display', 'block', 'important');
-            downloadMenu.style.setProperty('visibility', 'visible', 'important');
-            downloadMenu.style.setProperty('opacity', '1', 'important');
-            downloadMenu.style.setProperty('pointer-events', 'auto', 'important');
-        } else {
-            downloadMenu.style.removeProperty('display');
-            downloadMenu.style.removeProperty('visibility');
-            downloadMenu.style.removeProperty('opacity');
-            downloadMenu.style.removeProperty('pointer-events');
-        }
-        dropdown.classList.toggle('show', isOpen);
+        const isOpen = !downloadMenu.classList.contains('show');
+        downloadMenu.classList.toggle('show', isOpen);
         downloadButton.setAttribute('aria-expanded', String(isOpen));
     });
     downloadMenu?.addEventListener('click', (event) => {
@@ -182,12 +264,7 @@ function bindControls() {
     document.addEventListener('click', (event) => {
         if (!event.target.closest('.select-wrapper')) closeCustomSelects();
         if (!event.target.closest('.dropdown')) {
-            downloadMenu?.setAttribute('hidden', '');
-            downloadMenu?.style.removeProperty('display');
-            downloadMenu?.style.removeProperty('visibility');
-            downloadMenu?.style.removeProperty('opacity');
-            downloadMenu?.style.removeProperty('pointer-events');
-            dropdown?.classList.remove('show');
+            downloadMenu?.classList.remove('show');
             downloadButton?.setAttribute('aria-expanded', 'false');
         }
     });
@@ -204,6 +281,12 @@ function triggerDownload(blob, filename) {
 }
 
 function toExportRows(rows) {
+    if (state.necklace) {
+        return [
+            ['最终排名', '角色', 'IP', ...Array.from({ length: 7 }, (_, index) => `第${index + 1}轮票数`), '淘汰轮次', '最终结果', '头像'],
+            ...rows.map((row) => [row.globalRank, row.name, row.ip, ...row.roundVotes, row.eliminationRound, row.result === 'win' ? '胜者' : '淘汰', row.avatar || ''])
+        ];
+    }
     return [['分组', '种子', '擂台', '全局排名', '角色', 'IP', '得票数', '结果'], ...rows.map((row) => [row.group, row.seed ?? '', row.match, row.globalRank, row.name, row.ip, row.votes, row.result === 'win' ? '胜者' : '败者'])];
 }
 
@@ -291,17 +374,28 @@ async function handleDownload(type) {
 
 async function init() {
     const id = getId();
+    state.necklace = isNecklaceId(id);
     state.config = await getConfig(id);
     if (!state.config?.links?.data) throw new Error('缺少或无效的第一阶段表格 id 参数');
-    const rawData = await loadPhase1Data(state.config.links.data);
-    const allGroups = await loadGroupData();
-    const groupKey = getGroupKey(id);
-    const groupConfig = await getGroupConfig(allGroups, groupKey);
-    if (!groupConfig) throw new Error(`未找到第一阶段分组数据: ${groupKey}`);
-    state.rows = normalizeRows(rawData, getGroupMembers(groupConfig));
+    const rawData = state.necklace
+        ? await loadNecklaceData(state.config.links.data)
+        : await loadPhase1Data(state.config.links.data);
+    if (state.necklace) {
+        setupNecklaceTable();
+        state.rows = getNecklaceRows(rawData);
+    } else {
+        const allGroups = await loadGroupData();
+        const groupKey = getGroupKey(id);
+        const groupConfig = await getGroupConfig(allGroups, groupKey);
+        if (!groupConfig) throw new Error(`未找到第一阶段分组数据: ${groupKey}`);
+        state.rows = normalizeRows(rawData, getGroupMembers(groupConfig));
+    }
     document.title = `${state.config.title} - ISML 2026 数据观测`;
     document.getElementById('pageTitle').textContent = state.config.title;
-    document.getElementById('pageSubtitle').textContent = `${rawData.date || ''} · ${rawData.event || ''}`;
+    const subtitleDate = state.necklace
+        ? rawData.date.split(' ')[0] + ' - ' + rawData.date.split(' - ')[1].split(' ')[0]
+        : rawData.date || '';
+    document.getElementById('pageSubtitle').textContent = `${subtitleDate} · ${rawData.event || ''}`;
     document.getElementById('visualizationLink').href = state.config.links.visualization;
     populateMatches();
     bindControls();

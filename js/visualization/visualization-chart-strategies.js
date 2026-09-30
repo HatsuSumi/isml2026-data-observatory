@@ -156,7 +156,46 @@ function buildPieOption(data, mode) {
     };
 }
 
+function buildNecklaceOption(data) {
+    const colors = ['#ff7875', '#67c7ff', '#ffd166', '#7bd88f', '#c792ea', '#f78c6c', '#82aaff', '#c3e88d'];
+    return {
+        backgroundColor: '#1a1a1a',
+        tooltip: {
+            trigger: 'axis',
+            textStyle: { color: '#a6c1ee', fontFamily: 'Microsoft YaHei', fontSize: 14 },
+            backgroundColor: 'rgba(50, 50, 50, .92)',
+            borderWidth: 0,
+            formatter(params) {
+                return params.filter((item) => hasVoteValue(item.value)).map((item) => `${item.marker}${item.seriesName}：${item.value}票`).join('<br/>');
+            }
+        },
+        legend: { show: true, type: 'scroll', textStyle: { color: '#dbe7f5' }, data: data.contestants.map((item) => item.label) },
+        grid: { left: '8%', right: '8%', top: '14%', bottom: '12%', containLabel: true },
+        xAxis: { type: 'category', name: '轮次', data: data.rounds, axisLabel: { color: '#dbe7f5' } },
+        yAxis: { type: 'value', name: '得票数', min: 0, splitLine: { show: true, lineStyle: { type: 'dashed', opacity: .3 } }, axisLabel: { color: '#dbe7f5' } },
+        series: data.contestants.map((item, index) => {
+            const lastValueIndex = item.values.reduce((lastIndex, value, valueIndex) => (hasVoteValue(value) ? valueIndex : lastIndex), -1);
+            return {
+                type: 'line', name: item.label, data: item.values, connectNulls: false, smooth: false, symbol: 'circle', symbolSize: 8,
+                label: {
+                    show: true,
+                    position: 'top',
+                    formatter: (params) => params.dataIndex === lastValueIndex ? item.name : '',
+                    color: '#dbe7f5',
+                    fontSize: 12,
+                    backgroundColor: 'rgba(26, 26, 26, .72)',
+                    padding: [2, 4],
+                    borderRadius: 2
+                },
+                lineStyle: { width: 3, color: colors[index % colors.length] },
+                itemStyle: { color: colors[index % colors.length] }
+            };
+        })
+    };
+}
+
 export const CHART_STRATEGIES = {
+    necklace: { buildOption: buildNecklaceOption },
     bar: { buildOption: buildBarOption },
     line: { buildOption: buildLineOption },
     pie: { buildOption: buildPieOption }

@@ -22,9 +22,14 @@
                     <option value="loss">败者</option>
                 </select>
             </div>
-            <div class="select-wrapper">
+            <div class="select-wrapper" id="matchFilterWrapper">
                 <select id="matchFilter" aria-label="按擂台筛选">
                     <option value="all">全部擂台</option>
+                </select>
+            </div>
+            <div class="select-wrapper" id="eliminationFilterWrapper" hidden>
+                <select id="eliminationFilter" aria-label="按淘汰轮次筛选">
+                    <option value="all">全部淘汰轮次</option>
                 </select>
             </div>
             <input id="searchInput" class="search-input" type="search" placeholder="搜索角色或 IP..." aria-label="搜索角色或 IP">
@@ -37,20 +42,22 @@
             <a id="visualizationLink" class="visualization-btn">数据可视化</a>
             <div class="dropdown">
                 <button class="download-btn" type="button" aria-expanded="false" aria-controls="phase1DownloadDropdown">下载表格</button>
-                <div id="phase1DownloadDropdown" class="dropdown-content" hidden>
+                <div id="phase1DownloadDropdown" class="dropdown-content">
                     <a href="#" data-download="source-csv">下载原始CSV</a>
                     <a href="#" data-download="source-xlsx">下载原始XLSX</a>
                     <a href="#" data-download="source-json">下载原始JSON</a>
-                    <a href="#" data-download="filtered-csv">下载筛选后的CSV</a>
-                    <a href="#" data-download="filtered-xlsx">下载筛选后的XLSX</a>
-                    <a href="#" data-download="filtered-json">下载筛选后的JSON</a>
+                    <div data-download-group="filtered">
+                        <a href="#" data-download="filtered-csv">下载筛选后的CSV</a>
+                        <a href="#" data-download="filtered-xlsx">下载筛选后的XLSX</a>
+                        <a href="#" data-download="filtered-json">下载筛选后的JSON</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="summary" class="phase1-summary"></div>
         <div class="table-scroll">
             <table>
-                <thead><tr>
+                <thead id="tableHead"><tr>
                     <th data-sort="group">分组</th><th data-sort="seed">种子</th><th data-sort="match">擂台</th><th data-sort="globalRank">全局排名</th>
                     <th data-sort="name">角色</th><th>头像</th><th data-sort="ip">IP</th><th data-sort="votes">得票数</th><th data-sort="result">结果</th>
                 </tr></thead>

@@ -1,0 +1,160 @@
+{
+    "date": "2026-09-25 20:00:00 - 2026-09-26 19:59:59",
+    "event": "第一阶段第六轮-男子项链赛",
+    "format": "排序复选制",
+    "rounds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "data": [
+        {
+            "participantId": "SM004",
+            "name": "乙坂有宇",
+            "ip": "Charlotte",
+            "avatar": "",
+            "votes": [
+                1182,
+                1224,
+                1258,
+                1305,
+                1429,
+                1568,
+                1802
+            ],
+            "finalRank": 1,
+            "eliminationRound": null,
+            "finalResult": "胜者"
+        },
+        {
+            "participantId": "SM028",
+            "name": "菜月昴",
+            "ip": "Re:从零开始的异世界生活",
+            "avatar": "",
+            "votes": [
+                674,
+                706,
+                765,
+                814,
+                899,
+                1063,
+                1285
+            ],
+            "finalRank": 2,
+            "eliminationRound": 7,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SM006",
+            "name": "五条悟",
+            "ip": "咒术回战",
+            "avatar": "",
+            "votes": [
+                428,
+                461,
+                514,
+                581,
+                666,
+                794,
+                null
+            ],
+            "finalRank": 3,
+            "eliminationRound": 6,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SM001",
+            "name": "空",
+            "ip": "NO GAME NO LIFE 游戏人生",
+            "avatar": "",
+            "votes": [
+                295,
+                360,
+                418,
+                496,
+                572,
+                null,
+                null
+            ],
+            "finalRank": 4,
+            "eliminationRound": 5,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SM002",
+            "name": "立花泷",
+            "ip": "你的名字。",
+            "avatar": "",
+            "votes": [
+                351,
+                376,
+                421,
+                485,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 5,
+            "eliminationRound": 4,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SM024",
+            "name": "夜神月",
+            "ip": "死亡笔记",
+            "avatar": "",
+            "votes": [
+                333,
+                357,
+                393,
+                null,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 6,
+            "eliminationRound": 3,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SM081",
+            "name": "鲁迪乌斯·格雷拉特",
+            "ip": "无职转生",
+            "avatar": "",
+            "votes": [
+                301,
+                332,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 7,
+            "eliminationRound": 2,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SM003",
+            "name": "里克·多拉",
+            "ip": "NO GAME NO LIFE 游戏人生",
+            "avatar": "",
+            "votes": [
+                270,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 8,
+            "eliminationRound": 1,
+            "finalResult": "淘汰"
+        }
+    ]
+}

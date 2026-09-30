@@ -1,4 +1,4 @@
-import { loadEventData, loadPreliminariesData, loadPhase1Data } from '../common/data-loader.js';
+import { loadEventData, loadNecklaceData, loadPreliminariesData, loadPhase1Data } from '../common/data-loader.js';
 import { getVisualizationStrategy } from './visualization-strategies.js';
 import { getChartStrategy } from './visualization-chart-strategies.js';
 
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const SUPPORTED_CHART_TYPES = new Set(['bar', 'line', 'pie']);
 const DEFAULT_CHART_TYPE = 'bar';
 const DEFAULT_SIZE = { width: 1800, height: 2200 };
+const LINE_SIZE = { width: 1800, height: 1200 };
 const PIE_SIZE = { width: 1400, height: 1500 };
 
 let visualizationState;
@@ -55,7 +56,7 @@ async function initVisualization() {
         mode,
         matchConfig,
         data,
-        chartType: SUPPORTED_CHART_TYPES.has(chartType) ? chartType : getVisualizationChartType(matchConfig),
+        chartType: matchConfig.id?.startsWith('phase1-r06-necklace-') ? 'necklace' : SUPPORTED_CHART_TYPES.has(chartType) ? chartType : getVisualizationChartType(matchConfig),
         chart: null,
         sizeControlsBound: false
     };
@@ -68,7 +69,7 @@ function renderVisualization() {
     const { data, matchConfig, mode, chartType } = visualizationState;
     renderTitle(data, matchConfig, mode, chartType);
     updateLegendState(mode, data.statusLabels);
-    const chartSize = chartType === 'pie' ? PIE_SIZE : DEFAULT_SIZE;
+    const chartSize = chartType === 'pie' ? PIE_SIZE : chartType === 'necklace' ? LINE_SIZE : DEFAULT_SIZE;
     visualizationState.chart?.dispose();
     if (visualizationState.resizeHandler) {
         window.removeEventListener('resize', visualizationState.resizeHandler);
@@ -85,7 +86,7 @@ function renderVisualization() {
 function updateChartToggleButton(chartType) {
     const button = document.querySelector('.chart-toggle-btn');
     if (!button) return;
-    const canToggle = visualizationState.id.startsWith('phase1-');
+    const canToggle = visualizationState.id.startsWith('phase1-') && !visualizationState.id.startsWith('phase1-r06-necklace-');
     button.hidden = !canToggle;
     button.textContent = chartType === 'pie' ? '切换为柱状图' : '切换为饼图';
     button.setAttribute('aria-label', button.textContent);
@@ -146,6 +147,9 @@ function isPreliminarySnapshotPath(path) {
 async function loadVisualizationData(matchConfig) {
     if (isPreliminarySnapshotPath(matchConfig.links?.data)) {
         return loadPreliminariesData(matchConfig.links.data);
+    }
+    if (String(matchConfig.links?.data || '').includes('necklace-')) {
+        return loadNecklaceData(matchConfig.links.data);
     }
     if (String(matchConfig.links?.data || '').includes('data/phase1/')) {
         return loadPhase1Data(matchConfig.links.data);
@@ -235,6 +239,7 @@ function getSubtitle(matchConfig, mode) {
 }
 
 function getChartHint(matchConfig, mode, chartType) {
+    if (chartType === 'necklace') return '折线图展示8名角色在7个淘汰轮次中的票数变化';
     if (chartType === 'pie') return '各擂台饼图展示组内得票占比';
     if (mode !== 'main') return '点击图例可切换到单独视图';
     const isPhase1 = matchConfig.id?.startsWith('phase1-') || String(matchConfig.links?.data || '').includes('data/phase1/');
@@ -266,7 +271,7 @@ function updateLegendState(mode, statusLabels) {
 function renderChart(data, mode, chartStrategy, chartType, chartSize) {
     const chartElement = document.getElementById('vote_chart');
     applyChartSize(chartSize);
-    document.querySelector('.custom-legend')?.classList.toggle('is-hidden', chartType === 'pie');
+    document.querySelector('.custom-legend')?.classList.toggle('is-hidden', chartType === 'pie' || chartType === 'necklace');
 
     const chart = echarts.init(chartElement, RENDER_CONFIG.theme, { renderer: RENDER_CONFIG.renderer });
     const option = chartStrategy.buildOption(data, mode);
@@ -405,7 +410,11 @@ function initializeSizeControls() {
     };
 
     resetBtn.addEventListener('click', () => {
-        const defaultSize = visualizationState.chartType === 'pie' ? PIE_SIZE : DEFAULT_SIZE;
+        const defaultSize = visualizationState.chartType === 'pie'
+            ? PIE_SIZE
+            : visualizationState.chartType === 'necklace'
+                ? LINE_SIZE
+                : DEFAULT_SIZE;
         widthSlider.value = String(defaultSize.width);
         heightSlider.value = String(defaultSize.height);
         updateSize();

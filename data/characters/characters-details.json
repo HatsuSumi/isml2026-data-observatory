@@ -290,8 +290,18 @@
                 "第五轮": {
                     "赛事时间": "2026-09-15 20:00:00 - 2026-09-16 19:59:59",
                     "恒星组": {
-                        "女性组别": {},
-                        "男性组别": {}
+                        "女性组别": {
+                            "groups": "phase1.stellar.r05.female",
+                            "visualization": "pages/visualization/visualization.html?id=phase1-r05-stellar-female",
+                            "table": "pages/tables/phase1-table.html?id=phase1-r05-stellar-female",
+                            "rules": "phase1"
+                        },
+                        "男性组别": {
+                            "groups": "phase1.stellar.r05.male",
+                            "visualization": "pages/visualization/visualization.html?id=phase1-r05-stellar-male",
+                            "table": "pages/tables/phase1-table.html?id=phase1-r05-stellar-male",
+                            "rules": "phase1"
+                        }
                     }
                 },
                 "第六轮": {
@@ -393,7 +403,49 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 581,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 617,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 687,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 773,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 919,
+                            "status": "active"
+                        },
+                        {
+                            "round": 6,
+                            "votes": 1155,
+                            "status": "active"
+                        },
+                        {
+                            "round": 7,
+                            "votes": 1667,
+                            "status": "winner"
+                        }
+                    ],
+                    "最终排名": 1,
+                    "最终结果": "胜者",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -623,7 +675,29 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 349,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 378,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 429,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 6,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -853,7 +927,39 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 374,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 409,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 471,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 553,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 658,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 4,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -4078,7 +4184,24 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 308,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 353,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 7,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -5253,7 +5376,34 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 336,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 379,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 434,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 504,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 5,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -5488,7 +5638,19 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 256,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 8,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -15788,7 +15950,49 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 1286,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 1298,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 1305,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 1332,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 1356,
+                            "status": "active"
+                        },
+                        {
+                            "round": 6,
+                            "votes": 1412,
+                            "status": "active"
+                        },
+                        {
+                            "round": 7,
+                            "votes": 1516,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 2,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -21544,7 +21748,44 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 554,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 585,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 661,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 755,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 874,
+                            "status": "active"
+                        },
+                        {
+                            "round": 6,
+                            "votes": 1071,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 3,
+                    "最终结果": "淘汰",
+                    "赛事": "女子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -34688,7 +34929,39 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 295,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 360,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 418,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 496,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 572,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 4,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -34918,7 +35191,34 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 351,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 376,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 421,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 485,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 5,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -35148,7 +35448,19 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 270,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 8,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -35378,7 +35690,49 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 1182,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 1224,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 1258,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 1305,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 1429,
+                            "status": "active"
+                        },
+                        {
+                            "round": 6,
+                            "votes": 1568,
+                            "status": "active"
+                        },
+                        {
+                            "round": 7,
+                            "votes": 1802,
+                            "status": "winner"
+                        }
+                    ],
+                    "最终排名": 1,
+                    "最终结果": "胜者",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -35838,7 +36192,44 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 428,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 461,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 514,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 581,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 666,
+                            "status": "active"
+                        },
+                        {
+                            "round": 6,
+                            "votes": 794,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 3,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -40048,7 +40439,29 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 333,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 357,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 393,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 6,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -41003,7 +41416,49 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 674,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 706,
+                            "status": "active"
+                        },
+                        {
+                            "round": 3,
+                            "votes": 765,
+                            "status": "active"
+                        },
+                        {
+                            "round": 4,
+                            "votes": 814,
+                            "status": "active"
+                        },
+                        {
+                            "round": 5,
+                            "votes": 899,
+                            "status": "active"
+                        },
+                        {
+                            "round": 6,
+                            "votes": 1063,
+                            "status": "active"
+                        },
+                        {
+                            "round": 7,
+                            "votes": 1285,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 2,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"
@@ -53024,7 +53479,24 @@
                     "结果": "胜者"
                 },
                 {
-                    "round": "第一阶段第六轮"
+                    "round": "第一阶段第六轮",
+                    "赛制": "排序复选制",
+                    "轮次": [
+                        {
+                            "round": 1,
+                            "votes": 301,
+                            "status": "active"
+                        },
+                        {
+                            "round": 2,
+                            "votes": 332,
+                            "status": "eliminated"
+                        }
+                    ],
+                    "最终排名": 7,
+                    "最终结果": "淘汰",
+                    "赛事": "男子项链赛",
+                    "赛事时间": "2026-09-25 20:00:00 - 2026-09-26 19:59:59"
                 },
                 {
                     "round": "第二阶段第一轮"

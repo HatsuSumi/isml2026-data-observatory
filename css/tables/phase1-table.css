@@ -1,14 +1,3 @@
-.phase1-page .dropdown-content[hidden] {
-    display: none !important;
-}
-
-.phase1-page .dropdown-content:not([hidden]) {
-    visibility: visible;
-    display: block;
-    opacity: 1;
-    transform: scale(1);
-}
-
 .phase1-page .filter-container {
     display: flex;
     gap: 10px;
@@ -28,6 +17,60 @@
 
 .phase1-page .filter-container .search-input {
     min-width: 220px;
+}
+
+.phase1-page.necklace-table-page .table-scroll {
+    overflow-x: visible;
+}
+
+.phase1-page.necklace-table-page table {
+    min-width: 0;
+    width: 100%;
+}
+
+.phase1-page.necklace-table-page th,
+.phase1-page.necklace-table-page td {
+    text-align: center;
+    white-space: normal;
+}
+
+.phase1-page.necklace-table-page th:nth-child(1),
+.phase1-page.necklace-table-page td:nth-child(1) {
+    width: 6%;
+}
+
+.phase1-page.necklace-table-page th:nth-child(2),
+.phase1-page.necklace-table-page td:nth-child(2) {
+    width: 10%;
+    text-align: left;
+}
+
+.phase1-page.necklace-table-page th:nth-child(3),
+.phase1-page.necklace-table-page td:nth-child(3) {
+    width: 5%;
+}
+
+.phase1-page.necklace-table-page th:nth-child(4),
+.phase1-page.necklace-table-page td:nth-child(4) {
+    width: 17%;
+    text-align: left;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.phase1-page.necklace-table-page th:nth-child(n+5):nth-child(-n+11),
+.phase1-page.necklace-table-page td:nth-child(n+5):nth-child(-n+11) {
+    width: 7%;
+}
+
+.phase1-page.necklace-table-page th:nth-child(12),
+.phase1-page.necklace-table-page td:nth-child(12) {
+    width: 7%;
+}
+
+.phase1-page.necklace-table-page th:nth-child(13),
+.phase1-page.necklace-table-page td:nth-child(13) {
+    width: 6%;
 }
 
 .phase1-page .phase1-summary {

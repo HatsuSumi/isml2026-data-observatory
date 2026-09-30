@@ -738,17 +738,45 @@
                 },
                 {
                     "dateRange": {
-                        "start": "2026-09-19 20:00:00",
-                        "end": "2026-09-20 19:59:59"
+                        "start": "2026-09-25 20:00:00",
+                        "end": "2026-09-26 19:59:59"
+                    },
+                    "stats": {
+                        "votes": {
+                            "total": 4273
+                        }
                     },
                     "matches": [
                         {
-                            "title": "第一阶段第六轮",
-                            "phase": "第一阶段"
+                            "title": "第一阶段第六轮-女子海蓝宝石项链赛",
+                            "id": "phase1-r06-necklace-female",
+                            "phase": "第一阶段",
+                            "chartType": "line",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r06-necklace-female",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r06-necklace-female",
+                                "data": "data/phase1/stellar/female/37-phase1-r06-necklace-female.json",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
+                        },
+                        {
+                            "title": "第一阶段第六轮-男子海蓝宝石垂饰赛",
+                            "id": "phase1-r06-necklace-male",
+                            "phase": "第一阶段",
+                            "chartType": "line",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase1-r06-necklace-male",
+                                "table": "pages/tables/phase1-table.html?id=phase1-r06-necklace-male",
+                                "data": "data/phase1/stellar/male/38-phase1-r06-necklace-male.json",
+                                "rules": "pages/rules/rules.html?id=phase1"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "排序复选制",
+                        "qualified": {
+                            "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
+                        }
                     }
                 }
             ]

@@ -1,0 +1,160 @@
+{
+    "date": "2026-09-25 20:00:00 - 2026-09-26 19:59:59",
+    "event": "第一阶段第六轮-女子海蓝宝石项链赛",
+    "format": "排序复选制",
+    "rounds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "data": [
+        {
+            "participantId": "SF001",
+            "name": "后藤独",
+            "ip": "孤独摇滚！",
+            "avatar": "https://pic1.imgdb.cn/item/67395de7d29ded1a8c43c21e.png",
+            "votes": [
+                581,
+                617,
+                687,
+                773,
+                919,
+                1155,
+                1667
+            ],
+            "finalRank": 1,
+            "eliminationRound": null,
+            "finalResult": "胜者"
+        },
+        {
+            "participantId": "SF067",
+            "name": "加藤惠",
+            "ip": "路人女主的养成方法",
+            "avatar": "",
+            "votes": [
+                1286,
+                1298,
+                1305,
+                1332,
+                1356,
+                1412,
+                1516
+            ],
+            "finalRank": 2,
+            "eliminationRound": 7,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SF093",
+            "name": "雷姆",
+            "ip": "Re:从零开始的异世界生活",
+            "avatar": "",
+            "votes": [
+                554,
+                585,
+                661,
+                755,
+                874,
+                1071,
+                null
+            ],
+            "finalRank": 3,
+            "eliminationRound": 6,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SF003",
+            "name": "八奈见杏菜",
+            "ip": "败犬女主太多了！",
+            "avatar": "https://pic1.imgdb.cn/item/69f2d995f97149b1cf360b5b.png",
+            "votes": [
+                374,
+                409,
+                471,
+                553,
+                658,
+                null,
+                null
+            ],
+            "finalRank": 4,
+            "eliminationRound": 5,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SF022",
+            "name": "小鸟游六花",
+            "ip": "中二病也要谈恋爱",
+            "avatar": "https://pic1.imgdb.cn/item/67357455d29ded1a8c343203.png",
+            "votes": [
+                336,
+                379,
+                434,
+                504,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 5,
+            "eliminationRound": 4,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SF002",
+            "name": "时崎狂三",
+            "ip": "约会大作战",
+            "avatar": "https://pic1.imgdb.cn/item/67395e40d29ded1a8c440b34.png",
+            "votes": [
+                349,
+                378,
+                429,
+                null,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 6,
+            "eliminationRound": 3,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SF017",
+            "name": "白",
+            "ip": "NO GAME NO LIFE 游戏人生",
+            "avatar": "https://pic1.imgdb.cn/item/67396180d29ded1a8c468667.png",
+            "votes": [
+                308,
+                353,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 7,
+            "eliminationRound": 2,
+            "finalResult": "淘汰"
+        },
+        {
+            "participantId": "SF023",
+            "name": "四宫辉夜",
+            "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+            "avatar": "https://pic1.imgdb.cn/item/6739b53ed29ded1a8c8aae29.png",
+            "votes": [
+                256,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "finalRank": 8,
+            "eliminationRound": 1,
+            "finalResult": "淘汰"
+        }
+    ]
+}
