@@ -50,7 +50,7 @@ async function initVisualization() {
     updateTableLink(matchConfig);
     const rawData = await loadVisualizationData(matchConfig);
     const strategy = getVisualizationStrategy(id);
-    const data = strategy.normalize(rawData, mode);
+    const data = strategy.normalize(rawData, mode, matchConfig);
     visualizationState = {
         id,
         mode,

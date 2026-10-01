@@ -112,11 +112,52 @@ function buildPieOption(data, mode) {
     })).filter((group) => group.rows.length > 0);
     const columns = Math.max(1, Math.ceil(Math.sqrt(groups.length)));
     const rows = Math.max(1, Math.ceil(groups.length / columns));
+    const maxOverkill = Math.max(...groups.map((group) => group.metrics?.overkill ?? -Infinity));
+    const formatMetric = (value, suffix = '') => Number.isFinite(value) ? `${value}${suffix}` : '—';
+    const metricTitles = groups.map((group, index) => {
+        const row = Math.floor(index / columns);
+        const column = index % columns;
+        const metrics = group.metrics || {};
+        const top = `${((row + 0.8) / rows) * 100}%`;
+        const left = `${((column + 0.5) / columns) * 100}%`;
+        const isMaxOverkill = Number.isFinite(metrics.overkill) && metrics.overkill === maxOverkill;
+        const overkillText = Number.isFinite(metrics.overkill) ? `${metrics.overkill.toFixed(2)}倍` : '—';
+        return {
+            text: `{normal|票仓：${formatMetric(metrics.votePool, '票')}　票差：${formatMetric(metrics.voteDifference, '票')}}\n${isMaxOverkill ? '{highlight|倍杀：' : '{normal|倍杀：'}${overkillText}${isMaxOverkill ? '}' : '}'}{normal|　弃票率：${Number.isFinite(metrics.invalidVoteRate) ? `${metrics.invalidVoteRate.toFixed(2)}%` : '—'}}`,
+            left,
+            top,
+            textAlign: 'center',
+            textStyle: {
+                color: '#a6c1ee',
+                fontSize: 13,
+                fontWeight: 'normal',
+                lineHeight: 20,
+                rich: {
+                    normal: {
+                        color: '#a6c1ee',
+                        fontSize: 13,
+                        fontWeight: 'normal'
+                    },
+                    highlight: {
+                        color: '#ffd166',
+                        fontSize: 14,
+                        fontWeight: 'bold',
+                        backgroundColor: 'rgba(255, 209, 102, 0.12)',
+                        borderColor: '#ffd166',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        padding: [2, 4]
+                    }
+                }
+            }
+        };
+    });
     const series = groups.map((group, index) => {
         const column = index % columns;
         const row = Math.floor(index / columns);
         const centerX = `${((column + 0.5) / columns) * 100}%`;
-        const centerY = `${((row + 0.5) / rows) * 100}%`;
+        const centerY = `${((row + 0.38) / rows) * 100}%`;
+        const metrics = group.metrics || {};
         return {
             name: group.name,
             type: 'pie',
@@ -152,6 +193,7 @@ function buildPieOption(data, mode) {
                 return `${params.seriesName}<br/>${params.name}<br/>得票数：${params.value}票（${params.percent}%）${rank}`;
             }
         },
+        title: metricTitles,
         series
     };
 }

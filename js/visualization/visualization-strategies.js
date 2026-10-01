@@ -15,8 +15,13 @@ function filterRowsByMode(rows, mode) {
     return rows;
 }
 
-function buildChartData(rawData, rows) {
+function buildChartData(rawData, rows, matchConfig = null, metricRows = rows) {
     const displayRows = rows.map((item) => ({
+        ...item,
+        label: `${item.name}（${item.ip}）`,
+        group: item.group ?? '全部参赛者'
+    }));
+    const metricDisplayRows = metricRows.map((item) => ({
         ...item,
         label: `${item.name}（${item.ip}）`,
         group: item.group ?? '全部参赛者'
@@ -27,18 +32,43 @@ function buildChartData(rawData, rows) {
         groupMap.set(item.group, groupRows);
         return groupMap;
     }, new Map());
+    const metricGroups = metricDisplayRows.reduce((groupMap, item) => {
+        const groupRows = groupMap.get(item.group) || [];
+        groupRows.push(item);
+        groupMap.set(item.group, groupRows);
+        return groupMap;
+    }, new Map());
+    const totalVotes = Number(matchConfig?.states?.votes?.total ?? matchConfig?.stats?.votes?.total);
 
     return {
         date: rawData.date || '',
         event: rawData.event || '',
+        totalVotes: Number.isFinite(totalVotes) ? totalVotes : null,
         labels: displayRows.map((item) => item.label).reverse(),
         ranks: displayRows.map((item) => item.displayRank).reverse(),
         advanceData: displayRows.map((item) => item.isPromoted ? item.votes : null).reverse(),
         eliminateData: displayRows.map((item) => item.isPromoted ? null : item.votes).reverse(),
-        groups: [...groups.entries()].map(([name, groupRows]) => ({
-            name,
-            rows: groupRows
-        })),
+        groups: [...groups.entries()].map(([name, groupRows]) => {
+            const metricGroupRows = metricGroups.get(name) || groupRows;
+            const winner = metricGroupRows.find((item) => item.isPromoted);
+            const loser = metricGroupRows.find((item) => !item.isPromoted);
+            const winnerVotes = Number(winner?.votes);
+            const loserVotes = Number(loser?.votes);
+            const votePool = metricGroupRows.reduce((sum, item) => sum + item.votes, 0);
+            const invalidVoteRate = Number.isFinite(totalVotes) && totalVotes > 0
+                ? Math.max(0, totalVotes - votePool) / totalVotes * 100
+                : null;
+            return {
+                name,
+                rows: groupRows,
+                metrics: {
+                    votePool,
+                    voteDifference: Number.isFinite(winnerVotes) && Number.isFinite(loserVotes) ? winnerVotes - loserVotes : null,
+                    overkill: Number.isFinite(winnerVotes) && Number.isFinite(loserVotes) && loserVotes > 0 ? winnerVotes / loserVotes : null,
+                    invalidVoteRate
+                }
+            };
+        }),
         statusLabels: {
             advance: '晋级',
             eliminate: '未晋级'
@@ -48,7 +78,7 @@ function buildChartData(rawData, rows) {
 
 function createNominationStrategy(config) {
     return {
-        normalize(rawData, mode) {
+        normalize(rawData, mode, matchConfig) {
             const rows = filterRowsByMode(
                 normalizeNominationVisualizationRows(config, rawData).map((item) => ({
                     ...item,
@@ -56,7 +86,7 @@ function createNominationStrategy(config) {
                 })),
                 mode
             );
-            return buildChartData(rawData, rows);
+            return buildChartData(rawData, rows, matchConfig);
         }
     };
 }
@@ -148,7 +178,7 @@ const wildcardStrategy = {
 };
 
 const phase1Strategy = {
-    normalize(rawData, mode) {
+    normalize(rawData, mode, matchConfig) {
         const rows = filterRowsByMode(rawData.data.flatMap(match => match.contestants.map(contestant => ({
             ...contestant,
             label: `${contestant.name}（${contestant.ip}）`,
@@ -163,8 +193,15 @@ const phase1Strategy = {
                 globalRank: index + 1,
                 displayRank: `第${index + 1}名`
             }));
-        return {
-            ...buildChartData(rawData, rows),
+            const allRows = rawData.data.flatMap(match => match.contestants.map(contestant => ({
+                ...contestant,
+                label: `${contestant.name}（${contestant.ip}）`,
+                group: `擂台${match.match}`,
+                votes: Number(contestant.votes),
+                isPromoted: contestant.result === 'win'
+            })));
+            return {
+                ...buildChartData(rawData, rows, matchConfig, allRows),
             statusLabels: {
                 advance: '胜者',
                 eliminate: '败者'
