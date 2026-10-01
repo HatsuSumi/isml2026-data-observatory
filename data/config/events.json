@@ -295,7 +295,20 @@
                                 "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination"
                             }
                         }
-                    ]
+                    ],
+                    "details": {
+                        "requirements": "2026年1月1日至2026年3月31日期间在标准时长动画中登场的角色",
+                        "participants": {
+                            "total": 68,
+                            "female": 43,
+                            "male": 25
+                        },
+                        "qualified": {
+                            "total": 53,
+                            "female": 33,
+                            "male": 20
+                        }
+                    }
                 },
                 {
                     "dateRange": {
