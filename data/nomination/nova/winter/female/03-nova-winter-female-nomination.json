@@ -1,339 +1,393 @@
 {
-  "date": "01.07-01.14",
+  "date": "08.30-09.06",
   "event": "新星组冬季赛提名-女性组别",
   "data": [
     {
-      "name": "柊舞缇娜",
-      "ip": "憧憬成为魔法少女",
-      "cv": "和泉风花",
-      "votes": 31,
+      "name": "辉夜",
+      "ip": "超辉夜姬！",
+      "cv": "",
+      "votes": 130,
       "avatar": "",
       "is_advanced": true,
       "rank": 1
     },
     {
-      "name": "玛露西尔",
-      "ip": "迷宫饭",
-      "cv": "千本木彩花",
-      "votes": 21,
+      "name": "酒寄彩叶",
+      "ip": "超辉夜姬！",
+      "cv": "",
+      "votes": 122,
       "avatar": "",
       "is_advanced": true,
       "rank": 2
     },
     {
-      "name": "阿良河基维",
-      "ip": "憧憬成为魔法少女",
-      "cv": "古贺葵",
-      "votes": 18,
+      "name": "森亚露露卡",
+      "ip": "名侦探光之美少女！",
+      "cv": "",
+      "votes": 62,
       "avatar": "",
       "is_advanced": true,
       "rank": 3
     },
     {
-      "name": "糸濑雪",
-      "ip": "指尖相触，恋恋不舍",
-      "cv": "诸星堇",
-      "votes": 14,
+      "name": "铃木实优",
+      "ip": "正相反的你与我",
+      "cv": "",
+      "votes": 51,
       "avatar": "",
       "is_advanced": true,
       "rank": 4
     },
     {
-      "name": "莉雪·伊路姆加德·维尔兹纳",
-      "ip": "轮回七次的恶役千金，在前敌国享受随心所欲的新婚生活",
-      "cv": "长谷川育美",
-      "votes": 13,
+      "name": "星野瑠美衣",
+      "ip": "【我推的孩子】",
+      "cv": "",
+      "votes": 36,
       "avatar": "",
       "is_advanced": true,
       "rank": 5
     },
     {
-      "name": "天音莉莉",
-      "ip": "愚蠢天使与恶魔共舞",
-      "cv": "佐仓绫音",
-      "votes": 12,
+      "name": "高代槙生",
+      "ip": "他国日记",
+      "cv": "",
+      "votes": 27,
       "avatar": "",
       "is_advanced": true,
       "rank": 6
     },
     {
-      "name": "一之濑帆波",
-      "ip": "欢迎来到实力至上主义的教室",
-      "cv": "东山奈央",
-      "votes": 11,
+      "name": "田汲朝",
+      "ip": "他国日记",
+      "cv": "",
+      "votes": 19,
       "avatar": "",
       "is_advanced": true,
       "rank": 7
     },
     {
-      "name": "公主",
-      "ip": "公主大人，接下来是“拷问”时间",
-      "cv": "白石晴香",
-      "votes": 10,
+      "name": "木下歌夏",
+      "ip": "现在的是哪一个多闻？！",
+      "cv": "",
+      "votes": 15,
       "avatar": "",
       "is_advanced": true,
       "rank": 8
     },
     {
-      "name": "尤贝尔",
-      "ip": "葬送的芙莉莲",
-      "cv": "长谷川育美",
-      "votes": 9,
+      "name": "濑名紫阳花",
+      "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
+      "cv": "",
+      "votes": 11,
       "avatar": "",
       "is_advanced": true,
       "rank": 9
     },
     {
-      "name": "羽前京香",
-      "ip": "魔都精兵的奴隶",
-      "cv": "鬼头明里",
-      "votes": 9,
+      "name": "雨月忍",
+      "ip": "午夜的倾心旋律",
+      "cv": "",
+      "votes": 8,
       "avatar": "",
       "is_advanced": true,
-      "rank": 9
+      "rank": 10
     },
     {
-      "name": "艾维",
-      "ip": "最弱的驯养师开启的捡垃圾的旅途。",
-      "cv": "铃木爱奈",
+      "name": "泰奥莉塔",
+      "ip": "判处勇者刑 惩罚勇者9004队刑务纪录",
+      "cv": "",
       "votes": 8,
       "avatar": "",
       "is_advanced": true,
       "rank": 11
     },
     {
-      "name": "冬木美波",
-      "ip": "北海道辣妹贼拉可爱",
-      "cv": "佐仓绫音",
+      "name": "明智安娜",
+      "ip": "名侦探光之美少女！",
+      "cv": "",
       "votes": 8,
       "avatar": "",
       "is_advanced": true,
-      "rank": 11
+      "rank": 12
     },
     {
-      "name": "露琼·雷德斯塔",
-      "ip": "金属口红",
-      "cv": "宫本侑芽",
-      "votes": 8,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 11
-    },
-    {
-      "name": "椎名日和",
-      "ip": "欢迎来到实力至上主义的教室",
-      "cv": "高桥李依",
-      "votes": 8,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 11
-    },
-    {
-      "name": "邻居妹妹",
-      "ip": "佐佐木与文鸟小哔",
-      "cv": "鬼头明里",
+      "name": "幽鬼",
+      "ip": "靠死亡游戏混饭吃。",
+      "cv": "",
       "votes": 7,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 13
+    },
+    {
+      "name": "水萌汐",
+      "ip": "和青梅竹马之间不会有恋爱喜剧",
+      "cv": "",
+      "votes": 6,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 14
+    },
+    {
+      "name": "金目绵花奈",
+      "ip": "能帮我弄干净吗？",
+      "cv": "",
+      "votes": 6,
       "avatar": "",
       "is_advanced": true,
       "rank": 15
     },
     {
-      "name": "菊池风香",
-      "ip": "弱势角色友崎君",
-      "cv": "茅野爱衣",
-      "votes": 7,
+      "name": "井之华六花",
+      "ip": "午夜的倾心旋律",
+      "cv": "",
+      "votes": 6,
       "avatar": "",
       "is_advanced": true,
-      "rank": 15
+      "rank": 16
     },
     {
-      "name": "尤蜜拉·多克尼斯",
-      "ip": "反派千金等级99～我是隐藏头目但不是魔王～",
-      "cv": "菲鲁兹·蓝",
+      "name": "东紫乃",
+      "ip": "正相反的你与我",
+      "cv": "",
       "votes": 6,
       "avatar": "",
       "is_advanced": true,
       "rank": 17
     },
     {
-      "name": "关根萌子",
-      "ip": "我心里危险的东西",
-      "cv": "潘惠美",
-      "votes": 5,
+      "name": "有马加奈",
+      "ip": "【我推的孩子】",
+      "cv": "",
+      "votes": 6,
       "avatar": "",
       "is_advanced": true,
       "rank": 18
     },
     {
-      "name": "向坂雫",
-      "ip": "我独自升级",
-      "cv": "上田丽奈",
+      "name": "小柳香穗",
+      "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
+      "cv": "",
       "votes": 5,
       "avatar": "",
       "is_advanced": true,
-      "rank": 18
+      "rank": 19
     },
     {
-      "name": "露缇",
-      "ip": "因为不是真正的伙伴而被逐出勇者队伍，流落到边境展开慢活人生",
-      "cv": "大空直美",
+      "name": "王冢真唯",
+      "ip": "我们不可能成为恋人！绝对不行。 (※似乎可行？)",
+      "cv": "",
       "votes": 5,
       "avatar": "",
       "is_advanced": true,
-      "rank": 18
+      "rank": 20
     },
     {
-      "name": "犬饲小麦",
-      "ip": "美妙宠物 光之美少女！",
-      "cv": "长绳麻理亚",
-      "votes": 4,
+      "name": "绫香·沙条",
+      "ip": "Fate系列",
+      "cv": "",
+      "votes": 5,
       "avatar": "",
       "is_advanced": true,
       "rank": 21
     },
     {
-      "name": "拉姆",
-      "ip": "福星小子",
-      "cv": "上坂堇",
-      "votes": 3,
+      "name": "冈崎依瑠花",
+      "ip": "金牌得主",
+      "cv": "",
+      "votes": 5,
       "avatar": "",
       "is_advanced": true,
       "rank": 22
     },
     {
-      "name": "澪",
-      "ip": "月光下的异世界之旅",
-      "cv": "鬼头明里",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 22
-    },
-    {
-      "name": "雷蒙·厄文",
-      "ip": "物理魔法使马修",
-      "cv": "上田丽奈",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 22
-    },
-    {
-      "name": "玉",
-      "ip": "战国妖狐",
-      "cv": "高田忧希",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 22
-    },
-    {
-      "name": "克莉丝朵·诺巴提·诺卡那堤卡",
-      "ip": "婚戒物语",
-      "cv": "鬼头明里",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 22
-    },
-    {
-      "name": "花菱春香",
-      "ip": "憧憬成为魔法少女",
-      "cv": "前田佳织里",
-      "votes": 9,
-      "avatar": "",
-      "is_advanced": false,
-      "rank": 27
-    },
-    {
-      "name": "水神小夜",
-      "ip": "憧憬成为魔法少女",
-      "cv": "风间万裕子",
-      "votes": 9,
-      "avatar": "",
-      "is_advanced": false,
-      "rank": 27
-    },
-    {
-      "name": "坂柳有栖",
-      "ip": "欢迎来到实力至上主义的教室",
-      "cv": "日高里菜",
-      "votes": 7,
-      "avatar": "",
-      "is_advanced": false,
-      "rank": 29
-    },
-    {
-      "name": "杜乃可莉丝",
-      "ip": "憧憬成为魔法少女",
-      "cv": "杉浦刊",
-      "votes": 7,
-      "avatar": "",
-      "is_advanced": false,
-      "rank": 29
-    },
-    {
-      "name": "赞泽",
+      "name": "梅特黛",
       "ip": "葬送的芙莉莲",
-      "cv": "照井春佳",
+      "cv": "",
       "votes": 5,
       "avatar": "",
-      "is_advanced": false,
+      "is_advanced": true,
+      "rank": 23
+    },
+    {
+      "name": "琳·莱茵维斯",
+      "ip": "阿尔涅的事件簿",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 24
+    },
+    {
+      "name": "禅院真希",
+      "ip": "咒术回战",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 25
+    },
+    {
+      "name": "小林未来",
+      "ip": "名侦探光之美少女！",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 26
+    },
+    {
+      "name": "帆羽来爱",
+      "ip": "名侦探光之美少女！",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 27
+    },
+    {
+      "name": "日芽川宁宁",
+      "ip": "午夜的倾心旋律",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 28
+    },
+    {
+      "name": "雾乃依子",
+      "ip": "午夜的倾心旋律",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 29
+    },
+    {
+      "name": "绫䌷芦花",
+      "ip": "超辉夜姬！",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
+      "rank": 30
+    },
+    {
+      "name": "西奈津美",
+      "ip": "正相反的你与我",
+      "cv": "",
+      "votes": 4,
+      "avatar": "",
+      "is_advanced": true,
       "rank": 31
     },
     {
-      "name": "法琳",
-      "ip": "迷宫饭",
-      "cv": "早见沙织",
-      "votes": 5,
+      "name": "月见瑠奈",
+      "ip": "和青梅竹马之间不会有恋爱喜剧",
+      "cv": "",
+      "votes": 4,
       "avatar": "",
-      "is_advanced": false,
-      "rank": 31
+      "is_advanced": true,
+      "rank": 32
     },
     {
-      "name": "日南葵",
-      "ip": "弱势角色友崎君",
-      "cv": "金元寿子",
-      "votes": 5,
+      "name": "恩奇都",
+      "ip": "Fate系列",
+      "cv": "",
+      "votes": 4,
       "avatar": "",
-      "is_advanced": false,
-      "rank": 31
+      "is_advanced": true,
+      "rank": 33
     },
     {
-      "name": "七海深奈实",
-      "ip": "弱势角色友崎君",
-      "cv": "长谷川育美",
-      "votes": 5,
+      "name": "莉露",
+      "ip": "29岁单身中坚冒险家的日常",
+      "cv": "",
+      "votes": 3,
       "avatar": "",
       "is_advanced": false,
-      "rank": 31
+      "rank": 34
     },
     {
-      "name": "秋野沙友理",
-      "ip": "北海道辣妹贼拉可爱",
-      "cv": "花守由美里",
+      "name": "内田优空",
+      "ip": "弹珠汽水瓶里的千岁同学",
+      "cv": "",
       "votes": 3,
       "avatar": "",
       "is_advanced": false,
       "rank": 35
     },
     {
-      "name": "堀北铃音",
-      "ip": "欢迎来到实力至上主义的教室",
-      "cv": "鬼头明里",
-      "votes": 3,
-      "avatar": "https://pic1.imgdb.cn/item/673e9378d29ded1a8c7d417b.png",
-      "is_advanced": false,
-      "rank": 35
-    },
-    {
-      "name": "阿古屋真珠",
-      "ip": "憧憬成为魔法少女",
-      "cv": "相坂优歌",
+      "name": "芦屋瑞稀",
+      "ip": "花样少年少女",
+      "cv": "",
       "votes": 3,
       "avatar": "",
       "is_advanced": false,
-      "rank": 35
+      "rank": 36
+    },
+    {
+      "name": "佐藤神八",
+      "ip": "神八小妹不可怕",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 37
+    },
+    {
+      "name": "山城恋",
+      "ip": "魔都精兵的奴隶",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 38
+    },
+    {
+      "name": "狼崎光",
+      "ip": "金牌得主",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 39
+    },
+    {
+      "name": "申川凛奈",
+      "ip": "金牌得主",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 40
+    },
+    {
+      "name": "火威灯",
+      "ip": "和青梅竹马之间不会有恋爱喜剧",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 41
+    },
+    {
+      "name": "坂口日向",
+      "ip": "关于我转生变成史莱姆这档事",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 42
+    },
+    {
+      "name": "夜香静花",
+      "ip": "透明男子与人类女孩～两人迟早会成为夫妻～",
+      "cv": "",
+      "votes": 3,
+      "avatar": "",
+      "is_advanced": false,
+      "rank": 43
     }
   ]
 }

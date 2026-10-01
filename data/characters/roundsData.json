@@ -1402,8 +1402,214 @@
     },
     "nova": {
         "winter": {
-            "female": [],
-            "male": []
+            "female": [
+                {
+                    "participantId": "NF001"
+                },
+                {
+                    "participantId": "NF002"
+                },
+                {
+                    "participantId": "NF003"
+                },
+                {
+                    "participantId": "NF004"
+                },
+                {
+                    "participantId": "NF005"
+                },
+                {
+                    "participantId": "NF006"
+                },
+                {
+                    "participantId": "NF007"
+                },
+                {
+                    "participantId": "NF008"
+                },
+                {
+                    "participantId": "NF009"
+                },
+                {
+                    "participantId": "NF010"
+                },
+                {
+                    "participantId": "NF011"
+                },
+                {
+                    "participantId": "NF012"
+                },
+                {
+                    "participantId": "NF013"
+                },
+                {
+                    "participantId": "NF014"
+                },
+                {
+                    "participantId": "NF015"
+                },
+                {
+                    "participantId": "NF016"
+                },
+                {
+                    "participantId": "NF017"
+                },
+                {
+                    "participantId": "NF018"
+                },
+                {
+                    "participantId": "NF019"
+                },
+                {
+                    "participantId": "NF020"
+                },
+                {
+                    "participantId": "NF021"
+                },
+                {
+                    "participantId": "NF022"
+                },
+                {
+                    "participantId": "NF023"
+                },
+                {
+                    "participantId": "NF024"
+                },
+                {
+                    "participantId": "NF025"
+                },
+                {
+                    "participantId": "NF026"
+                },
+                {
+                    "participantId": "NF027"
+                },
+                {
+                    "participantId": "NF028"
+                },
+                {
+                    "participantId": "NF029"
+                },
+                {
+                    "participantId": "NF030"
+                },
+                {
+                    "participantId": "NF031"
+                },
+                {
+                    "participantId": "NF032"
+                },
+                {
+                    "participantId": "NF033"
+                },
+                {
+                    "participantId": "ENF001"
+                },
+                {
+                    "participantId": "ENF002"
+                },
+                {
+                    "participantId": "ENF003"
+                },
+                {
+                    "participantId": "ENF004"
+                },
+                {
+                    "participantId": "ENF005"
+                },
+                {
+                    "participantId": "ENF006"
+                },
+                {
+                    "participantId": "ENF007"
+                },
+                {
+                    "participantId": "ENF008"
+                },
+                {
+                    "participantId": "ENF009"
+                },
+                {
+                    "participantId": "ENF010"
+                }
+            ],
+            "male": [
+                {
+                    "participantId": "NM001"
+                },
+                {
+                    "participantId": "NM002"
+                },
+                {
+                    "participantId": "NM003"
+                },
+                {
+                    "participantId": "NM004"
+                },
+                {
+                    "participantId": "NM005"
+                },
+                {
+                    "participantId": "NM006"
+                },
+                {
+                    "participantId": "NM007"
+                },
+                {
+                    "participantId": "NM008"
+                },
+                {
+                    "participantId": "NM009"
+                },
+                {
+                    "participantId": "NM010"
+                },
+                {
+                    "participantId": "NM011"
+                },
+                {
+                    "participantId": "NM012"
+                },
+                {
+                    "participantId": "NM013"
+                },
+                {
+                    "participantId": "NM014"
+                },
+                {
+                    "participantId": "NM015"
+                },
+                {
+                    "participantId": "NM016"
+                },
+                {
+                    "participantId": "NM017"
+                },
+                {
+                    "participantId": "NM018"
+                },
+                {
+                    "participantId": "NM019"
+                },
+                {
+                    "participantId": "NM020"
+                },
+                {
+                    "participantId": "ENM001"
+                },
+                {
+                    "participantId": "ENM002"
+                },
+                {
+                    "participantId": "ENM003"
+                },
+                {
+                    "participantId": "ENM004"
+                },
+                {
+                    "participantId": "ENM005"
+                }
+            ]
         },
         "spring": {
             "female": [],

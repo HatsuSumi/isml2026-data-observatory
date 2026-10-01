@@ -283,7 +283,8 @@
                             "phase": "主赛事提名阶段",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.winter",
-                                "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination"
+                                "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination",
+                                "data": "data/nomination/nova/winter/female/03-nova-winter-female-nomination.json"
                             }
                         },
                         {
@@ -292,7 +293,8 @@
                             "phase": "主赛事提名阶段",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.winter",
-                                "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination"
+                                "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination",
+                                "data": "data/nomination/nova/winter/male/04-nova-winter-male-nomination.json"
                             }
                         }
                     ],

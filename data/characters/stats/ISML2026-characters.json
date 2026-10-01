@@ -1163,8 +1163,222 @@
     },
     "nova": {
         "winter": {
-            "female": [],
-            "male": []
+            "female": [
+                {
+                    "participantId": "NF001",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF002",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF003",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF004",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF005",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF006",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF007",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF008",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF009",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF010",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF011",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF012",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF013",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF014",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF015",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF016",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF017",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF018",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF019",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF020",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF021",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF022",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF023",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF024",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF025",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF026",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF027",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF028",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF029",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF030",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF031",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF032",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NF033",
+                    "status": "参赛中"
+                }
+            ],
+            "male": [
+                {
+                    "participantId": "NM001",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM002",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM003",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM004",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM005",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM006",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM007",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM008",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM009",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM010",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM011",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM012",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM013",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM014",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM015",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM016",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM017",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM018",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM019",
+                    "status": "参赛中"
+                },
+                {
+                    "participantId": "NM020",
+                    "status": "参赛中"
+                }
+            ]
         },
         "spring": {
             "female": [],
