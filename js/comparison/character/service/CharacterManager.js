@@ -5,6 +5,11 @@ import { CharacterRepository } from '../../data/CharacterRepository.js';
 import { EventService } from '../../shared/EventService.js';
 import { CharacterService } from './CharacterService.js';
 
+function isHiddenRoundSixNecklaceMatch(match) {
+    const name = String(match?.name || '');
+    return name.includes('第一阶段第六轮') && (name.includes('项链赛') || name.includes('垂饰赛'));
+}
+
 export class CharacterManager {
     constructor({ eventService, eventRepository, characterRepository, characterService, state } = {}) {
         this.characters = [];
@@ -27,7 +32,8 @@ export class CharacterManager {
     }
 
     getSelectableMatches() {
-        return this.eventService.getSelectableMatches(this.events);
+        return this.eventService.getSelectableMatches(this.events)
+            .filter(match => !isHiddenRoundSixNecklaceMatch(match));
     }
 
     async loadCharacters(eventId) {

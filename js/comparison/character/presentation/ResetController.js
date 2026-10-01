@@ -31,9 +31,8 @@ export class ResetController {
         const currentType = document.getElementById(this.layoutClasses.compareType).value;
         const comparison = document.querySelector(this.selectors.characterComparison);
 
-        comparison.classList.remove(this.layoutClasses.oneToManyLayout, this.layoutClasses.twoChars);
-
         if (this.groupCompareTypes.has(currentType)) {
+            comparison.classList.remove(this.layoutClasses.oneToManyLayout, this.layoutClasses.twoChars);
             this.resetGroups(comparison);
         } else {
             this.resetCards(comparison, currentType);
@@ -68,8 +67,8 @@ export class ResetController {
             group.remove();
         });
 
-        comparison.querySelectorAll(this.selectors.characterCard).forEach(card => {
-            card.remove();
+        comparison.querySelectorAll(`${this.selectors.characterCard}, ${this.selectors.divider}`).forEach(element => {
+            element.remove();
         });
 
         const cardCount = currentType === this.comparisonTypes.avgCompare || currentType === this.comparisonTypes.baseCompare
@@ -78,6 +77,15 @@ export class ResetController {
 
         for (let i = 0; i < cardCount; i += 1) {
             this.addCharacter(i);
+        }
+
+        if (currentType === this.comparisonTypes.baseCompare) {
+            comparison.classList.add(this.layoutClasses.oneToManyLayout);
+            comparison.classList.toggle(this.layoutClasses.twoChars, cardCount === this.config.comparison.twoCharsCount);
+            const cards = Array.from(comparison.querySelectorAll(this.selectors.characterCard));
+            const divider = document.createElement('div');
+            divider.className = this.layoutClasses.divider;
+            comparison.replaceChildren(cards[0], divider, ...cards.slice(1));
         }
     }
 
