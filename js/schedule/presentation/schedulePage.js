@@ -1,10 +1,9 @@
 import { loadScheduleView } from '../../common/data-loader.js';
-import { SCROLL_POSITION_KEY, setScheduleData } from '../state/scheduleState.js';
+import { SCROLL_POSITION_KEY } from '../state/scheduleState.js';
 import { smoothScrollTo } from '../utils/dom.js';
 import { createMatchElement, renderSchedule } from './renderSchedule.js';
-import { initReminders, initSavePosition, initStickySearchContainer, startCountdownLoop } from './pageEffects.js';
+import { initReminders, initSavePosition, startCountdownLoop } from './pageEffects.js';
 import { createScheduleNavController } from './scheduleNavController.js';
-import { bindCharacterSearch } from './bindings.js';
 
 export async function startSchedulePage(renderMatchDetails) {
     let data;
@@ -15,7 +14,6 @@ export async function startSchedulePage(renderMatchDetails) {
         return;
     }
 
-    setScheduleData(data);
     renderSchedule(data, {
         createMatchElement: match => createMatchElement(match, renderMatchDetails),
         initReminders,
@@ -33,6 +31,6 @@ export async function startSchedulePage(renderMatchDetails) {
         }, 100);
     }
 
-    initStickySearchContainer();
-    bindCharacterSearch();
+
+
 }

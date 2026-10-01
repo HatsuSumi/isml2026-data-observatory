@@ -1,25 +1,6 @@
 import { cloneScheduleTemplate } from '../utils/template.js';
 import { getOffsetTop, isInViewport, smoothScrollTo } from '../utils/dom.js';
-import { isScheduleFiltersEnabled, setScheduleFilterControls } from '../state/scheduleState.js';
 import { createCustomSelect } from './customSelect.js';
-
-export function setScheduleFiltersEnabled(enabled, controls) {
-    if (!controls) {
-        return;
-    }
-
-    const { filterGroup, startDayFilter, endDayFilter } = controls;
-    filterGroup.classList.toggle('disabled', !enabled);
-
-    filterGroup.querySelectorAll('.filter-btn').forEach(button => {
-        button.disabled = !enabled;
-        button.tabIndex = enabled ? 0 : -1;
-    });
-
-    [startDayFilter, endDayFilter].forEach(control => {
-        control.setDisabled(!enabled);
-    });
-}
 
 function updateNavHighlight() {
     const sections = document.querySelectorAll('.timeline-section');
@@ -99,7 +80,6 @@ export function createFilterControls(filterGroup, onApplyFilters) {
     filterGroup.querySelector('[data-filter-slot="end"]').appendChild(endDayFilter.element);
 
     const controls = { filterGroup, startDayFilter, endDayFilter };
-    setScheduleFilterControls(controls);
     return controls;
 }
 
@@ -166,8 +146,4 @@ export function scrollToElement(targetElement, offset) {
     if (!targetElement) return;
     const targetPosition = getOffsetTop(targetElement) - offset;
     smoothScrollTo(targetPosition);
-}
-
-export function canUseFilters() {
-    return isScheduleFiltersEnabled();
 }

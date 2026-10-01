@@ -1,8 +1,8 @@
-import { getScheduleFilterControls, isScheduleFiltersEnabled } from '../state/scheduleState.js';
 import { cloneScheduleTemplate } from '../utils/template.js';
 import { getOffsetTop, isInViewport, smoothScrollTo } from '../utils/dom.js';
 import {
     getCurrentMatchLabel,
+    getCurrentMatchData,
     getPhaseStatus,
     getPhaseStatusText,
     getRoundStatus,
@@ -18,9 +18,7 @@ import {
     createRoundItem,
     mountElevatorNav,
     scrollToElement,
-    setScheduleFiltersEnabled,
 } from './elevatorNav.js';
-import { getCurrentMatchData } from './bindings.js';
 
 function createNoResultsElement() {
     const noResults = cloneScheduleTemplate('schedule-no-results-template', '.no-results');
@@ -81,10 +79,6 @@ function updateSectionVisibility(section, navLinks) {
 }
 
 function applyFilters(getCurrentFilter, controls) {
-    if (!isScheduleFiltersEnabled()) {
-        return;
-    }
-
     const filterValues = getFilterValues(controls);
     const noResults = document.querySelector('.no-results') || createNoResultsElement();
     const allSections = document.querySelectorAll('.timeline-section');
@@ -217,10 +211,8 @@ export function createScheduleNavController(data) {
     const controls = createFilterControls(filterGroup, () => runFilters());
     runFilters = () => applyFilters(() => currentFilter, controls);
 
-    setScheduleFiltersEnabled(isScheduleFiltersEnabled(), getScheduleFilterControls());
-
     filterGroup.addEventListener('click', event => {
-        if (!isScheduleFiltersEnabled() || !event.target.classList.contains('filter-btn')) {
+        if (!event.target.classList.contains('filter-btn')) {
             return;
         }
 

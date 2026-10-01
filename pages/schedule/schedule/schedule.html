@@ -14,18 +14,6 @@
         <div class="schedule-container">
             <h1 class="schedule-title">ISML 2026 赛事日程</h1>
             
-            <div class="search-container">
-                <div class="character-search">
-                    <input type="text" id="characterSearch" placeholder="输入角色名称查看参赛历史...">
-                </div>
-                <div class="no-character" hidden></div>
-            </div>
-            
-            <div id="characterHistory" class="character-history" style="display: none;">
-                <h2 class="character-name"></h2>
-                <div class="match-list"></div>
-            </div>
-            
             <div id="timeline" class="timeline"></div>
         </div>
         <template id="schedule-elevator-nav-template">
@@ -92,19 +80,6 @@
                 <div class="info-label"></div>
                 <div class="match-name"></div>
             </div>
-        </template>
-        <template id="schedule-character-selection-template">
-            <div class="character-selection">
-                <p class="character-selection-title">匹配到多个角色，请选择：</p>
-            </div>
-        </template>
-        <template id="schedule-character-selection-item-template">
-            <button type="button" class="character-selection-item">
-                <div class="avatar" hidden>
-                    <img alt="">
-                </div>
-                <div class="info"></div>
-            </button>
         </template>
         <template id="schedule-tooltip-template">
             <div class="tooltip"></div>

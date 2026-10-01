@@ -50,14 +50,25 @@ export function getNextMatch(data) {
     return nextMatch;
 }
 
-export function getMatchDetails(scheduleData, matchTitle) {
-    if (!scheduleData) return null;
+export function getCurrentMatchData(data) {
+    const now = new Date();
+    let currentMatch = null;
+    let upcomingMatch = null;
 
-    for (const phase of Object.values(scheduleData.phases)) {
-        const match = phase.matches.find(item => item.title === matchTitle);
-        if (match) return match;
-    }
-    return null;
+    Object.values(data.phases).forEach(phase => {
+        phase.matches.forEach(match => {
+            const startDate = getMatchStartDate(match);
+            const endDate = getMatchEndDate(match);
+
+            if (now >= startDate && now <= endDate) {
+                currentMatch = { ...match, phaseTitle: phase.title };
+            } else if (now < startDate && (!upcomingMatch || startDate < getMatchStartDate(upcomingMatch))) {
+                upcomingMatch = { ...match, phaseTitle: phase.title };
+            }
+        });
+    });
+
+    return currentMatch || upcomingMatch;
 }
 
 export function getPhaseStatus(matches, now = new Date()) {

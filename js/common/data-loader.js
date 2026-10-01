@@ -1,7 +1,6 @@
 import { loadCharacterResolver } from './character-resolver.js';
 import { buildScheduleView } from './schedule-view.js';
 
-const CHARACTER_MATCHES_PATH = 'data/matches/character-matches.json';
 const CHARACTER_DETAILS_PATH = 'data/characters/characters-details.json';
 const NOMINATION_STATS_PATH = 'data/statistics/nomination-stats.json';
 const DATA_ROOT = new URL('../../', import.meta.url);
@@ -40,40 +39,6 @@ export async function loadCharacterDetails() {
 export async function loadResolvedCharacters() {
     const resolver = await loadCharacterResolver();
     return resolver;
-}
-
-function normalizeCharacterMatchRecord(participantId, record, resolver) {
-    if (!record || typeof record !== 'object' || !Array.isArray(record.matches)) {
-        throw new Error(`character-matches.json ${participantId} 记录格式错误`);
-    }
-    const character = resolver.getByParticipantId(participantId);
-    return {
-        ...character,
-        ...record,
-        participantId,
-        characterId: character.characterId,
-        name: character.name,
-        nameEn: character.nameEn,
-        ip: character.ip,
-        cv: character.cv,
-        avatar: character.avatar,
-        matches: record.matches
-    };
-}
-
-export async function loadCharacterMatches() {
-    const [rawData, resolver] = await Promise.all([
-        fetchJson(CHARACTER_MATCHES_PATH),
-        loadCharacterResolver()
-    ]);
-    if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData) || !rawData.matches) {
-        throw new Error('character-matches.json 缺少 matches 对象');
-    }
-    const matches = Object.fromEntries(Object.entries(rawData.matches).map(([participantId, record]) => [
-        participantId,
-        normalizeCharacterMatchRecord(participantId, record, resolver)
-    ]));
-    return { matches };
 }
 
 export async function loadEventsConfig() {
