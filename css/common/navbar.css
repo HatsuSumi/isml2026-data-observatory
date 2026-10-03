@@ -222,7 +222,7 @@
 }
 
 /* 显示下拉菜单 */
-.dropdown:hover .dropdown-menu,
+.dropdown:hover > .dropdown-menu,
 .dropdown-menu:hover {
     opacity: 1;
     visibility: visible;
@@ -255,22 +255,67 @@
     opacity: 0.8;
 }
 
-.nav-link[data-page="statistics"] + .dropdown-menu {
+.dropdown:has(.nav-link[data-page="statistics"]) .dropdown-menu {
     width: 190px;  
     min-width: 190px; 
 }
 
-.nav-link[data-page="statistics"] + .dropdown-menu i {
+.dropdown:has(.nav-link[data-page="statistics"]) .dropdown-menu i {
     margin-right: 8px; 
 }
 
-.nav-link[data-page="comparison"] + .dropdown-menu {
+.dropdown-comparison .dropdown-menu {
     width: 180px;
     min-width: 180px;
 }
 
-.nav-link[data-page="comparison"] + .dropdown-menu i {
+.dropdown-comparison .dropdown-menu i {
     margin-right: 8px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 20px;
+    height: 100%;
+}
+
+.dropdown-submenu-trigger {
+    justify-content: space-between;
+}
+
+.dropdown-submenu-trigger::after {
+    content: '\203A';
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.dropdown-menu-level-3 {
+    top: -0.8rem;
+    left: calc(100% + 20px);
+    transform: translateX(-8px);
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown-submenu:hover > .dropdown-menu-level-3,
+.dropdown-menu-level-3:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.dropdown-menu-level-3 a {
+    padding-right: 1.2rem;
 }
 
 /* 弹幕设置按钮 */

@@ -7,102 +7,12 @@
                 "status": "晋级"
             },
             {
-                "participantId": "SF096",
+                "participantId": "SF002",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF030",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF091",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF018",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF017",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF020",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF095",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF022",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF090",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF115",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF034",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF117",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF069",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF101",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF041",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF031",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001214",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF019",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF038",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF005",
+                "participantId": "SF003",
                 "votes": "-",
                 "status": "晋级"
             },
@@ -112,22 +22,122 @@
                 "status": "晋级"
             },
             {
-                "participantId": "SF112",
+                "participantId": "SF005",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF126",
+                "participantId": "SF006",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF132",
+                "participantId": "SF007",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF072",
+                "participantId": "SF008",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF009",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF010",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF011",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF012",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF013",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF014",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF015",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF016",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF017",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF018",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF019",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF020",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF021",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF022",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF023",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF024",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF025",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF026",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF027",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF028",
                 "votes": "-",
                 "status": "晋级"
             },
@@ -137,714 +147,879 @@
                 "status": "晋级"
             },
             {
+                "participantId": "SF030",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF031",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF032",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF033",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF034",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF035",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF036",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF037",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF038",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF039",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF040",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF041",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF042",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF043",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF044",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
                 "participantId": "SF045",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000226",
+                "participantId": "SF046",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001788",
+                "participantId": "SF047",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF121",
+                "participantId": "SF048",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001764",
+                "participantId": "SF049",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000148",
+                "participantId": "SF050",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF144",
+                "participantId": "SF051",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001460",
+                "participantId": "SF052",
                 "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF017",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF051",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF092",
-                "votes": 235,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF024",
-                "votes": 215,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF002",
-                "votes": 212,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF098",
-                "votes": 199,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF102",
-                "votes": 198,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF100",
-                "votes": 194,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000791",
-                "votes": 162,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF026",
-                "votes": 157,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF088",
-                "votes": 152,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF089",
-                "votes": 149,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF040",
-                "votes": 142,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF111",
-                "votes": 138,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF027",
-                "votes": 137,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF134",
-                "votes": 112,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000478",
-                "votes": 104,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF043",
-                "votes": 96,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF110",
-                "votes": 95,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF008",
-                "votes": 91,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF109",
-                "votes": 89,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF104",
-                "votes": 85,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF143",
-                "votes": 84,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF130",
-                "votes": 82,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF138",
-                "votes": 81,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF140",
-                "votes": 80,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF122",
-                "votes": 78,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF116",
-                "votes": 78,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF113",
-                "votes": 75,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF103",
-                "votes": 74,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000824",
-                "votes": 72,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF135",
-                "votes": 71,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000101",
-                "votes": 70,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF099",
-                "votes": 68,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF009",
-                "votes": 67,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF119",
-                "votes": 67,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF021",
-                "votes": 67,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000938",
-                "votes": 67,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF015",
-                "votes": 65,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF125",
-                "votes": 64,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF141",
-                "votes": 64,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF078",
-                "votes": 63,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001139",
-                "votes": 63,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF124",
-                "votes": 62,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF136",
-                "votes": 62,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF023",
-                "votes": 61,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF006",
-                "votes": 60,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF137",
-                "votes": 60,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF131",
-                "votes": 59,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF129",
-                "votes": 57,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF106",
-                "votes": 56,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF142",
-                "votes": 55,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF046",
-                "votes": 55,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF014",
-                "votes": 55,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_002122",
-                "votes": 53,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF065",
-                "votes": 52,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001239",
-                "votes": 52,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF011",
-                "votes": 51,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_002184",
-                "votes": 50,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_002047",
-                "votes": 44,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF007",
-                "votes": 43,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF076",
-                "votes": 43,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF028",
-                "votes": 42,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF097",
-                "votes": 42,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF005",
-                "votes": 41,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF044",
-                "votes": 40,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF034",
-                "votes": 40,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF068",
-                "votes": 40,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000411",
-                "votes": 40,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF026",
-                "votes": 39,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000922",
-                "votes": 39,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF032",
-                "votes": 39,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF094",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF033",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF066",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001635",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000304",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF037",
-                "votes": 37,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF001",
-                "votes": 37,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001655",
-                "votes": 36,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF056",
-                "votes": 35,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF070",
-                "votes": 34,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001041",
-                "votes": 34,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001299",
-                "votes": 32,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000736",
-                "votes": 32,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF118",
-                "votes": 32,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF027",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF003",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESF013",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001107",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SF032",
-                "votes": 30,
                 "status": "晋级"
             },
             {
                 "participantId": "SF053",
-                "votes": 29,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESF053",
-                "votes": 29,
+                "participantId": "SF054",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SF028",
-                "votes": 29,
+                "participantId": "SF055",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESF037",
-                "votes": 28,
+                "participantId": "SF056",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF057",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF058",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF059",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF060",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF061",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF062",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF063",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF064",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF065",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF066",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF067",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF068",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF069",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF070",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF071",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF072",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF073",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF074",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF075",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF076",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF077",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF078",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF079",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF080",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF081",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF082",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF083",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF084",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF085",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF086",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF087",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF088",
+                "votes": "244",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF089",
+                "votes": "222",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF090",
+                "votes": "209",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF091",
+                "votes": "187",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF092",
+                "votes": "165",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF093",
+                "votes": "161",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF094",
+                "votes": "134",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF095",
+                "votes": "130",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF096",
+                "votes": "124",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF097",
+                "votes": "124",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF098",
+                "votes": "120",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF099",
+                "votes": "118",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF100",
+                "votes": "107",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF101",
+                "votes": "105",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF102",
+                "votes": "97",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF103",
+                "votes": "94",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF104",
+                "votes": "89",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF105",
+                "votes": "88",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF106",
+                "votes": "86",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF107",
+                "votes": "84",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF108",
+                "votes": "83",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF109",
+                "votes": "82",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF110",
+                "votes": "82",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF111",
+                "votes": "81",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF112",
+                "votes": "79",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF113",
+                "votes": "78",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF114",
+                "votes": "76",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF115",
+                "votes": "75",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF116",
+                "votes": "75",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF117",
+                "votes": "74",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF118",
+                "votes": "74",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF119",
+                "votes": "72",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF120",
+                "votes": "70",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF121",
+                "votes": "68",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF122",
+                "votes": "68",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF123",
+                "votes": "67",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF124",
+                "votes": "65",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF125",
+                "votes": "65",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF126",
+                "votes": "64",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF127",
+                "votes": "63",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF128",
+                "votes": "63",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF129",
+                "votes": "61",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF130",
+                "votes": "61",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF131",
+                "votes": "61",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF132",
+                "votes": "60",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF133",
+                "votes": "59",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF134",
+                "votes": "59",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF135",
+                "votes": "57",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF136",
+                "votes": "55",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF137",
+                "votes": "54",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF138",
+                "votes": "54",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF139",
+                "votes": "53",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF140",
+                "votes": "53",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF141",
+                "votes": "52",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF142",
+                "votes": "49",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF143",
+                "votes": "48",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SF144",
+                "votes": "46",
+                "status": "晋级"
+            },
+            {
+                "participantId": "ESF001",
+                "votes": "44",
                 "status": "未晋级"
             },
             {
-                "participantId": "ESF012",
-                "votes": 28,
+                "participantId": "ESF002",
+                "votes": "44",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001185",
-                "votes": 28,
+                "participantId": "ESF003",
+                "votes": "43",
                 "status": "未晋级"
             },
             {
-                "participantId": "ESF045",
-                "votes": 27,
+                "participantId": "ESF004",
+                "votes": "42",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_002160",
-                "votes": 27,
+                "participantId": "ESF005",
+                "votes": "41",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000266",
-                "votes": 27,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_000275",
-                "votes": 27,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_000652",
-                "votes": 26,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001073",
-                "votes": 26,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESF018",
-                "votes": 26,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "SF042",
-                "votes": 26,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESF039",
-                "votes": 26,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001446",
-                "votes": 26,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESF029",
-                "votes": 25,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001548",
-                "votes": 25,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_000293",
-                "votes": 24,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001243",
-                "votes": 24,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001539",
-                "votes": 24,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESF031",
-                "votes": 23,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001730",
-                "votes": 23,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001097",
-                "votes": 23,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESF035",
-                "votes": 23,
+                "participantId": "ESF006",
+                "votes": "41",
                 "status": "未晋级"
             },
             {
                 "participantId": "ESF007",
-                "votes": 23,
+                "votes": "40",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000107",
-                "votes": 23,
+                "participantId": "ESF008",
+                "votes": "40",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_002109",
-                "votes": 23,
+                "participantId": "ESF009",
+                "votes": "40",
                 "status": "未晋级"
             },
             {
-                "participantId": "ESF058",
-                "votes": 22,
+                "participantId": "ESF010",
+                "votes": "39",
                 "status": "未晋级"
             },
             {
-                "participantId": "ESF050",
-                "votes": 22,
+                "participantId": "ESF011",
+                "votes": "38",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000273",
-                "votes": 22,
+                "participantId": "ESF012",
+                "votes": "36",
                 "status": "未晋级"
             },
             {
-                "participantId": "SF011",
-                "votes": 22,
+                "participantId": "ESF013",
+                "votes": "36",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_002129",
-                "votes": 22,
+                "participantId": "ESF014",
+                "votes": "36",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF015",
+                "votes": "36",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF016",
+                "votes": "35",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF017",
+                "votes": "35",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF018",
+                "votes": "34",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF019",
+                "votes": "34",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF020",
+                "votes": "33",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF021",
+                "votes": "32",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF022",
+                "votes": "32",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF023",
+                "votes": "31",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF024",
+                "votes": "31",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF025",
+                "votes": "31",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF026",
+                "votes": "30",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF027",
+                "votes": "29",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF028",
+                "votes": "28",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF029",
+                "votes": "28",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF030",
+                "votes": "28",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF031",
+                "votes": "28",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF032",
+                "votes": "28",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF033",
+                "votes": "27",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF034",
+                "votes": "27",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF035",
+                "votes": "27",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF036",
+                "votes": "26",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF037",
+                "votes": "25",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF038",
+                "votes": "25",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF039",
+                "votes": "25",
                 "status": "未晋级"
             },
             {
                 "participantId": "ESF040",
-                "votes": 22,
+                "votes": "25",
                 "status": "未晋级"
             },
             {
-                "participantId": "SF123",
-                "votes": 22,
+                "participantId": "ESF041",
+                "votes": "25",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_002035",
-                "votes": 21,
+                "participantId": "ESF042",
+                "votes": "25",
                 "status": "未晋级"
             },
             {
-                "participantId": "SF009",
-                "votes": 21,
+                "participantId": "ESF043",
+                "votes": "24",
                 "status": "未晋级"
             },
             {
-                "participantId": "SF008",
-                "votes": 21,
+                "participantId": "ESF044",
+                "votes": "24",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000502",
-                "votes": 21,
+                "participantId": "ESF045",
+                "votes": "24",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000540",
-                "votes": 21,
+                "participantId": "ESF046",
+                "votes": "24",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF047",
+                "votes": "24",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF048",
+                "votes": "24",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF049",
+                "votes": "23",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF050",
+                "votes": "23",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF051",
+                "votes": "23",
                 "status": "未晋级"
             },
             {
                 "participantId": "ESF052",
-                "votes": 21,
+                "votes": "23",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001270",
-                "votes": 21,
+                "participantId": "ESF053",
+                "votes": "22",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF054",
+                "votes": "22",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF055",
+                "votes": "22",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF056",
+                "votes": "22",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF057",
+                "votes": "22",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESF058",
+                "votes": "22",
                 "status": "未晋级"
             }
         ],
         "male": [
             {
-                "participantId": "SM020",
+                "participantId": "SM001",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM002",
                 "votes": "-",
                 "status": "晋级"
             },
@@ -859,127 +1034,42 @@
                 "status": "晋级"
             },
             {
-                "participantId": "SM002",
+                "participantId": "SM005",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000919",
+                "participantId": "SM006",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM120",
+                "participantId": "SM007",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM031",
+                "participantId": "SM008",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM023",
+                "participantId": "SM009",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001663",
+                "participantId": "SM010",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM027",
+                "participantId": "SM011",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM098",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM086",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM094",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM028",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM090",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM085",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM030",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM088",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM034",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM017",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001744",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM026",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM035",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM023",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000482",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000044",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM052",
-                "votes": "-",
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM050",
+                "participantId": "SM012",
                 "votes": "-",
                 "status": "晋级"
             },
@@ -989,718 +1079,928 @@
                 "status": "晋级"
             },
             {
-                "characterId": "char_000527",
+                "participantId": "SM014",
                 "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESM022",
-                "votes": 140,
+                "participantId": "SM015",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM022",
-                "votes": 125,
+                "participantId": "SM016",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM102",
-                "votes": 113,
+                "participantId": "SM017",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM018",
-                "votes": 102,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM025",
-                "votes": 96,
+                "participantId": "SM019",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM082",
-                "votes": 87,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM083",
-                "votes": 78,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM091",
-                "votes": 74,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM039",
-                "votes": 74,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001302",
-                "votes": 74,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM126",
-                "votes": 64,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM122",
-                "votes": 64,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM089",
-                "votes": 61,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM033",
-                "votes": 58,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM097",
-                "votes": 52,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM135",
-                "votes": 46,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM103",
-                "votes": 46,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM093",
-                "votes": 42,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM038",
-                "votes": 42,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM096",
-                "votes": 41,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM024",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM092",
-                "votes": 38,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000287",
-                "votes": 37,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM036",
-                "votes": 36,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM059",
-                "votes": 35,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM115",
-                "votes": 34,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM101",
-                "votes": 34,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM042",
-                "votes": 33,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM081",
-                "votes": 32,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM106",
-                "votes": 32,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM010",
-                "votes": 32,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM006",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM047",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000590",
-                "votes": 31,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM134",
-                "votes": 28,
+                "participantId": "SM020",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM021",
-                "votes": 27,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM114",
-                "votes": 27,
+                "participantId": "SM022",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM139",
-                "votes": 26,
+                "participantId": "SM023",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000067",
-                "votes": 26,
+                "participantId": "SM024",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM110",
-                "votes": 25,
+                "participantId": "SM025",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESM011",
-                "votes": 22,
+                "participantId": "SM026",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM027",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM028",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM029",
-                "votes": 22,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001580",
-                "votes": 22,
+                "participantId": "SM030",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM117",
-                "votes": 21,
+                "participantId": "SM031",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM032",
-                "votes": 21,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESM002",
-                "votes": 21,
+                "participantId": "SM033",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM123",
-                "votes": 21,
+                "participantId": "SM034",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESM031",
-                "votes": 21,
+                "participantId": "SM035",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM128",
-                "votes": 21,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM137",
-                "votes": 21,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM014",
-                "votes": 21,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM044",
-                "votes": 20,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM141",
-                "votes": 20,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001390",
-                "votes": 20,
+                "participantId": "SM036",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM037",
-                "votes": 19,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM104",
-                "votes": 19,
+                "participantId": "SM038",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM039",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM040",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM041",
-                "votes": 19,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESM001",
-                "votes": 19,
+                "participantId": "SM042",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000887",
-                "votes": 19,
+                "participantId": "SM043",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM132",
-                "votes": 18,
+                "participantId": "SM044",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM100",
-                "votes": 17,
+                "participantId": "SM045",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM138",
-                "votes": 17,
+                "participantId": "SM046",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM144",
-                "votes": 17,
+                "participantId": "SM047",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001256",
-                "votes": 17,
+                "participantId": "SM048",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM119",
-                "votes": 17,
+                "participantId": "SM049",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM050",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM051",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM052",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM053",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM054",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM055",
-                "votes": 16,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001327",
-                "votes": 16,
+                "participantId": "SM056",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001012",
-                "votes": 16,
+                "participantId": "SM057",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM078",
-                "votes": 16,
+                "participantId": "SM058",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000103",
-                "votes": 15,
+                "participantId": "SM059",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM143",
-                "votes": 15,
+                "participantId": "SM060",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM124",
-                "votes": 15,
+                "participantId": "SM061",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM062",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM063",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM064",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM065",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM066",
-                "votes": 15,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM071",
-                "votes": 15,
+                "participantId": "SM067",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM127",
-                "votes": 14,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM111",
-                "votes": 13,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM029",
-                "votes": 13,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000290",
-                "votes": 13,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM051",
-                "votes": 13,
+                "participantId": "SM068",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM069",
-                "votes": 13,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_000296",
-                "votes": 13,
+                "participantId": "SM070",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM142",
-                "votes": 13,
+                "participantId": "SM071",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "characterId": "char_001019",
-                "votes": 13,
+                "participantId": "SM072",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM073",
-                "votes": 13,
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "SM121",
-                "votes": 12,
+                "participantId": "SM074",
+                "votes": "-",
                 "status": "晋级"
             },
             {
-                "participantId": "ESM035",
-                "votes": 12,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000152",
-                "votes": 12,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM109",
-                "votes": 12,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001405",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000615",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM131",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000176",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "participantId": "ESM037",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001922",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM087",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "participantId": "SM145",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_001456",
-                "votes": 11,
-                "status": "晋级"
-            },
-            {
-                "characterId": "char_000880",
-                "votes": 11,
+                "participantId": "SM075",
+                "votes": "-",
                 "status": "晋级"
             },
             {
                 "participantId": "SM076",
-                "votes": 11,
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM077",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM078",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM079",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM080",
+                "votes": "-",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM081",
+                "votes": "156",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM082",
+                "votes": "117",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM083",
+                "votes": "111",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM084",
+                "votes": "99",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM085",
+                "votes": "86",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM086",
+                "votes": "81",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM087",
+                "votes": "81",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM088",
+                "votes": "77",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM089",
+                "votes": "70",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM090",
+                "votes": "59",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM091",
+                "votes": "57",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM092",
+                "votes": "52",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM093",
+                "votes": "52",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM094",
+                "votes": "51",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM095",
+                "votes": "47",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM096",
+                "votes": "45",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM097",
+                "votes": "45",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM098",
+                "votes": "44",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM099",
+                "votes": "44",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM100",
+                "votes": "44",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM101",
+                "votes": "44",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM102",
+                "votes": "43",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM103",
+                "votes": "37",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM104",
+                "votes": "35",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM105",
+                "votes": "34",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM106",
+                "votes": "33",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM107",
+                "votes": "32",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM108",
+                "votes": "32",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM109",
+                "votes": "31",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM110",
+                "votes": "31",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM111",
+                "votes": "30",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM112",
+                "votes": "30",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM113",
+                "votes": "30",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM114",
+                "votes": "29",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM115",
+                "votes": "29",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM116",
+                "votes": "29",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM117",
+                "votes": "28",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM118",
+                "votes": "27",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM119",
+                "votes": "27",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM120",
+                "votes": "26",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM121",
+                "votes": "26",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM122",
+                "votes": "26",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM123",
+                "votes": "25",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM124",
+                "votes": "25",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM125",
+                "votes": "24",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM126",
+                "votes": "23",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM127",
+                "votes": "23",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM128",
+                "votes": "23",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM129",
+                "votes": "23",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM130",
+                "votes": "21",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM131",
+                "votes": "21",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM132",
+                "votes": "21",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM133",
+                "votes": "20",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM134",
+                "votes": "19",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM135",
+                "votes": "19",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM136",
+                "votes": "19",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM137",
+                "votes": "19",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM138",
+                "votes": "18",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM139",
+                "votes": "18",
                 "status": "晋级"
             },
             {
                 "participantId": "SM140",
-                "votes": 10,
+                "votes": "18",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM141",
+                "votes": "18",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM142",
+                "votes": "18",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM143",
+                "votes": "17",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM144",
+                "votes": "17",
+                "status": "晋级"
+            },
+            {
+                "participantId": "SM145",
+                "votes": "17",
+                "status": "晋级"
+            },
+            {
+                "participantId": "ESM001",
+                "votes": "16",
                 "status": "未晋级"
             },
             {
-                "participantId": "ESM015",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_000108",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001451",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "SM061",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM013",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM009",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM049",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "SM099",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001391",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_000762",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM004",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_001574",
-                "votes": 10,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM040",
-                "votes": 9,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM027",
-                "votes": 9,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "ESM021",
-                "votes": 9,
+                "participantId": "ESM002",
+                "votes": "16",
                 "status": "未晋级"
             },
             {
                 "participantId": "ESM003",
-                "votes": 9,
+                "votes": "16",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM130",
-                "votes": 9,
+                "participantId": "ESM004",
+                "votes": "16",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001819",
-                "votes": 9,
+                "participantId": "ESM005",
+                "votes": "16",
                 "status": "未晋级"
             },
             {
-                "participantId": "ESM032",
-                "votes": 9,
+                "participantId": "ESM006",
+                "votes": "16",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001871",
-                "votes": 9,
+                "participantId": "ESM007",
+                "votes": "15",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000873",
-                "votes": 9,
+                "participantId": "ESM008",
+                "votes": "15",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000524",
-                "votes": 9,
+                "participantId": "ESM009",
+                "votes": "15",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM010",
+                "votes": "15",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM011",
+                "votes": "15",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM012",
+                "votes": "15",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM013",
+                "votes": "14",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM014",
+                "votes": "14",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM015",
+                "votes": "14",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM016",
+                "votes": "14",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM017",
+                "votes": "14",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM018",
+                "votes": "13",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM019",
+                "votes": "13",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM020",
+                "votes": "13",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM021",
+                "votes": "13",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM022",
+                "votes": "13",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM023",
+                "votes": "13",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM024",
+                "votes": "13",
                 "status": "未晋级"
             },
             {
                 "participantId": "ESM025",
-                "votes": 9,
+                "votes": "13",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000068",
-                "votes": 8,
+                "participantId": "ESM026",
+                "votes": "13",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM040",
-                "votes": 8,
+                "participantId": "ESM027",
+                "votes": "12",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM067",
-                "votes": 8,
+                "participantId": "ESM028",
+                "votes": "12",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001934",
-                "votes": 8,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "SM095",
-                "votes": 8,
-                "status": "未晋级"
-            },
-            {
-                "participantId": "SM107",
-                "votes": 8,
-                "status": "未晋级"
-            },
-            {
-                "characterId": "char_000413",
-                "votes": 8,
+                "participantId": "ESM029",
+                "votes": "12",
                 "status": "未晋级"
             },
             {
                 "participantId": "ESM030",
-                "votes": 8,
+                "votes": "12",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM125",
-                "votes": 8,
+                "participantId": "ESM031",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM116",
-                "votes": 8,
+                "participantId": "ESM032",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM108",
-                "votes": 8,
+                "participantId": "ESM033",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_002092",
-                "votes": 8,
+                "participantId": "ESM034",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001776",
-                "votes": 8,
+                "participantId": "ESM035",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "participantId": "SM054",
-                "votes": 8,
+                "participantId": "ESM036",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_002173",
-                "votes": 8,
+                "participantId": "ESM037",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000552",
-                "votes": 8,
+                "participantId": "ESM038",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_000683",
-                "votes": 8,
+                "participantId": "ESM039",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001802",
-                "votes": 8,
+                "participantId": "ESM040",
+                "votes": "11",
                 "status": "未晋级"
             },
             {
-                "characterId": "char_001901",
-                "votes": 8,
+                "participantId": "ESM041",
+                "votes": "11",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM042",
+                "votes": "11",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM043",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM044",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM045",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM046",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM047",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM048",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM049",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM050",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM051",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM052",
+                "votes": "10",
+                "status": "未晋级"
+            },
+            {
+                "participantId": "ESM053",
+                "votes": "10",
                 "status": "未晋级"
             }
         ]
@@ -1709,1266 +2009,360 @@
         "winter": {
             "female": [
                 {
-                    "participantId": "SF046",
-                    "votes": 31,
+                    "participantId": "NF001",
+                    "votes": 130,
                     "status": "晋级"
                 },
                 {
-                    "participantId": "SF013",
-                    "votes": 21,
+                    "participantId": "NF002",
+                    "votes": 122,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000018",
-                    "votes": 18,
+                    "participantId": "NF003",
+                    "votes": 62,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001074",
-                    "votes": 14,
+                    "participantId": "NF004",
+                    "votes": 51,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000928",
-                    "votes": 13,
+                    "participantId": "NF005",
+                    "votes": 36,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001537",
-                    "votes": 12,
+                    "participantId": "NF006",
+                    "votes": 27,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001850",
+                    "participantId": "NF007",
+                    "votes": 19,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF008",
+                    "votes": 15,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF009",
                     "votes": 11,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000537",
-                    "votes": 10,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF047",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001974",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000065",
+                    "participantId": "NF010",
                     "votes": 8,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000403",
+                    "participantId": "NF011",
                     "votes": 8,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001003",
+                    "participantId": "NF012",
                     "votes": 8,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_002156",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000939",
+                    "participantId": "NF013",
                     "votes": 7,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000798",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001938",
+                    "participantId": "NF014",
                     "votes": 6,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000567",
+                    "participantId": "NF015",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF016",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF017",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF018",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF019",
                     "votes": 5,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001684",
+                    "participantId": "NF020",
                     "votes": 5,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001004",
+                    "participantId": "NF021",
                     "votes": 5,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001261",
+                    "participantId": "NF022",
+                    "votes": 5,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF023",
+                    "votes": 5,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NF024",
                     "votes": 4,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000857",
-                    "votes": 3,
+                    "participantId": "NF025",
+                    "votes": 4,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000968",
-                    "votes": 3,
+                    "participantId": "NF026",
+                    "votes": 4,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000897",
-                    "votes": 3,
+                    "participantId": "NF027",
+                    "votes": 4,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001984",
-                    "votes": 3,
+                    "participantId": "NF028",
+                    "votes": 4,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000834",
-                    "votes": 3,
+                    "participantId": "NF029",
+                    "votes": 4,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000658",
-                    "votes": 9,
-                    "status": "未晋级"
+                    "participantId": "NF030",
+                    "votes": 4,
+                    "status": "晋级"
                 },
                 {
-                    "characterId": "char_001440",
-                    "votes": 9,
-                    "status": "未晋级"
+                    "participantId": "NF031",
+                    "votes": 4,
+                    "status": "晋级"
                 },
                 {
-                    "characterId": "char_000177",
-                    "votes": 7,
-                    "status": "未晋级"
+                    "participantId": "NF032",
+                    "votes": 4,
+                    "status": "晋级"
                 },
                 {
-                    "characterId": "char_000408",
-                    "votes": 7,
-                    "status": "未晋级"
+                    "participantId": "NF033",
+                    "votes": 4,
+                    "status": "晋级"
                 },
                 {
-                    "characterId": "char_002034",
-                    "votes": 5,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_000426",
-                    "votes": 5,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_001273",
-                    "votes": 5,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_001186",
-                    "votes": 5,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_001249",
+                    "participantId": "ENF001",
                     "votes": 3,
                     "status": "未晋级"
                 },
                 {
-                    "characterId": "char_000844",
+                    "participantId": "ENF002",
                     "votes": 3,
                     "status": "未晋级"
                 },
                 {
-                    "characterId": "char_000012",
+                    "participantId": "ENF003",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF004",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF005",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF006",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF007",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF008",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF009",
+                    "votes": 3,
+                    "status": "未晋级"
+                },
+                {
+                    "participantId": "ENF010",
                     "votes": 3,
                     "status": "未晋级"
                 }
             ],
             "male": [
                 {
-                    "participantId": "SM007",
-                    "votes": 19,
+                    "participantId": "NM001",
+                    "votes": 64,
                     "status": "晋级"
                 },
                 {
-                    "participantId": "SM012",
+                    "participantId": "NM002",
+                    "votes": 53,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM003",
+                    "votes": 22,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM004",
+                    "votes": 20,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM005",
+                    "votes": 18,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM006",
+                    "votes": 18,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM007",
+                    "votes": 18,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM008",
+                    "votes": 14,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM009",
                     "votes": 13,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001023",
+                    "participantId": "NM010",
                     "votes": 12,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000029",
+                    "participantId": "NM011",
                     "votes": 12,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000013",
+                    "participantId": "NM012",
+                    "votes": 12,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM013",
                     "votes": 11,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001949",
+                    "participantId": "NM014",
+                    "votes": 11,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM015",
                     "votes": 10,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_000238",
+                    "participantId": "NM016",
                     "votes": 9,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_002193",
-                    "votes": 8,
+                    "participantId": "NM017",
+                    "votes": 7,
                     "status": "晋级"
                 },
                 {
-                    "characterId": "char_001194",
+                    "participantId": "NM018",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM019",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "NM020",
+                    "votes": 6,
+                    "status": "晋级"
+                },
+                {
+                    "participantId": "ENM001",
                     "votes": 5,
-                    "status": "晋级"
+                    "status": "未晋级"
                 },
                 {
-                    "characterId": "char_001565",
+                    "participantId": "ENM002",
                     "votes": 5,
-                    "status": "晋级"
+                    "status": "未晋级"
                 },
                 {
-                    "characterId": "char_001344",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000878",
+                    "participantId": "ENM003",
                     "votes": 4,
-                    "status": "晋级"
+                    "status": "未晋级"
                 },
                 {
-                    "characterId": "char_001920",
+                    "participantId": "ENM004",
                     "votes": 4,
-                    "status": "晋级"
+                    "status": "未晋级"
                 },
                 {
-                    "characterId": "char_000666",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001462",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000592",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000523",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001371",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000096",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000999",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000900",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001161",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000976",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000892",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000234",
+                    "participantId": "ENM005",
                     "votes": 3,
                     "status": "未晋级"
                 }
             ]
         },
         "spring": {
-            "female": [
-                {
-                    "participantId": "SF033",
-                    "votes": 112,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF021",
-                    "votes": 106,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF139",
-                    "votes": 98,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000570",
-                    "votes": 75,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001352",
-                    "votes": 60,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001100",
-                    "votes": 49,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000277",
-                    "votes": 48,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001258",
-                    "votes": 48,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000450",
-                    "votes": 41,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001362",
-                    "votes": 26,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF008",
-                    "votes": 24,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002130",
-                    "votes": 22,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001338",
-                    "votes": 21,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001839",
-                    "votes": 15,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000409",
-                    "votes": 12,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESF019",
-                    "votes": 12,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002056",
-                    "votes": 11,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001713",
-                    "votes": 10,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000432",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002109",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF042",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000301",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000396",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001202",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001147",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002188",
-                    "votes": 11,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001336",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000077",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000617",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESF052",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002116",
-                    "votes": 20,
-                    "status": "未晋级"
-                },
-                {
-                    "participantId": "ESF020",
-                    "votes": 12,
-                    "status": "未晋级"
-                }
-            ],
-            "male": [
-                {
-                    "participantId": "ESM028",
-                    "votes": 69,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001294",
-                    "votes": 67,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000448",
-                    "votes": 53,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SM060",
-                    "votes": 18,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002057",
-                    "votes": 16,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000276",
-                    "votes": 14,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001018",
-                    "votes": 12,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001244",
-                    "votes": 11,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001823",
-                    "votes": 10,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESM026",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000371",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002058",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001913",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001365",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001269",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001290",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000446",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000189",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000030",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000660",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SM015",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002191",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002179",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001451",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001215",
-                    "votes": 3,
-                    "status": "未晋级"
-                }
-            ]
+            "female": [],
+            "male": []
         },
         "summer": {
-            "female": [
-                {
-                    "participantId": "SF003",
-                    "votes": 457,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF025",
-                    "votes": 442,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF105",
-                    "votes": 408,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF036",
-                    "votes": 370,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF075",
-                    "votes": 253,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF077",
-                    "votes": 232,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF039",
-                    "votes": 222,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF044",
-                    "votes": 145,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001373",
-                    "votes": 97,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000995",
-                    "votes": 41,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000645",
-                    "votes": 37,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001732",
-                    "votes": 32,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000802",
-                    "votes": 30,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000407",
-                    "votes": 30,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000253",
-                    "votes": 24,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001372",
-                    "votes": 24,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001502",
-                    "votes": 22,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001743",
-                    "votes": 20,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001999",
-                    "votes": 17,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001109",
-                    "votes": 12,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000819",
-                    "votes": 11,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF012",
-                    "votes": 11,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000586",
-                    "votes": 10,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000202",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001058",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002206",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESF002",
-                    "votes": 98,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_001525",
-                    "votes": 22,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_000778",
-                    "votes": 17,
-                    "status": "未晋级"
-                },
-                {
-                    "participantId": "SF079",
-                    "votes": 15,
-                    "status": "未晋级"
-                },
-                {
-                    "participantId": "ESF004",
-                    "votes": 12,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_000646",
-                    "votes": 10,
-                    "status": "未晋级"
-                }
-            ],
-            "male": [
-                {
-                    "participantId": "SM019",
-                    "votes": 436,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SM084",
-                    "votes": 429,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESM005",
-                    "votes": 349,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000198",
-                    "votes": 104,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESM012",
-                    "votes": 55,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000653",
-                    "votes": 33,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001702",
-                    "votes": 26,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000192",
-                    "votes": 20,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000355",
-                    "votes": 20,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001285",
-                    "votes": 17,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SM079",
-                    "votes": 15,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000111",
-                    "votes": 14,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001579",
-                    "votes": 12,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000315",
-                    "votes": 11,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001089",
-                    "votes": 8,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000462",
-                    "votes": 6,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000814",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001694",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000688",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000144",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000700",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001719",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000358",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000877",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000381",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000851",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001112",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001046",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002175",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001081",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000246",
-                    "votes": 2,
-                    "status": "未晋级"
-                }
-            ]
+            "female": [],
+            "male": []
         },
         "autumn": {
-            "female": [
-                {
-                    "participantId": "SF071",
-                    "votes": 84,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF074",
-                    "votes": 78,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF014",
-                    "votes": 62,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF073",
-                    "votes": 58,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000416",
-                    "votes": 57,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000492",
-                    "votes": 35,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001318",
-                    "votes": 32,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000771",
-                    "votes": 27,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001176",
-                    "votes": 17,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001026",
-                    "votes": 15,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000596",
-                    "votes": 14,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000490",
-                    "votes": 13,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000491",
-                    "votes": 13,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000213",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001582",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SF080",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000146",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001516",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001781",
-                    "votes": 6,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000705",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001693",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002019",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESF030",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001144",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001861",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001908",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002018",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000956",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001319",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000124",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000772",
-                    "votes": 6,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000879",
-                    "votes": 11,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_001583",
-                    "votes": 8,
-                    "status": "未晋级"
-                },
-                {
-                    "characterId": "char_001170",
-                    "votes": 4,
-                    "status": "未晋级"
-                }
-            ],
-            "male": [
-                {
-                    "characterId": "char_002147",
-                    "votes": 83,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SM065",
-                    "votes": 57,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001546",
-                    "votes": 57,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001792",
-                    "votes": 26,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001500",
-                    "votes": 16,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002039",
-                    "votes": 12,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002120",
-                    "votes": 10,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000417",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002194",
-                    "votes": 9,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "SM064",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002005",
-                    "votes": 7,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000359",
-                    "votes": 6,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000204",
-                    "votes": 6,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001363",
-                    "votes": 5,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESM046",
-                    "votes": 4,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002095",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000659",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000584",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000604",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000830",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001747",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001127",
-                    "votes": 3,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001528",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000847",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001822",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001818",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_001615",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000894",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "participantId": "ESM006",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000918",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_002138",
-                    "votes": 2,
-                    "status": "晋级"
-                },
-                {
-                    "characterId": "char_000265",
-                    "votes": 2,
-                    "status": "晋级"
-                }
-            ]
+            "female": [],
+            "male": []
         }
     }
 }

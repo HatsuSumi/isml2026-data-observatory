@@ -1,0 +1,52 @@
+.main-statistics-placeholder-page {
+    min-height: 100vh;
+    background: #1a1a1a;
+}
+
+.placeholder-page {
+    display: grid;
+    min-height: calc(100vh - 160px);
+    place-items: center;
+    padding: 120px 24px 80px;
+    box-sizing: border-box;
+}
+
+.placeholder-page__content {
+    width: min(100%, 720px);
+    padding: 64px 48px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(42, 42, 42, 0.96), rgba(31, 31, 31, 0.96));
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.placeholder-page__eyebrow {
+    color: #8aa8c7;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+.placeholder-page h1 {
+    margin: 18px 0 14px;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+}
+
+.placeholder-page p {
+    margin: 0;
+    color: #c8c8c8;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 640px) {
+    .placeholder-page {
+        padding: 100px 16px 64px;
+    }
+
+    .placeholder-page__content {
+        padding: 48px 24px;
+    }
+}

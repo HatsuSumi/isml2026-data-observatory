@@ -1,6 +1,6 @@
 import { loadNominationStats as loadNominationStatsFromFiles } from '../common/data-loader.js';
 
-const STORAGE_KEY = 'isml2026:statistics:nomination-stats:v3';
+const STORAGE_KEY = 'isml2026:statistics:nomination-stats:v4';
 
 let dataPromise = null;
 

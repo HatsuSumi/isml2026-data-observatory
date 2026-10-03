@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../../../">
+    <include src="templates/header.html"></include>
+    <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/statistics/main-statistics/internal-battles.css">
+</head>
+<body class="internal-battles-page">
+    <main class="container">
+        <h1 id="pageTitle">内战数据</h1>
+        <p class="definition">内战是指同一作品的角色互相对阵的情况，不考虑是否同班、同校、同阵容或同组织。</p>
+
+        <section class="internal-battles-controls" aria-label="内战数据筛选">
+            <label class="control-field select-wrapper">
+                <span>赛事</span>
+                <select id="eventFilter" aria-label="按赛事筛选">
+                    <option value="all">全部赛事</option>
+                </select>
+            </label>
+            <label class="control-field control-field-search">
+                <span>搜索</span>
+                <input id="searchInput" class="search-input" type="search" placeholder="搜索角色或作品" aria-label="搜索角色或作品">
+            </label>
+            <button id="resetButton" class="reset-btn" type="button">重置筛选</button>
+        </section>
+
+        <p id="summary" class="summary" aria-live="polite"></p>
+        <p id="statusMessage" class="status-message" role="status">正在加载内战数据...</p>
+
+        <div class="table-scroll">
+            <table id="battlesTable" hidden>
+                <colgroup>
+                    <col class="column-date">
+                    <col class="column-event">
+                    <col class="column-character">
+                    <col class="column-ip">
+                    <col class="column-votes">
+                    <col class="column-share">
+                    <col class="column-character">
+                    <col class="column-ip">
+                    <col class="column-votes">
+                    <col class="column-share">
+                    <col class="column-metric">
+                    <col class="column-metric">
+                    <col class="column-metric">
+                    <col class="column-metric">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th data-sort="date" data-sortable="true">赛事日期</th>
+                        <th data-sort="event" data-sortable="true">赛事名称</th>
+                        <th data-sort="characterA" data-sortable="true">角色A姓名</th>
+                        <th data-sort="ipA" data-sortable="true">角色A作品名</th>
+                        <th data-sort="votesA" data-sortable="true">角色A得票数</th>
+                        <th data-sort="shareA" data-sortable="true">角色A得票率</th>
+                        <th data-sort="characterB" data-sortable="true">角色B姓名</th>
+                        <th data-sort="ipB" data-sortable="true">角色B作品名</th>
+                        <th data-sort="votesB" data-sortable="true">角色B得票数</th>
+                        <th data-sort="shareB" data-sortable="true">角色B得票率</th>
+                        <th data-sort="voteBank" data-sortable="true">票仓</th>
+                        <th data-sort="margin" data-sortable="true">票差</th>
+                        <th data-sort="ratio" data-sortable="true">倍杀</th>
+                        <th data-sort="abstentionRate" data-sortable="true">弃票率</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <template id="battleRowTemplate">
+            <tr>
+                <td class="date"></td>
+                <td class="event"></td>
+                <td class="character-a"></td>
+                <td class="ip-a"></td>
+                <td class="votes-a"></td>
+                <td class="share-a"></td>
+                <td class="character-b"></td>
+                <td class="ip-b"></td>
+                <td class="votes-b"></td>
+                <td class="share-b"></td>
+                <td class="vote-bank"></td>
+                <td class="margin"></td>
+                <td class="ratio"></td>
+                <td class="abstention-rate"></td>
+            </tr>
+        </template>
+    </main>
+    <include src="templates/footer.html"></include>
+    <script type="module" src="js/statistics/main-statistics/internal-battles.js"></script>
+</body>
+</html>

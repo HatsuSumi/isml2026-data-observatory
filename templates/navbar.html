@@ -26,7 +26,7 @@
                 </div>
                 <a href="./pages/events-data/events-data.html" class="nav-link" data-page="events-data">赛事数据</a>
                 <a href="./pages/characters-data/characters-data.html" class="nav-link" data-page="characters-data">角色数据</a>
-                <div class="dropdown">
+                <div class="dropdown dropdown-comparison">
                     <a href="#" class="nav-link" data-page="comparison" onclick="return false;">数据对比</a>
                     <ul class="dropdown-menu">
                         <li>
@@ -52,11 +52,16 @@
                                 提名阶段统计
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-submenu-trigger" onclick="return false;">
                                 <i class="fas fa-chart-line"></i>
-                                主赛事阶段统计
+                                主赛事业阶段统计
                             </a>
+                            <ul class="dropdown-menu dropdown-menu-level-3">
+                                <li><a href="./pages/statistics/main-statistics/internal-battles/internal-battles.html"><i class="fas fa-arrows-left-right"></i>内战数据</a></li>
+                                <li><a href="./pages/statistics/main-statistics/upsets/upsets.html"><i class="fas fa-arrow-trend-up"></i>下克上数据</a></li>
+                                <li><a href="./pages/statistics/main-statistics/total-votes/total-votes.html"><i class="fas fa-square-poll-vertical"></i>累计得票数</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

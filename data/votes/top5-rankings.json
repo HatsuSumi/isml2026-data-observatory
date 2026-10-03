@@ -722,5 +722,53 @@
                 "votes": 705
             }
         ]
+    },
+    "新星组冬季赛提名-女性组别": {
+        "top5": [
+            {
+                "participantId": "NF001",
+                "votes": 130
+            },
+            {
+                "participantId": "NF002",
+                "votes": 122
+            },
+            {
+                "participantId": "NF003",
+                "votes": 62
+            },
+            {
+                "participantId": "NF004",
+                "votes": 51
+            },
+            {
+                "participantId": "NF005",
+                "votes": 36
+            }
+        ]
+    },
+    "新星组冬季赛提名-男性组别": {
+        "top5": [
+            {
+                "participantId": "NM001",
+                "votes": 64
+            },
+            {
+                "participantId": "NM002",
+                "votes": 53
+            },
+            {
+                "participantId": "NM003",
+                "votes": 22
+            },
+            {
+                "participantId": "NM004",
+                "votes": 20
+            },
+            {
+                "participantId": "NM005",
+                "votes": 18
+            }
+        ]
     }
 }
