@@ -70,7 +70,9 @@ function buildUpsetRow(match, rawMatch, profiles, seedIndex) {
         id: `${match.links.data}:${rawMatch.match}`,
         date: normalizeDate(match.date), dateLabel: formatDate(match.date), event: match.title,
         higherSeed: higherSeed.seed, higherCharacter: higherSeed.profile.name, higherIp: higherSeed.profile.ip, higherVotes: higherSeed.votes,
+        higherShare: voteBank ? higherSeed.votes / voteBank : 0,
         lowerSeed: lowerSeed.seed, lowerCharacter: lowerSeed.profile.name, lowerIp: lowerSeed.profile.ip, lowerVotes: lowerSeed.votes,
+        lowerShare: voteBank ? lowerSeed.votes / voteBank : 0,
         seedGap: higherSeed.seed - lowerSeed.seed, voteBank, margin: higherSeed.votes - lowerSeed.votes,
         ratio: lowerSeed.votes === 0 ? Infinity : higherSeed.votes / lowerSeed.votes,
         abstentionRate: totalVotes === null ? null : totalVotes === 0 ? 0 : 1 - voteBank / totalVotes
@@ -124,11 +126,11 @@ function setText(row, selector, value) {
 }
 
 function formatRatio(value) { return Number.isFinite(value) ? `${value.toFixed(2)} 倍` : '∞'; }
-function formatPercent(value) { return value === null ? '—' : `${(value * 100).toFixed(2)}%`; }
+function formatPercent(value) { return `${(value * 100).toFixed(2)}%`; }
 function updateRow(element, row) {
     setText(element, '.date', row.dateLabel); setText(element, '.event', row.event);
-    setText(element, '.higher-seed', `${row.higherSeed}号`); setText(element, '.higher-character', row.higherCharacter); setText(element, '.higher-ip', row.higherIp); setText(element, '.higher-votes', `${row.higherVotes}票`);
-    setText(element, '.lower-seed', `${row.lowerSeed}号`); setText(element, '.lower-character', row.lowerCharacter); setText(element, '.lower-ip', row.lowerIp); setText(element, '.lower-votes', `${row.lowerVotes}票`);
+    setText(element, '.higher-seed', `${row.higherSeed}号`); setText(element, '.higher-character', row.higherCharacter); setText(element, '.higher-ip', row.higherIp); setText(element, '.higher-votes', `${row.higherVotes}票（${formatPercent(row.higherShare)}）`);
+    setText(element, '.lower-seed', `${row.lowerSeed}号`); setText(element, '.lower-character', row.lowerCharacter); setText(element, '.lower-ip', row.lowerIp); setText(element, '.lower-votes', `${row.lowerVotes}票（${formatPercent(row.lowerShare)}）`);
     setText(element, '.seed-gap', `${row.seedGap}`); setText(element, '.vote-bank', `${row.voteBank}票`); setText(element, '.margin', `${row.margin}票`); setText(element, '.ratio', formatRatio(row.ratio)); setText(element, '.abstention-rate', formatPercent(row.abstentionRate));
 }
 
