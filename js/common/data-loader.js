@@ -256,6 +256,38 @@ export async function loadNecklaceData(snapshotPath) {
     };
 }
 
+export async function loadBattleData(snapshotPath) {
+    const [rawData, resolver] = await Promise.all([
+        fetchJson(snapshotPath),
+        loadCharacterResolver()
+    ]);
+    if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
+        throw new Error(`赛事数据格式无效：${snapshotPath}`);
+    }
+    const hasBattleRecords = rawData.data.some(item => Array.isArray(item?.contestants));
+    if (!hasBattleRecords) return null;
+    return {
+        ...rawData,
+        data: rawData.data.map((item, itemIndex) => {
+            if (!item || !Array.isArray(item.contestants)) {
+                throw new Error(`赛事数据 ${snapshotPath} 第 ${itemIndex + 1} 场格式无效`);
+            }
+            return {
+                ...item,
+                contestants: item.contestants.map((contestant, contestantIndex) => {
+                    if (!contestant || typeof contestant.participantId !== 'string') {
+                        throw new Error(`赛事数据 ${snapshotPath} 第 ${itemIndex + 1} 场第 ${contestantIndex + 1} 项缺少 participantId`);
+                    }
+                    return {
+                        ...contestant,
+                        ...resolver.getByParticipantId(contestant.participantId)
+                    };
+                })
+            };
+        })
+    };
+}
+
 export async function loadPhase1Data(snapshotPath) {
     const [rawData, resolver] = await Promise.all([
         fetchJson(getInternalSnapshotPath(snapshotPath, 'phase1')),

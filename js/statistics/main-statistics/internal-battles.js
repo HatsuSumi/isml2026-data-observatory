@@ -1,3 +1,4 @@
+import { createPagination } from './pagination.js';
 import { buildCustomSelect, closeCustomSelects, syncCustomSelect } from '../../table/table-custom-select.js';
 import { loadCharacterResolver } from '../../common/character-resolver.js';
 import { loadEventsConfig } from '../../common/data-loader.js';
@@ -8,8 +9,11 @@ const state = {
     filteredRows: [],
     event: 'all',
     search: '',
-    sort: { key: 'date', direction: 'desc' }
+    sort: { key: 'date', direction: 'desc' },
+    pageRows: []
 };
+
+let pagination;
 
 function requireElement(selector) {
     const element = document.querySelector(selector);
@@ -153,7 +157,7 @@ function applyFilters() {
         const searchMatches = !search || `${row.characterA} ${row.ipA} ${row.characterB} ${row.ipB}`.toLocaleLowerCase('zh-CN').includes(search);
         return eventMatches && searchMatches;
     }));
-    renderRows();
+    pagination.setTotal(state.filteredRows.length);
 }
 
 function createRow() {
@@ -195,7 +199,7 @@ function updateRow(element, row) {
 function renderRows() {
     const body = requireElement('#tableBody');
     const fragment = document.createDocumentFragment();
-    state.filteredRows.forEach(row => {
+    state.pageRows.forEach(row => {
         const element = createRow();
         element.dataset.id = row.id;
         updateRow(element, row);
@@ -237,6 +241,14 @@ function debounce(callback, delay) {
 function bindControls() {
     const eventFilter = requireElement('#eventFilter');
     const searchInput = requireElement('#searchInput');
+    pagination = createPagination({
+        container: requireElement('#pagination'),
+        pageSize: 25,
+        onPageChange: ({ start, end }) => {
+            state.pageRows = state.filteredRows.slice(start, end);
+            renderRows();
+        }
+    });
     buildCustomSelect(eventFilter);
     document.addEventListener('click', event => {
         if (!event.target.closest('.select-wrapper')) closeCustomSelects();

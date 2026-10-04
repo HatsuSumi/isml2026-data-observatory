@@ -6,6 +6,7 @@
     <base href="../../../../">
     <include src="templates/header.html"></include>
     <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/statistics/main-statistics/pagination.css">
     <link rel="stylesheet" href="css/statistics/main-statistics/internal-battles.css">
 </head>
 <body class="internal-battles-page">
@@ -69,6 +70,13 @@
                 <tbody id="tableBody"></tbody>
             </table>
         </div>
+
+        <nav class="pagination" id="pagination" aria-label="内战数据分页" hidden>
+            <button class="pagination__control" type="button" data-page-action="previous">上一页</button>
+            <span class="pagination__pages" data-page-list></span>
+            <span class="pagination__status" data-page-status aria-live="polite"></span>
+            <button class="pagination__control" type="button" data-page-action="next">下一页</button>
+        </nav>
 
         <template id="battleRowTemplate">
             <tr>

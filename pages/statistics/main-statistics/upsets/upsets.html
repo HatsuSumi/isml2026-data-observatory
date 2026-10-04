@@ -5,16 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../../../../">
     <include src="templates/header.html"></include>
-    <link rel="stylesheet" href="css/statistics/main-statistics/main-statistics-placeholder.css">
+    <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/statistics/main-statistics/pagination.css">
+    <link rel="stylesheet" href="css/statistics/main-statistics/upsets.css">
 </head>
-<body class="main-statistics-placeholder-page">
-    <main class="placeholder-page" aria-labelledby="placeholder-title">
-        <div class="placeholder-page__content">
-            <span class="placeholder-page__eyebrow">主赛事阶段统计</span>
-            <h1 id="placeholder-title">下克上数据</h1>
-            <p>页面正在建设中，敬请期待 ❤️</p>
+<body class="upsets-page">
+    <main class="container">
+        <h1 id="pageTitle">下克上数据</h1>
+        <p class="definition">种子号大的角色得票数高于种子号小的角色时，即下克上。</p>
+
+        <section class="upsets-controls" aria-label="下克上数据筛选">
+            <label class="control-field select-wrapper">
+                <span>赛事</span>
+                <select id="eventFilter" aria-label="按赛事筛选">
+                    <option value="all">全部赛事</option>
+                </select>
+            </label>
+            <label class="control-field control-field-search">
+                <span>搜索</span>
+                <input id="searchInput" class="search-input" type="search" placeholder="搜索角色或作品" aria-label="搜索角色或作品">
+            </label>
+            <button id="resetButton" class="reset-btn" type="button">重置筛选</button>
+        </section>
+
+        <p id="summary" class="summary" aria-live="polite"></p>
+        <p id="statusMessage" class="status-message" role="status">正在加载下克上数据...</p>
+
+        <div class="table-scroll">
+            <table id="upsetsTable" hidden>
+                <colgroup>
+                    <col class="column-date"><col class="column-event">
+                    <col class="column-seed"><col class="column-character"><col class="column-ip"><col class="column-votes">
+                    <col class="column-seed"><col class="column-character"><col class="column-ip"><col class="column-votes">
+                    <col class="column-metric"><col class="column-metric"><col class="column-metric"><col class="column-metric"><col class="column-metric">
+                </colgroup>
+                <thead><tr>
+                    <th data-sort="date" data-sortable="true">赛事日期</th>
+                    <th data-sort="event" data-sortable="true">赛事名称</th>
+                    <th data-sort="higherSeed" data-sortable="true">大种子号</th>
+                    <th data-sort="higherCharacter" data-sortable="true">大种子角色</th>
+                    <th data-sort="higherIp" data-sortable="true">大种子作品</th>
+                    <th data-sort="higherVotes" data-sortable="true">大种子得票数</th>
+                    <th data-sort="lowerSeed" data-sortable="true">小种子号</th>
+                    <th data-sort="lowerCharacter" data-sortable="true">小种子角色</th>
+                    <th data-sort="lowerIp" data-sortable="true">小种子作品</th>
+                    <th data-sort="lowerVotes" data-sortable="true">小种子得票数</th>
+                    <th data-sort="seedGap" data-sortable="true">种子差</th>
+                    <th data-sort="voteBank" data-sortable="true">票仓</th>
+                    <th data-sort="margin" data-sortable="true">票差</th>
+                    <th data-sort="ratio" data-sortable="true">倍杀</th>
+                    <th data-sort="abstentionRate" data-sortable="true">弃票率</th>
+                </tr></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
         </div>
+
+        <nav class="pagination" id="pagination" aria-label="下克上数据分页" hidden>
+            <button class="pagination__control" type="button" data-page-action="previous">上一页</button>
+            <span class="pagination__pages" data-page-list></span>
+            <span class="pagination__status" data-page-status aria-live="polite"></span>
+            <button class="pagination__control" type="button" data-page-action="next">下一页</button>
+        </nav>
+
+        <template id="upsetRowTemplate"><tr>
+            <td class="date"></td><td class="event"></td>
+            <td class="higher-seed"></td><td class="higher-character"></td><td class="higher-ip"></td><td class="higher-votes"></td>
+            <td class="lower-seed"></td><td class="lower-character"></td><td class="lower-ip"></td><td class="lower-votes"></td>
+                    <td class="seed-gap"></td><td class="vote-bank"></td><td class="margin"></td><td class="ratio"></td><td class="abstention-rate"></td>
+        </tr></template>
     </main>
     <include src="templates/footer.html"></include>
+    <script type="module" src="js/statistics/main-statistics/upsets.js"></script>
 </body>
 </html>
