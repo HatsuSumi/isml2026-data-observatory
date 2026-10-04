@@ -1,3 +1,23 @@
+.total-votes-page .statistics-notes {
+    width: min(100%, 880px);
+    margin: 0 auto 24px;
+    padding: 14px 18px 14px 38px;
+    border-left: 3px solid #9370db;
+    border-radius: 4px;
+    background: rgba(147, 112, 219, 0.08);
+    color: #bdbdbd;
+    line-height: 1.7;
+    box-sizing: border-box;
+}
+
+.total-votes-page .statistics-notes li + li {
+    margin-top: 8px;
+}
+
+.total-votes-page .statistics-notes li::marker {
+    color: #b088ff;
+}
+
 .total-votes-page .definition {
     max-width: 880px;
     margin: 0 auto 24px;
@@ -53,6 +73,7 @@
     color: #fff;
     font: inherit;
     cursor: pointer;
+    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
 .total-votes-page .filter-btn {
@@ -361,6 +382,11 @@
 
     .event-modal {
         padding: 12px;
+    }
+
+    .total-votes-page .statistics-notes {
+        padding: 12px 14px 12px 32px;
+        text-align: left;
     }
 
     .event-options {

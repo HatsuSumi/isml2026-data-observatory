@@ -42,10 +42,17 @@ function assertDate(value, label) {
     return match[0].replaceAll('-', '/');
 }
 
-function assertVotes(value, label) {
+function parseVotes(value) {
+    if (Array.isArray(value)) {
+        for (let index = value.length - 1; index >= 0; index -= 1) {
+            const votes = Number(value[index]);
+            if (Number.isFinite(votes) && votes > 0) return { votes, finalRound: index + 1 };
+        }
+        return null;
+    }
     const votes = Number(value);
-    if (!Number.isFinite(votes) || votes < 0) throw new Error(`${label}票数无效：${value}`);
-    return votes;
+    if (!Number.isFinite(votes) || votes < 0) return null;
+    return { votes, finalRound: null };
 }
 
 function getDataEntries(eventsConfig) {
@@ -78,14 +85,14 @@ function collectVoteRecords(data, event, resolver) {
         if (Array.isArray(item?.contestants)) {
             item.contestants.forEach((contestant, contestantIndex) => {
                 if (!contestant || typeof contestant.participantId !== 'string') throw new Error(`赛事数据 ${event.dataPath} 第 ${itemIndex + 1} 场第 ${contestantIndex + 1} 项缺少 participantId`);
-                const votes = Number(contestant.votes);
-                if (Number.isFinite(votes) && votes >= 0) records.push({ participantId: contestant.participantId, votes, profile: resolver.getByParticipantId(contestant.participantId) });
+                const parsedVotes = parseVotes(contestant.votes);
+                if (parsedVotes) records.push({ participantId: contestant.participantId, ...parsedVotes, profile: resolver.getByParticipantId(contestant.participantId) });
             });
             return;
         }
         if (typeof item?.participantId !== 'string') return;
-        const votes = Number(item.votes);
-        if (Number.isFinite(votes) && votes >= 0) records.push({ participantId: item.participantId, votes, profile: resolver.getByParticipantId(item.participantId) });
+        const parsedVotes = parseVotes(item.votes);
+        if (parsedVotes) records.push({ participantId: item.participantId, ...parsedVotes, profile: resolver.getByParticipantId(item.participantId) });
     });
     return records;
 }
@@ -107,9 +114,9 @@ function aggregateRows() {
         event.records.forEach(record => {
             const entry = eventVotes.get(record.participantId);
             if (entry) entry.votes += record.votes;
-            else eventVotes.set(record.participantId, { profile: record.profile, votes: record.votes });
+            else eventVotes.set(record.participantId, { profile: record.profile, votes: record.votes, finalRound: record.finalRound });
         });
-        eventVotes.forEach(({ profile, votes }, participantId) => {
+        eventVotes.forEach(({ profile, votes, finalRound }, participantId) => {
             let row = totals.get(participantId);
             if (!row) {
                 row = {
@@ -125,7 +132,7 @@ function aggregateRows() {
             }
             row.totalVotes += votes;
             row.eventCount += 1;
-            row.breakdown.push({ eventId: event.id, label: event.label, votes });
+            row.breakdown.push({ eventId: event.id, label: finalRound ? `${event.label}（第${finalRound}轮）` : event.label, votes });
         });
     });
     return [...totals.values()];
