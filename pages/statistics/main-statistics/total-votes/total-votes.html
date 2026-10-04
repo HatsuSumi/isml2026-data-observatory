@@ -5,16 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../../../../">
     <include src="templates/header.html"></include>
-    <link rel="stylesheet" href="css/statistics/main-statistics/main-statistics-placeholder.css">
+    <link rel="stylesheet" href="css/tables/table-base.css">
+    <link rel="stylesheet" href="css/statistics/main-statistics/pagination.css">
+    <link rel="stylesheet" href="css/statistics/main-statistics/total-votes.css">
 </head>
-<body class="main-statistics-placeholder-page">
-    <main class="placeholder-page" aria-labelledby="placeholder-title">
-        <div class="placeholder-page__content">
-            <span class="placeholder-page__eyebrow">主赛事阶段统计</span>
-            <h1 id="placeholder-title">累计得票数</h1>
-            <p>页面正在建设中，敬请期待 ❤️</p>
+<body class="total-votes-page">
+    <main class="container">
+        <h1 id="pageTitle">累计得票数</h1>
+        <p class="definition">汇总已选择赛事中每名角色的全部得票数，默认纳入所有已完成且包含有效票数的赛事。</p>
+
+        <section class="total-votes-controls" aria-label="累计得票数筛选">
+            <label class="control-field control-field-search">
+                <span>搜索</span>
+                <input id="searchInput" class="search-input" type="search" placeholder="搜索角色或作品" aria-label="搜索角色或作品">
+            </label>
+            <button id="openEventModal" class="filter-btn" type="button" aria-haspopup="dialog" aria-controls="eventModal">
+                <span aria-hidden="true">☷</span>
+                <span id="selectedEventsLabel">选择赛事</span>
+            </button>
+        </section>
+
+        <p id="summary" class="summary" aria-live="polite"></p>
+        <p id="statusMessage" class="status-message" role="status">正在加载累计得票数据...</p>
+
+        <div class="table-scroll">
+            <table id="totalVotesTable" hidden>
+                <colgroup>
+                    <col class="column-rank">
+                    <col class="column-character">
+                    <col class="column-ip">
+                    <col class="column-votes">
+                    <col class="column-events">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th data-sort="name" data-sortable="true">角色</th>
+                        <th data-sort="ip" data-sortable="true">作品</th>
+                        <th data-sort="totalVotes" data-sortable="true">累计得票数</th>
+                        <th data-sort="eventCount" data-sortable="true">参与赛事数</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
         </div>
+
+        <nav class="pagination" id="pagination" aria-label="累计得票数分页" hidden>
+            <button class="pagination__control" type="button" data-page-action="previous">上一页</button>
+            <span class="pagination__pages" data-page-list></span>
+            <span class="pagination__status" data-page-status aria-live="polite"></span>
+            <button class="pagination__control" type="button" data-page-action="next">下一页</button>
+        </nav>
     </main>
+
+    <div id="eventModal" class="event-modal" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle" hidden>
+        <section class="event-modal__panel">
+            <header class="event-modal__header">
+                <h2 id="eventModalTitle">选择纳入统计的赛事</h2>
+                <button id="closeEventModal" class="icon-btn" type="button" aria-label="关闭赛事筛选">×</button>
+            </header>
+            <div class="event-modal__toolbar">
+                <button id="selectAllEvents" class="modal-action-btn" type="button">全选</button>
+                <button id="invertEvents" class="modal-action-btn" type="button">反选</button>
+            </div>
+            <div id="eventOptions" class="event-options"></div>
+            <footer class="event-modal__footer">
+                <button id="cancelEventModal" class="modal-secondary-btn" type="button">取消</button>
+                <button id="confirmEventModal" class="modal-primary-btn" type="button">应用筛选</button>
+            </footer>
+        </section>
+    </div>
+
+    <div id="detailModal" class="event-modal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle" hidden>
+        <section class="event-modal__panel detail-modal__panel">
+            <header class="event-modal__header">
+                <h2 id="detailModalTitle">得票明细</h2>
+                <button id="closeDetailModal" class="icon-btn" type="button" aria-label="关闭得票明细">×</button>
+            </header>
+            <div class="detail-modal__content">
+                <p id="detailCharacter" class="detail-modal__character"></p>
+                <div id="detailBody" class="detail-modal__body"></div>
+            </div>
+        </section>
+    </div>
+
+    <template id="detailVoteItemTemplate">
+        <div class="detail-item">
+            <span class="detail-item__label"></span>
+            <span class="detail-item__value"></span>
+        </div>
+    </template>
+
+    <template id="totalVotesRowTemplate">
+        <tr>
+            <td class="rank"></td>
+            <td class="character"></td>
+            <td class="ip"></td>
+            <td><button class="detail-button total-votes" type="button"></button></td>
+            <td><button class="detail-button event-count" type="button"></button></td>
+        </tr>
+    </template>
+    <template id="eventOptionTemplate">
+        <label class="event-option">
+            <input class="event-option__input" type="checkbox">
+            <span class="event-option__label"></span>
+        </label>
+    </template>
+
     <include src="templates/footer.html"></include>
+    <script type="module" src="js/statistics/main-statistics/total-votes.js"></script>
 </body>
 </html>
