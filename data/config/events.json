@@ -20,6 +20,7 @@
                             "title": "恒星组提名-女性组别",
                             "id": "nomination/stellar/female",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "details": {
                                 "qualified": {
                                     "description": "前57名晋级至主赛事恒星组预选赛阶段"
@@ -36,6 +37,7 @@
                             "title": "恒星组提名-男性组别",
                             "id": "nomination/stellar/male",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "details": {
                                 "qualified": {
                                     "description": "前65名晋级至主赛事恒星组预选赛阶段"
@@ -78,6 +80,7 @@
                             "title": "预选赛第一轮-女性组别",
                             "id": "preliminaries/stellar/female",
                             "phase": "预选赛第一轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组胜者晋级至小组赛，其余参赛者进入第2轮"
@@ -87,6 +90,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r01-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-female",
                                 "data": "data/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/11-preliminary-r01-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r01.female"
                             }
@@ -95,6 +99,7 @@
                             "title": "预选赛第一轮-男性组别",
                             "id": "preliminaries/stellar/male",
                             "phase": "预选赛第一轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组胜者晋级至小组赛，其余参赛者进入第2轮"
@@ -104,6 +109,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r01-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r01-stellar-male",
                                 "data": "data/preliminaries/stellar/male/12-preliminary-r01-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/12-preliminary-r01-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r01.male"
                             }
@@ -133,6 +139,7 @@
                             "title": "预选赛第二轮-女性组别",
                             "id": "preliminaries/stellar/female/r02",
                             "phase": "预选赛第二轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组胜者晋级至小组赛，其余参赛者进入第3轮"
@@ -142,6 +149,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r02-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r02-stellar-female",
                                 "data": "data/preliminaries/stellar/female/13-preliminary-r02-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/13-preliminary-r02-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r02.female"
                             }
@@ -150,6 +158,7 @@
                             "title": "预选赛第二轮-男性组别",
                             "id": "preliminaries/stellar/male/r02",
                             "phase": "预选赛第二轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组胜者晋级至小组赛，其余参赛者进入第3轮"
@@ -159,6 +168,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r02-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r02-stellar-male",
                                 "data": "data/preliminaries/stellar/male/14-preliminary-r02-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/14-preliminary-r02-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r02.male"
                             }
@@ -183,6 +193,7 @@
                             "title": "预选赛第三轮-女性组别",
                             "id": "preliminaries/stellar/female/r03",
                             "phase": "预选赛第三轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第4轮"
@@ -192,6 +203,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r03-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r03-stellar-female",
                                 "data": "data/preliminaries/stellar/female/15-preliminary-r03-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/15-preliminary-r03-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r03.female"
                             }
@@ -200,6 +212,7 @@
                             "title": "预选赛第三轮-男性组别",
                             "id": "preliminaries/stellar/male/r03",
                             "phase": "预选赛第三轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前2名参赛者晋级至小组赛，其余参赛者进入第4轮"
@@ -209,6 +222,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r03-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r03-stellar-male",
                                 "data": "data/preliminaries/stellar/male/16-preliminary-r03-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/16-preliminary-r03-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r03.male"
                             }
@@ -233,6 +247,7 @@
                             "title": "预选赛第四轮-女性组别",
                             "id": "preliminaries/stellar/female/r04",
                             "phase": "预选赛第四轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前2名参赛者晋级至小组赛 其余参赛者进入第3轮"
@@ -242,6 +257,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r04-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r04-stellar-female",
                                 "data": "data/preliminaries/stellar/female/17-preliminary-r04-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/17-preliminary-r04-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r04.female"
                             }
@@ -250,6 +266,7 @@
                             "title": "预选赛第四轮-男性组别",
                             "id": "preliminaries/stellar/male/r04",
                             "phase": "预选赛第四轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前2名参赛者晋级至小组赛 其余参赛者进入第3轮"
@@ -259,6 +276,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r04-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r04-stellar-male",
                                 "data": "data/preliminaries/stellar/male/18-preliminary-r04-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/18-preliminary-r04-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r04.male"
                             }
@@ -281,6 +299,7 @@
                             "title": "新星组冬季赛提名-女性组别",
                             "id": "nomination/nova/2026/winter/female",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.winter",
                                 "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination",
@@ -291,6 +310,7 @@
                             "title": "新星组冬季赛提名-男性组别",
                             "id": "nomination/nova/2026/winter/male",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.winter",
                                 "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination",
@@ -327,6 +347,7 @@
                             "title": "预选赛第五轮-女性组别",
                             "id": "preliminaries/stellar/female/r05",
                             "phase": "预选赛第五轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前4名参赛者晋级至小组赛，其余参赛者淘汰"
@@ -336,6 +357,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r05-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r05-stellar-female",
                                 "data": "data/preliminaries/stellar/female/19-preliminary-r05-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/19-preliminary-r05-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r05.female"
                             }
@@ -344,6 +366,7 @@
                             "title": "预选赛第五轮-男性组别",
                             "id": "preliminaries/stellar/male/r05",
                             "phase": "预选赛第五轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前4名参赛者晋级至小组赛，其余参赛者淘汰"
@@ -353,6 +376,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r05-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r05-stellar-male",
                                 "data": "data/preliminaries/stellar/male/20-preliminary-r05-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/20-preliminary-r05-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r05.male"
                             }
@@ -380,6 +404,7 @@
                             "title": "预选赛第六轮-女性组别",
                             "id": "preliminaries/stellar/female/r06",
                             "phase": "预选赛第六轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前4名参赛者晋级至小组赛 其余参赛者进入第4轮"
@@ -389,6 +414,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r06-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r06-stellar-female",
                                 "data": "data/preliminaries/stellar/female/21-preliminary-r06-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/21-preliminary-r06-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r06.female"
                             }
@@ -397,6 +423,7 @@
                             "title": "预选赛第六轮-男性组别",
                             "id": "preliminaries/stellar/male/r06",
                             "phase": "预选赛第六轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前4名参赛者晋级至小组赛 其余参赛者进入第4轮"
@@ -406,6 +433,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r06-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r06-stellar-male",
                                 "data": "data/preliminaries/stellar/male/22-preliminary-r06-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/22-preliminary-r06-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r06.male"
                             }
@@ -430,6 +458,7 @@
                             "title": "预选赛第七轮-女性组别",
                             "id": "preliminaries/stellar/female/r07",
                             "phase": "预选赛第七轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前8名参赛者晋级至小组赛 其余参赛者进入第5轮"
@@ -439,6 +468,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r07-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r07-stellar-female",
                                 "data": "data/preliminaries/stellar/female/23-preliminary-r07-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/23-preliminary-r07-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r07.female"
                             }
@@ -447,6 +477,7 @@
                             "title": "预选赛第七轮-男性组别",
                             "id": "preliminaries/stellar/male/r07",
                             "phase": "预选赛第七轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "各小组前8名参赛者晋级至小组赛 其余参赛者进入第5轮"
@@ -456,6 +487,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r07-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r07-stellar-male",
                                 "data": "data/preliminaries/stellar/male/24-preliminary-r07-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/24-preliminary-r07-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r07.male"
                             }
@@ -483,6 +515,7 @@
                             "title": "预选赛第八轮-女性组别",
                             "id": "preliminaries/stellar/female/r08",
                             "phase": "预选赛第八轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "前16名参赛者晋级至小组赛 其余参赛者淘汰"
@@ -492,6 +525,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r08-stellar-female",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r08-stellar-female",
                                 "data": "data/preliminaries/stellar/female/25-preliminary-r08-stellar-female.json",
+                                "internalData": "data/internal/preliminaries/stellar/female/25-preliminary-r08-stellar-female.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r08.female"
                             }
@@ -500,6 +534,7 @@
                             "title": "预选赛第八轮-男性组别",
                             "id": "preliminaries/stellar/male/r08",
                             "phase": "预选赛第八轮",
+                            "format": "preliminary",
                             "details": {
                                 "qualified": {
                                     "description": "前16名参赛者晋级至小组赛 其余参赛者淘汰"
@@ -509,6 +544,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=preliminary-r08-stellar-male",
                                 "table": "pages/tables/preliminaries-table.html?id=preliminary-r08-stellar-male",
                                 "data": "data/preliminaries/stellar/male/26-preliminary-r08-stellar-male.json",
+                                "internalData": "data/internal/preliminaries/stellar/male/26-preliminary-r08-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=preliminary",
                                 "groups": "pages/groups/groups.html?id=preliminary.stellar.r08.male"
                             }
@@ -541,11 +577,13 @@
                             "title": "第一阶段第一轮-女性组别",
                             "id": "phase1-r01-stellar-female",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r01-stellar-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r01-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r01-stellar-female",
                                 "data": "data/phase1/stellar/female/27-phase1-r01-stellar-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/27-phase1-r01-stellar-female.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r01.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -554,18 +592,20 @@
                             "title": "第一阶段第一轮-男性组别",
                             "id": "phase1-r01-stellar-male",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r01-stellar-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r01-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r01-stellar-male",
                                 "data": "data/phase1/stellar/male/28-phase1-r01-stellar-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/28-phase1-r01-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=phase1",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r01.male"
                             }
                         }
                     ],
                     "details": {
-                        "format": "有限投票制（可投票上限：10）",
+                        "format": "单选单票制",
                         "qualified": {
                             "description": "小组单循环赛"
                         }
@@ -586,11 +626,13 @@
                             "title": "第一阶段第二轮-女性组别",
                             "id": "phase1-r02-stellar-female",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r02-stellar-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r02-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r02-stellar-female",
                                 "data": "data/phase1/stellar/female/29-phase1-r02-stellar-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/29-phase1-r02-stellar-female.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r02.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -599,11 +641,13 @@
                             "title": "第一阶段第二轮-男性组别",
                             "id": "phase1-r02-stellar-male",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r02-stellar-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r02-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r02-stellar-male",
                                 "data": "data/phase1/stellar/male/30-phase1-r02-stellar-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/30-phase1-r02-stellar-male.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r02.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -631,11 +675,13 @@
                             "title": "第一阶段第三轮-女性组别",
                             "id": "phase1-r03-stellar-female",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r03-stellar-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r03-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r03-stellar-female",
                                 "data": "data/phase1/stellar/female/31-phase1-r03-stellar-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/31-phase1-r03-stellar-female.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r03.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -644,11 +690,13 @@
                             "title": "第一阶段第三轮-男性组别",
                             "id": "phase1-r03-stellar-male",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r03-stellar-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r03-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r03-stellar-male",
                                 "data": "data/phase1/stellar/male/32-phase1-r03-stellar-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/32-phase1-r03-stellar-male.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r03.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -676,11 +724,13 @@
                             "title": "第一阶段第四轮-女性组别",
                             "id": "phase1-r04-stellar-female",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r04-stellar-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r04-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r04-stellar-female",
                                 "data": "data/phase1/stellar/female/33-phase1-r04-stellar-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/33-phase1-r04-stellar-female.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r04.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -689,11 +739,13 @@
                             "title": "第一阶段第四轮-男性组别",
                             "id": "phase1-r03-stellar-male",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r04-stellar-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r04-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r04-stellar-male",
                                 "data": "data/phase1/stellar/male/34-phase1-r04-stellar-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/34-phase1-r04-stellar-male.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r04.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -721,11 +773,13 @@
                             "title": "第一阶段第五轮-女性组别",
                             "id": "phase1-r05-stellar-female",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r05-stellar-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r05-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r05-stellar-female",
                                 "data": "data/phase1/stellar/female/35-phase1-r05-stellar-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/35-phase1-r05-stellar-female.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r05.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -734,11 +788,13 @@
                             "title": "第一阶段第五轮-男性组别",
                             "id": "phase1-r05-stellar-male",
                             "phase": "第一阶段",
+                            "format": "battle",
                             "chartType": "pie",
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r05-stellar-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r05-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r05-stellar-male",
                                 "data": "data/phase1/stellar/male/36-phase1-r05-stellar-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/36-phase1-r05-stellar-male.json",
                                 "groups": "pages/groups/groups.html?id=phase1.stellar.r05.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
@@ -763,9 +819,10 @@
                     },
                     "matches": [
                         {
-                            "title": "第一阶段第六轮-女子海蓝宝石项链赛",
+                            "title": "第一阶段第六轮-恒星女子海蓝宝石项链赛",
                             "id": "phase1-r06-necklace-female",
                             "phase": "第一阶段",
+                            "format": "necklace",
                             "chartType": "line",
                             "details": {
                                 "format": "排序复选制",
@@ -775,15 +832,17 @@
                             },
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r06-necklace-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r06-necklace-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r06-necklace-female",
                                 "data": "data/phase1/stellar/female/37-phase1-r06-necklace-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/37-phase1-r06-necklace-female.json",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
                         {
-                            "title": "第一阶段第六轮-男子海蓝宝石垂饰赛",
+                            "title": "第一阶段第六轮-恒星男子海蓝宝石垂饰赛",
                             "id": "phase1-r06-necklace-male",
                             "phase": "第一阶段",
+                            "format": "necklace",
                             "chartType": "line",
                             "details": {
                                 "format": "排序复选制",
@@ -793,15 +852,17 @@
                             },
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r06-necklace-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r06-necklace-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r06-necklace-male",
                                 "data": "data/phase1/stellar/male/38-phase1-r06-necklace-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/38-phase1-r06-necklace-male.json",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
                         {
-                            "title": "第一阶段第六轮-女子外卡赛",
+                            "title": "第一阶段第六轮-恒星女子外卡赛",
                             "id": "phase1-r06-wildcard-female",
                             "phase": "第一阶段",
+                            "format": "wildcard",
                             "chartType": "bar",
                             "details": {
                                 "format": "有限投票制（可投票上限：10）",
@@ -811,15 +872,17 @@
                             },
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r06-wildcard-female",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r06-wildcard-female",
+                                "table": "pages/tables/battle-table.html?id=phase1-r06-wildcard-female",
                                 "data": "data/phase1/stellar/female/39-phase1-r06-wildcard-female.json",
+                                "internalData": "data/internal/phase1/stellar/female/39-phase1-r06-wildcard-female.json",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
                         {
-                            "title": "第一阶段第六轮-男子外卡赛",
+                            "title": "第一阶段第六轮-恒星男子外卡赛",
                             "id": "phase1-r06-wildcard-male",
                             "phase": "第一阶段",
+                            "format": "wildcard",
                             "chartType": "bar",
                             "details": {
                                 "format": "有限投票制（可投票上限：10）",
@@ -829,8 +892,9 @@
                             },
                             "links": {
                                 "visualization": "pages/visualization/visualization.html?id=phase1-r06-wildcard-male",
-                                "table": "pages/tables/phase1-table.html?id=phase1-r06-wildcard-male",
+                                "table": "pages/tables/battle-table.html?id=phase1-r06-wildcard-male",
                                 "data": "data/phase1/stellar/male/40-phase1-r06-wildcard-male.json",
+                                "internalData": "data/internal/phase1/stellar/male/40-phase1-r06-wildcard-male.json",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         }
@@ -851,6 +915,7 @@
                             "title": "新星组春季赛提名-女性组别",
                             "id": "nomination/nova/2026/spring/female",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.spring",
                                 "visualization": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination"
@@ -860,6 +925,7 @@
                             "title": "新星组春季赛提名-男性组别",
                             "id": "nomination/nova/2026/spring/male",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.spring",
                                 "visualization": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination"
@@ -872,14 +938,46 @@
                         "start": "2026-10-05 20:00:00",
                         "end": "2026-10-06 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 3265
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第二阶段第一轮",
-                            "phase": "第二阶段"
+                            "title": "第二阶段第一轮-女性组别",
+                            "id": "phase2-r01-stellar-female",
+                            "phase": "第二阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r01-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase2-r01-stellar-female",
+                                "data": "data/phase2/stellar/female/41-phase2-r01-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.r01.female",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
+                        },
+                        {
+                            "title": "第二阶段第一轮-男性组别",
+                            "id": "phase2-r01-stellar-male",
+                            "phase": "第二阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r01-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase2-r01-stellar-male",
+                                "data": "data/phase2/stellar/male/42-phase2-r01-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.r01.male",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
                     }
                 },
                 {
@@ -972,6 +1070,7 @@
                             "title": "新星组夏季赛提名-女性组别",
                             "id": "nomination/nova/2026/summer/female",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.summer",
                                 "visualization": "pages/visualization/visualization.html?id=07-nova-summer-female-nomination"
@@ -981,6 +1080,7 @@
                             "title": "新星组夏季赛提名-男性组别",
                             "id": "nomination/nova/2026/summer/male",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.summer",
                                 "visualization": "pages/visualization/visualization.html?id=08-nova-summer-male-nomination"
@@ -1188,6 +1288,7 @@
                             "title": "新星组秋季赛提名-女性组别",
                             "id": "nomination/nova/2026/autumn/female",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.autumn",
                                 "visualization": "pages/visualization/visualization.html?id=09-nova-autumn-female-nomination"
@@ -1197,6 +1298,7 @@
                             "title": "新星组秋季赛提名-男性组别",
                             "id": "nomination/nova/2026/autumn/male",
                             "phase": "主赛事提名阶段",
+                            "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.autumn",
                                 "visualization": "pages/visualization/visualization.html?id=10-nova-autumn-male-nomination"

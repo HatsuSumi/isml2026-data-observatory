@@ -1,0 +1,742 @@
+{
+  "date": "2026-10-05 - 2026-10-06",
+  "event": "第二阶段第一轮-女性组别",
+  "data": [
+    {
+      "match": 1,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 1787,
+          "result": "win",
+          "name": "雷姆",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "水濑祈",
+          "avatar": "https://pic.imgdd.cc/i/034Yk2KF1gP5JWWP0qKwBr.png"
+        },
+        {
+          "participantId": "SF110",
+          "votes": 414,
+          "result": "loss",
+          "name": "中野二乃",
+          "ip": "五等分的新娘",
+          "cv": "竹达彩奈",
+          "avatar": "https://pic1.imgdb.cn/item/6744343188c538a9b5bb9e21.png"
+        }
+      ]
+    },
+    {
+      "match": 2,
+      "contestants": [
+        {
+          "participantId": "SF144",
+          "votes": 862,
+          "result": "loss",
+          "name": "星野爱",
+          "ip": "【我推的孩子】",
+          "cv": "高桥李依",
+          "avatar": "https://pic1.imgdb.cn/item/6785d9aed0e0a243d4f41230.png"
+        },
+        {
+          "participantId": "SF005",
+          "votes": 938,
+          "result": "win",
+          "name": "丰川祥子",
+          "ip": "BanG Dream!",
+          "cv": "高尾奏音",
+          "avatar": "https://pic1.imgdb.cn/item/6785d881d0e0a243d4f411d8.png"
+        }
+      ]
+    },
+    {
+      "match": 3,
+      "contestants": [
+        {
+          "participantId": "SF006",
+          "votes": 918,
+          "result": "win",
+          "name": "远坂凛",
+          "ip": "Fate系列",
+          "cv": "植田佳奈",
+          "avatar": "https://pic1.imgdb.cn/item/673961a9d29ded1a8c46a1f0.png"
+        },
+        {
+          "participantId": "SF115",
+          "votes": 827,
+          "result": "loss",
+          "name": "北白川玉子",
+          "ip": "玉子市场",
+          "cv": "洲崎绫",
+          "avatar": "https://pic1.imgdb.cn/item/67396817d29ded1a8c4afe96.png"
+        }
+      ]
+    },
+    {
+      "match": 4,
+      "contestants": [
+        {
+          "participantId": "SF098",
+          "votes": 1351,
+          "result": "win",
+          "name": "休比·多拉",
+          "ip": "NO GAME NO LIFE 游戏人生",
+          "cv": "茅野爱衣",
+          "avatar": "https://pic1.imgdb.cn/item/677fbc71d0e0a243d4f2c8d3.png"
+        },
+        {
+          "participantId": "SF111",
+          "votes": 784,
+          "result": "loss",
+          "name": "平泽忧",
+          "ip": "轻音少女",
+          "cv": "米泽圆",
+          "avatar": "https://pic1.imgdb.cn/item/69f329eef97149b1cf36fe1b.png"
+        }
+      ]
+    },
+    {
+      "match": 5,
+      "contestants": [
+        {
+          "participantId": "SF021",
+          "votes": 901,
+          "result": "win",
+          "name": "安和昴",
+          "ip": "少女乐队的呐喊",
+          "cv": "美怜",
+          "avatar": "https://pic1.imgdb.cn/item/69f3294af97149b1cf36fc1d.png"
+        },
+        {
+          "participantId": "SF130",
+          "votes": 821,
+          "result": "loss",
+          "name": "由比滨结衣",
+          "ip": "我的青春恋爱物语果然有问题。",
+          "cv": "东山奈央",
+          "avatar": "https://pic1.imgdb.cn/item/673a94bdd29ded1a8c251eee.png"
+        }
+      ]
+    },
+    {
+      "match": 6,
+      "contestants": [
+        {
+          "participantId": "SF019",
+          "votes": 1516,
+          "result": "win",
+          "name": "长崎爽世",
+          "ip": "BanG Dream!",
+          "cv": "小日向美香",
+          "avatar": "https://pic1.imgdb.cn/item/6785d850d0e0a243d4f411cc.png"
+        },
+        {
+          "participantId": "SF025",
+          "votes": 808,
+          "result": "loss",
+          "name": "亚托莉",
+          "ip": "ATRI -My Dear Moments-",
+          "cv": "赤尾光",
+          "avatar": "https://pic1.imgdb.cn/item/69f32934f97149b1cf36fb71.png"
+        }
+      ]
+    },
+    {
+      "match": 7,
+      "contestants": [
+        {
+          "participantId": "SF023",
+          "votes": 1244,
+          "result": "win",
+          "name": "四宫辉夜",
+          "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+          "cv": "古贺葵",
+          "avatar": "https://pic1.imgdb.cn/item/6739b53ed29ded1a8c8aae29.png"
+        },
+        {
+          "participantId": "SF018",
+          "votes": 973,
+          "result": "loss",
+          "name": "樱岛麻衣",
+          "ip": "青春猪头少年系列",
+          "cv": "濑户麻沙美",
+          "avatar": "https://pic1.imgdb.cn/item/673967ddd29ded1a8c4ad8fb.png"
+        }
+      ]
+    },
+    {
+      "match": 8,
+      "contestants": [
+        {
+          "participantId": "SF089",
+          "votes": 1225,
+          "result": "win",
+          "name": "伊地知虹夏",
+          "ip": "孤独摇滚！",
+          "cv": "铃代纱弓",
+          "avatar": "https://pic1.imgdb.cn/item/673abde9d29ded1a8c437a20.png"
+        },
+        {
+          "participantId": "SF101",
+          "votes": 892,
+          "result": "loss",
+          "name": "中野三玖",
+          "ip": "五等分的新娘",
+          "cv": "伊藤美来",
+          "avatar": "https://pic1.imgdb.cn/item/6739613ed29ded1a8c465c2c.png"
+        }
+      ]
+    },
+    {
+      "match": 9,
+      "contestants": [
+        {
+          "participantId": "SF002",
+          "votes": 1530,
+          "result": "win",
+          "name": "时崎狂三",
+          "ip": "约会大作战",
+          "cv": "真田麻美",
+          "avatar": "https://pic1.imgdb.cn/item/67395e40d29ded1a8c440b34.png"
+        },
+        {
+          "participantId": "SF135",
+          "votes": 599,
+          "result": "loss",
+          "name": "和泉纱雾",
+          "ip": "埃罗芒阿老师",
+          "cv": "藤田茜",
+          "avatar": "https://pic1.imgdb.cn/item/6739684cd29ded1a8c4b1e5e.png"
+        }
+      ]
+    },
+    {
+      "match": 10,
+      "contestants": [
+        {
+          "participantId": "SF131",
+          "votes": 892,
+          "result": "win",
+          "name": "晓美焰",
+          "ip": "魔法少女小圆",
+          "cv": "斋藤千和",
+          "avatar": "https://pic1.imgdb.cn/item/674086b0d29ded1a8c07b0d0.png"
+        },
+        {
+          "participantId": "SF119",
+          "votes": 881,
+          "result": "loss",
+          "name": "高木",
+          "ip": "擅长捉弄的高木同学",
+          "cv": "高桥李依",
+          "avatar": "https://pic1.imgdb.cn/item/67411d35d29ded1a8c6a5568.png"
+        }
+      ]
+    },
+    {
+      "match": 11,
+      "contestants": [
+        {
+          "participantId": "SF096",
+          "votes": 1199,
+          "result": "win",
+          "name": "中野梓",
+          "ip": "轻音少女",
+          "cv": "竹达彩奈",
+          "avatar": "https://pic1.imgdb.cn/item/67395e7cd29ded1a8c443a4c.png"
+        },
+        {
+          "participantId": "SF036",
+          "votes": 624,
+          "result": "loss",
+          "name": "小鞠知花",
+          "ip": "败犬女主太多了！",
+          "cv": "寺泽百花",
+          "avatar": "https://pic1.imgdb.cn/item/69f329bff97149b1cf36fde7.png"
+        }
+      ]
+    },
+    {
+      "match": 12,
+      "contestants": [
+        {
+          "participantId": "SF097",
+          "votes": 1325,
+          "result": "win",
+          "name": "一色伊吕波",
+          "ip": "我的青春恋爱物语果然有问题。",
+          "cv": "佐仓绫音",
+          "avatar": "https://pic1.imgdb.cn/item/6741390dd29ded1a8c822b9c.png"
+        },
+        {
+          "participantId": "SF029",
+          "votes": 805,
+          "result": "loss",
+          "name": "高松灯",
+          "ip": "BanG Dream!",
+          "cv": "羊宫妃那",
+          "avatar": "https://pic1.imgdb.cn/item/6785d914d0e0a243d4f41202.png"
+        }
+      ]
+    },
+    {
+      "match": 13,
+      "contestants": [
+        {
+          "participantId": "SF094",
+          "votes": 847,
+          "result": "loss",
+          "name": "洛琪希·米格路迪亚",
+          "ip": "无职转生",
+          "cv": "小原好美",
+          "avatar": "https://pic1.imgdb.cn/item/673be698d29ded1a8c2b0709.png"
+        },
+        {
+          "participantId": "SF037",
+          "votes": 873,
+          "result": "win",
+          "name": "藤原千花",
+          "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+          "cv": "小原好美",
+          "avatar": "https://pic1.imgdb.cn/item/677fbc90d0e0a243d4f2c8eb.png"
+        }
+      ]
+    },
+    {
+      "match": 14,
+      "contestants": [
+        {
+          "participantId": "SF003",
+          "votes": 1615,
+          "result": "win",
+          "name": "八奈见杏菜",
+          "ip": "败犬女主太多了！",
+          "cv": "远野光",
+          "avatar": "https://pic1.imgdb.cn/item/69f2d995f97149b1cf360b5b.png"
+        },
+        {
+          "participantId": "SF024",
+          "votes": 720,
+          "result": "loss",
+          "name": "艾拉",
+          "ip": "可塑性记忆",
+          "cv": "雨宫天",
+          "avatar": "https://pic1.imgdb.cn/item/673961bad29ded1a8c46ac2a.png"
+        }
+      ]
+    },
+    {
+      "match": 15,
+      "contestants": [
+        {
+          "participantId": "SF090",
+          "votes": 936,
+          "result": "loss",
+          "name": "喜多郁代",
+          "ip": "孤独摇滚！",
+          "cv": "长谷川育美",
+          "avatar": "https://pic1.imgdb.cn/item/6739682ad29ded1a8c4b0962.png"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1408,
+          "result": "win",
+          "name": "爱蜜莉雅",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "高桥李依",
+          "avatar": "https://pic1.imgdb.cn/item/67396195d29ded1a8c469653.png"
+        }
+      ]
+    },
+    {
+      "match": 16,
+      "contestants": [
+        {
+          "participantId": "SF126",
+          "votes": 918,
+          "result": "loss",
+          "name": "椎名真昼",
+          "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
+          "cv": "石见舞菜香",
+          "avatar": "https://pic1.imgdb.cn/item/6785d8d6d0e0a243d4f411eb.png"
+        },
+        {
+          "participantId": "SF099",
+          "votes": 1083,
+          "result": "win",
+          "name": "宫水三叶",
+          "ip": "你的名字。",
+          "cv": "上白石萌音",
+          "avatar": "https://pic1.imgdb.cn/item/67395e68d29ded1a8c4429ed.png"
+        }
+      ]
+    },
+    {
+      "match": 17,
+      "contestants": [
+        {
+          "participantId": "SF067",
+          "votes": 1058,
+          "result": "win",
+          "name": "加藤惠",
+          "ip": "路人女主的养成方法",
+          "cv": "安野希世乃",
+          "avatar": "https://pic.imgdd.cc/i/034Yk3o3fWPKhwRj5hJAhC.png"
+        },
+        {
+          "participantId": "SF104",
+          "votes": 726,
+          "result": "loss",
+          "name": "古河渚",
+          "ip": "CLANNAD",
+          "cv": "中原麻衣",
+          "avatar": "https://pic1.imgdb.cn/item/67419468d29ded1a8cddcff0.png"
+        }
+      ]
+    },
+    {
+      "match": 18,
+      "contestants": [
+        {
+          "participantId": "SF100",
+          "votes": 955,
+          "result": "win",
+          "name": "琴吹䌷",
+          "ip": "轻音少女",
+          "cv": "寿美菜子",
+          "avatar": "https://pic1.imgdb.cn/item/6739b369d29ded1a8c895375.png"
+        },
+        {
+          "participantId": "SF066",
+          "votes": 766,
+          "result": "loss",
+          "name": "康娜卡姆依",
+          "ip": "小林家的龙女仆",
+          "cv": "长绳麻理亚",
+          "avatar": "https://pic1.imgdb.cn/item/677fbec3d0e0a243d4f2c997.png"
+        }
+      ]
+    },
+    {
+      "match": 19,
+      "contestants": [
+        {
+          "participantId": "SF124",
+          "votes": 865,
+          "result": "loss",
+          "name": "春日野穹",
+          "ip": "缘之空",
+          "cv": "田口宏子",
+          "avatar": "https://pic1.imgdb.cn/item/673aa700d29ded1a8c30cdf0.png"
+        },
+        {
+          "participantId": "SF040",
+          "votes": 872,
+          "result": "win",
+          "name": "惠惠",
+          "ip": "为美好的世界献上祝福！",
+          "cv": "高桥李依",
+          "avatar": "https://pic1.imgdb.cn/item/67404a34d29ded1a8cd26270.png"
+        }
+      ]
+    },
+    {
+      "match": 20,
+      "contestants": [
+        {
+          "participantId": "SF091",
+          "votes": 1262,
+          "result": "win",
+          "name": "平泽唯",
+          "ip": "轻音少女",
+          "cv": "丰崎爱生",
+          "avatar": "https://pic1.imgdb.cn/item/67395e01d29ded1a8c43d7cf.png"
+        },
+        {
+          "participantId": "SF030",
+          "votes": 693,
+          "result": "loss",
+          "name": "结城明日奈",
+          "ip": "刀剑神域",
+          "cv": "户松遥",
+          "avatar": "https://pic1.imgdb.cn/item/6739616cd29ded1a8c4679d2.png"
+        }
+      ]
+    },
+    {
+      "match": 21,
+      "contestants": [
+        {
+          "participantId": "SF048",
+          "votes": 1080,
+          "result": "win",
+          "name": "拉姆",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "村川梨衣",
+          "avatar": ""
+        },
+        {
+          "participantId": "SF027",
+          "votes": 826,
+          "result": "loss",
+          "name": "白井黑子",
+          "ip": "魔法禁书目录",
+          "cv": "新井里美",
+          "avatar": "https://pic1.imgdb.cn/item/6736eaa2d29ded1a8c5a7413.png"
+        }
+      ]
+    },
+    {
+      "match": 22,
+      "contestants": [
+        {
+          "participantId": "SF017",
+          "votes": 1293,
+          "result": "win",
+          "name": "白",
+          "ip": "NO GAME NO LIFE 游戏人生",
+          "cv": "茅野爱衣",
+          "avatar": "https://pic1.imgdb.cn/item/67396180d29ded1a8c468667.png"
+        },
+        {
+          "participantId": "SF028",
+          "votes": 1036,
+          "result": "loss",
+          "name": "若叶睦",
+          "ip": "BanG Dream!",
+          "cv": "渡濑结月",
+          "avatar": "https://pic1.imgdb.cn/item/6785dafad0e0a243d4f41299.png"
+        }
+      ]
+    },
+    {
+      "match": 23,
+      "contestants": [
+        {
+          "participantId": "SF004",
+          "votes": 776,
+          "result": "loss",
+          "name": "芙莉莲",
+          "ip": "葬送的芙莉莲",
+          "cv": "种崎敦美",
+          "avatar": "https://pic1.imgdb.cn/item/6785d898d0e0a243d4f411de.png"
+        },
+        {
+          "participantId": "SF020",
+          "votes": 1451,
+          "result": "win",
+          "name": "友利奈绪",
+          "ip": "Charlotte",
+          "cv": "佐仓绫音",
+          "avatar": "https://pic1.imgdb.cn/item/67396124d29ded1a8c46467d.png"
+        }
+      ]
+    },
+    {
+      "match": 24,
+      "contestants": [
+        {
+          "participantId": "SF010",
+          "votes": 1000,
+          "result": "win",
+          "name": "鸣濑白羽",
+          "ip": "Summer Pockets",
+          "cv": "小原好美",
+          "avatar": ""
+        },
+        {
+          "participantId": "SF136",
+          "votes": 856,
+          "result": "loss",
+          "name": "鹿目圆",
+          "ip": "魔法少女小圆",
+          "cv": "悠木碧",
+          "avatar": "https://pic1.imgdb.cn/item/6735f305d29ded1a8cade1ab.png"
+        }
+      ]
+    },
+    {
+      "match": 25,
+      "contestants": [
+        {
+          "participantId": "SF001",
+          "votes": 1811,
+          "result": "win",
+          "name": "后藤独",
+          "ip": "孤独摇滚！",
+          "cv": "青山吉能",
+          "avatar": "https://pic1.imgdb.cn/item/67395de7d29ded1a8c43c21e.png"
+        },
+        {
+          "participantId": "SF137",
+          "votes": 453,
+          "result": "loss",
+          "name": "天野阳菜",
+          "ip": "天气之子",
+          "cv": "森七菜",
+          "avatar": "https://pic1.imgdb.cn/item/677fbca6d0e0a243d4f2c8f5.png"
+        }
+      ]
+    },
+    {
+      "match": 26,
+      "contestants": [
+        {
+          "participantId": "SF038",
+          "votes": 790,
+          "result": "loss",
+          "name": "菲伦",
+          "ip": "葬送的芙莉莲",
+          "cv": "市之濑加那",
+          "avatar": "https://pic1.imgdb.cn/item/6785d861d0e0a243d4f411ce.png"
+        },
+        {
+          "participantId": "SF106",
+          "votes": 924,
+          "result": "win",
+          "name": "泉此方",
+          "ip": "幸运☆星",
+          "cv": "平野绫",
+          "avatar": "https://pic1.imgdb.cn/item/674138ded29ded1a8c82004e.png"
+        }
+      ]
+    },
+    {
+      "match": 27,
+      "contestants": [
+        {
+          "participantId": "SF102",
+          "votes": 882,
+          "result": "loss",
+          "name": "田井中律",
+          "ip": "轻音少女",
+          "cv": "佐藤聪美",
+          "avatar": "https://pic1.imgdb.cn/item/673b3c52d29ded1a8cb70e5b.png"
+        },
+        {
+          "participantId": "SF031",
+          "votes": 1113,
+          "result": "win",
+          "name": "喜多川海梦",
+          "ip": "更衣人偶坠入爱河",
+          "cv": "直田姬奈",
+          "avatar": "https://pic1.imgdb.cn/item/67418e3fd29ded1a8cd920fd.png"
+        }
+      ]
+    },
+    {
+      "match": 28,
+      "contestants": [
+        {
+          "participantId": "SF049",
+          "votes": 1101,
+          "result": "win",
+          "name": "和栗薰子",
+          "ip": "薰香花朵凛然绽放",
+          "cv": "井上穗乃花",
+          "avatar": "https://pic.imgdd.cc/i/034YkFdBHFEuK7FTMLX0Hv.png"
+        },
+        {
+          "participantId": "SF042",
+          "votes": 865,
+          "result": "loss",
+          "name": "阿库娅",
+          "ip": "为美好的世界献上祝福！",
+          "cv": "雨宫天",
+          "avatar": "https://pic1.imgdb.cn/item/674138f4d29ded1a8c82126e.png"
+        }
+      ]
+    },
+    {
+      "match": 29,
+      "contestants": [
+        {
+          "participantId": "SF129",
+          "votes": 1059,
+          "result": "win",
+          "name": "阿尔托莉雅·潘德拉贡",
+          "ip": "Fate系列",
+          "cv": "川澄绫子",
+          "avatar": "https://pic1.imgdb.cn/item/6739c600d29ded1a8c978285.png"
+        },
+        {
+          "participantId": "SF105",
+          "votes": 857,
+          "result": "loss",
+          "name": "绫濑沙季",
+          "ip": "义妹生活",
+          "cv": "中岛由贵",
+          "avatar": "https://pic.imgdd.cc/i/034YkgvT1FcAA7dgXdQGA5.png"
+        }
+      ]
+    },
+    {
+      "match": 30,
+      "contestants": [
+        {
+          "participantId": "SF022",
+          "votes": 1385,
+          "result": "win",
+          "name": "小鸟游六花",
+          "ip": "中二病也要谈恋爱",
+          "cv": "内田真礼",
+          "avatar": "https://pic1.imgdb.cn/item/67357455d29ded1a8c343203.png"
+        },
+        {
+          "participantId": "SF088",
+          "votes": 855,
+          "result": "loss",
+          "name": "山田凉",
+          "ip": "孤独摇滚！",
+          "cv": "水野朔",
+          "avatar": "https://pic1.imgdb.cn/item/67396860d29ded1a8c4b2e6b.png"
+        }
+      ]
+    },
+    {
+      "match": 31,
+      "contestants": [
+        {
+          "participantId": "SF092",
+          "votes": 1291,
+          "result": "win",
+          "name": "千反田爱瑠",
+          "ip": "冰菓",
+          "cv": "佐藤聪美",
+          "avatar": "https://pic1.imgdb.cn/item/678b5cd0d0e0a243d4f5699f.png"
+        },
+        {
+          "participantId": "SF095",
+          "votes": 830,
+          "result": "loss",
+          "name": "秋山澪",
+          "ip": "轻音少女",
+          "cv": "日笠阳子",
+          "avatar": "https://pic1.imgdb.cn/item/673967f2d29ded1a8c4ae5a2.png"
+        }
+      ]
+    },
+    {
+      "match": 32,
+      "contestants": [
+        {
+          "participantId": "SF117",
+          "votes": 810,
+          "result": "loss",
+          "name": "椎名真白",
+          "ip": "樱花庄的宠物女孩",
+          "cv": "茅野爱衣",
+          "avatar": "https://pic1.imgdb.cn/item/67396804d29ded1a8c4af1d3.png"
+        },
+        {
+          "participantId": "SF026",
+          "votes": 992,
+          "result": "win",
+          "name": "立华奏",
+          "ip": "Angel Beats!",
+          "cv": "花泽香菜",
+          "avatar": "https://pic1.imgdb.cn/item/673abe88d29ded1a8c43e672.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { buildCustomSelect, closeCustomSelects, syncCustomSelect } from './table-custom-select.js';
-import { loadEventData, loadGroupData, loadNecklaceData, loadPhase1Data } from '../common/data-loader.js';
+import { loadEventsConfig, loadGroupData } from '../common/data-loader.js';
+import { findEventConfig, getEventFormat, getLinkedId, loadFormattedEventData } from '../common/event-format.js';
 
 
 const state = {
@@ -14,25 +15,7 @@ const state = {
 function getId() { return new URLSearchParams(window.location.search).get('id') || ''; }
 
 async function getConfig(id) {
-    const source = await loadEventData();
-    for (const month of Object.values((source.events || source).months || {})) {
-        for (const event of month.events || []) {
-            const match = (event.matches || []).find((item) => {
-                const url = item.links?.visualization || '';
-                return new URLSearchParams(url.split('?')[1] || '').get('id') === id;
-            });
-            if (match) return { ...match, dateRange: event.dateRange };
-        }
-    }
-    return null;
-}
-
-function isNecklaceId(id) {
-    return String(id).startsWith('phase1-r06-necklace-');
-}
-
-function isWildcardId(id) {
-    return String(id).startsWith('phase1-r06-wildcard-');
+    return findEventConfig(await loadEventsConfig(), id);
 }
 
 function getWildcardRows(raw) {
@@ -61,7 +44,7 @@ function getWildcardHeaders() {
 
 function setupWildcardTable() {
     document.body.classList.add('wildcard-table-page');
-    document.getElementById('pageTitle').textContent = '第一阶段第六轮外卡赛表格';
+    document.getElementById('pageTitle').textContent = state.config.title;
     document.getElementById('matchFilterWrapper')?.remove();
     document.getElementById('eliminationFilterWrapper')?.remove();
     document.getElementById('tableHead').innerHTML = `<tr>${getWildcardHeaders().map(([key, label]) => `<th data-sort="${key}">${label}</th>`).join('')}</tr>`;
@@ -121,37 +104,19 @@ function getNecklaceHeaders() {
 
 function setupNecklaceTable() {
     document.body.classList.add('necklace-table-page');
-    document.getElementById('pageTitle').textContent = '第一阶段第六轮项链赛表格';
+    document.getElementById('pageTitle').textContent = state.config.title;
     document.querySelector('.subtitle:not(#pageSubtitle)')?.remove();
     document.querySelector('.filter-container')?.remove();
     document.querySelector('[data-download-group="filtered"]')?.remove();
     document.getElementById('tableHead').innerHTML = `<tr>${getNecklaceHeaders().map(([key, label]) => `<th data-sort="${key}">${label}</th>`).join('')}</tr>`;
 }
 
-function getGroupKey(id) {
-    const match = String(id).match(/^phase1-(r\d+)-(stellar)-(female|male)$/);
-    if (!match) throw new Error(`无法从第一阶段赛事 ID 识别分组: ${id}`);
-    return `phase1.${match[2]}.${match[1]}.${match[3]}`;
-}
-
-function resolveGroupReference(rawGroups, groupKey, stack = []) {
-    const config = rawGroups[groupKey];
-    if (!config) return null;
-    const reference = config.groups?.$ref;
-    if (!reference) return config;
-    if (stack.includes(groupKey)) throw new Error(`分组引用循环: ${[...stack, groupKey].join(' -> ')}`);
-    const source = resolveGroupReference(rawGroups, reference, [...stack, groupKey]);
-    return source ? { ...source, ...config, groups: source.groups } : null;
-}
-
-async function getGroupConfig(allGroups, groupKey) {
-    if (allGroups.groups[groupKey]) return allGroups.groups[groupKey];
-    const response = await fetch('data/groups/groups.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error(`分组数据加载失败: ${response.status}`);
-    const rawGroups = await response.json();
-    const rawConfig = resolveGroupReference(rawGroups, groupKey);
-    if (!rawConfig) return null;
-    return allGroups.groups[groupKey] || rawConfig;
+function getGroupKey(config) {
+    const link = config.links?.groups;
+    if (!link) return null;
+    const key = getLinkedId(link);
+    if (!key) throw new Error('赛事分组链接缺少 id');
+    return key;
 }
 
 function getGroupMembers(groupConfig) {
@@ -159,7 +124,7 @@ function getGroupMembers(groupConfig) {
 }
 
 function normalizeRows(raw, groupMembers) {
-    if (!Array.isArray(raw.data) || !Array.isArray(raw.data[0]?.contestants)) throw new Error('第一阶段数据格式错误');
+    if (!Array.isArray(raw.data) || !Array.isArray(raw.data[0]?.contestants)) throw new Error('赛事数据格式错误');
     const memberById = new Map(groupMembers.map((member) => [member.participantId, member]));
     const rows = raw.data.flatMap((match) => match.contestants.map((item) => {
         const groupMember = memberById.get(item.participantId) || {};
@@ -167,7 +132,6 @@ function normalizeRows(raw, groupMembers) {
             ...item,
             group: groupMember.group || '',
             seed: groupMember.seed ?? null,
-            groupRank: groupMember.rank ?? null,
             match: `擂台${match.match}`,
             matchNumber: Number(match.match),
             result: item.result === 'win' ? 'win' : 'loss',
@@ -182,7 +146,7 @@ function compare(a, b, key) {
         const index = Number(key.slice(5)) - 1;
         return (a.roundVotes[index] ?? -Infinity) - (b.roundVotes[index] ?? -Infinity);
     }
-    if (['votes', 'globalRank', 'groupRank', 'seed', 'matchNumber', 'eliminationRound'].includes(key)) return (a[key] || 0) - (b[key] || 0);
+    if (['votes', 'globalRank', 'seed', 'matchNumber', 'eliminationRound'].includes(key)) return (a[key] || 0) - (b[key] || 0);
     return String(a[key] || '').localeCompare(String(b[key] || ''), 'zh-CN');
 }
 
@@ -308,7 +272,7 @@ function bindControls() {
         const key = header.dataset.sort;
         state.sort = state.sort.key === key
             ? { key, direction: state.sort.direction === 'asc' ? 'desc' : 'asc' }
-            : { key, direction: ['votes', 'globalRank', 'groupRank', 'seed'].includes(key) ? 'desc' : 'asc' };
+            : { key, direction: ['votes', 'globalRank', 'seed'].includes(key) ? 'desc' : 'asc' };
         setSortIndicator();
         applyFilters();
         });
@@ -429,13 +393,13 @@ function buildXlsx(rows) {
     const sheet = `<?xml version="1.0" encoding="UTF-8"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>${sheetRows}</sheetData></worksheet>`;
     const types = '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>';
     const rels = '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>';
-    const workbook = '<?xml version="1.0" encoding="UTF-8"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="第一阶段" sheetId="1" r:id="rId1"/></sheets></workbook>';
+    const workbook = '<?xml version="1.0" encoding="UTF-8"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="赛事" sheetId="1" r:id="rId1"/></sheets></workbook>';
     const workbookRels = '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/></Relationships>';
     return zipStore([['[Content_Types].xml', types], ['_rels/.rels', rels], ['xl/workbook.xml', workbook], ['xl/_rels/workbook.xml.rels', workbookRels], ['xl/worksheets/sheet1.xml', sheet]]);
 }
 
 async function downloadSource(extension) {
-    const base = state.config.links.data.replace(/^data\/internal\/phase1\//, 'data/phase1/').replace(/\.json$/, '');
+    const base = state.config.links.data.replace(/\.json$/, '');
     const response = await fetch(`${base}.${extension}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`下载失败: ${response.status}`);
     triggerDownload(await response.blob(), `${base.split('/').pop()}.${extension}`);
@@ -452,14 +416,14 @@ async function handleDownload(type) {
 
 async function init() {
     const id = getId();
-    state.necklace = isNecklaceId(id);
-    state.wildcard = isWildcardId(id);
-    state.sort = { key: state.necklace ? 'round7' : 'votes', direction: 'desc' };
     state.config = await getConfig(id);
-    if (!state.config?.links?.data) throw new Error('缺少或无效的第一阶段表格 id 参数');
-    const rawData = state.necklace
-        ? await loadNecklaceData(state.config.links.data)
-        : await loadPhase1Data(state.config.links.data);
+    if (!state.config?.links?.data) throw new Error('缺少或无效的赛事表格 id 参数');
+    const format = getEventFormat(state.config);
+    if (!['battle', 'wildcard', 'necklace'].includes(format)) throw new Error('此表格不支持该赛事赛制');
+    state.necklace = format === 'necklace';
+    state.wildcard = format === 'wildcard';
+    state.sort = { key: state.necklace ? 'round7' : 'votes', direction: 'desc' };
+    const rawData = await loadFormattedEventData(state.config);
     if (state.necklace) {
         setupNecklaceTable();
         state.rows = getNecklaceRows(rawData);
@@ -467,11 +431,15 @@ async function init() {
         setupWildcardTable();
         state.rows = getWildcardRows(rawData);
     } else {
-        const allGroups = await loadGroupData();
-        const groupKey = getGroupKey(id);
-        const groupConfig = await getGroupConfig(allGroups, groupKey);
-        if (!groupConfig) throw new Error(`未找到第一阶段分组数据: ${groupKey}`);
-        state.rows = normalizeRows(rawData, getGroupMembers(groupConfig));
+        const groupKey = getGroupKey(state.config);
+        let members = [];
+        if (groupKey) {
+            const allGroups = await loadGroupData();
+            const groupConfig = allGroups.groups[groupKey];
+            if (!groupConfig) throw new Error(`未找到赛事分组数据: ${groupKey}`);
+            members = getGroupMembers(groupConfig);
+        }
+        state.rows = normalizeRows(rawData, members);
     }
     document.title = `${state.config.title} - ISML 2026 数据观测`;
     document.getElementById('pageTitle').textContent = state.config.title;
@@ -486,4 +454,4 @@ async function init() {
     applyFilters();
 }
 
-init().catch((error) => { console.error('第一阶段表格初始化失败:', error); document.getElementById('pageSubtitle').textContent = error instanceof Error ? error.message : '第一阶段表格加载失败'; });
+init().catch((error) => { console.error('赛事表格初始化失败:', error); document.getElementById('pageSubtitle').textContent = error instanceof Error ? error.message : '赛事表格加载失败'; });

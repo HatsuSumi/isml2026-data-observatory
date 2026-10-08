@@ -59,52 +59,67 @@ class GroupRendererStrategy {
         },
 
         seedGroup: (groupConfig, charactersData, containers) => {
-            const template = document.getElementById('seed-group-template');
-            const table = template.content.cloneNode(true);
+            const seedCount = Math.max(...Object.values(groupConfig.groups).flat().map(character => character.seed || 0));
+            const tableElement = document.createElement('table');
+            tableElement.className = 'seed-group-table';
 
-            const tbody = table.querySelector('tbody');
-            tbody.innerHTML = '';
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const groupHeader = document.createElement('th');
+            groupHeader.innerHTML = '<span>角色</span>';
+            headerRow.appendChild(groupHeader);
 
+            for (let seedNumber = 1; seedNumber <= seedCount; seedNumber += 1) {
+                const header = document.createElement('th');
+                header.textContent = `${seedNumber}号种子`;
+                headerRow.appendChild(header);
+            }
+            thead.appendChild(headerRow);
+            tableElement.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
             Object.entries(groupConfig.groups).forEach(([groupName, characters]) => {
-                const rowTemplate = template.content.querySelector('.seed-group-row');
-                const row = rowTemplate.cloneNode(true);
+                const row = document.createElement('tr');
+                const groupCell = document.createElement('th');
+                groupCell.className = 'seed-group-name';
+                groupCell.textContent = groupName;
+                row.appendChild(groupCell);
 
-                row.querySelector('.seed-group-name').textContent = groupName;
-
-                [1, 2, 3, 4].forEach(seedNumber => {
-                    const cell = row.querySelector(`.seed-${seedNumber}`);
-                    const characterDiv = cell.querySelector('.seed-group-character');
-                    const avatar = characterDiv.querySelector('.seed-group-avatar');
-                    const nameSpan = characterDiv.querySelector('.seed-group-name');
-
-                    const character = characters.find(c => c.seed === seedNumber);
+                for (let seedNumber = 1; seedNumber <= seedCount; seedNumber += 1) {
+                    const cell = document.createElement('td');
+                    cell.className = `seed-group-cell seed-${seedNumber}`;
+                    const character = characters.find(item => item.seed === seedNumber);
 
                     if (character) {
                         const resolved = resolveGroupCharacter(character, charactersData);
+                        const characterDiv = document.createElement('div');
+                        characterDiv.className = 'seed-group-character';
+                        const nameSpan = document.createElement('span');
+                        nameSpan.className = 'seed-group-name';
+                        nameSpan.textContent = resolved.name;
+                        characterDiv.appendChild(nameSpan);
 
                         if (resolved.avatar) {
+                            const avatar = document.createElement('img');
+                            avatar.className = 'seed-group-avatar';
                             avatar.src = resolved.avatar;
                             avatar.alt = resolved.name;
-                        } else {
-                            avatar.remove();
+                            characterDiv.prepend(avatar);
                         }
 
-                        nameSpan.textContent = resolved.name;
-                    } else {
-                        characterDiv.remove();
+                        cell.appendChild(characterDiv);
                     }
-                });
-
+                    row.appendChild(cell);
+                }
                 tbody.appendChild(row);
             });
 
-            const tableElement = document.createElement('table');
-            tableElement.className = 'seed-group-table';
-            tableElement.appendChild(table.querySelector('thead'));
             tableElement.appendChild(tbody);
-
+            const tableWrap = document.createElement('div');
+            tableWrap.className = 'seed-group-table-wrap';
+            tableWrap.appendChild(tableElement);
             containers.content.innerHTML = '';
-            containers.content.appendChild(tableElement);
+            containers.content.appendChild(tableWrap);
         }
     };
 
@@ -163,10 +178,11 @@ class Groups {
     }
 
     getGroupType() {
-        const cleanGroupId = String(this.groupId || '').split('&')[0].trim();
-        if (cleanGroupId.startsWith('preliminary.') || cleanGroupId.startsWith('phase1.')) return 'preliminary';
-        if (cleanGroupId.includes('group_stage')) return 'seedGroup';
-        throw new Error(`未知的分组类型: ${cleanGroupId}`);
+        const layout = this.groupsData[this.groupId].layout;
+        if (!Object.hasOwn(GroupRendererStrategy.strategies, layout)) {
+            throw new Error(`未知的分组布局: ${layout}`);
+        }
+        return layout;
     }
 
     showError(message) {

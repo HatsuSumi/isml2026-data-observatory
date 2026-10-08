@@ -224,9 +224,9 @@ export function getPreliminarySnapshotPath(snapshotPath) {
     return String(snapshotPath || '');
 }
 
-export async function loadNecklaceData(snapshotPath) {
+export async function loadNecklaceData(snapshotPath, dataPath = getInternalSnapshotPath(snapshotPath, 'phase1')) {
     const [rawData, resolver] = await Promise.all([
-        fetchJson(getInternalSnapshotPath(snapshotPath, 'phase1')),
+        fetchJson(dataPath),
         loadCharacterResolver()
     ]);
     if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
@@ -288,13 +288,17 @@ export async function loadBattleData(snapshotPath) {
     };
 }
 
-export async function loadPhase1Data(snapshotPath) {
+export function loadPhase1Data(snapshotPath) {
+    return loadContestData(snapshotPath, getInternalSnapshotPath(snapshotPath, 'phase1'));
+}
+
+export async function loadContestData(snapshotPath, dataPath = snapshotPath) {
     const [rawData, resolver] = await Promise.all([
-        fetchJson(getInternalSnapshotPath(snapshotPath, 'phase1')),
+        fetchJson(dataPath),
         loadCharacterResolver()
     ]);
     if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {
-        throw new Error('内部第一阶段数据格式错误：data 必须是数组');
+        throw new Error('内部对局数据格式错误：data 必须是数组');
     }
 
     const participantIds = rawData.data.flatMap(match => (
@@ -326,13 +330,13 @@ export async function loadPhase1Data(snapshotPath) {
         ...rawData,
         data: rawData.data.map((match, matchIndex) => {
             if (!match || !Array.isArray(match.contestants)) {
-                throw new Error(`内部第一阶段数据 [${matchIndex}] 格式错误`);
+                throw new Error(`内部对局数据 [${matchIndex}] 格式错误`);
             }
             return {
                 ...match,
                 contestants: match.contestants.map((contestant, contestantIndex) => {
                     if (!contestant?.participantId) {
-                        throw new Error(`内部第一阶段数据 [${matchIndex}][${contestantIndex}] 缺少 participantId`);
+                        throw new Error(`内部对局数据 [${matchIndex}][${contestantIndex}] 缺少 participantId`);
                     }
                     const character = wildcardProfiles.get(contestant.participantId)
                         || resolver.getByParticipantId(contestant.participantId);
@@ -348,9 +352,9 @@ export async function loadPhase1Data(snapshotPath) {
     };
 }
 
-export async function loadPreliminariesData(snapshotPath) {
+export async function loadPreliminariesData(snapshotPath, dataPath = toInternalPreliminaryPath(snapshotPath)) {
     const [rawData, resolver] = await Promise.all([
-        fetchJson(toInternalPreliminaryPath(snapshotPath)),
+        fetchJson(dataPath),
         loadCharacterResolver()
     ]);
     if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.data)) {

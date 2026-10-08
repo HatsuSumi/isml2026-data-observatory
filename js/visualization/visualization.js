@@ -1,4 +1,5 @@
-import { loadEventData, loadNecklaceData, loadPreliminariesData, loadPhase1Data } from '../common/data-loader.js';
+import { loadEventsConfig } from '../common/data-loader.js';
+import { findEventConfig, loadFormattedEventData } from '../common/event-format.js';
 import { getVisualizationStrategy } from './visualization-strategies.js';
 import { getChartStrategy } from './visualization-chart-strategies.js';
 
@@ -48,15 +49,15 @@ async function initVisualization() {
     if (!matchConfig) throw new Error(`未找到可视化配置：${id}`);
 
     updateTableLink(matchConfig);
-    const rawData = await loadVisualizationData(matchConfig);
-    const strategy = getVisualizationStrategy(id);
+    const rawData = await loadFormattedEventData(matchConfig);
+    const strategy = getVisualizationStrategy(matchConfig, id);
     const data = strategy.normalize(rawData, mode, matchConfig);
     visualizationState = {
         id,
         mode,
         matchConfig,
         data,
-        chartType: matchConfig.id?.startsWith('phase1-r06-necklace-') ? 'necklace' : SUPPORTED_CHART_TYPES.has(chartType) ? chartType : getVisualizationChartType(matchConfig),
+        chartType: matchConfig.format === 'necklace' ? 'necklace' : SUPPORTED_CHART_TYPES.has(chartType) ? chartType : getVisualizationChartType(matchConfig),
         chart: null,
         sizeControlsBound: false
     };
@@ -86,9 +87,7 @@ function renderVisualization() {
 function updateChartToggleButton(chartType) {
     const button = document.querySelector('.chart-toggle-btn');
     if (!button) return;
-    const canToggle = visualizationState.id.startsWith('phase1-')
-        && !visualizationState.id.startsWith('phase1-r06-necklace-')
-        && !visualizationState.id.startsWith('phase1-r06-wildcard-');
+    const canToggle = visualizationState.matchConfig.format === 'battle';
     button.hidden = !canToggle;
     button.textContent = chartType === 'pie' ? '切换为柱状图' : '切换为饼图';
     button.setAttribute('aria-label', button.textContent);
@@ -113,50 +112,7 @@ function getVisualizationChartType(matchConfig) {
 }
 
 async function getVisualizationConfig(visualizationId) {
-    const eventsDataConfig = await loadEventData();
-    const eventsConfig = eventsDataConfig.events || eventsDataConfig;
-    for (const month of Object.values(eventsConfig.months || {})) {
-        for (const event of month.events || []) {
-            for (const match of event.matches || []) {
-                const matchId = extractVisualizationId(match.links?.visualization) || match.id;
-                if (matchId === visualizationId || match.id === visualizationId) {
-                    return { ...match, dateRange: event.dateRange, stats: event.stats || null };
-                }
-            }
-        }
-    }
-    return null;
-}
-
-function extractVisualizationId(url = '') {
-    if (!url) return null;
-    if (url.includes('visualization.html?id=')) {
-        return new URLSearchParams(url.split('?')[1]).get('id');
-    }
-    return url.split('/').pop()?.replace('.html', '') || null;
-}
-
-async function fetchJson(path) {
-    const response = await fetch(path, { cache: 'no-store' });
-    if (!response.ok) throw new Error(`数据加载失败：${path}`);
-    return response.json();
-}
-
-function isPreliminarySnapshotPath(path) {
-    return String(path || '').includes('data/preliminaries/');
-}
-
-async function loadVisualizationData(matchConfig) {
-    if (isPreliminarySnapshotPath(matchConfig.links?.data)) {
-        return loadPreliminariesData(matchConfig.links.data);
-    }
-    if (String(matchConfig.links?.data || '').includes('necklace-')) {
-        return loadNecklaceData(matchConfig.links.data);
-    }
-    if (String(matchConfig.links?.data || '').includes('data/phase1/')) {
-        return loadPhase1Data(matchConfig.links.data);
-    }
-    return fetchJson(matchConfig.links.data);
+    return findEventConfig(await loadEventsConfig(), visualizationId);
 }
 
 function appendQueryParam(url, key, value) {
@@ -244,8 +200,7 @@ function getChartHint(matchConfig, mode, chartType) {
     if (chartType === 'necklace') return '折线图展示8名角色在7个淘汰轮次中的票数变化';
     if (chartType === 'pie') return '各擂台饼图展示组内得票占比';
     if (mode !== 'main') return '点击图例可切换到单独视图';
-    const isPhase1 = matchConfig.id?.startsWith('phase1-') || String(matchConfig.links?.data || '').includes('data/phase1/');
-    return isPhase1 ? '柱状图展示全局票数排名' : '点击图例可切换到单独视图';
+    return matchConfig.format === 'battle' ? '柱状图展示全局票数排名' : '点击图例可切换到单独视图';
 }
 
 function updateLegendState(mode, statusLabels) {

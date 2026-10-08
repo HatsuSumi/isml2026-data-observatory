@@ -1,3 +1,4 @@
+import { getEventFormat } from '../common/event-format.js';
 import { NOMINATION_TABLE_CONFIGS } from '../table/nomination-table-config.js';
 import { normalizeNominationVisualizationRows } from '../table/nomination-data.js';
 
@@ -177,7 +178,7 @@ const wildcardStrategy = {
     }
 };
 
-const phase1Strategy = {
+const battleStrategy = {
     normalize(rawData, mode, matchConfig) {
         const rows = filterRowsByMode(rawData.data.flatMap(match => match.contestants.map(contestant => ({
             ...contestant,
@@ -210,12 +211,19 @@ const phase1Strategy = {
     }
 };
 
-export function getVisualizationStrategy(visualizationId) {
-    const nominationConfig = NOMINATION_TABLE_CONFIGS[visualizationId];
-    if (nominationConfig) return createNominationStrategy(nominationConfig);
-    if (visualizationId.startsWith('preliminary-') || visualizationId.endsWith('-preliminaries')) return preliminaryStrategy;
-    if (visualizationId.startsWith('phase1-r06-wildcard-')) return wildcardStrategy;
-    if (visualizationId.startsWith('phase1-r06-necklace-')) return necklaceStrategy;
-    if (visualizationId.startsWith('phase1-')) return phase1Strategy;
-    throw new Error(`未找到可视化策略：${visualizationId}`);
+const VISUALIZATION_STRATEGIES = {
+    preliminary: preliminaryStrategy,
+    battle: battleStrategy,
+    wildcard: wildcardStrategy,
+    necklace: necklaceStrategy
+};
+
+export function getVisualizationStrategy(matchConfig, visualizationId) {
+    const format = getEventFormat(matchConfig);
+    if (format === 'nomination') {
+        const config = NOMINATION_TABLE_CONFIGS[visualizationId];
+        if (!config) throw new Error(`未找到提名可视化配置：${visualizationId}`);
+        return createNominationStrategy(config);
+    }
+    return VISUALIZATION_STRATEGIES[format];
 }

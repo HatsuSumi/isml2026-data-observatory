@@ -675,7 +675,7 @@
             }
         ]
     },
-    "第一阶段第六轮-女子外卡赛": {
+    "第一阶段第六轮-恒星女子外卡赛": {
         "top5": [
             {
                 "participantId": "SF005",
@@ -699,7 +699,7 @@
             }
         ]
     },
-    "第一阶段第六轮-男子外卡赛": {
+    "第一阶段第六轮-恒星男子外卡赛": {
         "top5": [
             {
                 "participantId": "SM034",
@@ -768,6 +768,54 @@
             {
                 "participantId": "NM005",
                 "votes": 18
+            }
+        ]
+    },
+    "第二阶段第一轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF001",
+                "votes": 1811
+            },
+            {
+                "participantId": "SF093",
+                "votes": 1787
+            },
+            {
+                "participantId": "SF003",
+                "votes": 1615
+            },
+            {
+                "participantId": "SF002",
+                "votes": 1530
+            },
+            {
+                "participantId": "SF019",
+                "votes": 1516
+            }
+        ]
+    },
+    "第二阶段第一轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM001",
+                "votes": 1550
+            },
+            {
+                "participantId": "SM028",
+                "votes": 1500
+            },
+            {
+                "participantId": "SM004",
+                "votes": 1425
+            },
+            {
+                "participantId": "SM003",
+                "votes": 1365
+            },
+            {
+                "participantId": "SM017",
+                "votes": 1264
             }
         ]
     }
