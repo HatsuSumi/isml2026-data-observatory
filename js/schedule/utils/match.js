@@ -72,20 +72,22 @@ export function getCurrentMatchData(data) {
 }
 
 export function getPhaseStatus(matches, now = new Date()) {
-    const hasCompleted = matches.some(match => getMatchEndDate(match) < now);
+    if (!matches.length) {
+        return 'pending';
+    }
+
     const hasOngoing = matches.some(match => {
         const start = getMatchStartDate(match);
         const end = getMatchEndDate(match);
         return now >= start && now <= end;
     });
+    const hasStarted = matches.some(match => getMatchStartDate(match) <= now);
+    const hasFuture = matches.some(match => getMatchEndDate(match) >= now);
 
-    if (hasCompleted && !hasOngoing) {
-        return 'completed';
-    }
-    if (hasOngoing) {
+    if (hasOngoing || (hasStarted && hasFuture)) {
         return 'ongoing';
     }
-    return 'pending';
+    return hasFuture ? 'pending' : 'completed';
 }
 
 export function getRoundStatus(match, now = new Date()) {
