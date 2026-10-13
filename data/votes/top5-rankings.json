@@ -818,5 +818,53 @@
                 "votes": 1264
             }
         ]
+    },
+    "第二阶段第二轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF001",
+                "votes": 1387
+            },
+            {
+                "participantId": "SF003",
+                "votes": 1369
+            },
+            {
+                "participantId": "SF093",
+                "votes": 1338
+            },
+            {
+                "participantId": "SF019",
+                "votes": 1338
+            },
+            {
+                "participantId": "SF034",
+                "votes": 1270
+            }
+        ]
+    },
+    "第二阶段第二轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM001",
+                "votes": 1218
+            },
+            {
+                "participantId": "SM028",
+                "votes": 1199
+            },
+            {
+                "participantId": "SM003",
+                "votes": 1168
+            },
+            {
+                "participantId": "SM004",
+                "votes": 1160
+            },
+            {
+                "participantId": "SM002",
+                "votes": 1043
+            }
+        ]
     }
 }

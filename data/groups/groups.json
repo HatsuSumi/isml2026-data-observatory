@@ -3114,9 +3114,9 @@
             ]
         }
     },
-    "phase1.stellar.r01.female": {
+    "phase1.stellar.female": {
         "layout": "preliminary",
-        "title": "第一阶段第一轮-恒星组女性组别",
+        "title": "第一阶段-女性组别",
         "groups": {
             "第01组": [
                 {
@@ -3536,9 +3536,9 @@
             ]
         }
     },
-    "phase1.stellar.r01.male": {
+    "phase1.stellar.male": {
         "layout": "preliminary",
-        "title": "第一阶段第一轮-恒星组男性组别",
+        "title": "第一阶段-男性组别",
         "groups": {
             "第01组": [
                 {
@@ -3958,95 +3958,543 @@
             ]
         }
     },
-    "phase1.stellar.r02.female": {
-        "layout": "preliminary",
-        "title": "第一阶段第二轮-恒星组女性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.female"
-        }
-    },
-    "phase1.stellar.r02.male": {
-        "layout": "preliminary",
-        "title": "第一阶段第二轮-恒星组男性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.male"
-        }
-    },
-    "phase1.stellar.r03.female": {
-        "layout": "preliminary",
-        "title": "第一阶段第三轮-恒星组女性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.female"
-        }
-    },
-    "phase1.stellar.r03.male": {
-        "layout": "preliminary",
-        "title": "第一阶段第三轮-恒星组男性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.male"
-        }
-    },
-    "phase1.stellar.r04.female": {
-        "layout": "preliminary",
-        "title": "第一阶段第四轮-恒星组女性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.female"
-        }
-    },
-    "phase1.stellar.r04.male": {
-        "layout": "preliminary",
-        "title": "第一阶段第四轮-恒星组男性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.male"
-        }
-    },
-    "phase1.stellar.r05.female": {
-        "layout": "preliminary",
-        "title": "第一阶段第五轮-恒星组女性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.female"
-        }
-    },
-    "phase1.stellar.r05.male": {
-        "layout": "preliminary",
-        "title": "第一阶段第五轮-恒星组男性组别",
-        "groups": {
-            "$ref": "phase1.stellar.r01.male"
-        }
-    },
-    "phase2.stellar.r01.female": {
+    "phase2.stellar.female": {
         "layout": "seedGroup",
-        "title": "第二阶段第一轮-女性组别",
+        "title": "第二阶段-女性组别",
         "groups": {
             "女子1组": [
-                {"participantId":"SF093","seed":1},{"participantId":"SF019","seed":2},{"participantId":"SF098","seed":9},{"participantId":"SF089","seed":4},{"participantId":"SF023","seed":3},{"participantId":"SF006","seed":8},{"participantId":"SF021","seed":10},{"participantId":"SF005","seed":16},{"participantId":"SF144","seed":15},{"participantId":"SF130","seed":12},{"participantId":"SF115","seed":11},{"participantId":"SF018","seed":5},{"participantId":"SF101","seed":7},{"participantId":"SF111","seed":13},{"participantId":"SF025","seed":6},{"participantId":"SF110","seed":14}
+                {
+                    "participantId": "SF093",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SF019",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SF098",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SF089",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SF023",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SF006",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SF021",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SF005",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SF144",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SF130",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SF115",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SF018",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SF101",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SF111",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SF025",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SF110",
+                    "seed": 14
+                }
             ],
             "女子2组": [
-                {"participantId":"SF002","seed":1},{"participantId":"SF003","seed":2},{"participantId":"SF096","seed":8},{"participantId":"SF097","seed":9},{"participantId":"SF034","seed":5},{"participantId":"SF099","seed":7},{"participantId":"SF037","seed":12},{"participantId":"SF131","seed":15},{"participantId":"SF119","seed":16},{"participantId":"SF094","seed":10},{"participantId":"SF126","seed":4},{"participantId":"SF090","seed":3},{"participantId":"SF029","seed":13},{"participantId":"SF036","seed":11},{"participantId":"SF024","seed":6},{"participantId":"SF135","seed":14}
+                {
+                    "participantId": "SF002",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SF003",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SF096",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SF097",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SF034",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SF099",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SF037",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SF131",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SF119",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SF094",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SF126",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SF090",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SF029",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SF036",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SF024",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SF135",
+                    "seed": 14
+                }
             ],
             "女子3组": [
-                {"participantId":"SF020","seed":5},{"participantId":"SF091","seed":9},{"participantId":"SF067","seed":1},{"participantId":"SF017","seed":2},{"participantId":"SF048","seed":10},{"participantId":"SF100","seed":15},{"participantId":"SF010","seed":4},{"participantId":"SF040","seed":11},{"participantId":"SF124","seed":8},{"participantId":"SF136","seed":7},{"participantId":"SF066","seed":16},{"participantId":"SF027","seed":12},{"participantId":"SF028","seed":6},{"participantId":"SF104","seed":14},{"participantId":"SF030","seed":13},{"participantId":"SF004","seed":3}
+                {
+                    "participantId": "SF020",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SF091",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SF067",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SF017",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SF048",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SF100",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SF010",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SF040",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SF124",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SF136",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SF066",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SF027",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SF028",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SF104",
+                    "seed": 14
+                },
+                {
+                    "participantId": "SF030",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SF004",
+                    "seed": 3
+                }
             ],
             "女子4组": [
-                {"participantId":"SF001","seed":1},{"participantId":"SF022","seed":2},{"participantId":"SF092","seed":3},{"participantId":"SF049","seed":9},{"participantId":"SF031","seed":11},{"participantId":"SF129","seed":10},{"participantId":"SF026","seed":7},{"participantId":"SF106","seed":16},{"participantId":"SF038","seed":15},{"participantId":"SF117","seed":4},{"participantId":"SF105","seed":12},{"participantId":"SF102","seed":8},{"participantId":"SF042","seed":13},{"participantId":"SF095","seed":5},{"participantId":"SF088","seed":6},{"participantId":"SF137","seed":14}
+                {
+                    "participantId": "SF001",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SF022",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SF092",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SF049",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SF031",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SF129",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SF026",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SF106",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SF038",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SF117",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SF105",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SF102",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SF042",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SF095",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SF088",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SF137",
+                    "seed": 14
+                }
             ]
         }
     },
-    "phase2.stellar.r01.male": {
+    "phase2.stellar.male": {
         "layout": "seedGroup",
-        "title": "第二阶段第一轮-男性组别",
+        "title": "第二阶段-男性组别",
         "groups": {
             "男子1组": [
-                {"participantId":"SM028","seed":1},{"participantId":"SM117","seed":9},{"participantId":"SM032","seed":4},{"participantId":"SM094","seed":8},{"participantId":"SM021","seed":6},{"participantId":"SM026","seed":12},{"participantId":"SM126","seed":15},{"participantId":"SM018","seed":3},{"participantId":"SM009","seed":5},{"participantId":"SM096","seed":16},{"participantId":"SM041","seed":10},{"participantId":"SM081","seed":2},{"participantId":"SM031","seed":11},{"participantId":"SM033","seed":7},{"participantId":"SM135","seed":13},{"participantId":"SM107","seed":14}
+                {
+                    "participantId": "SM028",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SM117",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SM032",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SM094",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SM021",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SM026",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SM126",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SM018",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SM009",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SM096",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SM041",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SM081",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SM031",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SM033",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SM135",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SM107",
+                    "seed": 14
+                }
             ],
             "男子2组": [
-                {"participantId":"SM001","seed":1},{"participantId":"SM002","seed":2},{"participantId":"SM085","seed":9},{"participantId":"SM008","seed":5},{"participantId":"SM005","seed":4},{"participantId":"SM108","seed":15},{"participantId":"SM110","seed":10},{"participantId":"SM029","seed":11},{"participantId":"SM082","seed":8},{"participantId":"SM091","seed":12},{"participantId":"SM097","seed":16},{"participantId":"SM025","seed":7},{"participantId":"SM019","seed":3},{"participantId":"SM114","seed":13},{"participantId":"SM098","seed":6},{"participantId":"SM034","seed":14}
+                {
+                    "participantId": "SM001",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SM002",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SM085",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SM008",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SM005",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SM108",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SM110",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SM029",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SM082",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SM091",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SM097",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SM025",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SM019",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SM114",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SM098",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SM034",
+                    "seed": 14
+                }
             ],
             "男子3组": [
-                {"participantId":"SM004","seed":1},{"participantId":"SM095","seed":15},{"participantId":"SM058","seed":3},{"participantId":"SM086","seed":8},{"participantId":"SM037","seed":7},{"participantId":"SM006","seed":2},{"participantId":"SM089","seed":13},{"participantId":"SM109","seed":10},{"participantId":"SM023","seed":12},{"participantId":"SM136","seed":9},{"participantId":"SM030","seed":6},{"participantId":"SM035","seed":4},{"participantId":"SM042","seed":11},{"participantId":"SM090","seed":5},{"participantId":"SM140","seed":16},{"participantId":"SM130","seed":14}
+                {
+                    "participantId": "SM004",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SM095",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SM058",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SM086",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SM037",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SM006",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SM089",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SM109",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SM023",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SM136",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SM030",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SM035",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SM042",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SM090",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SM140",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SM130",
+                    "seed": 14
+                }
             ],
             "男子4组": [
-                {"participantId":"SM003","seed":1},{"participantId":"SM017","seed":2},{"participantId":"SM024","seed":3},{"participantId":"SM020","seed":4},{"participantId":"SM099","seed":11},{"participantId":"SM011","seed":16},{"participantId":"SM104","seed":10},{"participantId":"SM036","seed":9},{"participantId":"SM100","seed":13},{"participantId":"SM138","seed":12},{"participantId":"SM112","seed":15},{"participantId":"SM092","seed":8},{"participantId":"SM027","seed":7},{"participantId":"SM088","seed":5},{"participantId":"SM022","seed":6},{"participantId":"SM102","seed":14}
+                {
+                    "participantId": "SM003",
+                    "seed": 1
+                },
+                {
+                    "participantId": "SM017",
+                    "seed": 2
+                },
+                {
+                    "participantId": "SM024",
+                    "seed": 3
+                },
+                {
+                    "participantId": "SM020",
+                    "seed": 4
+                },
+                {
+                    "participantId": "SM099",
+                    "seed": 11
+                },
+                {
+                    "participantId": "SM011",
+                    "seed": 16
+                },
+                {
+                    "participantId": "SM104",
+                    "seed": 10
+                },
+                {
+                    "participantId": "SM036",
+                    "seed": 9
+                },
+                {
+                    "participantId": "SM100",
+                    "seed": 13
+                },
+                {
+                    "participantId": "SM138",
+                    "seed": 12
+                },
+                {
+                    "participantId": "SM112",
+                    "seed": 15
+                },
+                {
+                    "participantId": "SM092",
+                    "seed": 8
+                },
+                {
+                    "participantId": "SM027",
+                    "seed": 7
+                },
+                {
+                    "participantId": "SM088",
+                    "seed": 5
+                },
+                {
+                    "participantId": "SM022",
+                    "seed": 6
+                },
+                {
+                    "participantId": "SM102",
+                    "seed": 14
+                }
             ]
         }
     }

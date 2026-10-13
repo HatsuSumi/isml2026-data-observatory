@@ -584,7 +584,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r01-stellar-female",
                                 "data": "data/phase1/stellar/female/27-phase1-r01-stellar-female.json",
                                 "internalData": "data/internal/phase1/stellar/female/27-phase1-r01-stellar-female.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r01.female",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
@@ -600,7 +600,7 @@
                                 "data": "data/phase1/stellar/male/28-phase1-r01-stellar-male.json",
                                 "internalData": "data/internal/phase1/stellar/male/28-phase1-r01-stellar-male.json",
                                 "rules": "pages/rules/rules.html?id=phase1",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r01.male"
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.male"
                             }
                         }
                     ],
@@ -633,7 +633,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r02-stellar-female",
                                 "data": "data/phase1/stellar/female/29-phase1-r02-stellar-female.json",
                                 "internalData": "data/internal/phase1/stellar/female/29-phase1-r02-stellar-female.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r02.female",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
@@ -648,7 +648,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r02-stellar-male",
                                 "data": "data/phase1/stellar/male/30-phase1-r02-stellar-male.json",
                                 "internalData": "data/internal/phase1/stellar/male/30-phase1-r02-stellar-male.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r02.male",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         }
@@ -682,7 +682,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r03-stellar-female",
                                 "data": "data/phase1/stellar/female/31-phase1-r03-stellar-female.json",
                                 "internalData": "data/internal/phase1/stellar/female/31-phase1-r03-stellar-female.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r03.female",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
@@ -697,7 +697,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r03-stellar-male",
                                 "data": "data/phase1/stellar/male/32-phase1-r03-stellar-male.json",
                                 "internalData": "data/internal/phase1/stellar/male/32-phase1-r03-stellar-male.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r03.male",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         }
@@ -731,13 +731,13 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r04-stellar-female",
                                 "data": "data/phase1/stellar/female/33-phase1-r04-stellar-female.json",
                                 "internalData": "data/internal/phase1/stellar/female/33-phase1-r04-stellar-female.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r04.female",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
                         {
                             "title": "第一阶段第四轮-男性组别",
-                            "id": "phase1-r03-stellar-male",
+                            "id": "phase1-r04-stellar-male",
                             "phase": "第一阶段",
                             "format": "battle",
                             "chartType": "pie",
@@ -746,7 +746,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r04-stellar-male",
                                 "data": "data/phase1/stellar/male/34-phase1-r04-stellar-male.json",
                                 "internalData": "data/internal/phase1/stellar/male/34-phase1-r04-stellar-male.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r04.male",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         }
@@ -780,7 +780,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r05-stellar-female",
                                 "data": "data/phase1/stellar/female/35-phase1-r05-stellar-female.json",
                                 "internalData": "data/internal/phase1/stellar/female/35-phase1-r05-stellar-female.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r05.female",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.female",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         },
@@ -795,7 +795,7 @@
                                 "table": "pages/tables/battle-table.html?id=phase1-r05-stellar-male",
                                 "data": "data/phase1/stellar/male/36-phase1-r05-stellar-male.json",
                                 "internalData": "data/internal/phase1/stellar/male/36-phase1-r05-stellar-male.json",
-                                "groups": "pages/groups/groups.html?id=phase1.stellar.r05.male",
+                                "groups": "pages/groups/groups.html?id=phase1.stellar.male",
                                 "rules": "pages/rules/rules.html?id=phase1"
                             }
                         }
@@ -954,7 +954,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=phase2-r01-stellar-female",
                                 "table": "pages/tables/battle-table.html?id=phase2-r01-stellar-female",
                                 "data": "data/phase2/stellar/female/41-phase2-r01-stellar-female.json",
-                                "groups": "pages/groups/groups.html?id=phase2.stellar.r01.female",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.female",
                                 "rules": "pages/rules/rules.html?id=phase2"
                             }
                         },
@@ -968,7 +968,7 @@
                                 "visualization": "pages/visualization/visualization.html?id=phase2-r01-stellar-male",
                                 "table": "pages/tables/battle-table.html?id=phase2-r01-stellar-male",
                                 "data": "data/phase2/stellar/male/42-phase2-r01-stellar-male.json",
-                                "groups": "pages/groups/groups.html?id=phase2.stellar.r01.male",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.male",
                                 "rules": "pages/rules/rules.html?id=phase2"
                             }
                         }
@@ -985,14 +985,46 @@
                         "start": "2026-10-09 20:00:00",
                         "end": "2026-10-10 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 2540
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第二阶段第二轮",
-                            "phase": "第二阶段"
+                            "title": "第二阶段第二轮-女性组别",
+                            "id": "phase2-r02-stellar-female",
+                            "phase": "第二阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r02-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase2-r02-stellar-female",
+                                "data": "data/phase2/stellar/female/43-phase2-r02-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.female",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
+                        },
+                        {
+                            "title": "第二阶段第二轮-男性组别",
+                            "id": "phase2-r02-stellar-male",
+                            "phase": "第二阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r02-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase2-r02-stellar-male",
+                                "data": "data/phase2/stellar/male/44-phase2-r02-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.male",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
                     }
                 },
                 {
