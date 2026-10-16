@@ -1034,12 +1034,39 @@
                     },
                     "matches": [
                         {
-                            "title": "第二阶段第三轮",
-                            "phase": "第二阶段"
+                            "title": "第二阶段第三轮-女性组别",
+                            "id": "phase2-r03-stellar-female",
+                            "phase": "第二阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r03-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase2-r03-stellar-female",
+                                "data": "data/phase2/stellar/female/45-phase2-r03-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.female",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
+                        },
+                        {
+                            "title": "第二阶段第三轮-男性组别",
+                            "id": "phase2-r03-stellar-male",
+                            "phase": "第二阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r03-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase2-r03-stellar-male",
+                                "data": "data/phase2/stellar/male/46-phase2-r03-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase2.stellar.male",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制",
+                        "qualified": {
+                            "description": "小组单循环赛"
+                        }
                     }
                 },
                 {

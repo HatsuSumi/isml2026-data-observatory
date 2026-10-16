@@ -2,6 +2,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
+const round = process.argv[2] || 'r02';
+const roundConfig = {
+    r02: {
+        date: '2026-10-09 20:00:00 - 2026-10-10 19:59:59',
+        number: '02'
+    },
+    r03: {
+        date: '2026-10-12 20:00:00 - 2026-10-13 19:59:59',
+        number: '03'
+    }
+}[round];
+if (!roundConfig) throw new Error(`Unsupported phase two round: ${round}`);
 const firstFiles = {
     female: 'data/phase2/stellar/female/41-phase2-r01-stellar-female.json',
     male: 'data/phase2/stellar/male/42-phase2-r01-stellar-male.json'
@@ -53,8 +65,8 @@ function parseSource(gender) {
         return { match: index + 1, contestants };
     });
     return {
-        date: '2026-10-09 20:00:00 - 2026-10-10 19:59:59',
-        event: gender === 'female' ? '第二阶段第二轮-女性组别' : '第二阶段第二轮-男性组别',
+        date: roundConfig.date,
+        event: gender === 'female' ? `第二阶段${roundConfig.number === '02' ? '第二' : '第三'}轮-女性组别` : `第二阶段${roundConfig.number === '02' ? '第二' : '第三'}轮-男性组别`,
         data
     };
 }
@@ -137,7 +149,9 @@ function buildXlsx(data) {
 
 for (const gender of ['female', 'male']) {
     const data = parseSource(gender);
-    const base = gender === 'female' ? '43-phase2-r02-stellar-female' : '44-phase2-r02-stellar-male';
+    const base = gender === 'female'
+        ? `${round === 'r02' ? '43' : '45'}-phase2-r${roundConfig.number}-stellar-female`
+        : `${round === 'r02' ? '44' : '46'}-phase2-r${roundConfig.number}-stellar-male`;
     const outputDir = path.join(root, 'data/phase2/stellar', gender);
     const internalDir = path.join(root, 'data/internal/phase2/stellar', gender);
     const internal = {

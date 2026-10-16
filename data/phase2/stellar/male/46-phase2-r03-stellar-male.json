@@ -1,0 +1,742 @@
+{
+  "date": "2026-10-12 20:00:00 - 2026-10-13 19:59:59",
+  "event": "第二阶段第三轮-男性组别",
+  "data": [
+    {
+      "match": 1,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 1256,
+          "result": "win",
+          "name": "菜月昴",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "小林裕介",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1503.png"
+        },
+        {
+          "participantId": "SM041",
+          "votes": 325,
+          "result": "loss",
+          "name": "蒙奇·D·路飞",
+          "ip": "海贼王",
+          "cv": "田中真弓",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1380.png"
+        }
+      ]
+    },
+    {
+      "match": 2,
+      "contestants": [
+        {
+          "participantId": "SM094",
+          "votes": 587,
+          "result": "win",
+          "name": "鲁路修·兰佩洛基",
+          "ip": "Code Geass",
+          "cv": "福山润",
+          "avatar": "https://cdn.isml.app/static/avatar/main/291.png"
+        },
+        {
+          "participantId": "SM117",
+          "votes": 535,
+          "result": "loss",
+          "name": "灶门炭治郎",
+          "ip": "鬼灭之刃",
+          "cv": "花江夏树",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2532.png"
+        }
+      ]
+    },
+    {
+      "match": 3,
+      "contestants": [
+        {
+          "participantId": "SM031",
+          "votes": 526,
+          "result": "loss",
+          "name": "宫村伊澄",
+          "ip": "堀与宫村",
+          "cv": "内山昂辉",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2798.png"
+        },
+        {
+          "participantId": "SM009",
+          "votes": 791,
+          "result": "win",
+          "name": "莱因哈鲁特·范·阿斯特雷亚",
+          "ip": "Re:从零开始的异世界生活",
+          "cv": "中村悠一",
+          "avatar": "https://cdn.isml.app/static/avatar/main/3587.png"
+        }
+      ]
+    },
+    {
+      "match": 4,
+      "contestants": [
+        {
+          "participantId": "SM026",
+          "votes": 605,
+          "result": "win",
+          "name": "休塔尔克",
+          "ip": "葬送的芙莉莲",
+          "cv": "小林千晃",
+          "avatar": "https://cdn.isml.app/static/avatar/main/3181.png"
+        },
+        {
+          "participantId": "SM033",
+          "votes": 547,
+          "result": "loss",
+          "name": "藤宫周",
+          "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
+          "cv": "坂泰斗",
+          "avatar": "https://cdn.isml.app/static/avatar/main/3231.png"
+        }
+      ]
+    },
+    {
+      "match": 5,
+      "contestants": [
+        {
+          "participantId": "SM135",
+          "votes": 498,
+          "result": "loss",
+          "name": "黑羽快斗",
+          "ip": "魔术快斗",
+          "cv": "山口胜平",
+          "avatar": "https://cdn.isml.app/static/avatar/main/380.png"
+        },
+        {
+          "participantId": "SM021",
+          "votes": 807,
+          "result": "win",
+          "name": "空条承太郎",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "小野大辅",
+          "avatar": "https://cdn.isml.app/static/avatar/main/825.png"
+        }
+      ]
+    },
+    {
+      "match": 6,
+      "contestants": [
+        {
+          "participantId": "SM107",
+          "votes": 661,
+          "result": "loss",
+          "name": "乔瑟夫·乔斯达",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "杉田智和",
+          "avatar": "https://cdn.isml.app/static/avatar/main/823.png"
+        },
+        {
+          "participantId": "SM018",
+          "votes": 736,
+          "result": "win",
+          "name": "水柿司",
+          "ip": "可塑性记忆",
+          "cv": "内匠靖明",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2210.png"
+        }
+      ]
+    },
+    {
+      "match": 7,
+      "contestants": [
+        {
+          "participantId": "SM126",
+          "votes": 506,
+          "result": "loss",
+          "name": "江户川柯南",
+          "ip": "名侦探柯南",
+          "cv": "高山南",
+          "avatar": "https://cdn.isml.app/static/avatar/main/378.png"
+        },
+        {
+          "participantId": "SM081",
+          "votes": 886,
+          "result": "win",
+          "name": "鲁迪乌斯·格雷拉特",
+          "ip": "无职转生",
+          "cv": "内山夕实",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2783.png"
+        }
+      ]
+    },
+    {
+      "match": 8,
+      "contestants": [
+        {
+          "participantId": "SM096",
+          "votes": 452,
+          "result": "loss",
+          "name": "西片",
+          "ip": "擅长捉弄的高木同学",
+          "cv": "梶裕贵",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2541.png"
+        },
+        {
+          "participantId": "SM032",
+          "votes": 682,
+          "result": "win",
+          "name": "坂田银时",
+          "ip": "银魂",
+          "cv": "杉田智和",
+          "avatar": "https://cdn.isml.app/static/avatar/main/577.png"
+        }
+      ]
+    },
+    {
+      "match": 9,
+      "contestants": [
+        {
+          "participantId": "SM001",
+          "votes": 1102,
+          "result": "win",
+          "name": "空",
+          "ip": "NO GAME NO LIFE 游戏人生",
+          "cv": "松冈祯丞",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1344.png"
+        },
+        {
+          "participantId": "SM110",
+          "votes": 426,
+          "result": "loss",
+          "name": "吉尔伽美什",
+          "ip": "Fate系列",
+          "cv": "关智一",
+          "avatar": "https://cdn.isml.app/static/avatar/main/458.png"
+        }
+      ]
+    },
+    {
+      "match": 10,
+      "contestants": [
+        {
+          "participantId": "SM082",
+          "votes": 616,
+          "result": "loss",
+          "name": "音无结弦",
+          "ip": "Angel Beats!",
+          "cv": "神谷浩史",
+          "avatar": "https://cdn.isml.app/static/avatar/main/82.png"
+        },
+        {
+          "participantId": "SM085",
+          "votes": 729,
+          "result": "win",
+          "name": "网代慎平",
+          "ip": "夏日重现",
+          "cv": "花江夏树",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2961.png"
+        }
+      ]
+    },
+    {
+      "match": 11,
+      "contestants": [
+        {
+          "participantId": "SM029",
+          "votes": 528,
+          "result": "loss",
+          "name": "卫宫",
+          "ip": "Fate系列",
+          "cv": "诹访部顺一",
+          "avatar": "https://cdn.isml.app/static/avatar/main/451.png"
+        },
+        {
+          "participantId": "SM008",
+          "votes": 914,
+          "result": "win",
+          "name": "晓山瑞希",
+          "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+          "cv": "佐藤日向",
+          "avatar": "https://cdn.isml.app/static/avatar/main/3517.png"
+        }
+      ]
+    },
+    {
+      "match": 12,
+      "contestants": [
+        {
+          "participantId": "SM091",
+          "votes": 536,
+          "result": "loss",
+          "name": "冈部伦太郎",
+          "ip": "命运石之门",
+          "cv": "宫野真守",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1800.png"
+        },
+        {
+          "participantId": "SM025",
+          "votes": 592,
+          "result": "win",
+          "name": "一方通行",
+          "ip": "魔法禁书目录",
+          "cv": "冈本信彦",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1922.png"
+        }
+      ]
+    },
+    {
+      "match": 13,
+      "contestants": [
+        {
+          "participantId": "SM114",
+          "votes": 451,
+          "result": "loss",
+          "name": "户冢彩加",
+          "ip": "我的青春恋爱物语果然有问题。",
+          "cv": "小松未可子",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1413.png"
+        },
+        {
+          "participantId": "SM098",
+          "votes": 628,
+          "result": "win",
+          "name": "卫宫士郎",
+          "ip": "Fate系列",
+          "cv": "杉山纪彰",
+          "avatar": "https://cdn.isml.app/static/avatar/main/456.png"
+        }
+      ]
+    },
+    {
+      "match": 14,
+      "contestants": [
+        {
+          "participantId": "SM034",
+          "votes": 528,
+          "result": "loss",
+          "name": "劳埃德·福杰",
+          "ip": "间谍过家家",
+          "cv": "江口拓也",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2962.png"
+        },
+        {
+          "participantId": "SM019",
+          "votes": 699,
+          "result": "win",
+          "name": "温水和彦",
+          "ip": "败犬女主太多了！",
+          "cv": "梅田修一朗",
+          "avatar": "https://cdn.isml.app/static/avatar/main/3232.png"
+        }
+      ]
+    },
+    {
+      "match": 15,
+      "contestants": [
+        {
+          "participantId": "SM108",
+          "votes": 401,
+          "result": "loss",
+          "name": "宇智波斑",
+          "ip": "火影忍者",
+          "cv": "内田直哉",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2782.png"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1154,
+          "result": "win",
+          "name": "立花泷",
+          "ip": "你的名字。",
+          "cv": "神木隆之介",
+          "avatar": "https://cdn.isml.app/static/avatar/main/952.png"
+        }
+      ]
+    },
+    {
+      "match": 16,
+      "contestants": [
+        {
+          "participantId": "SM097",
+          "votes": 484,
+          "result": "loss",
+          "name": "绫小路清隆",
+          "ip": "欢迎来到实力至上主义的教室",
+          "cv": "千叶翔也",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2218.png"
+        },
+        {
+          "participantId": "SM005",
+          "votes": 624,
+          "result": "win",
+          "name": "利威尔·阿克曼",
+          "ip": "进击的巨人",
+          "cv": "神谷浩史",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1708.png"
+        }
+      ]
+    },
+    {
+      "match": 17,
+      "contestants": [
+        {
+          "participantId": "SM004",
+          "votes": 1114,
+          "result": "win",
+          "name": "乙坂有宇",
+          "ip": "Charlotte",
+          "cv": "内山昂辉",
+          "avatar": "https://cdn.isml.app/static/avatar/main/245.png"
+        },
+        {
+          "participantId": "SM109",
+          "votes": 472,
+          "result": "loss",
+          "name": "波风水门",
+          "ip": "火影忍者",
+          "cv": "森川智之",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2994.png"
+        }
+      ]
+    },
+    {
+      "match": 18,
+      "contestants": [
+        {
+          "participantId": "SM086",
+          "votes": 571,
+          "result": "win",
+          "name": "冈崎朋也",
+          "ip": "CLANNAD",
+          "cv": "中村悠一",
+          "avatar": "https://cdn.isml.app/static/avatar/main/276.png"
+        },
+        {
+          "participantId": "SM136",
+          "votes": 568,
+          "result": "loss",
+          "name": "杀老师",
+          "ip": "暗杀教室",
+          "cv": "福山润",
+          "avatar": "https://cdn.isml.app/static/avatar/main/101.png"
+        }
+      ]
+    },
+    {
+      "match": 19,
+      "contestants": [
+        {
+          "participantId": "SM042",
+          "votes": 431,
+          "result": "loss",
+          "name": "太宰治",
+          "ip": "文豪野犬",
+          "cv": "宫野真守",
+          "avatar": "https://cdn.isml.app/static/avatar/main/212.png"
+        },
+        {
+          "participantId": "SM090",
+          "votes": 685,
+          "result": "win",
+          "name": "宇智波佐助",
+          "ip": "火影忍者",
+          "cv": "杉山纪彰",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1298.png"
+        }
+      ]
+    },
+    {
+      "match": 20,
+      "contestants": [
+        {
+          "participantId": "SM023",
+          "votes": 512,
+          "result": "loss",
+          "name": "大路饼藏",
+          "ip": "玉子市场",
+          "cv": "田丸笃志",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1869.png"
+        },
+        {
+          "participantId": "SM037",
+          "votes": 613,
+          "result": "win",
+          "name": "漩涡鸣人",
+          "ip": "火影忍者",
+          "cv": "竹内顺子",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1299.png"
+        }
+      ]
+    },
+    {
+      "match": 21,
+      "contestants": [
+        {
+          "participantId": "SM089",
+          "votes": 501,
+          "result": "loss",
+          "name": "五河士道",
+          "ip": "约会大作战",
+          "cv": "岛崎信长",
+          "avatar": "https://cdn.isml.app/static/avatar/main/351.png"
+        },
+        {
+          "participantId": "SM030",
+          "votes": 653,
+          "result": "win",
+          "name": "佐藤和真",
+          "ip": "为美好的世界献上祝福！",
+          "cv": "福岛润",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1003.png"
+        }
+      ]
+    },
+    {
+      "match": 22,
+      "contestants": [
+        {
+          "participantId": "SM130",
+          "votes": 619,
+          "result": "loss",
+          "name": "乔鲁诺·乔巴拿",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "小野贤章",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2430.png"
+        },
+        {
+          "participantId": "SM058",
+          "votes": 739,
+          "result": "win",
+          "name": "比企谷八幡",
+          "ip": "我的青春恋爱物语果然有问题。",
+          "cv": "江口拓也",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1410.png"
+        }
+      ]
+    },
+    {
+      "match": 23,
+      "contestants": [
+        {
+          "participantId": "SM095",
+          "votes": 600,
+          "result": "loss",
+          "name": "迪奥·布兰度",
+          "ip": "JoJo的奇妙冒险",
+          "cv": "子安武人",
+          "avatar": "https://cdn.isml.app/static/avatar/main/821.png"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 730,
+          "result": "win",
+          "name": "五条悟",
+          "ip": "咒术回战",
+          "cv": "中村悠一",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2799.png"
+        }
+      ]
+    },
+    {
+      "match": 24,
+      "contestants": [
+        {
+          "participantId": "SM140",
+          "votes": 464,
+          "result": "loss",
+          "name": "炼狱杏寿郎",
+          "ip": "鬼灭之刃",
+          "cv": "日野聪",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2779.png"
+        },
+        {
+          "participantId": "SM035",
+          "votes": 599,
+          "result": "win",
+          "name": "旗木卡卡西",
+          "ip": "火影忍者",
+          "cv": "井上和彦",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1294.png"
+        }
+      ]
+    },
+    {
+      "match": 25,
+      "contestants": [
+        {
+          "participantId": "SM003",
+          "votes": 1043,
+          "result": "win",
+          "name": "里克·多拉",
+          "ip": "NO GAME NO LIFE 游戏人生",
+          "cv": "松冈祯丞",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2206.png"
+        },
+        {
+          "participantId": "SM104",
+          "votes": 443,
+          "result": "loss",
+          "name": "小智",
+          "ip": "宝可梦",
+          "cv": "松本梨香",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2211.png"
+        }
+      ]
+    },
+    {
+      "match": 26,
+      "contestants": [
+        {
+          "participantId": "SM092",
+          "votes": 479,
+          "result": "loss",
+          "name": "春日野悠",
+          "ip": "缘之空",
+          "cv": "下野纮",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2130.png"
+        },
+        {
+          "participantId": "SM036",
+          "votes": 608,
+          "result": "win",
+          "name": "艾伦·耶格尔",
+          "ip": "进击的巨人",
+          "cv": "梶裕贵",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1706.png"
+        }
+      ]
+    },
+    {
+      "match": 27,
+      "contestants": [
+        {
+          "participantId": "SM099",
+          "votes": 476,
+          "result": "loss",
+          "name": "碇真嗣",
+          "ip": "新世纪福音战士",
+          "cv": "绪方惠美",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2205.png"
+        },
+        {
+          "participantId": "SM088",
+          "votes": 667,
+          "result": "win",
+          "name": "L Lawliet",
+          "ip": "死亡笔记",
+          "cv": "山口胜平",
+          "avatar": "https://cdn.isml.app/static/avatar/main/362.png"
+        }
+      ]
+    },
+    {
+      "match": 28,
+      "contestants": [
+        {
+          "participantId": "SM138",
+          "votes": 472,
+          "result": "loss",
+          "name": "渚薰",
+          "ip": "新世纪福音战士",
+          "cv": "石田彰",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1315.png"
+        },
+        {
+          "participantId": "SM027",
+          "votes": 644,
+          "result": "win",
+          "name": "上条当麻",
+          "ip": "魔法禁书目录",
+          "cv": "阿部敦",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1928.png"
+        }
+      ]
+    },
+    {
+      "match": 29,
+      "contestants": [
+        {
+          "participantId": "SM100",
+          "votes": 576,
+          "result": "loss",
+          "name": "宇智波鼬",
+          "ip": "火影忍者",
+          "cv": "石川英郎",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1297.png"
+        },
+        {
+          "participantId": "SM022",
+          "votes": 623,
+          "result": "win",
+          "name": "基尔伯特·布甘比利亚",
+          "ip": "紫罗兰永恒花园",
+          "cv": "浪川大辅",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2781.png"
+        }
+      ]
+    },
+    {
+      "match": 30,
+      "contestants": [
+        {
+          "participantId": "SM102",
+          "votes": 476,
+          "result": "loss",
+          "name": "有马公生",
+          "ip": "四月是你的谎言",
+          "cv": "花江夏树",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1695.png"
+        },
+        {
+          "participantId": "SM024",
+          "votes": 738,
+          "result": "win",
+          "name": "夜神月",
+          "ip": "死亡笔记",
+          "cv": "宫野真守",
+          "avatar": "https://cdn.isml.app/static/avatar/main/365.png"
+        }
+      ]
+    },
+    {
+      "match": 31,
+      "contestants": [
+        {
+          "participantId": "SM112",
+          "votes": 489,
+          "result": "loss",
+          "name": "乙骨忧太",
+          "ip": "咒术回战",
+          "cv": "绪方惠美",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2964.png"
+        },
+        {
+          "participantId": "SM017",
+          "votes": 1042,
+          "result": "win",
+          "name": "石上优",
+          "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+          "cv": "铃木崚汰",
+          "avatar": "https://cdn.isml.app/static/avatar/main/2531.png"
+        }
+      ]
+    },
+    {
+      "match": 32,
+      "contestants": [
+        {
+          "participantId": "SM011",
+          "votes": 629,
+          "result": "loss",
+          "name": "䌷凛太郎",
+          "ip": "薰香花朵凛然绽放",
+          "cv": "中山祥德",
+          "avatar": "https://cdn.isml.app/static/avatar/main/3708.png"
+        },
+        {
+          "participantId": "SM020",
+          "votes": 693,
+          "result": "win",
+          "name": "桐谷和人",
+          "ip": "刀剑神域",
+          "cv": "松冈祯丞",
+          "avatar": "https://cdn.isml.app/static/avatar/main/1849.png"
+        }
+      ]
+    }
+  ]
+}
