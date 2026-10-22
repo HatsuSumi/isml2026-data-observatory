@@ -30,10 +30,14 @@ export function groupEventsByStructure(events) {
             if (!structure[dateKey].phases[phase]) structure[dateKey].phases[phase] = { groups: {} };
             let mainGroup;
             const roundMatch = match.title.match(/第([一二三四五六七八九十]+)轮/);
+            const phaseMatch = match.title.match(/第([一二三四五六七]+)阶段/);
+
             if (match.title.includes('预选赛')) {
                 mainGroup = roundMatch ? `预选赛${roundMatch[0]}` : match.title;
-            } else if (match.title.includes('第一阶段')) {
-                mainGroup = roundMatch ? `第一阶段${roundMatch[0]}` : '第一阶段';
+            } else if (match.title.includes('淘汰赛')) {
+                mainGroup = roundMatch ? `淘汰赛${roundMatch[0]}` : match.title;
+            } else if (phaseMatch) {
+                mainGroup = roundMatch ? `${phaseMatch[0]}${roundMatch[0]}` : phaseMatch[0];
             } else {
                 mainGroup = match.title.includes('恒星组')
                     ? '恒星组提名'
