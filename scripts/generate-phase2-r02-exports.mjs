@@ -15,6 +15,10 @@ const roundConfig = {
     r04: {
         date: '2026-10-16 20:00:00 - 2026-10-17 19:59:59',
         number: '04'
+    },
+    r05: {
+        date: '2026-10-19 20:00:00 - 2026-10-20 19:59:59',
+        number: '05'
     }
 }[round];
 if (!roundConfig) throw new Error(`Unsupported phase two round: ${round}`);
@@ -70,7 +74,9 @@ function parseSource(gender) {
     });
     return {
         date: roundConfig.date,
-        event: gender === 'female' ? `第二阶段${roundConfig.number === '02' ? '第二' : roundConfig.number === '03' ? '第三' : '第四'}轮-女性组别` : `第二阶段${roundConfig.number === '02' ? '第二' : roundConfig.number === '03' ? '第三' : '第四'}轮-男性组别`,
+        event: gender === 'female'
+            ? `第二阶段${roundConfig.number === '02' ? '第二' : roundConfig.number === '03' ? '第三' : roundConfig.number === '04' ? '第四' : '第五'}轮-女性组别`
+            : `第二阶段${roundConfig.number === '02' ? '第二' : roundConfig.number === '03' ? '第三' : roundConfig.number === '04' ? '第四' : '第五'}轮-男性组别`,
         data
     };
 }
@@ -154,8 +160,8 @@ function buildXlsx(data) {
 for (const gender of ['female', 'male']) {
     const data = parseSource(gender);
     const base = gender === 'female'
-        ? `${round === 'r02' ? '43' : round === 'r03' ? '45' : '47'}-phase2-r${roundConfig.number}-stellar-female`
-        : `${round === 'r02' ? '44' : round === 'r03' ? '46' : '48'}-phase2-r${roundConfig.number}-stellar-male`;
+        ? `${round === 'r02' ? '43' : round === 'r03' ? '45' : round === 'r04' ? '47' : '49'}-phase2-r${roundConfig.number}-stellar-female`
+        : `${round === 'r02' ? '44' : round === 'r03' ? '46' : round === 'r04' ? '48' : '50'}-phase2-r${roundConfig.number}-stellar-male`;
     const outputDir = path.join(root, 'data/phase2/stellar', gender);
     const internalDir = path.join(root, 'data/internal/phase2/stellar', gender);
     const internal = {
