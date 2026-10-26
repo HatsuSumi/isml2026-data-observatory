@@ -1,0 +1,201 @@
+{
+  "date": "2026-10-23 - 2026-10-24",
+  "event": "第二阶段第六轮-恒星女子黄玉项链赛",
+  "data": [
+    {
+      "round": 1,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 388,
+          "status": "active"
+        },
+        {
+          "participantId": "SF003",
+          "votes": 1740,
+          "status": "active"
+        },
+        {
+          "participantId": "SF002",
+          "votes": 162,
+          "status": "active"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1275,
+          "status": "active"
+        },
+        {
+          "participantId": "SF020",
+          "votes": 195,
+          "status": "active"
+        },
+        {
+          "participantId": "SF022",
+          "votes": 237,
+          "status": "active"
+        },
+        {
+          "participantId": "SF017",
+          "votes": 126,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SF023",
+          "votes": 128,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 403,
+          "status": "active"
+        },
+        {
+          "participantId": "SF003",
+          "votes": 1760,
+          "status": "active"
+        },
+        {
+          "participantId": "SF002",
+          "votes": 170,
+          "status": "active"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1286,
+          "status": "active"
+        },
+        {
+          "participantId": "SF020",
+          "votes": 209,
+          "status": "active"
+        },
+        {
+          "participantId": "SF022",
+          "votes": 256,
+          "status": "active"
+        },
+        {
+          "participantId": "SF023",
+          "votes": 142,
+          "status": "eliminated"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 412,
+          "status": "active"
+        },
+        {
+          "participantId": "SF003",
+          "votes": 1793,
+          "status": "active"
+        },
+        {
+          "participantId": "SF002",
+          "votes": 180,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1298,
+          "status": "active"
+        },
+        {
+          "participantId": "SF020",
+          "votes": 233,
+          "status": "active"
+        },
+        {
+          "participantId": "SF022",
+          "votes": 283,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 438,
+          "status": "active"
+        },
+        {
+          "participantId": "SF003",
+          "votes": 1820,
+          "status": "active"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1320,
+          "status": "active"
+        },
+        {
+          "participantId": "SF020",
+          "votes": 265,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SF022",
+          "votes": 313,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 465,
+          "status": "active"
+        },
+        {
+          "participantId": "SF003",
+          "votes": 1890,
+          "status": "active"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1347,
+          "status": "active"
+        },
+        {
+          "participantId": "SF022",
+          "votes": 388,
+          "status": "eliminated"
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "contestants": [
+        {
+          "participantId": "SF093",
+          "votes": 561,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SF003",
+          "votes": 2027,
+          "status": "winner"
+        },
+        {
+          "participantId": "SF034",
+          "votes": 1391,
+          "status": "eliminated"
+        }
+      ]
+    }
+  ]
+}

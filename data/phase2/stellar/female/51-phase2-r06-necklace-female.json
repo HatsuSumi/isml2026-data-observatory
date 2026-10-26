@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-23 - 2026-10-24",
+  "event": "第二阶段第六轮-恒星女子黄玉项链赛",
+  "rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "data": [
+    {
+      "participantId": "SF093",
+      "name": "雷姆",
+      "ip": "Re:从零开始的异世界生活",
+      "avatar": "https://cdn.isml.app/static/avatar/main/1506.png",
+      "votes": [
+        388,
+        403,
+        412,
+        438,
+        465,
+        561
+      ],
+      "finalRank": 3,
+      "eliminationRound": 6,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SF003",
+      "name": "八奈见杏菜",
+      "ip": "败犬女主太多了！",
+      "avatar": "https://cdn.isml.app/static/avatar/main/3216.png",
+      "votes": [
+        1740,
+        1760,
+        1793,
+        1820,
+        1890,
+        2027
+      ],
+      "finalRank": 1,
+      "eliminationRound": null,
+      "finalResult": "胜者"
+    },
+    {
+      "participantId": "SF002",
+      "name": "时崎狂三",
+      "ip": "约会大作战",
+      "avatar": "https://cdn.isml.app/static/avatar/main/355.png",
+      "votes": [
+        162,
+        170,
+        180,
+        null,
+        null,
+        null
+      ],
+      "finalRank": 6,
+      "eliminationRound": 3,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SF034",
+      "name": "爱蜜莉雅",
+      "ip": "Re:从零开始的异世界生活",
+      "avatar": "https://cdn.isml.app/static/avatar/main/1501.png",
+      "votes": [
+        1275,
+        1286,
+        1298,
+        1320,
+        1347,
+        1391
+      ],
+      "finalRank": 2,
+      "eliminationRound": 6,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SF020",
+      "name": "友利奈绪",
+      "ip": "Charlotte",
+      "avatar": "https://cdn.isml.app/static/avatar/main/247.png",
+      "votes": [
+        195,
+        209,
+        233,
+        265,
+        null,
+        null
+      ],
+      "finalRank": 5,
+      "eliminationRound": 4,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SF022",
+      "name": "小鸟游六花",
+      "ip": "中二病也要谈恋爱！",
+      "avatar": "https://cdn.isml.app/static/avatar/main/263.png",
+      "votes": [
+        237,
+        256,
+        283,
+        313,
+        388,
+        null
+      ],
+      "finalRank": 4,
+      "eliminationRound": 5,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SF017",
+      "name": "白",
+      "ip": "NO GAME NO LIFE 游戏人生",
+      "avatar": "https://cdn.isml.app/static/avatar/main/1342.png",
+      "votes": [
+        126,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "finalRank": 8,
+      "eliminationRound": 1,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SF023",
+      "name": "四宫辉夜",
+      "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+      "avatar": "https://cdn.isml.app/static/avatar/main/2432.png",
+      "votes": [
+        128,
+        142,
+        null,
+        null,
+        null,
+        null
+      ],
+      "finalRank": 7,
+      "eliminationRound": 2,
+      "finalResult": "淘汰"
+    }
+  ]
+}

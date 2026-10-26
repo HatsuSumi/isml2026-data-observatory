@@ -1183,14 +1183,58 @@
                         "start": "2026-10-23 20:00:00",
                         "end": "2026-10-24 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 4594
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第二阶段第六轮",
-                            "phase": "第二阶段"
+                            "title": "第二阶段第六轮-恒星女子黄玉项链赛",
+                            "id": "phase2-r06-necklace-female",
+                            "phase": "第二阶段",
+                            "format": "necklace",
+                            "chartType": "line",
+                            "details": {
+                                "format": "排序复选制",
+                                "qualified": {
+                                    "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r06-necklace-female",
+                                "table": "pages/tables/battle-table.html?id=phase2-r06-necklace-female",
+                                "data": "data/phase2/stellar/female/51-phase2-r06-necklace-female.json",
+                                "internalData": "data/internal/phase2/stellar/female/51-phase2-r06-necklace-female.json",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
+                        },
+                        {
+                            "title": "第二阶段第六轮-恒星男子黄玉垂饰赛",
+                            "id": "phase2-r06-necklace-male",
+                            "phase": "第二阶段",
+                            "format": "necklace",
+                            "chartType": "line",
+                            "details": {
+                                "format": "排序复选制",
+                                "qualified": {
+                                    "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
+                                }
+                            },
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase2-r06-necklace-male",
+                                "table": "pages/tables/battle-table.html?id=phase2-r06-necklace-male",
+                                "data": "data/phase2/stellar/male/52-phase2-r06-necklace-male.json",
+                                "internalData": "data/internal/phase2/stellar/male/52-phase2-r06-necklace-male.json",
+                                "rules": "pages/rules/rules.html?id=phase2"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "排序复选制",
+                        "qualified": {
+                            "description": "8名角色按轮次逐轮淘汰，最终产生胜者"
+                        }
                     }
                 }
             ]

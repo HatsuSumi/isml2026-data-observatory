@@ -5,9 +5,8 @@ import { CharacterRepository } from '../../data/CharacterRepository.js';
 import { EventService } from '../../shared/EventService.js';
 import { CharacterService } from './CharacterService.js';
 
-function isHiddenRoundSixNecklaceMatch(match) {
-    const name = String(match?.name || '');
-    return name.includes('第一阶段第六轮') && (name.includes('项链赛') || name.includes('垂饰赛'));
+function isHiddenMatch(match) {
+    return match?.format === 'necklace';
 }
 
 export class CharacterManager {
@@ -33,7 +32,7 @@ export class CharacterManager {
 
     getSelectableMatches() {
         return this.eventService.getSelectableMatches(this.events)
-            .filter(match => !isHiddenRoundSixNecklaceMatch(match));
+            .filter(match => !isHiddenMatch(match));
     }
 
     async loadCharacters(eventId) {

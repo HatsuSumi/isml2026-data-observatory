@@ -55,27 +55,37 @@ function setupWildcardTable() {
 }
 
 function getNecklaceRows(raw) {
+    const roundCount = raw.data.length;
     const byParticipant = new Map();
     raw.data.forEach((round) => {
         round.contestants.forEach((item) => {
             const current = byParticipant.get(item.participantId) || {
                 ...item,
-                roundVotes: Array(raw.data.length).fill(null),
+                roundVotes: Array(roundCount).fill(null),
                 eliminationRound: null,
                 finalRank: null
             };
             current.roundVotes[round.round - 1] = item.votes;
             if (item.status === 'winner') {
-                current.finalRank = 1;
                 current.eliminationRound = null;
             } else if (item.status === 'eliminated') {
                 current.eliminationRound = round.round;
-                current.finalRank = 9 - round.round;
             }
             byParticipant.set(item.participantId, current);
         });
     });
-    return [...byParticipant.values()]
+    const ranked = [...byParticipant.values()]
+        .map((item) => ({
+            ...item,
+            lastVotes: item.roundVotes.findLast((value) => Number.isFinite(value)) ?? 0
+        }))
+        .sort((a, b) => {
+            if (a.eliminationRound === null) return -1;
+            if (b.eliminationRound === null) return 1;
+            return b.eliminationRound - a.eliminationRound || b.lastVotes - a.lastVotes;
+        })
+        .map((item, index) => ({ ...item, finalRank: index + 1 }));
+    return ranked
         .map((item) => ({
             ...item,
             group: '',
@@ -84,19 +94,19 @@ function getNecklaceRows(raw) {
             matchNumber: item.eliminationRound,
             globalRank: item.finalRank,
             result: item.finalRank === 1 ? 'win' : 'loss',
-            votes: item.roundVotes.findLast((value) => Number.isFinite(value)) ?? 0,
+            votes: item.lastVotes,
             eliminationRound: item.eliminationRound
         }))
         .sort((a, b) => a.globalRank - b.globalRank);
 }
 
-function getNecklaceHeaders() {
+function getNecklaceHeaders(roundCount) {
     return [
         ['globalRank', '最终排名'],
         ['name', '角色'],
         ['avatar', '头像'],
         ['ip', 'IP'],
-        ...Array.from({ length: 7 }, (_, index) => [`round${index + 1}`, `第${index + 1}轮票数`]),
+        ...Array.from({ length: roundCount }, (_, index) => [`round${index + 1}`, `第${index + 1}轮票数`]),
         ['eliminationRound', '淘汰轮次'],
         ['result', '结果']
     ];
@@ -108,7 +118,7 @@ function setupNecklaceTable() {
     document.querySelector('.subtitle:not(#pageSubtitle)')?.remove();
     document.querySelector('.filter-container')?.remove();
     document.querySelector('[data-download-group="filtered"]')?.remove();
-    document.getElementById('tableHead').innerHTML = `<tr>${getNecklaceHeaders().map(([key, label]) => `<th data-sort="${key}">${label}</th>`).join('')}</tr>`;
+    document.getElementById('tableHead').innerHTML = `<tr>${getNecklaceHeaders(state.roundCount).map(([key, label]) => `<th data-sort="${key}">${label}</th>`).join('')}</tr>`;
 }
 
 function getGroupKey(config) {
@@ -228,7 +238,7 @@ function populateMatches() {
 }
 
 function getDefaultSortKey() {
-    return state.necklace ? 'round7' : 'votes';
+    return state.necklace ? `round${state.roundCount}` : 'votes';
 }
 
 function setSortIndicator() {
@@ -319,7 +329,7 @@ function triggerDownload(blob, filename) {
 function toExportRows(rows) {
     if (state.necklace) {
         return [
-            ['最终排名', '角色', 'IP', ...Array.from({ length: 7 }, (_, index) => `第${index + 1}轮票数`), '淘汰轮次', '最终结果', '头像'],
+            ['最终排名', '角色', 'IP', ...Array.from({ length: state.roundCount }, (_, index) => `第${index + 1}轮票数`), '淘汰轮次', '最终结果', '头像'],
             ...rows.map((row) => [row.globalRank, row.name, row.ip, ...row.roundVotes, row.eliminationRound, row.result === 'win' ? '胜者' : '淘汰', row.avatar || ''])
         ];
     }
@@ -422,9 +432,12 @@ async function init() {
     if (!['battle', 'wildcard', 'necklace'].includes(format)) throw new Error('此表格不支持该赛事赛制');
     state.necklace = format === 'necklace';
     state.wildcard = format === 'wildcard';
-    state.sort = { key: state.necklace ? 'round7' : 'votes', direction: 'desc' };
+    state.roundCount = 0;
+    state.sort = { key: 'votes', direction: 'desc' };
     const rawData = await loadFormattedEventData(state.config);
     if (state.necklace) {
+        state.roundCount = rawData.data.length;
+        state.sort = { key: `round${state.roundCount}`, direction: 'desc' };
         setupNecklaceTable();
         state.rows = getNecklaceRows(rawData);
     } else if (state.wildcard) {

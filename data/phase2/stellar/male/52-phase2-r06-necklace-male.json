@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-23 - 2026-10-24",
+  "event": "第二阶段第六轮-恒星男子黄玉垂饰赛",
+  "rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "data": [
+    {
+      "participantId": "SM028",
+      "name": "菜月昴",
+      "ip": "Re:从零开始的异世界生活",
+      "avatar": "https://cdn.isml.app/static/avatar/main/1503.png",
+      "votes": [
+        713,
+        724,
+        742,
+        776,
+        818,
+        923
+      ],
+      "finalRank": 2,
+      "eliminationRound": 6,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM001",
+      "name": "空",
+      "ip": "NO GAME NO LIFE 游戏人生",
+      "avatar": "https://cdn.isml.app/static/avatar/main/1344.png",
+      "votes": [
+        209,
+        220,
+        297,
+        320,
+        340,
+        null
+      ],
+      "finalRank": 4,
+      "eliminationRound": 5,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM003",
+      "name": "里克·多拉",
+      "ip": "NO GAME NO LIFE 游戏人生",
+      "avatar": "https://cdn.isml.app/static/avatar/main/2206.png",
+      "votes": [
+        149,
+        157,
+        null,
+        null,
+        null,
+        null
+      ],
+      "finalRank": 7,
+      "eliminationRound": 2,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM002",
+      "name": "立花泷",
+      "ip": "你的名字。",
+      "avatar": "https://cdn.isml.app/static/avatar/main/952.png",
+      "votes": [
+        1510,
+        1537,
+        1545,
+        1576,
+        1630,
+        1702
+      ],
+      "finalRank": 1,
+      "eliminationRound": null,
+      "finalResult": "胜者"
+    },
+    {
+      "participantId": "SM017",
+      "name": "石上优",
+      "ip": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+      "avatar": "https://cdn.isml.app/static/avatar/main/2531.png",
+      "votes": [
+        158,
+        164,
+        170,
+        null,
+        null,
+        null
+      ],
+      "finalRank": 6,
+      "eliminationRound": 3,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM008",
+      "name": "晓山瑞希",
+      "ip": "世界计划 缤纷舞台！ feat. 初音未来",
+      "avatar": "https://cdn.isml.app/static/avatar/main/3517.png",
+      "votes": [
+        254,
+        265,
+        275,
+        289,
+        null,
+        null
+      ],
+      "finalRank": 5,
+      "eliminationRound": 4,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM006",
+      "name": "五条悟",
+      "ip": "咒术回战",
+      "avatar": "https://cdn.isml.app/static/avatar/main/2799.png",
+      "votes": [
+        387,
+        395,
+        408,
+        430,
+        476,
+        544
+      ],
+      "finalRank": 3,
+      "eliminationRound": 6,
+      "finalResult": "淘汰"
+    },
+    {
+      "participantId": "SM018",
+      "name": "水柿司",
+      "ip": "可塑性记忆",
+      "avatar": "https://cdn.isml.app/static/avatar/main/2210.png",
+      "votes": [
+        117,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "finalRank": 8,
+      "eliminationRound": 1,
+      "finalResult": "淘汰"
+    }
+  ]
+}

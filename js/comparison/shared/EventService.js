@@ -56,7 +56,7 @@ export class EventService {
             .flatMap(month => month.events)
             .flatMap(event => event.matches)
             .filter(match => match.id && match.title && match.links?.data)
-            .map(match => ({ value: match.id, name: match.title }));
+            .map(match => ({ value: match.id, name: match.title, format: match.format }));
     }
 
     findMatch(events, eventId) {

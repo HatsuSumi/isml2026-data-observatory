@@ -1,0 +1,201 @@
+{
+  "date": "2026-10-23 - 2026-10-24",
+  "event": "第二阶段第六轮-恒星男子黄玉垂饰赛",
+  "data": [
+    {
+      "round": 1,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 713,
+          "status": "active"
+        },
+        {
+          "participantId": "SM001",
+          "votes": 209,
+          "status": "active"
+        },
+        {
+          "participantId": "SM003",
+          "votes": 149,
+          "status": "active"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1510,
+          "status": "active"
+        },
+        {
+          "participantId": "SM017",
+          "votes": 158,
+          "status": "active"
+        },
+        {
+          "participantId": "SM008",
+          "votes": 254,
+          "status": "active"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 387,
+          "status": "active"
+        },
+        {
+          "participantId": "SM018",
+          "votes": 117,
+          "status": "eliminated"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 724,
+          "status": "active"
+        },
+        {
+          "participantId": "SM001",
+          "votes": 220,
+          "status": "active"
+        },
+        {
+          "participantId": "SM003",
+          "votes": 157,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1537,
+          "status": "active"
+        },
+        {
+          "participantId": "SM017",
+          "votes": 164,
+          "status": "active"
+        },
+        {
+          "participantId": "SM008",
+          "votes": 265,
+          "status": "active"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 395,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 742,
+          "status": "active"
+        },
+        {
+          "participantId": "SM001",
+          "votes": 297,
+          "status": "active"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1545,
+          "status": "active"
+        },
+        {
+          "participantId": "SM017",
+          "votes": 170,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SM008",
+          "votes": 275,
+          "status": "active"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 408,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 776,
+          "status": "active"
+        },
+        {
+          "participantId": "SM001",
+          "votes": 320,
+          "status": "active"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1576,
+          "status": "active"
+        },
+        {
+          "participantId": "SM008",
+          "votes": 289,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 430,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 818,
+          "status": "active"
+        },
+        {
+          "participantId": "SM001",
+          "votes": 340,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1630,
+          "status": "active"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 476,
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "contestants": [
+        {
+          "participantId": "SM028",
+          "votes": 923,
+          "status": "eliminated"
+        },
+        {
+          "participantId": "SM002",
+          "votes": 1702,
+          "status": "winner"
+        },
+        {
+          "participantId": "SM006",
+          "votes": 544,
+          "status": "eliminated"
+        }
+      ]
+    }
+  ]
+}
