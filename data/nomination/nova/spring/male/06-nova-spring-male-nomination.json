@@ -1,231 +1,321 @@
 {
-  "date": "01.14-01.21",
-  "event": "新星组春季赛提名-男性组别",
-  "data": [
-    {
-      "name": "夏尔·凡多姆海恩",
-      "ip": "黑执事",
-      "cv": "坂本真绫",
-      "votes": 69,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 1
-    },
-    {
-      "name": "塞巴斯蒂安·米卡利斯",
-      "ip": "黑执事",
-      "cv": "小野大辅",
-      "votes": 67,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 2
-    },
-    {
-      "name": "费里欧",
-      "ip": "从Lv2开始开外挂的前勇者候补过着悠哉异世界生活",
-      "cv": "日野聪",
-      "votes": 53,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 3
-    },
-    {
-      "name": "克拉福·罗伦斯",
-      "ip": "狼与香辛料",
-      "cv": "福山润",
-      "votes": 18,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 4
-    },
-    {
-      "name": "斋藤正藏",
-      "ip": "老夫老妻重返青春",
-      "cv": "三木真一郎",
-      "votes": 16,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 5
-    },
-    {
-      "name": "朝野太阳",
-      "ip": "夜樱家的大作战",
-      "cv": "川岛零士",
-      "votes": 14,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 6
-    },
-    {
-      "name": "洛伊德·迪·沙鲁姆",
-      "ip": "转生七王子的魔法全解",
-      "cv": "小市真琴",
-      "votes": 12,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 7
-    },
-    {
-      "name": "清峰叶流火",
-      "ip": "失忆投捕",
-      "cv": "增田俊树",
-      "votes": 11,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 8
-    },
-    {
-      "name": "要圭",
-      "ip": "失忆投捕",
-      "cv": "宫野真守",
-      "votes": 10,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 9
-    },
-    {
-      "name": "老师",
-      "ip": "蔚蓝档案",
-      "cv": "坂田将吾",
-      "votes": 9,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 10
-    },
-    {
-      "name": "镝矢惣助",
-      "ip": "怪人的沙拉碗",
-      "cv": "古川慎",
-      "votes": 8,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 11
-    },
-    {
-      "name": "斋藤治",
-      "ip": "雀魂麻将",
-      "cv": "安元洋贵",
-      "votes": 8,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 11
-    },
-    {
-      "name": "樱遥",
-      "ip": "WIND BREAKER 防风铃",
-      "cv": "内田雄马",
-      "votes": 7,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 13
-    },
-    {
-      "name": "少爷",
-      "ip": "死神少爷与黑女仆",
-      "cv": "花江夏树",
-      "votes": 7,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 13
-    },
-    {
-      "name": "日比野卡夫卡",
-      "ip": "怪兽8号",
-      "cv": "福西胜也",
-      "votes": 5,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 15
-    },
-    {
-      "name": "萨冈",
-      "ip": "身为魔王的我娶了奴隶精灵为妻，该如何表白我的爱？",
-      "cv": "小林裕介",
-      "votes": 5,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 15
-    },
-    {
-      "name": "斐伊·提欧·菲尔斯",
-      "ip": "渴求游戏之神",
-      "cv": "岛崎信长",
-      "votes": 4,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 17
-    },
-    {
-      "name": "保罗·格雷拉特",
-      "ip": "无职转生",
-      "cv": "森川智之",
-      "votes": 4,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 17
-    },
-    {
-      "name": "阿诺斯·波鲁迪戈乌多",
-      "ip": "魔王学院的不适任者",
-      "cv": "梅原裕一郎",
-      "votes": 4,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 17
-    },
-    {
-      "name": "花野井飒生",
-      "ip": "花野井同学和相思病",
-      "cv": "小林千晃",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 20
-    },
-    {
-      "name": "奥斯卡",
-      "ip": "Unnamed Memory",
-      "cv": "中岛良树",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 20
-    },
-    {
-      "name": "佐佐仓溜",
-      "ip": "调酒师",
-      "cv": "寺岛拓笃",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 20
-    },
-    {
-      "name": "嘴平伊之助",
-      "ip": "鬼灭之刃",
-      "cv": "松冈祯丞",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 20
-    },
-    {
-      "name": "司波达也",
-      "ip": "魔法科高中的劣等生",
-      "cv": "中村悠一",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": true,
-      "rank": 20
-    },
-    {
-      "name": "千早瞬平",
-      "ip": "失忆投捕",
-      "cv": "岛崎信长",
-      "votes": 3,
-      "avatar": "",
-      "is_advanced": false,
-      "rank": 25
-    }
-  ]
+    "date": "10.04-10.10",
+    "event": "新星组春季赛提名-男性组别",
+    "data": [
+        {
+            "name": "雷德·阿斯特雷亚",
+            "ip": "Re:从零开始的异世界生活",
+            "cv": "",
+            "votes": 130,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 1
+        },
+        {
+            "name": "下吕光",
+            "ip": "婚姻剧毒",
+            "cv": "",
+            "votes": 129,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 2
+        },
+        {
+            "name": "浅葱优希也",
+            "ip": "想结束这场“我爱你”的游戏",
+            "cv": "",
+            "votes": 108,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 3
+        },
+        {
+            "name": "朝仓光一",
+            "ip": "左撇子艾伦",
+            "cv": "",
+            "votes": 102,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 4
+        },
+        {
+            "name": "藤宫周",
+            "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
+            "cv": "坂泰斗",
+            "votes": 66,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 5
+        },
+        {
+            "name": "前原真树",
+            "ip": "和班上第二可爱的女孩成为朋友",
+            "cv": "",
+            "votes": 65,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 6
+        },
+        {
+            "name": "雨宫凑",
+            "ip": "冰之城墙",
+            "cv": "",
+            "votes": 31,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 7
+        },
+        {
+            "name": "追月朔也",
+            "ip": "你又被杀了呢，侦探大人",
+            "cv": "",
+            "votes": 28,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 8
+        },
+        {
+            "name": "城崎芽衣",
+            "ip": "婚姻剧毒",
+            "cv": "",
+            "votes": 27,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 9
+        },
+        {
+            "name": "宝泉和臣",
+            "ip": "欢迎来到实力至上主义的教室",
+            "cv": "",
+            "votes": 26,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 10
+        },
+        {
+            "name": "真田秋也",
+            "ip": "复制品的我也会谈恋爱。",
+            "cv": "",
+            "votes": 23,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 11
+        },
+        {
+            "name": "流镝马铁男",
+            "ip": "冻结地球",
+            "cv": "",
+            "votes": 21,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 12
+        },
+        {
+            "name": "奇弗利",
+            "ip": "尖帽子的魔法工坊",
+            "cv": "",
+            "votes": 15,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 13
+        },
+        {
+            "name": "樱大门统悟",
+            "ip": "木头风纪委员和迷你裙JK的故事",
+            "cv": "",
+            "votes": 9,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 14
+        },
+        {
+            "name": "中村男久斗",
+            "ip": "加油！中村同学！！",
+            "cv": "",
+            "votes": 8,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 15
+        },
+        {
+            "name": "秋山深一",
+            "ip": "欺诈游戏",
+            "cv": "",
+            "votes": 8,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 16
+        },
+        {
+            "name": "灰原夏希",
+            "ip": "灰原同学重返过去，开启所向无敌的第二轮青春游戏",
+            "cv": "",
+            "votes": 7,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 17
+        },
+        {
+            "name": "赛希尔·葛罗·阿尔法斯塔",
+            "ip": "自称恶役千金的未婚妻观察记录。",
+            "cv": "",
+            "votes": 7,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 18
+        },
+        {
+            "name": "三角青辉",
+            "ip": "日本三国",
+            "cv": "",
+            "votes": 7,
+            "avatar": "",
+            "is_advanced": true,
+            "rank": 19
+        },
+        {
+            "name": "广濑爱贵",
+            "ip": "加油！中村同学！！",
+            "cv": "",
+            "votes": 6,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 20
+        },
+        {
+            "name": "寒椿狼星",
+            "ip": "春夏秋冬代行者",
+            "cv": "",
+            "votes": 6,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 21
+        },
+        {
+            "name": "铃木入间",
+            "ip": "入间同学入魔了！",
+            "cv": "",
+            "votes": 6,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 22
+        },
+        {
+            "name": "木之下和也",
+            "ip": "租借女友",
+            "cv": "堀江瞬",
+            "votes": 5,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 23
+        },
+        {
+            "name": "我",
+            "ip": "女神“异世界转生想成为什么”我“勇者的肋骨”",
+            "cv": "",
+            "votes": 5,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 24
+        },
+        {
+            "name": "七海才",
+            "ip": "Dr.STONE 石纪元",
+            "cv": "",
+            "votes": 4,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 25
+        },
+        {
+            "name": "摩绪",
+            "ip": "MAO摩绪",
+            "cv": "",
+            "votes": 4,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 26
+        },
+        {
+            "name": "扇寺东耶",
+            "ip": "轮回的花瓣",
+            "cv": "",
+            "votes": 4,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 27
+        },
+        {
+            "name": "阿左美龙胆",
+            "ip": "春夏秋冬代行者",
+            "cv": "",
+            "votes": 4,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 28
+        },
+        {
+            "name": "月落",
+            "ip": "黄泉使者",
+            "cv": "",
+            "votes": 4,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 29
+        },
+        {
+            "name": "狮子王司",
+            "ip": "Dr.STONE 石纪元",
+            "cv": "",
+            "votes": 3,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 30
+        },
+        {
+            "name": "神咲雫",
+            "ip": "神之雫",
+            "cv": "",
+            "votes": 3,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 31
+        },
+        {
+            "name": "大狼十三",
+            "ip": "杀手青春",
+            "cv": "",
+            "votes": 3,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 32
+        },
+        {
+            "name": "洛基",
+            "ip": "海贼王",
+            "cv": "",
+            "votes": 3,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 33
+        },
+        {
+            "name": "赤泽树",
+            "ip": "关于我在无意间被隔壁的天使变成废柴这件事",
+            "cv": "",
+            "votes": 3,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 34
+        },
+        {
+            "name": "威尔·赛尔佛特",
+            "ip": "杖与剑的魔剑谭",
+            "cv": "天崎滉平",
+            "votes": 3,
+            "avatar": "",
+            "is_advanced": false,
+            "rank": 35
+        }
+    ]
 }

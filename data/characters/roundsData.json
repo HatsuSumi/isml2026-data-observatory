@@ -1612,8 +1612,241 @@
             ]
         },
         "spring": {
-            "female": [],
-            "male": []
+            "female": [
+                {
+                    "participantId": "NF034"
+                },
+                {
+                    "participantId": "NF035"
+                },
+                {
+                    "participantId": "NF036"
+                },
+                {
+                    "participantId": "NF037"
+                },
+                {
+                    "participantId": "NF038"
+                },
+                {
+                    "participantId": "NF039"
+                },
+                {
+                    "participantId": "NF040"
+                },
+                {
+                    "participantId": "NF041"
+                },
+                {
+                    "participantId": "NF042"
+                },
+                {
+                    "participantId": "NF043"
+                },
+                {
+                    "participantId": "NF044"
+                },
+                {
+                    "participantId": "NF045"
+                },
+                {
+                    "participantId": "NF046"
+                },
+                {
+                    "participantId": "NF047"
+                },
+                {
+                    "participantId": "NF048"
+                },
+                {
+                    "participantId": "NF049"
+                },
+                {
+                    "participantId": "NF050"
+                },
+                {
+                    "participantId": "NF051"
+                },
+                {
+                    "participantId": "NF052"
+                },
+                {
+                    "participantId": "NF053"
+                },
+                {
+                    "participantId": "NF054"
+                },
+                {
+                    "participantId": "NF055"
+                },
+                {
+                    "participantId": "NF056"
+                },
+                {
+                    "participantId": "NF057"
+                },
+                {
+                    "participantId": "NF058"
+                },
+                {
+                    "participantId": "NF059"
+                },
+                {
+                    "participantId": "NF060"
+                },
+                {
+                    "participantId": "NF061"
+                },
+                {
+                    "participantId": "NF062"
+                },
+                {
+                    "participantId": "NF063"
+                },
+                {
+                    "participantId": "NF064"
+                },
+                {
+                    "participantId": "NF065"
+                },
+                {
+                    "participantId": "ENF011"
+                },
+                {
+                    "participantId": "ENF012"
+                },
+                {
+                    "participantId": "ENF013"
+                },
+                {
+                    "participantId": "ENF014"
+                },
+                {
+                    "participantId": "ENF015"
+                },
+                {
+                    "participantId": "ENF016"
+                },
+                {
+                    "participantId": "ENF017"
+                },
+                {
+                    "participantId": "ENF018"
+                },
+                {
+                    "participantId": "ENF019"
+                },
+                {
+                    "participantId": "ENF020"
+                }
+            ],
+            "male": [
+                {
+                    "participantId": "NM021"
+                },
+                {
+                    "participantId": "NM022"
+                },
+                {
+                    "participantId": "NM023"
+                },
+                {
+                    "participantId": "NM024"
+                },
+                {
+                    "participantId": "NM025"
+                },
+                {
+                    "participantId": "NM026"
+                },
+                {
+                    "participantId": "NM027"
+                },
+                {
+                    "participantId": "NM028"
+                },
+                {
+                    "participantId": "NM029"
+                },
+                {
+                    "participantId": "NM030"
+                },
+                {
+                    "participantId": "NM031"
+                },
+                {
+                    "participantId": "NM032"
+                },
+                {
+                    "participantId": "NM033"
+                },
+                {
+                    "participantId": "NM034"
+                },
+                {
+                    "participantId": "NM035"
+                },
+                {
+                    "participantId": "NM036"
+                },
+                {
+                    "participantId": "NM037"
+                },
+                {
+                    "participantId": "NM038"
+                },
+                {
+                    "participantId": "NM039"
+                },
+                {
+                    "participantId": "ENM006"
+                },
+                {
+                    "participantId": "ENM007"
+                },
+                {
+                    "participantId": "ENM008"
+                },
+                {
+                    "participantId": "ENM009"
+                },
+                {
+                    "participantId": "ENM010"
+                },
+                {
+                    "participantId": "ENM011"
+                },
+                {
+                    "participantId": "ENM012"
+                },
+                {
+                    "participantId": "ENM013"
+                },
+                {
+                    "participantId": "ENM014"
+                },
+                {
+                    "participantId": "ENM015"
+                },
+                {
+                    "participantId": "ENM016"
+                },
+                {
+                    "participantId": "ENM017"
+                },
+                {
+                    "participantId": "ENM018"
+                },
+                {
+                    "participantId": "ENM019"
+                },
+                {
+                    "participantId": "ENM020"
+                },
+                {
+                    "participantId": "ENM021"
+                }
+            ]
         },
         "summer": {
             "female": [],

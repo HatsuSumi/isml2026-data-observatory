@@ -1,198 +1,300 @@
 {
-    "date": "01.14-01.21",
+    "date": "10.04-10.10",
     "event": "新星组春季赛提名-女性组别",
     "data": [
         {
-            "participantId": "SF033",
-            "votes": 112,
-            "is_advanced": true,
-            "rank": 1
+            "participantId": "NF034",
+            "characterId": "char_002274",
+            "votes": 263,
+            "rank": 1,
+            "is_advanced": true
         },
         {
-            "participantId": "SF021",
-            "votes": 106,
-            "is_advanced": true,
-            "rank": 2
+            "participantId": "NF035",
+            "characterId": "char_001487",
+            "votes": 245,
+            "rank": 2,
+            "is_advanced": true
         },
         {
-            "participantId": "SF139",
-            "votes": 98,
-            "is_advanced": true,
-            "rank": 3
+            "participantId": "NF036",
+            "characterId": "char_002275",
+            "votes": 231,
+            "rank": 3,
+            "is_advanced": true
         },
         {
-            "characterId": "char_000570",
-            "votes": 75,
-            "is_advanced": true,
-            "rank": 4
+            "participantId": "NF037",
+            "characterId": "char_002276",
+            "votes": 135,
+            "rank": 4,
+            "is_advanced": true
         },
         {
-            "characterId": "char_001352",
-            "votes": 60,
-            "is_advanced": true,
-            "rank": 5
+            "participantId": "NF038",
+            "characterId": "char_002277",
+            "votes": 133,
+            "rank": 5,
+            "is_advanced": true
         },
         {
-            "characterId": "char_001100",
-            "votes": 49,
-            "is_advanced": true,
-            "rank": 6
+            "participantId": "NF039",
+            "characterId": "char_002278",
+            "votes": 88,
+            "rank": 6,
+            "is_advanced": true
         },
         {
-            "characterId": "char_000277",
-            "votes": 48,
-            "is_advanced": true,
-            "rank": 7
+            "participantId": "NF040",
+            "characterId": "char_002279",
+            "votes": 43,
+            "rank": 7,
+            "is_advanced": true
         },
         {
-            "characterId": "char_001258",
-            "votes": 48,
-            "is_advanced": true,
-            "rank": 8
+            "participantId": "NF041",
+            "characterId": "char_002280",
+            "votes": 37,
+            "rank": 8,
+            "is_advanced": true
         },
         {
-            "characterId": "char_000450",
-            "votes": 41,
-            "is_advanced": true,
-            "rank": 9
+            "participantId": "NF042",
+            "characterId": "char_001891",
+            "votes": 35,
+            "rank": 9,
+            "is_advanced": true
         },
         {
-            "characterId": "char_001362",
-            "votes": 26,
-            "is_advanced": true,
-            "rank": 10
+            "participantId": "NF043",
+            "characterId": "char_001280",
+            "votes": 34,
+            "rank": 10,
+            "is_advanced": true
         },
         {
-            "participantId": "SF008",
+            "participantId": "NF044",
+            "characterId": "char_002281",
+            "votes": 33,
+            "rank": 11,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF045",
+            "characterId": "char_002282",
+            "votes": 32,
+            "rank": 12,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF046",
+            "characterId": "char_002283",
+            "votes": 28,
+            "rank": 13,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF047",
+            "characterId": "char_002284",
+            "votes": 25,
+            "rank": 14,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF048",
+            "characterId": "char_002285",
             "votes": 24,
-            "is_advanced": true,
-            "rank": 11
+            "rank": 15,
+            "is_advanced": true
         },
         {
-            "characterId": "char_002130",
-            "votes": 22,
-            "is_advanced": true,
-            "rank": 12
+            "participantId": "NF049",
+            "characterId": "char_002286",
+            "votes": 19,
+            "rank": 16,
+            "is_advanced": true
         },
         {
-            "characterId": "char_001338",
-            "votes": 21,
-            "is_advanced": true,
-            "rank": 13
-        },
-        {
-            "characterId": "char_001839",
+            "participantId": "NF050",
+            "characterId": "char_002287",
             "votes": 15,
-            "is_advanced": true,
-            "rank": 14
+            "rank": 17,
+            "is_advanced": true
         },
         {
-            "characterId": "char_000409",
-            "votes": 12,
-            "is_advanced": true,
-            "rank": 15
-        },
-        {
-            "participantId": "ESF019",
-            "votes": 12,
-            "is_advanced": true,
-            "rank": 16
-        },
-        {
-            "characterId": "char_002056",
+            "participantId": "NF051",
+            "characterId": "char_002288",
             "votes": 11,
-            "is_advanced": true,
-            "rank": 17
+            "rank": 18,
+            "is_advanced": true
         },
         {
-            "characterId": "char_001713",
-            "votes": 10,
-            "is_advanced": true,
-            "rank": 18
-        },
-        {
-            "characterId": "char_000432",
+            "participantId": "NF052",
+            "characterId": "char_002289",
             "votes": 9,
-            "is_advanced": true,
-            "rank": 19
+            "rank": 19,
+            "is_advanced": true
         },
         {
-            "characterId": "char_002109",
-            "votes": 9,
-            "is_advanced": true,
-            "rank": 20
-        },
-        {
-            "participantId": "SF042",
-            "votes": 9,
-            "is_advanced": true,
-            "rank": 21
-        },
-        {
-            "characterId": "char_000301",
+            "participantId": "NF053",
+            "characterId": "char_002290",
             "votes": 8,
-            "is_advanced": true,
-            "rank": 22
+            "rank": 20,
+            "is_advanced": true
         },
         {
-            "characterId": "char_000396",
-            "votes": 7,
-            "is_advanced": true,
-            "rank": 23
-        },
-        {
-            "characterId": "char_001202",
-            "votes": 7,
-            "is_advanced": true,
-            "rank": 24
-        },
-        {
-            "characterId": "char_001147",
-            "votes": 7,
-            "is_advanced": true,
-            "rank": 25
-        },
-        {
-            "characterId": "char_002188",
-            "votes": 11,
-            "is_advanced": true,
-            "rank": 26
-        },
-        {
-            "characterId": "char_001336",
-            "votes": 9,
-            "is_advanced": true,
-            "rank": 27
-        },
-        {
-            "characterId": "char_000077",
+            "participantId": "NF054",
+            "characterId": "char_002291",
             "votes": 8,
-            "is_advanced": true,
-            "rank": 28
+            "rank": 21,
+            "is_advanced": true
         },
         {
-            "characterId": "char_000617",
-            "votes": 8,
-            "is_advanced": true,
-            "rank": 29
+            "participantId": "NF055",
+            "characterId": "char_000791",
+            "votes": 6,
+            "rank": 22,
+            "is_advanced": true
         },
         {
-            "participantId": "ESF052",
-            "votes": 8,
-            "is_advanced": true,
-            "rank": 30
+            "participantId": "NF056",
+            "characterId": "char_002292",
+            "votes": 6,
+            "rank": 23,
+            "is_advanced": true
         },
         {
-            "characterId": "char_002116",
-            "votes": 20,
-            "is_advanced": false,
-            "rank": 31
+            "participantId": "NF057",
+            "characterId": "char_002293",
+            "votes": 6,
+            "rank": 24,
+            "is_advanced": true
         },
         {
-            "participantId": "ESF020",
-            "votes": 12,
-            "is_advanced": false,
-            "rank": 32
+            "participantId": "NF058",
+            "characterId": "char_002294",
+            "votes": 5,
+            "rank": 25,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF059",
+            "characterId": "char_001448",
+            "votes": 5,
+            "rank": 26,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF060",
+            "characterId": "char_001914",
+            "votes": 5,
+            "rank": 27,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF061",
+            "characterId": "char_000534",
+            "votes": 5,
+            "rank": 28,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF062",
+            "characterId": "char_000649",
+            "votes": 5,
+            "rank": 29,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF063",
+            "characterId": "char_002295",
+            "votes": 5,
+            "rank": 30,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF064",
+            "characterId": "char_002296",
+            "votes": 5,
+            "rank": 31,
+            "is_advanced": true
+        },
+        {
+            "participantId": "NF065",
+            "characterId": "char_001070",
+            "votes": 5,
+            "rank": 32,
+            "is_advanced": true
+        },
+        {
+            "participantId": "ENF011",
+            "characterId": "char_001756",
+            "votes": 4,
+            "rank": 33,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF012",
+            "characterId": "char_002315",
+            "votes": 4,
+            "rank": 34,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF013",
+            "characterId": "char_002316",
+            "votes": 4,
+            "rank": 35,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF014",
+            "characterId": "char_002317",
+            "votes": 4,
+            "rank": 36,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF015",
+            "characterId": "char_002318",
+            "votes": 4,
+            "rank": 37,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF016",
+            "characterId": "char_002319",
+            "votes": 4,
+            "rank": 38,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF017",
+            "characterId": "char_002320",
+            "votes": 4,
+            "rank": 39,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF018",
+            "characterId": "char_002321",
+            "votes": 4,
+            "rank": 40,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF019",
+            "characterId": "char_000072",
+            "votes": 4,
+            "rank": 41,
+            "is_advanced": false
+        },
+        {
+            "participantId": "ENF020",
+            "characterId": "char_002322",
+            "votes": 4,
+            "rank": 42,
+            "is_advanced": false
         }
     ]
 }

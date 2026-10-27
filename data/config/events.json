@@ -303,6 +303,7 @@
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.winter",
                                 "visualization": "pages/visualization/visualization.html?id=03-nova-winter-female-nomination",
+                                "table": "pages/tables/nomination-table.html?id=03-nova-winter-female-nomination",
                                 "data": "data/nomination/nova/winter/female/03-nova-winter-female-nomination.json"
                             }
                         },
@@ -314,6 +315,7 @@
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.winter",
                                 "visualization": "pages/visualization/visualization.html?id=04-nova-winter-male-nomination",
+                                "table": "pages/tables/nomination-table.html?id=04-nova-winter-male-nomination",
                                 "data": "data/nomination/nova/winter/male/04-nova-winter-male-nomination.json"
                             }
                         }
@@ -918,7 +920,9 @@
                             "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.spring",
-                                "visualization": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination"
+                                "visualization": "pages/visualization/visualization.html?id=05-nova-spring-female-nomination",
+                                "table": "pages/tables/nomination-table.html?id=05-nova-spring-female-nomination",
+                                "data": "data/nomination/nova/spring/female/05-nova-spring-female-nomination.json"
                             }
                         },
                         {
@@ -928,7 +932,9 @@
                             "format": "nomination",
                             "links": {
                                 "rules": "pages/rules/rules.html?id=nomination.nova.spring",
-                                "visualization": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination"
+                                "visualization": "pages/visualization/visualization.html?id=06-nova-spring-male-nomination",
+                                "table": "pages/tables/nomination-table.html?id=06-nova-spring-male-nomination",
+                                "data": "data/nomination/nova/spring/male/06-nova-spring-male-nomination.json"
                             }
                         }
                     ]

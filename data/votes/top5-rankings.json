@@ -1010,5 +1010,53 @@
                 "votes": 1297
             }
         ]
+    },
+    "新星组春季赛提名-女性组别": {
+        "top5": [
+            {
+                "participantId": "NF034",
+                "votes": 263
+            },
+            {
+                "participantId": "NF035",
+                "votes": 245
+            },
+            {
+                "participantId": "NF036",
+                "votes": 231
+            },
+            {
+                "participantId": "NF037",
+                "votes": 135
+            },
+            {
+                "participantId": "NF038",
+                "votes": 133
+            }
+        ]
+    },
+    "新星组春季赛提名-男性组别": {
+        "top5": [
+            {
+                "participantId": "NM021",
+                "votes": 130
+            },
+            {
+                "participantId": "NM022",
+                "votes": 129
+            },
+            {
+                "participantId": "NM023",
+                "votes": 108
+            },
+            {
+                "participantId": "NM024",
+                "votes": 102
+            },
+            {
+                "participantId": "NM025",
+                "votes": 66
+            }
+        ]
     }
 }
