@@ -1283,12 +1283,38 @@
                     },
                     "matches": [
                         {
-                            "title": "第三阶段第一轮",
-                            "phase": "第三阶段"
+                            "title": "第三阶段第一轮-女性组别",
+                            "id": "phase3-r01-stellar-female",
+                            "phase": "第三阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase3-r01-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase3-r01-stellar-female",
+                                "data": "data/phase3/stellar/female/53-phase3-r01-stellar-female.json",
+                                "internalData": "data/internal/phase3/stellar/female/53-phase3-r01-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase3.stellar.female",
+                                "rules": "pages/rules/rules.html?id=phase3"
+                            }
+                        },
+                        {
+                            "title": "第三阶段第一轮-男性组别",
+                            "id": "phase3-r01-stellar-male",
+                            "phase": "第三阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase3-r01-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase3-r01-stellar-male",
+                                "data": "data/phase3/stellar/male/54-phase3-r01-stellar-male.json",
+                                "internalData": "data/internal/phase3/stellar/male/54-phase3-r01-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase3.stellar.male",
+                                "rules": "pages/rules/rules.html?id=phase3"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制"
                     }
                 },
                 {
