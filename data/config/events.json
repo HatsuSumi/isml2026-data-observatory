@@ -1373,14 +1373,45 @@
                         "start": "2026-11-09 20:00:00",
                         "end": "2026-11-10 19:59:59"
                     },
+                    "stats": {
+                        "votes": {
+                            "total": 3225
+                        }
+                    },
                     "matches": [
                         {
-                            "title": "第三阶段第三轮",
-                            "phase": "第三阶段"
+                            "title": "第三阶段第三轮-女性组别",
+                            "id": "phase3-r03-stellar-female",
+                            "phase": "第三阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase3-r03-stellar-female",
+                                "table": "pages/tables/battle-table.html?id=phase3-r03-stellar-female",
+                                "data": "data/phase3/stellar/female/57-phase3-r03-stellar-female.json",
+                                "internalData": "data/internal/phase3/stellar/female/57-phase3-r03-stellar-female.json",
+                                "groups": "pages/groups/groups.html?id=phase3.stellar.female",
+                                "rules": "pages/rules/rules.html?id=phase3"
+                            }
+                        },
+                        {
+                            "title": "第三阶段第三轮-男性组别",
+                            "id": "phase3-r03-stellar-male",
+                            "phase": "第三阶段",
+                            "format": "battle",
+                            "chartType": "pie",
+                            "links": {
+                                "visualization": "pages/visualization/visualization.html?id=phase3-r03-stellar-male",
+                                "table": "pages/tables/battle-table.html?id=phase3-r03-stellar-male",
+                                "data": "data/phase3/stellar/male/58-phase3-r03-stellar-male.json",
+                                "internalData": "data/internal/phase3/stellar/male/58-phase3-r03-stellar-male.json",
+                                "groups": "pages/groups/groups.html?id=phase3.stellar.male",
+                                "rules": "pages/rules/rules.html?id=phase3"
+                            }
                         }
                     ],
                     "details": {
-                        "format": ""
+                        "format": "单选单票制"
                     }
                 },
                 {

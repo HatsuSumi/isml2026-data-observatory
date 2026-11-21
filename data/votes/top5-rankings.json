@@ -1154,5 +1154,53 @@
                 "votes": 1100
             }
         ]
+    },
+    "第三阶段第三轮-女性组别": {
+        "top5": [
+            {
+                "participantId": "SF093",
+                "votes": 1998
+            },
+            {
+                "participantId": "SF001",
+                "votes": 1951
+            },
+            {
+                "participantId": "SF002",
+                "votes": 1689
+            },
+            {
+                "participantId": "SF023",
+                "votes": 1643
+            },
+            {
+                "participantId": "SF019",
+                "votes": 1632
+            }
+        ]
+    },
+    "第三阶段第三轮-男性组别": {
+        "top5": [
+            {
+                "participantId": "SM001",
+                "votes": 1750
+            },
+            {
+                "participantId": "SM028",
+                "votes": 1443
+            },
+            {
+                "participantId": "SM002",
+                "votes": 1432
+            },
+            {
+                "participantId": "SM017",
+                "votes": 1427
+            },
+            {
+                "participantId": "SM008",
+                "votes": 1327
+            }
+        ]
     }
 }
